@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="How Player V3 Works (Deprecated)"/>
+<meta name="abstract" content="Player V3 provides a simple way to embed video in web pages."/>
+<meta name="description" content="Player V3 provides a simple way to embed video in web pages."/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/player_gs.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/player_v3_dev_tutorial.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/player_v3_dev_embedmultipleplayers.html"/>
+<meta name="DC.Relation" scheme="URI" content="chapter_players.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_v3_dev_howworks"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../css/ooyala.css"/>
+<title>How Player V3 Works (Deprecated)</title>
+</head>
+<body id="player_v3_dev_howworks">
+
+
+ <h1 class="title topictitle1"> How Player V3 Works (Deprecated)</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">Player V3 provides a simple way to embed video in web pages. </p>
+
+  <div class="note note"><span class="notetitle">Note:</span> Ooyala Player V3 has been deprecated and is scheduled to be
+    disabled. For details and alternatives, see the <a class="xref" href="../relnotes/2017-06-04.html">OVP
+     Release Notes</a>.</div>
+
+<div class="section">Player V3 uses an object-based embed style that works in a similar way as other
+   object-oriented frameworks (like jQuery). It differs from how you embed video in web pages using
+   earlier versions of our player (see <a class="xref" href="player_v3_dev_embedcode_diff.html" title="Before migrating from prior player versions, it will help to understand the difference between the embed code models.">Comparing Embed Code Styles in Player V3 and Player V2 (Deprecated)</a>). This embed style affects all JavaScript embeds (regardless of
+   whether you use the HTML5 Player or the Flash player). <p class="p">The latest embed style enables you to
+    enclose your player in a type of container using <samp class="ph codeph">&lt;div&gt;</samp> tags. This gives
+    you more control over the placement of your videos on a web page. You can build a page with
+    player “building blocks” that results in a more responsive-to-change design. For example, if the
+    browser is resized, the player can readily flow on the page to adapt to the resizing. The player
+    also separates the loading of the player from the creation of the player. You can load once and
+    create multiple players based on the original player instance that was loaded. </p>
+<p class="p">Player
+    loading and creation process works as follows:</p>
+<ol class="ol" id="player_v3_dev_howworks__ol_3t1_1qk_lh">
+    <li class="li">You specify a player branding id that identifies a particular player to load.</li>
+
+    <li class="li">The player code is loaded.</li>
+
+    <li class="li">Any custom modules are loaded.</li>
+
+    <li class="li">&lt;div&gt; tags are used to create a container for the player and a &lt;div&gt; id is
+     specified.</li>
+
+    <li class="li">The player is created and initialized with the JavaScript call:
+      <samp class="ph codeph">OO.Player.create.</samp> This call creates a player instance within the <samp class="ph codeph">
+      &lt;div&gt;.</samp>
+    </li>
+
+   </ol>
+
+  </div>
+
+ </div>
+
+ <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../concepts/player_gs.html" title="How to begin using the Ooyala Player V3.">Getting Started with Player V3 (Deprecated)</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>Related concepts</strong><br/>
+<div><a class="link" href="chapter_players.html" title="Describes how to create and configure Ooyala players using the Backlot UI.">Managing Players in Backlot</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong><br/>
+<div><a class="link" href="../reference/player_v3_dev_tutorial.html" title="Use this tutorial to get started using the HTML5 Player V3.">Basic Tutorial for the HTML5 Player V3 (Deprecated)</a></div>
+<div><a class="link" href="../reference/player_v3_dev_embedmultipleplayers.html" title="Learn to use advanced layout techniques to embed and present multiple players.">Advanced Layout: Embedding Multiple Players (HTML5 Player V3) (Deprecated)</a></div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Components of the HTML5 Player V3 Starting Sample (Deprecated)"/>
+<meta name="abstract" content="This section describes the key components of the HTML5 sample."/>
+<meta name="description" content="This section describes the key components of the HTML5 sample."/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/starting_samples_html5.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="starting_samples_html5_components"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../css/ooyala.css"/>
+<title>Components of the HTML5 Player V3 Starting Sample (Deprecated)</title>
+</head>
+<body id="starting_samples_html5_components">
+
+
+  <h1 class="title topictitle1">Components of the HTML5 Player V3 Starting Sample (Deprecated)</h1>
+
+  
+  <div class="body conbody"><p class="shortdesc">This section describes the key components of the HTML5 sample.</p>
+
+    <div class="section"><div class="note note"><span class="notetitle">Note:</span> Ooyala Player V3 has been deprecated and is scheduled to be
+    disabled. For details and alternatives, see the <a class="xref" href="../relnotes/2017-06-04.html">OVP
+     Release Notes</a>.</div>
+ For this code sample, the controller code handles the server side processing of SEO
+      and Discovery features. The controller code runs in the server side PHP CodeIgniter
+        framework.<p class="p">In addition to defining these features, the controller code:</p>
+
+      <ul class="ul" id="starting_samples_html5_components__ul_n4n_s3g_vm">
+        <li class="li">Loads the Ooyala library</li>
+
+        <li class="li">Loads the Ooyala configuration file</li>
+
+        <li class="li">Loads some variables defined in the Ooyala library</li>
+
+      </ul>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Where to Find the Code</h2>
+      
+      <p class="p">The controller code is located in the application directory. To get to this code in our
+        GitHub repository, use the URL: <a class="xref" href="https://github.com/ooyala/code-samples/tree/master/application/controllers" target="_blank">https://github.com/ooyala/code-samples/tree/master/application/controllers</a>.</p>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Routes and Functions</h2>
+      In the <a class="xref" href="https://github.com/ooyala/code-samples/tree/master/application/controllers" target="_blank"><strong class="ph b">web_example.php</strong></a> controller code file, the name
+      of the class is the name of the general route and each function (<samp class="ph codeph">except
+        _contruct</samp>) is a route.<p class="p">For example, we have the
+          <samp class="ph codeph">localhost/index.php/Web_example/index</samp> route and we have the index
+        function in the Web_example class.</p>
+
+      <p class="p">Each route following the base path (<samp class="ph codeph">localhost/index.php</samp>) is the name of a
+        controller. </p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="starting_samples_html5_components__table_a1z_nhg_vm" class="table" frame="border" border="1" rules="all">
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" id="d510638e89">Route</th>
+
+              <th class="entry" valign="top" id="d510638e92">Description</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" headers="d510638e89 ">Web_example/</td>
+
+              <td class="entry" valign="top" headers="d510638e92 ">A simple client page that shows a video with trending and related
+                videos.</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d510638e89 ">Web_example/mobile</td>
+
+              <td class="entry" valign="top" headers="d510638e92 ">The same as the Web_example root but with page resizing.</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Controller</h2>
+      
+      <p class="p">The controller is located in the controllers directory (<a class="xref" href="https://github.com/ooyala/code-samples/blob/master/application/controllers/web_example.php" target="_blank">https://github.com/ooyala/code-samples/blob/master/application/controllers/web_example.php</a>). </p>
+
+      <p class="p">The following table describes controllers used by this sample:</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" id="d510638e148">Function</th>
+
+              <th class="entry" valign="top" id="d510638e151">Description</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" headers="d510638e148 ">index</td>
+
+              <td class="entry" valign="top" headers="d510638e151 ">The controller for the web page content.</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d510638e148 ">mobile</td>
+
+              <td class="entry" valign="top" headers="d510638e151 ">The controller for the mobile web page content.</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Views</h2>
+      
+      <p class="p">The views are located in the views directory (<a class="xref" href="https://github.com/ooyala/code-samples/tree/master/application/views/Web_example" target="_blank">https://github.com/ooyala/code-samples/tree/master/application/views/Web_example</a>). </p>
+
+      <p class="p">The following table describes views used by this sample:</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" id="d510638e207">View</th>
+
+              <th class="entry" valign="top" id="d510638e210">Description</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" headers="d510638e207 ">web-example.php</td>
+
+              <td class="entry" valign="top" headers="d510638e210 ">The view for the web page content. This view contains a video embed, related
+                videos, and videos trending now.</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d510638e207 ">web-example-mobile.php</td>
+
+              <td class="entry" valign="top" headers="d510638e210 ">Similar to the web page content, this view provides content resizing for
+                mobile.</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Configuration</h2>
+      
+      <p class="p">The configuration files are located in the config directory (<a class="xref" href="https://github.com/ooyala/code-samples/tree/master/application/config" target="_blank">https://github.com/ooyala/code-samples/tree/master/application/config</a>). </p>
+
+      <p class="p">The configuration file used for this sample is <a class="xref" href="https://github.com/ooyala/code-samples/blob/master/application/config/ooyala_config.php" target="_blank">https://github.com/ooyala/code-samples/blob/master/application/config/ooyala_config.php</a>. </p>
+
+      <p class="p">The following table describes parameters used by this sample:</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" id="d510638e274">Parameter</th>
+
+              <th class="entry" valign="top" id="d510638e277">Description</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" headers="d510638e274 ">api_key</td>
+
+              <td class="entry" valign="top" headers="d510638e277 ">The API key associated with your account. This parameter is available on the
+                  <span class="ph uicontrol">Developer</span> subtab of the Backlot UI. This parameter is used
+                by other starting samples. </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d510638e274 ">api_secret</td>
+
+              <td class="entry" valign="top" headers="d510638e277 ">The secret key associated with your account. This parameter is available on the
+                  <span class="ph uicontrol">Developer</span> subtab of the Backlot UI. This parameter is used
+                by other starting samples. </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d510638e274 ">p_code</td>
+
+              <td class="entry" valign="top" headers="d510638e277 ">The provider code associated with your account. This parameter is available on
+                the <span class="ph uicontrol">Developer</span> subtab of the Backlot UI and is the same is the
+                api_key, before the dot. This parameter is used by other starting samples. </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d510638e274 ">default_embed_code</td>
+
+              <td class="entry" valign="top" headers="d510638e277 ">The default embed code of the video to display. </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d510638e274 ">default_player_id</td>
+
+              <td class="entry" valign="top" headers="d510638e277 ">The ID of the player in which to display the video. </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d510638e274 ">twitter_user</td>
+
+              <td class="entry" valign="top" headers="d510638e277 ">The Twitter User ID used to display the video within Twitter Cards. To use the
+                Twitter Card code, you must set up your account with Twitter. For more information,
+                see <a class="xref" href="../concepts/chapter_twitter.html" title="Twitter player cards enable you to embed your video content directly in Twitter sites and mobile applications.">Integration With Twitter Player Cards</a>. </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Libraries</h2>
+      
+      <p class="p">The library files are located in the libraries directory (<a class="xref" href="https://github.com/ooyala/code-samples/tree/master/application/libraries" target="_blank">https://github.com/ooyala/code-samples/tree/master/application/libraries</a>). </p>
+
+      <p class="p">The library file used for this sample is <a class="xref" href="https://github.com/ooyala/code-samples/blob/master/application/libraries/ooyala.php" target="_blank">https://github.com/ooyala/code-samples/blob/master/application/libraries/ooyala.php</a>. </p>
+
+      <p class="p">The following table describes key functions used by this sample:</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" id="d510638e393">Function</th>
+
+              <th class="entry" valign="top" id="d510638e396">Description</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" headers="d510638e393 ">get_related_videos</td>
+
+              <td class="entry" valign="top" headers="d510638e396 ">Returns five videos related to the current video.</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d510638e393 ">get_trending_videos</td>
+
+              <td class="entry" valign="top" headers="d510638e396 ">Returns videos trending on your account. This returns five videos that are
+                trending now using the day window.</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d510638e393 ">get_twitter_card_info</td>
+
+              <td class="entry" valign="top" headers="d510638e396 ">Gets information needed to generate Twitter Card metadata.</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../concepts/starting_samples_html5.html" title="This sample produces web pages with several Ooyala features.">HTML5 Player V3 Starting Sample (Deprecated)</a></div>
+</div>
+</div>
+
+</body>
+</html>

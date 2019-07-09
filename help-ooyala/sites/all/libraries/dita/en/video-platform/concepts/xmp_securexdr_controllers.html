@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Controllers (Deprecated)"/>
+<meta name="abstract" content="The controller code sample provides an initial template for handling client requests and work."/>
+<meta name="description" content="The controller code sample provides an initial template for handling client requests and work."/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/xmp_securexdr_install.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="xmp_securexdr_controllers"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../css/ooyala.css"/>
+<title>Controllers (Deprecated)</title>
+</head>
+<body id="xmp_securexdr_controllers">
+
+
+  <h1 class="title topictitle1">Controllers (Deprecated)</h1>
+
+  
+  <div class="body conbody"><p class="shortdesc">The controller code sample provides an initial template for handling client requests
+    and work.</p>
+
+    <div class="section"><div class="note note"><span class="notetitle">Note:</span> Ooyala Player V3 has been deprecated and is scheduled to be
+    disabled. For details and alternatives, see the <a class="xref" href="../relnotes/2017-06-04.html">OVP
+     Release Notes</a>.</div>
+ For this code sample, the controller code handles the server side processing of
+      Cross-Device Resume, Google IMA, and Ooyala Player Token authentication features. The
+      controller code runs in the server side PHP CodeIgniter framework.<p class="p">In addition to defining
+        the functions to handle the features, such as secure token, the controller code:</p>
+<ul class="ul" id="xmp_securexdr_controllers__ul_n4n_s3g_vm">
+        <li class="li">Loads the Ooyala library</li>
+
+        <li class="li">Loads the Ooyala configuration file</li>
+
+        <li class="li">Loads an Ooyala wrapper</li>
+
+        <li class="li">Loads some variables defined in the Ooyala library</li>
+
+          <li class="li">Creates a new instance of the Ooyala player &lt;&gt;</li>
+
+        <li class="li">Runs the example in the Ooyala PHP SDK</li>
+
+      </ul>
+<p class="p" id="xmp_securexdr_controllers__docs-internal-guid--76eb343-7da1-f56a-d866-ed93b4ac8b4b">The controller code also
+        handles Cross-Device Resume, Google IMA, Ooyala Player Token features and the Player V3
+        message bus. </p>
+</div>
+
+    <div class="section"><h2 class="title sectiontitle">Where to Find the Code</h2>The controller code is located in the application
+      directory. To get to this code in our GitHub repository, use the URL: <a class="xref" href="https://github.com/ooyala/code-samples/tree/master/application/controllers" target="_blank">https://github.com/ooyala/code-samples/tree/master/application/controllers</a>.</div>
+
+    <div class="section"><h2 class="title sectiontitle">Routes and Functions</h2>In the <a class="xref" href="https://github.com/ooyala/code-samples/tree/master/application/controllers" target="_blank"><strong class="ph b">secure_xdr_googleima.php</strong></a> controller code file,
+      the name of the class is the name of the general route and each function (<samp class="ph codeph">expect
+        _contruct</samp>) is a route.<p class="p">For example, if we have the following
+      routes:</p>
+<pre class="pre codeblock">localhost/index.php/Secure_XDR_GoogleIMA/token 
+localhost/index.php/Secure_XDR_GoogleIMA/google_ima</pre>
+and
+      we have the following class in the controller
+        folder:<pre class="pre codeblock">class Secure_XDR_Google_IMA{
+      function player_token {
+        // ...
+      }
+
+      function XDR {
+        // ...
+      }
+    }</pre>
+<p class="p">Then
+        each route following the base path (<samp class="ph codeph">localhost/index.php</samp>) is the name of a
+        controller, and each route following the controller is the name of a function inside that
+        controller. </p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="xmp_securexdr_controllers__table_a1z_nhg_vm" class="table" frame="border" border="1" rules="all">
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" id="d522072e94">Route</th>
+
+              <th class="entry" valign="top" id="d522072e97">Description</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" headers="d522072e94 ">Secure_XDR_GoogleIMA/cross_resume</td>
+
+              <td class="entry" valign="top" headers="d522072e97 ">Cross device resume</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d522072e94 ">Secure_XDR_GoogleIMA/simple</td>
+
+              <td class="entry" valign="top" headers="d522072e97 ">Simple player</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d522072e94 ">Secure_XDR_GoogleIMA/message_bus</td>
+
+              <td class="entry" valign="top" headers="d522072e97 ">Simple message bus handling</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d522072e94 ">Secure_XDR_GoogleIMA/message_bus_advanced</td>
+
+              <td class="entry" valign="top" headers="d522072e97 ">Milestones with message bus</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d522072e94 ">Secure_XDR_GoogleIMA/token</td>
+
+              <td class="entry" valign="top" headers="d522072e97 ">An example with playerToken</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d522072e94 ">Secure_XDR_GoogleIMA/google_ima</td>
+
+              <td class="entry" valign="top" headers="d522072e97 ">Player with Google IMA enabled</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d522072e94 ">Secure_XDR_GoogleIMA/multi_feature</td>
+
+              <td class="entry" valign="top" headers="d522072e97 ">An example that has all of the above</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d522072e94 ">Web_example/</td>
+
+              <td class="entry" valign="top" headers="d522072e97 ">A simple client page that shows a video with trending and related
+                videos</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d522072e94 ">Web_example/mobile</td>
+
+              <td class="entry" valign="top" headers="d522072e97 ">The same as Web_example root but with page resizing</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+</div>
+
+    <div class="section"><h2 class="title sectiontitle">Controller Functions and Views</h2>To get a better idea about how the
+      controller handles the requests and work for the views, lets look at one of the functions in
+      the controller code in detail. In the following code snippet, the route
+        <samp class="ph codeph">localhost/index.php/Secure_XDR_GoogleIMA/cross_resume</samp> has a corresponding
+      class in the controller code, public function <samp class="ph codeph">cross_resume( ) {</samp>. This
+      function includes a data array that includes information about the player that you would
+      expect, such as the <samp class="ph codeph">default_player_id</samp> and the embed code. Other elements of
+      the array that are specific to the Cross Device Resume feature include getting the playhead
+      time, loading a <samp class="ph codeph">user_id</samp>, and loading the Cross Device resume view.<div class="p">
+        <pre class="pre codeblock">    public function cross_resume(){
+            $data['player_id'] = $this-&gt;_default_player_id;
+            $embed_code = $this-&gt;_default_embed_code;
+            $data['embed_code'] = $embed_code;
+            $user_id = $this-&gt;_sample_email;
+            $embed_token_url = $this-&gt;_api_wrapper-&gt;get_embed_token($embed_code, $user_id);
+            $data['embed_token_url'] = $embed_token_url;
+            $playhead_time = $this-&gt;_api_wrapper-&gt;get_playhead_time($embed_code, $user_id);
+            $data['playhead_time'] = $playhead_time;
+            $this-&gt;load-&gt;view('cross_resume', $data);</pre>
+
+      </div>
+<p class="p">The corresponding web page view, located in the repository as
+          <samp class="ph codeph">codesamples/applications/views/cross_resume.php</samp>, looks like this:</p>
+<pre class="pre codeblock"> &lt;!DOCTYPE html&gt;
+&lt;html&gt;
+ &lt;head&gt;
+   &lt;script src="http://player.ooyala.com/v3/&lt;?php echo $player_id; ?&gt;"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+     &lt;h1&gt;Cross resume example&lt;/h1&gt;
+     &lt;div id='playerwrapper' style='width:920px;height:400px;'&gt;&lt;/div&gt;
+     &lt;script&gt;
+         var playheadTime = &lt;?php echo $playhead_time;?&gt;;
+var videoPlayer =
+OO.Player.create('playerwrapper','&lt;?php echo $embed_code; ?&gt;', {
+embedToken: '&lt;?php echo $embed_token_url; ?&gt;',
+initialTime: playheadTime
+});
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</div>
+
+    <div class="section"><h2 class="title sectiontitle">Loading Views</h2><p class="p">For each public function with a corresponding view, the
+        views are loaded with a <samp class="ph codeph">$this-&gt;load-&gt;view('file-name', $data)</samp> where
+          <samp class="ph codeph">$data</samp> is an optional array that has useful variables for the view. For
+        example, the Cross Device Resume View is loaded with the following statement in the
+        controller code:</p>
+<pre class="pre">$this-&gt;load-&gt;view('cross_resume', $data);</pre>
+<p class="p">The
+        controller code contains the following functions that have corresponding views:</p>
+<div class="p">
+        <table cellpadding="4" cellspacing="0" summary="" id="xmp_securexdr_controllers__simpletable_hmw_2tf_vm" border="1" class="simpletable"><tr class="sthead">
+            <th valign="bottom" align="left" id="d522072e240" class="stentry" width="47.16981132075472%">Controller function</th>
+
+            <th valign="bottom" align="left" id="d522072e243" class="stentry" width="52.83018867924529%">Corresponding View</th>
+
+          </tr>
+<tr class="strow">
+            <td valign="top" headers="d522072e240" class="stentry"><samp class="ph codeph">public function cross_resume()</samp></td>
+
+            <td valign="top" headers="d522072e243" class="stentry"><a class="xref" href="https://github.com/ooyala/code-samples/blob/master/application/views/Secure_XDR_GoogleIMA/cross_resume.php" target="_blank">Cross device resume</a>
+            </td>
+
+          </tr>
+<tr class="strow">
+            <td valign="top" headers="d522072e240" class="stentry"><samp class="ph codeph">public function simple()</samp></td>
+
+            <td valign="top" headers="d522072e243" class="stentry"><a class="xref" href="https://github.com/ooyala/code-samples/blob/master/application/views/Secure_XDR_GoogleIMA/simple.php" target="_blank">Simple player</a></td>
+
+          </tr>
+<tr class="strow">
+            <td valign="top" headers="d522072e240" class="stentry"><samp class="ph codeph">public function message_bus()</samp></td>
+
+            <td valign="top" headers="d522072e243" class="stentry">
+              <a class="xref" href="https://github.com/ooyala/code-samples/blob/master/application/views/Secure_XDR_GoogleIMA/message-bus.php" target="_blank">Message Bus</a></td>
+
+          </tr>
+<tr class="strow">
+            <td valign="top" headers="d522072e240" class="stentry"><samp class="ph codeph">public function message_bus_advanced()</samp></td>
+
+            <td valign="top" headers="d522072e243" class="stentry">
+              <a class="xref" href="https://github.com/ooyala/code-samples/blob/master/application/views/Secure_XDR_GoogleIMA/message-bus-advanced.php" target="_blank">Message Bus Advanced</a></td>
+
+          </tr>
+<tr class="strow">
+            <td valign="top" headers="d522072e240" class="stentry"><samp class="ph codeph">public function player_token()</samp></td>
+
+            <td valign="top" headers="d522072e243" class="stentry"><a class="xref" href="https://github.com/ooyala/code-samples/blob/master/application/views/Secure_XDR_GoogleIMA/token.php" target="_blank">Ooyala Player Token</a></td>
+
+          </tr>
+<tr class="strow">
+            <td valign="top" headers="d522072e240" class="stentry"><samp class="ph codeph">public function google_ima()</samp></td>
+
+            <td valign="top" headers="d522072e243" class="stentry"><a class="xref" href="https://github.com/ooyala/code-samples/blob/master/application/views/Secure_XDR_GoogleIMA/google_ima.php" target="_blank">Google IMA</a>
+            </td>
+
+          </tr>
+</table>
+
+      </div>
+If we wanted to see the server and views working, we might go to a URL similar to the
+      following: <samp class="ph codeph">insert_your_server_name.com/Secure_XDR_GoogleIMA/multi_feature</samp>.
+        <p class="p">To get the full picture of what is happening in each route, be sure to check the
+        views.</p>
+</div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../concepts/xmp_securexdr_install.html" title="Secure XDR code sample can help you get started in creating a multi-feature playback experience with Ooyala Cross-Device Resume, Google IMA ads integration, and Ooyala Player Token authentication.">Secure XDR Player V3 Sample (Deprecated)</a></div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Customizing Assets for HTML5 Player V3 Using JavaScript (Deprecated)"/>
+<meta name="abstract" content="Customize assets using the Player V3 message bus."/>
+<meta name="description" content="Customize assets using the Player V3 message bus."/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/player_v3_dev_customplayer.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/player_v3_apis.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_v3_dev_assets"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../css/ooyala.css"/>
+<title>Customizing Assets for HTML5 Player V3 Using JavaScript (Deprecated)</title>
+</head>
+<body id="player_v3_dev_assets">
+
+
+ <h1 class="title topictitle1">Customizing Assets for HTML5 Player V3 Using JavaScript (Deprecated)</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">Customize assets using the Player V3 message bus.</p>
+
+  <div class="section"><div class="note note"><span class="notetitle">Note:</span> Ooyala Player V3 has been deprecated and is scheduled to be
+    disabled. For details and alternatives, see the <a class="xref" href="../relnotes/2017-06-04.html">OVP
+     Release Notes</a>.</div>
+The Ooyala Player exposes events for assets with all events prefixed with OO.EVENTS. Supported JavaScript methods for Player are shown in the
+   following table. </div>
+
+  <div class="section">
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="player_v3_dev_assets__table_n3k_rjr_lh" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 1. JavaScript Methods for Assets</span></caption>
+     
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="33.33333333333333%" id="d486190e42"> get Methods </th>
+
+       <th class="entry" valign="top" width="33.33333333333333%" id="d486190e45"> set Methods </th>
+
+       <th class="entry" valign="top" width="33.33333333333333%" id="d486190e48"> other Methods </th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d486190e42 ">
+        <ul class="ul" id="player_v3_dev_assets__internal-source-marker_0.7785623416183959">
+         <li class="li">
+             getBufferLength
+         </li>
+
+         <li class="li">
+          getCurrentItem
+         </li>
+
+         <li class="li">
+          getCurrentItemDescription
+         </li>
+
+         <li class="li">
+          getCurrentItemEmbedCode
+         </li>
+
+         <li class="li">
+          getCurrentItemTitle
+         </li>
+
+         <li class="li">
+          getDescription
+         </li>
+
+         <li class="li">
+          getDuration
+         </li>
+
+         <li class="li">
+          getEmbedCode
+         </li>
+
+         <li class="li">
+          getItem
+         </li>
+
+         <li class="li">
+          getLiveTime
+         </li>
+
+         <li class="li">
+          getPlayheadTime
+         </li>
+
+         <li class="li">
+          getTitle
+         </li>
+
+         <li class="li">
+          getTotalTime
+         </li>
+
+        </ul>
+
+       </td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d486190e45 ">
+        <ul class="ul" id="player_v3_dev_assets__internal-source-marker_0.7785623416183958">
+         <li class="li">
+          setPlayheadTime
+         </li>
+
+         <li class="li">
+          setEmbedCode
+         </li>
+
+         <li class="li">
+          setCurrentItemEmbedCode
+         </li>
+
+        </ul>
+
+       </td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d486190e48 ">
+        <ul class="ul" id="player_v3_dev_assets__internal-source-marker_0.7785623416183957">
+         <li class="li">
+          play
+         </li>
+
+         <li class="li">
+          playMovie
+         </li>
+
+         <li class="li">
+          pause
+         </li>
+
+         <li class="li">
+          pauseMovie
+         </li>
+
+         <li class="li">
+          seek
+         </li>
+
+        </ul>
+
+       </td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+   <div class="note note"><span class="notetitle">Note:</span> Currently, Player does not support the Player <samp class="ph codeph">getActivePanel</samp> method.</div>
+
+  </div>
+
+  <div class="section">
+   <p class="p">Events associated with Player assets are described in the following table.</p>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="player_v3_dev_assets__table_pnc_ylr_lh" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 2. Asset Events</span></caption>
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="50%" id="d486190e171">Event</th>
+
+       <th class="entry" valign="top" width="50%" id="d486190e174">Published</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" width="50%" headers="d486190e171 ">WILL_FETCH_ADS </td>
+
+       <td class="entry" valign="top" width="50%" headers="d486190e174 ">Before fetching ad information from the ad manager. </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="50%" headers="d486190e171 ">WILL_PLAY_ADS </td>
+
+       <td class="entry" valign="top" width="50%" headers="d486190e174 ">When starting to play ads, second parameter is the details of the ad being played. </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="50%" headers="d486190e171 ">ADS_PLAYED </td>
+
+       <td class="entry" valign="top" width="50%" headers="d486190e174 ">After the ad was complete, second parameter is the details of the ad being played. </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="50%" headers="d486190e171 ">WILL_SHOW_COMPANION_ADS </td>
+
+       <td class="entry" valign="top" width="50%" headers="d486190e174 ">Before displaying companion ads. </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="50%" headers="d486190e171 ">SET_EMBED_CODE </td>
+
+       <td class="entry" valign="top" width="50%" headers="d486190e174 ">Before the embed_code is changed. </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="50%" headers="d486190e171 ">EMBED_CODE_CHANGED </td>
+
+       <td class="entry" valign="top" width="50%" headers="d486190e174 ">After embed_code was changed. </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="50%" headers="d486190e171 ">CONTENT_TREE_FETCHED </td>
+
+       <td class="entry" valign="top" width="50%" headers="d486190e174 ">When content tree is received, second parameter is the new content tree. </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="50%" headers="d486190e171 ">METADATA_FETCHED </td>
+
+       <td class="entry" valign="top" width="50%" headers="d486190e174 ">When asset and module metadata is received, second parameter is the metadata. </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="50%" headers="d486190e171 ">AUTHORIZATION_FETCHED </td>
+
+       <td class="entry" valign="top" width="50%" headers="d486190e174 ">When authorization for playback is received, includes the actual streaming URLs. </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="50%" headers="d486190e171 ">PLAYBACK_READY </td>
+
+       <td class="entry" valign="top" width="50%" headers="d486190e174 ">When player is ready to play. </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="50%" headers="d486190e171 ">PLAYHEAD_TIME_CHANGED </td>
+
+       <td class="entry" valign="top" width="50%" headers="d486190e174 ">When seek time has changed. </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="50%" headers="d486190e171 ">PLAYING </td>
+
+       <td class="entry" valign="top" width="50%" headers="d486190e174 ">When content playback has started. </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="50%" headers="d486190e171 ">PLAY_FAILED </td>
+
+       <td class="entry" valign="top" width="50%" headers="d486190e174 ">If for some reason playback has failed. </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="50%" headers="d486190e171 ">PAUSED </td>
+
+       <td class="entry" valign="top" width="50%" headers="d486190e174 ">When content playback has paused. </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="50%" headers="d486190e171 ">PLAYED </td>
+
+       <td class="entry" valign="top" width="50%" headers="d486190e174 ">When content playback has finished (including all the ads).</td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+   <div class="note note"><span class="notetitle">Note:</span> The Ooyala Player does not include <samp class="ph codeph">activePanelChanged</samp>, <samp class="ph codeph">ratingsApiReady</samp>, and <samp class="ph codeph">relatedMediaReady</samp> events. 
+    Although the <samp class="ph codeph">apiReady</samp>, <samp class="ph codeph">playerCreated</samp>, <samp class="ph codeph">loadComplete</samp>, and <samp class="ph codeph">playerEmbedded</samp> events are not provided, you can use the 
+    <samp class="ph codeph">PLAYBACK_READY</samp> Event for equivalent functionality.</div>
+
+  </div>
+
+ </div>
+
+ <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../concepts/player_v3_dev_customplayer.html" title="The Ooyala V3 Player offers a new way to embed players in your web pages with more control over how and when the Player behaves.">Player V3 JavaScript API Programming (Deprecated)</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong><br/>
+<div><a class="link" href="../api/player_v3_apis.html" title="Player V3 JavaScript functions can be used to customize the player behavior and appearance.">Player V3 JavaScript API Functions</a></div>
+</div>
+</div>
+
+</body>
+</html>
