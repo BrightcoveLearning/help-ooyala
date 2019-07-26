@@ -3,7 +3,7 @@ function doGTranslate(lang_pair) {
 }
 
 function keepLanguage() {
-  var plang=location.pathname.split('/')[1],
+  var plang = location.pathname.split('/')[1],
     domain = location.hostname,
     all_links = document.querySelectorAll('a[href]'),
     i,
