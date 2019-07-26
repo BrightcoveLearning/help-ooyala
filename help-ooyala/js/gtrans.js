@@ -7,7 +7,7 @@ function keepLanguage() {
     domain = location.hostname,
     all_links = document.querySelectorAll('a[href]'),
     i,
-    iMax,
+    iMax;
     if (plang === 'ja') {
       newPath = domain + '/' + plang;
       iMax = all_links.length;
