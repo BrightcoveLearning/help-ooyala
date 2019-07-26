@@ -1,19 +1,21 @@
-function doGTranslate(lang_pair) {console.log('lang_pair', lang_pair);if(lang_pair.value)lang_pair=lang_pair.value;var domain = location.hostname;var lang=lang_pair.split('|')[1];var plang=domain.split('.')[0];if(plang.length !=2 && plang != 'zh-CN' && plang != 'zh-TW')plang='en';if(lang !== 'en')location.hostname=lang + '.' +domain;}
+function doGTranslate(lang_pair) {
+  if(lang_pair.value)lang_pair=lang_pair.value;var lang=lang_pair.split('|')[1];var plang=location.pathname.split('/')[1];if(plang.length !=2 && plang != 'zh-CN' && plang != 'zh-TW')plang='en';if(lang == 'en')location.pathname=location.pathname.replace('/'+plang, '');else location.pathname='/'+lang+location.pathname.replace('/'+plang, '');
+}
 
 function keepLanguage() {
-  var plang=location.hostname.split('.')[],
-    domain = 'https://docs.brightcove.com/help-ooyala',
+  var plang=location.pathname.split('/')[1],
+    domain = location.hostname,
     all_links = document.querySelectorAll('a[href]'),
     i,
     iMax,
-    newPath = plang + '.' + domain;
-  if (plang.length === 2 || plang === 'zh-CN' || plang === 'zh-TW') {
-    iMax = all_links.length;
-    for (i = 0; i < iMax; i++) {
-      var href = absolute(all_links[i].getAttribute('href'));
-      all_links[i].setAttribute('href', href.replace('help-ooyala.brightcove.com', newPath));
+    if (plang === 'ja') {
+      newPath = domain + '/' + plang;
+      iMax = all_links.length;
+      for (i = 0; i < iMax; i++) {
+        var href = absolute(all_links[i].getAttribute('href'));
+        all_links[i].setAttribute('href', href.replace(domain, newPath));
+      }
     }
-  }
 }
 
 function absolute(relative) {
@@ -38,3 +40,5 @@ function absolute(relative) {
     return relative;
   }
 }
+
+keepLanguage();
