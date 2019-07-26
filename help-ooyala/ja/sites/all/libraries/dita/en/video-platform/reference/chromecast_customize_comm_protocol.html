@@ -1,0 +1,60 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Chromecast Communication Protocol"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chromecast_supported_features.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="chromecast_custom_comm_protocol"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Chromecast通信プロトコル</title>
+</head>
+<body id="chromecast_custom_comm_protocol">
+
+
+    <h1 class="title topictitle1">Chromecast通信プロトコル</h1>
+
+   
+    <div class="body refbody">
+        <div class="section">
+            <div class="note important"><span class="importanttitle">重要：</span> このトピックには古い情報が含まれており、推奨されていません。 OoyalaとChromecastの統合に関する最新情報は、をご覧ください。 <a class="xref" href="../concepts/chromecast/index.html">Chromecastの統合</a>.</div>
+
+            <p class="gt-block p">サンプルの受信側アプリケーションと送信側アプリケーションはGoogleの <a class="xref" href="https://developers.google.com/cast/docs/reference/chrome/chrome.cast.media" target="_blank"> メディアネームスペース</a> 送信側と受信側の間で再生、一時停止、シーク、開始、およびその他のイベントを送信します。 Googleのキャストメディアコマンドを使用します。これは、受信側コードにメディアステータスオブジェクトを作成するものです。 受信者は、クローズドキャプションを設定し、追加のプレイヤー状態情報を送信者に送信するために、Ooyalaメッセージバスにパブリッシュします。 イベントを処理するように通信プロトコルを設定している限り、Ooyalaレシーバーアプリケーションと独自のセンダーアプリケーションを使用できます。</p>
+
+            <p class="p">送信側と受信側のOoyala Chromecast Integrationアプリケーションで使用される名前空間はx-urn：cast：ooyalaです。</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">送信者→受信者</h2>
+            
+            <p class="p">受信者に接続すると、送信者はMediaInfoオブジェクトを介してビデオ埋め込みコードを使用して必要なビデオをロードするメディアセッションを作成します。 ビデオがロードされると、送信者は受信者との通信に使用されるメディアオブジェクトを受信者から取得します。 送信者は、受信者からOoyala名前空間メッセージバスを介してメッセージを受け取り、クローズドキャプションを制御し、その制御ウィジェットの状態を更新します。</p>
+
+            <p class="p">送信者は、メディアセッションが生きているかどうか、プレイヤーの状態などを知るために、メディアステータスの更新を暗黙的に受信します。</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">受信者→送信者</h2>
+            
+            <p class="gt-block p">すべてのイベントは <a class="xref" href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.MediaManager" target="_blank">MediaManagerオブジェクト</a>。 レシーバでコマンドを呼び出すと、MediaManager.onPlay、MediaManager.onSeekなどのMediaManagerのメソッドが呼び出されます。 <a class="xref" href="https://github.com/ooyala/chromecast-sample-receiver/blob/master/receiver_custom.html" target="_blank">https://github.com/ooyala/chromecast-sample-receiver/blob/master/receiver_custom.html</a>
+                MediaManagerオブジェクトと通信したイベントの詳細な内訳について。</p>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chromecast_supported_features.html">Chromecastのサポート機能</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

@@ -1,0 +1,99 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2016-04-04 Release"/>
+<meta name="abstract" content="Notable contents of this release include added support in Ooyala Live for HLS with Discretix PlayReady DRM."/>
+<meta name="description" content="このリリースの注目すべき内容は、Discretix PlayReady DRMを使用したHLS用Ooyala Liveのサポートの追加です。"/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2016.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release20160404"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2016-04-04リリース</title>
+</head>
+<body id="release20160404">
+
+
+    <h1 class="title topictitle1">2016-04-04リリース</h1>
+
+    
+    <div class="body conbody"><p class="shortdesc">このリリースの注目すべき内容は、Discretix PlayReady DRMを使用したHLS用Ooyala Liveのサポートの追加です。</p>
+ 
+        <div class="section"><h2 class="title sectiontitle">ソフトウェア機能リリース</h2>
+            
+            
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">ウーヤラライブリリース - バージョン1.2.0</strong></p>
+
+                <p class="gt-block p"><strong class="ph b">新機能と強化</strong></p>
+
+                <ul class="ul">
+                    <li class="li" id="release20160404__LVP-999">Discretix PlayReady DRMによるHLSのサポートが追加されました。</li>
+
+                    <li class="li">Live UIは、入力ストリームと出力ストリームの両方を表示するように拡張されました。</li>
+
+                </ul>
+
+                <p class="gt-block p"><strong class="ph b">解決済みの問題</strong></p>
+
+                <ul class="ul">
+                    <li class="li" id="release20160404__LVP-1354">の問題がありました
+                            <span class="ph uicontrol">元素デルタ</span>MP4アセットのトランスコードに必要な時間として、スケジュールされたイベントのトランスコード時間が誤って計算されていました。 この計算は修正され、現在ではMP4アセットの長さとして計算されています。 <span class="ph uicontrol">元素デルタ </span>（スケジュールされたイベントの期間）</li>
+
+                    <li class="li" id="release20160404__LVP-1537">に発生した問題がありました <span class="ph uicontrol">梱包セットアップ</span> 作成時 <span class="ph uicontrol">アカマイ</span> そして
+                            <span class="ph uicontrol">元素デルタ</span> 包装チャンネル。 そのような場合には <span class="ph uicontrol">DVR設定</span> すべての可能なオプションを正しく表示しませんでした。 この問題は解決されました。</li>
+
+                    <li class="li" id="release20160404__LVP-1589">発生した問題がありました <span class="ph uicontrol">梱包セットアップ</span> その中で <span class="ph uicontrol">チャネルタイプ</span> すべての可能なオプションを正しく表示しませんでした。 この問題は解決されました。</li>
+
+                    <li class="li" id="release20160404__LVP-1409">エンコーダからのアラートが表示されないという問題がありました。 この問題は解決されました。</li>
+
+                </ul>
+
+                
+                <p class="gt-block p"><strong class="ph b">既知の問題点</strong></p>
+
+                <ul class="ul">
+                    <li class="li">DVRはHDSイベントストリームには機能しません。</li>
+
+                    <li class="li">Live to VODが有効になっている場合、イベントの長さは最大4時間になり、Live to VODが無効になっている場合は8時間に制限されます。</li>
+
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">ドキュメントリリース</h2>
+            
+            <ul class="ul">
+                <li class="li"><a class="xref" href="../tasks/api_signing_requests.html" title="Every request made to Backlot requires three query string parameters for authentication: API key, request expiration, and signature. This topic tells how to generate the signature.">要求に署名するための一般的なアルゴリズム</a>署名生成の例を更新しました。</li>
+
+                <li class="li"><a class="xref" href="../api/query.html" title="GET呼び出しで返されるデータ量を制限するために、クエリの場所を指定できます。">クエリ構築</a>：注意するようにページを更新しました <strong class="ph b">'</strong> 文字はエンコードする必要があります。</li>
+
+                <li class="li"><a class="xref" href="../concepts/chapter_usage_api.html">使用法RESTful API</a>：新しいメトリクスのライブトランスコーディング分とライブパッケージ分の定義を追加しました。</li>
+
+            </ul>
+
+            
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Ooyalaリリースノートを購読する</h2>
+             見る <a class="xref" href="../concepts/release_notes_subscribe.html">Ooyalaリリースノートを購読する</a> Ooyalaリリースノートの自動通知を購読する方法については、こちらをご覧ください。 </div>
+
+    </div>
+
+    
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2016.html" title="2016からのリリースノート。">2016ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

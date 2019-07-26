@@ -1,0 +1,137 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="v3 Analytics Reporting API Syntax"/>
+<meta name="DC.Relation" scheme="URI" content="../api/analytics_v3_api_reporting_overview.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="analytics_reporting"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>v3 Analytics Reporting APIの構文</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="analytics_reporting">
+
+
+   <h1 class="title topictitle1">v3 Analytics Reporting APIの構文</h1>
+
+   <div class="body refbody">
+<div class="section">The v3 Analytics Reporting API <samp class="ph codeph">のGET</samp>  or  <samp class="ph codeph">POST</samp> request must
+         be signed by your Ooyala-issued API key and secret as detailed in 
+   
+   
+   <a class="xref" href="analytics_v3_api_reporting_setup.html">v3 Analytics Reporting APIのセットアップ/メカニズム</a> and must include
+         the <samp class="ph codeph">有効期限が切れます</samp> keyword and timestamp. <p class="gt-block p">In addition, the individual values
+            of query string parameters and the entire value for <a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__filters"><samp class="ph codeph">filters =</samp></a> URLエンコードされている必要があります。 </p>
+
+</div>
+
+         <div class="section" id="analytics_reporting__reporting_api_syntax_refsyn"><h2 class="title sectiontitle">レポートGETの一般的な構文</h2>
+            
+            <p class="p">ルートとクエリ文字列の基本的な構文は次のとおりです。 読みやすくするために、単一行の要求は複数の行に分割されています。 </p>
+
+            <pre class="pre codeblock" id="analytics_reporting__reporting_api_syntax">
+<strong class="ph b">[GET] / v3 / analytics / reports /？</strong>
+            <a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__report_type"><strong class="ph b">report_type</strong></a>=<a class="xref" href="analytics_v3_api_reporting_reports.html#analytics_reporting_preprogrammed_reports"><var class="keyword varname">type</var></a>
+            ＆<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__dimensions">大きさ</a>=<a class="xref" href="analytics_v3_api_reporting_dimensions.html#analytics_v3_dimensions"><var class="keyword varname">大きさ</var></a>
+            ＆<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__metrics">メトリクス</a>=<a class="xref" href="analytics_v3_api_reporting_metrics.html#analytics_v3_metrics"><var class="keyword varname">メトリクス</var></a>
+            ＆<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__filters">フィルター</a>=<a class="xref" href="analytics_v3_api_reporting_filters.html#analytics_v3_filters"><var class="keyword varname">filter_type == &#39;filter_value&#39;</var></a>
+            ＆<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__start_date"><strong class="ph b">START_DATE</strong></a>=<var class="keyword varname">date</var>
+            ＆<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__end_date">終了日</a>=日付＆<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms"><var class="keyword varname">other_parms</var></a>
+            <strong class="ph b">＆api_key = your_api_key</strong>
+         </pre>
+
+            <ul class="ul">
+               <li class="li">  <strong class="ph b">必須</strong> クエリ文字列パラメータ（太字で表示）は <a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__report_type"><samp class="ph codeph">report_type</samp></a>,  <samp class="ph codeph">START_DATE</samp>、そしてapi_key。 </li>
+
+               <li class="li">次元が指定されていない場合は、すべての次元にわたる合計値が返されます。 </li>
+
+               <li class="li">最大1月の時間範囲では、無制限のデータ行を使用して、一度に最大3ディメンションで照会できます。 1か月を超える時間範囲では、最大2行のデータを使用して、一度に最大10,000ディメンションで照会できます。 </li>
+
+               <li class="li">メトリックが指定されていない場合は、すべてのメトリックが返されます。 </li>
+
+            </ul>
+
+            <div class="note note"><span class="notetitle">注意：</span> APIキーはクエリパラメータとして、またはヘッダX-API-KEYを介して渡すことができます。</div>
+
+            <div class="note note"><span class="notetitle">注意：</span> 現時点では、 <var class="keyword varname">report_type</var>  is
+                  
+                  <samp class="ph codeph">パフォーマンス</samp>.</div>
+
+            <div class="note note"><span class="notetitle">注意：</span> 1ディメンションのみを使用できます（<samp class="ph codeph">URL</samp>）のための <samp class="ph codeph">URL</samp>
+               クエリ</div>
+
+         </div>
+
+         <div class="section" id="analytics_reporting__reporting_api_syntax_get_concurrent"><h2 class="title sectiontitle">GET Concurrent Users</h2>
+            
+            
+            
+            <p class="gt-block p">に <strong class="ph b">のGET</strong> 情報 <em class="ph i">同時ユーザー</em>, send a <strong class="ph b">のGET</strong> の <strong class="ph b">v3 / analytics / reports</strong> endpoint,
+            in which the <strong class="ph b">report_type</strong> variable takes the value "concurrent":</p>
+
+            
+            <pre class="pre codeblock">[GET] /v3/analytics/reports?report_type=concurrent&amp;metrics=&lt;comma separated metrics&gt;&amp;start_date=&lt;start&gt;&amp;end_date=&lt;end&gt;</pre>
+
+            
+            <p class="p">Below are detailed descriptions of the parameters:</p>
+
+            <ul class="ul">
+               <li class="li"><strong class="ph b">report_type</strong>: A required parameter.  In this case, it should be set to <em class="ph i">同時</em>.</li>
+
+               <li class="li"><strong class="ph b">START_DATE</strong>: The start date is specified as <strong class="ph b">YYYY-MM-DD</strong>  or  <strong class="ph b">YYYY-MM-DDTHH：MM</strong>.
+                  If no <strong class="ph b">HH：MM</strong> time is specified, it is set to <em class="ph i">00：00</em> by default.
+                  The start date's time, if specified, would be in the provider's time zone.
+                  This parameter is required when <strong class="ph b">report_type</strong>  =  <em class="ph i">同時</em>.</li>
+
+               <li class="li"><strong class="ph b">終了日</strong>: The end date is specified as <strong class="ph b">YYYY-MM-DD</strong>  or  <strong class="ph b">YYYY-MM-DDTHH：MM</strong>.
+                  If no <strong class="ph b">HH：MM</strong> time is specified, it is set to <em class="ph i">23：59</em> by default.
+                  The end date's time, if specified, would be in the provider's time zone.
+                  The end date itself is excluded from the time range, so that the time range is actually <samp class="ph codeph">[start_date, end_date)</samp>.
+                  This parameter is required when <strong class="ph b">report_type</strong>  =  <em class="ph i">同時</em>.</li>
+
+               <li class="li"><strong class="ph b">メトリクス</strong>: An optional parameter.  A comma-separated list of the metrics to be returned in the response.
+                  Different report types have different available metrics. See the <a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__metrics">メトリクス</a> セクションを参照してください。 <strong class="ph b">*</strong> means all metrics.
+                  This parameter's default value is <strong class="ph b">*</strong>.</li>
+
+            </ul>
+
+         
+         </div>
+
+         <div class="section" id="analytics_reporting__reporting_api_syntax_post"><h2 class="title sectiontitle">ロングクエリのレポートの一般的な構文POST</h2>
+            
+            <p class="p">HTTP GET仕様の230文字の制限を超えるクエリパラメータを持つクエリの場合は、POSTリクエストを使用してください。 一部のブラウザおよびhttpクライアントは、230文字を超える文字をサポートしている場合がありますが、HTTP GET仕様に違反するクエリについては正式なサポートは提供されません。 POSTリクエストの場合は、クエリ文字列パラメータの代わりにリクエストボディにJSONオブジェクトを渡します。 </p>
+
+            <pre class="pre codeblock">
+<strong class="ph b">[POST] / v3 / analytics / reports {</strong>
+    
+    "<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__report_type"><strong class="ph b">report_type</strong></a>「」<a class="xref" href="analytics_v3_api_reporting_reports.html#analytics_reporting_preprogrammed_reports"><var class="keyword varname">type</var></a>「」<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__dimensions">大きさ</a>「」<a class="xref" href="analytics_v3_api_reporting_dimensions.html#analytics_v3_dimensions"><var class="keyword varname">大きさ</var></a>「」<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__metrics">メトリクス</a>「」<a class="xref" href="analytics_v3_api_reporting_metrics.html#analytics_v3_metrics"><var class="keyword varname">メトリクス</var></a>「」<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__filters">フィルター</a>&quot;：&quot;（<a class="xref" href="analytics_v3_api_reporting_filters.html#analytics_v3_filters"><var class="keyword varname">filter_type == \ &quot;filter_value \&quot;）</var></a>「」<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__start_date"><strong class="ph b">START_DATE</strong></a>「」<var class="keyword varname">date</var>「」<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__end_date">終了日</a>&quot;：&quot;日付 &quot;、&quot;<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms"><var class="keyword varname">other_parms</var></a>&quot;：&quot; other_param_value &quot;、
+   <strong class="ph b"> &quot;api_key&quot;： &quot;your_api_key&quot;}</strong>
+         </pre>
+
+         </div>
+
+   </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/analytics_v3_api_reporting_overview.html">v3 AnalyticsレポーティングAPI</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

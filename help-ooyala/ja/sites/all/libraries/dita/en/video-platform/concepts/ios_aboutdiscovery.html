@@ -1,0 +1,119 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="About Discovery for iOS Native Apps"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_ios_about.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ios_disc_getresults.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ios_disc_sendclick.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ios_disc_getimpress.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="ios_aboutdiscovery"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>iOSネイティブアプリの検出について</title>
+</head>
+<body id="ios_aboutdiscovery">
+
+
+    <h1 class="title topictitle1">iOSネイティブアプリの検出について</h1>
+
+    <div class="body conbody">
+        <p class="p">SDKはディスカバリーのサポートを含みます。</p>
+
+        <p class="p">  <samp class="ph codeph">OODiscoveryManager</samp> クラスの継承元
+            <samp class="ph codeph">NSObject</samp>:</p>
+
+        <div class="p">
+            <pre class="pre codeblock">
+            @interface OODiscoveryManager：NSObject
+            </pre>
+
+        </div>
+
+        <p class="p"> コールバックは <samp class="ph codeph">OODiscoveryManager</samp> で定義されているディスカバリ結果を通知する </p>
+
+        <div class="p">
+            <pre class="pre codeblock">
+            typedef void（^ OODiscoveryResultsCallback）（NSArray *の結果、OOOoyalaError *エラー）;
+            </pre>
+
+        </div>
+
+        <p class="p"> パラメータを取ります <samp class="ph codeph">結果</samp> （一連のディスカバリー結果）
+                <samp class="ph codeph">エラー</samp> （ <samp class="ph codeph">OOOyalaError</samp> 発生する可能性のあるエラーをキャプチャするオブジェクト これらは出力パラメータです。 </p>
+
+        <p class="gt-block p">  <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/ios_mobilesdk/class_o_o_discovery_options.html" target="_blank"><samp class="ph codeph">OODiscoveryManager</samp> class</a>
+            以下のメソッドが含まれます。</p>
+
+        <div class="p">
+            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ios_aboutdiscovery__table_azl_rlr_ps" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">表1 発見方法</span></caption>
+                    
+                    
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" width="50%" id="d322090e80">クラスメソッド</th>
+
+                            <th class="entry" valign="top" width="50%" id="d322090e83">説明</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top" width="50%" headers="d322090e80 "><samp class="ph codeph">getResults </samp></td>
+
+                            <td class="entry" valign="top" width="50%" headers="d322090e83 ">この方法を使用して、特定の資産のディスカバリー結果を取得します。 詳細については <a class="xref" href="ios_disc_getresults.html">iOSネイティブの検出結果を取得する</a>.</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="50%" headers="d322090e80 "><samp class="ph codeph">sendImpression</samp></td>
+
+                            <td class="entry" valign="top" width="50%" headers="d322090e83 ">ビデオのおすすめが表示されたときにDiscoveryのフィードバックを送信するには、この方法を使用します。 詳細については <a class="xref" href="ios_disc_getimpress.html">iOSネイティブのディスカバリインプレッションを送信する</a>.</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="50%" headers="d322090e80 "><samp class="ph codeph">sendClick</samp>
+                            </td>
+
+                            <td class="entry" valign="top" width="50%" headers="d322090e83 ">この方法を使用して、推奨ビデオにアクセスしたときに発見フィードバックを送信します。 詳細については <a class="xref" href="ios_disc_sendclick.html">iOSネイティブの検出クリック通知を送信する</a>.</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../concepts/ios_disc_getresults.html">iOSネイティブの検出結果を取得する</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/ios_disc_sendclick.html">iOSネイティブの検出クリック通知を送信する</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/ios_disc_getimpress.html">iOSネイティブのディスカバリインプレッションを送信する</a></strong><br/>
+</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/mobile_sdk_ios_about.html">iOS用Ooyala Mobile SDKを使用する</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

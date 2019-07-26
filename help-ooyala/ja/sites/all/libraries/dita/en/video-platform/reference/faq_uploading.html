@@ -1,0 +1,358 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Uploading FAQ"/>
+<meta name="abstract" content="Frequently asked questions about uploading."/>
+<meta name="description" content="アップロードに関してよく寄せられる質問"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_faq.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_faq.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="faq_uploading"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>アップロードに関するFAQ</title>
+</head>
+<body id="faq_uploading">
+
+
+    <h1 class="title topictitle1">アップロードに関するFAQ</h1>
+
+    
+    <div class="body refbody"><p class="shortdesc">アップロードに関してよく寄せられる質問</p>
+
+        <div class="section"><h2 class="title sectiontitle">アスペラ</h2>
+            
+            <p class="gt-block p"><strong class="ph b">Q：ビデオをアップロードしましたが、Backlotに表示されません。 私は何をすべきか？</strong></p>
+
+            <div class="p"><strong class="ph b">A:</strong> 動画と一緒に関連付けられたマニフェストファイルをアップロードしたことを確認します（ <a class="xref" href="../concepts/ingestion_fileformats.html">マニフェストファイル形式</a> 詳細については）。 アップロード後、BacklotのMANAGEページに表示されるファイルに遅延がないはずです。 ファイルが表示されない場合は、問題が発生している可能性があります。 <ul class="ul">
+                    <li class="li">（OIS v1のみ）：FTPまたはAsperaを使用している場合は、ログでエラーを確認してください。 見る
+                            <a class="xref" href="../concepts/ingestion_log.html">取り込みログとエラーメッセージ</a> 詳細については。</li>
+
+                    <li class="li">もう一度ファイルをアップロードしてみてください。</li>
+
+                    <li class="li">メタデータファイルの有効性もチェックして、正しくタグ付けされていることを確認する必要があります。</li>
+
+                </ul>
+ 問題が解決しない場合は、テクニカルサポートに連絡してください。</div>
+
+            <p class="gt-block p"><strong class="ph b">Q：Backlotに入らない場合、私のビデオを保存しますか？</strong></p>
+
+            <p class="gt-block p"><strong class="ph b">A:</strong> いいえ、問題が原因でファイルがBacklotデータベースに保存されない場合、そのファイルは削除されている可能性があります。 ファイルをもう一度アップロードしようとしました。</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">UTF-8文字</h2>
+            
+            <p class="gt-block p"><strong class="ph b">Q：FTP + CSVインジェストしたコンテンツの[詳細]タブに &quot;Internal Server Error&quot;と表示されるのはなぜですか？</strong></p>
+
+            <div class="p"><strong class="ph b">A:</strong>BacklotはUTF-8文字のみを受け入れます。 FTP + CSV経由で取り込む場合は、UTF-8文字と似ていますが、有効なUTF-8ではない非UTF-8文字を含めることができます。 たとえば、引用符のように見える文字がたくさんあります。 以下が最も頻繁に使用されます。 <ul class="ul">
+                    <li class="li">&quot;U + 0022見積もりマーク</li>
+
+                    <li class="li">“ U + 201Cダブルダブルクォーテーションマーク</li>
+
+                    <li class="li">” U + 201D右側ダブルクォーテーションマーク</li>
+
+                </ul>
+U + 0022は有効なUTF-8です。 他の2つのいずれかを指定した場合、Backlotはエラーを返します。 したがって、すべてのCSV文字が有効なUTF-8であることを忘れないでください。 </div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">ログとレコードのアップロード</h2>
+            
+            <p class="gt-block p"><strong class="ph b">Q：今月中にアップロードしたすべてのビデオはどこで見ることができますか？</strong></p>
+
+            <p class="gt-block p"><strong class="ph b">A:</strong> デフォルトでは、BacklotのMANAGEページでは、ファイルは最新の作成日順に表示されます。 したがって、特定の月にアップロードされたファイルは常にまとめてグループ化されます。</p>
+
+            <p class="gt-block p"><strong class="ph b">Q：Backlotで、アップロードが完了していないビデオだけを見ることができますか？</strong></p>
+
+            <p class="gt-block p"><strong class="ph b">A:</strong> はい、できます。 のトピックを参照してください。 <a class="xref" href="../tasks/video_manage_details.html" title="詳細を使用すると、メタデータを構成してプレーヤーを指定できます。">ビデオの詳細を管理する</a>。 ステータスをに設定します <strong class="ph b">加工、処理</strong> ビデオがまだトランスコードされているのを見るため。 </p>
+
+            <p class="gt-block p"><strong class="ph b">Q：私のFTP活動の記録はありますか？</strong></p>
+
+            <p class="gt-block p"><strong class="ph b">A:</strong> あなた自身のFTPクライアントソフトウェアはあなたのすべてのFTPセッションの記録をログファイルあるいはあなた自身のコンピュータの他の場所に保存するかもしれません。 この情報がシステム上のどこに格納されているかをよく理解して、問題の可能性についてこれらのログを調べてください。 長期間アップロードする場合は、将来発生する可能性のある問題をデバッグする必要がある場合に備えて、将来の参照用にこれらのログを保存したり上書きしたりしないようにすることを検討してください。
+            </p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">境界</h2>
+            
+            <p class="gt-block p"><strong class="ph b">Q：一度に何GBまでアップロードできますか？</strong></p>
+
+            <p class="gt-block p"><strong class="ph b">A:</strong> 顧客ごとの100GBのクォータが適用されます。 FTPまたはAsperaを使用してコンテンツをアップロードする場合、常にアップロード処理に含まれるべきデータの最大量は100 GBです。 この割り当て量を超えないようにするには、一度にアップロードするデータ量を追跡し、ファイルが完全に取り込まれて処理されるまで待ってから追加のアップロード操作を開始します。 ファイルのアップロードが完了すると、そのファイルはクォータに対してカウントされなくなります。 </p>
+
+            <p class="gt-block p"><strong class="ph b">Q：APIアップロード制限は何ですか？</strong></p>
+
+            <p class="gt-block p"><strong class="ph b">A:  </strong>無し。 割り当てはありません（FTPおよびAsperaの場合のように）。 ただし、Ooyalaでは、ファイルを細かく分割することを強くお勧めします（詳細は、
+                    <a class="xref" href="../tasks/api_asset_upload.html" title="アップロードが必要なのは、ビデオファイルとオーディオファイルという特定の資産だけです。">ビデオまたはオーディオアセットのアップロード</a>）大規模ファイルをネットワーク経由で転送する際に発生する可能性がある問題を防ぐためです。</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">アップローダV2</h2>
+            
+            <p class="gt-block p"><strong class="ph b">Q：HTTPSアップロードをサポートするために何を変更する必要がありますか？</strong></p>
+
+            <p class="gt-block p"><strong class="ph b">A:</strong> まず、Brightcoveテクニカルサポートに連絡して、アカウントのHTTPSアップロードを有効にしてください。 次に、使用するプログラムを変更する必要があります <samp class="ph codeph">https://</samp> PUTアップロードリクエストではなく、 <samp class="ph codeph">http://</samp>.</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">符号化および処理プロファイル</h2>
+            
+            <p class="gt-block p"><strong class="ph b">Q：エンコーディングとは何ですか？</strong></p>
+
+            <p class="gt-block p"><strong class="ph b">A:  </strong>ビデオストリームをさまざまな再生デバイス用に最適化されたいくつかのフォーマットに変換するプロセス。 最適化されたフォーマットを作成するために使用される値のセットはビデオのエンコードです。</p>
+
+            <p class="gt-block p"><strong class="ph b">Q：加工プロファイルとは何ですか？</strong></p>
+
+            <p class="gt-block p"><strong class="ph b">A:  </strong>処理プロファイルは、動画をエンコードするときにテンプレートとして使用できるエンコードのセットです。 詳細については、 <a class="xref" href="../concepts/encodings_recommendations_ratios.html">プレーヤV4のための推奨エンコーディング</a></p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">ブラウザ機能</h2>
+            
+            <p class="gt-block p"><strong class="ph b">Q：Backlot UIを介してアップロードするときに使用するのに最適なブラウザはどれですか？</strong></p>
+
+            <p class="gt-block p"><strong class="ph b">A:</strong> Google Chrome、最新バージョン</p>
+
+            <p class="gt-block p"><strong class="ph b">Q：もしあれば、Google Chromeの制限は何ですか？</strong></p>
+
+            <div class="p"><strong class="ph b">A:</strong> Chromeには、複数のファイルチャンクを同時にアップロードできる「サンドボックス」があります。 チャンクの1つに問題があると、Chromeはすべてのチャンクではなく、問題のあるチャンクを再アップロードしようとします。 ただし、この内部サンドボックスはいっぱいになる可能性があるため、クリアする必要があります。 アップロードに失敗した場合は、次の手順に従ってブラウザのキャッシュをクリアし、ブラウザのサンドボックスをクリーンアップしてください。 <ol class="ol">
+                    <li class="li">の手順に従ってブラウザのキャッシュを消去します。 <a class="xref" href="https://support.google.com/chromebook/answer/95582?hl=en" target="_blank">https://support.google.com/chromebook/answer/95582?hl=en</a>.</li>
+
+                    <li class="li">の手順に従ってChromeのコンソールを起動します。 <a class="xref" href="https://developers.google.com/chrome-developer-tools/docs/console#opening_the_console" target="_blank">https://developers.google.com/chrome-developer-tools/docs/console#opening_the_console</a></li>
+
+                    <li class="li">コンソールウィンドウで次のように入力してEnterキーを押します。
+                        <pre class="pre codeblock">windows.localStorage.clear（）</pre>
+</li>
+
+                </ol>
+</div>
+
+            <p class="gt-block p"><strong class="ph b">Q：Firefoxには制限がありますか？</strong></p>
+
+            <div class="p"><strong class="ph b">A:</strong> BacklotはHTTPS（セキュア）プロトコルを介して実行されますが、ファイルチャンク自体はHTTPプロトコルを介してアップロードされます。 Firefox v22以降では、ブラウザはHTTPSページからのHTTPの実行を許可しません（いわゆる「混合コンテンツ」）。 そのため、Firefoxのデフォルト設定ではファイルがバックスロットにアップロードされません。 下記のように、「混合コンテンツ」を許可するようにブラウザを設定する必要があります。 <div class="note note"><span class="notetitle">注意：</span> この設定はからの混合コンテンツを可能にします <em class="ph i">どれか</em> Backlotだけでなく、</div>
+<ol class="ol">
+                    <li class="li">Firefoxのロケーションバーに次のように入力してEnterキーを押します。
+                            <samp class="ph codeph">約：設定</samp></li>
+
+                    <li class="li">下にスクロールして次のキーを見つけます。
+                            <samp class="ph codeph">security.mixed_content.block_active_content</samp></li>
+
+                    <li class="li">単語を右クリック <samp class="ph codeph">true</samp>.</li>
+
+                    <li class="li">ポップアップメニューから、 <span class="ph uicontrol">トグル</span>.  <div class="fig fignone">
+                            <img class="image" src="http://help-ooyala.brightcove.com/../image/faq_firefox_limit.png"/>
+                        </div>
+</li>
+
+                    <li class="li">ページを閉じます。</li>
+
+                </ol>
+</div>
+
+            <p class="gt-block p"><strong class="ph b">Q：Safariには制限がありますか？</strong></p>
+
+            <p class="gt-block p"><strong class="ph b">A:</strong> 現時点でOoyalaが知っていることはありません。</p>
+
+            <p class="gt-block p"><strong class="ph b">Q：Internet Explorerには制限がありますか？</strong></p>
+
+            <p class="gt-block p"><strong class="ph b">A:</strong> 常に最新バージョンのInternet Explorerを使用してください。 Googleで廃止されているGoogle Chrome Frame拡張機能も使用する必要があります。 OoyalaはアップロードにInternet ExplorerよりもGoogle Chrome、Firefox、またはSafariを推奨します。 </p>
+
+            <p class="gt-block p"><strong class="ph b">Q：Backlot UIのアップロードに理想的なネットワーク設定は何ですか？</strong></p>
+
+            <p class="gt-block p"><strong class="ph b">A:</strong> あなたのマシンから <a class="xref" href="https://backlot.ooyala.com" target="_blank">https://backlot.ooyala.com</a> 最も望ましいです。 さらに、理想的なのは、ブラウザがプロキシサーバーを経由せずにOoyalaサーバーに直接接続することです。 </p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">コンテンツ移行</h2>
+            
+            <p class="gt-block p"><strong class="ph b">Q：このサービスは誰のためのものですか？</strong></p>
+
+            <p class="gt-block p"><strong class="ph b">A:</strong> あなたが大規模なビデオライブラリを持っていて、あなたのコンテンツをOoyalaに移動するのに援助を必要とするならば、あなたはOoyalaのコンテンツ移行サービスから最も利益を得るでしょう。 自己移行（つまり、Backlot Webアップロード、FTP、Aspera、API経由）が選択肢にならない場合は、プロフェッショナルサービスによる移行が理にかなっています。</p>
+
+            <div class="p">マネージドサービスの最も一般的な利点には次のものがあります。 <ul class="ul">
+                    <li class="li">プロセス全体を通じてOoyalaの指導。</li>
+
+                    <li class="li">起動までの時間を短縮</li>
+
+                    <li class="li">ネットワーク飽和問題を減らしました。</li>
+
+                </ul>
+</div>
+
+            <p class="gt-block p"><strong class="ph b">Q：Ooyala Standard Packagesには何が含まれていますか？</strong></p>
+
+            <div class="p"><strong class="ph b">A:</strong> Ooyala Standardパッケージに含まれるもの： <ul class="ul">
+                    <li class="li">既存のカタログとカテゴリに一貫してマッピングされる新しいビデオメタデータ分類法の定義をサポートします。</li>
+
+                    <li class="li">それぞれのメタデータを割り当てた、ビデオアセットの移動。</li>
+
+                    <li class="li">Ooyalaのサポートするビデオおよびオーディオコーデックを使用してエンコードされたすべてのビデオアセットのトランスコードが成功した。</li>
+
+                    <li class="li">移行のニーズを満たすトランスコーディング分のバケット。</li>
+
+                    <li class="li">定期的な進捗状況の更新。その頻度は、移行の期間に基づいて設定されます。</li>
+
+                    <li class="li">Ooyalaの埋め込みコードを含む出力CSVファイル。 このファイルは、あなたのビデオとそれらの新しい識別子（埋め込みコード）との間の一対一の対応付けによる完成レポートを表します。</li>
+
+                </ul>
+</div>
+
+            <p class="gt-block p"><strong class="ph b">Q：あなたから何が期待されていますか？</strong></p>
+
+            <div class="p"><strong class="ph b">A:</strong> あなたはOoyalaを次のように援助する必要があります： <ul class="ul">
+                    <li class="li">ビデオライブラリへのアクセスを提供します。</li>
+
+                    <li class="li">メタデータマッピングファイルをCSVまたはXML形式で配信します。 テンプレートはOoyalaによって提供されます。</li>
+
+                    <li class="li">摂取が始まる前にあなた自身の処理プロファイルを承認してください。 処理プロファイルは、各出力エンコードの特性を決定するためにトランスコードプロセスによって使用されるテンプレートです。</li>
+
+                </ul>
+</div>
+
+            <p class="p">新しいアセットを2回アップロードする必要がある時間枠があることに注意してください。1回はレガシーシステムへ、もう1回はOoyalaへです。</p>
+
+            <p class="p">コンテンツを複数のBacklotアカウントに移行する場合は、提案されたアカウントの階層を承認する必要があります。</p>
+
+            <p class="gt-block p"><strong class="ph b">Q：コンテンツ移行に加えて購入できる追加のサービスは何ですか？</strong></p>
+
+            <div class="p">次のサービスは、コンテンツ移行パッケージサービスに含まれていません。 それぞれの自己管理方法についての説明が提供され、追加のプロフェッショナルサービス契約を購入することができます。 <ul class="ul">
+                    <li class="li">古いプレイヤーを新しいプレイヤーに交換します。</li>
+
+                    <li class="li">クローズドキャプションおよび/または字幕の割り当て。</li>
+
+                    <li class="li">プレイリスト、チャンネル、チャンネルセットの移行</li>
+
+                </ul>
+</div>
+
+            <p class="gt-block p"><strong class="ph b">Q：Ooyalaでサポートされているビデオおよびオーディオコーデックはどこにありますか？</strong></p>
+
+            <p class="gt-block p"><strong class="ph b">A:</strong> この情報はOoyalaのサポートページにあります。</p>
+
+            <p class="gt-block p"><a class="xref" href="../concepts/encodings_sourcematerial.html" title="あなたは常に利用可能な最高品質のソース素材から始めるべきです。">素材の品質と推奨事項（ビデオとオーディオ）</a>.</p>
+
+            <p class="gt-block p"><strong class="ph b">Q：顧客はどのようにしてOoyalaに自分のビデオライブラリへのアクセスを許可することができますか？</strong></p>
+
+            <p class="gt-block p"><strong class="ph b">A:</strong> ライブラリへのアクセスは、MRSSフィードを使用した直接HTTPダウンロード、またはハードドライブ配信の2つの方法で許可できます。 HTTPSはサポートされていません。</p>
+
+            <p class="gt-block p"><strong class="ph b">Q：移行にはどれくらいかかりますか？</strong></p>
+
+            <p class="gt-block p"><strong class="ph b">A:</strong> コンテンツの移行は5フェーズのプロセスであるため、完了時間はすべてのフェーズの期間の合計です。 フェーズの期間は、お客様の条件や要件（図書館の規模、専任の担当者、納期など）に大きく依存します。</p>
+
+            <p class="gt-block p"><strong class="ph b">Q：移行の5つのフェーズは何ですか？</strong></p>
+
+            <div class="p"><strong class="ph b">A:</strong> 移行を構成する5フェーズは次のとおりです。 <ol class="ol">
+                    <li class="li">発見。</li>
+
+                    <li class="li">勧告。</li>
+
+                    <li class="li">準備とスケジューリング</li>
+
+                    <li class="li">実行。</li>
+
+                    <li class="li">受諾。</li>
+
+                </ol>
+ 各フェーズのマイルストーンは次のとおりです。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top"> </td>
+
+                                <td class="entry" valign="top">相</td>
+
+                                <td class="entry" valign="top">マイルストーン</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top">1.</td>
+
+                                <td class="entry" valign="top">Discovery</td>
+
+                                <td class="entry" valign="top">移行のニーズが評価され、文書化されています。</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top">2.</td>
+
+                                <td class="entry" valign="top">推奨</td>
+
+                                <td class="entry" valign="top">移住計画はすべての当事者によって完成され承認されます。</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top">3.</td>
+
+                                <td class="entry" valign="top">準備とスケジュール</td>
+
+                                <td class="entry" valign="top">
+                                    <ul class="ul">
+                                        <li class="li">あなたはメタデータファイルを配信し、Ooyalaにそれらのライブラリへのアクセスを許可します。</li>
+
+                                        <li class="li">摂取開始日が設定されます。</li>
+
+                                    </ul>
+
+                                </td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top">4.</td>
+
+                                <td class="entry" valign="top">実行</td>
+
+                                <td class="entry" valign="top">
+                                    <ul class="ul">
+                                        <li class="li">移行が始まります。</li>
+
+                                        <li class="li">定期的な移行レポートが配信されます。</li>
+
+                                        <li class="li">移行が完了しました。</li>
+
+                                    </ul>
+
+                                </td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top">5.</td>
+
+                                <td class="entry" valign="top">受け入れ</td>
+
+                                <td class="entry" valign="top">受け入れ文書は顧客によって署名されています。</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+</div>
+
+            <p class="gt-block p"><strong class="ph b">Q：Ooyalaのコンテンツ移行サービスを続けたいのですが、次に何をすればよいですか？</strong></p>
+
+            <p class="gt-block p"><strong class="ph b">A:</strong> ディスカバリー段階からすぐに始めましょう。 アカウントマネージャに連絡してください。 </p>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_faq.html" title="分析、APIとSDK、外部公開、Player V3、Playerセキュリティ、およびアップロードに関するよくある質問と回答。">よくある質問</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div

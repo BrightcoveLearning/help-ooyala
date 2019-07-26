@@ -1,0 +1,739 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Publishing Rules"/>
+<meta name="abstract" content="Publishing rules specify when and where your content can be played. With publishing rules, you can restrict your content to specific geographic regions, ensure that it is only embedded on specific domains, and only allow it to be viewed at specific times."/>
+<meta name="description" content="公開ルールは、いつどこでコンテンツを再生できるかを指定します。 公開ルールを使用すると、コンテンツを特定の地域に限定し、特定のドメインにのみ埋め込まれるようにして、特定の時間にのみ表示できるようにすることができます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_api.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_api.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="publishing_rules"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>公開ルール</title>
+</head>
+<body id="publishing_rules">
+
+
+ <h1 class="title topictitle1">公開ルール</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">公開ルールは、いつどこでコンテンツを再生できるかを指定します。 公開ルールを使用すると、コンテンツを特定の地域に限定し、特定のドメインにのみ埋め込まれるようにして、特定の時間にのみ表示できるようにすることができます。</p>
+
+   <div class="section"><div class="note note"><span class="notetitle">注意：</span> Backlot REST APIコマンドについて詳しくは、以下を参照してください。
+     <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/backlot_api/index.html" target="_blank">バックスロットAPIリファレンス</a>.</div>
+</div>
+
+  <div class="section">
+   <p class="p">アセットがロードされると、再生前に公開ルールがチェックされます。 作成した各ルールには、これらの制限を任意に組み合わせて、複数のビデオまたはチャンネルに割り当てることができます。</p>
+
+   <div class="note note"><span class="notetitle">注意：</span> Backlot UIでは、公開ルールはシンジケーショングループと呼ばれます。</div>
+
+  </div>
+
+   <div class="section refsyn"><h2 class="title sectiontitle">新しい公開ルールを追加</h2>
+   <pre class="pre codeblock">[POST] / v2 / publishing_rules {
+   <a class="xref" href="publishing_rules.html#publishing_rules__publishing_rule_properties"><kbd class="ph userinput">プロパティ</kbd></a>
+
+}</pre>
+
+   </div>
+<div class="section refsyn"><h2 class="title sectiontitle">リスト公開ルール</h2>
+   <pre class="pre codeblock">[GET] / v2 / publishing_rules</pre>
+
+   </div>
+<div class="section refsyn"><h2 class="title sectiontitle">公開ルールを取得</h2>
+   <pre class="pre codeblock">[GET] / v2 / publishing_rules /<a class="xref" href="publishing_rules.html#publishing_rules__publishing_rule_id"><kbd class="ph userinput">publishing_rule_id</kbd></a></pre>
+
+   </div>
+<div class="section refsyn"><h2 class="title sectiontitle">公開ルールを変更する</h2>
+   <pre class="pre codeblock">[パッチ] / v2 / publishing_rules /<a class="xref" href="publishing_rules.html#publishing_rules__publishing_rule_id"><kbd class="ph userinput">publishing_rule_id</kbd></a>{
+   
+   <a class="xref" href="publishing_rules.html#publishing_rules__publishing_rule_properties"><kbd class="ph userinput">プロパティ</kbd></a>
+
+}</pre>
+
+   </div>
+<div class="section refsyn"><h2 class="title sectiontitle">公開ルールを削除</h2>
+   <pre class="pre codeblock">[削除] / v2 / publishing_rules /<a class="xref" href="publishing_rules.html#publishing_rules__publishing_rule_id"><kbd class="ph userinput">publishing_rule_id</kbd></a></pre>
+
+   </div>
+
+  <div class="section"><h2 class="title sectiontitle">ルート属性</h2>
+   
+   <p class="p">次の表は、ルートを通じて表現できるすべての属性を示しています。</p>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" id="d115555e107">ルート属性</th>
+
+       <th class="entry" valign="top" id="d115555e110">説明</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      
+     <tr class="row">
+       <td class="entry" valign="top" headers="d115555e107 d115555e110 "><var class="keyword varname" id="publishing_rules__publishing_rule_id">publishing_rule_id</var></td>
+
+       <td class="entry" valign="top" headers="d115555e107 d115555e110 ">
+        <p class="p">公開ルールのID。 公開ルールのリストを取得するには、 <samp class="ph codeph">/ publishing_rules</samp> ルート。</p>
+
+<p class="p">タイプ：文字列</p>
+
+<p class="p">デフォルト：なし</p>
+
+<p class="p">Example: /publishing_rules/ru1ze4ea4e648fd07d4509123254</p>
+
+       </td>
+
+      </tr>
+</tbody>
+
+    </table>
+</div>
+
+  </div>
+
+  <div class="section" id="publishing_rules__publishing_rule_properties"><h2 class="title sectiontitle">プロパティ</h2>
+   
+   <p class="p">次の表は、公開ルールに関連付けることができるすべてのプロパティについて説明しています。</p>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="22.22222222222222%" id="d115555e168">プロパティ</th>
+
+       <th class="entry" valign="top" width="55.55555555555556%" id="d115555e171">説明</th>
+
+       <th class="entry" valign="top" width="22.22222222222222%" id="d115555e174">必須？</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      
+            
+      
+       
+      
+        
+       
+      
+       
+       
+      
+      
+      
+       
+       
+       
+      
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+            
+            
+            
+     <tr class="row">
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">一日中</span></td>
+
+       <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 ">
+         <p class="p">コンテンツを終日再生できるかどうかを指定します。 </p>
+
+        <p class="p">タイプ：ブール</p>
+
+         <p class="p">有効な値は以下のとおりです。 偽</p>
+
+         <p class="p">条件：typeが &quot;recurring&quot;に設定されていて、start_timeとend_timeが指定されていない場合は必須。</p>
+
+         <p class="p">例：true</p>
+
+        <p class="p">親：time_restrictions</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 ">条件付きの</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">allowed_devices</span></td>
+
+       <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 ">
+         <p class="p">許可されたデバイスを指定します。</p>
+
+        <p class="p">タイプ：配列</p>
+
+         <p class="p">有効な値：iphone | ipad | アンドロイド| ブラックベリー</p>
+
+         <p class="p">デフォルト：すべてのデバイスが許可されています</p>
+
+         <p class="p">例：[&quot;iphone&quot;、 &quot;ipad&quot;]</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 ">いいえ</td>
+
+      </tr>
+<tr class="row"> 
+         <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">anonymizer_statuses</span></td>
+
+         <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 "><p class="p">ブロックする匿名化機能の状況を指定します。</p>
+
+         <p class="p">タイプ：文字列の配列</p>
+
+                
+                  <p class="p">有効値：プライベート| アクティブ| 容疑者 非アクティブ corporate_vpn</p>
+
+                <div class="p">OoyalaはNeustarのIP Intelligenceサービスを使用して匿名化プロキシを識別します。 Neustarは、プロキシとして検出されたIPアドレスに次のステータスを割り当てます。<ul class="ul">
+                    <li class="li"><strong class="ph b">プライベート</strong>：この名称のIPアドレスには、公にアクセスできない匿名プロキシが含まれているとされています。 そのため、自動化ツールで日常的にテストすることはできません。 これらのアドレスは通常、匿名サービスを一般に販売する商業的ベンチャーに属します。 この指定のアドレスは、所有権情報から派生するか、信頼できる信頼性の高いソースから取得されます。</li>
+
+                    <li class="li"><strong class="ph b">アクティブ</strong>：アノニマイザーは過去6ヶ月以内に陽性反応を示した。</li>
+
+                    <li class="li"><strong class="ph b">容疑者</strong>：アノニマイザーは過去2年以内にポジティブテストを行いましたが、最後の6ヶ月はテストしませんでした。</li>
+
+                    <li class="li"><strong class="ph b">非アクティブな</strong>：アノニマイザーは過去2年以内に肯定的なテスト結果を出していません。</li>
+
+                    
+                      <li class="li"><strong class="ph b">corporate_vpn</strong>：ユーザーは単一の国内の複数の州からのトラフィックをルーティングするプロキシを介して接続しています。 ユーザーがIPロケーションとは異なる州にいる可能性があります。 多くの場合、これらは地域の拠点または国際的な拠点からのトラフィックを中心地点、多くの場合は本社経由でルーティングする企業ネットワークです。</li>
+
+                     
+                  </ul>
+</div>
+
+                <p class="p">条件：proxy_restrictionsが指定されている場合は必須。</p>
+
+                <p class="p">例：[&quot;private&quot;、 &quot;suspect&quot;]</p>
+
+                <p class="p">親：proxy_restrictions</p>
+</td>
+
+         <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 ">条件付きの</td>
+
+       </tr>
+<tr class="row">
+         <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">クリスマス</span></td>
+
+         <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 ">ホワイトリストまたはブラックリストに1つ以上のDMAロケーションコードを指定する配列。
+           <p class="p">タイプ：文字列</p>
+
+           <p class="gt-block p">有効値：を参照してください。 <a class="xref" href="../reference/dma_codes.html" title="これらのニールセン指定マーケットエリア（DMA）コードは、さまざまなOoyala機能で使用されています。">DMAコード</a>.</p>
+
+           <p class="p">条件：このプロパティーはオプションであり、geographic_restrictionsが指定されている場合にのみ指定できます。</p>
+
+           <p class="p">例：</p>
+<pre class="pre codeblock">[&quot;807&quot;、 &quot;501&quot;]</pre>
+
+           <p class="p">親：geographic_restrictions</p>
+</td>
+
+         <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 ">いいえ</td>
+
+       </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">domain_restrictions</span></td>
+
+       <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 ">
+        <p class="p">ドメイン制限を指定します。</p>
+
+        <p class="p">タイプ：コンテナ
+        </p>
+
+         <div class="p"><div class="note note"><span class="notetitle">注意：</span> 完全なURLではなく、インターネットドメイン（URLのいわゆる「ホスト名」部分）のみが一致します。 たとえば、URLのドメイン
+         <samp class="ph codeph">http://www.mysite.com/landing_page/campaign2</samp>  is
+         
+         <samp class="ph codeph">http://www.mysite.com</samp>。 完全なURLを入力できますが、ドメイン名の後ろにある部分はすべてマッチングで無視されます。</div>
+</div>
+
+       </td>
+
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 "> </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">ドメイン</span></td>
+
+       <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 ">
+         <p class="p">ホワイトリストまたはブラックリストに追加するドメインを1つ以上指定します。 </p>
+
+          <p class="p">タイプ：文字列の配列</p>
+
+          <p class="p">条件：domain_restrictionsが指定されている場合は必須</p>
+
+          <p class="p">例：[&quot;example.com&quot;、 &quot;myotherdomain.com&quot;]</p>
+
+        <p class="p">親：domain_restrictions</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 ">条件付きの</td>
+
+      </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">使用可能</span></td>
+
+              <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 ">Ooyala再生トークンの要件を有効または無効にします。<p class="p">タイプ：文字列</p>
+<p class="p">有効な値 偽</p>
+<p class="p">例：</p>
+<pre class="pre codeblock">&quot;secure_playback_token&quot;：{&quot;有効&quot;： &quot;true&quot;}</pre>
+親：secure_playback_token</td>
+
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 ">いいえ</td>
+
+            </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">終了日</span></td>
+
+       <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 ">
+         <p class="p">時間制限の終了を指定します。 </p>
+
+         <p class="p">タイプ：DateTime</p>
+
+         <p class="p">有効な値は以下のとおりです。 ヌル</p>
+
+         <p class="p">条件：time_restrictionsが指定されている場合は必須</p>
+
+         <p class="p">Example: "2010-01-01T00:00:00Z"</p>
+
+        <p class="p">親：time_restrictions</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 ">条件付きの</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">終了時間</span></td>
+
+       <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 ">
+         <p class="p">コンテンツを再生できる終了時間を指定します。 </p>
+
+         <p class="p">タイプ：時間</p>
+
+         <p class="p">条件：typeが &quot;recurring&quot;に設定され、all_dayが指定されていないかfalseに設定されている場合は必須。</p>
+
+         <p class="p">例： &quot;23：59：59&quot;</p>
+
+        <p class="p">親：time_restrictions</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 ">条件付きの</td>
+
+      </tr>
+<tr class="row">
+          <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">例外</span></td>
+
+          <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 ">
+            <p class="p">地理的制限に対する例外を指定します。 ホワイトリストまたはブラックリストの例外は異なります。</p>
+
+              <ul class="ul"><li class="li">ホワイトリストに対する例外は、ホワイトリストから減算するためにのみ使用できます。</li>
+ 
+                  <li class="li">ブラックリストの例外は、許可された場所をさらに追加するためにのみ使用できます。</li>
+</ul>
+
+            <p class="p">タイプ：コンテナ</p>
+
+            <p class="p">例：</p>
+
+            <pre class="pre codeblock">   &quot;geographic_restrictions&quot;：{&quot;タイプ&quot;： &quot;ブラックリスト&quot;、 &quot;位置&quot;：[&quot;US&quot;]、 &quot;dmas&quot;：[&quot;501&quot;]、 &quot;ip_addresses&quot;：[&quot;162.2.2.201&quot;、 &quot;162.2.2.0-162.2.2.255&quot;]、 &quot;例外 &quot;：{&quot; ips &quot;：[&quot; 162.2.2.2 &quot;、&quot; 162.2.2.5-162.2.2.10 &quot;]、&quot;位置 &quot;：[&quot; TW &quot;]}}</pre>
+
+            <p class="p">親：geographic_restrictions</p>
+
+          </td>
+
+          <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 "> </td>
+
+      </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">期限切れ</span></td>
+
+              <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 ">Ooyala Playback Tokenが期限切れになるまでの秒数<p class="p">タイプ：整数</p>
+<p class="p">親：secure_playback_token</p>
+</td>
+
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 "> </td>
+
+            </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">geographic_restrictions</span></td>
+
+       <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 ">
+         <p class="p">地理的な制限を指定します。</p>
+
+         <p class="p">タイプ：コンテナ</p>
+
+       </td>
+
+        <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 "> </td>
+
+      </tr>
+<tr class="row">
+         <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">IPS</span></td>
+
+         <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 ">ホワイトリストまたはブラックリストに1つ以上のIPアドレス/範囲を指定する配列。
+           <p class="p">タイプ：文字列</p>
+
+           <p class="p">有効値：IPv64アドレスまたは範囲（例を参照）</p>
+
+           <p class="p">条件：このプロパティーはオプションであり、geographic_restrictionsが指定されている場合にのみ指定できます。</p>
+
+           <p class="p">例：</p>
+<pre class="pre codeblock">[&quot;162.2.2.201&quot;、 &quot;162.2.2.0-162.2.2.255&quot;]</pre>
+
+           <p class="p">親：geographic_restrictions</p>
+</td>
+
+         <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 ">いいえ</td>
+
+       </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">場所</span></td>
+
+       <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 ">
+         <p class="p">ホワイトリストまたはブラックリストに2文字以上のロケーションコードを指定する配列。 </p>
+
+        <p class="p">タイプ：文字列</p>
+
+         <p class="gt-block p">有効値：を参照してください。 <a class="xref" href="../reference/location_codes.html" title="これらの国別コードは、さまざまなOoyala機能で使用されています。">国と場所のコード</a>.</p>
+
+         <p class="p">条件：geographic_restrictionsが指定されている場合は必須です。</p>
+
+         <p class="p">例：[&quot;US&quot;、 &quot;EU&quot;]</p>
+
+        <p class="p">親：geographic_restrictions</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 ">条件付きの</td>
+
+      </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">max_concurrent_streams</span></td>
+
+              <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 ">最大同時ストリーム数を設定します。 プレーヤー認証APIを有効にします。<p class="p">タイプ：整数</p>
+<p class="p">条件：restrict_concurrent_streamsをtrueに設定する必要があります。</p>
+<p class="p">例：</p>
+<div class="p">
+                  <pre class="pre codeblock"> &quot;secure_playback_token&quot;：{&quot;restrict_concurrent_streams&quot;： &quot;true&quot;、 &quot;max_concurrent_streams&quot;： &quot;1&quot;}       </pre>
+
+                </div>
+<p class="p">親：secure_playback_token</p>
+</td>
+
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 ">いいえ</td>
+
+            </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">名</span></td>
+
+       <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 ">
+        <p class="p">公開ルールの名前を指定します。</p>
+
+        <p class="p">タイプ：文字列</p>
+
+        <p class="p">例：「私のルール」</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 ">はい</td>
+
+      </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">郵便番号</span></td>
+
+              <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 "><p class="p">アクセス制限を定義するために使用される1つ以上の5桁の米国郵便番号™のコンマ区切りリスト。</p>
+
+                <p class="p">条件：オプション geographic_restrictionsが指定されている場合にのみ指定できます。</p>
+
+                <p class="p">例：</p>
+
+                <pre class="pre codeblock">{&quot;geographic_restrictions&quot;：{&quot;タイプ&quot;： &quot;ホワイトリスト&quot;、 &quot;郵便番号&quot;：{&quot;US&quot;：[&quot;92802&quot;、 &quot;92805&quot;]}}}</pre>
+</td>
+
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 ">いいえ</td>
+
+            </tr>
+<tr class="row">
+         <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">proxy_restrictions</span></td>
+
+         <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 ">プロキシ制御の制限を指定します。 タイプ：コンテナ</td>
+
+         <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 "> </td>
+
+       </tr>
+<tr class="row">
+         <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">proxy_restrictions</span></td>
+
+         <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 "><p class="p">ブロックする匿名化プロキシの種類を指定します。 タイプ：コンテナ</p>
+</td>
+
+         <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 "> </td>
+
+       </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">recurring_days</span></td>
+
+       <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 ">
+         <p class="p">有効日数を指定します。 </p>
+
+         <p class="p">タイプ：文字列の配列</p>
+
+         <p class="p">有効な値は &quot;MON&quot;です。 &quot;TUE&quot; | &quot;WED&quot; | 「木」| &quot;FRI&quot; | 「土」| &quot;太陽&quot;</p>
+
+         <p class="p">条件：typeが &quot;recurring&quot;に設定されている場合は必須。</p>
+
+         <p class="p">例：[&quot;MON&quot;、 &quot;WED&quot;、 &quot;FRI&quot;]</p>
+
+        <p class="p">親：time_restrictions</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 ">条件付きの</td>
+
+      </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">require_user_entitlement</span></td>
+
+              <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 ">ユーザーに資産へのアクセス権があるかどうかを要求します。 Rights Lockerを有効にします。<p class="p">タイプ：文字列</p>
+<p class="p">有効な値は以下のとおりです。 偽</p>
+<p class="p">例：</p>
+<pre class="pre codeblock">&quot;secure_playback_token&quot;：{&quot;require_user_entitlement&quot;： &quot;true&quot;}</pre>
+<p class="p">親：secure_playback_token</p>
+</td>
+
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 ">いいえ</td>
+
+            </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">restrict_concurrent_streams</span></td>
+
+              <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 ">同時ストリーム数の制限を強制するかどうか。 プレーヤー認証APIを有効にします。 <p class="p">タイプ：文字列</p>
+<p class="p">有効な値は以下のとおりです。 偽</p>
+<p class="p">例：</p>
+<pre class="pre codeblock"> &quot;secure_playback_token&quot;：{&quot;restrict_concurrent_streams&quot;： &quot;true&quot;}</pre>
+<p class="p">親：secure_playback_token</p>
+</td>
+
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 ">いいえ</td>
+
+           </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">secure_playback_token</span></td>
+
+              <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 ">Ooyala Player Tokenを介した再生のためのユーザー認証の要求の有無に関するプロパティ<p class="p">タイプ：コンテナ</p>
+</td>
+
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 ">いいえ</td>
+
+            </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">START_DATE</span></td>
+
+       <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 ">
+         <p class="p">時間制限の開始を指定します。 </p>
+
+         <p class="p">タイプ：DateTime</p>
+
+         <p class="p">有効な値は以下のとおりです。 ヌル</p>
+
+         <p class="p">条件：time_restrictionsが指定されている場合は必須</p>
+
+         <p class="p">Example: "2010-01-01T00:00:00Z"</p>
+
+        <p class="p">親：time_restrictions</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 ">条件付きの</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">始まる時間</span></td>
+
+       <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 ">
+         <p class="p">コンテンツを再生できる開始時間を指定します。 </p>
+
+         <p class="p">タイプ：時間</p>
+
+         <p class="p">条件：typeが &quot;recurring&quot;に設定され、all_dayが指定されていないかfalseに設定されている場合は必須。</p>
+
+         <p class="p">例： &quot;20：00：00&quot;</p>
+
+        <p class="p">親：time_restrictions</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 ">条件付きの</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">time_restrictions</span></td>
+
+       <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 ">時間制限を指定します。 タイプ：コンテナ </td>
+
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 "> </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">type</span></td>
+
+       <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 ">
+         <p class="p">場所をホワイトリストに登録するかブラックリストに登録するかを指定します。</p>
+
+        <p class="p">タイプ：文字列</p>
+
+          <p class="p">有効値：ホワイトリスト| ブラックリスト</p>
+
+          <p class="p">条件：geographic_restrictionsが指定されている場合は必須です。</p>
+
+          <p class="p">例： &quot;ホワイトリスト&quot;</p>
+
+        <p class="p">親：geographic_restrictions</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 ">条件付きの</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">type</span></td>
+
+       <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 ">
+         <p class="p">ドメインがホワイトリストに登録されているかブラックリストに登録されているかを指定します。</p>
+
+        <p class="p">タイプ：文字列</p>
+
+         <p class="p">有効値：ホワイトリスト| ブラックリスト</p>
+
+         <p class="p">条件：domain_restrictionsが指定されている場合は必須</p>
+
+         <p class="p">例： &quot;ホワイトリスト&quot;</p>
+
+        <p class="p">親：domain_restrictions</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 ">条件付きの</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e168 "><span class="keyword parmname">type</span></td>
+
+       <td class="entry" valign="top" width="55.55555555555556%" headers="d115555e171 ">
+         <p class="p">時間制限が繰り返し制限か1回限りの制限かを指定します。</p>
+
+        <p class="p">タイプ：文字列</p>
+
+         <p class="p">有効な値はrangeです。 繰り返し</p>
+
+         <p class="p">条件：time_restrictionsが指定されている場合は必須</p>
+
+         <p class="p">例： &quot;range&quot;</p>
+
+        <p class="p">親：time_restrictions</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d115555e174 ">条件付きの</td>
+
+      </tr>
+</tbody>
+
+    </table>
+</div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">例</h2>
+   
+   <div class="sectiondiv">
+    <p class="p"> この例では、制限なしで基本的な公開ルールを作成します。 </p>
+
+    <pre class="pre codeblock">[POST] / v2 / publishing_rules {&quot;名前&quot;： &quot;私の基本公開ルール&quot;}</pre>
+
+    <p class="p">Backlotは次のような応答を返します。</p>
+
+    <pre class="pre codeblock">{&quot;名前&quot;： &quot;基本公開ルール&quot;、 &quot;許可され​​たデバイス&quot;：[&quot;iPhone&quot;、 &quot;iPad&quot;、 &quot;アンドロイド&quot;、 &quot;ブラックベリー&quot;]、 &quot;時間制限&quot;：{&quot;開始日&quot;：null、 &quot;タイプ&quot;： &quot; range &quot;、&quot; end_date &quot;：null}、&quot; domain_restrictions &quot;：{&quot;ドメイン &quot;：[]、&quot; type &quot;：&quot; blacklist &quot;}、&quot; geographic_restrictions &quot;：{&quot; type &quot;：&quot; blacklist &quot;、&quot; locations &quot;：[] &quot;、&quot; id &quot;：&quot; 9b70a34a678346b185f9b81c7a291d8b &quot;}</pre>
+
+     <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+   </div>
+   <div class="sectiondiv">
+    <p class="p"> この例では、コンテンツがmywebsite.comに埋め込まれ、米国またはEUでのみ表示されるように公開ルールを変更します。 </p>
+
+    <pre class="pre codeblock">[POST] / v2 / publishing_rules / 9b70a34b678346f185b9a81d7b {&quot;domain_restrictions&quot;：{&quot;ドメイン&quot;： &quot;&quot; &quot;：&quot; &quot;&quot; &quot;&quot;種類：gest &quot;whit&quot;）位置 &quot;：[&quot; US &quot;、&quot; EU &quot;]}}</pre>
+
+    <p class="p">Backlotは次のような応答を返します。</p>
+
+    <pre class="pre codeblock">{&quot;名前&quot;： &quot;マイ公開ルール&quot;、 &quot;許可され​​たデバイス&quot;：[]、 &quot;時間制限&quot;：{&quot;開始日&quot;： &quot;2007-04-05T00：00：00 + 00：00&quot;、 &quot;タイプ&quot;： &quot;範囲&quot; 、 &quot;end_date&quot;：null}、 &quot;domain_restrictions&quot;：{&quot;domains&quot;：[&quot;mywebsite.com&quot;]、 &quot;type&quot;： &quot;ホワイトリスト&quot;}、 &quot;geographic_restrictions&quot;：{&quot;type&quot;： &quot;whitelist&quot;、 &quot;locations&quot; ：[&quot;US&quot;、 &quot;EU&quot;]}、 &quot;id&quot;： &quot;79feefbe24d9424786d53b5edffb4b94&quot;}</pre>
+
+     <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+   </div>
+   <div class="sectiondiv">
+    <p class="p"> この例では、すべての公開ルールが一覧表示されます。 </p>
+
+    <pre class="pre codeblock">[GET] / v2 / publishing_rules</pre>
+
+    <p class="p">Backlotはすべての公開ルールの設定を返します。</p>
+
+   </div>
+   <div class="sectiondiv">
+    <p class="p"> 特定の公開ルールに関する情報の例 </p>
+
+    <pre class="pre codeblock">[GET]/v2/publishing_rules/79feefbe24d9424786d53b5edffb4b94</pre>
+
+    <p class="p">Backlotは次のような応答を返します。</p>
+
+    <pre class="pre codeblock">{&quot;名前&quot;： &quot;マイ公開ルール&quot;、 &quot;許可され​​たデバイス&quot;：[]、 &quot;時間制限&quot;：{&quot;開始日&quot;： &quot;2007-04-05T00：00：00 + 00：00&quot;、 &quot;タイプ&quot;： &quot;範囲&quot; 、 &quot;end_date&quot;：null}、 &quot;domain_restrictions&quot;：{&quot;domains&quot;：[&quot;mywebsite.com&quot;]、 &quot;type&quot;： &quot;ホワイトリスト&quot;}、 &quot;geographic_restrictions&quot;：{&quot;type&quot;： &quot;whitelist&quot;、 &quot;locations&quot; ：[&quot;US&quot;、 &quot;EU&quot;]}、 &quot;id&quot;： &quot;79feefbe24d9424786d53b5edffb4b94&quot;}</pre>
+
+     <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+   </div>
+   <div class="sectiondiv">
+    <p class="p"> この例では、公開ルールを削除します。 </p>
+
+    <pre class="pre codeblock">[DELETE]/v2/publishing_rules/79feefbe24d9424786d53b5edffb4b94</pre>
+
+    <p class="p">Backlotは200応答を返します。</p>
+
+     <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+   </div>
+  </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_api.html" title="プレーヤーのクロム（デザイン要素）をカスタマイズするには、Backlot REST APIを使用してください。 これには、フォント、色、スクラバーバーなどのUI要素が含まれます。">バックスロットREST API</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

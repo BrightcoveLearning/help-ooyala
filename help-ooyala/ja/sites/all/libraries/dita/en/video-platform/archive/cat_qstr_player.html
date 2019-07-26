@@ -1,0 +1,257 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Player Query String Parameters (Player V2 Deprecated)"/>
+<meta name="abstract" content="Lists and describes all Player Query String Parameters"/>
+<meta name="description" content="すべてのプレイヤークエリ文字列パラメータをリストして説明します"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/player_api_qpass_intro.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="api_qpass"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>プレーヤクエリ文字列パラメータ（プレーヤV2は廃止予定）</title>
+</head>
+<body id="api_qpass">
+
+
+ <h1 class="title topictitle1">Player Query String Parameters (Player V2  Deprecated)</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">すべてのプレイヤークエリ文字列パラメータをリストして説明します</p>
+
+  <div class="section"><h2 class="title sectiontitle">一般クエリ文字列パラメータ</h2>
+   <div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V2は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V2はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V2を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="../concepts/pbv4_about.html">プレイヤーV4</a>.</div>
+
+   
+   <p class="p">次の表は、クエリ文字列を通じて表現できるパラメータを示しています。</p>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" id="d151432e40">パラメーター</th>
+
+       <th class="entry" valign="top" id="d151432e43">説明</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+     <tr class="row">
+       <td class="entry" valign="top" headers="d151432e40 d151432e43 "><span class="keyword apiname">alwaysShowScrubber</span></td>
+
+       <td class="entry" valign="top" headers="d151432e40 d151432e43 ">
+        <p class="p">常にメインコントロールバーとスクラバー機能を表示するには、trueを指定します。 デフォルトはfalseで、ホバー時にのみコントロールを表示します。 </p>
+
+       </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d151432e40 d151432e43 "><span class="keyword apiname">自動再生</span></td>
+
+       <td class="entry" valign="top" headers="d151432e40 d151432e43 ">
+        <p class="p">1に設定されている場合は、表示時にビデオを再生します。</p>
+
+       </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d151432e40 d151432e43 "><span class="keyword apiname">browserPlacement</span></td>
+
+       <td class="entry" valign="top" headers="d151432e40 d151432e43 ">
+        <p class="p">チャンネルの場合は、外部コントロールを配置する場所を左または右のいずれかに指定します。 これには、leftの場合はleft40、幅の場合は40％、leftおよび200ピクセルを指定する場合はleft200pxのように、コントロールが占める割合または幅をピクセル単位で含めることができます。 デフォルトの左または右の値は50％です。   </p>
+
+       </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d151432e40 d151432e43 "><span class="keyword apiname">折り返し電話</span></td>
+
+       <td class="entry" valign="top" headers="d151432e40 d151432e43 ">呼び出す関数の名前を指定してください。 プレーヤは、クエリ文字列のコールバックを見ると、ページ上の指定された関数を探してそれを呼び出します。 例えば、<pre class="pre codeblock">&lt;script src = &quot;http://player.ooyala.com/player.js？... callback = foofunction&quot;&gt; &lt;/script&gt;</pre>
+
+       </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d151432e40 d151432e43 "><span class="keyword apiname">埋め込みコード</span></td>
+
+       <td class="entry" valign="top" headers="d151432e40 d151432e43 ">
+        <p class="p">ビデオまたはチャンネルの埋め込みコードを指定します。 </p>
+
+       </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d151432e40 d151432e43 "><span class="keyword apiname">hasModuleParams</span></td>
+
+       <td class="entry" valign="top" headers="d151432e40 d151432e43 "><p class="gt-block p"><strong class="ph b">hasModuleParamsは1に設定する必要があります</strong>
+  <samp class="ph codeph">hasModuleParams</samp>= 1パラメータは、カスタムデータがを介して送信されるのを待つべきであることをプレイヤーに知らせます。 <a class="xref" href="cat_js_player.html" title="プレーヤー/プレーヤーUI JavaScript APIは、フルスクリーンモード、プレーヤーの状態、音量、再生ヘッド、プレーヤーの音量など、プレーヤーのさまざまな側面を処理するために使用できます。"><samp class="ph codeph">setModuleParams</samp></a> 関数（プレーヤーオブジェクトで利用可能） このパラメータは対応するものと共に使用します。  <a class="xref" href="cat_qstr_player.html" title="すべてのプレイヤークエリ文字列パラメータをリストして説明します"><samp class="ph codeph">setModuleParams</samp></a> 
+カスタムデータをプレーヤーに渡す機能。 使用する <samp class="ph codeph">hasModuleParams</samp>スクリプト埋め込みに2つの追加パラメータを指定する必要があります（<samp class="ph codeph">hasModuleParams</samp> そしてコールバック）。
+
+<strong class="ph b">コールバックは任意の関数に設定できます</strong> 
+追加する必要があります <samp class="ph codeph">callback = playerAPICallback</samp> あなたが呼び出す必要があるので、埋め込みスクリプトに <samp class="ph codeph">setModuleParams</samp> 特定の時間、つまり <samp class="ph codeph">playerEmbedded</samp> イベントが発生します。 コールバック関数内でこれらのイベントを監視するためのJavascriptを追加できます。 の <samp class="ph codeph">playerAPICallback</samp> あなたが望むどんな関数でも置き換えることができます。 例：スクリプトの埋め込みにパラメータを追加したい場合は、次のようにします。 <samp class="ph codeph">hasModuleParams</samp>次の例に示すように、コールバック、および埋め込み文字列内のコールバック関数。</p>
+
+   <pre class="pre codeblock">&lt;script src = &quot;http://player.ooyala.com/player.js？... hasModuleParams = 1＆callback = playerAPICallback&quot;&gt; &lt;/script&gt;</pre>
+
+        <p class="gt-block p">この例では、 <samp class="ph codeph">hasModuleParams</samp> コールバックは任意の関数です。 また、JavaScriptのコールバック関数をページの他の場所に追加する必要があります。 詳細については、 <a class="xref" href="cat_js_player.html" title="プレーヤー/プレーヤーUI JavaScript APIは、フルスクリーンモード、プレーヤーの状態、音量、再生ヘッド、プレーヤーの音量など、プレーヤーのさまざまな側面を処理するために使用できます。"><samp class="ph codeph">setModuleParams</samp></a> 機能。</p>
+</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d151432e40 d151432e43 "><span class="keyword apiname">高さ</span></td>
+
+       <td class="entry" valign="top" headers="d151432e40 d151432e43 ">
+        <p class="p">プレーヤーの高さをピクセル単位で指定します。 </p>
+
+       </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d151432e40 d151432e43 "><span class="keyword apiname">隠す</span></td>
+
+       <td class="entry" valign="top" headers="d151432e40 d151432e43 ">特定のプレーヤー機能を無効にします。 このパラメータはallを受け入れ、すべてのコントロールを無効にするか、ボリューム、フルスクリーン、チャンネル、共有、情報、埋め込み、またはエンドスクリーンの任意の組み合わせを含むことができるコンマ区切りリストを無効にします。 クロムレスレイアウトの場合は、
+         <samp class="ph codeph">loadingIndicator</samp> も可能です。</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d151432e40 d151432e43 "><span class="keyword apiname">レイアウト</span></td>
+
+       <td class="entry" valign="top" headers="d151432e40 d151432e43 ">クロムレスに設定すると、クロムを削除して画面を起動します。 指定しない場合、プレーヤーはデフォルトのレイアウトに戻ります。</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d151432e40 d151432e43 "><span class="keyword apiname">ループ</span></td>
+
+       <td class="entry" valign="top" headers="d151432e40 d151432e43 ">1に設定すると、終了時にビデオを自動的に再生します。</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d151432e40 d151432e43 "><span class="keyword apiname">thruParam_ &lt;adplatform&gt;</span></td>
+
+       <td class="entry" valign="top" headers="d151432e40 d151432e43 ">これらのパラメータの値は、それぞれの広告サーバーまたは広告ネットワークからのタグです。 </td>
+
+      </tr>
+</tbody>
+
+     </table>
+</div>
+
+     </div>
+
+     <div class="section"><h2 class="title sectiontitle">プレーヤの位置を調整するためのクエリ文字列パラメータ</h2>
+     
+     <p class="p">Webページに埋め込まれている場合、プレーヤーはそれ自身の外側のDIVによって制限されています。 これにより、プレーヤーの場所と位置をより適切に制御できます。 さらに、プレーヤーのコンテナー、DIV、クラス名、ID、およびターゲットの場所にその他の調整を加えるために、埋め込みコードのオプションとして追加できる追加のクエリ文字列パラメーターも用意されています。 DOMツリーでは、挿入されたプレーヤーは前もってロードされるのではなく、遅延ロード設計によってロードされます（オブジェクトは最初にアクセスされるまでロードされません）。 </p>
+
+   <div class="p">次の表は、プレーヤーの配置を調整するために埋め込み動作を変更するために使用されるパラメータについて説明しています。<table cellpadding="4" cellspacing="0" summary="" id="api_qpass__simpletable_rvs_541_3f" border="1" class="simpletable"><tr class="sthead">
+      <th valign="bottom" align="left" id="d151432e264" class="stentry" width="19.607843137254903%">パラメーター</th>
+
+      <th valign="bottom" align="left" id="d151432e267" class="stentry" width="80.3921568627451%">説明</th>
+
+     </tr>
+<tr class="strow">
+      <td valign="top" headers="d151432e264" class="stentry"><span class="keyword apiname">playerContainerId</span></td>
+
+      <td valign="top" headers="d151432e267" class="stentry">  <samp class="ph codeph">playerContainerId</samp> 埋め込みコードスニペットのplayer.jsクエリ文字列パラメータに追加できるオプションのパラメータです。 このパラメータは、IDに基づいてプレイヤーをDIVに配置します。 指定した場合は、使用せずに、指定したDIVへのinnerHTMLスワップを実行します。 <samp class="ph codeph">document.write</samp>。 Webページに複数のプレーヤーを配置したい場合、またはWebページ上のプレーヤーの場所を微調整したい場合は、このパラメータを使用してください。 Webページに埋め込みコードスニペットを配置するというデフォルトの動作は、Webページの外観、レイアウト、およびそれほどではないがページの読み込みに意図しない影響を与える可能性があります。 あなたが使用することができます
+       <samp class="ph codeph">playerContainerId</samp> Webページ内のプレーヤーの位置を制御する このパラメータを使用するには、追加するだけです。 <samp class="ph codeph">？playerContainerId = ...</samp> あなたの埋め込みに。
+        <p class="gt-block p">このパラメータの使用例は、トピックの「playerContainerIdクエリ文字列パラメータの例」を参照してください。  <a class="xref" href="player_examples_qpass.html" title="基本的なカスタマイズのためにOoyala Playerに渡すことができるクエリ文字列パラメータの例。"><em class="ph i">クエリ文字列パラメータの例</em></a> この文書の</p>
+</td>
+
+     </tr>
+<tr class="strow">
+      <td valign="top" headers="d151432e264" class="stentry"><span class="keyword apiname">playerClassName</span></td>
+
+      <td valign="top" headers="d151432e267" class="stentry">Flashオブジェクトクラスの外側のDIVに割り当てられたクラス名。 このパラメータを使用して、プレーヤーの外側のDIVのデフォルトのクラス名を変更できます。 たとえば、デフォルトの外部DIVの名前が &quot;alpha&quot;で、それを別の名前で指定する場合は、class = &quot;alpha delta&quot;に設定できます。 名前を変更すると、デフォルトのアルファ名または追加されたデルタクラス名を使用して、クラスごとに要素を取得できます。 これは、指定された名前を使ってプレーヤーへの参照を返します。
+       <p class="gt-block p">このパラメータの使用方法の例については、トピックの「playerClassNameクエリ文字列パラメータの例」を参照してください。 
+<a class="xref" href="player_examples_qpass.html" title="基本的なカスタマイズのためにOoyala Playerに渡すことができるクエリ文字列パラメータの例。"><em class="ph i">クエリ文字列パラメータの例</em></a> この文書の </p>
+</td>
+
+     </tr>
+<tr class="strow">
+      <td valign="top" headers="d151432e264" class="stentry"><span class="keyword apiname">playerId</span></td>
+
+      <td valign="top" headers="d151432e267" class="stentry">
+       <p class="p">プレーヤFlashオブジェクトのDOM ID。 </p>
+
+       <p class="gt-block p">タイプ：文字列、に準拠している必要があります <a class="xref" href="http://www.w3.org/TR/html401/types.html#type-name" target="_blank">HTML DOMの仕様</a> </p>
+
+        <p class="p">Example: b4f1a93b779145b4a9c8ef15f8502345</p>
+
+        <p class="p">このパラメータを使用してプレーヤーIDの操作を行います。 Backlotで生成された場合、デフォルトでこのプレーヤーIDはランダムな文字列です。 デフォルトのランダムな文字列を使用するか、または
+         <samp class="ph codeph">playerId</samp> 手動でプレーヤーIDを指定してください。 これを行う場合は、一意にするためにIDとクラスの組み合わせを指定する必要があります。 </p>
+
+       
+       <p class="gt-block p">playerIdを指定するときは、に準拠するIDを使用してください。 <a class="xref" href="http://www.w3.org/TR/html401/types.html#type-name" target="_blank">HTML DOMの仕様</a>。 エラーが発生する可能性があるため、playerIdにスペースやその他のランダムな特殊文字を含めないでください。</p>
+
+        
+        <p class="gt-block p"><strong class="ph b">注意： </strong>プレーヤIDを指定する場合、それはページ上で一意でなければなりません。 プレーヤーIDが一意でない場合、動作は未定義です。 ブラウザはスローするかもしれませんしないかもしれません <samp class="ph codeph">不明なエラー：例外</samp> 個々のブラウザの実装によっては、一部のブラウザは重複したDOM IDを許容します。</p>
+
+       <p class="gt-block p">このパラメータの使用方法の例については、トピックの「playerIdクエリ文字列パラメータの例」の節を参照してください。 <a class="xref" href="player_examples_qpass.html" title="基本的なカスタマイズのためにOoyala Playerに渡すことができるクエリ文字列パラメータの例。"><em class="ph i">クエリ文字列パラメータの例</em></a> この文書の</p>
+
+      </td>
+
+     </tr>
+<tr class="strow">
+      <td valign="top" headers="d151432e264" class="stentry"><span class="keyword apiname">targetReplaceId</span></td>
+
+      <td valign="top" headers="d151432e267" class="stentry">Webページ上のDOMオブジェクトをIDで指定されたオブジェクトと置き換えます。 WebページでDOMオブジェクトIDを指定した場合、そのDOM IDが使用可能であれば、そのDOMオブジェクトをプレーヤーで置き換えます。 このAPIを使用して、定義済みのDIVを完全に削除し、それを、置き換えようとしているDIVと同じ場所に挿入されている指定のOoyalaプレーヤーに置き換えます。
+       <p class="gt-block p">このパラメーターの使用例は、トピックの &quot;targetReplaceIdクエリ文字列パラメーターの例&quot;のセクションを参照してください。 
+<a class="xref" href="player_examples_qpass.html" title="基本的なカスタマイズのためにOoyala Playerに渡すことができるクエリ文字列パラメータの例。"><em class="ph i">クエリ文字列パラメータの例</em></a> この文書の</p>
+</td>
+
+     </tr>
+</table>
+</div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">関連情報 </h2>
+   
+   <p class="p">以下のリストは、プレイヤーについての一般的な情報を提供するBacklotドキュメントへのリンクを提供します。</p>
+
+   <ul class="ul">
+    <li class="li"><a class="xref" href="../api/players_core.html" title="プレーヤーを作成してアカウント内の1つ以上のアセットに割り当てると、再生オプションとコンテンツの外観が決まります。">Backlot REST APIを使用したプレーヤーの管理</a></li>
+
+    <li class="li"><a class="xref" href="../api/players.html">プレイヤー（Backlot REST API）</a></li>
+
+    <li class="li"><a class="xref" href="../concepts/chapter_players.html" title="Backlot UIを使用してOoyalaプレーヤーを作成および構成する方法を説明します。">Backlotでプレイヤーを管理する</a></li>
+
+    <li class="li"><a class="xref" href="../tasks/publishing_manual_embed.html">バックスロットでのプレーヤー埋め込み設定</a></li>
+
+    <li class="li"><a class="xref" href="../tasks/api_asset_embed_manual.html" title="Webページでアセットを利用可能にするには、手動で埋め込むことができます。">手動でアセットを埋め込む</a></li>
+
+    <li class="li"><a class="xref" href="../tasks/gsg_publishingvideo.html" title="Ooyalaは、コンテンツを公開するためのさまざまな方法をサポートしています。 コンテンツをシンジケートして外部のサイト（YouTubeや他のサイトなど）に公開することも、Webページにビデオを埋め込むことで手動で公開することもできます。">ビデオの公開</a></li>
+
+   </ul>
+
+  </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../archive/player_api_qpass_intro.html" title="Ooyala Playerのクエリ文字列とパススルーパラメータを使用すると、Ooyala Playerに基本的なカスタマイズを渡すことができます。">クエリ文字列とパススルーパラメータ（Player V2は廃止予定）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

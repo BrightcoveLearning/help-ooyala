@@ -1,0 +1,98 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Advice for Web Programming"/>
+<meta name="abstract" content="Here are some recommendations for developers who use the Ooyala APIs and who can benefit from recommendations about programming for the web."/>
+<meta name="description" content="これは、Ooyala APIを使用し、Webのプログラミングに関する推奨事項から利益を得ることができる開発者向けの推奨事項です。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_api_setup.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="adviceforwebprogramming"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Webプログラミングのためのアドバイス</title>
+</head>
+<body id="adviceforwebprogramming">
+
+
+  <h1 class="title topictitle1">Webプログラミングのためのアドバイス</h1>
+
+  
+  <div class="body conbody"><p class="gt-block shortdesc">これを使用する開発者向けの推奨事項は次のとおりです。 <span class="ph">Ooyala</span> API、およびWebのプログラミングに関する推奨事項から恩恵を受けることができるユーザー。</p>
+
+    <p class="gt-block p">これらの推奨事項は、Ooyalaのエンジニアリングおよびプロフェッショナルサービスの専門家の経験に基づいており、Ooyalaの実践を実践するためのヒントです。 <a class="xref" href="api_best_practices.html#api_best_practices" title="Ooyalaは、Webサイト上で豊富でユニークなエクスペリエンスを作成できるようにする一連のAPIを提供します。 従うべきベストプラクティスはここにあります。">ベストプラクティス</a>.</p>
+
+    <div class="section"><h2 class="title sectiontitle">Webキャッシュを設定する</h2>
+      
+      <p class="gt-block p">あなたの顧客のために最高のパフォーマンスを得るために、からの応答のためにキャッシングシステムを設定してください。
+          <span class="ph">バックスロットAPI</span>。 キャッシングのための非常に人気があり無料のプログラムの1つはmemcacheです。これはLinux上で無料で提供され、Microsoft WindowsまたはAppleシステムで利用可能です。 </p>
+
+      <p class="gt-block p">たとえば、真夜中（またはフロントエンドシステムの稼働率が最も低いとき）に、Linuxを使用するcronジョブを設定できます。 <span class="ph">バックスロットAPI</span>'s  <samp class="ph codeph">/ v2 / assets</samp> からすべての動画（アセット）を取得するためのルート <span class="ph">バックスロット</span>。 memcacheを実行すると、将来の要求に備えてこれらのビデオへの参照が保存されます。 ユーザーから資産の要求を受け取ると、プログラムは要求された資産が既にキャッシュされているかどうかを確認します。 もしそうなら、ビデオが表示されます。 そうでなければ、への呼び出し <span class="ph">バックスロットAPI</span> それを検索し、将来の参照のためにそれを保存してそれを表示します。 PHPでmemcacheを使ったコーディングの例は、 <a class="xref" href="http://www.search-this.com/2007/07/24/an-introduction-to-memcached/" target="_blank">http://www.search-this.com/2007/07/24/an-introduction-to-memcached/</a></p>
+
+      <p class="gt-block p">この問題についてのインターネット上の豊富な情報もあります。 <a class="xref" href="http://www.mnot.net/cache_docs/" target="_blank">http://www.mnot.net/cache_docs/</a>.</p>
+ 
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">モバイルWebのプログラミングについて学ぶ</h2>
+       いくつかの推奨事項<a name="fnsrc_1" href="#fntarg_1/index.html"><sup>1</sup></a>:  <ol class="ol">
+        <li class="li">基本的なHTMLとCSSを使用してください。</li>
+
+        <li class="li">高速ダウンロードのために画像のサイズを小さくしてください。</li>
+
+        <li class="li">ブラウザ検出でリダイレクトを使用します。</li>
+
+        <li class="li">ユーザビリティの問題：あなたのページを過負荷にしないでください。 必要な基本を使いやすいサイズで提供してください。 <ul class="ul">
+            <li class="li">ナビゲーションリンクが多すぎるのを避けます。</li>
+
+            <li class="li">ページ上のコンテンツの量を最小限にします。</li>
+
+            <li class="li">プレゼンテーションアイテムが邪魔になることがあります。</li>
+
+            <li class="li">必要に応じて、フルサイズバージョンへのリンクを提供してください。</li>
+
+          </ul>
+</li>
+
+      </ol>
+<p class="p">その他のアドバイス</p>
+<ul class="ul">
+        <li class="li"><a class="xref" href="http://mobilewebbook.com/" target="_blank">http://mobilewebbook.com/</a></li>
+
+        <li class="li"><a class="xref" href="http://www.teehanlax.com/blog/iphone-gui-psd/" target="_blank">http://www.teehanlax.com/blog/iphone-gui-psd/</a></li>
+
+        <li class="li">iPhoneの場合： <ul class="ul">
+            <li class="li"><a class="xref" href="http://mobiledesign.org/" target="_blank">http://mobiledesign.org/</a></li>
+
+            <li class="li"><a class="xref" href="http://cssiphone.com/" target="_blank">http://cssiphone.com/</a></li>
+
+          </ul>
+
+        </li>
+
+      </ul>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">ブラウザツールを利用する</h2>
+      
+      <p class="p">あなたのブラウザのデバッグツールに慣れてください。 </p>
+
+      <p class="gt-block p">たとえば、iPadまたはiPhone用に開発している場合は、Apple SafariまたはMozilla Firefox Webブラウザを使用して、ユーザーエージェントを変更してこれらのデバイスをエミュレートできます。 見る <a class="xref" href="http://www.mydigitallife.info/how-to-emulate-iphone-change-user-agent-in-safari-and-firefox-web-browser/" target="_blank">http://www.mydigitallife.info/how-to-emulate-iphone-change-user-agent-in-safari-and-firefox-web-browser/</a>.</p>
+
+    </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_api_setup.html" title="Ooyalaは、Backlotプラットフォームへのリクエストを可能にするRESTベースのインターフェースを提供します。">Backlot REST APIを使用する</a></div>
+</div>
+</div>
+<div class="fn"><a name="fntarg_1" href="#fnsrc_1/index.html"><sup>1</sup></a>  <a class="xref" href="http://www.slideshare.net/nickwhitmoyer/mobile-web-design-the-basics" target="_blank">http://www.slideshare.net/nickwhitmoyer/mobile-web-design-the-basics</a></div>
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript>

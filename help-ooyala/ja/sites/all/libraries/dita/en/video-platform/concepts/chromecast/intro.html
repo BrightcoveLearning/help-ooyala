@@ -1,0 +1,243 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Introduction to Chromecast Integration"/>
+<meta name="DC.Relation" scheme="URI" content="../../concepts/chromecast/index.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="chromecast_intro"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../../css/ooyala.css"/>
+<title>Chromecast統合の概要</title>
+</head>
+<body id="chromecast_intro">
+
+
+ <h1 class="title topictitle1">Chromecast統合の概要</h1>
+
+ <div class="body conbody"><div class="section">このトピックでは、OoyalaとChromecastの統合に関する用語、使用例、アーキテクチャ、およびコンポーネントについて説明します。</div>
+
+   
+   
+   
+   <div class="section"><h2 class="title sectiontitle">ユースケース</h2>キャストセッションは、OoyalaのChromecast統合でサポートされている以下のユースケースのいずれかで開始できます。 <p class="gt-block p" id="chromecast_intro__cast_play"><strong class="ph b">キャスト＆プレイ</strong></p>
+<ol class="ol">
+        <li class="li">ユーザーが <span class="ph uicontrol">キャスト</span> ボタン。 このボタンはキャストレシーバとの接続、制御、切断を行うメニューを呼び出します。 </li>
+
+        <li class="li">ユーザーはキャストメニューからReceiverデバイスを選択します。</li>
+
+        <li class="li">ユーザは再生するコンテンツを選択します。<p class="p">コンテンツが受信機の画面で再生され始めます。</p>
+</li>
+
+      </ol>
+<p class="gt-block p" id="chromecast_intro__play_cast"><strong class="ph b">プレイ＆キャスト</strong>
+      </p>
+<ol class="ol">
+        <li class="li">ユーザは再生するコンテンツを選択します。 送信側デバイスでコンテンツの再生が始まります。</li>
+
+        <li class="li">ユーザーが <span class="ph uicontrol">キャスト</span> ボタン。</li>
+
+        <li class="li">ユーザはキャストメニューから受信機を選択します。<p class="p"> コンテンツが受信側の画面で再生され、送信側デバイスで一時停止されます。</p>
+</li>
+
+      </ol>
+<p class="p">複数の送信者がいる場合、最後の送信者が常にコントロールを取得し、新しいアプリを最初からキャストし始めます。 新しい送信者が別のビデオを再生すると、古いビデオは切断されます。 </p>
+</div>
+
+  <div class="section" id="chromecast_intro__workflow"><h2 class="title sectiontitle">実行時ワークフロー</h2>次の図は、Chromecast統合のさまざまなコンポーネントの概要を示しています。 これらの各コンポーネントは、このドキュメントの以降の部分で詳細に定義されています。 <div class="fig fignone">
+        <img class="image" src="http://help-ooyala.brightcove.com/../../image/chromecast_flow.jpeg"/>
+      </div>
+
+    
+    
+    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+        
+        
+        
+        <thead class="thead" align="left">
+          <tr class="row">
+            <th class="entry" valign="top" width="6.666666666666667%" id="d261840e82">手順</th>
+
+            <th class="entry" valign="top" width="40%" id="d261840e85">成分</th>
+
+            <th class="entry" valign="top" width="53.333333333333336%" id="d261840e88">アクション</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody class="tbody">
+          <tr class="row">
+            <td class="entry" valign="top" width="6.666666666666667%" headers="d261840e82 ">1</td>
+
+            <td class="entry" valign="top" width="40%" headers="d261840e85 ">モバイルデバイス上の送信者アプリ</td>
+
+            <td class="entry" valign="top" width="53.333333333333336%" headers="d261840e88 ">アプリIDを要求する</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="6.666666666666667%" headers="d261840e82 ">2</td>
+
+            <td class="entry" valign="top" width="40%" headers="d261840e85 ">グーグル</td>
+
+            <td class="entry" valign="top" width="53.333333333333336%" headers="d261840e88 ">アプリIDをサーバーURLにマッピングします。</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="6.666666666666667%" headers="d261840e82 ">3</td>
+
+            <td class="entry" valign="top" width="40%" headers="d261840e85 ">Chromecast付きテレビ</td>
+
+            <td class="entry" valign="top" width="53.333333333333336%" headers="d261840e88 ">受信者を要求する</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="6.666666666666667%" headers="d261840e82 ">4</td>
+
+            <td class="entry" valign="top" width="40%" headers="d261840e85 ">Webサーバー上の受信側アプリ</td>
+
+            <td class="entry" valign="top" width="53.333333333333336%" headers="d261840e88 ">受信者のWebページを送信します</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="6.666666666666667%" headers="d261840e82 ">5</td>
+
+            <td class="entry" valign="top" width="40%" headers="d261840e85 ">Chromecast付きテレビ</td>
+
+            <td class="entry" valign="top" width="53.333333333333336%" headers="d261840e88 ">テレビに受信機を表示する</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="6.666666666666667%" headers="d261840e82 ">6</td>
+
+            <td class="entry" valign="top" width="40%" headers="d261840e85 ">Chromecast付きテレビ</td>
+
+            <td class="entry" valign="top" width="53.333333333333336%" headers="d261840e88 ">受信者を送信者に接続します</td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+</div>
+
+  </div>
+
+  <div class="section" id="chromecast_intro__sender"><h2 class="title sectiontitle">Chromecast送信者アプリケーション</h2>
+    <p class="p">送信側アプリケーションは、OoyalaのAndroidまたはiOS SDKに組み込まれているCastコンポーネントで、再生、一時停止、停止などの再生コントロール、およびストリーミングするデバイスコンテンツを選択する機能をユーザーに提供します。 内部では、これらの送信側アプリは同じローカルネットワーク上の受信側デバイスを検出し、安全なチャネルを確立し、メッセージを交換することができます。 </p>
+
+    <p class="p">送信者アプリケーションは、「プライマリ」表示デバイスのアプリケーションであり、近くのChromecastデバイスを見つける責任があります。 センダアプリケーションフレームワーク</p>
+
+    <ul class="ul">
+     <li class="li">と統合 <a class="xref" href="https://developers.google.com/cast/docs/sender_apps" target="_blank">GoogleのCast SDK（Google Play Servicesプラットフォームの一部）</a> iOSの場合は <a class="xref" href="https://developers.google.com/cast/v2/android_migrate_sender" target="_blank">Android用Googleのキャストコンパニオンライブラリ</a>.  </li>
+
+     <li class="li">モバイルベースのアプリケーション用のOoyala iOSおよび/またはAndroid SDKと統合します。</li>
+
+      <li class="li">ウーヤラと通信する <samp class="ph codeph">埋め込みコード</samp> とパラメータ（<samp class="ph codeph">initialTime</samp>,  <samp class="ph codeph">埋め込みトークン</samp>というように、Receiverアプリケーションに</li>
+
+     <li class="li">ロード、再生、一時停止、シーク、停止、音量の設定、ステータスの取得などのOoyalaプレーヤーコントロールをReceiverアプリケーションに伝えます。</li>
+
+     <li class="li">ReceiverアプリケーションからOoyalaプレーヤー情報、再生ヘッドの時間変更、ステータス変更、およびエラーを受け取ります。</li>
+
+    </ul>
+
+    <p class="p">送信側アプリケーションは、次のコンポーネントで構成されています。</p>
+
+    <ul class="ul">
+     <li class="li"><strong class="ph b">キャストボタン</strong>：キャストレシーバーと接続、制御、切断するためのメニューを呼び出すボタン。</li>
+
+     <li class="li"><strong class="ph b">キャストメニュー</strong>：キャストボタンをクリックしたときに表示されるメニュー。 キャストメニューでは、キャスト受信者との接続、制御、切断を行うことができます。</li>
+
+     <li class="li"><strong class="ph b">ユーザーコントロール</strong>：エンドユーザーは、再生、一時停止、シークなどのユーザーコントロールを使用して、キャストレシーバーでキャスト/再生しているコンテンツを制御できます。</li>
+
+    </ul>
+
+    <div class="note note"><span class="notetitle">注意：</span> OoyalaはPlayer V4 WebのSenderアプリケーションをサポートしていませんが、ChromeのデフォルトのCastプラグインを使用してブラウザでキャストすることをサポートしています。 このプラグインはOoyalaプレーヤーとは連携していません。 これはChromeタブの内容を反映します。 </div>
+
+   
+  </div>
+
+  <div class="section" id="chromecast_intro__receiver"><h2 class="title sectiontitle">Chromecast受信アプリケーション</h2> 受信側アプリケーションは、Chromecastデバイス上で動作するHTML5 / JavaScriptアプリケーションです。 受信側アプリケーションは以下の機能を実行します。 <ul class="ul">
+        <li class="li">アプリのコンテンツをテレビ画面に表示するためのユーザーインターフェイスを提供します。</li>
+
+        <li class="li">送信側アプリケーションからのメッセージを処理して、受信側デバイスのコンテンツを制御します。</li>
+
+        <li class="li">アプリケーション固有の送信側アプリケーションからのカスタムメッセージを処理します。</li>
+
+      </ul>
+Receiverアプリケーションフレームワーク： <ul class="ul">
+        <li class="li">Googleのと統合 <a class="xref" href="https://developers.google.com/cast/docs/custom_receiver" target="_blank">レシーバーSDK</a>レシーバアプリケーションページを構築して有効にします。</li>
+
+        <li class="li">Ooyala Player V4を使用します。</li>
+
+        <li class="li">Google Custom Channelを介してSenderアプリケーションとの通信を確立します。</li>
+
+        <li class="li">必要とする <samp class="ph codeph">player_branding_id</samp> セットアッププロセスの一部として。</li>
+
+      </ul>
+<p class="p">Ooyalaはサンプルレシーバーアプリケーションを提供することによってあなたが始めるのを助けます。 レシーバーアプリケーションには、レシーバーアプリケーションから抽象化された再生機能とスタイリングを備えたコードが含まれています。 この受信機はテスト目的のための迅速で簡単な実装を可能にします。</p>
+<div class="note note"><span class="notetitle">注意：</span> 見る <a class="xref" href="web_player_config.html">Ooyala HTML5プレーヤーでChromecastを有効にする</a> Ooyala HTML5プレーヤーでChromecastを有効にする方法については。</div>
+</div>
+
+   <div class="section"><h2 class="title sectiontitle">ミニコントローラー</h2>ユーザーが現在のコンテンツページまたは展開されたコントロールから移動したときにコントロールが表示されます。 これらのコントロールは、現在キャスト中のビデオに即時アクセスと視覚的な通知を提供します。 </div>
+
+  <div class="section"><h2 class="title sectiontitle">通信プロトコル</h2>
+     <p class="gt-block p">サンプルの受信側アプリケーションと送信側アプリケーションはGoogleの <a class="xref" href="https://developers.google.com/cast/docs/reference/chrome/chrome.cast.media" target="_blank"> メディアネームスペース</a> 送信側と受信側の間で再生、一時停止、シーク、開始、およびその他のイベントを送信します。 Ooyalaは、Googleのキャストメディアコマンドを使用しています。これは、レシーバコードにメディアステータスオブジェクトを作成するものです。 受信者は、クローズドキャプションを設定し、追加のプレイヤー状態情報を送信者に送信するために、Ooyalaメッセージバスにパブリッシュします。 イベントを処理するように通信プロトコルを設定している限り、Ooyalaレシーバーアプリケーションと独自のセンダーアプリケーションを使用できます。</p>
+
+     <p class="p">送信側と受信側のOoyala Chromecast Integrationアプリケーションで使用される名前空間は、 <samp class="ph codeph">x-urn：出演者：ooyala</samp>.</p>
+
+   <p class="gt-block p"><strong class="ph b">送信者→受信者</strong></p>
+
+     <p class="p">受信者に接続すると、送信者はMediaInfoオブジェクトを介してビデオ埋め込みコードを使用して必要なビデオをロードするメディアセッションを作成します。 ビデオがロードされると、送信者は受信者との通信に使用されるメディアオブジェクトを受信者から取得します。 送信者は、受信者からOoyala名前空間メッセージバスを介してメッセージを受け取り、クローズドキャプションを制御し、その制御ウィジェットの状態を更新します。</p>
+
+     <p class="p">送信者は、メディアセッションが生きているかどうか、プレイヤーの状態などを知るために、メディアステータスの更新を暗黙的に受信します。</p>
+
+
+   <p class="gt-block p"><strong class="ph b">受信者→送信者</strong></p>
+
+     <p class="gt-block p">すべてのイベントは <a class="xref" href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.MediaManager" target="_blank">MediaManagerオブジェクト</a>.  </p>
+
+    </div>
+
+   
+   
+   <div class="section"><h2 class="title sectiontitle">以前のOoyala Chromecast実装のアップグレード</h2>以前のバージョンのOoyalaを使用してChromecast統合を実装した場合（ <a class="xref" href="../chromecast_and_ooyala.html">ChromecastとOoyala（廃止予定）</a>次の手順を実行して、最新バージョンにアップデートできます。 <ol class="ol">
+        <li class="li">開発者向け文書（このセクション）を読んでください。</li>
+
+        <li class="li"><a class="xref" href="https://www.google.com/intl/en_in/chromecast/buy-tv/" target="_blank">購入</a> テストするChromecastデバイス</li>
+
+        <li class="li">レシーバーアプリケーション用の独自のホスティングインフラストラクチャを容易にします（コンテンツ配信に使用するCDNでCORSの有効化を設定する必要があります）。</li>
+
+        <li class="li">受信機のHTMLを登録します。 <a class="xref" href="https://cast.google.com/u/0/publish/#/signup" target="_blank">Googleキャスト登録</a>.  <ul class="ul">
+            <li class="li">iOSの場合は、サンプルのChromecast Sender iOSアプリをご覧ください。</li>
+
+            <li class="li">Androidの場合は、サンプルのChromecast Sender Androidアプリをご覧ください。</li>
+
+          </ul>
+</li>
+
+      </ol>
+これらの手順については、 <a class="xref" href="https://github.com/ooyala/chromecast-sample-receiver/blob/master/README.md" target="_blank">README.md</a> でファイル <a class="xref" href="https://github.com/ooyala/chromecast-sample-receiver/tree/feature/chromecast-receiver-updates" target="_blank">https://github.com/ooyala/chromecast-sample-receiver/tree/feature/chromecast-receiver-updates</a>.  </div>
+
+   
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../../concepts/chromecast/index.html">Chromecastの統合</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></di

@@ -1,0 +1,110 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Getting Started: Enabling Upgrade for HLS Playback"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_android_getstarted.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/mobile_sdk_android_changevisualonversion.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_android_visualon.html"/>
+<meta name="DC.Relation" scheme="URI" content="mobile_sdk_android_changevisualonversion.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_android_livescrubbing.html"/>
+<meta name="DC.Relation" scheme="URI" content="mobile_sdk_android_turnoff_livescrubber.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="mobile_sdk_android_hls_upgrade"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>はじめに：HLS再生のアップグレードの有効化</title>
+</head>
+<body id="mobile_sdk_android_hls_upgrade">
+
+
+    <h1 class="title topictitle1">はじめに：HLS再生のアップグレードの有効化</h1>
+
+    <div class="body taskbody">
+        <div class="section context">SDKのアップグレード版（バージョン2.6.0 +）は、VisualOnとの統合により、Androidデバイス間でのVoDおよびライブストリーミング用の高度で一貫性のあるHLS再生エクスペリエンスを提供します。 アップグレード版のSDK（バージョン2.6.0 +）については、CSMまたはテクニカルサポートからVisualOnライブラリへのアクセスを要求してください。 
+            <div class="note warning"><span class="warningtitle">警告：</span> 
+                    <p class="p">4月の時点で、1、2016 Ooyala Android SDKはVisualOnライブラリの代わりにGoogle ExoPlayerライブラリと共に出荷されています。 実行する必要がある手順はありますが、ExoPlayerに移行すると、AndroidデバイスでのVODおよびライブストリームに対して、より一貫性のある高品質のHLSおよびMPEG-DASH再生エクスペリエンスが提供されます。</p>
+
+                    <p class="p">8月現在、1、2016、Ooyalaは、HLSプレーヤーとVisualOnとの統合をサポートしないか、またはVisualOnライブラリーに固有のバグ修正または改善を提供しません。 </p>
+
+                        <div class="p">アップグレードするには、あなたがする必要があります <ul class="ul">
+                    <li class="li">最新のAndroid SDK 4.13.0 +をダウンロードしてください。 <span class="ph">Ooyala <a class="xref" href="../../../../../../../../ja/downloads/index.html" target="_blank">ダウンロード</a></span>）あなたの統合を開始します。</li>
+
+                    <li class="li">の統合手順に従ってください。 <a class="xref" href="../concepts/android_exoplayer.html">Android上のGoogle ExoPlayerとの統合</a>.</li>
+
+                    <li class="li">アプリケーションを再コンパイルしてGoogle Playストアに送信してください。</li>
+
+                </ul>
+
+                </div>
+</div>
+
+        </div>
+
+        <ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd">CSMからVisualOnライブラリにアクセスした後、VisualOnライブラリをダウンロードしてください。</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">すべてをコピー <samp class="ph codeph">zip / libs / *。jar</samp> ファイルを
+                        <samp class="ph codeph">project / libs /</samp> フォルダにコピーします。</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">すべてをコピー <samp class="ph codeph">zip / libs / armeabi / *。so</samp> ファイルを
+                        <samp class="ph codeph">project / libs / armeabi /</samp> フォルダにコピーします。</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">すべてをコピー <samp class="ph codeph">zip / assets / *</samp> ファイルをproject / assets /フォルダーに入れます。</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">アプリケーションで、呼び出す前に次のSTATICプロパティを設定します。
+                    <samp class="ph codeph">setEmbedCode</samp>:</span>
+                 <pre class="pre codeblock">OoyalaPlayer.enableCustomHLSPlayer = true;                </pre>
+
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">HLS再生機能を持つ埋め込みコード（または.m3u8ファイルを指すリモートアセット）を再生します。</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Androidネイティブアプリを新しいOoyala Android SDKおよびVisualOnライブラリで再コンパイルします。</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">アプリケーションをテストして、HLSストリームが正しく再生されることを確認します。</span>
+            </li>
+</ol>
+
+        <div class="section postreq"><div class="note note"><span class="notetitle">注意：</span> Android用のVisualOnまたはOoyalaのSDKをすでに使用している場合は、最新バージョンに切り替えてアプリを再コンパイルしてください。</div>
+
+            <p class="gt-block p">VisualOnとの統合を説明するサンプルアプリケーションは、次のURLにあります。 <a class="xref" href="../concepts/mobile_sdk_android_sampleapps.html" title="サンプルアプリを使用してSDK APIについて学び、アプリをすばやく起動して実行する。">Android Mobile SDKのサンプルアプリケーション</a>.</p>
+
+        </div>
+ 
+    </div>
+
+    <div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../tasks/mobile_sdk_android_changevisualonversion.html">AndroidアプリのデフォルトのVisualOnライブラリを上書きする</a></strong><br/>
+</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/mobile_sdk_android_getstarted.html">Ooyala Android SDKを始めよう</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="../concepts/mobile_sdk_android_visualon.html">VisualOnの統合について</a></div>
+<div><a class="link" href="../concepts/mobile_sdk_android_livescrubbing.html">VisualOn Live Scrubbingの設定</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong><br/>
+<div><a class="link" href="mobile_sdk_android_changevisualonversion.html">AndroidアプリのデフォルトのVisualOnライブラリを上書きする</a></div>
+<div><a class="link" href="mobile_sdk_android_turnoff_livescrubber.html">ライブスクラバーを無効にする</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

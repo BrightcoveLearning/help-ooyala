@@ -1,0 +1,78 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Embedding the Ooyala Upload Widget (Deprecated)"/>
+<meta name="abstract" content="To embed the widget, you must include a code snippet in the body of a web page."/>
+<meta name="description" content="ウィジェットを埋め込むには、Webページの本文にコードスニペットを含める必要があります。"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/api_upload_widget.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="widget_embedding"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Ooyalaアップロードウィジェットの埋め込み（廃止予定）</title>
+</head>
+<body id="widget_embedding">
+
+
+    <h1 class="title topictitle1">Ooyalaアップロードウィジェットの埋め込み（廃止予定）</h1>
+
+  
+  
+ <div class="body refbody"><p class="shortdesc">ウィジェットを埋め込むには、Webページの本文にコードスニペットを含める必要があります。 </p>
+
+     <div class="section">
+         <p class="p">アップロードウィジェットは、アップロードを処理するFlashコンポーネントをロードします。 アップロードボタンのサイズはwidthおよびheightパラメータによって制御され、ボタンのラベルはlabelパラメータによって指定されます。</p>
+
+         
+         <pre class="pre codeblock">&lt;script src = &quot;http://www.ooyala.com/partner/uploadButton?width=100&amp;height=20&amp;label=Browse%20Button&quot;&gt; &lt;/script&gt;</pre>
+
+
+         
+         <p class="p">参照ボタンのカスタム画像を含めるには、URIエンコードURLを次のように指定します。 <samp class="ph codeph">皮膚</samp>
+             パラメータ この画像は、上、上、下のボタンの状態を表す3つの別々のスタック画像で構成する必要があります。 各画像は、埋め込み文字列で指定された高さと幅でサイズ変更する必要があります。 この例では、参照されている画像は <samp class="ph codeph">https://www.ooyala.com/static/partner/example_skins.png</samp> そしてそれは180x75の合計サイズです。</p>
+
+         
+         <pre class="pre codeblock">&lt;script src="http://www.ooyala.com/partner/uploadButton?width=180&amp;height=25&amp;label=Browse%20Button&amp;skin=http%3A%2F%2Fwww.ooyala.com%2Fstatic%2Fpartner%2Fexample_skins.png"&gt;&lt;/script&gt;
+</pre>
+
+         <p class="p">これは以下のようにレンダリングされます。</p>
+
+         <div class="p">
+             <div class="fig fignone">
+                 <img class="image" id="widget_embedding__image_d3j_mm2_d3" src="http://help-ooyala.brightcove.com/../image/uploader_widget_up.png"/>
+                 <p class="p">マウスオーバー時：</p>
+
+             </div>
+
+         </div>
+
+         <div class="p"><div class="fig fignone">
+             <img class="image" id="widget_embedding__image_itj_pm2_d3" src="http://help-ooyala.brightcove.com/../image/uploader_widget_over.png"/>
+         </div>
+
+         </div>
+
+         <p class="p">次に、実装する <samp class="ph codeph">onOoyalaUploaderReady</samp> アップロードウィジェットの準備が整ったときに呼び出される関数。 この機能には、イベントリスナーの追加、パラメータの設定、および認証の追加を行うことができます。 JavaScriptからアップローダウィジェットにアクセスするには、 <samp class="ph codeph">ooyalaUploader</samp> Flashオブジェクトですが、メソッドを直接呼び出さないでください。 <samp class="ph codeph">ooyalaUploader</samp>.</p>
+
+    
+  </div>
+
+  
+  
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../archive/api_upload_widget.html" title="v1アップロードウィジェットはv1 APIに基づいているため、非推奨です。 代わりに、Uploader JavaScript Libararyを使用してください。">非推奨：アップロードウィジェットAPI v1リファレンス（非推奨）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:abs

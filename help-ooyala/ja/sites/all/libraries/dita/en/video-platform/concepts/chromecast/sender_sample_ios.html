@@ -1,0 +1,88 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Sample Sender Application for iOS"/>
+<meta name="DC.Relation" scheme="URI" content="../../concepts/chromecast/index.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="chromecast_sample_sender_ios"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../../css/ooyala.css"/>
+<title>iOS用サンプル送信者アプリケーション</title>
+</head>
+<body id="chromecast_sample_sender_ios">
+
+
+ <h1 class="title topictitle1">iOS用サンプル送信者アプリケーション</h1>
+
+ <div class="body conbody">
+  <div class="section">Ooyalaは、Ooyala Chromecast統合の送信側コンポーネントと受信側コンポーネントの実用バージョンを実行する、iOS用のサンプル送信側アプリケーションを提供します。 </div>
+
+  <div class="section"><h2 class="title sectiontitle">必須条件</h2> iOSサンプルアプリケーションを実行するために次の手順を実行するには、次のものが必要です。 <ul class="ul">
+    <li class="li">開発者ライセンスがインストールされた最新バージョンのXcodeを実行しているアップル製コンピュータ。</li>
+
+    <li class="li">と受信機 <a class="xref" href="requirements.html">Chromecastモジュールが有効</a>.</li>
+
+    <li class="li">iOS 7以降が動作し、ChromecastアプリがインストールされていてレシーバーとペアになっているiOSデバイス。 このプロセスは、アプリがデバイス上で開かれたときに表示されるセットアップ手順に従って文書化されています。</li>
+
+   </ul>
+<div class="note note"><span class="notetitle">注意：</span> これらの手順を繰り返す場合は、2回目のパスを開始する前に、アプリがデバイスから削除されていることを確認してください。</div>
+</div>
+
+  <div class="section"><h2 class="title sectiontitle">iOS用サンプル送信側アプリケーションを実行するための手順</h2><ol class="ol">
+    <li class="li">クローン <a class="xref" href="https://github.com/ooyala/ios-sample-apps">iOSサンプルアプリ用のOoyala SDK</a> リポジトリ。 </li>
+
+    <li class="li">に移動します <samp class="ph codeph">ios-sample-apps / ChromecastSampleApp</samp> ローカルシステムのディレクトリ。</li>
+
+    <li class="li">Video Cloud Studioで <samp class="ph codeph">ChromeCastSampleアプリ</samp> フォルダにコピーします。</li>
+
+    <li class="li">ダブルクリック <samp class="ph codeph">ChromecastSampleApp.xcodeproj</samp> Xcodeでプロジェクトを開きます。 
+     <div class="fig fignone"><img class="image" src="http://help-ooyala.brightcove.com/../../image/openinxcode.png" height="143" width="477" alt="Xcodeでプロジェクトを開く"/></div>
+</li>
+
+    <li class="li">iOSデバイスをコンピュータに接続してください。</li>
+
+    <li class="li">プロビジョニングプロファイル設定に移動し、[iOSTeam Provisioning Profile]を選択します。 プロビジョニングプロファイルを設定できない場合は、アップルのサポートサイトのトピックを参照してください。 <a class="xref" href="https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppStoreDistributionTutorial/CreatingYourTeamProvisioningProfile/CreatingYourTeamProvisioningProfile.html">プロビジョニングプロファイルの作成</a>.  <div class="fig fignone">
+            <img class="image" src="http://help-ooyala.brightcove.com/../../image/provision.png" height="289" width="751" alt="プロビジョニングプロファイルを作成する"/>
+          </div>
+</li>
+
+    <li class="li">テスト機器のロックが解除されていることを確認してください。</li>
+
+   <li class="li">再生ボタンをクリックします。 <div class="fig fignone">
+            <img class="image" src="http://help-ooyala.brightcove.com/../../image/play.png" height="78" width="150" alt="Xcodeで遊ぶ"/>
+          </div>
+ アプリが端末で開き、再生可能な動画の一覧が表示されます。 <div class="fig fignone">
+            <img class="image" src="http://help-ooyala.brightcove.com/../../image/iphone_list.png" height="444" width="250" alt="再生可能なビデオのリスト"/>
+          </div>
+
+        </li>
+
+   <li class="li">放送アイコン（右上隅）をタップしてChromecast受信機を選択します。 <div class="fig fignone"><img class="image" src="http://help-ooyala.brightcove.com/../../image/receiverselect.png" height="25" width="36" alt="放送アイコン"/></div>
+</li>
+
+   <li class="li">リストから正しいChromeCast受信機をタップして選択します。 <div class="fig fignone">
+            <img class="image" src="http://help-ooyala.brightcove.com/../../image/chromecast_ios_connect.png" height="219" width="372" alt="デバイスに接続"/>
+          </div>
+</li>
+
+    <li class="li">受信機に送信するビデオをタップして選択します。</li>
+
+   </ol>
+ アプリはレシーバーで再生されています。 </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../../concepts/chromecast/index.html">Chromecastの統合</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window

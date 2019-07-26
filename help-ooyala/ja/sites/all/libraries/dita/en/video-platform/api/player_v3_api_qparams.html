@@ -1,0 +1,140 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Player V3 Query String Parameters (Deprecated)"/>
+<meta name="DC.Relation" scheme="URI" content="../api/player_v3_api_params.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/player_v3dev_hls_android.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_v3_api_qparams"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>プレーヤV3クエリ文字列パラメータ（廃止予定）</title>
+</head>
+<body id="player_v3_api_qparams">
+
+
+  <h1 class="title topictitle1">プレーヤV3クエリ文字列パラメータ（廃止予定）</h1>
+
+
+  <div class="body refbody">
+    <div class="section"><div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V3は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V3はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V3を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="../concepts/pbv4_migration_v3.html">Player V3からの移行</a> そして <a class="xref" href="../concepts/pbv4_migration_faq.html">プレイヤー移行に関するFAQ</a>).</div>
+
+      <div class="p">このような種類のクエリ文字列パラメータを、Player V3ライブラリとビデオを呼び出すURLに追加します。 <samp class="ph codeph"><em class="ph i">name1</em>=<em class="ph i">value1</em>
+          ＆<em class="ph i">name2</em>=<em class="ph i">value2</em>...</samp> 次の例では
+        <pre class="pre codeblock">
+     &lt;スクリプト&gt; http://player.ooyala.com/v3/<em class="ph i">player_branding_id</em>?<em class="ph i">name1</em>=<em class="ph i">value1</em>
+     ＆<em class="ph i">name2</em>=<em class="ph i">value2</em>...
+    </pre>
+
+        次の表は、これらのクエリ文字列パラメータについて説明しています。 </div>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="14.749262536873156%" id="d92605e73">パラメーター</th>
+
+              <th class="entry" valign="top" width="85.25073746312685%" id="d92605e76">説明</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            
+            
+            
+            
+          <tr class="row">
+              <td class="entry" valign="top" width="14.749262536873156%" headers="d92605e73 "><span class="keyword parmname">名前空間</span></td>
+
+              <td class="entry" valign="top" width="85.25073746312685%" headers="d92605e76 ">
+                <p class="p">namespaceパラメータは、デフォルトの名前空間OOを他の有効なjavascript idに名前変更することによって、同じページに複数の独立したプレーヤコードのコピーを許可します。 たとえば、この埋め込みを使用するとします。</p>
+
+                <pre class="pre codeblock">namespace =（<em class="ph i">ユニークなJavaScript ID</em>)</pre>
+
+                <p class="p">後で使用できます。</p>
+
+                <pre class="pre codeblock">MYPLAYER_1.Player.create（......）MYPLAYER_2.Player.create（......）   </pre>
+ 
+              </td>
+
+            </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="14.749262536873156%" headers="d92605e73 "><span class="keyword parmname">プラットフォーム</span></td>
+
+              <td class="entry" valign="top" width="85.25073746312685%" headers="d92605e76 "><p class="p">platformパラメータを使用すると、フラッシュ再生とhtml5再生の間の選択メカニズムを制御できます。 パラメータの形式は次のとおりです。</p>
+
+                <pre class="pre codeblock"><strong class="ph b">プラットフォーム</strong>=(<em class="ph i">フラッシュオンリー</em>|<em class="ph i">フラッシュ</em>|<em class="ph i">html5フォールバック</em>|
+         
+         <em class="ph i">html5-優先度</em>)</pre>
+
+                <p class="p">Player V3の場合、デフォルトのマルチメディアDefaultはflashです。 パラメータには以下のオプションがあります。 </p>
+<ul class="ul">
+                  <li class="li"><strong class="ph b">フラッシュ</strong>  - デスクトップ、モバイル、タブレットでのみデフォルトのAdobe Flash再生を有効にします。 このオプションはFlashに設定を設定しますが、html5フォールバックも許可します。</li>
+
+                  <li class="li"><strong class="ph b">フラッシュオンリー</strong>  -  Flashの再生のみ可能です。 Flashが検出されない場合は、エラーメッセージが表示され、視聴者にFlashプラグインのインストールを要求します。 </li>
+
+                  <li class="li"><strong class="ph b">html5フォールバック </strong> -  Flashを使用しますが、html5へのフォールバックを有効にします。 </li>
+
+                  <li class="li"><strong class="ph b"> html5-優先度 </strong> - このパラメータはhtml5を優先再生メカニズムとして設定しますが、Flashフォールバックも可能にします。 <div class="note note"><span class="notetitle">注意：</span> HTML5の再生は、特定のブラウザおよびOS /デバイス設定に対してのみ機能します。 を参照してください <strong class="ph b">サポートセンター</strong> →
+                        <strong class="ph b">オンラインマニュアル</strong> → <strong class="ph b">プレーヤー開発者ガイド</strong> → <a class="xref" href="../concepts/player_v3_dev_reqs.html" title="Player V3は、Flash再生、HTML5再生、およびFlash再生（HTML5フォールバックを使用）のサポートを多数のプラットフォームで提供しています。">Player V3プラットフォームとブラウザのサポート（廃止予定）</a> 詳しくはトピックを参照してください。 </div>
+</li>
+
+                </ul>
+</td>
+
+            </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="14.749262536873156%" headers="d92605e73 "><span class="keyword parmname">微調整=</span><samp class="ph codeph">android-enable-hls</samp></td>
+
+              <td class="entry" valign="top" width="85.25073746312685%" headers="d92605e76 ">使用 <span class="keyword parmname">微調整</span> Web用のAndroidデバイスでHLSを有効にするためのパラメータ。 このパラメーターを使用してAndroidデバイスでHLSを有効にすることはできますが、バージョン4.x以降のデバイスでのHLS再生には一定の制限があります。 Androidデバイスでの操作性の詳細については、「Android WebでのHLSの有効化」を参照してください。<div class="note note"><span class="notetitle">注意：</span> tweaksパラメータを使用するとネイティブ再生の問題が発生する可能性があるため、すべてのAndroidデバイスおよびOSのバージョンで最適な再生エクスペリエンスを保証することはできません。</div>
+<p class="gt-block p"><strong class="ph b">例</strong></p>
+<div class="p">
+                  <pre class="pre codeblock"><a class="xref" href="http://player.ooyala.com/v3/2f2c8826b6774f909c2fa6d23ce5334a?tweaks=android-enable-hls" target="_blank">http://player.ooyala.com/v3/123fake6b6774f909c2fa6d23ce5334a?tweaks=android-enable-hls</a></pre>
+
+                </div>
+</td>
+
+            </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="14.749262536873156%" headers="d92605e73 "><span class="keyword parmname">微調整=</span><samp class="ph codeph">html5-force-mp4</samp></td>
+
+              <td class="entry" valign="top" width="85.25073746312685%" headers="d92605e76 ">使用 <span class="keyword parmname">微調整</span> html4プレーヤーでMP5の再生を強制するためのパラメータ。 このパラメータは、hlsをサポートするデバイスであってもhtml5プレーヤーにMP4アセットを再生させるように強制します。
+              <div class="note note"><span class="notetitle">注意：</span> tweaksパラメータを使用するとネイティブ再生の問題が発生する可能性があるため、すべてのAndroidデバイスおよびOSのバージョンで最適な再生エクスペリエンスを保証することはできません。</div>
+
+              </td>
+
+            </tr>
+</tbody>
+
+        </table>
+</div>
+<div class="note note"><span class="notetitle">注意：</span> 従来のプレーヤAPIには、広告サーバと広告ネットワークのタグをOoyalaプレーヤに渡すためのクエリ文字列パラメータがありました。 Player V3の場合、サポートされている広告サーバー/ネットワークと関連タグを渡す仕組みについては、 <a class="xref" href="../reference/player_v3_dev_adsparams.html" title="埋め込みパラメータを使用して広告をカスタマイズします。">広告用のPlayer V3埋め込みパラメータ（廃止予定）</a>.</div>
+
+    </div>
+
+    
+  </div>
+
+  <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/player_v3_api_params.html" title="プレーヤV3パラメータは、プレーヤ広告、動作をカスタマイズし、プレーヤスタイルを変更するために使用できます。">Player V3 JavaScript APIパラメータ（廃止予定）</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="../concepts/player_v3dev_hls_android.html" title="Ooyalaは、特定のバージョンのAndroid OSを実行しているデバイス上のWebブラウザにHLS再生サポートを提供します。">Player V3でAndroid Web上でHLS再生を有効にする（廃止予定）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

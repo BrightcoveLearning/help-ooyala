@@ -1,0 +1,125 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Making Remote Assets Available on YouTube"/>
+<meta name="abstract" content="To make a remote asset available on YouTube, you need to setup a YouTube syndication (only once), upload a video to YouTube, create a remote asset in Backlot, add the YouTube ID to the asset, and add a label to the asset that triggers the YouTube syndication."/>
+<meta name="description" content="To make a remote asset available on YouTube, you need to setup a YouTube syndication (only once), upload a video to YouTube, create a remote asset in Backlot, add the YouTube ID to the asset, and add a label to the asset that triggers the YouTube syndication."/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/content_videosyoutube.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_publishing.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/content_remoteassets.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/content_videosyoutube.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="api_remote_assets_youtube"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>YouTubeでリモートアセットを利用可能にする</title>
+</head>
+<body id="api_remote_assets_youtube">
+
+
+ <h1 class="title topictitle1">YouTubeでリモートアセットを利用可能にする</h1>
+
+ 
+ <div class="body taskbody"><p class="gt-block shortdesc">YouTubeでリモートアセットを利用可能にするには、YouTubeシンジケーションを設定し（1回だけ）、YouTubeにビデオをアップロードし、でリモートアセットを作成する必要があります。 <span class="ph">バックスロット</span>、YouTube IDをアセットに追加し、YouTubeシンジケーションをトリガーするラベルをアセットに追加します。</p>
+
+  <div class="section context">
+   <div class="note note"><span class="notetitle">注意：</span> Backlot REST APIコマンドについて詳しくは、以下を参照してください。
+     <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/backlot_api/index.html" target="_blank">バックスロットAPIリファレンス</a>.</div>
+
+   <p class="p">YouTubeでリモートアセットを利用可能にするには：</p>
+
+  </div>
+
+  <ol class="ol steps"><li class="li step stepexpand">
+    <span class="ph cmd"> YouTubeシンジケーションを設定します（一度だけ）。 </span>
+     次の例では、YouTubeシンジケーションを作成します。
+      <samp class="ph codeph">syndicate_to_youtube</samp> label (48951b2ed95a4e13b8a3b07d59ac6ec1).
+     <pre class="pre codeblock">[POST] / v2 /シンジケーション{ &quot;asset_types&quot;：[ &quot;remote_asset&quot;]、 &quot;include_all_content&quot;：偽、 &quot;include_labels&quot;：[ &quot;48951b2ed95a4e13b8a3b07d59ac6ec1&quot;]、 &quot;名&quot;： &quot;YouTubeの&quot;、 &quot;should_create_youtube_videos&quot;：真、「should_delete_youtube_videos &quot;：true、&quot; type &quot;：&quot; youtube &quot;、&quot; username &quot;：&quot; my_username &quot;、&quot; password &quot;：&quot; my_password &quot;}</pre>
+
+     <p class="gt-block p"><span class="ph">バックスロット</span> 次のような応答を返します。</p>
+
+     <pre class="pre codeblock">{ &quot;名前&quot;： &quot;YouTubeの&quot;、 &quot;require_access_key&quot; 偽 &quot;のcreated_at&quot;： &quot;2011-03-31T22：38：34 + 00：00&quot;、 &quot;include_labels&quot;：[ &quot;48951b2ed95a4e13b8a3b07d59ac6ec1&quot;]、 &quot;should_create_youtube_videos&quot;：真、 &quot;asset_types&quot;：[&quot;remote_asset&quot;]、 &quot;username&quot;： &quot;my_username&quot;、 &quot;id&quot;： &quot;716437dedfa443bbb69cf7101c3574&quot;、 &quot;include_all_content&quot;：false、 &quot;タイプ&quot;： &quot;youtube&quot;、 &quot;should_delevidey&quot;</pre>
+
+     <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+    
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">動画をYouTubeにアップロードしてYouTube IDを取得します。 YouTubeへのビデオのアップロードの詳細については、 <a class="xref" href="http://www.youtube.com" target="_blank">YouTubeウェブサイト</a>.</span>
+     この例では、YouTube IDは <samp class="ph codeph">dQw4w9WgXcQ</samp> 次のURLの場合： 
+     <pre class="pre codeblock">
+ http://www.youtube.com/watch?v=dQw4w9WgXcQ
+    </pre>
+
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd"> でリモートアセットを作成する <span class="ph">バックスロット</span>.  </span>
+     次の例では、（YouTubeリンクではなく）リモートアセットの元の場所を指すリモートアセットを作成します。
+     <pre class="pre codeblock">[POST] / v2 / assets {&quot;name&quot;： &quot;新しいリモートアセット&quot;、 &quot;asset_type&quot;： &quot;remote_asset&quot;、 &quot;duration&quot;：120000、 &quot;stream_urls&quot;：{&quot;flash&quot;： &quot;http://example.com /my_flash_file.flv &quot;、&quot; iphone &quot;：&quot; http://example.com/iphone_compatible_file.mp4 &quot;}}</pre>
+
+     <p class="gt-block p"><span class="ph">バックスロット</span> 次のような応答を返します。</p>
+
+     <pre class="pre codeblock">{&quot;asset_type&quot;： &quot;remote_asset&quot;、 &quot;duration&quot;：120000、 &quot;name&quot;： &quot;新しいリモートアセット&quot;、 &quot;preview_image_url&quot;： &quot;null&quot;、 &quot;created_at&quot;： &quot;2011-09-12T17：47：03：00：00： &quot;、&quot; embed_code &quot;：&quot; c1cWxzMjo6AKb_NhHAQiXx9mvAY4mG-D &quot;、&quot; stream_urls &quot;：{&quot; ipad &quot;：null、&quot; source_file &quot;：null、&quot; iphone &quot;：&quot; http://example.com/iphone_compatible_file.mp &quot;flash&quot; ： &quot;http://example.com/my_flash_file.flv&quot;、 &quot;itunes&quot;：null}、 &quot;time_restrictions&quot;：null、 &quot;updated_at&quot;： &quot;4-2011-09T12：17：47 + 04：00&quot;、 &quot;external_id&quot; &quot;：null、&quot;osted_at&quot;：null、 &quot;original_file_name&quot;：null、 &quot;description&quot;：null、 &quot;status&quot;： &quot;live&quot;}</pre>
+
+     <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+    
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd"> YouTube IDをアセットに関連付けます。 </span>
+     次の例では、 <samp class="ph codeph">dQw4w9WgXcQ</samp> YouTube IDと
+      <samp class="ph codeph">c1cWxzMjo6AKb_NhHAQiXx9mvAY4mG-D</samp> 資産。
+     <pre class="pre codeblock">[PATCH] / v2 / assets / c1cWxzMjo6AKb_NhHAQiXx9mvAY4mG-D / youtube {&quot;youtube_id&quot;： &quot;dQw4w9WgXcQ&quot;}</pre>
+
+     <p class="gt-block p"><span class="ph">バックスロット</span> 次のような応答を返します。</p>
+
+     <pre class="pre codeblock">{&quot;作者&quot;： &quot;RickAstleyVEVO&quot;、 &quot;youtube_id&quot;： &quot;dQw4w9WgXcQ&quot;、 &quot;youtube_syndication_settings&quot;：{&quot;プライベート&quot;：null、 &quot;モバイル&quot;：null、 &quot;埋め込み&quot;：null、 &quot;キーワード&quot;：null}}</pre>
+
+     <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+    
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd"> ラベルをアセットに関連付けます。 </span>
+     次の例では、 <samp class="ph codeph">syndicate_to_youtube</samp> ラベル（48951b2ed95a4e13b8a3b07d59ac6ec1） <samp class="ph codeph">c1cWxzMjo6AKb_NhHAQiXx9mvAY4mG-D</samp>
+     資産。
+     <pre class="pre codeblock">[PATCH]/v2/assets/c1cWxzMjo6AKb_NhHAQiXx9mvAY4mG-D/labels/48951b2ed95a4e13b8a3b07d59ac6ec1</pre>
+
+     <p class="gt-block p"><span class="ph">バックスロット</span> 次のような応答を返します。</p>
+
+     <pre class="pre codeblock">{&quot;items&quot;：[{&quot;name&quot;： &quot;syndicate_to_youtube&quot;、 &quot;id&quot;： &quot;48951b2ed95a4e13b8a3b07d59ac6ec1&quot;、 &quot;フルネーム&quot;： &quot;/ syndicate_to&quot; &quot;&quot;</pre>
+
+     <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+    
+   </li>
+</ol>
+
+  <div class="section postreq">
+   <p class="p">リモートアセットはYouTubeで入手できます。 </p>
+
+  </div>
+
+ </div>
+
+ <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/content_videosyoutube.html" title="YouTubeビデオは、YouTubeによってホストされ、Ooyalaプレーヤーを通じて再生されたビデオです。">YouTubeのビデオ</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="../concepts/chapter_publishing.html" title="公開を使用すると、動画や動画のメタデータを複数のWebプロパティやコンテンツネットワークと共有できます。">コンテンツ発行</a></div>
+<div><a class="link" href="../concepts/content_remoteassets.html" title="リモートアセットは、Backlotの外部でホストされるコンテンツの一部です。 コンテンツをアップロード、トランスコーディング、およびBacklotに保存する代わりに、必要に応じてBacklotがコンテンツを見つけることができるように、そのURLやその他の説明情報をアップロードするだけです。">リモートアセット</a></div>
+<div><a class="link" href="../concepts/content_videosyoutube.html" title="YouTubeビデオは、YouTubeによってホストされ、Ooyalaプレーヤーを通じて再生されたビデオです。">YouTubeのビデオ</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

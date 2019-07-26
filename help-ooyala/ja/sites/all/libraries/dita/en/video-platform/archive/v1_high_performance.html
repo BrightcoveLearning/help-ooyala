@@ -1,0 +1,100 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="High Performance API (Deprecated)"/>
+<meta name="abstract" content="In addition to our standard API, Ooyala also offers a high performance caching layer for API requests."/>
+<meta name="description" content="標準のAPIに加えて、OoyalaはAPIリクエスト用の高性能キャッシングレイヤも提供しています。"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/api_v1.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="v1_high_performance"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>高性能API（廃止予定）</title>
+</head>
+<body id="v1_high_performance">
+
+
+  <h1 class="title topictitle1">高性能API（廃止予定）</h1>
+
+  
+  
+ <div class="body refbody"><p class="shortdesc">標準のAPIに加えて、OoyalaはAPIリクエスト用の高性能キャッシングレイヤも提供しています。  </p>
+
+   <div class="section">
+     <div class="note note"><span class="notetitle">注意：</span> このソフトウェアは非推奨です。 最新版を使用してください。</div>
+
+     <p class="p">
+       このキャッシュ層は、すべてのアプリケーションに必要というわけではありませんが、次のような場合に理想的です。</p>
+
+     <ul class="ul">
+       <li class="li">あなたのアプリケーションは多数のAPIリクエストを生成します</li>
+
+       <li class="li">各ユーザーがラベルに対して同じクエリを生成するなど、重複するAPIリクエストが多数あります</li>
+
+     </ul>
+
+     <p class="p">
+       これらがあなたのユースケースを反映している場合は、高性能APIを使用することをお勧めします。
+     </p>
+
+     
+     <p class="p">高性能APIの使用</p>
+
+     <p class="p">
+       高性能APIを使用する際に知っておくべきことは次のとおりです。
+     </p>
+
+     <ol class="ol">
+       <li class="li">APIリクエストを行う必要があります <strong class="ph b">cdn-api.ooyala.com</strong> api.ooyala.comではなく
+       </li>
+
+       <li class="li"><p class="p">高性能キャッシングレイヤはあなたの応答のコピーを数分間保持しますが、あなたのexpiresパラメータは &quot;キャッシュにやさしい&quot;ものにする必要があります。 有効期限を現在の時刻からわずか数分に設定することが多い通常のAPIリクエストとは異なり、パフォーマンスを一定の時間に設定するとパフォーマンスが向上します。 たとえば、次のコードを使用して、常に明日の始まりになるように設定できます。</p>
+
+       <p class="p">
+         <samp class="ph codeph">今日= Date.today</samp>
+         <samp class="ph codeph">expires = Time.mktime（今日の年、今日の月、今日の日）+ 86400
+         </samp>
+       </p>
+
+         <p class="p">また、Flash / Flexアプリケーションから直接使用するURLを生成している場合は、有効期限が切れるまでの数年間でURLを事前に生成するだけで済みます。</p>
+
+       </li>
+
+       <li class="li">
+         <p class="p">
+         高性能は、それがすべての場合に優れているという意味ではありません。 CDNへのクエリのキャッシュは、繰り返しのある、一意ではないリクエストには理想的ですが、毎回一意のリクエストを（検索語から）生成する場合は、Ooyalaに直接クエリすることをお勧めします。
+         </p>
+
+       <p class="p">
+         さらに、常に最新の応答が必要であり、キャッシュされた応答が返されるまで数分間待つことができないシナリオでは、api.ooyala.comを使用する必要があります。
+       </p>
+
+       </li>
+
+     </ol>
+
+     
+   
+  </div>
+
+  
+  
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../archive/api_v1.html" title="このバージョンのBacklot APIは非推奨です。 APIのバージョン2で新しい開発作業を行うことを強くお勧めします。 V2 APIの使用方法については、Ooyalaサポートセンターの開発者ドキュメントセクションを参照してください。">Ooyala Backlot APIリファレンスV1（非推奨）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

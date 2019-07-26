@@ -1,0 +1,350 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Player V3 LiveRail Ad Integration"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/ads_ref_liverail.html"/>
+<meta name="DC.Relation" scheme="URI" content="ads_integration_overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_ads_integration.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="ads_dev_liverail"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>プレーヤV3 LiveRail広告統合</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="ads_dev_liverail">
+
+
+    <h1 class="title topictitle1">プレーヤV3 LiveRail広告統合</h1>
+
+
+    <div class="body conbody">
+        <div class="section"><h2 class="title sectiontitle">概要</h2>
+            <p class="gt-block p">LiveRail ad sets can be associated with an asset or multiple assets. This
+                documentation describes the LiveRail integration with Player V3. LiveRail VAST ads
+                are supported in Player V4. For documentation on the LiveRail integration with
+                Player V4, see <a class="xref" href="pbv4_ads_dev_chapter_vast.html">VASTとVPAIDの広告プラグイン</a>.</p>
+
+           
+           
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">必須条件</h2>
+            
+            <p class="gt-block p">To use Ooyala's LiveRail ad integrations, log into the <a class="xref" href="../../../../../../../../ja/contact/index.html" target="_blank">カスタマーポータル</a> この広告ソースをアカウントに追加するように要求するチケットを送信します。 有効にすると、LiveRail用の広告セットを作成できるようになります。</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Step 1: Create a LiveRail Ad Set</h2>
+            <p class="p">Follow these steps to integrate with LiveRail via ad sets: </p>
+
+            <div class="p">For instructions on how to create an ad set using the Backlot UI, see <a class="xref" href="../tasks/monetization_ads_adsets_integratingadnetworks.html" title="自分のアセットを使用する代わりに、他の広告ソースを使用することができます。">広告ソースと統合するための広告セットの作成</a>. For
+                instructions on how to create an ad set programmatically, see <a class="xref" href="../api/ad_sets.html" title="広告セットは、再生中のアセットの広告エクスペリエンスを制御する広告設定です。">広告セット</a>.<div class="note note"><span class="notetitle">注意：</span> You will see three
+                    LiveRail options when creating an ad set. Choose the "LiveRail" option. This
+                    integration can handle both in-stream and overlay ads via the LiveRail ads
+                    manager.</div>
+</div>
+
+                    <div class="p">  <strong class="ph b">必須広告セットフィールド</strong> for creating a LiveRail ad set are: <ul class="ul">
+                    <li class="li"><em class="ph i">広告セット名</em>: You will enter a name for the ad set. </li>
+
+                    <li class="li"><em class="ph i">サイト運営者ID</em>: A unique account value provided by LiveRail.</li>
+
+                    <li class="li"><em class="ph i">カスタムメタデータを使用する</em>: You will set this to <strong class="ph b">はい</strong> to enable the ad
+                        manager to pass LiveRail run-time parameters via the ad manager. </li>
+
+                </ul>
+</div>
+
+            <div class="p">  <strong class="ph b">optional fields</strong> for creating a LiveRail ad set are: 
+            <ul class="ul">
+                <li class="li"><em class="ph i">パートナーID</em>: If you are syndicating your content to a partner and are
+                        loading a unique ad set for each partner, include a value here. You must
+                        create the Partner ID in Liverail if you want to use this value. </li>
+
+                <li class="li"><em class="ph i">タグ</em>: You could add comma-separated keywords describing the video content
+                        here. These tags will be included as targeting run-time parameters for
+                            <strong class="ph b">を</strong> ad requests associated with the LiveRail ad set. </li>
+
+                <li class="li"><em class="ph i">広告マップ</em>: The default ad map setting for LiveRail is a single pre-roll. If
+                        you would like to apply a different ad map, this value may be updated. For
+                        example, adding the value in::0;ov::5,35 to this field would include a
+                        pre-roll starting at 0 seconds and an overlay from 5 seconds to 35 seconds
+                        during playback. Whatever values you add here will apply to <strong class="ph b">を</strong>
+                        videos with which the LiveRail ad manager is associated. </li>
+
+            </ul>
+
+            <div class="note note"><span class="notetitle">注意：</span> The Tracking Pixel URL field is not relevant for the LiveRail ad manager integration. Leave this field blank.</div>
+</div>
+
+           </div>
+
+        <div class="section"><h2 class="title sectiontitle">Step 2: Assign the LiveRail Ad Set to an Asset or Multiple Assets </h2>
+            
+            <p class="p">You can assign an ad set to an asset or multiple assets using the Backlot UI, Player
+                API, or Backlot API.</p>
+
+            <p class="gt-block p"><strong class="ph b">バックスロットUI</strong>: For instructions on how to assign your LiveRail ad set to a single
+                asset, see <a class="xref" href="../tasks/asset_manage_monetization.html" title="広告を使用してコンテンツを収益化したり、ペイウォールを使用してペイパービューエクスペリエンスを作成したりできます。">収益化の管理</a>. For instructions on how to assign your LiveRail
+                ad set to multiple assets, see <a class="xref" href="../tasks/asset_bulk.html" title="Backlot UIを使用して、一度に複数の資産に設定を適用することができます。">一括適用設定</a>.</p>
+
+            <p class="gt-block p"><strong class="ph b">Player API</strong>: With the Player API you can only associate an ad set with an asset
+                on your web page. To associate an ad set with an asset on multiple players you must
+                replicate the code for each player. To associate an ad set with an asset using the
+                Player API, see <a class="xref" href="../concepts/player_v3_dev_assignadset.html" title="プレーヤーを使用すると、広告セットを動的に割り当てることができます。">Assigning Ad
+                    Sets Dynamically</a>.</p>
+
+            <p class="gt-block p"><strong class="ph b">バックスロットAPI</strong>: With the Backlot API you can associate an ad set with an asset
+                more concretely. That is, when you associate an asset with an ad set using the
+                Backlot API the asset and the ad set will be paired together on any player and page
+                you play the asset on. To associate an asset with an ad set using the Backlot API,
+                see <a class="xref" href="../api/asset_ad_set.html" title="広告セットをビデオ、ライブストリーム、およびリモートアセットに関連付けることができます。 広告セットの作成については、 『Backlotユーザーガイド』を参照してください。">Associate Ad Set with
+                    Asset</a>.</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Step 3: Assign Targeting and Run-Time Parameters</h2>
+            
+            <p class="p">The Liverail ad manager uses run-time parameters to enable content targeting. As an
+                example, you could target specific ads to run only on news and sports videos. Or,
+                you could allow only one advertiser to run on a particular set of videos -- maybe
+                Ford bought all the ad space (“inventory”) on car-related videos, for instance. The
+                run-time parameters are identifiable by the prefix <var class="keyword varname">"LR_"</var> and can
+                be added via Backlot or directly to your web page. </p>
+
+            <p class="gt-block p">To see a full list of available run-time parameters, go to <a class="xref" href="http://platform4.liverail.com/auth/index/lastUrl/http%253A%252F%252Fsupport.liverail.com%252Ftechnical-docs%252Frun-time-parameters-specification" target="_blank">LiveRailのサポートセンター</a>.</p>
+
+            <div class="p">
+                <div class="note note"><span class="notetitle">注意：</span> The LiveRail ad manager automatically ingests and passes the following
+                        <var class="keyword varname">LR_params</var> with every ad request: <ul class="ul">
+                        <li class="li"><var class="keyword varname">LR_TITLE</var></li>
+
+                        <li class="li"><var class="keyword varname">LR_PUBLISHER_ID</var></li>
+
+                        <li class="li"><var class="keyword varname">LR_VIDEO_ID</var></li>
+
+                    </ul>
+</div>
+
+            </div>
+
+            <p class="gt-block p"><strong class="ph b">LR_ADMAP</strong></p>
+
+            <p class="gt-block p">The standard way for defining when ads should play in video stream is by using the
+                Liverail run-time parameter <var class="keyword varname">LR_ADMAP</var>. Full details on the format
+                for this key/value pair are available in <a class="xref" href="http://platform4.liverail.com/auth/index/lastUrl/http%253A%252F%252Fsupport.liverail.com%252Ftechnical-docs%252Flr-admap-run-time-parameter" target="_blank">LiveRailのサポートセンター</a>.  </p>
+
+            <p class="p">の構文 <var class="keyword varname">LR_ADMAP</var>  is
+                    
+                    <var class="keyword varname">LR_ADMAP =タイプ：在庫scenario_id：時間</var>.</p>
+
+            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" id="d190734e252">変数</th>
+
+                            <th class="entry" valign="top" id="d190734e255">ユースケースに基づく入力</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d190734e252 d190734e255 ">タイプ</td>
+
+                            <td class="entry" valign="top" headers="d190734e252 d190734e255 ">
+                                <p class="p">インストリーム広告の場合は、 &quot;in&quot;に設定します。</p>
+
+                                <p class="p">オーバーレイ広告の場合は、 &quot;ov&quot;に設定します。</p>
+
+                            </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d190734e252 d190734e255 ">Inventory_scenario_id</td>
+
+                            <td class="entry" valign="top" headers="d190734e252 d190734e255 ">特定のシナリオに関連付けられているID値。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d190734e252 d190734e255 ">時間</td>
+
+                            <td class="entry" valign="top" headers="d190734e252 d190734e255 ">
+                                <p class="p">For in-stream ads, set to "n", where n is either the number of
+                                    seconds or the percentage of time into the content. Ex:
+                                        <var class="keyword varname">LR_ADMAP</var>= in：test_scenario：100％ 例：
+                                        <var class="keyword varname">LR_ADMAP</var>= in :: 0</p>
+
+                                <p class="p">For overlay ads, set to "n;m", where n is either the number of
+                                    seconds into the content or percentage of time to start into
+                                    content and m is either the number of seconds or percentage of
+                                    time into content to stop the overlay. Ex:
+                                        <var class="keyword varname">LR_ADMAP</var>=in::0;in::100%</p>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+
+            <p class="gt-block p"><strong class="ph b">Add Parameters via Backlot UI</strong></p>
+
+            <p class="gt-block p">In order for Custom metadata to be used as LiveRail runtime parameters, you will
+                input the parameters as custom metadata key/value pairs on the Custom Metadata
+                subtab on the MANAGE page for each asset. The 'Use Custom Metadata' dropdown needs
+                to be set to 'Yes' on the LiveRail Ad Set associated to the videoFor instructions on
+                how to add custom metadata to assets in Backlot, see <a class="xref" href="../tasks/metadata_create.html" title="資産には最大100個の名前と値のペアを追加できます。">カスタムメタデータの追加</a>
+                in the User Documentation.</p>
+
+            <div class="p">This example shows targeting parameters you could input to target specific ads to run
+                only on sports an news videos. <div class="fig fignone">
+                    <img class="image" src="http://help-ooyala.brightcove.com/../image/liverail_runtime_params.png" height="166" width="493"/>
+                </div>
+</div>
+
+            <p class="p">When the LiveRail ad manager is loaded, it automatically includes all of these custom
+                metadata values when making subsequent ad requests. You can define which ads run
+                where by creating ad targeting rules on the LiveRail platform.</p>
+
+            <p class="p"/>
+</div>
+
+        <div class="section"><h2 class="title sectiontitle">Integrate the LiveRail Ad Manager with the Ooyala Player via Player Embedded
+                Parameters</h2>
+            
+            <div class="note note"><span class="notetitle">注意：</span> Ad sets that are loaded at the page level will override the ad set associated with
+                the asset in Backlot.</div>
+
+            <p class="gt-block p"><strong class="ph b">Load LiveRail Ad Manager with OO.Player.create</strong></p>
+
+            <p class="gt-block p">To load the ad manager programmatically, use <var class="keyword varname">OO.Player.create</var>。 見る
+                    <a class="xref" href="../tasks/player_v3_dev_adsetoocreate.html" title="Player V3では、OO.Player.createとadSetCodeパラメータを使用して広告セットを動的に割り当てることができます。">Assigning an
+                    Ad Set with OO.Player.create</a> for instructions on how to use
+                OO.Player.create.</p>
+
+            <div class="p">Here is a short example of how to load the LiveRail ad manager programmatically:
+                <pre class="pre codeblock">  var videoPlayer =
+  OO.Player.create("playerwrapper", "embed_code", {
+    height: "100%",
+    width: "100%",
+    "liverail-ads-manager": {
+        ...
+    }
+  });        </pre>
+</div>
+
+            <p class="p"/>
+
+            <p class="p"> Here is a more robust example of LiveRail integration with the Ooyala Player on your
+                web page. The player_branding_id of a player and the embed code of an asset can be
+                found in the Embed tab on the MANAGE page of Backlot (the player_branding_id is in
+                bold and the embed code is italicized in this example).</p>
+
+            <pre class="pre codeblock">&lt;html&gt;
+
+&lt;head&gt;
+  &lt;script src="http://player.ooyala.com/v3/1217310cfc944c6abc338a459554666"&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div id="ooyalaplayer" style="width:640px;height:360px"&gt;&lt;/div&gt;
+  &lt;script&gt;
+    OO.ready(function () {   
+      OO.Player.create("ooyalaplayer", "MxcTUxNTplNGXE5aAnKFdon1e6h9CB_a", {
+        "liverail-ads-manager": {
+          "LR_PUBLISHER_ID": "1331"
+        },
+        onCreate: function (player) {
+            ...
+        },
+
+      }); 
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</pre>
+
+            <p class="p"> </p>
+
+        </div>
+
+        <div class="section">
+            <p class="gt-block p"><strong class="ph b">Add Parameters Directly to Your Web Page</strong></p>
+
+            <p class="gt-block p">To add additional LiveRail run-time or targeting parameters directly to your web
+                page, use <var class="keyword varname">OO.Player.create</var>。 見る <a class="xref" href="../tasks/player_v3_dev_adsetoocreate.html" title="Player V3では、OO.Player.createとadSetCodeパラメータを使用して広告セットを動的に割り当てることができます。">Assigning an Ad
+                    Set with OO.Player.create</a> for instructions on how to use
+                OO.Player.create.</p>
+
+            <div class="p">Here is an example of adding additional LiveRail run-time parameters
+                programmatically:
+                <pre class="pre codeblock">&lt;script&gt;
+  OO.ready(function () {
+    OO.Player.create("container", EMBED_CODE, {
+      "liverail-ads-manager": {
+        LR_PUBLISHER_ID: "1331",
+        LR_TAGS: "demo",
+        LR_ADMAP: "in::0;in::100"
+      }
+    });
+  });
+&lt;/script&gt;        </pre>
+</div>
+
+        </div>
+
+        <div class="section"/>
+
+         
+        <div class="section"><h2 class="title sectiontitle">LiveRail and Mobile</h2>
+            
+            <p class="p">To serve ads using LiveRail for mobile environments, you should download your
+                LiveRail account VAST tag from your LiveRail account. The tag will look something
+                like this:</p>
+
+            <p class="p">http://ad4.liverail.com/?LR_ORDER_ID=12345&amp;LR_ORDER_LINE_ID=345677&amp;LR_PUBLISHER_ID=13517&amp;LR_SCHEMA=vast2&amp;LR_URL=[URL]</p>
+
+            <p class="gt-block p">This tag is effectively a VAST wrapper, meaning that it will make an ad request to
+                LiveRail, and LiveRail will make subsequent ad calls to whatever ad sources you have
+                defined in your LiveRail account. Once you’ve downloaded the VAST tag, you should
+                integrate it into your mobile app environment(s) using our Ooyala mobile SDKs. For
+                more information about VAST, see <a class="xref" href="../concepts/ads_dev_vast.html">Integrating VAST Ads with Player V3</a>。 見る <a class="xref" href="../reference/adset_fields_liverail.html" title="ここで説明するフィールドは、Backlot UIで広告ソースがLiveRailに設定されているBacklot広告セット用です。"> Ad Set
+                        Fields for LiveRail</a> for descriptions of the fields you can input when
+                creating a LiveRail ad set with VAST. </p>
+
+        </div>
+
+    </div>
+
+    <div class="related-links"><div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="ads_integration_overview.html">クライアントサイド広告統合</a></div>
+<div><a class="link" href="../concepts/book_ads_integration.html" title="このドキュメントでは、Player V3の広告サーバー、広告ネットワーク、および広告管理プラットフォームの統合を設定する方法について説明します。">プレーヤV3広告統合</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong><br/>
+<div><a class="link" href="../reference/ads_ref_liverail.html">Player V3のLiveRail Ads埋め込みパラメータ（廃止予定）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></di

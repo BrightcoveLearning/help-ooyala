@@ -1,0 +1,49 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="FreeWheel Ads Embedded Parameter in Player V3 (Deprecated)"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/player_v3_dev_adsparams.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="ads_ref_freewheel"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>プレーヤーのFreeWheel Ads埋め込みパラメータV3（廃止予定）</title>
+</head>
+<body id="ads_ref_freewheel">
+
+
+ <h1 class="title topictitle1">プレーヤーのFreeWheel Ads埋め込みパラメータV3（廃止予定）</h1>
+
+ <div class="body refbody">
+   <div class="section"><div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V3は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V3はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V3を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="../concepts/pbv4_migration_v3.html">Player V3からの移行</a> そして <a class="xref" href="../concepts/pbv4_migration_faq.html">プレイヤー移行に関するFAQ</a>).</div>
+
+      <p class="gt-block p">FreeWheel広告サービス関連のタグを埋め込みパラメータと共にPlayerに渡すことができます。 <strong class="ph b">freewheel-ads-manager</strong> あなたの埋め込みのパラメータ。 </p>
+<div class="note note"><span class="notetitle">注意：</span> 広告の掲載順位は、デスクトップデバイスとモバイルデバイスでは多少異なります。 現時点では、プレロール広告、ミッドロール広告、ポストロール広告のサポートはプラットフォームによって異なります。 各プラットフォームでどの広告掲載順位がサポートされているかを確認するには、 <a class="xref" href="../concepts/ads_integration_overview.html">クライアントサイド広告統合</a>.</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">フリーホイールパラメータ</h2>
+      
+      <span class="keyword parmname">freewheel-ads-manager</span>  - この広告パラメータを使用して、FreeWheel広告サーバーまたはネットワークタグをOoyalaプレーヤーに渡します。 このパラメータは、FreeWheel URLを表すキーと値のペアを取ります。<p class="p"/>
+<div class="p">次のサンプルWebページは、FlashとHTML5の両方に対して、HTTPS環境で追加のページレベルパラメータを渡すFreeWheel広告マネージャ統合を示しています。 <div class="note note"><span class="notetitle">注意：</span> 次の動作しない例の値は、freewheel-ads-managerの使い方を説明するためだけに使用されています。 あなたはそれらをあなた自身のプロファイル、ID、そしてURLに置き換える必要があります。</div>
+<pre class="pre codeblock">&lt;スクリプトSRC = &#39;のhttp：？//player.ooyala.com/v3 / 1234fake2b914bc58e425795abf3cd6cバージョン= 1234fake09bb8939e930f888b2b9e23627b20ea6＆プラットフォーム= html5優先順位&#39;&gt; &lt;/ SCRIPT&gt; &lt;SCRIPT&gt; OO.ready（関数（）{VARのVideoPlayer = OO.Player .create（ &#39;コンテナ&#39;、 &#39;1234Fakeoi5Xv3Dav6uuEIeVJto9Ju7R&#39;、{ &quot;フリーホイール・広告・マネージャ&quot;：{fw_ad_module_js： &quot;http://adm.fwmrm.net/p/exampleprovider_live/AdManager.js&quot;、html5_ad_server：「https：//で1b656.v.fwmrm.net/ad/g/1 &quot;、html5_player_profile：&quot; 123400：exampleprovider_live_html5 &quot;、fw_player_profile：&quot; 123400：exampleprovider_live &quot;というページの上に、実際のページの上にページを作成します。 ： &quot;EXAMPLEVIDEO_EXAMPLEVIDEO_SHOWS&quot;、fw_video_asset_id：123400FAKE}}）;}）; &lt;/script&gt;</pre>
+</div>
+
+    </div>
+
+ </div>
+
+ <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../reference/player_v3_dev_adsparams.html" title="埋め込みパラメータを使用して広告をカスタマイズします。">広告用のPlayer V3埋め込みパラメータ（廃止予定）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

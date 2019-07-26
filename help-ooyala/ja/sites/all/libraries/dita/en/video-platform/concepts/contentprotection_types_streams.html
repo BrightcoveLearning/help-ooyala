@@ -1,0 +1,104 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Protected Streams"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/contentprotection_types_and_technologies.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="chapter_contentprotection_streams"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>保護されたストリーム</title>
+</head>
+<body id="chapter_contentprotection_streams">
+
+
+<h1 class="title topictitle1">保護されたストリーム</h1>
+
+  <div class="body conbody">
+   <p class="p">顧客への実際のデータの流れを保護する技術がいくつかあります。</p>
+
+    <p class="p">Ooyala暗号化ストリーミングは、ビデオストリームのリッピングや録画を防ぎます。 サイト運営者は、ストリーム内で広告付きの動画を収益化できます。 これにより、再生の承認に加えて追加の保護レベルが提供されます。</p>
+
+    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+        
+        
+        
+        <thead class="thead" align="left">
+          <tr class="row">
+            <th class="entry" valign="top" width="20%" id="d285298e31">テクノロジー</th>
+
+            <th class="entry" valign="top" width="60%" id="d285298e34">説明</th>
+
+            <th class="entry" valign="top" width="20%" id="d285298e37">注釈</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody class="tbody">
+          <tr class="row">
+            <td class="entry" valign="top" width="20%" headers="d285298e31 ">RTMPE</td>
+
+            <td class="entry" valign="top" width="60%" headers="d285298e34 ">RTMPE（Real Time Messaging Protocol、暗号化）は、フラッシュデバイスへの配信用にSecure Sockets Layer（SSL）を使用してコンテンツをオンザフライで暗号化します。</td>
+
+            <td class="entry" valign="top" width="20%" headers="d285298e37 "> </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="20%" headers="d285298e31 ">暗号化HTTPライブストリーミング（HLS）</td>
+
+            <td class="entry" valign="top" width="60%" headers="d285298e34 ">iOS（アップルのモバイルオペレーティングシステム）およびHTML5ベースのデバイス上のコンテンツを保護するために、OoyalaはHTTP Live Streaming（HLS）コンテンツ保護を使用しています。 コンテンツはトランスコードされ、各ストリームの各セグメントはランダムに生成されたコンテンツ暗号化キーでAES-128暗号化されます。
+            </td>
+
+            <td class="entry" valign="top" width="20%" headers="d285298e37 "> </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="20%" headers="d285298e31 ">暗号化HTTPダイナミックストリーミング（HDS）</td>
+
+            <td class="entry" valign="top" width="60%" headers="d285298e34 ">アドビのバージョンのHTTPストリーミングは、現在RTMP / Eを使用しているがHTTPのキャッシングの利点を望んでいるお客様にとっては当然の進化です。</td>
+
+            <td class="entry" valign="top" width="20%" headers="d285298e37 ">まだサポートされていません</td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+</div>
+   
+    <p class="p">これらの保護を実装するために、あなたは何もする必要はありません。 Ooyalaは、ターゲットデバイスの種類に応じてこの保護を提供します。 </p>
+
+
+    <div class="section" id="chapter_contentprotection_streams__concurrentstreamlimits"><h2 class="title sectiontitle">並行ストリームの制限</h2>
+       別の種類のストリーム関連の保護は、盗難から保護し収益を確保するために視聴者が同時ストリームの数を制限することを扱う。 <div class="note note"><span class="notetitle">注意：</span> Ooyalaプロバイダーアカウントに同時ストリーム制限を設定する必要がある場合は、Ooyalaカスタマーサクセスマネージャーに連絡してください。</div>
+
+      <p class="gt-block p">同時ストリーム制限の処理に関する詳細は、にあります。 
+        <a class="xref" href="player_v3_concurrent_stream_limits.html" title="デフォルトでは、あなたのOoyala Backlotプロバイダアカウントは各視聴者アカウントを2同時ストリームに制限します。 この機能は、アカウントを持たない友人と自分の資格を共有することを視聴者に勧めません。 最大数のストリームが開いている間に視聴者、または自分のアカウント資格情報を持つ誰かが追加のストリームを開こうとすると、プレーヤーはメッセージを表示してストリームを開くことを拒否します。 この既定の制限は、プロバイダアカウント内のすべてのシンジケーショングループ（公開ルール）に適用されます。 この制限を変更すると、グループごとに制限を有効または無効にできます。 デフォルトグループに対してこの設定を有効または無効にすることもできます。 Ooyala Backlotプロバイダアカウントの制限を変更することができます。 資産レベルでこのタイプの制限を設定することもできます。 たとえば、プロバイダアカウントの上限を3にし、資産レベルの上限を1にすることができます。 この場合、3人の友人または家族が同じ資格情報を使用してログインし、同時に3つの異なる資産を監視できますが、特定の資産を同時に監視することはできなくなります。">ビューアごとの同時ストリーム数の制限</a>.
+      
+      </p>
+
+    </div>
+
+  </div>
+
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/contentprotection_types_and_technologies.html" title="今日利用可能なコンテンツ保護の種類は3つのグループに分類することができます。">コンテンツ保護技術の調査</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

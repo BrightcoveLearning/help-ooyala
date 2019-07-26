@@ -1,0 +1,329 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Server Side Ad Insertion"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/monetization_integrations.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_standards.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="ssai_guide"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>サーバーサイド広告挿入</title>
+</head>
+<body id="ssai_guide">
+
+
+    <h1 class="title topictitle1">サーバーサイド広告挿入</h1>
+
+    
+    <div class="body conbody">
+        <div class="section"><p class="gt-block p">これはServer Side Ad Insertion（SSAI）のエンドツーエンドのガイドです。 SSAIをOoyala Liveストリームと統合する方法については、をご覧ください。 <a class="xref" href="../../../../../../../../ja/video-platform/concepts/liveplatform_pulse.html" target="_blank">詳細はこちら</a>。 VOD資産にSSAIを使用する方法については、を参照してください。 <a class="xref" href="../../../../../../../../ja/video-platform/concepts/ssai_guide_vod.html" target="_blank">詳細はこちら</a>.  </p>
+</div>
+
+        <div class="section"><h2 class="title sectiontitle">SSAIの紹介</h2> この資料は次の情報を提供します：<div class="p">
+                <ul class="ul">
+                    <li class="li">Live、VOD、およびPlayerを含む、OoyalaのServer Side Ad Insertion（SSAI）製品のエンドツーエンドの理解。 </li>
+
+                    <li class="li">顧客に対してSSAIを有効にして構成する方法の詳細。</li>
+
+                </ul>
+
+            </div>
+<p class="p">SSAIでは、広告がビデオストリームに挿入されるため、1つのコンテンツになります。 SSAIはライブコンテンツの広告に固有のもので、プロバイダが広告をライブビデオストリームに直接縫い付けて1つのコンテンツを作成できるようにする収益化サポートを提供します。 </p>
+<p class="p">この広告挿入モデルは柔軟性を提供し、変化の激しいライブ環境での待ち時間を最小限に抑え、エラーの可能性を減らし、オーディエンスにとってよりシームレスな広告体験を提供します。</p>
+<div class="p">要約すると、SSAIを使用すると以下のことが可能になります。 <ul class="ul">
+                    <li class="li">より的を絞ったパーソナライズされた広告をライブストリームに挿入することで、視聴者の放送コンテンツへの関与を高めます。</li>
+
+                    <li class="li">あらゆる種類の端末に広告を配信します。</li>
+
+                    <li class="li">インストリーム広告で最も最適な視聴体験を提供します。</li>
+
+                    <li class="li">ターゲット広告を作成します。</li>
+
+                    <li class="li">広告ブロッカーを回避することで、広告の表示回数を増やし、在庫率とライブイベントの収益を高めます。</li>
+
+                    <li class="li">広告掲載率を上げます。</li>
+
+                </ul>
+</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">始める前に -  SSAIに関する考慮事項</h2>
+                
+                    <p class="gt-block p"><strong class="ph b">SSAIでサポートされている環境</strong></p>
+
+                    <p class="gt-block p">見る <a class="xref" href="../../../../../../../../ja/video-platform/concepts/pbv4_environments.html" target="_blank">Player V4でサポートされているブラウザとオペレーティングシステム</a> 以下にリストされている環境の現在サポートされているバージョンについての情報。</p>
+
+                    <div class="p"><em class="ph i">Webブラウザ</em>
+                <ul class="ul">
+                    <li class="li">マイクロソフトエッジ</li>
+
+                    <li class="li">サファリ</li>
+
+                    <li class="li">クロム</li>
+
+                    <li class="li">FireFoxの</li>
+
+                    <li class="li">IE</li>
+
+                    <li class="li">クロームモバイル</li>
+
+                    <li class="li">Safari Mobile  -  Non-Smart Playerでのみサポートされています。 つまり、このような環境には次のような制限があります。 <ul class="ul">
+                            <li class="li">広告中にプレーヤーコントロールをロックすることはできないため、ユーザーは広告を越えてシークすることができます。</li>
+
+                            <li class="li">表示回数はサーバーによって処理されるため、精度が低い場合があります。</li>
+
+                            <li class="li">再生ヘッド位置イベントのインプレッションのみ作成できます。 全画面表示、一時停止/再開、および音量変更イベントは使用できません。</li>
+
+                        </ul>
+</li>
+
+                </ul>
+</div>
+
+                    <p class="gt-block p"><em class="ph i">SSAIをサポートするアプリ環境</em></p>
+
+            <ul class="ul">
+                <li class="li">アイフォン</li>
+
+                <li class="li">iOS</li>
+
+                <li class="li">TVoS</li>
+
+                <li class="li">アマゾンファイヤーテレビ</li>
+
+            </ul>
+
+                    <p class="gt-block p"><em class="ph i">SSAIでサポートされている形式</em></p>
+
+                    <ul class="ul">
+                        <li class="li">ライブおよびVOD用のHLS v3</li>
+
+                    </ul>
+
+                    <p class="gt-block p"><em class="ph i">サポートされている広告サーバー</em></p>
+
+                    <ul class="ul">
+                        <li class="li">DFP</li>
+
+                        <li class="li">パルス</li>
+
+                    </ul>
+
+                    <div class="note note"><span class="notetitle">注意：</span> SSAIは、DASHを必要とする環境ではまだサポートされていません。</div>
+
+                </div>
+<div class="section"><h2 class="title sectiontitle">SSAIでサポートされている機能</h2>
+                    
+                    <p class="p">現在SSAIでは次の機能をサポートしています。</p>
+
+            <p class="gt-block p"><strong class="ph b">VOD</strong></p>
+
+                    <ul class="ul">
+                        <li class="li">プリロール、ミッドロール、ポストロール。</li>
+
+                        <li class="li">コンテンツの追加は、SSAIを使用してビデオストリームに実行されます。</li>
+
+                        <li class="li">パーソナライズド広告サポート。つまり、広告サーバーで設定されている内容に基づいて、すべてのユーザーが異なる組み合わせの広告を持つことができます。
+                        </li>
+
+                        <li class="li">VAST 3.0のサポート。</li>
+
+                <li class="li">eHLSサポートが利用可能です。 DRMサポートはHLSでのみ利用可能です。</li>
+<li class="li">広告は広告サーバーからダウンロードされ、メインのビデオコンテンツのエンコードで使用される処理プロファイルと一致するようにトランスコードされます。</li>
+
+                        <li class="li">VOD用のSSAIは、AzureとElementalの両方でサポートされています。</li>
+
+                        <li class="li">広告は常にOoyala CloudFront CDNを通じて配信されます。 他のCDNサポートは将来的に来るでしょう。 顧客のビデオセグメントは配信設定として配信されますが、広告セグメントは常にCloudfront CDNを介してサポートされます。</li>
+
+                        <li class="li">アドキューポイントは次のように追加できます。 複数の方法が使用されている場合は、定義済みの優先順位に従います。
+                        <ul class="ul">
+                            <li class="li"><a class="xref" href="../../../../../../../../ja/video-platform/tasks/pbv4_assign_adsets_dynamic.html" target="_blank">バックスロット広告セット</a> 次に、広告セットをアセットに割り当てます（優先順位3）。</li>
+
+                            <li class="li">パラメータは <a class="xref" href="../../../../../../../../ja/video-platform/api/asset_metadata.html" target="_blank">カスタムメタデータ</a> 資産レベルで（優先順位2）</li>
+
+                            <li class="li"><a class="xref" href="../../../../../../../../ja/video-platform/api/pbv4_api_embedparams.html" target="_blank">ページレベルのプレーヤパラメータ</a> （優先順位1）</li>
+
+                        </ul>
+</li>
+
+                    </ul>
+
+                    <p class="gt-block p">見ます <a class="xref" href="../../../../../../../../ja/video-platform/concepts/ssai_guide_vod.html" target="_blank">VOD資産のSSAIユーザーガイド</a> 詳細については。</p>
+
+                    
+            <div class="p"><strong class="ph b">ライブ</strong><ul class="ul">
+                    <li class="li">ミッドロール広告のみがサポートされています。</li>
+
+                    <li class="li">SSAIを使用してライブストリームへのコンテンツ置換が実行されます。</li>
+
+                    <li class="li">パーソナライズ広告と非パーソナライズ広告の両方のサポートが含まれます。</li>
+
+                    <li class="li">サポート <a class="xref" href="https://wiki.corp.ooyala.com/display/ENG/Live+SSAI+Ads+Pre+Fetching" target="_blank">事前取得</a> 広告の。</li>
+
+                    <li class="li">VAST 3.0のサポート。</li>
+
+                <li class="li">広告は広告サーバーからダウンロードされ、VODで使用される処理プロファイルに合わせてトランスコードされます。</li>
+
+                    <li class="li">SSAI for Liveは、OoyalaのEncode and Packageモデルでのみサポートされています。</li>
+
+                    <li class="li">アドキューポイントのサポート<ul class="ul">
+                            <li class="li">チャンネルレベルのインストリームSCTE-35広告マーカー。</li>
+
+                            <li class="li">広告を挿入するための大きな赤いボタン機能は手動で利用できます（この場合、顧客はソースストリームをRTP経由でOoyalaに送信する必要があります）。</li>
+
+                            <li class="li">LiveプラットフォームAPI呼び出しを呼び出しています。</li>
+
+                    </ul>
+</li>
+<li class="li">DVRでの広告サポート（顧客がDVRでスクラブすると、広告が表示されます）。</li>
+
+                    <li class="li">広告の有効期間と広告の長さが一致しない場合のスレートの挿入</li>
+
+                    <li class="li">サーバーサイドとクライアントサイドの両方の広告インプレッションレポート。</li>
+
+                    <li class="li">広告なしでVODアーカイブにライブ。</li>
+
+                </ul>
+</div>
+
+                </div>
+<div class="section"><h2 class="title sectiontitle">ライブ広告挿入API呼び出し</h2>
+                    
+                    
+                    <p class="p">UI上のボタンまたはAPI呼び出しを通じて広告セグメントを挿入するオプションがあります。 </p>
+
+            <p class="p">次の例は、広告マーカーをストリームに挿入するために必要なAPI呼び出しの詳細を示しています。これにより、広告セグメントを挿入する場所が決まります。</p>
+
+                    
+                    <p class="p"><samp class="ph codeph">方法：POST</samp></p>
+
+                    <p class="p">URL：https://live.ooyala.com/v2/channels/&lt;channel_id&gt; / insertAdMarkers</p>
+
+                    <p class="p"><samp class="ph codeph">ボディ：{&quot;期間&quot;：60000、 &quot;遅延&quot;：0}</samp></p>
+
+                    <p class="p">期間は1000以上でなければなりません。</p>
+
+                    <p class="p">60000は60秒と同じです。</p>
+
+                    <p class="p">遅延はミリ秒単位です。</p>
+
+                </div>
+
+        <div class="section"><h2 class="title sectiontitle">SSAIでサポートされていない形式</h2>
+            
+            <p class="p">現在、SSAI LiveまたはVODでは次のものをサポートしていません。</p>
+
+            <ul class="ul">
+                <li class="li">マルチオーディオトラックを含むストリーム（シングルオーディオトラックストリームのみがサポートされています）。</li>
+
+                <li class="li">HEVCコーデック</li>
+
+                <li class="li">DASH、スムーズな出力ストリーム</li>
+
+            </ul>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">VOD SSAIでの広告の処理プロファイル</h2>
+            
+            <p class="p">VOD SSAIの場合、広告はAdサーバーからダウンロードされ、20の異なるビットレートと解像度の組み合わせを持つ事前定義されたプロファイルに基づいてトランスコードされます。 標準のOoyala推奨ビットレートはすべてこの一部です。</p>
+
+            <p class="p">広告の挿入中、Ads Proxyサービスは出力HLSのビットレートと解決リストを確認し、広告の最も適切なビットレートを選択します。 これにより、プロバイダごとにすべての異なる処理プロファイルに対して広告を1回だけトランスコードできます。 </p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">ライブSSAIでの広告の処理プロファイル</h2>
+            
+            <p class="p">Live SSAIの場合、広告は各Liveチャンネルプロファイルに従ってダウンロードされ、トランスコードされます。</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">SSAI用のOoyala Playerプラグイン</h2>
+            
+            <p class="p">IAB標準に従って、広告インプレッションはクライアント側、すなわちプレーヤーから行われるべきです。 SSAI用のプレーヤプラグインは以下の機能をサポートします。</p>
+
+            <ul class="ul">
+                <li class="li">クリックスルーのサポート、広告タイマーの表示、広告の中断中のスクラバーバーの無効化</li>
+
+                <li class="li">広告インプレッションを四分位単位で実行します。</li>
+
+            </ul>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">ウーヤラウェブプレーヤー</h2>
+            
+            <p class="gt-block p">プラグイン名： <span class="ph filepath">Ooyala_SSAI.js</span> ; フルパス：</p>
+
+            <p class="gt-block p"><a class="xref" href="http://player.ooyala.com/static/v4/production/ad-plugin/ooyala_ssai.min.js" target="_blank">http://player.ooyala.com/static/v4/production/ad-plugin/ooyala_ssai.min.js</a></p>
+
+            <p class="gt-block p">詳細：Ooyala SSAIプラグインは、デフォルトでは含まれていません。インライン（Advanced Embed）または標準埋め込みのURLパラメーター（SSAI URLパラメーター）として追加する必要があります - 
+                <a class="xref" href="../../../../../../../../ja/video-platform/concepts/pbv4_plugins_embed.html" target="_blank">https://help-ooyala.brightcove.com/video-platform/concepts/pbv4_plugins_embed.html</a>)</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Ooyala SDK</h2>
+            
+            <p class="gt-block p"><strong class="ph b">iOS</strong></p>
+
+            <p class="gt-block p">アプリケーションに含める必要があるライブラリは <span class="ph filepath">OoyalaSDK.framework</span> そして <span class="ph filepath">OoyalaSSAISDK.framework</span>.</p>
+
+            <p class="gt-block p">iOS用Ooyala Mobile SDKは、次のサイトからダウンロードできます。 <a class="xref" href="http://static.ooyala.com.s3.amazonaws.com/sdk/ios/release/OoyalaSDK-iOS.zip" target="_blank">詳細はこちら</a>.  </p>
+
+            <p class="gt-block p"><strong class="ph b">アイフォン</strong></p>
+
+            <p class="gt-block p">アプリケーションに含める必要があるライブラリは
+                    <span class="ph filepath">core.jar</span>,  <span class="ph filepath">OoyalaSsai.jar</span>、および
+                <span class="ph filepath">SkinSDK</span>.</p>
+
+            <p class="gt-block p">あなたはからAndroid用のOoyalaモバイルSDKをダウンロードすることができます  <a class="xref" href="http://static.ooyala.com.s3.amazonaws.com/sdk/android/release/OoyalaSDK-Android.zip" target="_blank">詳細はこちら</a>.  </p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Ooyala以外のプレーヤーによる広告インプレッション</h2>
+            
+            <p class="p">VODおよびLive用のSSAIは、HLSを再生できるすべてのプレーヤーで機能します。 これは、顧客がOoyala以外のプレイヤー（Ooyalaプレイヤーとは異なるプレイヤー）を使用している場合でも、SSAIをサポートできることを意味します。 Non-Ooyalaプレーヤーを使用して広告インプレッションを実行するために、Googleではサーバーサイドの広告インプレッションをサポートしています。</p>
+
+            <p class="p">ただし、VOD SSAIでサーバーサイドの広告インプレッションを有効にするには、次のスクリプトを展開する必要があります。このスクリプトは再生ヘッド情報を送信し、その代わりにAds Proxyサービスがインプレッションコールを実行します。</p>
+
+            <ul class="ul">
+                <li class="li"><strong class="ph b">ウエブサイト</strong>:  <a class="xref" href="https://github.com/ooyala/playback-lab-samples/tree/master" target="_blank">https://github.com/ooyala/playback-lab-samples/tree/master</a></li>
+
+                <li class="li"><strong class="ph b">アイフォン</strong>:  <a class="xref" href="https://github.com/ooyala/android-sample-apps" target="_blank">https://github.com/ooyala/android-sample-apps</a></li>
+
+                <li class="li"><strong class="ph b">iOS</strong>:  <a class="xref" href="https://github.com/ooyala/ios-sample-apps" target="_blank">https://github.com/ooyala/ios-sample-apps</a></li>
+
+            </ul>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">SSAIに関連する分析</h2>
+            
+            <p class="p">SSAIに関連するIQで利用可能な追加のメトリックはありません。 広告の表示回数はすべて広告サーバーのダッシュボードで直接確認する必要があります。</p>
+
+            <p class="p">ただし、動画の統計情報は通常どおり報告されます（CSAI広告が挿入された場合と同じ）。</p>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/monetization_integrations.html" title="あなたのコンテンツを収益化するために、広告マネージャやサードパーティのペイウォールとのOoyalaの統合を使用してください。">収益化</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_standards.html" title="Supported Standards Guideへようこそ。 これらのトピックでは、Ooyalaがサポートする要件と標準について説明します。">サポートされている標準</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- delivered by GTranslate v4.8.8 in 1209ms visit https://gtranslate.io -->

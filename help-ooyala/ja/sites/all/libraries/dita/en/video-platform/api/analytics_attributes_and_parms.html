@@ -1,0 +1,470 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Common Attributes and Query String Parameters (Deprecated)"/>
+<meta name="abstract" content="These attributes and query string parameters are used by the Analytics routes."/>
+<meta name="description" content="これらの属性とクエリ文字列パラメータは、Analyticsルートで使用されます。"/>
+<meta name="DC.Relation" scheme="URI" content="../api/analytics_overview.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="analytics_attributes_and_querystring_parms"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>共通属性とクエリ文字列パラメータ（廃止予定）</title>
+</head>
+<body id="analytics_attributes_and_querystring_parms">
+
+
+  <h1 class="title topictitle1">共通属性とクエリ文字列パラメータ（廃止予定） </h1>
+
+  
+  <div class="body refbody"><p class="shortdesc">これらの属性とクエリ文字列パラメータは、Analyticsルートで使用されます。</p>
+
+    
+    <div class="section">
+      <div class="note warning"><span class="warningtitle">警告：</span> v2 Analytics APIは非推奨になりました。 見る <a class="xref" href="../concepts/ooyala_iq_developer_guide.html">ウーヤラIQアナリティクス</a> 新しいv3 Analytics APIの詳細については、</div>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">ルート属性</h2>
+      
+      <p class="p">次の表は、経路のすべての属性について説明しています。</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="20%" id="d3540e44">ルート属性</th>
+
+              <th class="entry" valign="top" width="80%" id="d3540e47">説明</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d3540e44 "><var class="keyword varname" id="analytics_attributes_and_querystring_parms__analytics_asset_id">asset_id</var></td>
+
+              <td class="entry" valign="top" width="80%" headers="d3540e47 ">資産のIDを指定します。<p class="p">タイプ：文字列</p>
+<p class="p">デフォルト：なし</p>
+<p class="p">例：</p>
+<p class="p">/ v2 / analytics / reports / asset / fjkl3s23fdsf2 / Engagement
+                </p>
+</td>
+
+            </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d3540e44 "><var class="keyword varname" id="analytics_attributes_and_querystring_parms__analytics_city">シティ</var></td>
+
+              <td class="entry" valign="top" width="80%" headers="d3540e47 ">
+                <p class="p">情報都市を返します。 </p>
+
+                <p class="p">タイプ：文字列</p>
+
+                <p class="p">デフォルト：上位10都市を返します。</p>
+
+                <p class="p">例： </p>
+
+                <p class="p">[GET] /v2/analytics/reports/account/performance/cities/2011-08-01...2011-08-08（全都市）</p>
+
+                <p class="p">[GET] /v2/analytics/reports/account/performance/countries/us/regions/california/cities/2011-08-01...2011-08-08（カリフォルニアのすべての都市）</p>
+
+                <p class="p">[GET] /v2/analytics/reports/account/performance/countries/us/regions/california/cities/san+francisco/2011-08-01...2011-08-08（サンフランシスコのみ）</p>
+
+                <p class="p">[GET] / v2 / analytics / reports / asset /<var class="keyword varname">asset_id</var>/performance/cities/2011-08-01...2011-08-08（指定資産、すべての都市）</p>
+
+                <p class="p">[GET] / v2 / analytics / reports / asset /<var class="keyword varname">asset_id</var>/performance/countries/us/regions/california/cities/2011-08-01...2011-08-08（指定資産、カリフォルニア内のすべての都市）</p>
+
+                <p class="p">[GET] / v2 / analytics / reports / asset /<var class="keyword varname">asset_id</var>/performance/countries/us/regions/california/cities/san+francisco/2011-08-01...2011-08-08（指定資産、サンフランシスコのみ） </p>
+
+              </td>
+
+            </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d3540e44 "><var class="keyword varname" id="analytics_attributes_and_querystring_parms__analytics_country">国</var></td>
+
+              <td class="entry" valign="top" width="80%" headers="d3540e47 ">
+                <p class="p">国に関する情報を返します（大文字と小文字を区別しません）。 </p>
+
+                <p class="p">タイプ：文字列</p>
+
+                <p class="p">デフォルト：上位10カ国を返します。</p>
+
+                <p class="gt-block p">有効な値：有効な国別コードのリストについては、2文字を参照してください。 <a class="xref" href="http://en.wikipedia.org/wiki/ISO_3166-1" target="_blank">ISO-3166 1</a> 国コード 未知の国では、 <span class="ph">バックスロット</span> 使用されます <samp class="ph codeph">u0</samp>.  </p>
+
+                <p class="p">例： </p>
+
+                <p class="p">[GET] /v2/analytics/reports/account/performance/countries/2011-08-01...2011-08-08（すべての国）</p>
+
+                <p class="p">[GET] /v2/analytics/reports/account/performance/countries/us/2011-08-01...2011-08-08（米国のみ）</p>
+
+                <p class="p">[GET] / v2 / analytics / reports / asset /<var class="keyword varname">asset_id</var>/performance/countries/2011-08-01...2011-08-08（すべての国で指定された資産）</p>
+
+                <p class="p">[GET] / v2 / analytics / reports / asset /<var class="keyword varname">asset_id</var>/performance/countries/us/2011-08-01...2011-08-08（米国でのみ指定された資産）</p>
+
+              </td>
+
+            </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d3540e44 "><var class="keyword varname" id="analytics_attributes_and_querystring_parms__analytics_date_range">日付範囲</var></td>
+
+              <td class="entry" valign="top" width="80%" headers="d3540e47 ">
+                <p class="p">日付範囲を指定します。 </p>
+
+                <p class="p">タイプ：文字列</p>
+
+                <p class="p">デフォルト：なし</p>
+
+                <p class="p">例： </p>
+
+                <p class="p">[GET] / v2 /アナリティクス/レポート/アカウント/パフォーマンス/地域/ 2012-01-01（1日）</p>
+
+                <p class="p">[GET] /v2/analytics/reports/account/performance/regions/2012-01-01...2012-01-02（1日）</p>
+
+                <p class="p">[GET] /v2/analytics/reports/account/performance/regions/2012-01-01...2012-01-08（毎週）</p>
+
+                <p class="p">[GET] /v2/analytics/reports/account/performance/regions/2012-01-01...2012-02-01（毎月）</p>
+
+                <p class="p">[GET] /v2/analytics/reports/account/performance/regions/2012-01-01...2012-04-01（四半期）</p>
+
+                <div class="note note"><span class="notetitle">注意：</span> 範囲内の最後の日付は結果に含まれません。</div>
+
+              </td>
+
+            </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d3540e44 "><var class="keyword varname" id="analytics_attributes_and_querystring_parms__analytics_devicetype">デバイスタイプ</var></td>
+
+              <td class="entry" valign="top" width="80%" headers="d3540e47 ">
+                <p class="p">デバイスタイプに関する情報を返します。 </p>
+
+                <p class="p">タイプ：文字列</p>
+
+                <p class="p">有効値：モバイル| タブレット デスクトップ| セットトップ| unknown.devicetype</p>
+
+                <p class="p">デフォルト：なし</p>
+
+                <p class="p">例：/analytics/reports/account/performance/device_types/tablet/2011-08-01...2011-08-08</p>
+
+              </td>
+
+            </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d3540e44 "><var class="keyword varname" id="analytics_attributes_and_querystring_parms__analytics_dma">DMA</var></td>
+
+              <td class="entry" valign="top" width="80%" headers="d3540e47 ">
+                <p class="p">指定マーケティングエリア（DMA）に関する情報を返します。 </p>
+
+                <p class="p">デフォルト：上位10個のDMAを返します。</p>
+
+                <p class="p">例：</p>
+
+                <p class="p">[GET] /v2/analytics/reports/account/performance/dmas/2011-08-01...2011-08-08（すべてのDMA）</p>
+
+                <p class="p">[GET] /v2/analytics/reports/account/performance/dmas/new+york/2011-08-01...2011-08-08（ニューヨークDMA）</p>
+
+                <p class="p">[GET] / v2 / analytics / reports / asset /<var class="keyword varname">asset_id</var>/performance/dmas/2011-08-01...2011-08-08（指定資産、すべてのDMA）</p>
+
+                <p class="p">[GET] / v2 / analytics / reports / asset /<var class="keyword varname">asset_id</var>/performance/dmas/new+york/2011-08-01...2011-08-08（指定資産、ニューヨークDMA）</p>
+
+              </td>
+
+            </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d3540e44 "><var class="keyword varname" id="analytics_attributes_and_querystring_parms__analytics_domain">ドメイン</var></td>
+
+              <td class="entry" valign="top" width="80%" headers="d3540e47 ">
+                <p class="p">ドメインに関する情報を返します。 </p>
+
+                <p class="p">タイプ：文字列</p>
+
+                <p class="p">デフォルト：上位10ドメインを返します。</p>
+
+                <p class="p">例：</p>
+
+                <p class="p">[GET] /v2/analytics/reports/account/performance/domains/2011-08-01...2011-08-08（すべてのドメイン）</p>
+
+                <p class="p">[GET] /v2/analytics/reports/account/performance/domains/ooyala.com/2011-08-01...2011-08-08（ooyala.com domain）</p>
+
+                <p class="p">[GET] / v2 / analytics / reports / asset /<var class="keyword varname">asset_id</var>/performance/domains/2011-08-01...2011-08-08（指定資産、全ドメイン）</p>
+
+                <p class="p">[GET] / v2 / analytics / reports / asset /<var class="keyword varname">asset_id</var>/performance/domains/ooyala.com/2011-08-01...2011-08-08（指定アセット、ooyala.comドメイン）</p>
+
+              </td>
+
+            </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d3540e44 "><var class="keyword varname" id="analytics_attributes_and_querystring_parms__analytics_level">レベル</var></td>
+
+              <td class="entry" valign="top" width="80%" headers="d3540e47 ">
+                <p class="p">レポートをアカウントレベルと資産レベルのどちらで実行するかを指定します。 資産を指定するときは、資産IDを入力する必要があります。 </p>
+
+                <p class="p">タイプ：文字列</p>
+
+                <p class="p">デフォルト：なし </p>
+
+                <p class="p">有効な値：account | 資産/<var class="keyword varname">asset_id</var></p>
+
+                <p class="p">例： </p>
+
+                <p class="p">[GET] /v2/analytics/reports/account/performance/total/2011-08-01...2011-08-08 </p>
+
+                <p class="p">[GET] /v2/analytics/reports/asset/fjkl3s23fdsf2/performance/total/2011-08-01...2011-08-08
+                </p>
+
+              </td>
+
+            </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d3540e44 "><var class="keyword varname" id="analytics_attributes_and_querystring_parms__analytics_platform">プラットフォーム</var></td>
+
+              <td class="entry" valign="top" width="80%" headers="d3540e47 ">
+                <p class="p">プラットフォームに関する情報（デバイスタイプ、オペレーティングシステム、ブラウザ）を返します。 </p>
+
+                <p class="p">タイプ：文字列</p>
+
+                <p class="p">デフォルト：なし</p>
+
+                <p class="p">例： </p>
+
+                <p class="p">[GET] /v2/analytics/reports/account/performance/platforms/2011-08-01...2011-08-08（すべてのプラットフォーム）</p>
+
+                <p class="p">[GET] /v2/analytics/reports/account/performance/platforms/desktop:mac-chrome/2011-08-01...2011-08-08（Chromeを実行しているMac）</p>
+
+                <p class="p">[GET] / v2 / analytics / reports / asset /<var class="keyword varname">asset_id</var>/performance/platforms/2011-08-01...2011-08-08（指定資産、すべてのプラットフォーム）</p>
+
+                <p class="p">[GET] / v2 / analytics / reports / asset /<var class="keyword varname">asset_id</var>/performance/platforms/tablet:android-unknown.browser/2011-08-01...2011-08-08（指定アセット、iOSタブレット）</p>
+
+                <p class="p">[GET] /v2/analytics/reports/account/performance/device_types/desktop/platforms/2011-08-01...2011-08-08（すべてのデスクトッププラットフォーム） 
+                </p>
+
+              </td>
+
+            </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d3540e44 "><var class="keyword varname" id="analytics_attributes_and_querystring_parms__analytics_region">地域</var></td>
+
+              <td class="entry" valign="top" width="80%" headers="d3540e47 ">
+                <p class="p">地域に関する情報（米国の州など）を返します。 </p>
+
+                <p class="p">タイプ：文字列 </p>
+
+                <p class="p">デフォルト：上位10地域を返します。</p>
+
+                <p class="p">例： </p>
+
+                <p class="p">[GET] /v2/analytics/reports/account/performance/regions/2011-08-01...2011-08-08（全リージョン）</p>
+
+                <p class="p">[GET] /v2/analytics/reports/account/performance/countries/us/regions/2011-08-01...2011-08-08（米国内のすべての地域）</p>
+
+                <p class="p">[GET] /v2/analytics/reports/account/performance/countries/us/regions/california/2011-08-01...2011-08-08（カリフォルニア州のみ）</p>
+
+                <p class="p">[GET] / v2 / analytics / reports / asset /<var class="keyword varname">asset_id</var>/performance/regions/2011-08-01...2011-08-08（指定アセット、すべての地域）</p>
+
+                <p class="p">[GET] / v2 / analytics / reports / asset /<var class="keyword varname">asset_id</var>/performance/countries/us/regions/2011-08-01...2011-08-08（指定資産、米国内のすべての地域）</p>
+
+                <p class="p">[GET] / v2 / analytics / reports / asset /<var class="keyword varname">asset_id</var>/performance/countries/us/regions/california/2011-08-01...2011-08-08（指定資産、カリフォルニア州のみ）</p>
+
+              </td>
+
+            </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d3540e44 "><var class="keyword varname" id="analytics_attributes_and_querystring_parms__analytics_tag_id">tag_id</var></td>
+
+              <td class="entry" valign="top" width="80%" headers="d3540e47 ">
+                <p class="p">タグのID </p>
+
+                <p class="p">タイプ：文字列 </p>
+
+                <p class="p">デフォルト：なし </p>
+
+                <p class="p">例：/ analytics / tags / extreme_couch_potato</p>
+
+              </td>
+
+            </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d3540e44 "><var class="keyword varname" id="analytics_attributes_and_querystring_parms__analytics_url">URL</var></td>
+
+              <td class="entry" valign="top" width="80%" headers="d3540e47 ">
+                <p class="p">指定されたURLに関する情報を返します。 </p>
+
+                <p class="p">タイプ：文字列 </p>
+
+                <p class="p">デフォルト：上位10個のURLを返します。 </p>
+
+                <p class="p">例：/analytics/reports/account/performance/domains/ooyala.com/support </p>
+
+              </td>
+
+            </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d3540e44 "><var class="keyword varname" id="analytics_attributes_and_querystring_parms__analytics_videos">ビデオ</var></td>
+
+              <td class="entry" valign="top" width="80%" headers="d3540e47 ">
+                <p class="p">トップビデオを返します。 </p>
+
+                <p class="p">タイプ：文字列 </p>
+
+                <p class="p">デフォルト：10 </p>
+
+                <p class="p">例： </p>
+
+                <p class="p">[GET] /v2/analytics/reports/account/performance/videos/2011-08-01...2011-08-08&amp;limit=20</p>
+
+              </td>
+
+            </tr>
+</tbody>
+
+        </table>
+</div>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">クエリ文字列パラメータ</h2>
+      
+      <p class="p">次の表に、ルートのクエリ文字列パラメータを示します。</p>
+
+      <div class="note note"><span class="notetitle">注意：</span> わかりやすくするために、ここに示す例はURLエンコードされていません。 ただし、実際には、すべてのクエリ文字列パラメータと値はURLエンコードされている必要があります。 </div>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="22.22222222222222%" id="d3540e549">パラメーター</th>
+
+              <th class="entry" valign="top" width="55.55555555555556%" id="d3540e552">説明</th>
+
+              <th class="entry" valign="top" width="22.22222222222222%" id="d3540e555">必須？</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            
+            
+            
+            
+            
+          <tr class="row">
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d3540e549 "><span class="keyword parmname" id="analytics_attributes_and_querystring_parms__analytics_breakdown">breakdown_by</span></td>
+
+              <td class="entry" valign="top" width="55.55555555555556%" headers="d3540e552 ">
+                <p class="gt-block p">メトリックを単一の値として返すのではなく、日、週、または月ごとに結果を返します。 このパラメータは、ディメンションが <strong class="ph b">合計</strong>
+                  そしてドリルダウンはありません。</p>
+
+                <p class="p">タイプ：文字列</p>
+
+                <p class="p">有効な値：day | 週| 月</p>
+
+                <p class="p">デフォルト：day</p>
+
+                <p class="p">例：breakdown_by =月</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d3540e555 ">いいえ</td>
+
+            </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d3540e549 "><span class="keyword parmname" id="analytics_attributes_and_querystring_parms__analytics_limit">制限</span></td>
+
+              <td class="entry" valign="top" width="55.55555555555556%" headers="d3540e552 ">
+                <p class="p">返される結果の最大数。 指定した値よりも多くの結果が表示された場合は、ページングトークンを使用して次のページの結果を取得できます。</p>
+
+                <p class="p">タイプ：整数 </p>
+
+                <p class="p">デフォルト：10</p>
+
+                <p class="p">有効値：1〜500</p>
+
+                <p class="p">例：limit = 20</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d3540e555 ">いいえ</td>
+
+            </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d3540e549 "><span class="keyword parmname" id="analytics_attributes_and_querystring_parms__analytics_order_by">order_by</span></td>
+
+              <td class="entry" valign="top" width="55.55555555555556%" headers="d3540e552 ">
+                <p class="p">ソートするフィールド（降順）。 演劇、ディスプレイ、または視聴時間順にソートされたクエリは、最大1000件まで返されます。 </p>
+
+                <p class="p">タイプ：文字列 </p>
+
+                <p class="p">デフォルト：plays </p>
+
+                <p class="p">有効な値： ディスプレイ time_watched | video_starts | ad_requests | ad_impressions | ad_clicks </p>
+
+                <p class="p">例：order_by = Displays</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d3540e555 ">いいえ</td>
+
+            </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d3540e549 "><span class="keyword parmname" id="analytics_attributes_and_querystring_parms__analytics_paging_token">paging_token</span><p class="p">or</p>
+<span class="keyword parmname">page_token</span></td>
+
+              <td class="entry" valign="top" width="55.55555555555556%" headers="d3540e552 ">
+                <div class="p">結果の次のページへのURL。<div class="note note"><span class="notetitle">注意：</span>  特定のページの結果数がの値で割り切れる場合 <samp class="ph codeph">制限</samp>サービスは404応答を返します。 </div>
+</div>
+
+                <p class="p">タイプ：文字列</p>
+
+                <p class="p">デフォルト：なし</p>
+
+                <p class="p">例：[GET] /v2/analytics/reports/account/performance/videos/2012-01-01...2012-01-24?page_token=W1siY29sdXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXMXXXXXXXXXXXXXXXXき合合表1基本情報をすべて表示します。</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d3540e555 ">いいえ</td>
+
+            </tr>
+</tbody>
+
+        </table>
+</div>
+
+    </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/analytics_overview.html" title="アカウントに基づいて、さまざまな分析パッケージを利用できます。">v2 Analytics API（廃止予定）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

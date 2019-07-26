@@ -1,0 +1,257 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Embed Code ActionScript APIs (Player V2 Deprecated)"/>
+<meta name="abstract" content="Embed Code ActionScript APIs can be used to handle getting and setting the embedCode for assets, getting asset descriptions, getting images and fetching asset metadata."/>
+<meta name="description" content="埋め込みコードActionScript APIを使用して、アセットのembedCodeの取得と設定、アセットの説明の取得、画像の取得、およびアセットメタデータの取得を処理できます。"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/player_api_as_intro.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="cat_as_embed"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>コードActionScript APIの埋め込み（Player V2は廃止予定）</title>
+</head>
+<body id="cat_as_embed">
+
+
+ <h1 class="title topictitle1">コードActionScript APIの埋め込み（Player V2は廃止予定）</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">埋め込みコードActionScript APIを使用して、アセットのembedCodeの取得と設定、アセットの説明の取得、画像の取得、およびアセットメタデータの取得を処理できます。</p>
+
+  <div class="section"><h2 class="title sectiontitle">EmbedCodeプロパティ</h2>
+   <div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V2は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V2はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V2を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="../concepts/pbv4_about.html">プレイヤーV4</a>.</div>
+
+   
+   <p class="p">次の表は、埋め込みコードに関連付けられているすべてのJavaScriptプロパティを説明しています。</p>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="cat_as_embed__table_kvp_zg4_bf" class="table" frame="border" border="1" rules="all">
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="30.76923076923077%" id="d138526e44">関数</th>
+
+       <th class="entry" valign="top" width="69.23076923076923%" id="d138526e47">説明</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      
+      
+      
+      
+      
+     <tr class="row">
+       <td class="entry" valign="top" width="30.76923076923077%" headers="d138526e44 "><span class="keyword apiname">getCurrentItemEmbedCode</span>
+       </td>
+
+       <td class="entry" valign="top" width="69.23076923076923%" headers="d138526e47 "><p class="p">現在の動画のチャンネルのembedCodeを取得します。 </p>
+
+        <p class="p">タイプ：文字列 </p>
+
+        <p class="p">戻り値：埋め込みコード情報を返します。  </p>
+
+</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="30.76923076923077%" headers="d138526e44 "><span class="keyword apiname">getEmbedCode</span></td>
+
+       <td class="entry" valign="top" width="69.23076923076923%" headers="d138526e47 ">現在のプレーヤーのembedCodeを取得します。
+        <p class="p">タイプ：文字列  </p>
+
+        <p class="p">戻り値：埋め込みコード情報を返します。 </p>
+
+        <p class="p">例： &quot;Q3bDhiMToizUftO&quot;        </p>
+
+       </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="30.76923076923077%" headers="d138526e44 "><span class="keyword apiname">getItem</span>
+       </td>
+
+       <td class="entry" valign="top" width="69.23076923076923%" headers="d138526e47 ">埋め込みアイテムを記述するオブジェクトを取得します。 このオブジェクトには、埋め込みコード、タイトル、説明、時間（再生時間（秒））、ラインナップ、プロモーション、およびhostnameAtURLが含まれます。
+        <p class="p">タイプ：オブジェクト </p>
+
+        <p class="p">戻り値：商品の説明 </p>
+
+       </td>
+
+ 
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="30.76923076923077%" headers="d138526e44 "><span class="keyword apiname">setCurrentItemEmbedCode</span>
+       </td>
+
+       <td class="entry" valign="top" width="69.23076923076923%" headers="d138526e47 ">現在の動画のembedCodeをチャンネルに設定します。
+        <p class="p">タイプ：文字列</p>
+</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="30.76923076923077%" headers="d138526e44 "><span class="keyword apiname">setEmbedCode</span>
+       </td>
+
+       <td class="entry" valign="top" width="69.23076923076923%" headers="d138526e47 ">現在のプレーヤーのembedCodeを設定します
+       <p class="p">タイプ：文字列</p>
+
+       </td>
+
+      </tr>
+</tbody>
+
+    </table>
+</div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">埋め込みコード関数</h2>
+   
+   <p class="p">次の表は、埋め込みコードに関連付けられているすべてのJavaScript関数について説明しています。</p>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="cat_as_embed__table_4vp_zg4_bf" class="table" frame="border" border="1" rules="all">
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="40%" id="d138526e160">イベント</th>
+
+       <th class="entry" valign="top" width="60%" id="d138526e163">説明</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      
+      
+      
+      
+     
+      
+     <tr class="row">
+       <td class="entry" valign="top" width="40%" headers="d138526e160 "><span class="keyword apiname">changeCurrentItem（embedCode）</span>
+       </td>
+
+       <td class="entry" valign="top" width="60%" headers="d138526e163 "><p class="p">ビデオが存在する場合は、現在のビデオをチャンネルに設定します。 受け入れられた場合はtrue、受け入れられなかった場合はfalseを返します。 </p>
+
+        <p class="p">タイプ：ブール </p>
+
+        <p class="p">戻り値：true | 偽 </p>
+
+       </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="40%" headers="d138526e160 "><span class="keyword apiname">currentItemEmbedCodeChanged（）</span>
+       </td>
+
+       <td class="entry" valign="top" width="60%" headers="d138526e163 ">説明、埋め込みコード、ostedAtURL、ラインナップ、プロモ、時間（秒）、タイトル。
+        <p class="p">タイプ：ハッシュ </p>
+
+      </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="40%" headers="d138526e160 "><p class="gt-block p"><span class="keyword apiname">embedCodeChanged（）</span>  </p>
+
+       </td>
+
+       <td class="entry" valign="top" width="60%" headers="d138526e163 ">description、embedCode 、ostedAtURL、ラインナップ、プロモーション。
+        <p class="p">タイプ：ハッシュ </p>
+
+      </td>
+
+      </tr>
+<tr class="row">
+      <td class="entry" valign="top" width="40%" headers="d138526e160 "><span class="keyword apiname">fetchMetadata（embedCode）</span>
+      </td>
+
+      <td class="entry" valign="top" width="60%" headers="d138526e163 "><p class="p">指定されたembedCodeのカスタムメタデータの取得を開始します。 メタデータが取得されると、metadataReadyイベントが発生します。これには、アセットの名前と値のペアがすべて含まれています。 このAPIは、ProfessionalアカウントとEnterpriseアカウントで利用できます。 </p>
+
+        <p class="p">タイプ：文字列  </p>
+
+        <p class="p">戻り値：名前と値のペア </p>
+
+     </td>
+
+     </tr>
+<tr class="row">
+     <td class="entry" valign="top" width="40%" headers="d138526e160 "><span class="keyword apiname">fetchRelatedMedia（embedCode、options）</span>
+     </td>
+
+       <td class="entry" valign="top" width="60%" headers="d138526e163 "><p class="gt-block p">指定されたembedCodeの関連メディアの取得を開始します。 関連メディアが取得されると、アセットの関連メディアを含むrelatedMediaReadyイベントが発生します。 関連メディアはBacklotの下に指定されています。 <strong class="ph b">公開 - &gt;プレーヤーのブランド設定 - &gt;終了</strong> 画面タブ optionsパラメータはオプションのObjectパラメータです。 以下のフィールドがあります。 </p>
+
+        <ul class="ul" id="cat_as_embed__ul_1js_c3n_bf">
+         <li class="li">orderBy：</li>
+
+         <li class="li">アップロードAt、DESC</li>
+
+         <li class="li">ASC、ASCをアップロードしました</li>
+
+        </ul>
+
+        <p class="p">例：最新のビデオから最初にtheEmbedCodeの関連メディアを取得するには、次の手順を実行します。</p>
+
+        <pre class="pre codeblock"> fetchRelatedMedia（ &quot;theEmbedCode&quot;、{orderBy： &quot;uploadAt、DESC&quot;}）</pre>
+
+       </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="40%" headers="d138526e160 "><span class="keyword apiname">getPromoFor（embedCode、width、height）</span>
+       </td>
+
+       <td class="entry" valign="top" width="60%" headers="d138526e163 ">指定されたサイズ以上のチャネル内の指定された埋め込みコードのプロモーション画像のURLを返します。チャネルに存在しない埋め込みコードの場合はnullを返します。
+        <p class="p">タイプ：文字列 </p>
+      
+        <p class="p">戻り値：URL | ヌル  </p>
+</td>
+
+      </tr>
+</tbody>
+
+    </table>
+</div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">関連情報 </h2>
+   
+   <p class="p">以下のリストは、埋め込みコードと埋め込みコードの断片に関する一般的な情報を提供するBacklotの資料へのリンクを示しています。</p>
+
+   <ul class="ul">
+    <li class="li"><a class="xref" href="../tasks/publishing_manual_embed.html">バックスロットでのプレーヤー埋め込み設定</a></li>
+
+    <li class="li"><a class="xref" href="../tasks/api_asset_embed_manual.html" title="Webページでアセットを利用可能にするには、手動で埋め込むことができます。">手動でアセットを埋め込む</a></li>
+
+    <li class="li"><a class="xref" href="../tasks/gsg_publishingvideo.html" title="Ooyalaは、コンテンツを公開するためのさまざまな方法をサポートしています。 コンテンツをシンジケートして外部のサイト（YouTubeや他のサイトなど）に公開することも、Webページにビデオを埋め込むことで手動で公開することもできます。">ビデオの公開</a></li>
+
+   </ul>
+
+  </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../archive/player_api_as_intro.html" title="Ooyala PlayerのActionScript APIを使用すると、Adobe Flashベースのプレーヤーおよびビデオエクスペリエンスをカスタマイズできます。">プレーヤActionScript API（プレーヤV2は廃止予定）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

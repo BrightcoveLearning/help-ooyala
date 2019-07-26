@@ -1,0 +1,413 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Chromecast Integration Analytics"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chromecast_supported_features.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="chromecast_analytics"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Chromecast統合アナリティクス</title>
+</head>
+<body id="chromecast_analytics">
+
+
+    <h1 class="title topictitle1">Chromecast統合アナリティクス</h1>
+
+    <div class="body conbody">
+        <div class="note important"><span class="importanttitle">重要：</span> このトピックには古い情報が含まれており、推奨されていません。 OoyalaとChromecastの統合に関する最新情報は、をご覧ください。 <a class="xref" href="chromecast/index.html">Chromecastの統合</a>.</div>
+
+        <div class="section">      
+            <p class="p" id="chromecast_analytics__chromecast">Ooyala IQはChromecastデバイスの再生を追跡するようになりました。 browser = chrome、deviceOs = chromecast、およびdeviceType = settopのデータを調べることで、Ooyala IQ APIを使用してChromecast受信者分析を監視できます。 Ooyala IQのUIでは、これは[Device Type]&gt; [settop]&gt; [other  -  Chromecast]の下に表示されます。 [プレーヤー]パネルに、Chromecastプレーヤーの場合は &quot;Chromecast_player&quot;が表示されます。 分析結果は、エンドユーザーが開始したキャスト/プレイシナリオによって異なります。</p>
+
+            </div>
+
+        <div class="section"><h2 class="title sectiontitle">キャストアンドプレイシナリオ</h2>
+             
+           <div class="p">以下の手順で説明します。 <a class="xref" href="chromecast_cast_and_play.html">キャストアンドプレイ</a> シナリオ。
+           <ol class="ol">
+            <li class="li">ユーザーがキャストボタンをタップします。</li>
+
+            <li class="li">ユーザーはキャストメニューから受信側デバイスを選択します。</li>
+
+            <li class="li">ユーザーは再生するコンテンツを選択します。<p class="p">Receiver画面でコンテンツが再生されます。</p>
+</li>
+
+        </ol>
+
+           </div>
+
+               
+               
+               <p class="p">このシナリオでは、再生する動画を選択する前に、送信者とChromecastデバイスの間にキャスト接続が確立されます。 送信者アプリケーションは、選択されたビデオの分析イベントを生成しません。 ビデオが受信側デバイスで再生され、browser = chrome、deviceOs = chromecast、およびdeviceType = settopの下でログに記録されると、分析イベントがトリガーされ、Ooyala IQに送信されます。</p>
+
+            <p class="gt-block p"><strong class="ph b">例</strong></p>
+
+            <p class="p">資産Aの長さは2分で30秒です。 ユーザーがキャストアンドプレイシナリオを完了したときにアセットAについてレポートが実行されると、Chromecastデバイスについて次のような指標が取得されます。 </p>
+
+            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" id="d267253e69">見た時間</th>
+
+                            <th class="entry" valign="top" id="d267253e72">表示</th>
+
+                            <th class="entry" valign="top" id="d267253e75">リクエストされた遊び</th>
+
+                            <th class="entry" valign="top" id="d267253e78">ビデオ開始</th>
+
+                            <th class="entry" valign="top" id="d267253e81">プレイスルー25％</th>
+
+                            <th class="entry" valign="top" id="d267253e85">プレイスルー50％</th>
+
+                            <th class="entry" valign="top" id="d267253e88">プレイスルー75％</th>
+
+                            <th class="entry" valign="top" id="d267253e91">プレイスルー100％</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d267253e69 d267253e72 d267253e75 d267253e78 d267253e81 d267253e85 d267253e88 d267253e91 ">
+                                <ul class="ul">
+                                    <li class="li">モバイル：0</li>
+
+                                    <li class="li">Chromecast：00：02：30</li>
+
+                                </ul>
+
+                                </td>
+
+                            <td class="entry" valign="top" headers="d267253e69 d267253e72 d267253e75 d267253e78 d267253e81 d267253e85 d267253e88 d267253e91 "><ul class="ul">
+                                <li class="li">モバイル：0</li>
+
+                                <li class="li">Chromecast：1</li>
+
+                            </ul>
+</td>
+
+                            <td class="entry" valign="top" headers="d267253e69 d267253e72 d267253e75 d267253e78 d267253e81 d267253e85 d267253e88 d267253e91 "><ul class="ul">
+                                <li class="li">モバイル：0</li>
+
+                                <li class="li">Chromecast：1</li>
+
+                            </ul>
+</td>
+
+                            <td class="entry" valign="top" headers="d267253e69 d267253e72 d267253e75 d267253e78 d267253e81 d267253e85 d267253e88 d267253e91 "><ul class="ul">
+                                <li class="li">モバイル：0</li>
+
+                                <li class="li">Chromecast：1</li>
+
+                            </ul>
+</td>
+
+                            <td class="entry" valign="top" headers="d267253e69 d267253e72 d267253e75 d267253e78 d267253e81 d267253e85 d267253e88 d267253e91 "><ul class="ul">
+                                <li class="li">モバイル：0</li>
+
+                                <li class="li">Chromecast：1</li>
+
+                            </ul>
+</td>
+
+                            <td class="entry" valign="top" headers="d267253e69 d267253e72 d267253e75 d267253e78 d267253e81 d267253e85 d267253e88 d267253e91 "><ul class="ul">
+                                <li class="li">モバイル：0</li>
+
+                                <li class="li">Chromecast：1</li>
+
+                            </ul>
+</td>
+
+                            <td class="entry" valign="top" headers="d267253e69 d267253e72 d267253e75 d267253e78 d267253e81 d267253e85 d267253e88 d267253e91 "><ul class="ul">
+                                <li class="li">モバイル：0</li>
+
+                                <li class="li">Chromecast：1</li>
+
+                            </ul>
+</td>
+
+                            <td class="entry" valign="top" headers="d267253e69 d267253e72 d267253e75 d267253e78 d267253e81 d267253e85 d267253e88 d267253e91 "><ul class="ul">
+                                <li class="li">モバイル：0</li>
+
+                                <li class="li">Chromecast：1</li>
+
+                            </ul>
+</td>
+
+                           
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">プレイ＆キャストシナリオ</h2>    
+        
+            <div class="p">以下の手順で説明します。 <a class="xref" href="chromecast_cast_and_play.html">プレイしてキャスト</a> シナリオ。<ol class="ol">
+            <li class="li">ユーザーは再生するコンテンツを選択します。<p class="p">Senderデバイスでコンテンツの再生が始まります。</p>
+</li>
+
+            <li class="li">ユーザーがキャストボタンをタップします。</li>
+
+            <li class="li">ユーザーはキャストメニューから受信側デバイスを選択します。<p class="p"> コンテンツがReceiver画面で再生され、Senderデバイスで一時停止されます。</p>
+</li>
+
+        </ol>
+</div>
+
+            <p class="p">このシナリオでは、ユーザーは最初に再生するコンテンツを選択し、自分のモバイルデバイスで再生します。 動画を見ながら、ユーザーは自分のデバイスとChromecastデバイスの間でキャスト接続を確立します。 要求された表示と再生の分析は更新され、各資産についてOoyala IQに2回表示されます。 動画の再生は2つの端末から行われるため、送信者から生成された動画イベントはモバイル端末のカテゴリに表示され、Chromecastから生成された動画イベントはセットトップボックスのカテゴリに表示されます。 </p>
+
+            <p class="gt-block p"><strong class="ph b">例</strong></p>
+
+               <p class="p">資産Bの長さは2分です。 ユーザーは自分のモバイルデバイスでビデオの30％を視聴してからChromecastデバイスに接続し、Chromecastデバイスで残りのビデオを視聴します。 ユーザーがPlay and Castシナリオを完了したときにアセットBについてレポートが実行されると、Chromecastデバイスについて次のような指標が取得されます。 </p>
+
+            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" id="d267253e234">見た時間</th>
+
+                            <th class="entry" valign="top" id="d267253e237">表示</th>
+
+                            <th class="entry" valign="top" id="d267253e240">リクエストされた遊び</th>
+
+                            <th class="entry" valign="top" id="d267253e243">ビデオ開始</th>
+
+                            <th class="entry" valign="top" id="d267253e246">プレイスルー25％</th>
+
+                            <th class="entry" valign="top" id="d267253e250">プレイスルー50％</th>
+
+                            <th class="entry" valign="top" id="d267253e253">プレイスルー75％</th>
+
+                            <th class="entry" valign="top" id="d267253e256">プレイスルー100％</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d267253e234 d267253e237 d267253e240 d267253e243 d267253e246 d267253e250 d267253e253 d267253e256 ">
+                                <ul class="ul">
+                                    <li class="li">ケータイ：00：00：36 
+                                    <p class="p">監視された合計時間の30％</p>
+</li>
+
+                                    <li class="li">Chromecast：00：00：84
+                                    <p class="p">監視された合計時間の70％</p>
+
+                                    </li>
+
+                                </ul>
+
+                            </td>
+
+                            <td class="entry" valign="top" headers="d267253e234 d267253e237 d267253e240 d267253e243 d267253e246 d267253e250 d267253e253 d267253e256 "><ul class="ul">
+                                <li class="li">モバイル：1</li>
+
+                                <li class="li">Chromecast：1</li>
+
+                            </ul>
+</td>
+
+                            <td class="entry" valign="top" headers="d267253e234 d267253e237 d267253e240 d267253e243 d267253e246 d267253e250 d267253e253 d267253e256 "><ul class="ul">
+                                <li class="li">モバイル：1</li>
+
+                                <li class="li">Chromecast：1</li>
+
+                            </ul>
+</td>
+
+                            <td class="entry" valign="top" headers="d267253e234 d267253e237 d267253e240 d267253e243 d267253e246 d267253e250 d267253e253 d267253e256 "><ul class="ul">
+                                <li class="li">モバイル：1</li>
+
+                                <li class="li">Chromecast：1</li>
+
+                            </ul>
+</td>
+
+                            <td class="entry" valign="top" headers="d267253e234 d267253e237 d267253e240 d267253e243 d267253e246 d267253e250 d267253e253 d267253e256 "><ul class="ul">
+                                <li class="li">モバイル：1</li>
+
+                                <li class="li">Chromecast：1</li>
+
+                            </ul>
+</td>
+
+                            <td class="entry" valign="top" headers="d267253e234 d267253e237 d267253e240 d267253e243 d267253e246 d267253e250 d267253e253 d267253e256 "><ul class="ul">
+                                <li class="li">モバイル：0</li>
+
+                                <li class="li">Chromecast：1</li>
+
+                            </ul>
+</td>
+
+                            <td class="entry" valign="top" headers="d267253e234 d267253e237 d267253e240 d267253e243 d267253e246 d267253e250 d267253e253 d267253e256 "><ul class="ul">
+                                <li class="li">モバイル：0</li>
+
+                                <li class="li">Chromecast：1</li>
+
+                            </ul>
+</td>
+
+                            <td class="entry" valign="top" headers="d267253e234 d267253e237 d267253e240 d267253e243 d267253e246 d267253e250 d267253e253 d267253e256 "><ul class="ul">
+                                <li class="li">モバイル：0</li>
+
+                                <li class="li">Chromecast：1</li>
+
+                            </ul>
+</td>
+
+                            
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+
+            
+           
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">組み合わせシナリオ</h2>    
+            
+            <p class="p">別のシナリオは、ユーザーがPlay and Castシナリオから始めて、その後自分のモバイルデバイスでビデオの再生に再び切り替える場合です。</p>
+
+            <p class="p">このシナリオでは、ユーザーはモバイルデバイスでビデオの視聴を開始してからキャスト接続を確立し、ビデオの継続時間内の別の時点（100％の継続時間未満）までChromecastデバイスでビデオを視聴します。 次に、ユーザーはキャスト接続を無効にして、モバイルデバイスでビデオの視聴を再開します。 キャスト接続が無効になった後、モバイルデバイスは選択されたビデオの分析イベントを生成します。 ビデオがChromecastデバイスでも再生されると、分析イベントがトリガーされてOoyala IQに送信されます。</p>
+
+            <p class="gt-block p"><strong class="ph b">例</strong></p>
+
+            <p class="p">資産Cの長さは2分です。 ユーザーは、動画の再生時間の最初の30％の間、携帯端末で動画の視聴を開始してからキャスト接続を確立し、動画の再生時間の60％までChromecastデバイスで動画を視聴します。 次に、ユーザーはキャスト接続を無効にして、ビデオの継続時間の100％までモバイルデバイスでのビデオの視聴を再開します。 ユーザーがキャストアンドプレイシナリオを完了し、動画で60％になったときにモバイルデバイスでアセットを視聴するように切り替えたときにアセットCのレポートを実行すると、モバイルデバイスとChromecastデバイスで次の指標が取得されます。 。</p>
+
+            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" id="d267253e385">見た時間</th>
+
+                            <th class="entry" valign="top" id="d267253e388">表示</th>
+
+                            <th class="entry" valign="top" id="d267253e391">リクエストされた遊び</th>
+
+                            <th class="entry" valign="top" id="d267253e394">ビデオ開始</th>
+
+                            <th class="entry" valign="top" id="d267253e397">プレイスルー25％</th>
+
+                            <th class="entry" valign="top" id="d267253e401">プレイスルー50％</th>
+
+                            <th class="entry" valign="top" id="d267253e404">プレイスルー75％</th>
+
+                            <th class="entry" valign="top" id="d267253e407">プレイスルー100％</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d267253e385 d267253e388 d267253e391 d267253e394 d267253e397 d267253e401 d267253e404 d267253e407 ">
+                                <ul class="ul">
+                                    <li class="li">ケータイ：00：00：84 <p class="p">監視された合計時間の70％</p>
+</li>
+
+                                    <li class="li">Chromecast：00：00：36 <p class="p">監視された合計時間の30％</p>
+
+                                    </li>
+
+                                </ul>
+
+                            </td>
+
+                            <td class="entry" valign="top" headers="d267253e385 d267253e388 d267253e391 d267253e394 d267253e397 d267253e401 d267253e404 d267253e407 "><ul class="ul">
+                                <li class="li">モバイル：1</li>
+
+                                <li class="li">Chromecast：1</li>
+
+                            </ul>
+</td>
+
+                            <td class="entry" valign="top" headers="d267253e385 d267253e388 d267253e391 d267253e394 d267253e397 d267253e401 d267253e404 d267253e407 "><ul class="ul">
+                                <li class="li">モバイル：1</li>
+
+                                <li class="li">Chromecast：1</li>
+
+                            </ul>
+</td>
+
+                            <td class="entry" valign="top" headers="d267253e385 d267253e388 d267253e391 d267253e394 d267253e397 d267253e401 d267253e404 d267253e407 "><ul class="ul">
+                                <li class="li">モバイル：1</li>
+
+                                <li class="li">Chromecast：1</li>
+
+                            </ul>
+</td>
+
+                            <td class="entry" valign="top" headers="d267253e385 d267253e388 d267253e391 d267253e394 d267253e397 d267253e401 d267253e404 d267253e407 "><ul class="ul">
+                                <li class="li">モバイル：1</li>
+
+                                <li class="li">Chromecast：1</li>
+
+                            </ul>
+</td>
+
+                            <td class="entry" valign="top" headers="d267253e385 d267253e388 d267253e391 d267253e394 d267253e397 d267253e401 d267253e404 d267253e407 "><ul class="ul">
+                                <li class="li">モバイル：1</li>
+
+                                <li class="li">Chromecast：1</li>
+
+                            </ul>
+</td>
+
+                            <td class="entry" valign="top" headers="d267253e385 d267253e388 d267253e391 d267253e394 d267253e397 d267253e401 d267253e404 d267253e407 "><ul class="ul">
+                                <li class="li">モバイル：1</li>
+
+                                <li class="li">Chromecast：0</li>
+
+                            </ul>
+</td>
+
+                            <td class="entry" valign="top" headers="d267253e385 d267253e388 d267253e391 d267253e394 d267253e397 d267253e401 d267253e404 d267253e407 "><ul class="ul">
+                                <li class="li">モバイル：1</li>
+
+                                <li class="li">Chromecast：0</li>
+
+                            </ul>
+</td>
+
+                            
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+
+            
+            
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chromecast_supported_features.html">Chromecastのサポート機能</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

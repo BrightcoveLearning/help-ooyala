@@ -1,0 +1,160 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2016-04-19 Release"/>
+<meta name="abstract" content="Notable contents of this release include the release of the video mobile SDKs for iOS and Android v.4.13.0."/>
+<meta name="description" content="このリリースの注目すべき内容には、iOSおよびAndroid v.4.13.0用のビデオモバイルSDKのリリースが含まれています。"/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2016.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release20160419"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2016-04-19リリース</title>
+</head>
+<body id="release20160419">
+
+
+    <h1 class="title topictitle1">2016-04-19リリース</h1>
+
+    
+    <div class="body conbody"><p class="shortdesc">このリリースの注目すべき内容には、iOSおよびAndroid v.4.13.0用のビデオモバイルSDKのリリースが含まれています。</p>
+ 
+        <div class="section"><h2 class="title sectiontitle">ソフトウェア機能リリース</h2>
+            
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">Android用モバイルSDK v.4.13.0</strong></p>
+
+                <p class="gt-block p"><strong class="ph b">新機能と強化</strong></p>
+  このリリースの新機能および拡張機能は次のとおりです。<ul class="ul">
+                    <li class="li">Widevine DASH ExoPlayerを介したシンプルVOD再生。 あなたがより多くを学ぶことに興味があるならば、詳細についてはあなたのCSMに連絡してください。</li>
+
+                    <li class="li">VAST 3.0用のVMAP。</li>
+
+                    <li class="li">VAST 3.0のエラー報告</li>
+
+                    <li class="li">VAST Adデータモデルのノンリニアクリエイティブのサポートが追加されました。</li>
+
+                    <li class="li">SecurePlayerでの事前パーソナライズ。これは、VisualOn PlayReadyワークフローの外部で使用して、再生要求からの時間遅延をなくすことができます。</li>
+
+                    <li class="li"><samp class="ph codeph">DesiredStates</samp> そして <samp class="ph codeph">DesiredStateNotification</samp>
+                        プレーヤの意図された再生状態をキャプチャするためにAPIが追加されました。</li>
+
+                    <li class="li">Widevine Classicはサポートされなくなりました。つまり、
+                            <span class="ph filepath">.wvm</span>,  <span class="ph filepath">.wv_mp4</span>、および
+                            <span class="ph filepath">.wv_hls</span> ファイルはサポートされなくなります。 これがあなたに影響を与える場合、詳細についてはあなたのCSMに連絡してください。</li>
+
+                    <li class="li">Google IMA v3.1.3がサポートされました。</li>
+
+                    <li class="li">A  <samp class="ph codeph">VisualOnConfiguration</samp> VisualOnおよびSecurePlayer用のHTTPビデオプロキシを設定するためのAPIが追加されました。</li>
+
+                    <li class="li">ロード時のパフォーマンスを向上させるために、以下のAPI変更が行われました。 <ul class="ul">
+                            <li class="li">Utils.javaで、 <samp class="ph codeph">パブリックstatic ExecutorService sharedExecutorService（）</samp> 非同期API呼び出しをスケジュールするために追加されました。</li>
+
+                            <li class="li">In  <samp class="ph codeph">OoyalaAPIClient</samp>、
+                                    <samp class="ph codeph">contentTree（）</samp>,
+                                    
+                                    <samp class="ph codeph">contentTreeWithAdSet（）</samp>,
+                                    
+                                    <samp class="ph codeph">contentTreeByExternalIds（）</samp>、および
+                                    <samp class="ph codeph">contentTreeNext（）</samp> APIは削除されました。</li>
+
+                            <li class="li">In  <samp class="ph codeph">OoyalaPlayer</samp>、
+                                    <samp class="ph codeph">reauthorizeCurrentItemWithCallback（）</samp> APIは削除されました。</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="li">  <samp class="ph codeph">PlayerInfo</samp> APIが強化されました。 このクラスは、再生ストリームのセットを取得するためにAuthorizationにオーバーライド情報を提供します。 以前は設定します <samp class="ph codeph">StreamPlayer.defaultPlayerInfo</samp> または電話 <samp class="ph codeph">StreamPlayer.setPlayerInfo（）</samp>。 今すぐあなたが呼ぶ
+                            <samp class="ph codeph">Options.Builder.setPlayerInfo（）</samp> そして合格
+                            <samp class="ph codeph">PlayerInfo</samp> オブジェクト。</li>
+
+                    <li class="li">SecurePlayerの統合では、これで
+                            <samp class="ph codeph">セッションID</samp> 自分で
+                            <samp class="ph codeph">VisualOnConfiguration</samp>。 このパラメータを設定しないと、ビデオは再生できません。 何を設定すればよいかわからない場合は、CSMにお問い合わせください。</li>
+
+                </ul>
+
+                <p class="gt-block p"><strong class="ph b">解決済みの問題</strong></p>
+ このリリースの一部として、以下の問題が解決されました。<ul class="ul">
+                    <li class="li">クリックする問題がありました <span class="ph menucascade"><span class="ph uicontrol">高度な再生</span> &gt; <span class="ph uicontrol">カスタムプラグインサンプル</span></span>再生を開始して <span class="ph uicontrol">全画面表示</span> アイコンをクリックするとクラッシュします。 この問題は解決されました。</li>
+
+                    <li class="li">OoyalaPlayerがOPT対応アセットの再生を不必要に再認証し、ロード時間が長くなるという問題がありました。 この問題は解決されました。</li>
+
+                    <li class="li">IMA広告を一時停止できないという問題がありました。 この問題は解決されました。</li>
+
+                    <li class="li">VAST広告ラッパーをクリックした後に広告が再生されないという問題がありました。 この問題は解決されました。</li>
+
+                </ul>
+
+            </div>
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">iOS用モバイルSDK v.4.13.0</strong></p>
+
+                <p class="gt-block p"><strong class="ph b">新機能と強化</strong></p>
+ このリリースの新機能および拡張機能は次のとおりです。<ul class="ul">
+                    <li class="li">FairPlay HLSのシンプルVOD再生とAirplayのサポート。</li>
+
+                    <li class="li">Ooyala PulseとOoyala Playerの統合。</li>
+
+                    <li class="li">VAST 3.0用のVMAP。</li>
+
+                    <li class="li">VAST 3.0のエラー報告</li>
+
+                    <li class="li">SecurePlayerでの事前パーソナライズ。これは、VisualOn PlayReadyワークフローの外部で使用して、再生要求からの時間遅延をなくすことができます。</li>
+
+                    <li class="li"><samp class="ph codeph">DesiredStates</samp> そして <samp class="ph codeph">DesiredStateNotification</samp>
+                        プレーヤの意図された再生状態をキャプチャするためにAPIが追加されました。</li>
+
+                    <li class="li">Widevine Classicはサポートされなくなりました。つまり、
+                            <span class="ph filepath">.wvm</span>,  <span class="ph filepath">.wv_mp4</span>、および
+                            <span class="ph filepath">.wv_hls</span> ファイルはサポートされなくなります。</li>
+
+                    <li class="li">Google IMA v3.1.0がサポートされました。</li>
+
+                </ul>
+
+                <p class="gt-block p"><strong class="ph b">解決済みの問題</strong></p>
+ このリリースの一部として、以下の問題が解決されました。<ul class="ul">
+                    <li class="li">という問題がありました。 <samp class="ph codeph">OOOoyalaPlayerControlType</samp>
+                        列挙型は、 <samp class="ph codeph">OOOoyalaPlayerViewController</samp>
+                        インタフェース。 この問題は解決され、
+                            <samp class="ph codeph">OOOoyalaPlayerControlType</samp> enumは世界的に利用可能なままです。</li>
+
+                    <li class="li">OoyalaPlayerがOPT対応アセットの再生を不必要に再認証し、ロード時間が長くなるという問題がありました。 この問題は解決されました。</li>
+
+                    <li class="li">フルスクリーンモードでスクラバーバーがiOSのステータスバーをオーバーラップする問題がありました。 この問題は解決されました。</li>
+
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Ooyalaリリースノートを購読する</h2>
+             見る <a class="xref" href="../concepts/release_notes_subscribe.html">Ooyalaリリースノートを購読する</a> Ooyalaリリースノートの自動通知を購読する方法については、こちらをご覧ください。 </div>
+
+    </div>
+
+    
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2016.html" title="2016からのリリースノート。">2016ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

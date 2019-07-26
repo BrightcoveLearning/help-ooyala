@@ -1,0 +1,138 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Delivery Protocols"/>
+<meta name="abstract" content="Ooyala supports several methods for delivering content."/>
+<meta name="description" content="Ooyalaは、コンテンツを配信するためのいくつかの方法をサポートしています。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_encoding.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_encoding.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="taskconcept"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>配信プロトコル</title>
+</head>
+<body id="taskconcept">
+
+
+<h1 class="title topictitle1">配信プロトコル</h1>
+
+ 
+<div class="body conbody"><p class="gt-block shortdesc"><span class="ph">Ooyala</span> コンテンツを配信するためのいくつかの方法をサポートします。 </p>
+
+	<div class="section"><h2 class="title sectiontitle">サポートされている配信プロトコル</h2>
+	   
+	
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="taskconcept__watchlist_parameters" class="table" frame="border" border="1" rules="all">
+			
+			
+			<thead class="thead" align="left">
+				<tr class="row">
+					<th class="entry" valign="top" width="20%" id="d297788e32">方法</th>
+
+					<th class="entry" valign="top" width="80%" id="d297788e35">説明</th>
+
+				</tr>
+
+			</thead>
+
+			<tbody class="tbody">
+				<tr class="row">
+					<td class="entry" valign="top" width="20%" headers="d297788e32 ">HTTPライブストリーミング（HLS）</td>
+
+					<td class="entry" valign="top" width="80%" headers="d297788e35 ">適応ビットレート配信のためのアップルのソリューション。 このフォーマットのソースファイルは、MPEG-2トランスポートストリームにパッケージ化され、それが一連​​の小さなチャンク（.tsファイル）に分割され、.M3U8プレイリストファイルインデックスで参照されます。 クライアントはインデックスファイルを読み、正しい順序でチャンクを要求します。 利用可能な帯域幅に応じて、クライアントは適切なビットレートからチャンクを選択し、シームレスなビットレートの移行を可能にします。 このフォーマットは、iOSデバイスにビデオをストリーミングするのに理想的です。 iOS 3.0以降およびSafari 4.0以降でネイティブサポートされています。</td>
+
+			    </tr>
+
+				<tr class="row">
+					<td class="entry" valign="top" width="20%" headers="d297788e32 ">暗号化HLS（E-HLS）</td>
+
+					<td class="entry" valign="top" width="80%" headers="d297788e35 ">HLSの暗号化バージョン</td>
+
+				</tr>
+
+				<tr class="row">
+					<td class="entry" valign="top" width="20%" headers="d297788e32 ">HTTPスムーズストリーミング（HSS）</td>
+
+					<td class="entry" valign="top" width="80%" headers="d297788e35 ">アダプティブビットレート配信のためのマイクロソフトのソリューション。 これはIIS Media Servicesの一部であり、HTTPを介してSilverlightや他のクライアントにメディアをストリーミングすることを可能にします。 HSSはローカル帯域幅とCPUの状態を検出して、ほぼリアルタイムでビットレートを切り替え、ネットワークとデバイスの状態が許容する最高品質のビデオを提供します。 ファイルは断片化されたMP4形式で配信され、ISMVファイルとして保存されます。</td>
+
+				</tr>
+
+				<tr class="row">
+					<td class="entry" valign="top" width="20%" headers="d297788e32 ">プログレッシブダウンロード</td>
+
+					<td class="entry" valign="top" width="80%" headers="d297788e35 ">画面サイズと接続の品質を最適化するヒューリスティック機能はありませんが、柔軟性が非常に高く、ほとんどすべてのデバイスでサポートされています。 </td>
+
+				</tr>
+
+				<tr class="row">
+					<td class="entry" valign="top" width="20%" headers="d297788e32 ">HTTPダイナミックストリーミング（HDS）</td>
+
+					<td class="entry" valign="top" width="80%" headers="d297788e35 ">標準のHTTP接続を介してアダプティブビットレートMP4メディアを配信する、アダプティブビットレート配信のためのアドビのソリューション。 このフォーマットは、Flashをサポートしているデバイスでのみ機能します。</td>
+
+				</tr>
+
+			</tbody>
+
+		</table>
+</div>
+
+	<div class="note note"><span class="notetitle">注意：</span> Akamai HDS（またはHD2）ストリーミングプロトコルを含むHTTP Dynamic Streaming（HDS）はFlashを使用します。 ブラウザはFlashプラグインを無効にしてブロックしています。 結果として、Ooyalaは、お客様がHLSとDashを今後もエンコードして使用することを強くお勧めします。</div>
+	
+	</div>
+
+		<div class="section"><h2 class="title sectiontitle">Azureのサポート</h2>
+			
+			<p class="p">Azureは次の出力形式をサポートします。</p>
+
+			<ul class="ul" id="taskconcept__ul_bd5_mgh_tt">
+				<li class="li">MP264コンテナ内のH.4ビデオとAACオーディオ</li>
+
+				<li class="li">iOSおよびAndroid用HLS</li>
+
+				<li class="li">HDS（上記の注を参照）</li>
+
+			</ul>
+
+			<p class="p">Azureは次の入力形式をサポートしません。</p>
+
+			<ul class="ul" id="taskconcept__ul_r45_mgh_tt">
+				<li class="li">VP-6はビデオではサポートされていません</li>
+
+				<li class="li">AC-3はオーディオではサポートされていません</li>
+
+			</ul>
+
+			<div class="p">Azure VODは現在、次の配信プロトコルをサポートしています。 <ul class="ul">
+					<li class="li">HLS</li>
+
+					<li class="li">HDS（上記の注を参照）</li>
+
+					<li class="li">プログレッシブダウンロード</li>
+
+				</ul>
+
+			</div>
+
+		</div>
+
+	
+	
+</div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_encoding.html" title="マスタービデオをインターネットで直接ストリーミングすることはできません。 それらはまずストリーミング形式に変換またはトランスコードする必要があります。 Ooyalaトランスコーディングサービス（OTS）を使用して、ファイルをソース形式から出力形式に変換します。">トランスコーディング設定</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

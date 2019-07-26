@@ -1,0 +1,92 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="About Discovering and Recommending Content"/>
+<meta name="abstract" content="Discovery enables you to keep users engaged by directing them to related and relevant content on your site. Discovery learns continuously from video impressions and plays to provide users with a dynamic, personalized experience."/>
+<meta name="description" content="ディスカバリーを使用すると、サイト上の関連性のある関連コンテンツにユーザーを誘導することで、ユーザーの関心を引くことができます。 ディスカバリーは、ビデオの印象や再生から継続的に学習して、動的でパーソナライズされた体験をユーザーに提供します。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_discovery_dg.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_discovery_dg.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="chapter_content_discovery"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>コンテンツの発見と推奨について</title>
+</head>
+<body id="chapter_content_discovery">
+
+
+ <h1 class="title topictitle1">コンテンツの発見と推奨について</h1>
+
+ 
+ <div class="body conbody"><p class="gt-block shortdesc"><span class="ph" id="discovery_phrase">ディスカバリーを使用すると、サイト上の関連性のある関連コンテンツにユーザーを誘導することで、ユーザーの関心を引くことができます。 ディスカバリーは、ビデオの印象や再生から継続的に学習して、動的でパーソナライズされた体験をユーザーに提供します。</span></p>
+
+  <div class="section" id="chapter_content_discovery__discovery_intro">ディスカバリーを使用すると、以下のことをお勧めできます。 <ul class="ul">
+        <li class="li">現在の時間、日、週、または月のコンテンツの人気または速度に基づいた動画。</li>
+
+        <li class="li">選択した動画に似た利用パターンの動画。 </li>
+
+      </ul>
+</div>
+
+  <div class="section" id="chapter_content_discovery__discovery_enable"><h2 class="title sectiontitle">アカウントの検出を有効にする</h2>
+      Ooyala Backlotアカウントで検出を明示的に有効にする必要があります。 まだ有効になっていない場合は、Ooyalaアカウント担当者に連絡して、サイトの検出機能を有効にしてください。</div>
+
+  <div class="section"><h2 class="title sectiontitle">おすすめエンジンとプレイヤー</h2>
+   <p class="p">検出には2つの重要な要素があります。</p>
+
+   <ul class="ul">
+     <li class="li">Ooyalaは、機械学習アルゴリズムを使用してパーソナライズされたレコメンデーションを作成する特許取得済みのビデオレコメンデーションエンジンを提供しています。 </li>
+
+     <li class="li">Ooyalaプレーヤーは、推奨エンジンによって生成された結果を表示してナビゲートするための自動再生機能付きの事前統合されたユーザーインターフェースを提供します。</li>
+
+   </ul>
+
+   <p class="p">プレーヤとリコメンデーションエンジンはバックグラウンドで対話します。 ディスカバリー推奨エンジンは、APIを介して直接利用することもできます。</p>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">検出の設定</h2>
+   <p class="p">ディスカバリーを構成するには、主に2つの方法があります。</p>
+
+   <div class="p">
+    <ul class="ul">
+     <li class="li"><strong class="ph b">バックスロットUI</strong> ディスカバリーのインプレイヤーエクスペリエンスを設定するには、簡単でわかりやすく、十分です。 詳しくは、 <a class="xref" href="discovery_config.html" title="パーソナライズされたおすすめを設定する方法と、ビデオの再生が終了または一時停止したときにOoyalaプレーヤーがおすすめを表示する方法を学びます。">バックスロットUIでの検出の設定</a>.  </li>
+
+     <li class="li"><strong class="ph b">ディスカバリーAPI</strong> あなたのサイトのコンテンツカルーセルで、カスタマイズされたコンテンツをユーザーに提示するためのディスカバリー推奨エンジンへのプログラムによるアクセスを提供します。 詳しくは、 <a class="xref" href="../concepts/cd_api_overview.html" title="これらのディスカバリーAPIを使用するには、ディスカバリー要求を出し、ユーザーのアクション情報を戻してアルゴリズムをトレーニングします。">ディスカバリーREST API</a>.</li>
+
+    </ul>
+
+   </div>
+
+   <p class="p">推奨エンジンの設定を変更して結果に影響を与えることができます。 Backlotでプレーヤの表示設定を構成して、ユーザへのビデオの表示方法、選択方法、タイミング、プレビュー、画面の終了スタイルなどを変更することで、ユーザエクスペリエンスをカスタマイズできます。 通常は、終了画面と、オプションで一時停止画面に推奨事項を表示するようにOoyalaプレーヤーを構成します。</p>
+
+    <div class="note note"><span class="notetitle">注意：</span> DiscoveryとPlaylists（ThemeBuilderを使用して作成された）はそれぞれ画面の動作を終了させるので、それらを同時に使用することはできません。 Webページにプレーヤーを埋め込むときは、次のものを使用できます。 <em class="ph i">どちら</em> ディスカバリーまたはプレイリスト。ただし両方ではありません。</div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">詳細は</h2>
+    <p class="gt-block p" id="chapter_content_discovery__aboutdiscoveryMobileLinks">モバイルプラットフォームでのディスカバリーに関する情報は、
+          <a class="xref" href="android_aboutdiscovery.html">Androidネイティブアプリの検出について</a> そして <a class="xref" href="ios_aboutdiscovery.html">iOSネイティブアプリの検出について</a>.</p>
+
+   <p class="gt-block p" id="chapter_content_discovery__aboutdiscovery5">その他の質問については、 <a class="xref" href="../reference/content_discovery_faq.html" title="ディスカバリーに関してよく寄せられる質問に対する回答を見つけてください。">発見に関するFAQ</a>.  </p>
+
+  </div>
+
+   </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_discovery_dg.html" title="Ooyalaのコンテンツ検出機能を使用して、コンテンツの推奨事項、詳細なプログラミングガイド、およびパーソナライズされたコンテンツキューを提供することで、顧客エンゲージメントを高めます。">コンテンツの発見と推奨事項</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

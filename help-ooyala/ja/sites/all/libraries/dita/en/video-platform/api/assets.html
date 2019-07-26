@@ -1,0 +1,157 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Assets"/>
+<meta name="abstract" content="The /v2/assets route deals with all types of assets."/>
+<meta name="description" content="/ v2 / assetsルートはすべての種類の資産を扱います。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_api.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_common_routes.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_properties.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/api_assets_qualifiersbytype.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_video.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_remote.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_vr360.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_livestream.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_youtube.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_channel.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_metadata.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_closed_caption.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_ad_set.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_publishing_rule.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_labels.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_player.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/query.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/deleted_assets.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/drm_attributes.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_api.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_common_routes.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_properties.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/api_assets_qualifiersbytype.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_video.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_remote.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_vr360.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_livestream.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_youtube.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_channel.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_metadata.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_closed_caption.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_ad_set.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_publishing_rule.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_labels.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_player.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/query.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/deleted_assets.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/drm_attributes.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="assets_overview"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>資産</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="assets_overview">
+
+
+
+ <h1 class="title topictitle1">資産</h1>
+
+ 
+  <div class="body conbody"><p class="shortdesc">  <samp class="ph codeph">/ v2 / assets</samp> あらゆる種類の資産との取引をルーティングします。</p>
+
+   <div class="note note"><span class="notetitle">注意：</span> Backlot REST APIコマンドについて詳しくは、以下を参照してください。
+     <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/backlot_api/index.html" target="_blank">バックスロットAPIリファレンス</a>.</div>
+
+   <p class="gt-block p">When you create a new asset in the Backlot REST API, the <span class="keyword parmname">asset_type</span>
+   property in the request body can specify any of the following values.</p>
+
+   <div class="p">
+    <ul class="ul" id="assets_overview__valid_asset_types">
+     <li class="li"><span class="keyword parmname">ビデオ</span></li>
+
+     <li class="li"><span class="keyword parmname">ad</span>: An ad is simply a video, marked as an ad in the <span class="ph">バックスロットUI</span>.</li>
+
+     <li class="li"><span class="keyword parmname">オーディオ</span></li>
+
+     <li class="li"><span class="keyword parmname">remote_asset</span></li>
+
+     <li class="li"><span class="keyword parmname">ユーチューブ</span>: A video destined for YouTube</li>
+
+     <li class="li"><span class="keyword parmname">live_stream</span> (deprecated)</li>
+
+     <li class="li"><span class="keyword parmname">live_audio</span> (deprecated)</li>
+
+     <li class="li"><span class="keyword parmname">チャンネル</span> (deprecated)</li>
+
+     <li class="li"><span class="keyword parmname">channel_set</span> (deprecated)</li>
+
+    </ul>
+
+   </div>
+
+   <p class="gt-block p">で資産を作成した後 <samp class="ph codeph">[POST] / v2 / assets</samp> (as described in ), in general you can update it in a
+    variety of ways with <samp class="ph codeph">[パッチ] / v2 / assets</samp> or change its associations with <samp class="ph codeph">[PUT] /v2/assets</samp>。 見る <a class="xref" href="asset_common_routes.html" title="Backlot REST APIでは、すべてのアセットに共通の基本ルートは、それらのタイプに関係なく同じ構文を持ちます。">すべてのアセットタイプに共通のルートと属性</a>.</p>
+
+  </div>
+
+ 
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../api/asset_common_routes.html">すべてのアセットタイプに共通のルートと属性</a></strong><br/>
+The basic routes common to all assets have the same syntax, regardless of their type, in     the Backlot REST API.</li>
+<li class="link ulchildlink"><strong><a href="../api/asset_properties.html">資産タイプ別の資産プロパティ</a></strong><br/>
+Some basic properties are common to all assets, regardless of their type, in the Backlot   REST API.</li>
+<li class="link ulchildlink"><strong><a href="../api/api_assets_qualifiersbytype.html">資産のタイプと/ v2 / assetsとの相関関係</a></strong><br/>
+  <samp class="ph codeph">/ v2 / assets</samp> あらゆる種類の資産との取引をルーティングします。</li>
+<li class="link ulchildlink"><strong><a href="../api/asset_video.html">ビデオとオーディオの資産</a></strong><br/>
+に動画をアップロードしたとき <span class="ph">Ooyala</span>,  <span class="ph">Ooyala</span> アカウントに指定された設定を使用して自動的にトランスコードされ、プレーヤで動画を再生できるようになります。 </li>
+<li class="link ulchildlink"><strong><a href="../api/asset_remote.html">リモートアセット</a></strong><br/>
+リモートアセットは、Backlotの外部でホストされるコンテンツの一部です。 コンテンツをアップロード、トランスコーディング、およびBacklotに保存する代わりに、必要に応じてBacklotがコンテンツを見つけることができるように、そのURLやその他の説明情報をアップロードするだけです。</li>
+<li class="link ulchildlink"><strong><a href="../api/asset_vr360.html">VR 360コンテンツのアップロード</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../api/asset_livestream.html">ライブストリーム（非推奨）</a></strong><br/>
+ライブストリーミングは、リアルタイムでのビデオコンテンツの配信です。 </li>
+<li class="link ulchildlink"><strong><a href="../api/asset_youtube.html">YouTubeアセット</a></strong><br/>
+A YouTube asset is a video hosted by YouTube and played through the Ooyala player. </li>
+<li class="link ulchildlink"><strong><a href="../api/asset_channel.html">チャンネルおよびチャンネルセットアセット（廃止予定）</a></strong><br/>
+A channel is a collection of videos in a single player. A channel set is a collection     of channels.</li>
+<li class="link ulchildlink"><strong><a href="../api/asset_metadata.html">カスタムメタデータ</a></strong><br/>
+どのタイプのアセットにも、最大100個の名前と値のペアを追加できます。</li>
+<li class="link ulchildlink"><strong><a href="../api/asset_closed_caption.html">クローズドキャプションの使用</a></strong><br/>
+You can add closed captions to videos, ads, remote assets, or YouTube   videos.</li>
+<li class="link ulchildlink"><strong><a href="../api/asset_ad_set.html">広告セットをアセットに関連付ける</a></strong><br/>
+広告セットをビデオ、ライブストリーム、およびリモートアセットに関連付けることができます。 広告セットの作成については、 <span class="ph">バックスロット</span> ユーザーガイド。</li>
+<li class="link ulchildlink"><strong><a href="../api/asset_publishing_rule.html">公開ルールを資産に関連付ける</a></strong><br/>
+You can associate publishing rules with videos, live streams, remote assets, YouTube   videos, channels, and channel sets.</li>
+<li class="link ulchildlink"><strong><a href="../api/asset_labels.html">資産とラベルの関連付け</a></strong><br/>
+You can associate labels with videos, ads, live streams, remote assets, and YouTube     videos.</li>
+<li class="link ulchildlink"><strong><a href="../api/asset_player.html">プレーヤーをアセットに関連付ける</a></strong><br/>
+You can associate a player with videos, ads, live streams, remote players, and YouTube   videos.</li>
+<li class="link ulchildlink"><strong><a href="../api/query.html">クエリ構築</a></strong><br/>
+To limit the amount of data returned in a GET call, you can specify       <samp class="ph codeph">where</samp> クエリ</li>
+<li class="link ulchildlink"><strong><a href="../api/deleted_assets.html">削除された資産</a></strong><br/>
+Use this request to get information about assets that have been deleted.</li>
+<li class="link ulchildlink"><strong><a href="../concepts/drm_attributes.html">リモートアセット（ライブストリームを含む）のDRM属性</a></strong><br/>
+デジタル著作権管理（DRM）システムによって保護されているリモート資産の場合は、そのシステムに関する情報を関連付ける必要があります。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_api.html" title="プレーヤーのクロム（デザイン要素）をカスタマイズするには、Backlot REST APIを使用してください。 これには、フォント、色、スクラバーバーなどのUI要素が含まれます。">バックスロットREST API</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

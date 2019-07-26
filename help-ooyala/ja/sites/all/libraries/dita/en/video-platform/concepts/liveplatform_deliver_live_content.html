@@ -1,0 +1,427 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Delivering Live Content"/>
+<meta name="abstract" content="From a single self-service interface, create and update channels, schedules, events, playlists, and monitor channel output."/>
+<meta name="description" content="単一のセルフサービスインターフェイスから、チャンネル、スケジュール、イベント、プレイリストを作成および更新し、チャンネル出力を監視します。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ooyala_live_user_guide.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/liveplatform_setup_channel.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/liveplatform_setup_hachannel.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/liveplatform_setup_schedule.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/liveplatform_create_event.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/liveplatform_stream_prerecorded_videos.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/linear_vod.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/liveplatform_live_clipping.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/live_clipping.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="liveplatform_deliver_live_content"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>ライブコンテンツを配信する</title>
+</head>
+<body id="liveplatform_deliver_live_content">
+
+
+ <h1 class="title topictitle1">ライブコンテンツを配信する</h1>
+
+  
+  <div class="body conbody"><p class="shortdesc">単一のセルフサービスインターフェイスから、チャンネル、スケジュール、イベント、プレイリストを作成および更新し、チャンネル出力を監視します。 </p>
+
+    <div class="section"><h2 class="title sectiontitle">コンテンツ配信ワークフロー</h2>
+      
+      <p class="p">ライブコンテンツを配信するための基本設定では、単一のチャンネルを用意するだけで済みます。</p>
+
+      <p class="p"><img class="image" id="liveplatform_deliver_live_content__image_pgl_h1q_11b" src="http://help-ooyala.brightcove.com/../image/live_content_delivery_workflow.png" height="153" width="820" alt="ライブコンテンツ配信ワークフロー"/></p>
+
+      <p class="p">ライブチャンネル機能を使用して、ライブコンテンツを管理およびストリーミングします。 </p>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">24x7またはアドホックチャンネル</h2>
+      
+      <p class="p">チャネルは、コンテンツの最上位の論理コンテナです。 </p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="liveplatform_deliver_live_content__table_live_channels" class="table" frame="void" border="0" rules="none">
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row" valign="top">
+              <th class="entry" align="left" valign="top" width="50%" id="d325964e53">考慮事項</th>
+
+              <th class="entry" align="left" valign="top" width="50%" id="d325964e56">あなたは何ができるか</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row" valign="top">
+              <td class="entry" align="left" valign="top" width="50%" headers="d325964e53 ">
+                <ul class="ul" id="liveplatform_deliver_live_content__ul_live_channel_considerations">
+                  <li class="li">コンテンツをストリーミングするには少なくとも1つのチャンネルが必要です。</li>
+
+                  <li class="li">
+                    <div class="note important"><span class="importanttitle">重要：</span> チャンネルの設定は、ネットワークとライブコンテンツのストリーミングに使用するリソースによって異なります。</div>
+
+                  </li>
+
+                  <li class="li">チャンネルはスケジュールを持つ必要はありません。</li>
+
+                  <li class="li">チャンネルはスケジュールを含むかもしれません。 スケジュールにはイベントが含まれています。</li>
+
+                  <li class="li">
+                    <div class="note important"><span class="importanttitle">重要：</span> ソーシャルメディアのライブシンジケーションを有効にするには、チャンネルを停止する必要があります。</div>
+
+                  </li>
+
+                </ul>
+
+              </td>
+
+              <td class="entry" align="left" valign="top" width="50%" headers="d325964e56 ">
+                <ul class="ul" id="liveplatform_deliver_live_content__ul_pjq_ccq_11b">
+                  <li class="li">チャンネルを追加してください。</li>
+
+                  <li class="li">作成したすべてのチャンネルを表示します。</li>
+
+                  <li class="li">既存のスレートを表示して新しいスレートをアップロードします。</li>
+
+                  <li class="li">通知を表示します。</li>
+
+                  <li class="li">チャンネルを開始および停止します。</li>
+
+                  <li class="li">ソーシャルメディアのライブ配信</li>
+
+                </ul>
+
+              </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">高可用性（HA）チャネル</h2>
+      
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="liveplatform_deliver_live_content__table_f3f_2tr_q1b" class="table" frame="void" border="0" rules="none">
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row" valign="top">
+              <th class="entry" align="left" valign="top" width="50%" id="d325964e139">考慮事項</th>
+
+              <th class="entry" align="left" valign="top" width="50%" id="d325964e142">あなたは何ができるか</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row" valign="top">
+              <td class="entry" align="left" valign="top" width="50%" headers="d325964e139 ">
+                <ul class="ul" id="liveplatform_deliver_live_content__ul_blf_2tr_q1b">
+                  <li class="li">HAチャネルを作成するには、アドホックまたは24x7の少なくとも2つのチャネルが必要です。</li>
+
+                  <li class="li">関連サブチャネルはHAチャネルによって制御されます。 </li>
+
+                </ul>
+
+              </td>
+
+              <td class="entry" align="left" valign="top" width="50%" headers="d325964e142 ">
+                <ul class="ul" id="liveplatform_deliver_live_content__ul_llf_2tr_q1b">
+                  <li class="li">HAチャネルでイベントをスケジュールおよび管理します。</li>
+
+                  <li class="li">ホットスワップHAサブチャネル。</li>
+
+                </ul>
+
+              </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">クリッピング</h2>
+      
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="liveplatform_deliver_live_content__table_r54_fsr_q1b" class="table" frame="void" border="0" rules="none">
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row" valign="top">
+              <th class="entry" align="left" valign="top" width="50%" id="d325964e197">考慮事項</th>
+
+              <th class="entry" align="left" valign="top" width="50%" id="d325964e200">あなたは何ができるか</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row" valign="top">
+              <td class="entry" align="left" valign="top" width="50%" headers="d325964e197 ">
+                <ul class="ul" id="liveplatform_deliver_live_content__ul_wb4_gsr_q1b">
+                  <li class="li">チャンネルのクリッピングを確認して有効にする前に、クリッピングが有効になっているプロファイルを持っている必要があります。</li>
+
+                  <li class="li">チャンネルのDVR設定はクリッピングバッファのサイズも定義します。例えば、30 DVRウィンドウは30分のクリッピングバッファを提供します。</li>
+
+                  <li class="li"/>
+
+                </ul>
+
+              </td>
+
+              <td class="entry" align="left" valign="top" width="50%" headers="d325964e200 ">
+                <ul class="ul" id="liveplatform_deliver_live_content__ul_i3m_jsr_q1b">
+                  <li class="li">ライブストリーミングコンテンツのセグメントをキャプチャし、それらを再ブロードキャスト用にBacklotに保存します。</li>
+
+                  <li class="li">最後を表すクリッピングバッファからのクリップ <em class="ph i">n</em> 数分のチャンネルがストリーミング配信します。</li>
+
+                </ul>
+
+              </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">スケジュールとイベント</h2>
+      
+      <div class="p"><strong class="ph b">スケジュール</strong>- ライブストリーミングコンテンツをキャプチャするためのイベントを追加する時間枠を設定します。
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="liveplatform_deliver_live_content__table_live_schedules" class="table" frame="void" border="0" rules="none">
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row" valign="top">
+                <th class="entry" align="left" valign="top" width="50%" id="d325964e264">考慮事項</th>
+
+                <th class="entry" align="left" valign="top" width="50%" id="d325964e267">あなたは何ができるか</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row" valign="top">
+                <td class="entry" align="left" valign="top" width="50%" headers="d325964e264 ">
+                  <ul class="ul" id="liveplatform_deliver_live_content__ul_wjs_xhq_11b">
+                    <li class="li">スケジュールにはデフォルトのチャンネルが必要です。</li>
+
+                    <li class="li">同じスケジュールを複数のチャンネルで使用できます。</li>
+
+                    <li class="li">予定を作成する前に、スケジュールを作成する必要があります。</li>
+
+                    <li class="li">ソーシャルメディアのライブシンジケーションはスケジュールやイベントを必要としません。</li>
+
+                    <li class="li">最大イベント長：<ul class="ul" id="liveplatform_deliver_live_content__ul_cw2_cmb_s1b">
+                        <li class="li">Azure = 24時間</li>
+
+                        <li class="li">エレメンタル= 8時間</li>
+
+                      </ul>
+</li>
+
+                  </ul>
+
+                </td>
+
+                <td class="entry" align="left" valign="top" width="50%" headers="d325964e267 ">
+                  <ul class="ul" id="liveplatform_deliver_live_content__ul_mvv_lhq_11b">
+                    <li class="li">スケジュールを追加します。</li>
+
+                    <li class="li">スケジュールを見る</li>
+
+                    <li class="li">スケジュールを削除します。</li>
+
+                    <li class="li">スケジュールを変更します。</li>
+
+                  </ul>
+
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+      </div>
+
+      <div class="p"><strong class="ph b">イベント</strong>-  Backlotでチャンネルのライブストリームが再ブロードキャストおよびアーカイブのためにキャプチャされる時間を指定します。
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="liveplatform_deliver_live_content__table_live_events" class="table" frame="void" border="0" rules="none">
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row" valign="top">
+                <th class="entry" align="left" valign="top" width="50%" id="d325964e344">考慮事項</th>
+
+                <th class="entry" align="left" valign="top" width="50%" id="d325964e347">あなたは何ができるか</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row" valign="top">
+                <td class="entry" align="left" valign="top" width="50%" headers="d325964e344 ">
+                  <ul class="ul" id="liveplatform_deliver_live_content__ul_ugm_wlq_11b">
+                    <li class="li">イベントをスケジュールする前に、チャンネルが必要です。</li>
+
+                    <li class="li">イベントの最大長は8時間です。</li>
+
+                    <li class="li">同じイベントを複数のスケジュールに含めることができます。</li>
+
+                  </ul>
+
+                </td>
+
+                <td class="entry" align="left" valign="top" width="50%" headers="d325964e347 ">
+                  <ul class="ul" id="liveplatform_deliver_live_content__ul_xd1_skq_11b">
+                    <li class="li">予定を追加します。</li>
+
+                    <li class="li">イベントを削除します。</li>
+
+                    <li class="li">イベントの状況を表示します。</li>
+
+                    <li class="li">イベントの詳細を表示します。</li>
+
+                    <li class="li">イベントを開始します。</li>
+
+                    <li class="li">イベントを停止します。</li>
+
+                  </ul>
+
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+</div>
+
+      <div class="note tip"><span class="tiptitle">ヒント：</span> 
+        <div class="p">チャンネルを追加したら、スケジュールとイベントを作成して、チャンネルでストリーミングされているもののセグメントを記録できます。 これらのイベントはBacklotアセットとして保存できます。 <div class="fig fignone" id="liveplatform_deliver_live_content__fig_c1q_jll_d1b">
+            <img class="image" id="liveplatform_deliver_live_content__image_wgz_4z1_21b" src="http://help-ooyala.brightcove.com/../image/live_channel_sched_event_workflow.png"/>
+          </div>
+プレイリストを使用すると、ライブチャンネルでバックスロットアセットをストリーミングできます。</div>
+
+      </div>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">プレイリスト</h2>
+      
+      <div class="p">Ooyala Backlotに保存されている録画済みビデオのプレイリストを作成します。 プレイリストのコンテンツをライブチャンネルでストリーミングします。<div class="note important"><span class="importanttitle">重要：</span> プレイリスト機能は、使用する前に有効にしておく必要があります。 Ooyala Liveでプレイリストを有効にするには、Ooyalaに連絡してください。</div>
+</div>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="liveplatform_deliver_live_content__table_live_playlists" class="table" frame="void" border="0" rules="none">
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row" valign="top">
+              <th class="entry" align="left" valign="top" width="50%" id="d325964e435">考慮事項</th>
+
+              <th class="entry" align="left" valign="top" width="50%" id="d325964e438">あなたは何ができるか</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row" valign="top">
+              <td class="entry" align="left" valign="top" width="50%" headers="d325964e435 ">
+                <ul class="ul" id="liveplatform_deliver_live_content__ul_utn_5cr_11b">
+                  <li class="li">再生リストに対してエンコーダプロファイルを有効にする必要があります。</li>
+
+                  <li class="li">ライブプレイリストで使用されているビデオはBacklotに保存する必要があります。</li>
+
+                  <li class="li">プレイリストを削除するには、それが関連付けられているチャンネルを削除する必要があります。</li>
+
+                  <li class="li">1つのチャンネルに関連付けられているプレイリストは1つだけです。</li>
+
+                </ul>
+
+              </td>
+
+              <td class="entry" align="left" valign="top" width="50%" headers="d325964e438 ">
+                <ul class="ul" id="liveplatform_deliver_live_content__ul_wpv_scr_11b">
+                  <li class="li">プレイリストを作成します。</li>
+
+                  <li class="li">プレイリストを編集します。</li>
+
+                  <li class="li">プレイリストを削除します。</li>
+
+                  <li class="li">プレイリストを管理して整理します。</li>
+
+                </ul>
+
+              </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+    
+    
+    
+</div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../concepts/liveplatform_setup_channel.html">チャンネルを追加する</a></strong><br/>
+スケジュールやイベントを作成してライブコンテンツをストリーミングできるようにチャンネルを設定します。</li>
+<li class="link ulchildlink"><strong><a href="../concepts/liveplatform_setup_hachannel.html">高可用性チャネルの設定</a></strong><br/>
+ライブコンテンツが常に利用可能であることを確認するために高可用性（HA）チャンネルを設定します。</li>
+<li class="link ulchildlink"><strong><a href="../tasks/liveplatform_setup_schedule.html">スケジュールを追加する</a></strong><br/>
+<span class="ph">ライブイベントを管理するためのスケジュールを作成します。 から既存のスケジュールを表示する <span class="ph uicontrol">スケジュール</span> ページ。 スケジュールを作成できるようにするには、少なくとも1チャネルが必要です。</span></li>
+<li class="link ulchildlink"><strong><a href="../tasks/liveplatform_create_event.html">イベントを追加する</a></strong><br/>
+<span class="ph">使用 <span class="ph uicontrol">イベント</span> ビデオオンデマンド（VOD）アセットとして、後で再生およびアーカイブするために、チャンネルのライブストリームからのセグメントの録画をスケジュールするページ。</span></li>
+<li class="link ulchildlink"><strong><a href="../tasks/liveplatform_stream_prerecorded_videos.html">プレイリストを追加</a></strong><br/>
+<span class="ph">Ooyala Backlotから録画済みのビデオをストリーミングできます。 これを行うには、Ooyala Liveでビデオのプレイリストを作成し、そのプレイリストにビデオを追加し、そのプレイリストをチャンネルに関連付けて、そのチャンネルを実行します。 プレイリストが不要になったら、削除することができます。 <em class="ph i">アカウントのプレイリストを有効にするには、Ooyalaカスタマーサクセスマネージャーに連絡してください。</em></span></li>
+<li class="link ulchildlink"><strong><a href="../concepts/linear_vod.html">Ooyala LiveのリニアVODプレイリスト</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../tasks/liveplatform_live_clipping.html">ライブストリームからクリップを追加する</a></strong><br/>
+<span class="ph">実行中にチャンネルから短いクリップを作成し、それらをBacklotに保存することができます。 これは、ライブストリームのハイライトやティーザーを視聴者と共有するのに最適な方法です。 <em class="ph i">アカウントでこの機能を有効にするには、Ooyalaカスタマーサクセスマネージャーに連絡してください。</em>         </span></li>
+<li class="link ulchildlink"><strong><a href="../concepts/live_clipping.html">MAMへのOoyalaライブクリッピング</a></strong><br/>
+</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/ooyala_live_user_guide.html" title="このドキュメントでは、Ooyala Liveを使用してビッグデータの力を活用し、放送事業者、通信事業者、メディア企業がデータ駆動型プログラミングとインタラクティブ再生を通じてLinear TVとLive Eventの体験をパーソナライズする方法について説明します。">Ooyala Liveユーザーガイド</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:abso

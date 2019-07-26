@@ -1,0 +1,115 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Ad Manager Framework"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_ads_framework"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>広告マネージャフレームワーク</title>
+</head>
+<body id="pbv4_ads_framework">
+
+
+    <h1 class="title topictitle1">広告マネージャフレームワーク</h1>
+
+
+    <div class="body conbody">
+        <div class="section"> Player V4用のOoyalaのAd Manager Framework（AMF）は、HTML Web用の統一されたフレームワークです。 このフレームワークにより、広告サーバーはOoyalaのHTML5プレーヤー用の広告マネージャを開発できます。 Ooyalaは、主要な広告管理者がAMFと統合するための広告プラグインを構築しました。</div>
+
+        <div class="section" id="pbv4_ads_framework__plugin_support"><h2 class="title sectiontitle">IAB VASTおよびVPAIDフォーマットのプラグインサポート</h2>            
+            <div class="p">Ooyala Player V4広告プラグインは、IAB VASTおよびVPAIDフォーマットをさまざまにサポートしています。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" id="d431548e28">プラグイン</th>
+
+                                <th class="entry" valign="top" id="d431548e31">サポート</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d431548e28 d431548e31 "><a class="xref" href="pbv4_ads_dev_chapter_pulse.html">Ooyala Pulse広告プラグイン</a></td>
+
+                                <td class="entry" valign="top" headers="d431548e28 d431548e31 ">VAST 2.0、VAST 3.0、VPAID 1.0、およびVPAID 2.0フォーマット</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d431548e28 d431548e31 "><a class="xref" href="pbv4_ads_dev_chapter_freewheel.html">フリーホイール広告プラグイン</a></td>
+
+                                <td class="entry" valign="top" headers="d431548e28 d431548e31 ">VAST XML</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d431548e28 d431548e31 "><a class="xref" href="pbv4_ads_dev_chapter_googleima.html">Google IMA Ad Plugin</a></td>
+
+                                <td class="entry" valign="top" headers="d431548e28 d431548e31 ">VAST 2.0、VAST 3.0、VPAID 1.0、およびVPAID 2.0のフォーマットで生成されたDFPまたはAdSense広告サーバーからの広告</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d431548e28 d431548e31 "><a class="xref" href="pbv4_ads_dev_chapter_vast.html">VASTとVPAIDの広告プラグイン</a></td>
+
+                                <td class="entry" valign="top" headers="d431548e28 d431548e31 ">VAST 2.0、VAST 3.0、およびVPAIDフォーマットとLiveRail VAST広告
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+</div>
+<div class="note note"><span class="notetitle">注意：</span> 
+                    <ul class="ul">
+                        <li class="li">VASTまたはVPAIDを使用する広告サーバーとしてAdap.tvまたはBrightrollを使用している場合は、VASTおよびVPAIDプラグインを使用してください。</li>
+
+                        <li class="li">VASTまたはVPAIDを使用して広告サーバーとしてDFPまたはAdSenseを使用している場合は、Google IMAプラグインを使用する必要があります。</li>
+
+                    </ul>
+
+                </div>
+</div>
+
+
+        <div class="section"><h2 class="title sectiontitle">Ad Manager Frameworkの機能</h2>
+            
+            <ul class="ul"><li class="li"><strong class="ph b">広告マネージャコントローラ</strong>：AMFはプレーヤーにコントローラと呼ばれる
+                    <em class="ph i">広告マネージャコントローラ</em>これは、広告マネージャがより少ない労力でOoyalaにプラグインできるようにするための基本機能を処理します。 </li>
+
+                <li class="li"><strong class="ph b">広告プラグイン</strong>：AMFを使用すると、広告リクエストから広告の再生まで、すべての第三者広告プラグインが広告セッション全体を管理できます。 このプラグインは、ビデオプレーヤーの上にあるレイヤーとして機能し、広告を表示するのに適切な場合はビデオプレーヤーを一時停止し、広告の中断が完了するとプレーヤーを再開します。 </li>
+
+                <li class="li"><strong class="ph b">実行時管理</strong>：フレームワークには、広告をいつ再生するかを管理し、広告マネージャに制御を渡す機能があります。 </li>
+
+                <li class="li"><strong class="ph b">UIインタラクション</strong>：フレームワークはUIインタラクションを処理できます。 たとえば、コントロールバーを表示または非表示にしたり、コントロールバー通知を広告マネージャに送信したりできます。</li>
+
+                <li class="li"><strong class="ph b">API</strong>：フレームワークは、パートナーがOoyalaプレーヤーで使用するためのカスタマイズされたモジュールを開発するのを助けるためのAPIのセットを提供します。 </li>
+
+                <li class="li"><strong class="ph b">拡張性</strong>：パートナーやサイト運営者は、このフレームワークを拡張して、あらゆる広告ソースまたはプロバイダを使用してカスタム広告プラグインを簡単に構築できます。 Ad Manager Frameworkを使用すると、パートナーはカスタムスキン、カスタム広告、および分析モジュールを構築できます。</li>
+
+            </ul>
+
+        </div>
+
+        <div class="section">
+            
+        </div>
+
+    </div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

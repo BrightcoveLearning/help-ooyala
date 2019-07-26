@@ -1,0 +1,189 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Usage RESTful API"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_ref_apis.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="chapter_rightslocker"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>使用法RESTful API</title>
+</head>
+<body id="chapter_rightslocker">
+
+
+    <h1 class="title topictitle1"><span class="ph">使用法RESTful</span> API</h1>
+
+    <div class="body conbody">
+        <div class="section">
+            <div class="note important" id="chapter_rightslocker__note_migrate_apiref_to_apidoc"><span class="importanttitle">重要：</span> このセクションのトピックは、 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/" target="_blank">Ooyala APIドキュメント</a> のページをご覧ください。</div>
+
+            <div class="p">  <span class="ph">使用法RESTful</span> APIを使用すると、自分の使用統計を取得できます。 <span class="ph">Ooyala</span> アカウント。 を参照してください <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/usage_api/index.html" target="_blank"><span class="ph">使用法</span> REST APIリファレンスドキュメント</a> ルートのリストについては。 <div class="note note"><span class="notetitle">注意：</span> <span class="ph">使用法</span>
+                    とは非常に異なる <span class="ph">Ooyala</span> 請求と <span class="ph">Ooyala</span> アナリティクス（ <a class="xref" href="../concepts/analytics_api_reference.html">Analytics APIリファレンス</a>).</div>
+<div class="note important"><span class="importanttitle">重要：</span> このセクションのトピックは、 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/" target="_blank">Ooyala APIドキュメント</a> のページをご覧ください。</div>
+<ul class="ul">
+                    <li class="li">あなたはまたで使用統計を見ることができます <span class="ph">バックスロット</span> オン
+                            <span class="ph">使用法</span> の下のサブタブ <span class="ph">アカウント</span> タブ <a class="xref" href="accounttab_usage.html" title="[アカウント]タブの[使用状況]サブタブを使用して、Backlotアカウントのアクティビティに関する使用状況の統計情報を表示します。 [Usage]サブタブの上部には月別の使用量の合計が、下のグラフには日々の使用量の統計が表示されます。">利用状況メトリックの表示</a>.</li>
+
+                    <li class="li">あなたはのための任意のメトリックの統計を見ることができます <span class="ph">Ooyala</span> アカウントのアクティビティ統計情報を収集しています。 </li>
+
+                </ul>
+<div class="note note"><span class="notetitle">注意：</span> APIルートは <span class="ph">使用法</span> APIはデータ利用の推定表現であり、請求された使用法と一致しない場合があります。 あなたに応じて <span class="ph">Ooyala</span> 顧客アカウントは、特定の使用状況に対して請求されることがありますが、それ以外は請求されません。 の <span class="ph">Ooyala</span>
+                    サーバーは使用状況の統計を協定世界時（UTC）で保管します。
+                        <span class="ph">Ooyala</span> 課金システムでは、設定したタイムゾーンに従って使用状況の統計が計算されます。 <span class="ph">バックスロット</span>.</div>
+</div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">メトリック</h2>レポートをリクエストするときは、以下の指標を渡すことができます。 アカウントに対して収集されている場合、リクエストは利用統計を返します。 それ以外のすべての指標について <samp class="ph codeph">transcoding_minutes</samp>クエリパラメータを含めることができます <samp class="ph codeph">includeSubAccounts</samp> と等しい <samp class="ph codeph">true</samp>追跡するために <strong class="ph b">サブアカウント</strong>.
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                    
+                    
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" width="25.125628140703515%" id="d255313e139">メトリック</th>
+
+                            <th class="entry" valign="top" width="74.87437185929649%" id="d255313e142">説明</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25.125628140703515%" headers="d255313e139 ">vod_bytes_delivered</td>
+
+                            <td class="entry" valign="top" width="74.87437185929649%" headers="d255313e142 ">配信された合計バイト数 <span class="ph">VOD</span>
+                                プレーヤー、コンテンツデータネットワーク、またはその他の宛先に配信されたコンテンツ。 <span class="ph">Ooyala</span> 事実の後24-48時間以内に合計を計算します。 に注意してください <span class="ph">使用法</span> サブタブ <span class="ph">バックスロット</span> この値をGB単位で表示します。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25.125628140703515%" headers="d255313e139 ">live_bytes_delivered</td>
+
+                            <td class="entry" valign="top" width="74.87437185929649%" headers="d255313e142 ">で配信されたライブストリームコンテンツの合計ギガバイト数（GB） <span class="ph">Ooyala</span>'s  <span class="ph">CDN</span> プレーヤー、コンテンツデータネットワーク、またはその他の目的地へ。 統計は毎日計算されます。 に注意してください <span class="ph">使用法</span> サブタブ <span class="ph">バックスロット</span> この値をGB単位で表示します。<div class="note note"><span class="notetitle">注意：</span> この使用状況の指標は、Akamaiを広告主様として使用している場合にのみ表示されます。 <span class="ph">CDN</span> ライブ配信用</div>
+</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25.125628140703515%" headers="d255313e139 ">ストリーム</td>
+
+                            <td class="entry" valign="top" width="74.87437185929649%" headers="d255313e142 ">コンテンツの再生が開始された回数（必ずしも完了している必要はありません）。 たとえば、視聴者が開始してドロップアウトした場合でも、このアクティビティはストリームとしてカウントされます。 </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25.125628140703515%" headers="d255313e139 ">transcoding_minutes</td>
+
+                            <td class="entry" valign="top" width="74.87437185929649%" headers="d255313e142 ">すべてのVODビデオの長さの合計（分単位）に、によって作成されたバージョン（エンコーディング）の数を掛けたもの <span class="ph">Ooyala</span>のトランスコーディングシステム。 <span class="ph">Ooyala</span> 前の月の各暦月の終了後にこのメトリックを計算します。 これが、当月が選択されたときにこの統計が常にゼロ（0）になる理由です。 そうでなければ、ゼロの値は通常選択された月にトランスコーディングがなかったことを意味します、または <span class="ph">Ooyala</span> アカウントは新しいです、それは単にトランスコードが始まる前のセットアップ時間を表すことができます。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25.125628140703515%" headers="d255313e139 ">live_transcoding_time</td>
+
+                            <td class="entry" valign="top" width="74.87437185929649%" headers="d255313e142 ">ライブプラットフォームによるシングルビットレートファイルのライブからVODへの変換の分単位の長さ。 VODトランスコーディング分は、Liveプラットフォームに関連して使用することはできず、契約書に記載されているとおり、個別の使用量ベースの料金および料金が適用されるものとします。</td>
+
+                        </tr>
+
+                  
+                        
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25.125628140703515%" headers="d255313e139 ">live_packaging_time</td>
+
+                            <td class="entry" valign="top" width="74.87437185929649%" headers="d255313e142 ">コンテンツをパッケージ化するためのすべてのライブチャンネルおよび/またはイベントの長さの合計（分単位）。</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+</div>
+
+        <div class="section"><h2 class="title sectiontitle">期間およびレポートルート</h2>
+            
+            <div class="p">期間ルートとレポートルートの両方で、指定した期間内に請求指標に関するレポートを取得できます。 それらは期間を異なって指定します： <ul class="ul">
+                    <li class="li">期間ルートでは、日、週、月、四半期、および年という固定期間が使用されます。</li>
+
+                    <li class="li">レポート経路は特定の日付範囲を使用します。</li>
+
+                </ul>
+ 一般に、期間ルートはほとんどのユースケースに推奨されています。 レポートルートを使用して、期間ルートでサポートされていない期間を指定します。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                        
+                        
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" width="19.011406844106464%" id="d255313e273">タイプ</th>
+
+                                <th class="entry" valign="top" width="80.98859315589354%" id="d255313e276">期間</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" width="19.011406844106464%" headers="d255313e273 "><span class="keyword parmname">日</span></td>
+
+                                <td class="entry" valign="top" width="80.98859315589354%" headers="d255313e276 "><span class="keyword parmname">yyyy-MM-dd</span></td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="19.011406844106464%" headers="d255313e273 "><span class="keyword parmname">週間</span></td>
+
+                                <td class="entry" valign="top" width="80.98859315589354%" headers="d255313e276 "><span class="keyword parmname">yyyy-WW</span> （どこで <span class="keyword parmname">WW</span> 週の数 -  0から53までの数）</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="19.011406844106464%" headers="d255313e273 "><span class="keyword parmname">月</span></td>
+
+                                <td class="entry" valign="top" width="80.98859315589354%" headers="d255313e276 "><span class="keyword parmname">yyyy-MM</span></td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="19.011406844106464%" headers="d255313e273 "><span class="keyword parmname">四半期</span></td>
+
+                                <td class="entry" valign="top" width="80.98859315589354%" headers="d255313e276 "><span class="keyword parmname">yyyy-QX</span> （どこで <span class="keyword parmname">X</span> 四半期の数 -  1から4の数）</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" width="19.011406844106464%" headers="d255313e273 "><span class="keyword parmname">年</span></td>
+
+                                <td class="entry" valign="top" width="80.98859315589354%" headers="d255313e276 "><span class="keyword parmname">yyyy</span></td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+</div>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_ref_apis.html" title="APIリファレンスガイドへようこそ。 これらのトピックには、Backlot、Player、Authorization、およびRights LockerのAPI参照情報が含まれています。">APIリファレンス</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- de

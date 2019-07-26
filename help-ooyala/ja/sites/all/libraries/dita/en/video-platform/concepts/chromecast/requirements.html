@@ -1,0 +1,121 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Requirements for Chromecast Integration"/>
+<meta name="DC.Relation" scheme="URI" content="../../concepts/chromecast/integrate.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="chromecast_requirements"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../../css/ooyala.css"/>
+<title>Chromecast統合のための要件</title>
+</head>
+<body id="chromecast_requirements">
+
+
+    <h1 class="title topictitle1">Chromecast統合のための要件</h1>
+
+
+    <div class="body conbody">
+        <div class="section">Ooyala Chromecast v.2.0を実装するには、次の要件があります。</div>
+
+        <div class="section" id="chromecast_requirements__prerequisites"><h2 class="title sectiontitle">必須条件</h2>
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                
+                
+                <tbody class="tbody">
+                    <tr class="row">
+                        <td class="entry" valign="top" width="16.666666666666664%"><strong class="ph b">SDKアクセス</strong></td>
+
+                        <td class="entry" valign="top" width="83.33333333333334%"><p class="gt-block p">Android用OoyalaモバイルSDKおよび/またはiOS用OoyalaモバイルSDKの最新バージョン <span class="ph">Ooyala <a class="xref" href="../../../../../../../../../ja/downloads/index.html" target="_blank">ダウンロード</a></span>.</p>
+</td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top" width="16.666666666666664%"><strong class="ph b">技術的な専門知識</strong></td>
+
+                        <td class="entry" valign="top" width="83.33333333333334%">
+                            <ul class="ul">
+                                <li class="li">iOSまたはAndroidの開発経験</li>
+
+                                <li class="li">JavaScript開発の経験</li>
+
+                            </ul>
+
+                        </td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top" width="16.666666666666664%"><strong class="ph b">有効化</strong></td>
+
+                        <td class="entry" valign="top" width="83.33333333333334%">プロファイル処理用のストリーミングプロトコルを有効にするには、にお問い合わせください。 <span class="ph">Ooyala <a class="xref" href="../../../../../../../../../ja/tech-support/index.html" target="_blank">技術サポート</a></span>.  </td>
+
+                    </tr>
+
+
+                    <tr class="row">
+                        <td class="entry" valign="top" width="16.666666666666664%"><strong class="ph b">ホスティング</strong>
+                        </td>
+
+                        <td class="entry" valign="top" width="83.33333333333334%"><div class="note note"><span class="notetitle">注意：</span> OoyalaのサンプルアプリケーションはOoyalaによってホストされており、CORSが有効になっているため、これらのホスティングの前提条件は適用されません。</div>
+
+                            <ul class="ul">
+                                <li class="li">Ooyalaはレシーバーアプリケーションホスティングを提供していません。 あなたはレシーバーアプリケーションのためのあなたのホスティングインフラストラクチャーを促進しなければなりません。 プロダクションレシーバはSSLを介して提供される必要があります。</li>
+
+                                <li class="li">コンテンツ配信に使用するCDNでクロスオリジンリソース共有（CORS）有効化を設定します。 CORSを有効にする方法については、下記の「CORSとChromecast」を参照してください。</li>
+
+                            </ul>
+</td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top" width="16.666666666666664%"><strong class="ph b">登録</strong></td>
+
+                        <td class="entry" valign="top" width="83.33333333333334%">開発者としてGoogleに登録して、受信側アプリケーションIDを取得します（これは、どの受信側に送信するかを送信側アプリケーションに示します）。 キャスト開発者ライセンスは、にあります。 <a class="xref" href="https://cast.google.com/publish/#/overview" target="_blank"> https://cast.google.com/publish/#/overview</a>。 これにより、レシーバーアプリのWebページのURLが登録されます。 </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+</div>
+
+        </div>
+
+        <div class="section" id="chromecast_requirements__cors"><h2 class="title sectiontitle">CORSとChromecast</h2><p class="gt-block p">クロスオリジンリソース共有（CORS）により、Webページはドメインに要求を送信できます。 <em class="ph i">以外の</em> そのページの提供元のもの。 それはJavaScriptがドメイン境界を越えてリクエストをすることを可能にします。 CORSがないと、この機能は利用できず、クローズドキャプションなどのファイルを別のドメインから取得しようとすると、Webページがクロスドメインの問題に遭遇する可能性があります。 </p>
+<p class="gt-block p">ChromecastまたはHTML5ベースの再生で使用される、Ooyalaによってホストされていないすべてのリソース（ビデオ、オーディオ、画像、クローズドキャプション、CSS、JSなど） <strong class="ph b">しなければなりません</strong> 適切な <a class="xref" href="https://developer.mozilla.org/en-US/docs/HTTP/Access_control_CORS" target="_blank">CORSヘッダー</a> 設定済み。 リソースがCORS標準に準拠していないと、プレーヤーは正しく機能せず、ドメインを越えてファイルにアクセスしようとすると機能しなくなる可能性があります。 </p>
+<p class="gt-block p" id="chromecast_requirements__enable">コンテンツ配信に使用するCDNにCORS有効化を設定する必要があります。 CORSを有効にする方法については、を参照してください。 <a class="xref" href="http://enable-cors.org/" target="_blank">http://enable-cors.org/</a> またはあなたのホスティングプロバイダーやベンダーに相談してください。</p>
+<div class="note note" id="chromecast_requirements__hosting"><span class="notetitle">注意：</span> CORSはすべてのOoyalaがホストするドメインに対して有効になっているため、Ooyalaがホストするコンテンツのみを使用している場合、これらのCORSの前提条件は適用されません。
+            </div>
+ 追加情報については、以下を参照してください。 <ul class="ul">
+                <li class="li"><a class="xref" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS" target="_blank">HTTPアクセス制御（CORS）</a></li>
+
+                <li class="li"><a class="xref" href="http://enable-cors.org/" target="_blank">クロスオリジンリソース共有を有効にする</a></li>
+
+            </ul>
+</div>
+
+        <div class="section"><h2 class="title sectiontitle">Chromecastデバイス登録と同時ストリーム制限</h2>送信側アプリケーションと受信側アプリケーションは異なるデバイスです。 送信側デバイスと受信側デバイスの両方でコンテンツを再生している場合は、モバイルデバイスとChromecastの両方がデバイスとして登録されます。 これは通常、プレイアンドキャストのシナリオで発生します（ <a class="xref" href="intro.html">Chromecast統合の概要</a>） ユーザーがキャストアンドプレイを実行した場合、つまり再生がChromecastレシーバーでのみ行われる場合、Chromecastのみがデバイスとして登録されます。 <p class="p">ただし、同時ストリーム制限の場合、送信側アプリケーションと受信側アプリケーションからの再生は単一の同時ストリームとしてカウントされます。 この例としては、ユーザーが自分のモバイルデバイスからコンテンツを再生し、そのモバイルデバイスを使用してコンテンツを受信側アプリケーションにキャストしてから、引き続き視聴するシナリオが、モバイルデバイスから再生およびキャストされる場合があります。受信機のコンテンツ。 これは1つの同時ストリームとしてカウントされます。 同じことが &#39;play and cast&#39;シナリオでも起こります（1つの同時ストリームが送信側と受信側からの再生に対してカウントされます）。 </p>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../../concepts/chromecast/integrate.html">Chromecastとの統合</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html

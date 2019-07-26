@@ -1,0 +1,119 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Player HTML5 APIs (Player V2 Deprecated)"/>
+<meta name="abstract" content="Player/Player UI HTML5 APIs can be used to handle aspects of the player."/>
+<meta name="description" content="プレーヤ/プレーヤUI HTML5 APIを使用してプレーヤの側面を処理できます。"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/player_api_h5_intro.html"/>
+<meta name="DC.Relation" scheme="URI" content="cat_h5_assets.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="cat_h5_player"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>プレーヤHTML5 API（プレーヤV2は廃止予定）</title>
+</head>
+<body id="cat_h5_player">
+
+
+ <h1 class="title topictitle1">プレーヤHTML5 API（プレーヤV2は廃止予定）</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">プレーヤ/プレーヤUI HTML5 APIを使用してプレーヤの側面を処理できます。</p>
+
+  <div class="section"><h2 class="title sectiontitle">プレイヤー機能</h2>
+   <div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V2は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V2はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V2を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="../concepts/pbv4_about.html">プレイヤーV4</a>.</div>
+
+   
+   <p class="gt-block p">次の表は、プレーヤーに関連付けられているすべてのHTML5メソッドを示しています。 これらすべてのHTML5 APIを使用した例については、トピックを参照してください。 <a class="xref" href="player_examples_h5.html" title="HTML5の例は、iOSベースのデバイス用のHTML5プレーヤーをテストする方法を示しています。">クエリ文字列とパススルーパラメータの例</a>.</p>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" id="d142371e47">関数</th>
+
+       <th class="entry" valign="top" id="d142371e50">説明</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      
+      
+    <tr class="row">
+       <td class="entry" valign="top" headers="d142371e47 d142371e50 "><span class="keyword apiname">setEmbedCode</span>
+       </td>
+
+       <td class="entry" valign="top" headers="d142371e47 d142371e50 "><p class="p">現在のプレーヤーのembedCodeを設定します。 </p>
+
+              <p class="p">タイプ：文字列 </p>
+
+              <p class="p">例： </p>
+
+    <pre class="pre codeblock">&lt;input type = button value = &quot;埋め込みコードの変更&quot; onclick = &quot;setEmbedCode（）&quot; /&gt;</pre>
+
+    </td>
+
+    </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d142371e47 d142371e50 "><span class="keyword apiname">setPlayheadTime </span>
+       </td>
+
+       <td class="entry" valign="top" headers="d142371e47 d142371e50 "><p class="p">再生ヘッドを数ミリ秒の精度で新しい位置に設定します。 </p>
+
+              <p class="p">タイプ：番号 </p>
+
+              <p class="p">例：     </p>
+
+       <pre class="pre codeblock">   関数setPlayheadTime（）{get_player（）。setPlayheadTime（$（ &#39;＃playhead_time&#39;）。val（））;} }</pre>
+
+       </td>
+
+      </tr>
+</tbody>
+
+    </table>
+</div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">関連情報 </h2>
+   
+   <p class="p">以下のリストは、プレイヤーについての一般的な情報を提供するBacklotドキュメントへのリンクを提供します。</p>
+
+  </div>
+
+  <div class="section">
+   <ul class="ul">
+    <li class="li"><a class="xref" href="../api/players_core.html" title="プレーヤーを作成してアカウント内の1つ以上のアセットに割り当てると、再生オプションとコンテンツの外観が決まります。">Backlot REST APIを使用したプレーヤーの管理</a></li>
+
+    <li class="li"><a class="xref" href="../api/players.html">プレイヤー（Backlot REST API）</a></li>
+
+    <li class="li"><a class="xref" href="../concepts/chapter_players.html" title="Backlot UIを使用してOoyalaプレーヤーを作成および構成する方法を説明します。">Backlotでプレイヤーを管理する</a></li>
+
+   </ul>
+
+  </div>
+
+ </div>
+
+ <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../archive/player_api_h5_intro.html" title="OoyalaプレーヤーHTML5 APIを使用すると、iOS、Android、およびその他のHTML5をサポートするプラットフォーム用に、Ooyalaプレーヤーとビデオエクスペリエンスの側面をカスタマイズできます。">HTML5 API（プレーヤV2は廃止予定）</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong><br/>
+<div><a class="link" href="cat_h5_assets.html" title="アセットHTML5 APIを使用して、評価、ビデオ（再生/一時停止、説明）、およびチャンネルを処理できます。">HTML5 APIをアセットします（Player V2は廃止予定）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

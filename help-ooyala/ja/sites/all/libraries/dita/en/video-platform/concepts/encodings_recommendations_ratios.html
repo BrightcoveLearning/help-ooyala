@@ -1,0 +1,436 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Encoding Recommendations for Player V4"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_encoding.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_encoding.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="encodings_recommendations_ratios"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>プレーヤV4のための推奨エンコーディング</title>
+</head>
+<body id="encodings_recommendations_ratios">
+
+
+ <h1 class="title topictitle1">プレーヤV4のための推奨エンコーディング</h1>
+
+ <div class="body conbody">
+  <div class="section">
+   <p class="p">エンコーディングは、ビデオストリームをさまざまな再生デバイス用に最適化されたいくつかのフォーマットに変換するプロセスです。 ビデオのエンコード処理中に、ビデオのビットレート、コンテンツの幅、オーディオのビットレート、および配信方法を指定する必要があります。</p>
+
+   <p class="p">デバイスが異なれば再生できるビデオストリームの種類にも異なる制限が課されるため、各ビデオはターゲットデバイスごとに最適化されたストリームにエンコード（変換）する必要があります。 ストリーミングビデオの課題は、各視聴者の接続速度と再生デバイスのビットレート（1秒のビデオのビット数）と解像度（1秒のビデオのピクセル数）の適切なバランスを見つけることです。</p>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">処理プロファイル </h2><p class="p">処理プロファイルは、それぞれが特定のターゲット用に最適化されているエンコード仕様のセットです。 Ooyalaはこれらのテンプレートを最適なエンコーディングプロファイルを決定するためのベースラインとして使用します。 Ooyalaは、動画をエンコードするときに使用する推奨値を含む、推奨処理プロファイルのセットを提供しています。</p>
+
+   <p class="p">このトピックでは、VODおよびLiveバージョンのBaseline処理プロファイルをセットアップするための推奨事項を示します。 追加レベルのエンコードが必要な場合は、Ooyalaの担当者に相談してください。</p>
+
+   <p class="p">Player V4の場合、Ooyalaは次の処理プロファイルを定義しています。ローモーションビデオとハイモーションビデオの両方を推奨します。 ローモーションとハイモーションの他に、Player V4は16：9と4：3の2つの縦横比もサポートしています。</p>
+
+   <div class="note note"><span class="notetitle">注意：</span> 処理プロファイルを選択する前に、ビデオがローモーションかハイモーションかを検討してください。 例えば、スポーツストリーミングは動きが速いが、ニュース放送は動きが少ない。 fpsが高い場合と低い場合は、それに応じてビデオのビットレートを調整できます。 Ooyalaの推奨事項はすべて、ローモーションとハイモーションの両方に対する30 fpsに基づいています。</div>
+
+   <p class="gt-block p"><strong class="ph b">ベースライン -  VOD</strong></p>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">表1 VODエンコーディングプロファイルのベースライン推奨事項</span></caption>
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" id="d303736e51">解像度</th>
+
+       <th class="entry" valign="top" id="d303736e54">H.264プロフィール</th>
+
+       <th class="entry" valign="top" id="d303736e57">セグメント長<p class="p">（秒）</p>
+</th>
+
+       <th class="entry" valign="top" id="d303736e62">動画<p class="p">ビットレート</p>
+</th>
+
+       <th class="entry" valign="top" id="d303736e67">オーディオ<p class="p">ビットレート（AAC）</p>
+</th>
+
+       <th class="entry" valign="top" id="d303736e73">HLS</th>
+
+       <th class="entry" valign="top" id="d303736e76">MP4</th>
+
+       
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">480</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">ベースライン</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">4  -  6</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">450のkbps</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">64のkbps</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">x</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">x</td>
+
+       
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">640</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">ベースライン</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">4  -  6</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">700のkbps</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">64のkbps</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">x</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 "> </td>
+
+       
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">768</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">ベースライン</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">4  -  6</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">900のkbps</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">64のkbps</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">x</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 "> </td>
+
+       
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">960</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">メイン</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">4  -  6</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">1.3 Mbpsの</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">128のkbps</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">x</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 "> </td>
+
+       
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">1280</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">メイン</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">4  -  6</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">2 Mbpsの</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">128のkbps</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">x</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 "> </td>
+
+       
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">1920</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">メイン</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">4  -  6</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">3.5 Mbpsの</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">256のkbps</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 ">x</td>
+
+       <td class="entry" valign="top" headers="d303736e51 d303736e54 d303736e57 d303736e62 d303736e67 d303736e73 d303736e76 "> </td>
+
+       
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+   <p class="gt-block p"><strong class="ph b">ベースライン - ライブ</strong></p>
+
+   <ul class="ul">
+    <li class="li">オーディオコーデック：AAC LC</li>
+
+    <li class="li">ビデオコーデック：H.264、2第2 GOP、プログレッシブ</li>
+
+    <li class="li">セグメント化メディア設定：
+    <ul class="ul">
+     <li class="li">HLS用の2,4,6,10 2番目のTSセグメント（通常は4が好ましい）</li>
+
+     <li class="li">Smooth用の2,4 2番目のMP4フラグメント</li>
+
+    </ul>
+</li>
+
+   </ul>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">表2 ライブエンコーディングプロファイルのベースライン推奨事項</span></caption>
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" id="d303736e267">解像度</th>
+
+       <th class="entry" valign="top" id="d303736e270">H.264プロフィール</th>
+
+       <th class="entry" valign="top" id="d303736e273">セグメント長<p class="p">（秒）</p>
+</th>
+
+       <th class="entry" valign="top" id="d303736e278">動画<p class="p">ビットレート</p>
+</th>
+
+       <th class="entry" valign="top" id="d303736e283">オーディオ<p class="p">ビットレート（AAC）</p>
+</th>
+
+       <th class="entry" valign="top" id="d303736e289">HLS</th>
+
+       
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">416</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">ベースライン</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">4  -  6</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">145のkbps</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">32のkbps</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">x</td>
+
+       
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">480</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">ベースライン</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">4  -  6</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">400のkbps</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">64のkbps</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">x</td>
+
+       
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">640</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">ベースライン</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">4  -  6</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">700のkbps</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">64のkbps</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">x</td>
+
+       
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">768</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">メイン</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">4  -  6</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">1.1 Mbpsの</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">64のkbps</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">x</td>
+
+       
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">960</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">メイン</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">4  -  6</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">2.0 Mbpsの</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">96のkbps</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">x</td>
+
+       
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">1280</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">メイン</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">4  -  6</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">3.0 Mbpsの</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">128のkbps</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">x</td>
+
+       
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">1920</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">メイン</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">4  -  6</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">5.0 Mbpsの</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">128のkbps</td>
+
+       <td class="entry" valign="top" headers="d303736e267 d303736e270 d303736e273 d303736e278 d303736e283 d303736e289 ">x</td>
+
+       
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">ローモーションとハイモーションのビデオ</h2>
+   <p class="p">処理プロファイルを選択する前に、ビデオがローモーションかハイモーションかを検討してください。 例えば、スポーツストリーミングは動きが速いが、ニュース放送は動きが少ない。 fpsが高いか低いかに応じて、ビデオのビットレートを調整できます。 Ooyalaの推奨事項はすべて、ローモーションとハイモーションの両方に対する30 fpsに基づいています。</p>
+</div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">VR 360ビデオ</h2>
+   <p class="gt-block p"><span class="ph" id="encodings_recommendations_ratios__vr360_encodings">
+     現在、VR 360では、明確なHLSおよびDASHストリームのみがサポートされています。 デフォルトでは、Ooyalaはアップロード時にVR 360として識別されたすべてのビデオに対してシングルビットレートの処理プロファイルを提供します。 このプロファイルは、最低でも8Kの4K解像度を持つ〜3840 Mbps HLSおよび/またはDASHストリームを作成します。 Ooyalaの取り込みはソースの縦横比を維持し、高さを動的に計算しますが、ソースのフレームレートもソースファイルから保持されます。</span></p>
+
+   <div class="note note"><span class="notetitle">注意：</span> VR 360アセットは通常、2：1アスペクト比として設定する必要があります。 これは、フラットビデオに使用される一般的なアスペクト比とは異なります。</div>
+
+    <p class="p">提供されたプロファイルには、以下の設定が含まれています。</p>
+
+    <ul class="ul"><li class="li">セグメント期間秒数：4-6</li>
+
+     <li class="li">ビデオの幅：3840</li>
+
+     <li class="li">プロフィール：main</li>
+
+     <li class="li">ビデオビットレート：10000</li>
+
+     <li class="li">オーディオビットレート：128</li>
+
+     <li class="li">オーディオサンプルレート：48000</li>
+</ul>
+
+   <p class="p">VR 360ファイルのエンコード設定を変更したい場合は、Brightcoveテクニカルサポートに連絡してVR 360ビデオのカスタムエンコードプロファイルを設定してください。</p>
+
+   <p class="gt-block p">VR 360の詳細については、 
+    <a class="xref" href="../concepts/vr360.html">VR 360ビデオ</a>.</p>
+
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">処理プロファイルでサポートされているデバイス</h2>
+   <p class="p">Ooyalaの推奨処理プロファイルは、一般的なすべてのデバイスをサポートしていますが、高解像度配信には最適化されていません。 ビデオを配信するネイティブiOSアプリを作成する場合は、オーディオのみのエンコーディング仕様をエンコーディングプロファイルに追加する必要があります。 基本プロファイルと拡張プロファイルはどちらも、サポートされているすべてのPlayer V4ブラウザとOSのバージョンで機能します。</p>
+
+<ul class="ul">
+ <li class="li">アンドロイド4.4 +</li>
+
+ <li class="li">iOS 9 +</li>
+
+ <li class="li">10.5GHz以上のIntelプロセッサを搭載したMac OS X 1以上。 PowerPCはサポートされていません。</li>
+
+ <li class="li">利用可能なすべての更新プログラムを適用したWindows 7、8、および10。 Internet Explorerを搭載したWindows 7 11は、すべてのHTML5ビデオ規格をサポートしているわけではないため、サポートされているエンコード形式にはいくつかの制限があります。</li>
+
+ <li class="li">HLSまたはプログレッシブダウンロードをサポートするすべての接続機器 詳細については、 
+  <a class="xref" href="contentprotection_optionsbydevice.html" title="テクノロジオプションは、ターゲットデバイスの種類、ネットワーク、ストリーミングプロトコル、およびその他の要因によって異なります。">デバイス別のコンテンツ保護オプション</a>.</li>
+
+</ul>
+
+  </div>
+
+ 
+  <div class="section"><h2 class="title sectiontitle">エンコード問題に関する注意</h2>
+   <p class="gt-block p"><strong class="ph b">処理プロファイルの変更</strong></p>
+
+   <p class="p">処理プロファイルを変更するには、Ooyalaカスタマサポートマネージャに連絡してください。 処理プロファイルへの変更は遡及的ではないため、処理プロファイルへの変更後にアップロードされたビデオのみが新しい処理プロファイルを使用してエンコードされます。 古いビデオは新しい処理プロファイルを使用して再エンコードする必要があります。</p>
+
+  <p class="gt-block p"><strong class="ph b">ABRのセグメント長</strong></p>
+  
+   <p class="p">アダプティブビットレート（ABR）の推奨セグメント長は2〜4秒です。</p>
+
+   <p class="gt-block p"><strong class="ph b">国際的な考慮事項</strong></p>
+  
+   <p class="p">このトピックの推奨プロファイルは、米国の平均帯域幅、待ち時間、およびCPUに基づいています。 ビデオを配信している地域によっては、カスタマーサクセスマネージャーまたはテクニカルサポートと調整について話し合うことをお勧めします。
+   </p>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">詳しくは</h2>
+   <ul class="ul"><li class="li">各ストリームタイプで使用するビデオプラグインの詳細については、を参照してください。 <a class="xref" href="pbv4_stream_support.html">Player V4でサポートされているストリーム</a>.</li>
+
+   <li class="li">ビットレートの計算については、http：//community.ooyala.com/t5/Developers-Knowledge-Base/Understanding-Bitrate-Resolution-and-Quality/ta-p/1740にあるOoyala Community Knowledge Baseを参照してください。</li>
+
+    <li class="li">処理プロファイルを定義する仕様の詳細については、https：//www.itu.int/rec/T-REC-H.264を参照してください。</li>
+
+   </ul>
+
+  </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_encoding.html" title="マスタービデオをインターネットで直接ストリーミングすることはできません。 それらはまずストリーミング形式に変換またはトランスコードする必要があります。 Ooyalaトランスコーディングサービス（OTS）を使用して、ファイルをソース形式から出力形式に変換します。">トランスコーディング設定</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

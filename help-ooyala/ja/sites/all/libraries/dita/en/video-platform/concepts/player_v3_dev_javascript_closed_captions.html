@@ -1,0 +1,198 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Advanced: Closed Captions with the HTML5 Player V3 (Deprecated)"/>
+<meta name="abstract" content="Use jQuery and the Web Video Text Tracks Format (WebVTT) to present closed captions with the HTML5 Player V3."/>
+<meta name="description" content="HTML5 Player V3でクロー​​ズドキャプションを表示するには、jQueryとWebビデオテキストトラックフォーマット（WebVTT）を使用してください。"/>
+<meta name="DC.Relation" scheme="URI" content="../api/player_v3_apis.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/player_v3_dev_tutorial.html#player_v3_dev_tutorial"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_v3_javascript_handling_fullscreen_and_playhead_events"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>高度な機能：HTML5プレーヤのクローズドキャプションV3（廃止予定）</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="player_v3_javascript_handling_fullscreen_and_playhead_events">
+
+
+    <h1 class="title topictitle1">高度な機能：HTML5プレーヤのクローズドキャプションV3（廃止予定）</h1>
+
+    
+    <div class="body refbody"><p class="shortdesc"> Use jQuery and the Web Video Text Tracks Format (WebVTT) to present closed captions
+        with the HTML5 Player V3.</p>
+<div class="section">
+            <div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V3は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V3はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V3を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="pbv4_migration_v3.html">Player V3からの移行</a> そして <a class="xref" href="pbv4_migration_faq.html">プレイヤー移行に関するFAQ</a>).</div>
+In this example,
+            you will learn how to use the jQuery support provided with the Ooyala Player to add
+            WebVTT-formatted closed caption content to your videos. In this advanced application,
+            the closed caption content specified in a separate VTT file appears as closed caption
+            text below the video content. <div class="p">The purpose of this web page is to provide the user
+                with English captions, so the design will include: <ul class="ul" id="player_v3_javascript_handling_fullscreen_and_playhead_events__ul_omg_t13_pr">
+                    <li class="li">A  <samp class="ph codeph">head</samp> を含む要素 <samp class="ph codeph">スクリプト</samp> tag
+                        specifying the loading and initialization request.</li>
+
+                    <li class="li">A  <samp class="ph codeph">ボディ</samp> 以下を含む要素<ul class="ul">
+                            <li class="li">PlayerコンテナのUI表示とレイアウト。</li>
+
+                            <li class="li">A  <samp class="ph codeph">スクリプト</samp> プレーヤを作成するタグ。</li>
+
+                            <li class="li">A  <samp class="ph codeph">追跡する</samp> element, selected using jQuery, used to
+                                display the captions.</li>
+
+                        </ul>
+</li>
+
+                </ul>
+</div>
+</div>
+
+        <div class="section"><div class="p">Webページを作成するには、次の手順に従ってください。<ul class="ul" id="player_v3_javascript_handling_fullscreen_and_playhead_events__ul_cpq_5s5_qr">
+                <li class="li"><a class="xref" href="#player_v3_javascript_handling_fullscreen_and_playhead_events__section_drt_rnp_ft/index.html">Step 1: Setup the Basic Structure</a></li>
+
+                <li class="li"><a class="xref" href="#player_v3_javascript_handling_fullscreen_and_playhead_events__section_f5x_14p_ft/index.html">Step 2: Add the Close Captions</a></li>
+
+            </ul>
+</div>
+<p class="gt-block p">見る <a class="xref" href="#player_v3_javascript_handling_fullscreen_and_playhead_events__section_t5v_d4p_ft/index.html">完全な例</a> Webページ全体のコードを表示します。</p>
+<p class="p"/>
+</div>
+
+        <div class="section" id="player_v3_javascript_handling_fullscreen_and_playhead_events__section_drt_rnp_ft"><h2 class="title sectiontitle">Step 1: Setup the Basic Structure</h2>
+            
+            <p class="gt-block p">We will develop the <samp class="ph codeph">head</samp> element and the logic for presenting and
+                creating the Player. To learn how to do this, see <a class="xref" href="../reference/player_v3_dev_tutorial.html#player_v3_dev_tutorial" title="このチュートリアルを使用して、HTML5 Player V3の使用を開始してください。">HTML5プレーヤーV3の基本チュートリアル（非推奨）</a>. Here is
+                the web page design we have so far:</p>
+
+            <pre class="pre codeblock"> 
+&lt;!DOCTYPE html&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+    &lt;head&gt;
+        &lt;title&gt;Player V3 Web Page: HTML5 Closed Captions&lt;/title&gt;
+        
+        &lt;!-- Load the Ooyala V3 Player --&gt;
+        &lt;script src='http://player.ooyala.com/v3/d3cf86763d9049329ffc74fb94b794b8?platform=html5-priority'&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;script&gt;
+            /* Enter your Player Code and JavaScript code in this section */
+            OO.ready(function() {
+            	OO.Player.create(
+            	  'ooyalaplayer', 
+            	  '5qZjJ2czr1hZznGFaDH_H_gejsVe5AVV'
+            	);
+            });
+        &lt;/script&gt;
+        
+        &lt;!-- Enter your HTML code in this section --&gt;
+        &lt;div id='ooyalaplayer' style='width:640px;height:360px'&gt;&lt;/div&gt;        
+    &lt;/body&gt;
+&lt;/html&gt;
+      </pre>
+
+        </div>
+
+        
+        <div class="section" id="player_v3_javascript_handling_fullscreen_and_playhead_events__section_f5x_14p_ft"><h2 class="title sectiontitle">Step 2: Add the Close Captions</h2>You can add a
+            track for closed captions using jQuery. This line of code, which we will enclose within
+            the <samp class="ph codeph">スクリプト</samp> element, appends the closed caption file, which was written
+            in WebVTT format: <div class="p"><pre class="pre codeblock">
+            	OO.$('video.video').append(
+            	  '&lt;track src="./extra_files/testCC.vtt" label="English captions" kind="captions" srclang="en-us" default &gt;'
+            	);
+</pre>
+In this case we are using jQuery to select the HTML <span class="keyword apiname">ビデオ</span> element
+                using class <span class="keyword apiname">ビデオ</span>. We use this element to select the
+                    <span class="keyword apiname">追跡する</span> element, where we specify the WebVTT-formatted source
+                file and related closed captions attribute values. You can learn about the usage of
+                the <span class="keyword apiname">追跡する</span> element at <a class="xref" href="http://www.w3.org/WAI/GL/wiki/Using_the_track_element_to_provide_captions" target="_blank">W3C</a>. Here is the closed captions logic,
+                which is now included within the <samp class="ph codeph">OO.ready（）</samp> function defined in the
+                the <samp class="ph codeph">スクリプト</samp>
+                素子：</div>
+<pre class="pre codeblock">        &lt;script&gt;
+            /* Enter your Player Code and JavaScript code in this section */
+            OO.ready(function() {
+            	OO.Player.create(
+            	  'ooyalaplayer', 
+            	  '5qZjJ2czr1hZznGFaDH_H_gejsVe5AVV'
+            	);
+            	
+            	/*
+            	 * Use jQuery to append the closed caption file written in WebVTT format.
+            	 * $('video.video') selects the HTML5 video element. 
+            	 * Its append method is used to specify the closed caption track attributes.
+            	 */
+            	OO.$('video.video').append(
+            	  '&lt;track src="./extra_files/testCC.vtt" label="English captions" kind="captions" srclang="en-us" default &gt;'
+            	);
+            });
+        &lt;/script&gt;</pre>
+<p class="gt-block p">To
+                learn about the WebVTT format, visit <a class="xref" href="http://dev.w3.org/html5/webvtt/" target="_blank">http://dev.w3.org/html5/webvtt/</a>.</p>
+<p class="gt-block p">To learn more about jQuery, visit <a class="xref" href="https://jquery.com/" target="_blank">https://jquery.com/</a> そして <a class="xref" href="http://www.w3schools.com/jquery/" target="_blank">http://www.w3schools.com/jquery/</a>.</p>
+
+        </div>
+
+        <div class="section" id="player_v3_javascript_handling_fullscreen_and_playhead_events__section_t5v_d4p_ft"><h2 class="title sectiontitle">完全な例</h2>
+            You now have a complete working example of a web page
+            that displays closed captions: <pre class="pre codeblock">
+ 
+&lt;!DOCTYPE html&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+    &lt;head&gt;
+        &lt;title&gt;Player V3 Web Page: HTML5 Closed Captions&lt;/title&gt;
+        
+        &lt;!-- Load the Ooyala V3 Player --&gt;
+        &lt;script src='http://player.ooyala.com/v3/d3cf86763d9049329ffc74fb94b794b8?platform=html5-priority'&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;script&gt;
+            /* Enter your Player Code and JavaScript code in this section */
+            OO.ready(function() {
+            	OO.Player.create(
+            	  'ooyalaplayer', 
+            	  '5qZjJ2czr1hZznGFaDH_H_gejsVe5AVV'
+            	);
+            	
+            	/*
+            	 * Use jQuery to append the closed caption file written in WebVTT format.
+            	 * $('video.video') selects the HTML5 video element. 
+            	 * Its append method is used to specify the closed caption track attributes.
+            	 */
+            	OO.$('video.video').append(
+            	  '&lt;track src="./extra_files/testCC.vtt" label="English captions" kind="captions" srclang="en-us" default &gt;'
+            	);
+            });
+        &lt;/script&gt;
+        
+        &lt;!-- Enter your HTML code in this section --&gt;
+        &lt;div id='ooyalaplayer' style='width:640px;height:360px'&gt;&lt;/div&gt;        
+    &lt;/body&gt;
+&lt;/html&gt;
+  </pre>
+
+        </div>
+
+    </div>
+
+    
+    <div class="related-links"><div class="relinfo relref"><strong>関連資料</strong><br/>
+<div><a class="link" href="../api/player_v3_apis.html" title="プレーヤV3 JavaScript関数を使用してプレーヤの動作と外観をカスタマイズできます。">プレーヤV3 JavaScript API関数</a></div>
+<div><a class="link" href="../reference/player_v3_dev_tutorial.html#player_v3_dev_tutorial" title="このチュートリアルを使用して、HTML5 Player V3の使用を開始してください。">HTML5プレーヤーV3の基本チュートリアル（非推奨）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div

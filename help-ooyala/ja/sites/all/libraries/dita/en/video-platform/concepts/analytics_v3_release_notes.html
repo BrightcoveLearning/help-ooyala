@@ -1,0 +1,975 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Ooyala IQ Release Notes"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ooyala_iq_user_guide.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ooyala_iq_developer_guide.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="analytics_v3_prerelease_releasenotes"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Ooyala IQリリースノート</title>
+</head>
+<body id="analytics_v3_prerelease_releasenotes">
+
+
+    <h1 class="title topictitle1">Ooyala IQリリースノート</h1>
+
+    <div class="body conbody">
+        <div class="section"><h2 class="title sectiontitle">2018-12-17</h2>
+            
+            <p class="p">このOoyala IQリリースでは、以下の新機能と機能強化が導入されています。</p>
+
+            <ul class="ul">
+
+                <li class="li"><p class="gt-block p"><strong class="ph b">ビジネスインテリジェンスページの新しい資産フィルタ</strong></p>
+
+                    <ul class="ul"><li class="li">カスタムメタデータに基づいてアセットをフィルタリングできるようになりました。 
+                            <div class="p">これを行うには、アセットのフィルタアイコンをクリックして、 <strong class="ph b">メタデータ別</strong> 最初のドロップダウンメニューから、カスタムメタデータのキーと値のペアを入力します。
+                        <div class="note note"><span class="notetitle">注意：</span> コンマを使用して、カスタムメタデータの複数のキーと値のペアを追加できます。</div>
+</div>
+</li>
+</ul>
+
+                    <ul class="ul"><li class="li">事前定義された期間に基づいて資産をフィルタリングできるようになりました。 
+                        <p class="p">定義済みの期間は次のとおりです。</p>
+<ul class="ul">
+                                <li class="li">小資産0  - 期間中の5分</li>
+
+                                <li class="li">中資産5  - 期間中の20分</li>
+
+                                <li class="li">長資産20 +期間（分）</li>
+
+                            </ul>
+<p class="p">資産のフィルタアイコンをクリックし、期間ドロップダウンメニューから期間を選択してこれを行うことができます。</p>
+<div class="note note"><span class="notetitle">注意：</span> この期間フィルタは、リリース日以降のトラフィックのある資産に対してのみ機能します。</div>
+</li>
+</ul>
+
+                    <ul class="ul"><li class="li">公開日に基づいてアセットをフィルタリングできるようになりました。 <p class="gt-block p">資産のフィルタアイコンをクリックしてから、 <strong class="ph b">公開日で絞り込む</strong>
+                                ボタンを押して日付範囲を選択します。</p>
+</li>
+</ul>
+
+                </li>
+
+                        <li class="li"><p class="gt-block p"><strong class="ph b">マスターアカウントにログインしたときに、ビジネスアカウントページ内のさまざまなサブアカウントからデータをフィルタリングするためのマスターアカウントのユーザーのサポート。</strong></p>
+</li>
+
+               </ul>
+ 
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">2018-10-01</h2>
+            
+            <p class="p">このOoyala IQリリースでは、以下の新機能と機能強化が導入されています。</p>
+
+            <ul class="ul">
+                
+                <li class="li"><p class="gt-block p"><strong class="ph b">日付範囲の比較</strong></p>
+
+                    <p class="p">Ooyala IQの日付範囲比較機能を使用すると、ビジネスインテリジェンスページに比較日付範囲を簡単に追加して、ユーザーエンゲージメントがどのように変化したかを確認できます。</p>
+
+                    <p class="gt-block p">見る <a class="xref" href="analytics_v3_user_workspace_content_datetime_comparison.html">ビジネスインテリジェンスページの日付範囲比較機能の使用</a> 日付範囲比較機能を使用して2つの異なる日付範囲の分析データを確認および比較できるようにする方法については、ガイダンスを参照してください。</p>
+
+                </li>
+
+                
+                <li class="li"><p class="gt-block p"><strong class="ph b">拡張資産ビューの追加列</strong></p>
+
+                    <p class="gt-block p">  <span class="ph uicontrol">拡張資産ビュー</span> Ooyala IQの[ビジネスインテリジェンス]ページに2つの追加の列が追加されました。</p>
+
+                    <ul class="ul">
+                        <li class="li">  <span class="ph uicontrol">アップロード</span> 列には、資産が公開された日時に関する情報が表示されます。</li>
+
+                        <li class="li">  <span class="ph uicontrol">バックスロット埋め込みコード</span> 列には、資産が公開された日時に関する情報が表示されます。</li>
+
+                    </ul>
+
+                    <p class="gt-block p">以下の視覚的な例は、の新しい列を示しています。 <span class="ph uicontrol">拡張資産ビュー</span>:</p>
+
+                    <div class="p"><div class="fig fignone">
+                        <img class="image" src="http://help-ooyala.brightcove.com/../image/analytics_v3_search_asset_expanded_view_columns.png" height="102" width="691"/>
+                    </div>
+</div>
+
+                    <p class="gt-block p">追加の列は、を使用して表示または非表示にできます。 <span class="ph uicontrol">テーブル列の編集</span> 以下の例に示すように、オプション</p>
+
+                    <div class="p"><div class="fig fignone">
+                        <img class="image" src="http://help-ooyala.brightcove.com/../image/analytics_v3_search_asset_expanded_view_columns_edit.png" height="191" width="738"/>
+                    </div>
+</div>
+
+                </li>
+
+                
+                
+                
+            </ul>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">2016-12-15</h2>
+            
+            <div class="sectiondiv"><p class="gt-block p">   <a class="xref" href="analytics_v3_common_metrics.html">リプレイ</a>
+                    メトリックはOoyala IQで使用可能で、UIに表示されます。 </p>
+
+                <img class="image" src="http://help-ooyala.brightcove.com/../relnotes/../image/analytics_img/analytics_iq_replay_metric.png" height="410" width="800"/>
+                <p class="gt-block p"> 参照してください <strong class="ph b">リプレイ</strong> のコンテキストでのメトリック <a class="xref" href="../api/analytics_v3_api_reporting_metrics.html">レポートAPI</a>.
+                
+                </p>
+</div>
+            <div class="sectiondiv">
+                <p class="gt-block p">IQでは、ユーザがコンテンツをフィルタすることによってコンテンツをフィルタ処理できる新しい機能が導入されています。 <strong class="ph b">生放送</strong>  or  <strong class="ph b">ビデオオンデマンド</strong> （VOD）コンテンツ この機能は、主要業績評価指標（KPI）バーの上部にあるUIの一部です。</p>
+
+                <img class="image" src="http://help-ooyala.brightcove.com/../relnotes/../image/analytics_img/analytics_iq_before_filtering.png" height="408" width="800"/>
+                <div class="p"> ユーザーがフィルタリングを選択すると、ライブストリーミングコンテンツを反映するように以下が更新されます。 <ul class="ul">
+                        <li class="li">KPIバー</li>
+
+                        <li class="li">同時ユーザー</li>
+
+                        <li class="li">トップコンテンツパネル</li>
+
+                    </ul>
+ ただし、次のパネルはLive / VODフィルタではまだサポートされていません。 <ul class="ul">
+                        <li class="li">今人気</li>
+
+                        <li class="li">現在のユーザーによる上位10の国</li>
+
+                        <li class="li">過去1時間の傾向</li>
+
+                    </ul>
+ これらのパネルのライブフィルタリングは将来のリリースでサポートされる予定です。 </div>
+
+                <p class="p"> [Business Intelligence]ページで、ライブフィルタはすべてのメトリクスに対して機能します。 </p>
+
+                <img class="image" src="http://help-ooyala.brightcove.com/../relnotes/../image/analytics_img/analytics_iq_biz_before_live.png" height="418" width="800"/>
+                <img class="image" src="http://help-ooyala.brightcove.com/../relnotes/../image/analytics_img/analytics_iq_biz_after_live.png" height="474" width="915"/>
+                <div class="note note"><span class="notetitle">注意：</span> 「ラベルによるフィルタ」を適用すると、Live / VODフィルタは無効になります。 資産タイプでフィルタリングする場合、資産名でフィルタリングすることはできません。 それらは相互に排他的です。 </div>
+</div>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">2016-11-10</h2>
+            
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">Analytics V3 API  - レポートフィルタ</strong></p>
+
+                <p class="gt-block p">フィルタリングはアセットタイプ別に行えるようになりました。 見る <a class="xref" href="../api/analytics_v3_api_reporting_filters.html">フィルター</a> 詳細はこちら</p>
+
+                <p class="gt-block p"><strong class="ph b">Analytics V3 API  - レポートディメンション</strong></p>
+
+                <p class="gt-block p"><samp class="ph codeph">のGET</samp> とのAPI呼び出し <strong class="ph b">資産</strong> 寸法が戻る <strong class="ph b">is_live_type</strong>。 見る <a class="xref" href="../api/analytics_v3_api_reporting_dimensions.html">レンディション</a> 詳細はこちら</p>
+
+            </div>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">2016-09-30</h2>
+            
+            <p class="gt-block p">以下の機能は両方に適用されます。 <strong class="ph b">Live</strong> コンテンツタイプ <strong class="ph b">ビデオオンデマンド</strong> コンテンツタイプ</p>
+
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">ダッシュボード</strong></p>
+
+                <ul class="ul">
+                    <li class="li">全般的に <strong class="ph b">同時ユーザー傾向</strong> ログインが行われると、アカウント全体のグラフが1分単位で表示されます。 [Concurrent User Trending]ビューには、特定の瞬間のスナップショットが表示されます。 ビューは1分間隔で更新されます。
+                        <ul class="ul">
+                            <li class="li">資産から1つ選択できます。 <strong class="ph b">今人気の</strong> 窓からまたは <strong class="ph b">過去の時間の傾向</strong> ウィンドウを開き、各アセットの同時ユーザー傾向を参照してください。</li>
+
+                            <li class="li">この <em class="ph i">トレンド</em> chartは、現時点から4時間前までの動的な移動チャートです。 リアルタイムに更新されます。</li>
+
+                            <li class="li">チャートをズームインまたはズームアウトできます。</li>
+
+                            <li class="li">あなたはチャートでピーク同時ユーザーを得ることができます。</li>
+
+                        </ul>
+
+                    </li>
+
+                </ul>
+
+                <div class="fig fignone"><img class="image" src="http://help-ooyala.brightcove.com/../relnotes/../image/analytics_dashboard_concurrent_links.png" width="500"/></div>
+
+            </div>
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">ビジネス·インテリジェンス</strong></p>
+
+                <ul class="ul">
+                    <li class="li">  <strong class="ph b">ビジネスインテリジェンスボード</strong> エンドツーエンドの待ち時間は90分に短縮されました。</li>
+
+                    <li class="li">あなたがに行くことができます <strong class="ph b">リーチ</strong> タブをクリックして同時ユーザー履歴データを確認します。</li>
+
+                    <li class="li">最小15分から最大2日までの任意の期間を選択して、同時ユーザーの傾向を確認できます。 たとえば、03 / 30 / 16 12：00pmから03 / 30 / 16：12pmを選択すると、15：12pm、00：12pmのデータポイントが得られます。</li>
+
+                    <li class="li">各資産だけでなく、アカウント全体の同時ユーザー測定基準に関する1分単位のデータ粒度を得ることができます。 上限は50で、複数のビデオアセットでフィルタリングできます。 
+                    </li>
+
+                    <li class="li">ピーク同時ユーザー数は、Concurrent Trendingチャートで確認できます。</li>
+
+                    <li class="li">あなたが見ることができます <em class="ph i">1分あたりの平均同時ユーザー数</em> 左側のパネルで</li>
+
+                </ul>
+
+                <p class="gt-block p"><strong class="ph b">注</strong>：同時接続ユーザー（デバイス、地域など）のその他の寸法内訳は、現在サポートされていません。 つまり、これらの寸法にはフィルタ機能がありません。 ユーザーが1分間の同時ユーザービューにいる場合は、それ以外のすべてのフィルタ <em class="ph i">資産</em> 無効になっています。 同様に、他のフィルタが <em class="ph i">資産</em> が適用されると、1分間の細分性は無効になります。
+                </p>
+
+                <p class="gt-block p">
+                    <strong class="ph b">注</strong>：同時ユーザー測定基準は、1分単位の精度でのみ表示できます。 粒度を15分、1時間などの別の値に変更すると、表示は自動的に固有のユーザーを表示するように切り替わります。 
+                </p>
+
+                <div class="fig fignone"><img class="image" src="http://help-ooyala.brightcove.com/../relnotes/../image/analytics_business_intelligence_concurrent_links.png" width="500"/></div>
+
+            </div>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">2016-08-11</h2>
+            
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">新機能と強化</strong></p>
+
+                <ul class="ul">
+                <li class="li">
+                <p class="gt-block p"><strong class="ph b">サードパーティのプレイヤーはXDR機能を使用できます。</strong></p>
+
+                <p class="gt-block p">サードパーティのプレイヤーはこれを利用することができます。 <strong class="ph b">XDR</strong> のためのコード <em class="ph i">一時停止</em> そして <em class="ph i">履歴書</em> プレーヤーがIQ JSON APIと統合できる場合は、機能。 たとえば、ビデオをOoyalaプレーヤーで一時停止し、Rokuプレーヤーで再開することができます。 互換性のあるサードパーティ製デバイスの例は次のとおりです。</p>
+
+                <ul class="ul">
+                    <li class="li">年</li>
+
+                    <li class="li">Xbox One</li>
+
+                </ul>
+
+                </li>
+
+                <li class="li">
+                <p class="gt-block p"><strong class="ph b">XDRは外部資産をサポートしています。</strong></p>
+
+                <p class="p">XDRには、Backlotの外部の資産（たとえば、サードパーティのコンテンツ管理システムに配置されているものなど）に対するサポートが追加されました。</p>
+
+                </li>
+
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">2016-08-04</h2>
+            
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">の最大資産数 <em class="ph i">今人気の</em>.</strong></p>
+
+                <p class="gt-block p">で表示できるアセットの数が増えました <strong class="ph b">今人気の</strong>
+                    セクション。 今、あなたはリアルタイムでそれらを見ているユーザーの数と共に100資産まで追跡することができます！</p>
+
+                <div class="fig fignone">
+                    <img class="image" src="http://help-ooyala.brightcove.com/../relnotes/../image/analytics_popular_now_100.png"/>
+                </div>
+
+                <p class="gt-block p"><strong class="ph b">ズームボタン</strong></p>
+
+                <p class="gt-block p">グラフと対話し、15分ごとと1時間ごとの詳細について詳細を確認するための、より簡単で直感的な方法を追加しました。 <strong class="ph b">ズームイン</strong> そして <strong class="ph b">ズームアウトする</strong> ボタンを使用すると、必要な詳細レベルに集中できます。</p>
+
+                <div class="fig fignone">
+                    <img class="image" src="http://help-ooyala.brightcove.com/../relnotes/../image/analytics_zoom_buttons.png"/>
+                </div>
+
+                <p class="gt-block p"><strong class="ph b"><em class="ph i">監視セグメント</em> チャートは今もパーセンテージを示しています <em class="ph i">資産デュレーション</em> 利用できません。</strong></p>
+
+                <p class="gt-block p">を表示しています <strong class="ph b">監視セグメント</strong> 長さが決まっていないアセットでもチャートにできます。 チャートポイントの上にマウスを移動すると、時間ではなくパーセンテージが表示されます。</p>
+
+                <div class="fig fignone">
+                    <img class="image" src="http://help-ooyala.brightcove.com/../relnotes/../image/analytics_segments_watched_percentages.png"/>
+                </div>
+
+                <p class="gt-block p"><strong class="ph b">の適切なリンク <em class="ph i">ダッシュボード</em> 資産。</strong></p>
+
+                <p class="p">ユーザーが慣れ親しんでいるインタラクションを可能にするために、ダッシュボードページにアセットへの適切なリンクを追加しました。</p>
+
+                <div class="fig fignone">
+                    <img class="image" src="http://help-ooyala.brightcove.com/../relnotes/../image/analytics_dashboard_proper_links.png"/>
+                    <img class="image" src="http://help-ooyala.brightcove.com/../relnotes/../image/analytics_dashboard_proper_links_b.png"/>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">2016-06-30</h2>
+            
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">Ooyala IQのUIおよびAPIにおける新しい時間と15分の時間セグメントの細分性</strong></p>
+
+                <p class="gt-block p">Ooyala IQのUIで、時間と15分の時間セグメントの粒度を選択して、 <strong class="ph b">ビジネス·インテリジェンス</strong> そして <strong class="ph b">ビデオの詳細</strong> ページ。 </p>
+
+                <div class="fig fignone">
+                    <img class="image" src="http://help-ooyala.brightcove.com/../relnotes/../image/analytics_v3_15min_time_segment.png"/>
+                </div>
+
+                <div class="p">UIでは、 <span class="ph uicontrol">時間</span>or  <span class="ph uicontrol">15分</span> 時間セグメントあなたは今、日付選択ツールで時間を選択することができます。 15分で割り切れる時間を選択してください。そうでなければ時間は自動修正されます。 たとえば、 <span class="ph uicontrol">15分</span> 時間セグメントと選択 <span class="ph uicontrol">12：05 PM</span> そして
+                        <span class="ph uicontrol">12：55 PM</span> 開始日と終了日の時間として、時間はに自動修正されます。 <span class="ph uicontrol">12：00 PM</span> そして
+                        <span class="ph uicontrol">01：00 PM</span>それぞれ。 を選択した場合
+                        <span class="ph uicontrol">時間</span> 時間セグメントと選択 <span class="ph uicontrol">12：20 PM</span> そして <span class="ph uicontrol">12：47 PM</span> 開始日と終了日の時間として、時間はに自動修正されます。 <span class="ph uicontrol">12：00 PM</span> そして <span class="ph uicontrol">01：00 PM</span>それぞれ。 見る <a class="xref" href="../tasks/analytics_v3_user_workspace_content_datetime.html">ビジネスインテリジェンスページでの日付範囲の設定</a> 詳細については。<div class="fig fignone" id="analytics_v3_prerelease_releasenotes__d14984e125">
+                        <img class="image" id="analytics_v3_prerelease_releasenotes__d14984e127" src="http://help-ooyala.brightcove.com/../relnotes/../image/analytics_v3_time_select_time.png"/>
+                    </div>
+
+                </div>
+
+                <p class="p">ズーム機能を時間および15分の時間セグメントとともに使用して、メトリックグラフのセグメントを強調表示し、より詳細なメトリック結果を表示します。</p>
+
+                <div class="fig fignone">
+                    <img class="image" src="http://help-ooyala.brightcove.com/../relnotes/../image/iq_15min_time_zoom.001.png"/>
+                </div>
+
+                <div class="note note"><span class="notetitle">注意：</span> <p class="p">日時セグメントのデフォルトの日付範囲は、15分および時セグメントのデフォルトの日付範囲とは異なります。</p>
+
+            <p class="p">日時セグメントの場合、デフォルトの日付範囲は、週の最初の日の12：00amから最後の日の11：59pm（8 24時間セグメント）です。 15の分と時の時間セグメントの場合、デフォルトの日付範囲は、週の最初の日の12：00pmから最後の日の12：00pm（7 24時間セグメント）です。</p>
+
+            <p class="p">デフォルトの日付範囲の違いは、日の時間セグメントと15の分または時間のセグメントを切り替えると、メトリックデータが変わることを意味します。 今後のリリースでは、15の分と時間の時間セグメントの日付範囲の制限を日の時間範囲（8 24の時間セグメント）と一致するように変更します。</p>
+
+         </div>
+
+                <div class="p">Ooyala IQ APIを使用すると、次のクエリを実行できます。 <samp class="ph codeph">時間</samp> そして
+                        <samp class="ph codeph">15min</samp> の値 <samp class="ph codeph">time_segment</samp>.  <ul class="ul">
+                        <li class="li">APIを使用して、 <samp class="ph codeph">時間</samp>  or
+                                
+                                <samp class="ph codeph">15min</samp> 時間セグメント、あなたは今時間で照会することができます <samp class="ph codeph">START_DATE</samp> そして <samp class="ph codeph">終了日</samp>。 きみの
+                                <samp class="ph codeph">START_DATE</samp> そして <samp class="ph codeph">終了日</samp> フォーマットを使用するべきです <samp class="ph codeph">YYYY-MM-DDTHH：MM</samp>。 選択された時間は15分で割り切れる必要があります。 15で割り切れない時間を入力すると、エラーメッセージが返されます。 見る <a class="xref" href="../api/analytics_v3_api_reporting_querystringparameters.html">クエリ文字列パラメータの報告</a> 詳細については。</li>
+
+                    </ul>
+
+                    <div class="note note"><span class="notetitle">注意：</span> を使用したクエリ <samp class="ph codeph">時間</samp> そして <samp class="ph codeph">15min</samp> タイムセグメントは、最大7日の日付範囲でのみ作成できます。 </div>
+
+                    <div class="note note"><span class="notetitle">注意：</span> を使用したAPIクエリ <samp class="ph codeph">時間</samp> そして <samp class="ph codeph">15min</samp>
+                        時間セグメントは、のメトリック情報を返しません。
+                            <samp class="ph codeph">segment_watched</samp>,  <samp class="ph codeph">uniq_displays</samp>,
+                            
+                            <samp class="ph codeph">uniq_video_starts</samp>,  <samp class="ph codeph">percentage_watched</samp>,
+                            
+                            <samp class="ph codeph">uniq_plays_requested</samp>または任意のディスカバリメトリック。</div>
+
+                </div>
+
+                <p class="p"/>
+
+                <p class="gt-block p"><strong class="ph b">Ooyala IQ Video Detailsページの新しいプレイスルーグラフ</strong></p>
+
+                <p class="gt-block p">上のプレイスルーグラフ <strong class="ph b">ビデオの詳細</strong> Ooyala IQのページは、上のプレイスルーグラフと一致します。 <strong class="ph b">ビジネス·インテリジェンス</strong> ページ（新しい時間範囲選択機能とプレイスルーデータの時系列ビューを含む）。</p>
+
+                <div class="fig fignone">
+                    <img class="image" src="http://help-ooyala.brightcove.com/../relnotes/../image/analytics_v3_video_details_playthrough.png"/>
+                </div>
+
+                <p class="p"/>
+
+                <p class="gt-block p"><strong class="ph b">Ooyala IQ APIからの無制限のデータ行</strong></p>
+
+                <p class="gt-block p">Ooyala IQ APIでは、最大1月までの時間範囲で、無制限のデータ行を使用して一度に最大3ディメンションでクエリを実行できます。 1か月を超える時間範囲では、最大2行のデータを使用して、一度に最大10,000ディメンションで照会を続けることができます。 見る <a class="xref" href="../api/analytics_v3_api_reporting_dimensions.html">レンディション</a> 詳細については。 </p>
+
+                <p class="p"/>
+
+                <p class="gt-block p"><strong class="ph b">Ooyala IQ用の新しいXbox Oneアダプター</strong></p>
+
+                <p class="gt-block p">Ooyala Xbox Oneアダプターは、Ooyala IQ JavaScript SDKを使用してXbox OneビデオアプリからOoyala IQにビデオイベントをやり取りします。 Ooyala Xbox Oneアダプターを使用している場合は、Xboxの[デバイス]パネルにXboxがOSとして表示されます。
+                        <strong class="ph b">ビジネス·インテリジェンス</strong> このアダプタを自分で実装することも、Ooyalaプロフェッショナルサービスがアダプタを有料で実装することもできます。 見る <a class="xref" href="../relnotes/../tasks/analytics_v3_jssdk_xbox_one_adapter.html">JS SDKを使用したXbox OneビデオアプリとIQの統合</a> 詳細については。</p>
+
+            </div>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">2016-06-23</h2>
+            
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">新しいOoyala IQ JavaScript SDK</strong></p>
+
+                <div class="p">新しいOoyala IQ JavaScript SDKは、サードパーティのプレイヤーをOoyala IQと統合するために利用可能です。 新しいライブラリーは、Thriftエンドポイントを経由せずに直接イベントをJSON APIエンドポイントに送信します。これにより、既に使用可能だったものに加えて、以下のメトリックを報告することができます。<ul class="ul" id="analytics_v3_prerelease_releasenotes__d15046e177">
+                        <li class="li"><strong class="ph b">イベントを探す</strong>：視聴者がビデオを通してシークする（進行インジケータを前方または後方にドラッグする）ときはいつでも。</li>
+
+                        <li class="li"><strong class="ph b">選手情報</strong>：一意の識別子、プレイヤーの名前、およびプレイヤーのバージョン。</li>
+
+                    </ul>
+</div>
+
+                <div class="note note"><span class="notetitle">注意：</span> たとえば、Kaltura Player、FlowPlayerなどのためにOoyala IQ JavaScript SDKの上に構築されている現在の標準アダプタは、これらの追加のメトリックをサポートしていません。</div>
+
+                <p class="gt-block p">新しいライブラリについて詳しくは、を参照してください。 <a class="xref" href="../tasks/analytics_v3_integrate_javascriptsdk.html">JS SDKを使用したサードパーティ製プレイヤーとIQの統合</a>.</p>
+
+            </div></div>
+
+        <div class="section"><h2 class="title sectiontitle">2016-06-09</h2>
+            
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">州別の新しいショーがOoyala IQのテーブルオプションを拡張しました </strong></p>
+ Ooyala IQの[地理]パネルの展開されたテーブルビューで[表示：BY STATE]を選択できるようになりました。 これにより、状態別に分類されたデータをCSVファイルとしてエクスポートできます。 <div class="fig fignone">
+                    <img class="image" src="http://help-ooyala.brightcove.com/../relnotes/../image/analytics_v3_export_by_state.png"/>
+                </div>
+
+                <p class="gt-block p">見る <a class="xref" href="analytics_v3_user_workspace_content_expandedtableview.html" title="二重矢印アイコンを使用して、テーブルレイアウトにデータを表示します。">拡張テーブルの表示</a> 詳細については。</p>
+
+            </div>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">2016-04-29</h2>
+            
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">サードパーティプレーヤー用の新しいOoyala IQ JSON API</strong></p>
+
+                <p class="p">JSON APIエンドポイントをサポートするようにOoyala IQバックエンドを更新しました。 JSONは、言語に依存しない軽量のオープンスタンダードデータ交換フォーマットで、読み書きが容易です。</p>
+
+                <p class="p">このJSON APIエンドポイントは、既存のIQでのサードパーティ製プレーヤサポートを強化して、JavaScriptベースではないサードパーティ製プレーヤを含む、任意のデバイスまたはプレーヤからOoyala IQへのプレーヤイベントおよびデータの送信を可能にします。</p>
+
+                <p class="gt-block p">新しいを使う <span class="ph">ウーヤラIQ</span> サードパーティ製プレイヤーのイベントをOoyala IQに伝達するためのJSON API。 このエンドポイントを使用してJSONデータをOoyala IQに送信することも、すぐに使用可能なSDKのいずれかを使用することもできます。 このリリースでは、Roku用のすぐに使えるSDKを提供しています。 </p>
+
+                <p class="gt-block p">Ooyala IQ JSON APIの詳細については、 <a class="xref" href="../tasks/analytics_v3_json_api.html">JSON APIを使用したサードパーティ製プレイヤーとIQの統合</a>.</p>
+
+                <p class="gt-block p"><strong class="ph b">Roku統合用の新しいOoyala IQ SDK</strong>
+                </p>
+
+                <p class="p">Roku用のOoyala IQ SDKを使用して、RokuチャンネルとOoyala IQを統合できるようになりました。 Roku用Ooyala IQ SDKは、JSONデータをOoyala IQ JSON APIエンドポイントに送信し、どのイベントをいつ送信するかについてのベストプラクティスに自動的に従い、すべての必須フィールドが存在することを確認する、すぐに使えるSDKです。 。</p>
+
+                <p class="p">Roku用Ooyala IQ SDKは、Roku OS v7 +をサポートしています。</p>
+
+                <p class="gt-block p">Ooyala IQ SDK for Rokuを使用している場合は、Rokuの[デバイス]パネルにRokuがOSとして表示されます。 <a class="xref" href="https://analytics.ooyala.com/iq/bi" target="_blank">Ooyala IQビジネスインテリジェンス</a> インタフェース。</p>
+
+                <div class="fig fignone">
+                    <img class="image" src="http://help-ooyala.brightcove.com/../relnotes/../image/analytics_v3_roku_device_device.png"/>
+                </div>
+
+                <p class="p">Rokuプレーヤーもプレーヤーパネルに表示されます。</p>
+
+                <div class="fig fignone">
+                    <img class="image" src="http://help-ooyala.brightcove.com/../relnotes/../image/analytics_v3_roku_player_panel.png"/>
+                </div>
+
+                <p class="gt-block p">Roku用Ooyala IQ SDKの詳細については、 <a class="xref" href="../relnotes/../concepts/analytics_v3_roku_sdk.html">Roku統合のためのOoyala IQ SDK</a>。 Roku APIドキュメントのOoyala IQ SDKについては、を参照してください。 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/iq_roku/index.html" target="_blank">Ooyala IQ RokuライブラリAPIドキュメント</a>.  </p>
+
+                
+            </div>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">2016-03-10リリース</h2>
+            
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">あなたのOoyala IQアカウントにプリセットフィルタを保存する機能</strong></p>
+
+                <p class="p">Ooyala IQでプリセットフィルタを保存すると、保存したプリセットは、ユーザーアカウントにログインしたときにいつでも利用できるようになります（他のデバイスから自分のアカウントにアクセスした場合でも）。 </p>
+
+                <p class="gt-block p"><strong class="ph b">Ooyala IQで名前でフィルタリングするときにすべての資産を追加する機能</strong></p>
+
+                <p class="gt-block p">Ooyala IQのアセットパネルで、アセット名でフィルタリングするときに、検索結果に表示されるすべてのアセットをクリックするだけで選択できるようになりました。 <span class="ph uicontrol">検索結果をすべて追加</span>.  </p>
+
+                <div class="fig fignone"><img class="image" src="http://help-ooyala.brightcove.com/../relnotes/../image/analytics_v3_filter_name.png" height="120" width="518"/></div>
+
+                <p class="gt-block p"><strong class="ph b">監視されているOoyala IQセグメントの新しい伝説</strong></p>
+
+                <p class="p">Ooyala IQの[Video Details]ページの[Segments Watched]セクションで、グラフ上の特定のセクションにマウスを合わせると、再生時間付きのHH：MM：SS形式でビデオの時間を表示する凡例が表示されます。 。 </p>
+
+                <div class="fig fignone"><img class="image" src="http://help-ooyala.brightcove.com/../relnotes/../image/analytics_v3_live_segment_watched.png" height="225" width="403"/></div>
+
+                <p class="gt-block p"><strong class="ph b">ライブ資産のOoyala IQメトリックを監視した時間数の修正</strong></p>
+
+                <div class="p">Flashプレーヤー用のOoyala IQで、ライブアセットの監視時間数が正しく報告されなかったバグの修正を実装しました。 Ooyala IQは現在、以下を除くライブアセットのすべてのOoyala IQメトリクスとコンテンツメタデータを取得しています。<ul class="ul">
+                        <li class="li">プレイスルー（25％、50％、75％、100％）</li>
+
+                        <li class="li">平均的なプレイスルー</li>
+
+                        <li class="li">視聴したセグメント</li>
+
+                        <li class="li">運用資産の長さ</li>
+
+                    </ul>
+</div>
+
+            </div>
+        </div>
+  
+        <div class="section"><h2 class="title sectiontitle">2016-02-10リリース</h2>
+            
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">サードパーティのプレイヤーでプレイされたバックスロットアセットでサポートされているOoyala IQメトリクス</strong>
+                </p>
+
+                <div class="p">Ooyala IQは以下の指標を提供できます。 <ul class="ul">
+                    <li class="li">Ooyalaアセット（Backlotでホストされている）をプレイしているOoyalaプレーヤー。</li>
+
+                    <li class="li"><strong class="ph b">（新）Ooyalaアセットをプレイしているサードパーティ製プレイヤー（Backlotで開催）</strong>.</li>
+
+                    <li class="li">サードパーティの資産（サードパーティのCMSでホストされている）をプレイしているサードパーティのプレイヤー。</li>
+
+                </ul>
+
+            </div>
+
+                <div class="p">サードパーティのプレーヤーを使用してBacklotアセットを再生するのか、サードパーティのCMSホストアセットを再生するのかを設定できます。 次の例は、Ooyala-JW Playerアダプタを使用してコンテンツタイプを指定する方法を示しています。<ul class="ul">
+                           <li class="li"><strong class="ph b"><samp class="ph codeph">OOYALA_CONTENT</samp></strong>：
+                                        <samp class="ph codeph">MEDIAID</samp> はOoyalaの埋め込みコードです。 Ooyalaアセットを指定するために必要な情報を入手するには、Backlot APIクエリを作成します。 <samp class="ph codeph">/ assets / &lt;資産コード&gt; / streams</samp> アセットの場合は、目的のエンコーディングの結果をコピーします。 以下の例は、
+                                        <samp class="ph codeph">OOYALA_CONTENT</samp> JW Playerアダプタで指定します。<pre class="pre codeblock" id="analytics_v3_prerelease_releasenotes__d15147e269">&lt;script type = &quot;text / javascript&quot;&gt; var jwPlayer = jwplayer（ &quot;video&quot;）。setup（{ファイル： &#39;pathToYourOoyalaMp4VideoAsset&#39;、メディアID： &#39;yourOoyalaEmbedCode&#39;、タイプ： &#39;mp4&#39;}）; var jwOoyalaReporter = Ooyala.Analytics.JWReporter（ &quot;&lt;pcode&gt;&quot;、jwPlayer、{contentType：Ooyala.Analytics.MediaContentType.OOYALA_CONTENT}）; &lt;/script&gt;</pre>
+
+                                </li>
+
+                           <li class="li"><strong class="ph b"><samp class="ph codeph">EXTERNAL_CONTENT</samp></strong>：
+                                        <samp class="ph codeph">MEDIAID</samp> これは、Ooyalaの埋め込みコードではありません（そして、Ooyala以外のCMSからの顧客定義のメディアIDです）。 以下の例は、 <samp class="ph codeph">EXTERNAL_CONTENT</samp> JW Playerアダプタで指定します。<pre class="pre codeblock" id="analytics_v3_prerelease_releasenotes__d15147e284">&lt;script type = &quot;text / javascript&quot;&gt; var jwPlayer = jwplayer（ &quot;video&quot;）。setup（{ファイル： &#39;pathToYourVideoAsset&#39;、メディアID： &#39;yourMediaID&#39;}）; ;））; var jwOoyalaReporter = Ooyala.Analytics.JWReporter（ &quot;&lt;pcode&gt;&quot;、jwPlayer、{contentType：Ooyala.Analytics.MediaContentType.EXTERNAL_CONTENT}）; &lt;/script&gt;</pre>
+
+                                </li>
+
+                       </ul>
+
+                </div>
+
+                <div class="p">（Backlotでホストされている）Ooyalaアセットでは、JW Playerなどのサードパーティのビデオプレーヤーで再生されたビデオアセットのOoyala IQ分析メトリックを表示できるようになりました。 サードパーティのビデオプレーヤーで再生されたビデオアセットのIQ分析メトリックスを有効にするための主な手順は、次のとおりです。 <ol class="ol">
+                        <li class="li">Ooyala IQ JavaScript SDKを他社のプレーヤーと統合することで、サードパーティのプレーヤーがプレーヤーイベントをOoyala IQに伝達できるようにします。<span class="ph">Ooyala</span> Ooyala独自のアダプタを使用するか、独自のアダプタを構築することで、ビデオプレーヤーを構築できます。 </li>
+
+                        <li class="li">ビデオアセットが.mp4ファイルであること、および.mp4ファイルをエンコードできるように正しいエンコードプロファイルがあることを確認して、Ooyalaアセットがサードパーティのプレーヤーで再生可能であることを確認してください。</li>
+
+                        <li class="li">必ずあなたの.mp4ビデオアセット、アセットの埋め込みコードへのURLを参照し、アセットタイプをmp4として指定して、あなたのサードパーティプレーヤーを作成してください。</li>
+
+                    </ol>
+ 見る <a class="xref" href="analytics_v3_ug_third_party_players.html#analytics_v3_ug_third_party_players__third_party_player_ooyala_asset">サードパーティのプレイヤーとOoyala Assetsを使ってみる</a> 始める方法の詳細については。 </div>
+
+                <p class="gt-block p"><strong class="ph b">Ooyala IQでの混合プレーヤーのサポート </strong>
+                </p>
+
+                <p class="gt-block p"><span class="ph" id="analytics_v3_prerelease_releasenotes__d15123e63">Ooyalaプレーヤーとサードパーティプレーヤーを使用してOoyalaビデオアセット（Backlotでホストされている）を再生している場合は、1つのBacklotアカウントを使用してビデオをOoyalaプレーヤーとサードパーティプレーヤーにストリーミングできます。 両方のタイプのプレーヤーについて、1つのダッシュボードに（1つのユーザーアカウントを介して）統合されたIQ分析指標を表示できます。</span>
+                </p>
+
+                <div class="fig fignone">
+                    <img class="image" src="http://help-ooyala.brightcove.com/../relnotes/../image/analytics_v3_mixed_player.png" height="358" width="544"/>
+                </div>
+
+                <p class="p">サードパーティのアセット（サードパーティのCMSでホストされている）の場合は、アセットメタデータを取り込むために別のBacklotプロバイダーアカウントを設定する必要があります。</p>
+
+                <p class="gt-block p"><strong class="ph b">Ooyala IQでの無限ラベルスクロール</strong></p>
+
+                <p class="p">Ooyala IQのビジネスインテリジェンスページは、「ラベルによるフィルタ」機能を使用して、無限ラベルスクロールをサポートするようになりました。 多数のラベルがある場合のBusiness Intelligenceページの読み込み応答時間も向上しました。</p>
+
+                <div class="fig fignone">
+                    <img class="image" src="http://help-ooyala.brightcove.com/../relnotes/../image/analytics_v3_infinite_label_scroll.png" height="248" width="192"/>
+                </div>
+
+                <p class="gt-block p"><strong class="ph b">Ooyala IQの新しいプリセット時間範囲</strong></p>
+
+                <div class="p">Ooyala IQは、以下の新しいプリセット時間範囲選択をサポートします。 <ul class="ul">
+                        <li class="li">今年</li>
+
+                        <li class="li">昨年</li>
+
+                        <li class="li">最終12月間</li>
+
+                    </ul>
+
+                </div>
+
+                <div class="note note"><span class="notetitle">注意：</span> 2016の場合、今年はプロバイダのタイムゾーンで2016-01-01から今日までを意味し、昨年は2015-01-01から2015-12までを意味します。プロバイダのタイムゾーン 例えば、「今日」として31-12-12を使用して、今年は2015-02-10から2016-01-01を意味し、昨年は2016-02-10から2015-01-01を意味し、最後の2015は月を意味する-12-31から12-2015-02まで。</div>
+
+                <div class="fig fignone">
+                    <img class="image" src="http://help-ooyala.brightcove.com/../relnotes/../image/analytics_v3_year_time_presets.png" height="240" width="455"/>
+                </div>
+
+                <p class="gt-block p"><strong class="ph b">Ooyala Analytics Chrome拡張機能</strong></p>
+
+                <p class="gt-block p">Ooyala Analytics Chrome拡張機能は、現在Chromeウェブストアで入手できます。
+                        <a class="xref" href="https://chrome.google.com/webstore/detail/ooyala-analytics-plugin/kgkibeopmmkehaijmmfhldeclmgbmgnp" target="_blank">https://chrome.google.com/webstore/detail/ooyala-analytics-plugin/kgkibeopmmkehaijmmfhldeclmgbmgnp</a>。 このデバッグツールを使用すると、Ooyala IQで動作するように独自のサードパーティ製プレーヤアダプタを構築するのに役立ちます。</p>
+
+                <p class="gt-block p"><strong class="ph b">Chromecastデバイスに対するOoyala IQのサポート</strong></p>
+
+                <p class="p">Ooyala IQはChromecastデバイスの再生を追跡するようになりました。 browser = chrome、deviceOs = chromecast、およびdeviceType = settopのデータを調べることで、Ooyala IQ APIを使用してChromecast受信者分析を監視できます。 Ooyala IQのUIでは、これは[Device Type]&gt; [settop]&gt; [other  -  Chromecast]の下に表示されます。 [プレーヤー]パネルに、Chromecastプレーヤーの場合は &quot;Chromecast_player&quot;が表示されます。 分析結果は、エンドユーザーが開始したキャスト/プレイシナリオによって異なります。</p>
+
+                <p class="gt-block p">この機能は1月にリリースされました。 見る <a class="xref" href="chromecast_analytics.html">Chromecast統合アナリティクス</a> 詳細については。</p>
+
+            </div>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">2015-12-16リリース</h2>
+            
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">Ooyala IQの新機能と強化された機能</strong></p>
+
+                <p class="p">このリリースのOoyala IQには、次の新機能が含まれています。</p>
+
+                <ol class="ol">
+                    <li class="li">選択したフィルタと日付範囲をプリセットに保存できるようになりました。<p class="gt-block p">プリセットをリロードしたり、プリセットを検索したり、プリセットを削除したりできます。 別のブラウザに変更しない限り、次回アカウントにログインしたときに、保存したプリセットが利用可能になります。 保存したプリセットにアクセスするためのブラウザの切り替えは後日リリースされる予定です。 見る <a class="xref" href="../tasks/analytics_v3_user_workspace_preset_filters.html" title="時間と労力を節約するために、繰り返し使用するフィルタと日付範囲をプリセットに保存できます。">ビジネスインテリジェンスページでのプリセットフィルタの使用</a> プリセットの作成および管理方法の詳細については</p>
+</li>
+
+                    <li class="li">クエリの日付範囲が1か月未満の場合、IQ APIを介して無制限の資産データを取得できるようになりました。 <div class="p">APIを使用して無制限の資産データをクエリするには、クエリで次の条件を満たす必要があります。 <ol class="ol" type="a" id="analytics_v3_prerelease_releasenotes__d15207e41">
+                                <li class="li">1月以下（&lt;32日）の日付範囲を設定してください。</li>
+
+                                <li class="li">用途 <samp class="ph codeph"><a class="xref" href="../api/analytics_v3_api_reporting_dimensions.html">ディメンション=資産</a></samp> （追加寸法なし）。</li>
+
+                                <li class="li">をセットする <samp class="ph codeph"><a class="xref" href="../api/analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__page">ページ</a></samp> パラメータ（ここで
+                                            <samp class="ph codeph"><a class="xref" href="../api/analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__page">ページ</a></samp>= XおよびX &lt;=最後のページ） </li>
+
+                                <li class="li">をセットする <samp class="ph codeph"><a class="xref" href="../api/analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__limit">制限</a></samp> パラメータ（ここで
+                                            <samp class="ph codeph"><a class="xref" href="../api/analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__limit">制限</a></samp>&lt;= 1000）。</li>
+
+                            </ol>
+</div>
+
+                    </li>
+
+                </ol>
+
+                <p class="p">10,000以上のアセットがあり、31日より長い日付範囲でクエリを作成する場合、 <samp class="ph codeph">総数</samp> 返されるのは10,000になります（資産の合計数ではなく、10,000より大きくなります）。 </p>
+
+                <div class="note note"><span class="notetitle">注意：</span> の新しい最大値 <samp class="ph codeph">制限</samp> タイムアウトを回避するための1,000です。 すべてのデータを表示するには、データ行をページ分割します。 </div>
+
+                <p class="gt-block p">見る <a class="xref" href="../api/analytics_v3_api_unlimited_row_example.html">無制限の資産データをクエリする方法はありますか</a> これがどのように機能するかの完全な例については。</p>
+
+                <div class="p">このリリースのOoyala IQには、次の機能拡張が含まれています。 <ol class="ol">
+                        <li class="li">IQ専用ユーザーの場合、[動画の詳細]ページで、サムネイルURLをBacklotに取り込むと、プレーヤーの動画のサムネイル画像を読み込むことができます。 利用可能なサムネイルURLがない場合は、デフォルトのサムネイルが表示されます。 </li>
+
+                        <li class="li">IQのみのユーザの場合、[Video Details]ページで、ビデオストリームのURLがBacklotに取り込まれたときに、当社のプレーヤーはリモートビデオアセットを再生できます。</li>
+
+                    </ol>
+
+                </div>
+
+                <p class="p">Ooyala IQは、今後リリースされるOoyala Playerのバージョンをサポートするように更新されます。</p>
+
+                <p class="gt-block p"><strong class="ph b">Ooyala IQ APIの新しいDiscovery Insightsメトリクス</strong></p>
+
+                <p class="gt-block p">Discovery Insightsメトリックは、Ooyala IQのUIに導入されました。 <a class="xref" href="../relnotes/2015-10-15.html" title="このリリースでの重要な変更には、Ooyala IQの新しいDiscovery Insights機能と新しいOoyala IQドキュメントが含まれます。">2015-10-15リリース</a>。 あなたがOoyala Discoveryユーザーであれば、Ooyala IQ APIを使ってこれらのメトリクスを問い合わせることができます。 見る
+                        <a class="xref" href="../api/analytics_v3_api_reporting_metrics.html">メトリック</a>
+                    メトリック名と説明のために。 </p>
+
+            </div>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">2015-12-02リリース</h2>
+            
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">Ooyala IQの新しいサードパーティプレイヤーレポート機能</strong></p>
+
+                <p class="gt-block p">あなたは今統合することができます <span class="ph">Ooyala</span> サードパーティ製システム（非<span class="ph">Ooyala</span> ビデオプレーヤー）。 </p>
+
+                <p class="gt-block p"><strong class="ph b">UIの調整</strong></p>
+
+                <div class="p">  <span class="ph">ウーヤラIQ</span> サードパーティのプレーヤー分析に合わせてUIが調整されました。 調整内容は次のとおりです。 <ul class="ul">
+                    <li class="li">  <em class="ph i">プレーヤー</em> サードパーティのプレイヤーからイベントが発生した場合、パネルにサードパーティのプレイヤーの名前が表示されます。 たとえば、JWプレーヤーからのイベントを分析すると、「JWプレーヤー」が表示されます。 <em class="ph i">プレーヤー</em> パネル。 </li>
+
+                    <li class="li">コンテンツのメタデータがBacklotに取り込まれない場合、Ooyala IQは適切なUIの低下をもたらします。 つまり、Ooyala IQは、サードパーティのCMSシステムからのメタデータの取り込みを必要とせずに、サードパーティのプレイヤーイベントに関する分析を提供できます。 たとえば、Ooyala IQがビデオアセットのタイトルメタデータを取得しない場合は、タイトルの代わりにビデオアセットの外部IDが使用されます（例については下の画像を参照）。 <div class="fig fignone">
+                            <img class="image" src="http://help-ooyala.brightcove.com/../relnotes/../concepts/../image/iq_standalone_without_metadata.png" height="175" width="445"/>
+                        </div>
+
+                    </li>
+
+                    <li class="li"><span class="ph">Ooyalaプレーヤーとサードパーティプレーヤーを使用してOoyalaビデオアセット（Backlotでホストされている）を再生している場合は、1つのBacklotアカウントを使用してビデオをOoyalaプレーヤーとサードパーティプレーヤーにストリーミングできます。 両方のタイプのプレーヤーについて、1つのダッシュボードに（1つのユーザーアカウントを介して）統合されたIQ分析指標を表示できます。</span>プレーヤーパネルとデバイスパネルを見ることで、Ooyalaプレーヤーとサードパーティプレーヤーのさまざまな指標を見ることができます。 サードパーティのアセット（サードパーティのCMSでホストされている）の場合は、アセットメタデータを取り込むために別のBacklotプロバイダーアカウントを設定する必要があります。</li>
+
+                </ul>
+
+            </div>
+
+                <p class="gt-block p"><strong class="ph b">メタデータ同期</strong></p>
+
+                <p class="gt-block p">Backlot APIを使用して、サードパーティのメタデータをBacklotおよびOoyala IQと同期させることができます。 見る <a class="xref" href="../tasks/analytics_v3_ug_ingest_third_party_player.html">Ooyala IQとサードパーティのメタデータを同期させる</a> 詳細については。 </p>
+
+                <p class="gt-block p"><strong class="ph b">バックスロットアカウント管理</strong></p>
+
+                <div class="p">サードパーティのプレーヤアナリティクスアカウント用に、独自のBacklotアカウントがあります。 Ooyala IQをスタンドアロンで使用するお客様にとって、Backlot UIをよりユーザーフレンドリーにするためのいくつかの変更が行われました。 <ul class="ul">
+                        <li class="li">[管理]タブで、[埋め込み]、[収益化]、[公開ルール]、[カスタムメタデータ]、および[エンコード]サブタブを削除しました。</li>
+
+                        <li class="li">[管理]タブ[詳細]サブタブで、[クローズドキャプション]、[公開先]、[コンテンツの置換]セクションを削除しました。 </li>
+
+                        <li class="li">メインのBacklotパネルで、PauseボタンとSize列を削除しました。</li>
+
+                        <li class="li">アセットの[ステータス]セクションには、[ライブ]と[最近作成]のみが表示されます。</li>
+
+                        <li class="li">左側のパネルのコンテンツタイプでは、リモートアセットとYouTubeビデオのみが利用可能です。</li>
+
+                        <li class="li">「アカウント」タブで、「アカウント設定」サブタブと「ユーザー管理」サブタブを使用できます。</li>
+
+                        <li class="li">[アカウント]タブの[ユーザー管理]サブタブで、[APIシークレット]キーを使用できます。</li>
+
+                        <li class="li">[アカウント]タブでは、管理者、管理者、読み取り専用、および分析のみのユーザーロールがサポートされています。</li>
+
+                    </ul>
+
+                </div>
+
+                <p class="gt-block p"><strong class="ph b">新しいJavaScript SDK</strong></p>
+
+                <p class="p">サードパーティのプレイヤーのイベントをOoyala IQに伝えるJavaScript SDKを作成しました。 JavaScript SDKと統合するには、プレーヤーのイベントとAPIを変換して、Ooyala JavaScript SDKで定義されているイベントと関連付けるアダプタを使用する必要があります。</p>
+
+                <p class="p">あなたはOoyalaアダプタを使うことも、独自のアダプタを作ることもできます。</p>
+
+                <p class="gt-block p">既存のアダプターとの統合および独自のアダプターの作成について詳しくは、以下を参照してください。 <a class="xref" href="../tasks/analytics_v3_integrate_javascriptsdk.html">JS SDKを使用したサードパーティ製プレイヤーとIQの統合</a>.</p>
+
+                <p class="gt-block p"><strong class="ph b">使ってみよう</strong></p>
+
+                <div class="p" id="analytics_v3_prerelease_releasenotes__d15227e97">この新しい機能を使用するには、次の手順に従います。 <ol class="ol">
+                        <li class="li"><a class="xref" href="analytics_v3_ug_third_party_players.html">アカウントマネージャに新しいプロバイダアカウントを作成するよう依頼してください。</a> サードパーティのプレイヤーレポート機能付き。</li>
+
+                        <li class="li"><a class="xref" href="../tasks/analytics_v3_ug_ingest_third_party_player.html">サードパーティのメタデータを同期する</a> Ooyala IQとBacklotを使って。</li>
+
+                        <li class="li">新しいを使う <a class="xref" href="../tasks/analytics_v3_integrate_javascriptsdk.html">Ooyala IQ JavaScript SDK</a> サードパーティのプレイヤーイベントをOoyala IQと統合するため。 このステップでOoyalaプロフェッショナルサービスを利用したい場合は、Ooyalaの窓口にご相談ください。</li>
+
+                    </ol>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">2015-11-19リリース</h2>
+            
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">Ooyala IQの新機能と機能強化</strong></p>
+
+                <p class="gt-block p"><strong class="ph b">1 新しいURLレポート機能</strong></p>
+
+                <p class="p">Ooyala IQのUIとAPIを使用して、ページ（URL）レベルでコンテンツの掲載結果を追跡できます。 </p>
+
+                <p class="p">UIでは、すべてのデバイス、地域、およびプレーヤーに配信されているすべてのビデオアセットについて、トラフィックソースパネルでトップレベルドメインのURLの内訳を確認できます。 あなたはあなたがあなたの最も実行されたURLがそれぞれのドメインのものであるということを手に入れるでしょう。</p>
+
+                <div class="p">
+                    <div class="note note"><span class="notetitle">注意：</span> このデータは複雑なため、URLディメンションに対しては1次元分析しか実行できません。 つまり、ビジネスインテリジェンスページにフィルタを適用しないと、URLレポートデータのみを表示できます。</div>
+
+                </div>
+
+                <p class="p">APIについては、あなたは今使用することができます <samp class="ph codeph">ディメンション= URL</samp> URLごとに分類された指標を取得します。 このクエリタイプはすべてのURLのデータを返します。 </p>
+
+                <div class="p">
+                    <div class="note note"><span class="notetitle">注意：</span> データの精度により、URL APIレポートには次の制限があります。 <ul class="ul">
+                            <li class="li">あなただけを使用することができます <samp class="ph codeph">URL</samp> の寸法
+                                    <samp class="ph codeph">URL</samp> 問合せ（多次元分析サポートはありません）。</li>
+
+                            <li class="li">あなただけが応募できます <samp class="ph codeph">URL</samp>  or  <samp class="ph codeph">ドメイン</samp>
+                                <a class="xref" href="../api/analytics_v3_api_reporting_filters.html">フィルター</a> for <samp class="ph codeph">URL</samp> クエリ</li>
+
+                            <li class="li">あなたは使えません <samp class="ph codeph">URL</samp> 任意のフィルタ <a class="xref" href="../api/analytics_v3_api_reporting_dimensions.html">レンディション</a> 以外の <samp class="ph codeph">URL</samp>.</li>
+
+                            <li class="li">すべてではない <a class="xref" href="../api/analytics_v3_api_reporting_metrics.html">メトリック</a>  のためにサポートされています <samp class="ph codeph">URL</samp>
+                                寸法。 測定基準を指定しない場合 <samp class="ph codeph">URL</samp>
+                                次元、エラーメッセージが返されます。 サポートされている指標 <samp class="ph codeph">URL</samp> 寸法が含まれます： <ul class="ul">
+                                    <li class="li"><samp class="ph codeph">ディスプレイ</samp></li>
+
+                                    <li class="li"><samp class="ph codeph">plays_requested</samp></li>
+
+                                    <li class="li"><samp class="ph codeph">video_starts</samp></li>
+
+                                    <li class="li"><samp class="ph codeph">time_watched</samp></li>
+
+                                    <li class="li"><samp class="ph codeph">自動再生</samp></li>
+
+                                    <li class="li"><samp class="ph codeph">player_loads</samp></li>
+
+                                    <li class="li"><samp class="ph codeph">リプレイ</samp></li>
+
+                                    <li class="li"><samp class="ph codeph">uniq_plays_requested</samp></li>
+
+                                    <li class="li"><samp class="ph codeph">uniq_displays</samp></li>
+
+                                    <li class="li"><samp class="ph codeph">uniq_video_starts</samp></li>
+
+                                    <li class="li"><samp class="ph codeph">playthrough_25</samp></li>
+
+                                    <li class="li"><samp class="ph codeph">playthrough_50</samp></li>
+
+                                    <li class="li"><samp class="ph codeph">playthrough_75</samp></li>
+
+                                    <li class="li"><samp class="ph codeph">playthrough_100</samp></li>
+
+                                </ul>
+</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <p class="gt-block p"><strong class="ph b">2 監視時間形式および時間監視形式への変更</strong></p>
+
+                <p class="p">UIの時間監視メトリックの形式
+                        <samp class="ph codeph">time_watched</samp> APIのメトリックはHH：MM：SSになりました。 1000時間を超える値にスマートフォーマットを追加しました（たとえば、 &quot;1234：56：57&quot;は &quot;1.2k&quot;に変換されます）。</p>
+
+                <p class="gt-block p"><strong class="ph b">3 UIの新しいソートオプション </strong></p>
+
+                <p class="p">ビジネスインテリジェンスページのアセットパネルで、ディスカバリが有効になっている場合は、アセットのリストを「ディスカバリプレイ」および「ディスカバリリード」メトリクスでソートできるようになりました。</p>
+
+                <p class="gt-block p"><strong class="ph b">バグの修正</strong></p>
+
+                <div class="p">以下のバグがこのリリースで修正されました。 <ul class="ul">
+                        <li class="li">このリリースでは、断続的なAPIエラーの問題が修正されています。</li>
+
+                        <li class="li">このリリースでは、「今日」の時間計算ロジックが修正され、トップKPIメトリクスがダッシュボードに表示されなかった問題が解決されています。</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">2015-05-11リリース</h2>
+            
+            <div class="sectiondiv">
+            <p class="p">Ooyala IQは、信頼性が高く、堅牢でスケーラブルなビッグデータアーキテクチャ上に構築されたOoyalaの新しいビデオ分析製品で、リアルタイム分析および多次元分析機能を提供して、ビデオ消費およびエンゲージメントパターンの完全な360程度のビューを提供します。 。 これは既存のOoyala Analytics製品へのメジャーアップグレードであり、追加料金なしですべてのOoyalaのお客様にご利用いただけます。</p>
+
+            <div class="p">次の機能が新しくなりました。 <ol class="ol">
+                    <li class="li"><strong class="ph b">HTMLで構築された新しく設計されたユーザーインターフェース：</strong>
+                        <p class="p">新しいHTML UIは、Flashプラグインへの依存を取り除き、さまざまなデバイス（iPadなど）上のIQにアクセスする機能を提供し、パフォーマンスを向上させます。</p>
+</li>
+
+                    <li class="li"><strong class="ph b">新しい多次元分析機能</strong>
+                        <p class="p">Ooyalaの新しい多次元クエリ機能を使用すると、デバイスタイプ（モバイル、タブレット、デスクトップ、セットトップボックスなど）、OS /ブラウザ、地域（国、地域、州など）を含む複数の次元にわたって分析を実行できます。州、DMA）、ドメイン、プレイヤー、資産、またはラベル。 これは、「先月中にTablet  -  iOSで消費されるビデオのサブセットに対して、米国とカナダからのユニーク視聴者は何人いますか」など、より複雑なビジネス上の質問に対処するのに役立ちます。</p>
+</li>
+
+                    <li class="li"><strong class="ph b">新しい動画の詳細ページ：</strong>
+                        <p class="p">新しい[Video Details]ページでは、資産のパフォーマンスに関する全体的で詳細なビューが表示されます。 一意性およびエンゲージメントデータとは別に、主要な資産メタデータ、資産の主要業績評価指標、および各ディメンション別に分類された資産消費量を表示できるようになります。 アセットをクリックするだけで、ダッシュボードページまたはビジネスインテリジェンスページから直接[ビデオの詳細]ページにアクセスできます。 この増加したアクセシビリティは、特定の資産の詳細なパフォーマンスとともに、その資産の消費とエンゲージメントのパターンをすばやく識別することを可能にします。</p>
+</li>
+
+                    <li class="li"><strong class="ph b">トップ10ビデオのリアルタイム統計：</strong>
+                        <p class="p">Ooyala IQの新しいリアルタイムダッシュボードには、上位の10ビデオとその視聴率データがリアルタイムで表示されますが、古い分析製品では上位の3ビデオのみがリアルタイムに表示されます。</p>
+</li>
+
+                    <li class="li"><strong class="ph b">改善された報告：</strong>
+                        <ul class="ul">
+                            <li class="li">メトリックはより正確に定義され計算されます。</li>
+
+                            <li class="li">地理情報とデバイスレポートは、より正確なテクノロジによって提供されます。</li>
+
+                            <li class="li">ユニークユーザーを数えるためのアルゴリズムが改良され、ユニークユーザーの報告がより長い期間にわたって行われるようになりました。</li>
+
+
+                        </ul>
+
+                        <p class="p">全体として、Ooyala IQは、より堅牢でスケーラブルで高性能なビッグデータアーキテクチャ上に構築されています。</p>
+</li>
+
+                    <li class="li"><strong class="ph b">新しい測定基準と新しい次元</strong>
+                        <p class="gt-block p"><strong class="ph b">ビデオが始まります。</strong> 「Video Starts」は、実際のビデオコンテンツが再生を開始する時期を示します。 プレロール広告が再生される場合、「ビデオ開始」は、すべてのプレロール広告が完了して実際のビデオコンテンツの再生が開始されたときにのみカウントされます。 要求された再生回数（以前のv2分析では再生回数と呼ばれていました）とVideo Startsを比較することで、プレロール広告による視聴者の減少を見ることができます。</p>
+
+                        <div class="p"><strong class="ph b">プレイヤーの次元</strong> Playerディメンションは複数の方法で使用できます。 プレイヤーは以下を報告するために使用することができます。 <ol class="ol" type="a">
+                                <li class="li">シンジケーションパートナーの再生指標（追跡したい各シンジケートパートナーのプレーヤーを作成することによって）。</li>
+
+                                <li class="li">Webサイトのさまざまなセクション内でのパフォーマンス（各セクションにプレーヤーを作成することによる）。</li>
+
+                                <li class="li">プレーヤの変更によるパフォーマンス（さまざまな広告ロード、Discoveryコンテンツ推奨ツールの有効化、またはプレーヤUIの変更など、プレーヤ構成の有無にかかわらずプレーヤを作成することによる）。</li>
+
+                            </ol>
+</div>
+</li>
+
+                </ol>
+</div>
+</div>
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">UIについての詳細</strong></p>
+
+                <div class="p"><u class="ph u">UIレポート</u>
+                    <ul class="ul">
+                        <li class="li">さまざまなレポートが別々のページに含まれなくなりました。 すべてのディメンションデータは1ページに配置されています（ <a class="xref" href="analytics_v3_user_workspace_content.html" title="ビジネスインテリジェンスページを使用して、さまざまな方法でフィルタ処理されたデータの詳細を表示し、特定の関心点を特定します。">ビジネスインテリジェンスページ</a>).  </li>
+
+                        <li class="li">でパフォーマンスレポートと呼ばれるパフォーマンス指標 <span class="ph">v2アナリティクス</span>で見つけることができます <a class="xref" href="analytics_v3_user_workspace_content.html" title="ビジネスインテリジェンスページを使用して、さまざまな方法でフィルタ処理されたデータの詳細を表示し、特定の関心点を特定します。">ビジネスインテリジェンスページ</a> と <a class="xref" href="analytics_v3_basic_dashboard_prerelease.html" title="Ooyala IQの拡張機能である分析ダッシュボードを使用して、コンテンツに何が起きているのかをリアルタイムで確認し、決断を下して直ちに行動を起こすことができます。">Analyticsのダッシュボードに</a>.</li>
+
+                        <li class="li">でのエンゲージメントレポートと呼ばれるエンゲージメント指標 <span class="ph">v2アナリティクス</span>で見つけることができます <a class="xref" href="analytics_v3_user_workspace_content.html" title="ビジネスインテリジェンスページを使用して、さまざまな方法でフィルタ処理されたデータの詳細を表示し、特定の関心点を特定します。">ビジネスインテリジェンスページ</a> と <a class="xref" href="analytics_v3_user_workspace_assets_basic.html" title="ビデオの詳細を調べるには、[ビデオの詳細]ページを使用します。">動画の詳細ページ</a>.</li>
+
+                        <li class="li">UIに共有レポートはありません。 データは <span class="ph">ウーヤラIQ</span> API ほとんどのユーザーは、社外の自分のサイトに共有メカニズムを持っています。 <span class="ph">Ooyala</span> Player、つまり、APIに表示される共有データは、Webサイトを介して行われた共有のみであることに注意してください。 <span class="ph">Ooyala</span> プレーヤー。 </li>
+
+                        <li class="li">で公開されているExternal Publishingレポートに直接相当するものはありません。
+                                <span class="ph">v2アナリティクス</span>.</li>
+
+                    </ul>
+
+                    <strong class="ph b">注意： </strong>でさまざまなメトリックを計算するために使用されるアルゴリズム <span class="ph">ウーヤラIQ</span> Analyticsダッシュボードのv2で使用されているものと多少異なる場合があります。 数値を比較すると、わずかな違いがあることがわかります。 </div>
+
+                <div class="p"><u class="ph u">UIメトリクス</u>
+                    <ul class="ul">
+                        <li class="li"><samp class="ph codeph">plays_requested</samp>：この測定基準の計算が改善されました。 この実装により、5 / 11 / 11の後に、HTML2014プレーヤーおよびSDKプレーヤーから要求された再生数が増加することがあります。 これは、次のように計算されるプレイコンバージョン率のデータにも影響する可能性があります。 <samp class="ph codeph">plays_requested</samp>/<samp class="ph codeph">ディスプレイ</samp>.</li>
+
+                        <li class="li"><samp class="ph codeph">video_starts</samp>：この測定基準の計算が改善されました。 この実装により、5 / 11 / 11の後、HTML2014およびSDKプレーヤーからのビデオ開始数が減少することがあります。 これはビデオコンバージョン率のデータにも影響する可能性があります。 <samp class="ph codeph">video_starts</samp>/<samp class="ph codeph">plays_requested</samp>.</li>
+
+                    </ul>
+</div>
+
+                <div class="p"><u class="ph u">UIの寸法</u>
+                    <ul class="ul">
+                        <li class="li">  <span class="ph">v2アナリティクス</span>
+                            <samp class="ph codeph">プラットフォーム</samp> 次元はに置き換えられました <span class="ph">ウーヤラIQ</span> 　 <a class="xref" href="../api/analytics_v3_api_reporting_dimensions.html#analytics_v3_dimensions__device_type"><samp class="ph codeph">デバイスタイプ</samp></a>,  <a class="xref" href="../api/analytics_v3_api_reporting_dimensions.html#analytics_v3_dimensions__os"><samp class="ph codeph">os</samp></a>、および <a class="xref" href="../api/analytics_v3_api_reporting_dimensions.html#analytics_v3_dimensions__browser"><samp class="ph codeph">ブラウザ</samp></a>.</li>
+
+                        <li class="li">  <span class="ph">v2アナリティクス</span> 次元と呼ばれる <strong class="ph b">ドメイン</strong>
+                            で名前が変更されました <span class="ph">ウーヤラIQ</span> GUIとして
+                                <strong class="ph b">トラフィックソース</strong>。 これは、ビデオが視聴されたサイトを表します。 </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">APIに関する詳細</strong></p>
+
+                <p class="gt-block p">v3 Analytics（Ooyala IQ）APIは新しい分析APIです。 の一般的な違いについて <span class="ph">v2アナリティクス</span> とv3（<span class="ph">ウーヤラIQ</span>）、 見る <a class="xref" href="analytics_v3_migrating_from_v2_api.html" title="v2 Analyticsとv3 Analytics（Ooyala IQ）の間のプログラミングインターフェースの主な違いは次のとおりです。">レポートアプリケーションプログラミングインターフェイス（API）</a>。 からのデータの潜在的な違いの詳細については <span class="ph">v2アナリティクス</span> v3（<span class="ph">ウーヤラIQ</span>）、 見る <a class="xref" href="analytics_v3_data_differences.html">データの潜在的な違い（廃止予定）</a>.</p>
+
+                <div class="p"><u class="ph u">APIメトリクス</u>
+                    <ul class="ul">
+                        <li class="li">メトリック名とメトリック定義を揃えるために、次のメトリックの名前を変更しました。 <ul class="ul">
+                                <li class="li"><samp class="ph codeph">演劇</samp> ようになりました <samp class="ph codeph">plays_requested</samp>.</li>
+
+                                <li class="li"><samp class="ph codeph">avg_time_watched_per_play</samp> ようになりました
+                                        <samp class="ph codeph">avg_time_watched_per_video</samp>.</li>
+
+                                <li class="li"><samp class="ph codeph">start_conversion_rate</samp> ようになりました
+                                        <samp class="ph codeph">video_conversion_rate</samp>.</li>
+
+                                <li class="li">全て <samp class="ph codeph">unique_ [文字列]</samp> 測定基準は今 <samp class="ph codeph">uniq_ [文字列]</samp>.</li>
+
+                                <li class="li"><samp class="ph codeph">unique_plays</samp> ようになりました <samp class="ph codeph">uniq_plays_requested</samp>.</li>
+
+                                <li class="li"><samp class="ph codeph">avg_plays_per_viewer</samp> ようになりました
+                                        <samp class="ph codeph">avg_plays_per_user</samp>.</li>
+
+                            </ul>
+</li>
+
+                        <li class="li"><samp class="ph codeph">player_conversion_rate</samp> ディスプレイに要求された演劇の比率として再定義されました。 </li>
+
+                        <li class="li"><samp class="ph codeph">video_conversion_rate</samp> 要求された再生に対するビデオの開始の比率として再定義されました。</li>
+
+                        <li class="li">  <samp class="ph codeph">initial_plays_requested</samp> メトリックはUIに表示されなくなり、APIからアクセスできなくなります。 </li>
+
+                        <li class="li">  <samp class="ph codeph">player_loads</samp> メトリックはUIに表示されなくなりました。 このメトリクスにはAPIを介してのみアクセスできます。</li>
+
+                        <li class="li">毎日、毎週、毎月のユニークな機能が統合されました。 <a class="xref" href="analytics_v3_migrating_from_v2_uniques.html" title="In v2 Analytics, certain &amp;#34;unique&amp;#34; metrics were unexpectedly returned in responses.">独身者 <span class="ph">ユニーク</span> メトリック</a>.  </li>
+
+                        <li class="li">あなたは今使うでしょう <samp class="ph codeph">uniq_plays_requested</samp> ユニークユーザーの指標として。</li>
+
+                        <li class="li">顧客の利用率が低いため、Ooyala IQでは次のメトリクスがサポートされていません（これらのメトリクスは、UIまたはAPIからはアクセスできなくなりました）。
+                                <samp class="ph codeph">unique_replays</samp>,  <samp class="ph codeph">unique_autoplays</samp>、そして <samp class="ph codeph">unique_player_loads</samp>.</li>
+
+                    </ul>
+</div>
+
+                <div class="p"><u class="ph u">APIディメンション</u>
+                    <ul class="ul">
+                        <li class="li">データキューブのサイズを管理するために、 <samp class="ph codeph">シティ</samp> そして <samp class="ph codeph">タグ</samp>
+                            寸法 </li>
+
+                        <li class="li">  <a class="xref" href="../api/analytics_v3_api_reporting_dimensions.html#analytics_v3_dimensions__domain">ドメイン</a> 次元はインターネットドメインをキャプチャするために使用されます。</li>
+
+                    </ul>
+</div>
+
+            </div>
+            <div class="sectiondiv">
+            <p class="gt-block p">既存のすべてのOoyala顧客は4バッチでOoyala IQに移行され、最初の移行セットは5月から始まります。 2番目のセットは6月に始まります。 7月の3回目と8月の最終回。 移行のスケジュール設定と管理に関する詳細については、お客様にお問い合わせください。 移行プロセスの詳細については、をご覧ください。 <a class="xref" href="../reference/faq_analytics.html" title="Ooyala IQアナリティクスについてよく寄せられる質問">Ooyala IQ（アナリティクス）FAQ</a> そして <a class="xref" href="using_analytics_v2_api.html">v2 Analytics APIを使用してデータをエクスポートする方法（廃止予定）</a>.</p>
+</div>
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/ooyala_iq_user_guide.html">Ooyala IQアナリティクスユーザーガイド</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/ooyala_iq_developer_guide.html">ウーヤラIQアナリティクス</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="http

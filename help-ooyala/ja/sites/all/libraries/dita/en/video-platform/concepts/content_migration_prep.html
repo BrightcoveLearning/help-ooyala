@@ -1,0 +1,109 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Content Migration"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_ingest.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_ingest.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/faq_uploading.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="content_migration_prep"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>コンテンツ移行</title>
+</head>
+<body id="content_migration_prep">
+
+
+    <h1 class="title topictitle1">コンテンツ移行</h1>
+
+    <div class="body conbody">
+        <p class="p">このドキュメントでは、標準のコンテンツ移行、オプション、およびベストプラクティスについて説明します。</p>
+
+        <p class="p">あなたが大規模なビデオライブラリを持っていて、あなたのコンテンツをOoyalaに移動するのに援助を必要とするならば、あなたはOoyalaのコンテンツ移行サービスから最も利益を得るでしょう。 自己移行（つまり、Backlot Webアップロード、FTP、Aspera、API経由）が選択肢にならない場合は、プロフェッショナルサービスによる移行が理にかなっています。</p>
+
+        <div class="p">コンテンツの移行は3段階のプロセスです。 <ol class="ol">
+                <li class="li">ソースファイルとマニフェストファイルを準備します。</li>
+
+            <li class="li">ソースファイルとマニフェストファイルをアップロードします。</li>
+
+                <li class="li">あなたのビデオがライブになったら、それらをあなたのウェブサイトに公開するか、新しいものとあなたの古い埋め込みを交換し始めてください。 </li>
+
+            </ol>
+</div>
+
+        <div class="section"><h2 class="title sectiontitle">ステップ1：ソースファイルとマニフェストファイルを準備する</h2><p class="gt-block p">あなたは常に利用可能な最高品質のソース素材から始めるべきです。 Ooyalaは、以下に具体的な推奨事項を示します <a class="xref" href="encodings_sourcematerial.html" title="あなたは常に利用可能な最高品質のソース素材から始めるべきです。">素材の品質と推奨事項（ビデオとオーディオ）</a>。 ソースファイルの準備ができたら、マニフェストファイルで作業を始める必要があります。</p>
+用語 <em class="ph i">メタデータ</em> ここでは2つの方法で使用されます。 <ul class="ul">
+                <li class="li">「カスタムメタデータ」とは、ビデオ自体を説明するデータを格納するために使用される最大100の名前と値のペアを意味します。 たとえば、映画のライブラリでは、値のペアという名前を見つけることができます。
+                    <pre class="pre codeblock">&quot;監督&quot;： &quot;ミシェルゴンドリー&quot;、 &quot;年&quot;： &quot;2004&quot;、 &quot;評価&quot;： &quot;R&quot;</pre>
+</li>
+
+                <li class="li">「ラベル」は、表示、分析、シンジケーションなどのためにビデオをグループ化するために使用できるタグです。任意のビデオに1つ以上のラベルを付けることができ、すべてのラベルに多数のビデオを含めることができます。 たとえば、映画ライブラリーでは、制作スタジオに従ってビデオにラベルを付けることができます。</li>
+
+            </ul>
+<p class="p">カスタムプレーヤー、広告セット、またはシンジケーションルールの一括割り当てを計画している場合は、アセットを複数選択する最も簡単な方法は、それらをラベルでグループ化することです。 たとえば、 &quot;Blue Player&quot;、 &quot;Green Player&quot;、 &quot;Only Colombia&quot;、 &quot;Kid Friendly&quot;などのようなアセットラベルを追加して割り当てることは意味があります。</p>
+<div class="p"><strong class="ph b">カスタムメタデータ</strong>。 動画ライブラリの例を続けると、マニフェストファイルが処理されたら、Backlotにログインして各アセットの[カスタムメタデータ]タブで割り当てられたカスタムメタデータを見つけることができます。<div class="fig fignone">
+                    <br/><img class="image" src="http://help-ooyala.brightcove.com/../image/custom_metadata_tab.png" height="152" width="800"/><br/>
+                </div>
+</div>
+<strong class="ph b">ラベル階層</strong>。 [管理]ウィンドウでラベルの階層を確認してください。<div class="fig fignone">
+                <br/><img class="image" src="http://help-ooyala.brightcove.com/../image/label_hierarchy.png"/><br/>
+            </div>
+<strong class="ph b">資産ごとのラベル割り当て</strong>。 詳細タブのアセットごとのラベル割り当てを参照してください。<div class="fig fignone">
+                <br/><img class="image" src="http://help-ooyala.brightcove.com/../image/assign_labels.png" height="244" width="800"/><br/>
+            </div>
+XMLまたはCSVでマニフェストファイルを作成します。 見る <a class="xref" href="ingestion_fileformats.html">マニフェストファイル形式</a> 詳細については。 </div>
+
+        <div class="section"><h2 class="title sectiontitle">ステップ2：ソースファイルとマニフェストファイルをアップロードする</h2> Ooyalaはいくつかをサポートしています
+                <a class="xref" href="ingestion_options.html">コンテンツを取り込む方法</a>:  <ul class="ul">
+                <li class="li">バックスロットUI</li>
+
+                <li class="li">Ooyala Import Services（OIS）。動画に関するメタデータの有無にかかわらず、カンマ区切り（CSV）形式またはXML形式のいずれかで、次の転送メカニズムを使用します。 <ul class="ul">
+                        <li class="li">FTP</li>
+
+                        <li class="li">アスペラ</li>
+
+                        <li class="li">MRSS</li>
+
+                    </ul>
+</li>
+
+                <li class="li">Backlot API、特に/ v2 / assetsルート</li>
+
+            </ul>
+見る <a class="xref" href="book_ingest.html" title="このドキュメントでは、Ooyalaにコンテンツを取り込む（アップロードする）方法について説明します。">摂取</a> 詳細については。 </div>
+
+        <div class="section"><h2 class="title sectiontitle">ステップ3：あなたのビデオがライブになったら、あなたのウェブサイトに公開しましょう。</h2>
+            
+            コンテンツの移行プロセスを通じて、ビデオアセットはいくつかの状態を通過します。<div class="fig fignone">
+                <br/><img class="image" src="http://help-ooyala.brightcove.com/../image/asset_state_progression.png"/><br/>
+            </div>
+エラー状態のビデオが表示された場合は、テクニカルサポートに連絡してトラブルシューティングを行ってください。 ライブ状態の動画は公開の準備ができています。 <p class="gt-block p">Webページにプレーヤーを埋め込む方法とその構造については、を参照してください。 <a class="xref" href="player_home.html" title="これは、Ooyala Playerのドキュメントです。">プレーヤー</a>.</p>
+ あなたが古い選手を交換することを計画しているならば、あなたはする必要があるでしょう： <ol class="ol">
+                <li class="li">あなたの古いプレイヤーの埋め込みをすべて見つけて特定します。</li>
+
+                <li class="li">それぞれの動画に古い埋め込みと結び付けることができる一意の識別子を割り当て、その識別子をどちらかのフォルダに保存します。 <samp class="ph codeph">id</samp> CSVマニフェストファイルのフィールドまたは <samp class="ph codeph">GUID</samp> XMLマニフェストファイルのフィールド。</li>
+
+                <li class="li">コンテンツが公開されたら、APIを使用して新しい埋め込み識別子と古い埋め込み識別子をマッピングするファイルを作成する必要があります。 また、あなたのサイトが動的ページ、プレイリスト、またはチャンネルを使っているなら、あなたはOoyalaのAPIを使ってそれらを再プログラムする必要があるでしょう。 見る <a class="xref" href="book_api.html" title="プレーヤーのクロム（デザイン要素）をカスタマイズするには、Backlot REST APIを使用してください。 これには、フォント、色、スクラバーバーなどのUI要素が含まれます。">バックスロットREST API</a>.</li>
+
+            </ol>
+</div>
+
+    </div>
+
+    <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_ingest.html" title="このドキュメントでは、Ooyalaにコンテンツを取り込む（アップロードする）方法について説明します。">摂取</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong><br/>
+<div><a class="link" href="../reference/faq_uploading.html" title="アップロードに関してよく寄せられる質問">アップロードに関するFAQ</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="

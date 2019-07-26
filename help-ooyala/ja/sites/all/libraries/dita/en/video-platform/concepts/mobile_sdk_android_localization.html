@@ -1,0 +1,56 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Localizing the User Interface"/>
+<meta name="abstract" content="You can set up custom localization strings for the UI text."/>
+<meta name="description" content="UIテキストにカスタムローカライズ文字列を設定できます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_android_about.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="mobile_sdk_ios_localization"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>ユーザインタフェースのローカライズ</title>
+</head>
+<body id="mobile_sdk_ios_localization">
+
+
+  <h1 class="title topictitle1">ユーザインタフェースのローカライズ</h1>
+
+  
+  <div class="body conbody"><p class="shortdesc">UIテキストにカスタムローカライズ文字列を設定できます。</p>
+
+    <div class="p">Mobile SDKのユーザーインターフェイスでテキスト文字列の言語を変更するには、次のキーと値のペアをリソースファイルに追加します。 <samp class="ph codeph">res / values / strings.xml</samp>。 その後、各値を好きなようにカスタマイズできます。
+      <pre class="pre codeblock">&lt;string name = &quot;oo_live&quot;&gt;ライブ&lt;/string&gt; &lt;string name = &quot;oo_subtitles_title&quot;&gt;字幕&lt;/string&gt; &lt;string name = &quot;oo_subtitles_none&quot;&gt;なし&lt;/string&gt; &lt;string name = &quot;oo_subtitles_cc&quot;&gt;字幕&lt;&lt; / string&gt; &lt;string name = &quot;oo_subtitles_en&quot;&gt;英語&lt;/string&gt; &lt;string name = &quot;oo_subtitles_es&quot;&gt;スペイン語&lt;/string&gt;</pre>
+
+      希望する言語ごとに、2文字のISO 639-1言語コードを
+        <samp class="ph codeph">oo_subtitles_</samp> キー。 たとえば、上記のスペイン語のように：
+        <samp class="ph codeph">oo_subtitles_es</samp>.</div>
+
+    <p class="p">デバッグを支援するために、Mobile SDKはクラスによってリソースファイルから値を検索します。 <samp class="ph codeph">getContext（）。getResources（）。getIdentifier（name、 &quot;string&quot;、getContext（）。getPackageName（））</samp>.  </p>
+
+    <div class="section"><h2 class="title sectiontitle">デバイス言語に基づくローカライズの有効化</h2>
+    <div class="p">あなたの中で <span class="ph uicontrol">アクティビティ</span>初期化する前に、次のコード行を追加します。 <samp class="ph codeph">OoyalaPlayer</samp>。 アプリケーションごとに一度だけこれを実行する必要があります。<pre class="pre codeblock">String localeString = getResources（）。getConfiguration（）。locale.toString（）; LocalizationSupport.useLocalizedStrings（LocalizationSupport.loadLocalizedStrings（localeString））;</pre>
+</div>
+
+      <p class="p">これはActivityの設定からロケールを取得し、現在英語、日本語、スペイン語をサポートするSDK内でローカライズを実行するためにそれを使用します。</p>
+
+    </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/mobile_sdk_android_about.html">Android SDKを使った作業</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

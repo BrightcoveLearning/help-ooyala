@@ -1,0 +1,274 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Build a Sender Application for Android"/>
+<meta name="DC.Relation" scheme="URI" content="../../concepts/chromecast/integrate.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="chromecast_sender_android"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../../css/ooyala.css"/>
+<title>Android用の送信者アプリケーションを構築する</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="chromecast_sender_android">
+
+
+  <h1 class="title topictitle1">Android用の送信者アプリケーションを構築する</h1>
+
+  <div class="body conbody">
+  <div class="section">Review the following content for information about creating an integrated sender
+      application using the Ooyala Mobile SDK for Android.</div>
+
+    <div class="section"><h2 class="title sectiontitle">ステップ1：環境を設定する</h2>
+          <ol class="ol">
+            <li class="li">からOoyala SDK for Androidをダウンロードします。 <a class="xref" href="../../../../../../../../../ja/downloads/index.html" target="_blank">Ooyala Mobile and Client SDKs
+              Download Page</a>.</li>
+
+            <li class="li">Android用Cast SDKをダウンロードしてください。</li>
+
+            <li class="li">ダウンロード <a class="xref" href="https://github.com/googlecast/CastCompanionLibrary-android" target="_blank">キャストコンパニオンライブラリー</a>.</li>
+
+            <li class="li">ダウンロード <a class="xref" href="https://github.com/ooyala/android-sample-apps/tree/stable/ChromecastSampleApp" target="_blank">ChromecastSampleApp</a> from
+              the Ooyala SDK for Android Sample Apps repository.</li>
+
+            <li class="li">Review the Android sender application development details on the Google
+              Developers portal <a class="xref" href="https://developers.google.com/cast/docs/android_sender" target="_blank">Androidアプリ開発</a>.</li>
+
+          </ol>
+
+        </div>
+
+    <div class="section"><h2 class="title sectiontitle">ステップ2：送信者アプリケーションとの統合</h2>Use the following steps to
+      integrate with the sender application without the OoyalaPlayer object (where the sender
+      application does not contain a player, for example, when you open the app it only contains a
+      list of videos you can play with no player embed). The list activity and Chromecast player
+      activities show videos available for casting when the app is running. The player activity
+      contains the Ooyala player that renders the videos. <p class="p">These steps are written to extend the
+        basic Ooyala Sample App.</p>
+<div class="note note"><span class="notetitle">注意：</span> The following steps assume that you have knowledge of
+        basic integration steps for the Ooyala Core SDK and an existing OoyalaPlayer setup. For
+        details about creating the player, see the Ooyala Support site topic <a class="xref" href="../../tasks/mobile_sdk_android_tutorial.html" title="基本的なプレーヤーアプリを素早く作成する方法を学びましょう。">基本的なAndroidアプリの作成</a>.</div>
+
+      <ol class="ol">
+        <li class="li"><strong class="ph b">Initial configuration</strong>。 オープン <a class="xref" href="https://github.com/ooyala/android-sample-apps/tree/stable/ChromecastSampleApp" target="_blank">ChromecastSampleApp</a> in Android
+          Studio.</li>
+
+        <li class="li"><strong class="ph b">名前空間とアプリIDを設定する</strong>. Open SampleApplication.java and change the
+          value of NAMESPACE and APP_ID. This is shown in the following code sample:
+            <pre class="pre codeblock">パブリッククラスSampleApplicationは、Application {... private final Stringを拡張します。NAMESPACE = &quot;urn：x-cast：ooyala&quot;; プライベート最終文字列APP_ID = &quot;4172C76F&quot;; ...</pre>
+<div class="note note"><span class="notetitle">注意：</span> The
+            APP_ID and NAMESPACE support the default receiver. For custom receivers, adjust the code
+            accordingly.</div>
+</li>
+
+        <li class="li">以下の資格情報を使用してCastManagerを初期化します。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+              <tbody class="tbody">
+                <tr class="row">
+                  <td class="entry" valign="top">APP_ID</td>
+
+                  <td class="entry" valign="top">The ID provided when the app is registered with the receiver app.</td>
+
+                </tr>
+
+                <tr class="row">
+                  <td class="entry" valign="top">NAMESPACE</td>
+
+                  <td class="entry" valign="top">The namespace to identify the protocol of the message being sent for the
+                    related receiver app. namespaces is array of namespace. In most cases only one
+                    namespace is required. Based on current version of SDK, only the first namespace
+                    in the array is taken. <div class="note note"><span class="notetitle">注意：</span> レシーバーアプリのソースコードを変更しない限り、ネームスペースは変更しないでください。</div>
+</td>
+
+                </tr>
+
+              </tbody>
+
+            </table>
+</div>
+ この手順は、次のコードサンプルに示されています。 <pre class="pre codeblock">@オーバーライドpublic void onCreate（Bundle savedInstanceState）{... castManager = CastManager.initialize（getApplicationContext（）、APP_ID、NAMESPACE）; castManager.setStopOnDisconnect（true）; ...}</pre>
+
+          <div class="note note"><span class="notetitle">注意：</span> CastManager is a static variable. Keep this object throughout the app life
+            cycle.</div>
+</li>
+
+      </ol>
+</div>
+
+    <div class="section"><h2 class="title sectiontitle">Step 3: Configure the Chromecast Mini Controller for Android</h2>Configure
+      the mini controller using the Ooyala mobile SDK for Android. The mini controller controls
+      appear when the user navigates away from the main player controls. These controls provide
+      instant access to, and a visible reminder for, the currently casting video. The Android SDK
+      mini controller implementation includes the following controllers: 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" id="d264216e139">コントローラ</th>
+
+              <th class="entry" valign="top" id="d264216e142">説明</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" headers="d264216e139 d264216e142 ">アクティビティミニコントローラー（Googleに必須）</td>
+
+              <td class="entry" valign="top" headers="d264216e139 d264216e142 ">When the user navigates out of the main player activity (the activity contains
+                OoyalaPlayer), the current activity should have a mini controller embed somewhere so
+                that the user can still have the control of casting video.</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d264216e139 d264216e142 ">通知ミニコントローラ（Googleに必須）</td>
+
+              <td class="entry" valign="top" headers="d264216e139 d264216e142 ">When, and only when, the app is running in background, a mini controller
+                notification bar is displayed.</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d264216e139 d264216e142 ">ロック画面ミニコントローラー（KitKatのみ必要）</td>
+
+              <td class="entry" valign="top" headers="d264216e139 d264216e142 ">When the device is in lock screen, a mini controller could be available for
+                user to control the current casting video without unlocking the screen.</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d264216e139 d264216e142 ">キャストメニューミニコントローラー（Googleで必須）</td>
+
+              <td class="entry" valign="top" headers="d264216e139 d264216e142 ">During casting, there should be a mini controller inside the Cast menu.</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+The Android mini controller is provided by the CastCompanionLibrary. To customize the
+      mini controller, modify <samp class="ph codeph">mini_controller.xml</samp>.  <div class="note note"><span class="notetitle">注意：</span> To use OoyalaCastSDK to
+        manage the mini controller navigation, include the singleTop launchMode for all activities
+        and set parentActivityName all activities in the Manifest. Refer to the ChromecastSampleApp
+        Manifest for more details.</div>
+</div>
+
+    <div class="section"><h2 class="title sectiontitle">Step 4: Customize the Android Sender Application</h2></div>
+
+    <div class="section" id="chromecast_sender_android__custom_intro">カスタマイズされた送信者は、Google送信者キャストSDK、Ooyala Mobile SDK、およびアプリケーションUX / UIと対話するカスタムコードです。 送信側アプリケーションのUI / UXをカスタマイズできます。 カスタマイズされた送信者アプリケーションは、デスクトップ（Chrome）またはモバイル（iOS / Android）プラットフォームで実行されているプラ​​イマリデバイスアプリケーションにロードされます。 <ul class="ul">
+        <li class="li">（推奨）メッセージを渡すためにGoogle Cast Custom Channel名前空間を使用します。</li>
+
+        <li class="li">カスタムチャネル経由のキャストメッセージバスを使用して、次のことを容易にします。 <ul class="ul">
+            <li class="li">Ooyala Player V4を起動するために、embed_codeとplayer_branding_idを受信側アプリケーションに送信します。</li>
+
+            <li class="li">基本的なプレーヤー機能（停止、再生、一時停止など）を受信側アプリケーションに送信して、Ooyala Player V4を制御します。</li>
+
+            <li class="li">Custom Channel Listenerを介して、プレイヤーメッセージバスイベントに基づいてOoyala関連のプレイヤーエラーを受信し、それらをアプリケーションフレンドリなユーザーメッセージに変換します。 ユースケースの例は、Ooyalaのデバイス管理機能が使用されている場合です。 / last_Resultメッセージはプレーヤメッセージバスに発行され、送信者に返されます。 これらの結果に基づいて、適切なメッセージがアプリケーションに返されます。</li>
+
+          </ul>
+</li>
+
+      </ul>
+</div>
+
+    <div class="section">
+      The CastCompanionLibrary contains all the assets. You can customize these assets for your application. For details see
+        <a class="xref" href="https://github.com/googlecast/CastCompanionLibrary-android/blob/master/CastCompanionLibrary.pdf" target="_blank">https://github.com/googlecast/CastCompanionLibrary-android/blob/master/CastCompanionLibrary.pdf</a>.  </div>
+
+    <div class="section" id="chromecast_sender_android__debug"><h2 class="title sectiontitle">送信側アプリケーションのデバッグ</h2>
+      <p class="gt-block p"> 機能を使う <samp class="ph codeph">printDebugMessage</samp> 動的にデバッグする <a class="xref" href="https://developer.chrome.com/devtools" target="_blank">Chrome開発者ツール</a> 送信側コマンドとOoyala Playerイベントに関するコンソール出力。 メディアステータスオブジェクトはレシーバーデバッグコンソールで
+        <samp class="ph codeph">MediaManager.customizedStatusCallback</samp> 関数。 どのイベントをログに記録するかをカスタマイズしたり、ChromecastやOoyala名前空間からのエラーを表示するように選択したりできます。</p>
+
+      <p class="gt-block p">ブラウザウィンドウを開き、ChromecastユニットのIPアドレス（ポート9222）を指定します。 この時点からデバッグする方法の詳細については、GoogleのChromecast開発者ガイドのトピックにアクセスしてください。 <a class="xref" href="https://developers.google.com/cast/docs/debugging" target="_blank">デバッギング</a> とGoogleのトピック <a class="xref" href="https://developers.google.com/cast/docs/reference/messages#MediaMess" target="_blank">キャストメディアのエラーメッセージの処理</a>.  </p>
+
+    </div>
+
+    <div class="section" id="chromecast_sender_android__notification"><h2 class="title sectiontitle">OOCastManager通知</h2>
+            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                <thead class="thead" align="left">
+                  <tr class="row">
+                    <th class="entry" valign="top" id="d264216e269">通知</th>
+
+                    <th class="entry" valign="top" id="d264216e272">説明</th>
+
+                  </tr>
+
+                </thead>
+
+                <tbody class="tbody">
+                  <tr class="row">
+                    <td class="entry" valign="top" headers="d264216e269 d264216e272 "><samp class="ph codeph">OOCastManagerFailToConnectNotification</samp></td>
+
+                    <td class="entry" valign="top" headers="d264216e269 d264216e272 ">この通知は、OOCastManagerがChromecastデバイスに接続できなかったときに送信されます。</td>
+
+                  </tr>
+
+                  <tr class="row">
+                    <td class="entry" valign="top" headers="d264216e269 d264216e272 "><samp class="ph codeph">OOCastDeviceLostNotification</samp></td>
+
+                    <td class="entry" valign="top" headers="d264216e269 d264216e272 ">この通知は、Chromecastデバイスが紛失したときに送信されます。 デバイスへの接続が失われたという意味ではありません。</td>
+
+                  </tr>
+
+                  <tr class="row">
+                    <td class="entry" valign="top" headers="d264216e269 d264216e272 "><samp class="ph codeph">OOCastManagerDidDisconnectNotification</samp></td>
+
+                    <td class="entry" valign="top" headers="d264216e269 d264216e272 ">この通知は、castManagerがchromecastデバイスから切断されたときに送信されます。</td>
+
+                  </tr>
+
+                  <tr class="row">
+                    <td class="entry" valign="top" headers="d264216e269 d264216e272 "><samp class="ph codeph">OOCastEnterCastModeNotification</samp></td>
+
+                    <td class="entry" valign="top" headers="d264216e269 d264216e272 ">この通知は、アプリがキャストモードに入ったときに送信されます。</td>
+
+                  </tr>
+
+                  <tr class="row">
+                    <td class="entry" valign="top" headers="d264216e269 d264216e272 "><samp class="ph codeph">OOCastExitCastModeNotification</samp></td>
+
+                    <td class="entry" valign="top" headers="d264216e269 d264216e272 ">この通知は、アプリがキャストモードを終了したときに送信されます。</td>
+
+                  </tr>
+
+                  <tr class="row">
+                    <td class="entry" valign="top" headers="d264216e269 d264216e272 "><samp class="ph codeph">OOCastMiniControllerClickedNotification</samp></td>
+
+                    <td class="entry" valign="top" headers="d264216e269 d264216e272 ">この通知は、ミニコントローラーイベントがアクティブになったときに送信されます。</td>
+
+                  </tr>
+
+                </tbody>
+
+              </table>
+</div>
+
+    </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../../concepts/chromecast/integrate.html">Chromecastとの統合</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!

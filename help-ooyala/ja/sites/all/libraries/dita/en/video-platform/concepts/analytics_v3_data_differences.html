@@ -1,0 +1,63 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Potential Differences in the Data (Deprecated)"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/analytics_v3_migrating_from_v2.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/analytics_v3_migrating_from_v2.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="analytics_v3_data_differences"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>データの潜在的な違い（廃止予定）</title>
+</head>
+<body id="analytics_v3_data_differences">
+
+
+    <h1 class="title topictitle1">データの潜在的な違い（廃止予定） </h1>
+
+    
+    <div class="body conbody">
+        <div class="p"><div class="note warning"><span class="warningtitle">警告：</span> v2 Analytics APIは非推奨になりました。 見る <a class="xref" href="ooyala_iq_developer_guide.html">ウーヤラIQアナリティクス</a> 新しいv3 Analytics APIの詳細については、</div>
+v3 Analyticsのデータに違いがある可能性があります（<span class="ph">ウーヤラIQ</span>）v2のデータと比較した場合 <span class="ph">アナリティクス</span> 以下の理由による。 <ul class="ul">
+                <li class="li">多次元機能に対応するためのデータの再処理のために、データの集約は、結果とはわずかに異なる値になる可能性があります。 <span class="ph">v2アナリティクス</span>。 また、新しい堅牢なアーキテクチャを使用しています。 <span class="ph">ウーヤラIQ</span> これにより、エラー処理が向上します。</li>
+
+                <li class="li">Ooyala IQは、v2 Analyticsよりも正確な地理情報プロバイダーであるQuovaを使用します。 </li>
+
+                <li class="li">Ooyala IQはv2 Analyticsよりも正確なデバイスプロファイリングプロバイダーを使用しているため、デバイスとオペレーティングシステム間の集計は異なる可能性があります。 私たちは今使っている <span class="ph">UADetector</span> と一緒に <span class="ph">WURFL</span> モバイルとデスクトップのカバレッジを最適化します。</li>
+
+                <li class="li">測定基準はより正確に定義されます。 計算における新しい定義またはバグ修正を含むメトリクスには、次のものがあります。 <ul class="ul">
+                        <li class="li"><strong class="ph b">実況プレイ</strong>:  <span class="ph">v2アナリティクス</span> 視聴したセグメントに基づいて、サーバー側のプレイスルーを計算しました。 各ビデオには40セグメントがあります。 10番目のセグメントが視聴された場合、プレイスルー25％が発生しました。 30番目のセグメントが視聴された場合は、再生75％がトリガーされました。 この動作は、巻き戻しや早送りをするときに問題になります。 この計算方法では、重複排除が常に考慮されるわけではなく、ユーザーがスキップしたセグメントは報告されませんでした。たとえば、再生75％が再生25％よりも高く表示されることがありました。 新しい分析はより正確になりました <a class="xref" href="analytics_v3_dictionary.html#analytics_v3_dictionary__playthrough">プレイスルーの定義</a>これは、クライアント側で計算され、ユーザーが1回の表示セッション内で到達した最も遠い四分位点を示します。 新しい計算では、重複排除され、ユーザーがスキップしたセグメントについて報告され、100％マークに到達した時点をより正確に測定できます。 この計算の変更により、プレイスルーのためのより正確なメトリックデータが提供されます。 8月以降のデータ1、2014は新しいプレイスルーロジックを使用して計算されます。 </li>
+
+                        <li class="li"><strong class="ph b">ユニーク</strong>：内のユニークな指標の計算 <span class="ph">v2アナリティクス</span> イベントのタイムスタンプに基づいて、クライアント側でCookieを探す必要がありました。 の <a class="xref" href="analytics_v3_dictionary.html#analytics_v3_dictionary__viewer">ユニークの新しい計算</a> サーバーサイドであり、というアルゴリズムを含みます。 <span class="ph">ハイパーログ（HLL）</span>
+                            と <span class="ph">GUID</span> デバイス内のブラウザを識別します。 プレイヤーが見ていない場合 <span class="ph">GUID</span> 新しい
+                                <span class="ph">GUID</span> 生成されます。 この新しい計算方法はバグを減らし、重複排除し、そしてより正確です。 あなたはあなたの &quot;ユニークな&quot;データの違いを見るかもしれませんが、値は似通っているべきです、そしてどんな変化も &quot;ユニークな&quot;計算の増加した精度のためです。</li>
+
+                        <li class="li"><strong class="ph b">要求された演劇数：</strong> このメトリックの計算が改善されました。 この実装により、5 / 11 / 11の後に、HTML2014プレーヤーおよびSDKプレーヤーから要求された再生数が増加することがあります。</li>
+
+                        <li class="li"><strong class="ph b">ビデオ開始：</strong> このメトリックの計算が改善されました。 この実装により、5 / 11 / 11の後、HTML2014およびSDKプレーヤーからのビデオ開始数が減少することがあります。</li>
+
+                    </ul>
+</li>
+
+            </ul>
+</div>
+
+  
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/analytics_v3_migrating_from_v2.html" title="v2 Analyticsからv3 Analytics（Ooyala IQ）に移行する際の考慮事項がいくつかあります。">v2 Analyticsからの移行（廃止予定）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

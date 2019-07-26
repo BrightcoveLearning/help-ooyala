@@ -1,0 +1,91 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Viewing Engagement Metrics"/>
+<meta name="abstract" content="The Engagement tab highlights averages of two user-related metrics (hours watched and average time watched per video starts)."/>
+<meta name="description" content="[エンゲージメント]タブでは、2つのユーザー関連の測定基準の平均値（ビデオの開始あたりの視聴時間と平均視聴時間）が強調表示されます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/analytics_v3_user_workspace_content.html"/>
+<meta name="DC.Relation" scheme="URI" content="analytics_v3_common_metrics.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="analytics_user_content_assets"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>エンゲージメントメトリックの表示</title>
+</head>
+<body id="analytics_user_content_assets">
+
+
+   <h1 class="title topictitle1">エンゲージメントメトリックの表示</h1>
+
+   
+   <div class="body conbody"><p class="shortdesc">[エンゲージメント]タブでは、2つのユーザー関連の測定基準の平均値（ビデオの開始あたりの視聴時間と平均視聴時間）が強調表示されます。</p>
+
+      <div class="section" id="analytics_user_content_assets__content_engagement"> [エンゲージメント]タブをクリックして、ユーザーに関連する指標を表示します
+            <a class="xref" href="analytics_v3_dictionary.html#analytics_v3_dictionary__engagement">婚約</a>.  <p class="p"> チャートからメトリックを非表示にするには、凡例で、メトリックの名前の左側にあるチェックボックスをオフにします。 </p>
+
+         <p class="p">[エンゲージメント]タブに表示される測定基準は、次のとおりです。</p>
+<ul class="ul">
+            <li class="li"><span class="ph uicontrol">見た時間</span>：すべてのユーザーが選択したビデオ素材の再生に費やした時間（HH：MM：SS形式）。 </li>
+
+            <li class="li"><span class="ph uicontrol">ビデオあたりの平均視聴時間</span>：すべてのユーザーが選択したビデオアセットを視聴した回数あたりの平均時間 <a class="xref" href="analytics_v3_common_metrics.html#common_metric_defs_and_examples__video_starts">ビデオが始まります</a> HH：MM：SS形式に変換されたそのアセット（監視時間/ビデオ開始）の場合。 <div class="note note"><span class="notetitle">注意：</span> ビデオ開始の計算が改善されました。 この実装により、5 / 11 / 11の後、HTML2014およびSDKプレーヤーからのビデオ開始数が減少することがあります。</div>
+</li>
+
+         </ul>
+
+         <p class="gt-block p">ビジネスインテリジェンスページのレポートをCSVファイルとしてエクスポートする方法の詳細については、 <a class="xref" href="../tasks/analytics_v3_user_workspace_export.html">ビジネスインテリジェンスレポートのエクスポート</a>.  </p>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">タイムセグメント</h2>
+          チャートの右上には、表示されているデータの粒度（詳細レベル）を変更するために使用できる一連のボタンがあります。 <div class="fig fignone">
+            <img class="image" id="analytics_user_content_assets__d15572e88" src="http://help-ooyala.brightcove.com/../image/analytics_v3_user_content_timesegments.png"/>
+         </div>
+
+         <p class="p">以下の時間区分が利用可能です。</p>
+
+         <ul class="ul">
+            <li class="li">15ミン</li>
+
+            <li class="li">時間</li>
+
+            <li class="li">日 </li>
+
+            <li class="li">週間 </li>
+
+            <li class="li">月</li>
+
+         </ul>
+
+         <p class="p">デフォルトの時間セグメントはDayです。</p>
+
+         
+         <div class="note note" id="analytics_user_content_assets__d15572e116"><span class="notetitle">注意：</span> <p class="p">日時セグメントのデフォルトの日付範囲は、15分および時セグメントのデフォルトの日付範囲とは異なります。</p>
+
+            <p class="p">日時セグメントの場合、デフォルトの日付範囲は、週の最初の日の12：00amから最後の日の11：59pm（8 24時間セグメント）です。 15の分と時の時間セグメントの場合、デフォルトの日付範囲は、週の最初の日の12：00pmから最後の日の12：00pm（7 24時間セグメント）です。</p>
+
+            <p class="p">デフォルトの日付範囲の違いは、日の時間セグメントと15の分または時間のセグメントを切り替えると、メトリックデータが変わることを意味します。 今後のリリースでは、15の分と時間の時間セグメントの日付範囲の制限を日の時間範囲（8 24の時間セグメント）と一致するように変更します。</p>
+
+         </div>
+
+         
+      </div>
+
+   </div>
+
+   <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/analytics_v3_user_workspace_content.html" title="ビジネスインテリジェンスページを使用して、さまざまな方法でフィルタ処理されたデータの詳細を表示し、特定の関心点を特定します。">ビジネスインテリジェンスレポート</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="analytics_v3_common_metrics.html">メトリック定義</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div

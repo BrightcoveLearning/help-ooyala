@@ -1,0 +1,158 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Integrating with Nielsen on Android"/>
+<meta name="abstract" content="Integrate Nielsen functionality into your Ooyala Android applications."/>
+<meta name="description" content="Nielsenの機能をOoyala Androidアプリケーションに統合します。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/nielsen_about.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="nielsen_android.xml"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Android上でNielsenと統合する</title>
+</head>
+<body id="nielsen_android.xml">
+
+
+  <h1 class="title topictitle1">Android上でNielsenと統合する</h1>
+
+  
+  <div class="body conbody"><p class="shortdesc">Nielsenの機能をOoyala Androidアプリケーションに統合します。</p>
+
+    <div class="section">
+      <p class="p">Android用Ooyala Nielsenプラグインを使用すると、Ooyala AndroidアプリケーションにNielsen機能を追加できます。 ウーヤラは提供します：</p>
+
+      <ul class="ul">
+        <li class="li">JARファイルとAPIリファレンスドキュメントが含まれているOoyala Android Nielsenソフトウェア開発キット</li>
+
+        <li class="li">サンプルアプリケーション（NielsenSampleAppActivity）。Nielsen対応プレーヤーを初期化し、ユーザーがNielsen追跡をオプトアウトできるようにする方法を示します。 </li>
+
+      </ul>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">必須条件</h2>
+      
+      <ul class="ul">
+        <li class="li">あなたはNielsenに登録アカウントを持っていなければなりません。</li>
+
+        <li class="li">あなたのアカウントIDが必要になります。</li>
+
+        <li class="li">NielsenからNielsenライブラリを入手し、それらを開発環境に追加し、Nielsenの指示に従ってそれらにリンクする必要があります。</li>
+
+      </ul>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">ダウンロード</h2>
+      
+      <ul class="ul">
+        <li class="li"><a class="xref" href="http://static.ooyala.com.s3.amazonaws.com/sdk/android/release/OoyalaNielsenSDK-Android.zip" target="_blank">Ooyala Android Nielsen SDK</a></li>
+
+        <li class="li">からOoyala Nielsen統合サンプルアプリ <a class="xref" href="https://github.com/ooyala/android-sample-apps" target="_blank">OoyalaのAndroidサンプルアプリGithubリポジトリ</a></li>
+
+      </ul>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">あなたのAndroidアプリケーションにNielsen Integrationを追加する</h2>Ooyala Nielsen統合サンプル（NielsenSampleApp）は、AndroidアプリでNielsen統合を提供するための基本を示しています。 このセクションでは、Nielsen統合に適用されるサンプルアプリの重要なコードスニペットに焦点を当てます。</div>
+
+    <div class="section">標準輸入品に加えて、 <samp class="ph codeph">NielsenDefaultPlayerActivity</samp>
+      以下のパッケージをインポートすることから始めます。
+        <pre class="pre codeblock">import com.nielsen.app.sdk.AppSdk; import com.nielsen.app.sdk.IAppNotifier; import com.ooyala.android.nielsensdk.NielsenAnalytics;</pre>
+<p class="p">次に、サンプルアプリは初期化されます <samp class="ph codeph">s_nielsenAnalytics</samp> のインスタンスとして
+          <samp class="ph codeph">ニールセン分析</samp> Nielsen App SDKへのブリッジとして機能するクラス。</p>
+<pre class="pre codeblock">プライベート静的NielsenAnalytics s_nielsenAnalytics;</pre>
+サンプルアプリはその後、後でNielsen App SDKに渡す引数を初期化します。 <pre class="pre codeblock">プライベート最終静的文字列NIELSEN_SFCODE = &quot;&lt;sfcode-provided-by-Nielsen&gt;&quot;; プライベート最終静的文字列NIELSEN_APPID = &quot;&lt;appid-provided-by-Nielsen&gt;&quot;;</pre>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="nielsen_android.xml__table_gwy_yyn_ns" class="table" frame="border" border="1" rules="all">
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="20%" id="d405692e105">引数</th>
+
+              <th class="entry" valign="top" width="80%" id="d405692e108">説明</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d405692e105 "><samp class="ph codeph">appID</samp></td>
+
+              <td class="entry" valign="top" width="80%" headers="d405692e108 ">アプリケーションにNielsenが割り当てた一意のID。 </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d405692e105 "><samp class="ph codeph">sfCode</samp></td>
+
+              <td class="entry" valign="top" width="80%" headers="d405692e108 ">SDKが接続するNielsenの収集機能。 Nielsenは通常、テストと製造に異なるコードを割り当てます。</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+次に、サンプルアプリケーションは新しい標準プレーヤーを作成します。
+      <pre class="pre codeblock">OoyalaPlayerLayout playerLayout =（OoyalaPlayerLayout）findViewById（R.id.ooyalaPlayer）; player = new OoyalaPlayer（PCODE、new PlayerDomain（DOMAIN））; playerLayoutController = new OoyalaPlayerLayoutController（playerLayout、player）; player.addObserver（this）;</pre>
+サンプルアプリケーションは、Nielsenとの統合に必要なVisualOn統合を有効にします。 詳しくは、 <a class="xref" href="mobile_sdk_android_visualon.html">VisualOnの統合について</a>.<pre class="pre codeblock">OoyalaPlayer.enableCustomHLSPlayer = true;</pre>
+
+      
+      <div class="note warning"><span class="warningtitle">警告：</span> 
+                    <p class="p">4月の時点で、1、2016 Ooyala Android SDKはVisualOnライブラリの代わりにGoogle ExoPlayerライブラリと共に出荷されています。 実行する必要がある手順はありますが、ExoPlayerに移行すると、AndroidデバイスでのVODおよびライブストリームに対して、より一貫性のある高品質のHLSおよびMPEG-DASH再生エクスペリエンスが提供されます。</p>
+
+                    <p class="p">8月現在、1、2016、Ooyalaは、HLSプレーヤーとVisualOnとの統合をサポートしないか、またはVisualOnライブラリーに固有のバグ修正または改善を提供しません。 </p>
+
+                        <div class="p">アップグレードするには、あなたがする必要があります <ul class="ul">
+                    <li class="li">最新のAndroid SDK 4.13.0 +をダウンロードしてください。 <span class="ph">Ooyala <a class="xref" href="../../../../../../../../ja/downloads/index.html" target="_blank">ダウンロード</a></span>）あなたの統合を開始します。</li>
+
+                    <li class="li">の統合手順に従ってください。 <a class="xref" href="android_exoplayer.html">Android上のGoogle ExoPlayerとの統合</a>.</li>
+
+                    <li class="li">アプリケーションを再コンパイルしてGoogle Playストアに送信してください。</li>
+
+                </ul>
+
+                </div>
+</div>
+
+      次に、サンプルアプリケーションは <samp class="ph codeph">ニールセン分析</samp> プレーヤーに渡すオブジェクト <samp class="ph codeph">appID</samp>、 <samp class="ph codeph">appName</samp>、 <samp class="ph codeph">sfCode</samp>および（デバイスに関連付けられている）適用可能なカスタム構成設定と（アセットに関連付けられている）カスタムメタデータ。 これらの引数の詳細については、ダウンロードしたOoyala Android Nielsen SDKディストリビューションに含まれているAPIリファレンスドキュメントを参照してください。<pre class="pre codeblock">s_nielsenAnalytics = new NielsenAnalytics（これ、プレーヤー、これ、NIELSEN_APPID、 &quot;0.1&quot;、 &quot;NielsenTestApp&quot;、NIELSEN_SFCODE、getCustomConfig（）、null）;</pre>
+
+        <samp class="ph codeph">getCustomConfig</samp> メソッドは、Nielsenデバッグフラグを
+        <samp class="ph codeph">customConfig</samp> JSONオブジェクト<pre class="pre codeblock">private JSONObject getCustomConfig（）{final JSONObject json = new JSONObject（）; {json.put（ &quot;nol_devDebug&quot;、 &quot;true&quot;）;を試してください。 //プロダクションアプリではこれをしないでください。 catch（JSONException e）{Log.e（TAG、 &quot;getCustomConfig（）&quot;、e）; jsonを返します。 }    </pre>
+サンプルアプリには、Nielsenユーザーのオプトアウトオプションを実装する方法の一例も示されています。 の
+        <samp class="ph codeph">optInOutButton</samp>クリックすると電話 <samp class="ph codeph">showOptInOutUI</samp>これは、次のようにしてNielsenオプトアウトURLを取得します。
+      <samp class="ph codeph">getOptOutUrl</samp>.<pre class="pre codeblock">private String getOptOutUrl（）{if（s_nielsenAnalytics！= null amp &quot;#38; #38;&quot; s_nielsenAnalytics.isValid（））{return s_nielsenAnalytics.getNielsenAppSdk（）; userOptOutURLString（）; } else {nullを返す。 }}</pre>
+どのように注意してください <samp class="ph codeph">getOptOutUrl</samp> Nielsen App SDKを呼び出してURLを取得します。
+        <samp class="ph codeph">userOptOutURLString</samp> Ooyalaによる方法 <samp class="ph codeph">getNielsenAppSdk</samp>
+      APIです。 </div>
+
+    <div class="section">同様に、アプリが停止すると、 <samp class="ph codeph">上に</samp> メソッド呼び出し
+        <samp class="ph codeph">decrementRunningActivityCount</samp>Nielsen App SDKを起動します。
+        <samp class="ph codeph">stop</samp> Ooyalaによる方法 <samp class="ph codeph">getNielsenAppSdk</samp> APIです。
+        <pre class="pre codeblock">@Override public void run（）{DebugMode.logD（TAG、 &quot;onStop：&quot;バックグラウンド &quot;のように見えます。）; s_nielsenAnalytics.getNielsenAppSdk（）。stop（）; }</pre>
+<p class="p">Ooyala AndroidアプリでのNielsen統合の詳細については、NielsenSampleAppを確認してください。
+      </p>
+</div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/nielsen_about.html" title="あなたのOoyalaモバイルアプリケーションでNielsen分析と簡単に統合することができます。">Nielsen Analyticsとの統合</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

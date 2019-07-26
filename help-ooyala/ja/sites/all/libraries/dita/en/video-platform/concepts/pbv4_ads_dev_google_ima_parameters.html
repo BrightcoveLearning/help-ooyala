@@ -1,0 +1,288 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Google IMA Ad Parameters"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_ads_dev_google_ima_parameters"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Google IMA広告パラメータ</title>
+</head>
+<body id="pbv4_ads_dev_google_ima_parameters">
+
+
+  <h1 class="title topictitle1">Google IMA広告パラメータ</h1>
+
+  <div class="body conbody">
+    <div class="section">次のパラメータを使用して、Player V4でGoogle IMA広告を設定します。 <a class="xref" href="pbv4_ads_dev_chapter_googleima.html">Google IMA Ad Plugin</a>。 見る <a class="xref" href="pbv4_ads_dev_google_ima.html">Google IMA広告の統合</a> 詳細については。 <div class="note note"><span class="notetitle">注意：</span> これらのパラメータは、Google IMA広告に固有のものです。 Google IMA広告のグローバルパラメータを設定することもできます。 見る <a class="xref" href="pbv4_configure_ads_embedded_params.html">広告パラメータを設定する</a> 詳細については。</div>
+
+    </div>
+
+    <div class="section">
+      右にスクロールして、パラメータが必須かオプションかを確認します。      
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="pbv4_ads_dev_google_ima_parameters__google_ima_parameters" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="1" id="d419395e47"><strong class="ph b">名前</strong></th>
+
+              <th class="entry" valign="top" width="NaN%" id="d419395e51"><strong class="ph b">説明</strong></th>
+
+              <th class="entry" valign="top" width="1" id="d419395e55"><strong class="ph b">タイプ</strong></th>
+
+              <th class="entry" valign="top" width="1" id="d419395e59"><strong class="ph b">必須？</strong></th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr id="pbv4_ads_dev_google_ima_parameters__google-ima-ads-manager" class="row">
+              <td class="entry" valign="top" width="1" headers="d419395e47 "><span class="keyword parmname">google-ima-ads-manager</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d419395e51 ">Google IMA広告サーバータグまたはネットワークタグをOoyalaプレーヤーに渡すために使用されるマスターオブジェクトキー。 このキーは、次に説明する値でのみ効果があります。</td>
+
+              <td class="entry" valign="top" width="1" headers="d419395e55 "> </td>
+
+              <td class="entry" valign="top" width="1" headers="d419395e59 ">はい</td>
+
+            </tr>
+
+            <tr id="pbv4_ads_dev_google_ima_parameters__additionalAdTagParameters" class="row">
+              <td class="entry" valign="top" width="1" headers="d419395e47 "><span class="keyword parmname">google-ima-ads-manager.additionalAdTagParameters</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d419395e51 "><samp class="ph codeph">additionalAdTagParameters</samp> 広告タグのURLに追加され、広告リクエストを行う前に自動的に入力されます（マクロの場合）。 追加の広告タグURLパラメータは、キーと値のペアの形式にする必要があります。 これらのパラメータを使用すると、広告タグの最後に追加されます。 <strong class="ph b">追加されたパラメータ</strong> BacklotからのURLの内容を上書きしないでください。 <p class="gt-block p"><strong class="ph b">有効値</strong>:  </p>
+<div class="p">マクロを使用してOoyalaコードに広告タグのURLデータを入力する場合は、次のマクロがサポートされています。 <ul class="ul">
+                        <li class="li"><samp class="ph codeph">[ランダム]</samp>  or  <samp class="ph codeph">[cache_buster]</samp>：乱数を挿入する</li>
+
+                        <li class="li"><samp class="ph codeph">[タイムスタンプ]</samp>：リクエストが実行された時刻が挿入されます</li>
+
+                        <li class="li"><samp class="ph codeph">[referrer_url]</samp>：これはページのURLを挿入します</li>
+
+                        <li class="li"><samp class="ph codeph">[oo_embedcode]</samp>：これは現在のビデオのOoyala埋め込みコードを挿入します</li>
+
+                      </ul>
+使用しない場合 <samp class="ph codeph">additionalAdTagParameters</samp>広告タグに手動でマクロを追加できます。 これはOoyalaのコードを回避し、Google iMA SDKによって直接処理されます。 Googleによると、次のマクロがサポートされています（02 / 04 / 2016現在）。 <ul class="ul">
+                        <li class="li"><samp class="ph codeph">url = [referrer_url]</samp></li>
+
+                        <li class="li"><samp class="ph codeph">相関子= [タイムスタンプ]</samp></li>
+
+                      </ul>
+</div>
+<p class="gt-block p">Google IMAのドキュメントには、次の場所にマクロの一覧があります。 <a class="xref" href="https://goo.gl/lk7xlQ" target="_blank">https://support.google.com/dfp_premium/answer/1181016?hl=en&amp;ref_topic=2480647</a>。 カスタムタグを広告タグに追加する方法については、Google IMAのドキュメントを参照してください。 <a class="xref" href="https://goo.gl/3HDCyc" target="_blank">https://support.google.com/dfp_premium/answer/1080597?hl=en&amp;ref_topic=2480647</a></p>
+<p class="gt-block p"><strong class="ph b">例：</strong></p>
+<div class="p">これがGoogle IMAのマクロの使用例です。<pre class="pre codeblock">http://myAdTagUrl.com?url=[referrer_url]&amp;correlator=[timestamp]</pre>
+</div>
+<p class="p">これは、Ooyala Google IMAプラグインを介してパラメータを追加する方法の例です。
+                            </p>
+<pre class="pre codeblock">&quot;google-ima-ads-manager&quot;：{&quot;additionalAdTagParameters&quot;：{&quot;タイムスタンプ&quot;： &quot;[タイムスタンプ]&quot;、 &quot;ビデオ&quot;： &quot;[oo_embedcode]&quot;、 &quot;myVar&quot;： &quot;値&quot;}}</pre>
+<div class="p">これにより、広告タグがから変更されます。 <pre class="pre codeblock">http://myadtagurl.com</pre>
+〜へ
+  <pre class="pre codeblock">http://myadtagurl.com?timestamp=[timestamp]&amp;video=[oo_embedcode]&amp;myVar=value</pre>
+ご了承ください <samp class="ph codeph">[タイムスタンプ]</samp> そして <samp class="ph codeph">[oo_embedcode]</samp> 上記で指定された値で埋められます。</div>
+</td>
+
+              <td class="entry" valign="top" width="1" headers="d419395e55 "> </td>
+
+              <td class="entry" valign="top" width="1" headers="d419395e59 ">いいえ</td>
+
+            </tr>
+
+            <tr id="pbv4_ads_dev_google_ima_parameters__all_ads" class="row">
+              <td class="entry" valign="top" width="1" headers="d419395e47 "><span class="keyword parmname">google-ima-ads-manager.all_ads</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d419395e51 ">動画中に再生されるすべての広告の配列。 例：
+                <pre class="pre codeblock">&quot;google-ima-ads-manager&quot;：{&quot;all_ads&quot;：[{&quot;position&quot;： &quot;10000&quot;、 &quot;position_type&quot;： &quot;t&quot;、 &quot;tag_url&quot;： &quot;http：// myadtagurl&quot;}、{&quot;position&quot; ： &quot;5000&quot;、 &quot;position_type&quot;： &quot;t&quot;、 &quot;tag_url&quot;： &quot;http：// myadtagurl&quot;}]}</pre>
+</td>
+
+              <td class="entry" valign="top" width="1" headers="d419395e55 ">オブジェクト</td>
+
+              <td class="entry" valign="top" width="1" headers="d419395e59 ">Backlotでこの設定を指定しなければYesです。 ページレベルパラメータまたはBacklotのいずれかで指定する必要があります。</td>
+
+            </tr>
+
+            <tr id="pbv4_ads_dev_google_ima_parameters__tag_url" class="row">
+              <td class="entry" valign="top" width="1" headers="d419395e47 "><span class="keyword parmname">google-ima-ads-manager.all_ads.tag_url</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d419395e51 ">Google IMAの広告タグ Backlotを通してビデオに添付されたタグを上書きしたい場合は、ここに任意の文字列値を入力してください。</td>
+
+              <td class="entry" valign="top" width="1" headers="d419395e55 ">文字列</td>
+
+              <td class="entry" valign="top" width="1" headers="d419395e59 ">パラメータを指定している場合はYes <samp class="ph codeph">all_ads</samp></td>
+
+            </tr>
+
+            <tr id="pbv4_ads_dev_google_ima_parameters__position" class="row">
+              <td class="entry" valign="top" width="1" headers="d419395e47 "><span class="keyword parmname">google-ima-ads-manager.all_ads.position</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d419395e51 ">意味はの値によって異なります <samp class="ph codeph">all_ads.position_type</samp>:  <ul class="ul">
+                  <li class="li">If  <samp class="ph codeph">position_type</samp> に設定されています <samp class="ph codeph">&quot;t&quot;</samp>、その後、
+                      <samp class="ph codeph">位置</samp> 広告を再生する時間をミリ秒単位で指定します。<ul class="ul">
+                      <li class="li"><strong class="ph b">プレロール広告</strong>：の値 <samp class="ph codeph">0</samp>.</li>
+
+                      <li class="li"><strong class="ph b">ミッドロール広告</strong>：より大きい値 <samp class="ph codeph">0</samp> ビデオの合計時間よりも短い。 </li>
+
+                      <li class="li"><strong class="ph b">ポストロール広告</strong>：動画の合計時間よりも大きい任意の値。
+                      </li>
+
+                    </ul>
+</li>
+
+                  <li class="li">If  <samp class="ph codeph">position_type</samp> に設定されています <samp class="ph codeph">&quot;p&quot;</samp>、その後、
+                      <samp class="ph codeph">位置</samp> 動画の合計時間に対する割合を指定します。 <ul class="ul">
+                      <li class="li"><strong class="ph b">プレロール広告</strong>：の値 <samp class="ph codeph">0</samp>.</li>
+
+                      <li class="li"><strong class="ph b">ミッドロール広告</strong>：より大きい値 <samp class="ph codeph">0</samp> そしてより小 <samp class="ph codeph">100</samp>.  </li>
+
+                      <li class="li"><strong class="ph b">ポストロール広告</strong>：の値 <samp class="ph codeph">100</samp> 以上。 </li>
+
+                    </ul>
+</li>
+
+                  <li class="li">If  <samp class="ph codeph">position_type</samp> に設定されています <samp class="ph codeph">&quot;r&quot;</samp> （広告ルール） <samp class="ph codeph">位置</samp> 無視されます。</li>
+
+                </ul>
+</td>
+
+              <td class="entry" valign="top" width="1" headers="d419395e55 ">整数</td>
+
+              <td class="entry" valign="top" width="1" headers="d419395e59 ">広告ルールのない広告の上書きに対してははい</td>
+
+            </tr>
+
+            <tr id="pbv4_ads_dev_google_ima_parameters__position_type" class="row">
+              <td class="entry" valign="top" width="1" headers="d419395e47 "><span class="keyword parmname">google-ima-ads-manager.all_ads.position_type</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d419395e51 ">解釈方法を指定します <samp class="ph codeph">位置</samp> 値。 有効な値 <ul class="ul">
+                  <li class="li"><span class="keyword parmname">&quot;t&quot;</span> - ことを示します <samp class="ph codeph">位置</samp> 広告を再生する時間（ミリ秒）です。</li>
+
+                  <li class="li"><span class="keyword parmname">&quot;p&quot;</span> - ことを示します <samp class="ph codeph">位置</samp> 動画の合計時間に対する割合です。</li>
+
+                  <li class="li"><span class="keyword parmname">&quot;r&quot;</span>  - 広告ルールによって掲載順位が決定されることを示します。 の
+                      <samp class="ph codeph">all_ads.position</samp> 設定は無視されます。</li>
+
+                </ul>
+</td>
+
+              <td class="entry" valign="top" width="1" headers="d419395e55 ">文字列</td>
+
+              <td class="entry" valign="top" width="1" headers="d419395e59 ">はい</td>
+
+            </tr>
+
+            
+            <tr id="pbv4_ads_dev_google_ima_parameters__enableIosSkippableAds" class="row">
+              <td class="entry" valign="top" width="1" headers="d419395e47 "><span class="keyword parmname">google-ima-ads-manager.enableIosSkippableAds</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d419395e51 ">に設定した場合 <samp class="ph codeph">true</samp>プレーヤーがページ上で（フルスクリーンではなく）インラインで再生している場合、スキップ可能な広告はiOS 10（またはそれ以降）デバイス上のSafari Mobileに配信できます。 このパラメータは、 <samp class="ph codeph">&quot;iosPlayMode&quot;： &quot;インライン&quot;</samp>
+                ページレベルパラメータはWebページで指定されます。 デフォルトは
+                <samp class="ph codeph">false</samp>。 例：<pre class="pre codeblock">&quot;google-ima-ads-manager&quot;：{&quot;enableIosSkippableAds&quot;：true}</pre>
+<div class="note note"><span class="notetitle">注意：</span> スキップ可能な広告の再生が開始されたときに再生がフルスクリーンモードの場合、ブラウザウィンドウはインライン再生モードに変わります。 広告の再生が終了したら、ユーザーは手動でフルスクリーンモードに戻る必要があります。</div>
+</td>
+
+              <td class="entry" valign="top" width="1" headers="d419395e55 ">ブーリアン</td>
+
+              <td class="entry" valign="top" width="1" headers="d419395e59 ">いいえ</td>
+
+            </tr>
+
+            
+            
+            
+            <tr id="pbv4_ads_dev_google_ima_parameters__iframeZIndex" class="row">
+              <td class="entry" valign="top" width="1" headers="d419395e47 "><span class="keyword parmname">google-ima-ads-manager.iframeZIndex</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d419395e51 ">Google IMA iframeのzindexを上書きします。 このパラメータを <samp class="ph codeph">0</samp> 広告が隠れないように、デスクトップデバイスでクリック可能なVPAID広告をVPAID INSECUREモードで使用している場合。 以上の整数を指定できます <samp class="ph codeph">0</samp>。 デフォルトは <samp class="ph codeph">10004</samp>.<div class="note warning"><span class="warningtitle">警告：</span> このパラメータを使用すると、プレーヤーのスキンとビデオとの間に望ましくない相互作用が生じる可能性があります。 VPAID INSECUREモードでは、UI要素をiframeの外側に配置できます。 この動作が原因で、UI要素がOoyalaビデオプレーヤーとうまく対話できない場合があります。 プレイヤーは1000の範囲のzindicesを持っています。 プレイヤーの下にある要素は、プレイヤーを通して対話することはできません。 1つの例は、広告の再生、一時停止、およびクリックスルーを制御するUI要素をiframeの外側に配置することです。 <samp class="ph codeph">10</samp> （これはプレイヤーの下に要素を配置します）。 これらの副作用を回避するために、Ooyalaプレーヤーで再生される広告に対してVPAIDセキュアモードの使用を推奨するために、広告作成者または広告プロバイダと協力することをお勧めします。</div>
+</td>
+
+              <td class="entry" valign="top" width="1" headers="d419395e55 ">整数 </td>
+
+              <td class="entry" valign="top" width="1" headers="d419395e59 ">いいえ</td>
+
+            </tr>
+
+            <tr id="pbv4_ads_dev_google_ima_parameters__showAdControls" class="row">
+              <td class="entry" valign="top" width="1" headers="d419395e47 "><span class="keyword parmname">google-ima-ads-manager.showAdControls</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d419395e51 ">に設定した場合 <samp class="ph codeph">true</samp>は、IMA広告の再生中にOoyalaの広告コントロールバーを表示します。 IMA広告は我々の広告コントロールバーの上に表示されます。 この機能はデフォルトで無効になっています。 <div class="note note"><span class="notetitle">注意：</span> この設定が機能するためには、
+                    <samp class="ph codeph">showControlBar</samp> 設定（下 <samp class="ph codeph">adScreen</samp> in skin.json）もtrueに設定する必要があります。 例えば（skin.json）：
+                  <pre class="pre codeblock">&quot;adScreen&quot;：{&quot;showAdMarquee&quot;：true、 &quot;showAdCountDown&quot;：true、 &quot;showControlBar&quot;：true ...</pre>
+</div>
+</td>
+
+              <td class="entry" valign="top" width="1" headers="d419395e55 ">ブーリアン</td>
+
+              <td class="entry" valign="top" width="1" headers="d419395e59 ">いいえ</td>
+
+            </tr>
+
+            <tr id="pbv4_ads_dev_google_ima_parameters__useGoogleAdUI" class="row">
+              <td class="entry" valign="top" width="1" headers="d419395e47 "><span class="keyword parmname">google-ima-ads-manager.useGoogleAdUI</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d419395e51 ">に設定した場合 <samp class="ph codeph">true</samp>、広告のカウントダウン、詳細ボタンなどを含む広告がGoogle Ad UIに表示されます。 デフォルトは
+                  <samp class="ph codeph">false</samp>.  <div class="note note"><span class="notetitle">注意：</span> このパラメータはデスクトップWebにのみ使用できます。 このパラメータはモバイルWebでは機能しません。</div>
+
+                <div class="note note"><span class="notetitle">注意：</span> 両方を有効にしない <samp class="ph codeph">useGoogleAdUI</samp> そして
+                    <samp class="ph codeph">useGoogleCountdown</samp> 同時に。 そうすると、予期しない動作が生じる可能性があります。</div>
+</td>
+
+              <td class="entry" valign="top" width="1" headers="d419395e55 ">ブーリアン</td>
+
+              <td class="entry" valign="top" width="1" headers="d419395e59 ">いいえ</td>
+
+            </tr>
+
+            <tr id="pbv4_ads_dev_google_ima_parameters__useGoogleCountdown" class="row">
+              <td class="entry" valign="top" width="1" headers="d419395e47 "><span class="keyword parmname">google-ima-ads-manager.useGoogleCountdown</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d419395e51 ">に設定した場合 <samp class="ph codeph">true</samp>Google IMAのカウントダウンタイマーが表示されます（ビデオのクリックでクリックスルーがトリガーされることを有効にしながら）。 デフォルトは <samp class="ph codeph">false</samp>.  <div class="note note"><span class="notetitle">注意：</span> このパラメータはデスクトップWebにのみ使用できます。 このパラメータはモバイルWebでは機能しません。</div>
+
+                <div class="note note"><span class="notetitle">注意：</span> 両方を有効にしない <samp class="ph codeph">useGoogleAdUI</samp> そして
+                    <samp class="ph codeph">useGoogleCountdown</samp> 同時に。 そうすると、予期しない動作が生じる可能性があります。</div>
+
+                <div class="note note"><span class="notetitle">注意：</span> Google IMAのドキュメントには、次のように記載されています。</div>
+<p class="gt-block p"><strong class="ph b">例：</strong></p>
+<pre class="pre codeblock">&quot;google-ima-ads-manager&quot;：{&quot;useGoogleCountdown&quot;：true}</pre>
+</td>
+
+              <td class="entry" valign="top" width="1" headers="d419395e55 ">ブーリアン</td>
+
+              <td class="entry" valign="top" width="1" headers="d419395e59 ">いいえ</td>
+
+            </tr>
+
+            <tr id="pbv4_ads_dev_google_ima_parameters__vpaidMode" class="row">
+              <td class="entry" valign="top" width="1" headers="d419395e47 "><span class="keyword parmname">google-ima-ads-manager.vpaidMode</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d419395e51 ">に設定した場合 <samp class="ph codeph">「安全でない」</samp>、Google IMA SDKはINSECURE VPAIDモードを使用するよう通知されます。 INSECURE VPAIDモードでは、「安全でない」VPAIDクリエイティブを使用できます。</td>
+
+              <td class="entry" valign="top" width="1" headers="d419395e55 ">文字列</td>
+
+              <td class="entry" valign="top" width="1" headers="d419395e59 ">いいえ</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+  </div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

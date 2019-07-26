@@ -1,0 +1,117 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Listening to Multiple Message Bus Events"/>
+<meta name="abstract" content="You can use the message bus to listen to multiple events."/>
+<meta name="description" content="メッセージバスを使用して複数のイベントを監視できます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_dev_eventmodel.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/pbv4_dev_pubsub.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/pbv4_dev_mbapi.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/pbv4_dev_listenevent.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_dev_listen_multi_event"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>複数のメッセージバスイベントをリスニングする</title>
+</head>
+<body id="pbv4_dev_listen_multi_event">
+
+
+ <h1 class="title topictitle1"> 複数のメッセージバスイベントをリスニングする</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">メッセージバスを使用して複数のイベントを監視できます。</p>
+
+  <div class="section"> 以下は、メッセージバスを使用して複数のイベントをリッスンする方法を示す完全な例です。<p class="gt-block p">を開発する <samp class="ph codeph">head</samp> Playerを表示および作成するための要素とロジック、参照 <a class="xref" href="../reference/pbv4_web_tutorial.html#pbv4_web_tutorial">Player V4の基本チュートリアル</a>.  </p>
+<p class="gt-block p">イベント処理については、をご覧ください。 <a class="xref" href="pbv4_dev_eventmodel.html#pbv4_dev__eventmodel" title="プレーヤーV4はイベントを処理するためにメッセージバスの使用を取り入れています。">プレーヤV4のイベントモデル</a>。 すべてのイベントのリストについては、 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_v4_js/index.html" target="_blank">プレーヤJavaScript APIリファレンス</a>.</p>
+</div>
+
+   <div class="section"> この例では、使い方を学びます。
+     <samp class="ph codeph">onCreate（）</samp> ビデオの再生に関連するイベントを処理する機能。 この高度なアプリケーションでは、ユーザーがビデオを再生し、イベントハンドラがビデオの再生が終了した時点を決定します。 その時点で、イベントハンドラはプレーヤを破棄し、ユーザにメッセージを表示します。 <div class="p">このWebページの目的は、ダウンロード、再生ヘッドの時間変更、および再生されたイベントを監視および応答することです。そのため、デザインには次のものが含まれます。 <ul class="ul" id="pbv4_dev_listen_multi_event__ul_omg_t13_pr">
+         <li class="li">A  <samp class="ph codeph">head</samp> を含む要素 <samp class="ph codeph">スクリプト</samp> ロードおよび初期化要求を指定するタグ。</li>
+
+         <li class="li">A  <samp class="ph codeph">ボディ</samp> 以下を含む要素<ul class="ul" id="pbv4_dev_listen_multi_event__ul_pjc_xgf_qr">
+           <li class="li">PlayerコンテナのUI表示とレイアウト。</li>
+
+           <li class="li">ダウンロード、再生ヘッドの時間の変化、および再生されたイベントを監視および応答するイベントリスナー。</li>
+
+           <li class="li">A  <samp class="ph codeph">スクリプト</samp> プレーヤを作成するタグ。</li>
+
+         </ul>
+</li>
+
+       </ul>
+</div>
+</div>
+<div class="section"><div class="p">Webページを作成するには、次の手順に従ってください。<ul class="ul">
+         <li class="li"><a class="xref" href="#pbv4_dev_listen_multi_event__section_svc_n3s_fv/index.html">ステップ1：複数のイベントを聴く</a></li>
+
+         <li class="li"><a class="xref" href="#pbv4_dev_listen_multi_event__section_egy_l3s_fv/index.html">ステップ2：プレイヤーを破壊する</a></li>
+
+       </ul>
+</div>
+<p class="gt-block p">見る <a class="xref" href="#pbv4_dev_listen_multi_event__section_o3x_k3s_fv/index.html">完全な例</a> Webページ全体のコードを表示します。</p>
+</div>
+
+   <div class="section" id="pbv4_dev_listen_multi_event__section_svc_n3s_fv"><h2 class="title sectiontitle">ステップ1：複数のイベントを聴く</h2>
+      
+      <div class="p">時には、一度に複数のイベントを監視して応答すると便利です。 これを行う1つの方法は、すべてのイベントを購読することです。 の <a class="xref" href="pbv4_dev_eventmodel.html#pbv4_dev__eventmodel" title="プレーヤーV4はイベントを処理するためにメッセージバスの使用を取り入れています。">プレーヤV4のイベントモデル</a> 作成したPlayerオブジェクトのを介してアクセスするメッセージバスを提供します。 <span class="keyword apiname">mb</span> オブジェクト この場合、メッセージバスを使います。 <span class="keyword apiname">申し込む（）</span> ワイルドカードを指定する関数（<samp class="ph codeph">&quot;*&quot;</samp>）イベント名の場合<pre class="pre codeblock">          function onCreate（player）{/ *すべてのイベントを購読する：*これにより、複数のイベントに基づいてロジックを作成することができます。 * / player.mb.subscribe（ &quot;*&quot;、 &#39;example&#39;、function（eventName）{}）; }</pre>
+</div>
+
+      <div class="p">考えられるすべてのイベントをリスニングしているので、コールバック関数内に複数のイベントに基づくロジックを含めることができます。 <span class="keyword parmname">イベント名</span> パラメータ この例では、ダウンロードと再生ヘッドの時間変更イベントを除くすべてのイベントを書き込みます（<span class="keyword apiname">OO.EVENTS.DOWNLOADING</span> そして
+          <span class="keyword apiname">OO.EVENTS.PLAYHEAD_TIME_CHANGED</span> JavaScriptコンソールログに）：<pre class="pre codeblock">          function onCreate（player）{/ * *すべてのイベントを購読する：*これにより、複数のイベントに基づいてロジックを作成できます*。 * / player.mb.subscribe（ &quot;*&quot;、 &#39;example&#39;、function（eventName）{/ *ダウンロードおよび再生ヘッドの時間変更イベントを除くすべてのイベントを* JavaScriptコンソールに書き込みます。* / if（eventName！= OO .EVENTS.DOWNLOADING &amp;&amp; eventName！= OO.EVENTS.PLAYHEAD_TIME_CHANGED）console.log（eventName）;}）; }</pre>
+</div>
+
+    </div>
+
+   <div class="section" id="pbv4_dev_listen_multi_event__section_egy_l3s_fv"><h2 class="title sectiontitle">ステップ2：プレイヤーを破壊する</h2>
+      
+      <div class="p">動画の再生が終了したら、プレーヤーを適切に破棄してそのリソースを破棄します。 これをするために私達はのために聞きます <span class="keyword apiname">OO.EVENTS.PLAYED</span>
+        イベント：<pre class="pre codeblock">            / * PLAYEDイベントを購読します。*動画の再生が終了したときにのみ発生します。* / player.mb.subscribe（OO.EVENTS.PLAYED、 &#39;example&#39;、function（eventName）{}）;</pre>
+</div>
+
+      <div class="p">プレーヤーを破壊してその関連リソースを破棄するには、Ooyala V3 Playerオブジェクトのを呼び出します。 <span class="keyword apiname">破壊する（）</span>
+        方法：<pre class="pre codeblock">            / * PLAYEDイベントを購読します。*ビデオの再生が終了したときにのみ発生します。* / player.mb.subscribe（OO.EVENTS.PLAYED、 &#39;example&#39;、function（eventName）{/ *プレーヤーを破棄して適切に破棄します。 * / player.destroy（）; / *ユーザーに通知する：* / alert（ &#39;プレーヤーは破壊されました！&#39;）;}）;
+</pre>
+</div>
+
+      <div class="note note"><span class="notetitle">注意：</span> iOSでは、Webページ上で一度に実行できるHTML5プレーヤーは1つだけです。 あなたはOoyala V3 Playerオブジェクトのを呼び出すことができます <span class="keyword apiname">破壊する（）</span> プレーヤーがページ上の別のプレーヤーで別のビデオの再生を妨げないようにする方法。</div>
+
+      <div class="p">これが完成です <samp class="ph codeph">onCreate（）</samp>
+        関数：<pre class="pre codeblock">          function onCreate（player）{/ * *すべてのイベントを購読する：*これにより、複数のイベントに基づいてロジックを作成できます*。 * / player.mb.subscribe（ &quot;*&quot;、 &#39;example&#39;、function（eventName）{/ *ダウンロードおよび再生ヘッドの時間変更イベントを除くすべてのイベントを* JavaScriptコンソールに書き込みます。* / if（eventName！= OO .EVENTS.DOWNLOADING &amp;&amp; eventName！= OO.EVENTS.PLAYHEAD_TIME_CHANGED）console.log（eventName）;}）; / * PLAYEDイベントを購読します。*ビデオの再生が終了したときにのみ発生します。* / player.mb.subscribe（OO.EVENTS.PLAYED、 &#39;example&#39;、function（eventName）{/ *プレーヤーを破棄して適切に破棄します。 * / player.destroy（）; / *ユーザーに通知する：* / alert（ &#39;プレーヤーは破壊されました！&#39;）;}）; }
+</pre>
+</div>
+
+    </div>
+
+   <div class="section" id="pbv4_dev_listen_multi_event__section_o3x_k3s_fv"><h2 class="title sectiontitle">完全な例</h2>
+      
+      <p class="p">これで、ユーザーが動画を再生したときに複数のイベントに応答するWebページの実用的な例が完成しました。 イベントハンドラは、ビデオの再生が終了した時点を判断します。その時点でプレーヤーは破棄され、確認メッセージがユーザーに表示されます。</p>
+
+      <pre class="pre codeblock">
+&lt;！DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;link rel = &quot;スタイルシート&quot; href = &quot;url_where_hosted / skin-plugin / html5-skin.min.css&quot; /&gt; &lt;スクリプト言語= &quot;javascript&quot; src = &quot;url_where_hosted / core .min.js &quot;&gt; &lt;/script&gt; &lt;script type =&quot;テキスト/ javascript &quot;src =&quot; url_where_hosted / video-plugin / main_html5.min.js &quot;&gt; &lt;/script&gt; &lt;script type =&quot; text / javascript &quot;src = &quot;url_where_hosted / skin-plugin / html5-skin.min.js&quot;&gt; &lt;/script&gt; &lt;/head&gt; &lt;body&gt; &lt;b&gt;プレーヤーの破棄例&lt;/b&gt; &lt;br/&gt; &lt;br/&gt; &lt;div id = &#39; container &#39;style =&#39; width：640px; height：480px &#39;&gt; &lt;/div&gt; &lt;script&gt;関数onCreate（player）{/ *すべてのイベントを購読する：*これにより、複数のイベントに基づいてロジックを作成できます。 * / player.mb.subscribe（ &quot;*&quot;、 &#39;example&#39;、function（eventName）{/ *ダウンロードおよび再生ヘッドの時間変更イベントを除くすべてのイベントを* JavaScriptコンソールに書き込みます。* / if（eventName！= OO .EVENTS.DOWNLOADING &amp;&amp; eventName！= OO.EVENTS.PLAYHEAD_TIME_CHANGED）console.log（eventName）;}）; / * PLAYEDイベントを購読します。*ビデオの再生が終了したときにのみ発生します。* / player.mb.subscribe（OO.EVENTS.PLAYED、 &#39;example&#39;、function（eventName）{/ *プレーヤーを破棄して適切に破棄します。 * / player.destroy（）; / *ユーザーに通知する：* / alert（ &#39;プレーヤーは破壊されました！&#39;）;}）; } OO.ready（function（）{window.pp = OO.Player.create（ &#39;コンテナ&#39;、 &#39;YOUR_ASSET_ID&#39;、{&quot;playerBrandingId&quot;： &quot;YOUR_PLAYER_ID&quot;、 &quot;pcode&quot;： &quot;YOUR_PCODE&quot;、スキン：{config： &quot; url_where_hosted / skin-plugin / skin.json &quot;、}、onCreate：window.onCreate}）;}）; &lt;/script&gt; &lt;/body&gt; &lt;/html&gt;   
+   </pre>
+
+    </div>
+
+ </div>
+
+  <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/pbv4_dev_eventmodel.html" title="プレーヤーV4はイベントを処理するためにメッセージバスの使用を取り入れています。">プレーヤV4のイベントモデル</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong><br/>
+<div><a class="link" href="../reference/pbv4_dev_pubsub.html" title="イベント処理のためにメッセージをパブリッシュおよびサブスクライブできます。">イベントの発行と購読</a></div>
+<div><a class="link" href="../reference/pbv4_dev_mbapi.html" title="パブリッシュ、サブスクライブ、およびその他の機能を使用してメッセージバスと通信します。">メッセージバスAPI</a></div>
+<div><a class="link" href="../reference/pbv4_dev_listenevent.html" title="メッセージバスを使用して、単一のイベントまたは複数のイベントを監視できます。">メッセージバスイベントを聞く</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div

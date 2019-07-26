@@ -1,0 +1,286 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Ingesting Closed Caption Files"/>
+<meta name="abstract" content="You can ingest closed caption files via Backlot or the Ooyala Ingestion Service (OIS)."/>
+<meta name="description" content="BacklotまたはOoyala Ingestion Service（OIS）を介して字幕ファイルを取り込むことができます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_ingest.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_ingest.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_closed_captions.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/closed_captions_upload.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/closed_captions_ingest_xml.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/closed_captions_ingest_csv.html"/>
+<meta name="DC.Relation" scheme="URI" content="closed_captions_about.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/closed_caption_language.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_closed_caption.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="closed_captions_ingest"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>クローズドキャプションファイルの取り込み</title>
+</head>
+<body id="closed_captions_ingest">
+
+
+ <h1 class="title topictitle1">クローズドキャプションファイルの取り込み</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">BacklotまたはOoyala Ingestion Service（OIS）を介して字幕ファイルを取り込むことができます。</p>
+
+  <div class="section">
+   <div class="note note"><span class="notetitle">注意：</span> このトピックは、OIS v2.5とOIS v1の両方に適用されます。 指示がある場合、特定のセクションは1つのバージョンにのみ適用されます。 OIS v1は無効になっています。 OIS v1を使用しているお客様は、OIS v2.5に切り替える必要があります。</div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">クローズドキャプションファイルを取り込む方法</h2>
+   
+   <ul class="ul">
+    <li class="li"><a class="xref" href="../tasks/closed_captions_upload.html" title="クローズドキャプションファイルを準備したら、それをBacklotにアップロードできます。">Backlotでクローズドキャプションファイルをアップロードする</a></li>
+
+    <li class="li"><a class="xref" href="../tasks/closed_captions_ingest_xml.html" title="XMLマニフェストファイルを使用して字幕ファイルを取り込むことができます。">XMLマニフェストファイルを使用したクローズドキャプションの取り込み</a></li>
+
+    <li class="li"><a class="xref" href="../tasks/closed_captions_ingest_csv.html" title="CSVマニフェストファイルを使用して字幕ファイルを取り込むことができます。">CSVマニフェストファイルを使用した字幕の取り込み</a></li>
+
+    <li class="li"><a class="xref" href="../api/asset_closed_caption.html" title="動画、広告、リモートアセット、またはYouTube動画にクローズドキャプションを追加できます。">クローズドキャプションの使用</a></li>
+
+   </ul>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">クローズドキャプションファイルでサポートされている形式（OISインジェスト）</h2>
+   次のファイル形式のいずれかを使用するクローズドキャプションファイルをアップロードできます。 
+   <div class="note note"><span class="notetitle">注意：</span> Ooyalaモバイルアプリ（Ooyala iOSおよびAndroid SDKを使用して開発されたアプリ）で再生するには、TTML（以前のDFXP）形式が必要です。 Player V4 Webは、iOSおよびAndroidデバイスのブラウザを含むすべてのブラウザ環境で、追加の字幕フォーマットをサポートしています。</div>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="closed_captions_ingest__cc_formats" class="table" frame="border" border="1" rules="all">
+       
+       
+       <thead class="thead" align="left">
+         <tr class="row">
+           <th class="entry" valign="top" width="20%" id="d275110e80">拡張</th>
+
+           <th class="entry" valign="top" width="80%" id="d275110e83">説明</th>
+
+         </tr>
+
+       </thead>
+
+       <tbody class="tbody">
+         <tr class="row">
+           <td class="entry" valign="top" width="20%" headers="d275110e80 "><samp class="ph codeph">.TTML</samp> （旧 <samp class="ph codeph">DXFP</samp>)</td>
+
+           <td class="entry" valign="top" width="80%" headers="d275110e83 ">TTML（Timed Text Markup Languageファイル。一般に、クローズドキャプションファイルの拡張子は.dfxp（Distribution Format Exchange Profile）です。詳細については、を参照してください。 <a class="xref" href="../reference/dfxp_format.html" title="Backlotにアップロードするクローズドキャプションファイルは、サポートされている形式でなければなりません。 DFXP形式（現在はTTML）は、広く使用されている形式です。">サポートされているクローズドキャプションDFXP（現在はTTML）形式</a>.</td>
+
+         </tr>
+
+         <tr class="row">
+           <td class="entry" valign="top" width="20%" headers="d275110e80 "><samp class="ph codeph">.SCC</samp></td>
+
+           <td class="entry" valign="top" width="80%" headers="d275110e83 ">SCC（Scenarist Closed Caption）ファイル。</td>
+
+         </tr>
+
+         <tr class="row">
+           <td class="entry" valign="top" width="20%" headers="d275110e80 "><samp class="ph codeph">.SRT</samp></td>
+
+           <td class="entry" valign="top" width="80%" headers="d275110e83 ">WebSRT（Web字幕リソーストラック）ファイル。</td>
+
+         </tr>
+
+         <tr class="row">
+           <td class="entry" valign="top" width="20%" headers="d275110e80 "><samp class="ph codeph">.VTT</samp></td>
+
+           <td class="entry" valign="top" width="80%" headers="d275110e83 ">WebVTT（Webビデオテキストトラック）ファイル。</td>
+
+         </tr>
+
+       </tbody>
+
+     </table>
+</div>
+</div>
+
+  <div class="section"><h2 class="title sectiontitle">クローズドキャプションファイルのXMLマニフェストフォーマット</h2> 次の要素と属性を <a class="xref" href="../tasks/ingestion_ftp_xml.html" title="動画を取り込むときは、XMLマニフェストファイルを使用して、サムネイルおよびクローズドキャプションファイルだけでなく、追加のメタデータ（動画のタイトル、説明、掲載時間、ラベル、カスタムメタデータなど）を指定できます。 FTP、Aspera、またはMRSSでコンテンツを取り込むときにXMLマニフェストファイルを使用できます。">XMLマニフェストファイル</a>.
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="12.5%" id="d275110e167">XMLタグ</th>
+
+              <th class="entry" valign="top" width="87.5%" id="d275110e170">説明</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="12.5%" headers="d275110e167 "><samp class="ph codeph">&lt;media：subTitle&gt;</samp></td>
+
+              <td class="entry" valign="top" width="87.5%" headers="d275110e170 ">クローズドキャプションファイルを指定します（DFXPファイルでのみサポートされています）。 見る <a class="xref" href="closed_captions_ingest.html" title="BacklotまたはOoyala Ingestion Service（OIS）を介して字幕ファイルを取り込むことができます。">クローズドキャプションファイルの取り込み</a>。 属性： <ul class="ul">
+                  <li class="li"><samp class="ph codeph">HREF</samp> （必須） - 次のいずれか <ul class="ul">
+                      <li class="li">アップロードした字幕ファイルのファイル名。 例：
+                          <samp class="ph codeph">キャプション-1.dfxp</samp>
+                      </li>
+
+                      <li class="li">字幕ファイルがある場所のURL。 URLに含めることができます
+                          <samp class="ph codeph">http://</samp>  or  <samp class="ph codeph">https://</samp>。 例：
+                          <samp class="ph codeph">http://ooyala.com/captions/caption-1.dfxp</samp></li>
+
+                    </ul>
+<samp class="ph codeph">長い</samp> （オプション） - クローズドキャプションファイルの言語。 2文字のコード 見る <a class="xref" href="../reference/closed_caption_language.html" title="クローズドキャプションファイルをBacklotにアップロードする前に、サポートされている言語とファイル形式を使用していることを確認してください。">サポートされているクローズドキャプション</a>.</li>
+
+                  <li class="li"><samp class="ph codeph">フレームレート</samp> （オプション） - 字幕ファイルのフレームレート。 単位はフレーム/秒（FPS）です。 デフォルトは30です。 古いクローズドキャプションファイルは24です。</li>
+
+                </ul>
+<div class="note note"><span class="notetitle">注意：</span> 指定されている場合、有効な値を指定するのはお客様の責任です。 <samp class="ph codeph">長い</samp> そして <samp class="ph codeph">フレームレート</samp>。 有効な値がDFXPファイルに追加されています。 準拠していない値は無視されます。 どちらの方法でも、クローズドキャプションファイルはBacklotに追加されてアセットにリンクされます。</div>
+</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="12.5%" headers="d275110e167 "><samp class="ph codeph">&lt;media：hash&gt;</samp></td>
+
+              <td class="entry" valign="top" width="87.5%" headers="d275110e170 ">（OIS v1のみ）（オプション） <samp class="ph codeph">&lt;media：subTitle&gt;</samp>
+                要素は、あなたがオプションで含めることができます <samp class="ph codeph">ハッシュ</samp> 暗号化ハッシュ値およびハッシュ値を生成するために使用されたハッシュ関数アルゴリズムを指定する要素。 次の例に示す構文を使用してください。
+                  <pre class="pre">&lt;media:hash algo=”md5”&gt;5d42be7f301dad5acf42d565fd651857&lt;/media:hash&gt;</pre>
+<p class="p">where</p>
+<ul class="ul">
+                  <li class="li"><samp class="ph codeph">アルゴ</samp>  is  <samp class="ph codeph">md5</samp> （ハッシュ関数）</li>
+
+                  <li class="li"><samp class="ph codeph">ハッシュ</samp> 値は
+                      <samp class="ph codeph">5d42be7f301dad5acf42d565fd651857</samp>
+                  </li>
+
+                </ul>
+</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+<p class="gt-block p"><strong class="ph b">クローズドキャプションのXMLマニフェストの例（OIS v2.5）</strong></p>
+<pre class="pre codeblock">&lt;rss&gt; &lt;channel&gt; &lt;item&gt; &lt;media：subTitle href = &quot;ファイル名またはURL&quot;&gt; closedCaption.dfxp lang = &quot;jp&quot; frameRate = &quot;24&quot; &lt;/ media：subTitle&gt; &lt;/item&gt; &lt;/channel&gt; &lt;/ RSS&gt;</pre>
+<p class="gt-block p"><strong class="ph b">クローズドキャプションのXMLマニフェストの例（OIS v1） - 簡単な例（廃止予定）</strong></p>
+
+      <div class="note note"><span class="notetitle">注意：</span> OIS v1は無効になっています。 OIS v1を使用しているお客様は、OIS v2.5に切り替える必要があります。</div>
+
+      <pre class="pre codeblock">&lt;rss&gt; &lt;channel&gt; &lt;item&gt; &lt;media：subTitle href = &quot;ファイル名またはURL&quot;&gt; &lt;media：hash algo = &quot;選択されたハッシュアルゴリズム&quot;&gt;ハッシュ値&lt;/ media：hash&gt; &lt;/ media：subTitle&gt; &lt;/ item &gt; &lt;/channel&gt; &lt;/rss&gt;</pre>
+<p class="gt-block p"><strong class="ph b">クローズドキャプションのXMLマニフェストの例（OIS v1） - 長い例（非推奨）</strong></p>
+
+      <div class="note note"><span class="notetitle">注意：</span> OIS v1は無効になっています。 OIS v1を使用しているお客様は、OIS v2.5に切り替える必要があります。</div>
+
+      <pre class="pre codeblock">&lt;rss version = &quot;2.0&quot; xmlns：media = &quot;http://search.yahoo.com/mrss/&quot; xmlns：dcterms = &quot;http://purl.org/dc/terms/&quot; xmlns：fh = &quot;http： //purl.org/syndication/history/1.0 &quot;xmlns：ooyala =&quot; http://www.ooyala.com/mrss/ &quot;&gt; &lt;channel&gt; &lt;item&gt; &lt;media：content url =&quot; movie1.mp4 &quot;&gt; &lt; media：hash algo = &quot;md5&quot;&gt; 23ac5a7c88378522f95483e5ac9b44 &lt;/ media：hash&gt; &lt;/ media：コンテンツ&gt; &lt;media：title&gt;映画#1 &lt;/ media：description&gt; &lt;media：description&gt; &lt;media：description&gt; &lt;media：description&gt; &lt;映画の説明&gt; &gt; &lt;media：subTitle href = &quot;closedCaption.dfxp&quot;&gt; &lt;media：hash algo = &quot;md1&quot;&gt; 1d5be5f42acf7d301fd5 &lt;/ media：hash&gt; &lt;/ media：subTito.com/link &lt;リンク&gt; / link&gt; &lt;guid isPermaLink = &quot;false&quot;&gt; c42a565fa651857b92643eae33463910098b0c-9 &lt;/guid&gt; &lt;/item&gt; &lt;/channel&gt; &lt;/rss&gt;    </pre>
+</div>
+
+   <div class="section"><h2 class="title sectiontitle">クローズドキャプションファイルのCSVマニフェストフォーマット</h2> 以下の列見出しを使用して、クローズドキャプションファイルを <a class="xref" href="../tasks/ingestion_ftp_csv.html" title="動画を取り込むときは、CSVマニフェストファイルを使用して、追加のメタデータ（動画のタイトル、説明、フライト時間、ラベル、カスタムメタデータなど）、およびサムネイルやクローズドキャプションファイルを指定できます。 FTPまたはAsperaでコンテンツを取り込むときは、CSVマニフェストファイルを使用できます。">CSVマニフェストファイル</a>:
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="13.550135501355015%" id="d275110e331">列見出し </th>
+
+              <th class="entry" valign="top" width="86.44986449864498%" id="d275110e334">説明</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="13.550135501355015%" headers="d275110e331 "><samp class="ph codeph">字幕</samp></td>
+
+              <td class="entry" valign="top" width="86.44986449864498%" headers="d275110e334 ">クローズドキャプションファイルを指定します（DFXPファイルでのみサポートされています）。 次のいずれか <ul class="ul">
+                  <li class="li">アップロードした字幕ファイルのファイル名。 例：
+                      <samp class="ph codeph">&lt;media：subTitle href = &quot;caption-1.dfxp&quot; /&gt;</samp>
+                  </li>
+
+                  <li class="li">字幕ファイルがある場所のURL。 URLに含めることができます
+                      <samp class="ph codeph">http://</samp>  or  <samp class="ph codeph">https://</samp>。 例：
+                      <samp class="ph codeph">&lt;media：subTitle href = &quot;http://ooyala.com/captions/caption-1.dfxp&quot; /&gt;</samp></li>
+
+                </ul>
+ 見る <a class="xref" href="closed_captions_ingest.html" title="BacklotまたはOoyala Ingestion Service（OIS）を介して字幕ファイルを取り込むことができます。">クローズドキャプションファイルの取り込み</a>.</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="13.550135501355015%" headers="d275110e331 "><samp class="ph codeph">字幕：lang</samp></td>
+
+              <td class="entry" valign="top" width="86.44986449864498%" headers="d275110e334 ">（オプション） - クローズドキャプションファイルの言語。 2文字の言語コード 有効な値については、 <a class="xref" href="../reference/closed_caption_language.html" title="クローズドキャプションファイルをBacklotにアップロードする前に、サポートされている言語とファイル形式を使用していることを確認してください。">サポートされているクローズドキャプション</a>.</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="13.550135501355015%" headers="d275110e331 "><samp class="ph codeph">subTitle：frameRate</samp></td>
+
+              <td class="entry" valign="top" width="86.44986449864498%" headers="d275110e334 ">（オプション） - 字幕ファイルのフレームレート。 単位はフレーム/秒（FPS）です。 デフォルトは30です。 古いクローズドキャプションファイルは24です。</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+CSVファイルでは：<ul class="ul">
+        <li class="li">CSVファイルの最初の行には <samp class="ph codeph">字幕</samp> 列見出し。 オプションで指定 <samp class="ph codeph">字幕：lang</samp> および/または
+            <samp class="ph codeph">subTitle：frameRate</samp>.  </li>
+
+        <li class="li">後続の行には対応するデータを含める必要があります。クローズドキャプションファイルがあるファイル名またはURL（該当する場合）、言語コード（オプション）、およびframeRate（オプション）です。</li>
+
+      </ul>
+<div class="note note"><span class="notetitle">注意：</span> 指定されている場合、有効な値を指定するのはお客様の責任です。
+          <samp class="ph codeph">字幕：lang</samp> そして <samp class="ph codeph">subTitle：frameRate</samp>。 有効な値がDFXPファイルに追加されています。 準拠していない値は無視されます。 どちらの方法でも、クローズドキャプションファイルはBacklotに追加されてアセットにリンクされます。</div>
+
+    </div>
+
+   <div class="section">
+     
+     次のCSV列見出しの例の行には、3つの列見出しすべてが含まれています。
+      <pre class="pre codeblock">ビデオ、タイトル、説明,osted_at、ラベル、サムネイル、subTitle、subTitle：lang、subTitle：frameRate、id my_video.mp4、私のビデオのタイトル、これは私のビデオです、http：//www.ooyala.com、 &quot;label1、label2 &quot;、my_preview.jpg、my_caption.dfxp、ja、24 ,, my_unique_id</pre>
+</div>
+
+ </div>
+
+  <div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../tasks/closed_captions_upload.html">Backlotでクローズドキャプションファイルをアップロードする</a></strong><br/>
+クローズドキャプションファイルを準備したら、それをBacklotにアップロードできます。 </li>
+<li class="link ulchildlink"><strong><a href="../tasks/closed_captions_ingest_xml.html">XMLマニフェストファイルを使用したクローズドキャプションの取り込み</a></strong><br/>
+XMLマニフェストファイルを使用して字幕ファイルを取り込むことができます。</li>
+<li class="link ulchildlink"><strong><a href="../tasks/closed_captions_ingest_csv.html">CSVマニフェストファイルを使用した字幕の取り込み</a></strong><br/>
+CSVマニフェストファイルを使用して字幕ファイルを取り込むことができます。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_ingest.html" title="このドキュメントでは、Ooyalaにコンテンツを取り込む（アップロードする）方法について説明します。">摂取</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_closed_captions.html" title="あなたのビデオにクローズドキャプションを追加することができます。">クローズドキャプションの管理</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="closed_captions_about.html" title="クローズドキャプションは、再生中にビデオ内に表示される追加のテキストです。 キャプションには通常、ビデオの音声記録が含まれています。">クローズドキャプションについて</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong><br/>
+<div><a class="link" href="../reference/closed_caption_language.html" title="クローズドキャプションファイルをBacklotにアップロードする前に、サポートされている言語とファイル形式を使用していることを確認してください。">サポートされているクローズドキャプション</a></div>
+<div><a class="link" href="../api/asset_closed_caption.html" title="動画、広告、リモートアセット、またはYouTube動画にクローズドキャプションを追加できます。">クローズドキャプションの使用</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

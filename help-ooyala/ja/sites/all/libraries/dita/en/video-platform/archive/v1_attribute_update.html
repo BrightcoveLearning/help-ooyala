@@ -1,0 +1,106 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Attribute Update API (Deprecated)"/>
+<meta name="abstract" content="The Attribute API includes the ability to update attributes of assets and channels."/>
+<meta name="description" content="属性APIには、アセットとチャンネルの属性を更新する機能が含まれています。"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/api_v1.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="v1_attribute_update"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>属性更新API（廃止予定）</title>
+</head>
+<body id="v1_attribute_update">
+
+
+ <h1 class="title topictitle1">属性更新API（廃止予定）</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">属性APIには、アセットとチャンネルの属性を更新する機能が含まれています。 </p>
+
+  <div class="section">
+   <div class="note note"><span class="notetitle">注意：</span> このソフトウェアは非推奨です。 最新版を使用してください。</div>
+
+   <p class="p">属性APIには、アセットとチャンネルの属性を更新する機能が含まれています。 これにより、タイトル、説明、ステータス、ホストされているURLなどを含む特定の側面に対するプログラムによる制御が可能になります。 Query APIの例と同様に、Attribute APIとのやり取りは、署名されたRESTスタイルのGETリクエストを介して行われます。 <samp class="ph codeph">http://api.ooyala.com/partner/edit</samp>.</p>
+
+   
+   <p class="p">必須パラメータ：</p>
+
+   
+   <ul class="ul">
+    <li class="li">pcode  - アカウント識別子</li>
+
+    <li class="li">expires  - エポックからの経過秒数での照会有効期限（00：00：00 1 / 1 / 1970 GMT）</li>
+
+    <li class="li">embedCode  - コンテンツ識別子</li>
+
+    <li class="li">signature  - リクエストのデジタル署名 署名は、署名生成規則とともにSHA-256を使用して計算する必要があります。
+    </li>
+
+   </ul>
+
+   
+   <p class="p">オプションのパラメータ：</p>
+
+   
+   <ul class="ul">
+    <li class="li">title  - ビデオまたはチャンネルのタイトル。</li>
+
+    <li class="li">description  - ビデオまたはチャンネルの説明。</li>
+
+    <li class="li">flightEnd  - この時間を過ぎると、ビデオまたはチャンネルは利用できなくなります。 時間はISO_8601形式で指定されます。 [YYYY]  -  [MM]  -  [DD] T [HH]：[MM]：[SS] Z</li>
+
+    <li class="li">flightStart  - この時間以降はビデオまたはチャンネルが利用可能になります。 時間はISO_8601形式で指定されます。 [YYYY]  -  [MM]  -  [DD] T [HH]：[MM]：[SS] Z</li>
+
+    <li class="li">status  - ビデオまたはチャンネルのステータス。 オプションは <samp class="ph codeph">ライブ、一時停止、</samp>  or  <samp class="ph codeph">削除された</samp>。 一時停止すると、ビデオはBacklotアカウントに残りますが、視聴者はアクセスできなくなります。 削除すると、Backlotアカウントからビデオが削除され、視聴者はアクセスできなくなります。</li>
+
+    <li class="li">ostedAt  - ビデオまたはチャンネルが埋め込まれているメインページのURL。プレーヤの情報パネルとRSSフィードで使用されます。</li>
+
+    <li class="li">remoteAssetURL  - リモートアセットのURL。 注：新しい資産の長さが異なると、エンゲージメントレポート（Analytics）が正しく表示されない場合があります。</li>
+
+    <li class="li">remoteAssetDuration  - リモートアセットの期間。 注：新しい資産の長さが異なると、エンゲージメントレポート（Analytics）が正しく表示されない場合があります。</li>
+
+    
+   </ul>
+
+   
+   <p class="p">アップデート例</p>
+
+   
+   タイトルを更新して一時停止
+   
+   <pre class="pre codeblock">http://api.ooyala.com/partner/edit?pcode=&lt;pcode&gt;&amp;embedCode=&lt;embedCode&gt;&amp;expires=&lt;expiration&gt;
+&amp;status=paused&amp;title=updated%20title&amp;signature=&lt;signature&gt;</pre>
+
+   
+   開催日を更新
+   
+   <pre class="pre codeblock">http://api.ooyala.com/partner/edit?pcode=&lt;pcode&gt;&amp;embedCode=&lt;embedCode&gt;&amp;expires=&lt;expiration&gt;
+&amp;hostedAt=http%3A%2F%2Fwww.ooyala.com%2Fbacklot&amp;signature=&lt;signature&gt;</pre>
+
+   
+   
+  </div>
+
+  
+  
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../archive/api_v1.html" title="このバージョンのBacklot APIは非推奨です。 APIのバージョン2で新しい開発作業を行うことを強くお勧めします。 V2 APIの使用方法については、Ooyalaサポートセンターの開発者ドキュメントセクションを参照してください。">Ooyala Backlot APIリファレンスV1（非推奨）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

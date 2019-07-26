@@ -1,0 +1,186 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2016-03-17 Release"/>
+<meta name="abstract" content="Notable contents of this release include new features for Ooyala Live and the release of v.4.12.0 of the mobile SDKs for iOS and Android."/>
+<meta name="description" content="Notable contents of this release include new features for Ooyala Live and the release of v.4.12.0 of the mobile SDKs for iOS and Android."/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2016.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release20160317"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2016-03-17リリース</title>
+</head>
+<body id="release20160317">
+
+
+    <h1 class="title topictitle1">2016-03-17リリース</h1>
+
+    
+    <div class="body conbody"><p class="shortdesc">このリリースの注目すべき内容には、Ooyala Liveの新機能、およびiOSおよびAndroid用のモバイルSDKのv.4.12.0のリリースが含まれます。</p>
+ 
+        <div class="section"><h2 class="title sectiontitle">Ooyala Live v.1.1.0</h2>
+            
+            <div class="sectiondiv">
+                <p class="gt-block p" id="release20160317__new_features"><strong class="ph b">新機能と強化</strong></p>
+
+                <ul class="ul">
+                    <li class="li">  <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/live_api/index.html" target="_blank">Ooyala Live REST APIリファレンス</a> 現在利用可能です。 これにより、外部サービスはイベント、チャネル、およびスケジュールに対して作成、読み取り、更新、削除（CRUD）アクションを実行できます。</li>
+
+                    <li class="li">キーローテーションオプションを使用したeHLSのサポートが追加されました。</li>
+
+                    <li class="li">1つのチャンネルに対して複数のネットワーク入力がサポートされ、入力の冗長性が提供されています。</li>
+
+                    <li class="li">チャンネルストリームのバージョン管理が利用可能になり、同じチャンネルに対して異なる時間に複数のエンコーダを使用できるようになります。</li>
+
+                    <li class="li">チャンネルが開始されるたびに、プロファイルデータを取得します。 これにより、新しいチャンネルを作成せずにチャンネルのプロファイルを更新できます。 これは、Ooyala Live v.1.1.0以降で作成されたすべてのチャンネルに適用されます。</li>
+
+                </ul>
+
+                <p class="gt-block p"><strong class="ph b">Ooyala Liveの解決済みの問題</strong></p>
+
+                <ul class="ul">
+                    <li class="li">より高い一貫性と改善されたルックアンドフィールのためにユーザーインターフェースが調整されました。</li>
+
+                    <li class="li">2GBファイルサイズ制限は9 EBに変更されました。</li>
+
+                    <li class="li">ユーザーが設定したイベントのDVR期間が正しく伝達されないという問題がありました。 この問題は解決されました。</li>
+
+                </ul>
+
+                <p class="gt-block p"><strong class="ph b">既知の問題点</strong></p>
+
+                <ul class="ul">
+                    <li class="li">DVRはHDSイベントストリームには機能しません。</li>
+
+                    <li class="li">Live to VODが有効になっている場合、イベントの長さは最大4時間になり、Live to VODが無効になっている場合は8時間に制限されます。</li>
+
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Android用モバイルSDK v.4.12.0</h2><strong class="ph b">新機能と強化</strong><ul class="ul">
+                <li class="li"> OoyalaPlayerは今新しいを使用します <samp class="ph codeph">OoyalaNotification</samp> クラスイン
+                        <samp class="ph codeph">観測できる</samp> 過去とは異なる動作をするイベント。 以前は、OoyalaPlayerは <samp class="ph codeph">文字列</samp> OoyalaPlayerのオブザーバ通知からのオブジェクト：
+                        <pre class="pre codeblock">public void update（監視可能なarg0、オブジェクトのargN）{...}</pre>
+<p class="p">そのような場合、 <samp class="ph codeph">引数</samp> でした <samp class="ph codeph">文字列</samp>。 これは変わりました、そして <samp class="ph codeph">引数</samp> 現在は型のオブジェクトです
+                            <samp class="ph codeph">OoyalaNotification</samp>。 あなたが今まで文字列で持っていたのと同じ機能を維持したいなら、あなたは今使うことができます
+                            <samp class="ph codeph">OoyalaNotifcation.getNameOrUnknown（引数）</samp>最初に渡された文字列を返します。</p>
+<pre class="pre codeblock">public void update（監視可能arg0、オブジェクトargN）{if（arg0！= player）{return; final String arg1 = OoyalaNotification.getNameOrUnknown（argN）; if（arg1 == OoyalaPlayer.TIME_CHANGED_NOTIFICATION_NAME）{...ここにコードがあります...} ...}        </pre>
+
+                </li>
+
+                <li class="li">Android用Mobile SDKは、次の種類のVAST 3.0広告をサポートするようになりました。 <ul class="ul">
+                        <li class="li">アイコン付き広告</li>
+
+                        <li class="li">スキップ可能な広告</li>
+
+                        <li class="li">シーケンス付きのポッド広告</li>
+
+                    </ul>
+
+                </li>
+
+            </ul>
+<p class="gt-block p"><strong class="ph b">解決済みの問題</strong></p>
+<ul class="ul">
+                <li class="li">クリックすると <span class="ph uicontrol">次に</span>UIが表示されます
+                        <span class="ph uicontrol">ローディング</span> ビデオが再生されるまで</li>
+
+                <li class="li">ボリュームのサムスクラバーと <span class="ph uicontrol">CCオン/オフ</span> ボタンが正しく表示されませんでした。 これらの問題は解決されました。</li>
+
+                <li class="li">問題があった <span class="ph uicontrol">詳細</span> ボタンと
+                        <span class="ph uicontrol">次に</span> 動画がクリックに反応しませんでした。 これらの問題は解決されました。</li>
+
+                <li class="li">という問題がありました。 <span class="ph uicontrol">シェア</span> 戻るボタンをクリックするか、画面内のどこかにパネルが表示されます。 この問題は解決されました。</li>
+
+                <li class="li">新しいSkin SDKを使用するとき、音量ボタンをタップするとスクラバーバーとビデオがシークするという問題がありました。 この問題は解決されました。</li>
+
+                <li class="li">で問題がありました <span class="ph uicontrol">次に</span> 今後のビデオの説明を提供していませんでした。 この問題は解決されました。</li>
+
+            </ul>
+<p class="gt-block p"><strong class="ph b">既知の問題点</strong></p>
+<ul class="ul">
+                <li class="li">広告の再生中に接続が切断されるとプレーヤーがクラッシュするという問題があります。</li>
+
+                <li class="li">NPAW統合は現在、Ooyala SDKの4.12.0では機能しません。 我々はすぐにこれを解決するために働いています。</li>
+
+                <li class="li">新しいSkin SDKでは、Android Fullscreenは正しく機能しません。</li>
+
+                <li class="li">新しいSkin SDKでは、 <span class="ph uicontrol">次に</span> 小さい再生画面にタイトルや説明を表示しません。</li>
+
+            </ul>
+</div>
+
+        <div class="section"><h2 class="title sectiontitle">iOS用モバイルSDK v.4.12.0</h2>
+            <p class="gt-block p"><strong class="ph b">新機能と強化</strong></p>
+
+            <ul class="ul">
+                <li class="li">iOS用Mobile SDKは、次の種類のVAST 3.0広告をサポートするようになりました。 <ul class="ul">
+                        <li class="li">アイコン付き広告</li>
+
+                        <li class="li">スキップ可能な広告</li>
+
+                        <li class="li">シーケンス付きのポッド広告</li>
+
+                    </ul>
+
+                </li>
+
+                <li class="li">デフォルト <span class="ph uicontrol">CCオン/オフ</span> ボタンの色が青に変更され、設定可能になりました。</li>
+
+            </ul>
+
+            <p class="gt-block p"><strong class="ph b">解決済みの問題</strong></p>
+
+            <ul class="ul">
+                <li class="li">で問題がありました <span class="ph uicontrol">次に</span> 今後のビデオの説明を提供していませんでした。 この問題は解決されました。</li>
+
+                <li class="li">Freewheel広告とそのコントロールがOoyalaプレーヤーのスキンで正しくレンダリングされないという問題がありました。 この問題は解決されました。</li>
+
+                <li class="li">キューポイントがすべてのアセットに表示されず、広告が再生されないという問題がありました。 この問題は解決されました。</li>
+
+            </ul>
+
+            <div class="p"><strong class="ph b">既知の問題点</strong>
+                <ul class="ul">
+                    <li class="li">新しいSkin SDKでは、 <span class="ph uicontrol">次に</span> 小さい再生画面にタイトルや説明を表示しません。</li>
+
+                </ul>
+</div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">ドキュメントリリース</h2>
+            
+            <ul class="ul">
+                <li class="li"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/live_api/index.html" target="_blank">Ooyala Live REST APIリファレンス</a>：RESTful Live API用の新しいAPIドキュメント。</li>
+
+                <li class="li"><a class="xref" href="../concepts/analytics_v3_migrating_from_v2_api.html" title="v2 Analyticsとv3 Analytics（Ooyala IQ）の間のプログラミングインターフェースの主な違いは次のとおりです。">v3 Analytics APIの相違点（廃止予定）</a>：Analytics V2とV3の比較を更新し、Analytics V3のアカウント使用状況APIによる配信メトリクスのキャプチャ方法を示しました。</li>
+
+            </ul>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Ooyalaリリースノートを購読する</h2>
+             見る <a class="xref" href="../concepts/release_notes_subscribe.html">Ooyalaリリースノートを購読する</a> Ooyalaリリースノートの自動通知を購読する方法については、こちらをご覧ください。 </div>
+
+    </div>
+
+    
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2016.html" title="2016からのリリースノート。">2016ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

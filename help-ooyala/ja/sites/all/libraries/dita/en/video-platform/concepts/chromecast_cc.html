@@ -1,0 +1,102 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Chromecast Closed Captions"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chromecast_supported_features.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="chromecast_cc"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Chromecastのクローズドキャプション</title>
+</head>
+<body id="chromecast_cc">
+
+
+    <h1 class="title topictitle1">Chromecastのクローズドキャプション</h1>
+
+    <div class="body conbody">
+        <div class="note important"><span class="importanttitle">重要：</span> このトピックには古い情報が含まれており、推奨されていません。 OoyalaとChromecastの統合に関する最新情報は、をご覧ください。 <a class="xref" href="chromecast/index.html">Chromecastの統合</a>.</div>
+
+        <div class="section">
+        <div class="p">Chromecast統合では、VOD（すべてのストリーム）コンテンツとLive（HLSおよびeHLS）コンテンツにクローズドキャプションを使用できます。 サンプルの送信者および受信者アプリケーションでは、クローズドキャプションはデフォルトで有効になっています。 デフォルトでは、プレーヤーはクローズドキャプション付きのすべてのアセットに対してクローズドキャプションボタンを表示します。 自分の送信側および受信側アプリケーションでデフォルトでサポートされるようにするには、サンプルの送信側および受信側アプリケーションからクローズドキャプション（CC）コードをコピーする必要があります。 サポートされているクローズドキャプション形式は次のとおりです。 <ul class="ul">
+                    <li class="li">DFXP v2006フォーマット</li>
+
+                    <li class="li">埋め込みCES-608（Google Media Playerライブラリがストリームに使用されている場合）</li>
+
+                </ul>
+</div>
+
+        <div class="note note"><span class="notetitle">注意：</span> Chromecast統合は現在、ユーザーのスタイル設定（FCCスタイル設定）をサポートしていませんが、将来的にこれを実装することに取り組んでいます。</div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">ワークフロー</h2>
+            
+            <div class="p">次の手順は、VODアセットのクローズドキャプションのワークフローの概要です。
+                <ol class="ol">
+                    <li class="li">送信者が言語を設定するコマンドを発行します。</li>
+
+                    <li class="li">受信者はCCを表示するために&lt;track&gt;要素を受け入れてインスタンス化します。</li>
+
+                    <li class="li">ReceiverはChromecastのブラウザのデフォルトサポートを使用します。</li>
+
+                </ol>
+
+            </div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">有効化</h2>
+            
+            <p class="gt-block p">使用可能化は必要ありません。 クローズドキャプションは、送信側アプリケーションと受信側アプリケーションではデフォルトで有効になっています。 アセットのクローズドキャプションファイルをアップロードするだけです <a class="xref" href="../tasks/closed_captions_upload.html" title="クローズドキャプションファイルを準備したら、それをBacklotにアップロードできます。">Backlot UIで</a>  or  <a class="xref" href="../api/asset_closed_caption.html" title="動画、広告、リモートアセット、またはYouTube動画にクローズドキャプションを追加できます。">Backlot APIを介して</a>.</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">送信者アプリケーション</h2>
+            
+            <div class="p">iOSおよびAndroidの送信側アプリケーションは、クローズドキャプションに対して次のことを行います。
+            <ul class="ul">
+                <li class="li">CCファイル（Live、VoD）を含むアセットのCCボタンを表示します。</li>
+
+                <li class="li">キャプションをオンまたはオフにするには、受信者にCCメッセージを送信します。</li>
+
+                <li class="li">アイコンの強調表示によって、送信側デバイスのCCの現在のステータス（オンまたはオフ）を表示します。</li>
+
+            </ul>
+</div>
+
+            <div class="p">エンドユーザーは送信側アプリケーションで次のことを実行できます。
+            <ul class="ul">
+                <li class="li">キャプションをいつでもオンまたはオフにすることができます。</li>
+
+                <li class="li">キャプションの言語はいつでも選択または変更できます。</li>
+
+            </ul>
+</div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">受信機</h2>
+            
+            <p class="p">受信側アプリケーションは送信側アプリケーションをリッスンして、エンドユーザによって設定されたクローズドキャプション言語の選択を表示します。 エンドユーザーが送信者アプリケーションのクローズドキャプション言語を変更すると、受信者は新しい言語のクローズドキャプションを表示します。</p>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chromecast_supported_features.html">Chromecastのサポート機能</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

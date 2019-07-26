@@ -1,0 +1,94 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Playback Authorization, Including Token-based Authentication and Restrictions"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/contentprotection_types_and_technologies.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="chapter_contentprotection_authorization"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>トークンベースの認証と制限を含む再生認証</title>
+</head>
+<body id="chapter_contentprotection_authorization">
+
+
+<h1 class="title topictitle1">トークンベースの認証と制限を含む再生認証</h1>
+
+  <div class="body conbody">
+     <div class="section">
+       
+     <p class="p">トークンベースの認証を含む再生認証は、保護されたストリーミングの上にある追加のセキュリティ層です。 このカテゴリは広く、さまざまなテクノロジを網羅しています。</p>
+
+     </div>
+
+    <div class="section"><h2 class="title sectiontitle">トークンベースの認証</h2>
+      
+ 
+   <p class="p">RTMPEに必要なトークンベースの認証は、クライアントが検証されるまで暗号化されたコンテンツをダウンロードできないようにし、コンテンツがOoyala以外のプレーヤーで再生されるのを防ぎます。 トークンベースの認証にはいくつかの種類があります。</p>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">ウーヤラ再生トークン</h2>
+      
+      一般的にユーザーを認証するためのOoyala再生トークンは、Ooyalaのコンテンツ保護機能の多くの基盤となっています。 詳細を見る
+      <a class="xref" href="player_v3dev_authoverview.html#player_v3_dev_bitbuff">プレイヤーV3のOoyalaプレイヤートークン（廃止予定）</a>OoyalaのiOSおよびAndroid SDKとの統合も含みます。 （Ooyalaアカウントにこの機能が含まれている場合にのみ使用できます。Ooyalaプレーヤートークンを有効にするには、アカウントマネージャーにお問い合わせください。）
+    </div>
+    
+     <div class="section"><h2 class="title sectiontitle">
+          CDNトークン
+        </h2>
+        <p class="p">いわゆる &quot;CDNトークン&quot;の目的は、コンテンツ配信ネットワーク（CDN）上のコンテンツを保護することです。</p>
+
+     <p class="gt-block p">その一例が、アカマイのトークンベース認証です。 詳細を見る <a class="xref" href="akamai_token.html#akamaitoken" title="この認証を利用するためにプログラムを書く必要はありません。">アカマイセキュアトークン</a>. 
+       
+      </p>
+
+     </div>
+
+    
+    <div class="section"><h2 class="title sectiontitle">ワイドヴァイン</h2>
+      
+      <p class="p">複合コンテンツ保護システムであるWidevine Modularは、再生認証およびその他の機能を含みます。</p>
+
+      <p class="gt-block p">Widevine ModularをOoyalaと統合する場合は、Ooyalaカスタマーサクセスマネージャーに連絡してください。 Widevine Modularとの統合に関する詳細は、 <a class="xref" href="widevine_modular.html">Widevineモジュラーコンテンツ保護</a>.</p>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">アドビアクセス</h2>
+      
+      <div class="note note"><span class="notetitle">注意：</span> OoyalaとAdobe Access DRMの統合は推奨されておらず、無効にする予定です。 詳細と代替案については、 <a class="xref" href="../relnotes/2017-06-04.html">OVPリリースノート</a>.  </div>
+
+      <p class="gt-block p">Adobe Access DRMテクノロジを使用すると、さまざまなビジネスモデルが可能になり、さまざまなデバイスでプレミアムコンテンツを保護できます。 Adobe Accessとの統合に関する詳細は、 <a class="xref" href="adobe_access_drm.html" title="Adobe Access DRMは非推奨になりました。">Adobe Access DRM（廃止予定）</a>.</p>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">PlayReady</h2>
+      
+      <p class="gt-block p">PlayReadyはMicrosoftのDRMテクノロジであり、有効なライセンスなしでプレミアムコンテンツが視聴されないように保護するために使用されています。 MicrosoftのSmooth Streamingプロトコルと組み合わせて使用​​されます。 Ooyalaは、コンテンツを保護する機能を提供するために連携して機能する一連の包括的なコンテンツ保護機能を提供します。 PlayReadyとの統合に関する詳細は、にあります。 <a class="xref" href="player_v3dev_playreadyintro.html" title="Ooyalaは、オンデマンドおよびライブストリーミング形式で高品質のコンテンツをオンラインで保護するためのPlayReadyのサポートを提供します。">PlayReadyコンテンツ保護</a>.</p>
+
+    </div>
+
+     <div class="section"><h2 class="title sectiontitle">アドビパス</h2>
+       
+       <p class="gt-block p">Adobe Passは、デジタル著作権管理（DRM）ではなく、再生の承認として分類されています。 Adobe Passとの統合に関する詳細はこちらにあります。 <a class="xref" href="../concepts/adobepass_integration.html">Adobe PassとOoyala Playerの統合</a>.</p>
+
+     </div>
+
+</div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/contentprotection_types_and_technologies.html" title="今日利用可能なコンテンツ保護の種類は3つのグループに分類することができます。">コンテンツ保護技術の調査</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

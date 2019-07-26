@@ -1,0 +1,137 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2015-12-02 Release"/>
+<meta name="abstract" content="Notable changes for this release include new third-party player reporting functionality in Ooyala IQ and a new Community login process."/>
+<meta name="description" content="Notable changes for this release include new third-party player reporting functionality in Ooyala IQ and a new Community login process."/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2015.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release20151202"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2015-12-02リリース</title>
+</head>
+<body id="release20151202">
+
+
+    <h1 class="title topictitle1">2015-12-02リリース</h1>
+
+    
+    <div class="body conbody"><p class="shortdesc">このリリースでの注目すべき変更には、Ooyala IQの新しいサードパーティプレーヤーレポート機能と新しいコミュニティログインプロセスが含まれます。</p>
+
+        <div class="section"><h2 class="title sectiontitle">ソフトウェア機能リリース</h2>
+            
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">Ooyala IQの新しいサードパーティプレイヤーレポート機能</strong></p>
+
+                <p class="gt-block p">あなたは今統合することができます <span class="ph">Ooyala</span> サードパーティ製システム（非<span class="ph">Ooyala</span> ビデオプレーヤー）。 </p>
+
+                <p class="gt-block p"><strong class="ph b">UIの調整</strong></p>
+
+                <div class="p">  <span class="ph">ウーヤラIQ</span> サードパーティのプレーヤー分析に合わせてUIが調整されました。 調整内容は次のとおりです。 <ul class="ul">
+                    <li class="li">  <em class="ph i">プレーヤー</em> サードパーティのプレイヤーからイベントが発生した場合、パネルにサードパーティのプレイヤーの名前が表示されます。 たとえば、JWプレーヤーからのイベントを分析すると、「JWプレーヤー」が表示されます。 <em class="ph i">プレーヤー</em> パネル。 </li>
+
+                    <li class="li">コンテンツのメタデータがBacklotに取り込まれない場合、Ooyala IQは適切なUIの低下をもたらします。 つまり、Ooyala IQは、サードパーティのCMSシステムからのメタデータの取り込みを必要とせずに、サードパーティのプレイヤーイベントに関する分析を提供できます。 たとえば、Ooyala IQがビデオアセットのタイトルメタデータを取得しない場合は、タイトルの代わりにビデオアセットの外部IDが使用されます（例については下の画像を参照）。 <div class="fig fignone">
+                            <img class="image" src="http://help-ooyala.brightcove.com/../concepts/../image/iq_standalone_without_metadata.png" height="175" width="445"/>
+                        </div>
+
+                    </li>
+
+                    <li class="li"><span class="ph">Ooyalaプレーヤーとサードパーティプレーヤーを使用してOoyalaビデオアセット（Backlotでホストされている）を再生している場合は、1つのBacklotアカウントを使用してビデオをOoyalaプレーヤーとサードパーティプレーヤーにストリーミングできます。 両方のタイプのプレーヤーについて、1つのダッシュボードに（1つのユーザーアカウントを介して）統合されたIQ分析指標を表示できます。</span>プレーヤーパネルとデバイスパネルを見ることで、Ooyalaプレーヤーとサードパーティプレーヤーのさまざまな指標を見ることができます。 サードパーティのアセット（サードパーティのCMSでホストされている）の場合は、アセットメタデータを取り込むために別のBacklotプロバイダーアカウントを設定する必要があります。</li>
+
+                </ul>
+
+            </div>
+
+                <p class="gt-block p"><strong class="ph b">メタデータ同期</strong></p>
+
+                <p class="gt-block p">Backlot APIを使用して、サードパーティのメタデータをBacklotおよびOoyala IQと同期させることができます。 見る <a class="xref" href="../tasks/analytics_v3_ug_ingest_third_party_player.html">Ooyala IQとサードパーティのメタデータを同期させる</a> 詳細については。 </p>
+
+                <p class="gt-block p"><strong class="ph b">バックスロットアカウント管理</strong></p>
+
+                <div class="p">サードパーティのプレーヤアナリティクスアカウント用に、独自のBacklotアカウントがあります。 Ooyala IQをスタンドアロンで使用するお客様にとって、Backlot UIをよりユーザーフレンドリーにするためのいくつかの変更が行われました。 <ul class="ul">
+                        <li class="li">[管理]タブで、[埋め込み]、[収益化]、[公開ルール]、[カスタムメタデータ]、および[エンコード]サブタブを削除しました。</li>
+
+                        <li class="li">[管理]タブ[詳細]サブタブで、[クローズドキャプション]、[公開先]、[コンテンツの置換]セクションを削除しました。 </li>
+
+                        <li class="li">メインのBacklotパネルで、PauseボタンとSize列を削除しました。</li>
+
+                        <li class="li">アセットの[ステータス]セクションには、[ライブ]と[最近作成]のみが表示されます。</li>
+
+                        <li class="li">左側のパネルのコンテンツタイプでは、リモートアセットとYouTubeビデオのみが利用可能です。</li>
+
+                        <li class="li">「アカウント」タブで、「アカウント設定」サブタブと「ユーザー管理」サブタブを使用できます。</li>
+
+                        <li class="li">[アカウント]タブの[ユーザー管理]サブタブで、[APIシークレット]キーを使用できます。</li>
+
+                        <li class="li">[アカウント]タブでは、管理者、管理者、読み取り専用、および分析のみのユーザーロールがサポートされています。</li>
+
+                    </ul>
+
+                </div>
+
+                <p class="gt-block p"><strong class="ph b">新しいJavaScript SDK</strong></p>
+
+                <p class="p">サードパーティのプレイヤーのイベントをOoyala IQに伝えるJavaScript SDKを作成しました。 JavaScript SDKと統合するには、プレーヤーのイベントとAPIを変換して、Ooyala JavaScript SDKで定義されているイベントと関連付けるアダプタを使用する必要があります。</p>
+
+                <p class="p">あなたはOoyalaアダプタを使うことも、独自のアダプタを作ることもできます。</p>
+
+                <p class="gt-block p">既存のアダプターとの統合および独自のアダプターの作成について詳しくは、以下を参照してください。 <a class="xref" href="../tasks/analytics_v3_integrate_javascriptsdk.html">JS SDKを使用したサードパーティ製プレイヤーとIQの統合</a>.</p>
+
+                <p class="gt-block p"><strong class="ph b">使ってみよう</strong></p>
+
+                <div class="p" id="release20151202__use_standalone">この新しい機能を使用するには、次の手順に従います。 <ol class="ol">
+                        <li class="li"><a class="xref" href="../concepts/analytics_v3_ug_third_party_players.html">アカウントマネージャに新しいプロバイダアカウントを作成するよう依頼してください。</a> サードパーティのプレイヤーレポート機能付き。</li>
+
+                        <li class="li"><a class="xref" href="../tasks/analytics_v3_ug_ingest_third_party_player.html">サードパーティのメタデータを同期する</a> Ooyala IQとBacklotを使って。</li>
+
+                        <li class="li">新しいを使う <a class="xref" href="../tasks/analytics_v3_integrate_javascriptsdk.html">Ooyala IQ JavaScript SDK</a> サードパーティのプレイヤーイベントをOoyala IQと統合するため。 このステップでOoyalaプロフェッショナルサービスを利用したい場合は、Ooyalaの窓口にご相談ください。</li>
+
+                    </ol>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">コミュニティアップデート</h2>
+            
+            <p class="gt-block p">Ooyalaコミュニティをよりオープンでアクセスしやすいものにするために、サインオンにLithiumプラットフォームを利用する新しいログインシステムを実装しました。 この変更は、12 / 2 / 15より前にアクティブになっている既存のコミュニティメンバーにのみ顕著です。 以前は、コミュニティのサインインはあなたのBacklotアカウントに関連付けられていました。 コミュニティにアクセスするには、12 / 2 / 15より前にアクティブなメンバーは新しいパスワードを生成する必要があります。 このプロセスの詳細については、 <a class="xref" href="http://community.ooyala.com/t5/Ooyala-Blog/New-Community-quot-Sign-in-quot-coming-soon/ba-p/7821" target="_blank">http://community.ooyala.com/t5/Ooyala-Blog/New-Community-quot-Sign-in-quot-coming-soon/ba-p/7821</a>.</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">ドキュメントリリース</h2>
+            
+            <ul class="ul" id="release20151202__docs">
+                <li class="li"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/iq_standalone/index.html" target="_blank">https://docs.brightcove.com/apidocs-ooyala/iq_standalone/index.html</a>：Ooyala IQ JavaScript SDKの新しいドキュメントを追加しました。</li>
+
+                <li class="li"><a class="xref" href="../concepts/analytics_v3_ug_third_party_players.html">サードパーティ製のプレイヤーでOoyala IQを使用する</a>：Ooyala IQを他社製プレーヤーで使用する方法に関する新しいドキュメントを追加しました。</li>
+
+                <li class="li"><a class="xref" href="../tasks/analytics_v3_ug_ingest_third_party_player.html">Ooyala IQとサードパーティのメタデータを同期させる</a>：サードパーティのメタデータをOoyala IQと同期させる方法に関する新しいドキュメントを追加しました。</li>
+
+                <li class="li"><a class="xref" href="../concepts/analytics_v3_ug_account.html">Ooyala IQアカウント管理</a>：サードパーティのプレイヤーとのアカウント管理にBacklotを使用する方法に関する新しいドキュメントを追加しました。 </li>
+
+                <li class="li"><a class="xref" href="../tasks/analytics_v3_integrate_javascriptsdk.html">JS SDKを使用したサードパーティ製プレイヤーとIQの統合</a>：サードパーティのプレイヤーイベントをOoyala IQと統合する方法に関する新しいドキュメントを追加しました。 </li>
+
+                <li class="li"><a class="xref" href="../reference/faq_analytics.html" title="Ooyala IQアナリティクスについてよく寄せられる質問">Ooyala IQ（アナリティクス）FAQ</a>：Ooyala IQをサードパーティのプレイヤーと使用することに関する新しいFAQを追加しました。</li>
+ 
+            </ul>
+
+        </div>
+
+    </div>
+
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2015.html" title="2015からのリリースノート。">2015ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div

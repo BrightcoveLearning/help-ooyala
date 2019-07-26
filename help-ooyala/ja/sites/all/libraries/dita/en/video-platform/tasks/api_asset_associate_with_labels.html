@@ -1,0 +1,111 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Working with Labels"/>
+<meta name="abstract" content=""/>
+<meta name="description" content=""/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/content_commonfunctions.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_labels.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/api_label_create.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="api_asset_associate_with_labels"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>ラベルを使った作業</title>
+</head>
+<body id="api_asset_associate_with_labels">
+
+
+  <h1 class="title topictitle1">ラベルを使った作業</h1>
+
+  
+  <div class="body taskbody"><p class="shortdesc"/>
+
+    <div class="section context">
+      <div class="note note"><span class="notetitle">注意：</span> Backlot REST APIコマンドについて詳しくは、以下を参照してください。
+     <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/backlot_api/index.html" target="_blank">バックスロットAPIリファレンス</a>.</div>
+
+      <p class="gt-block p">ビデオ、チャンネル、リモートアセット、またはチャンネルセットをラベルに関連付けた後、 <span class="ph">バックスロット</span> シンジケーションの構成方法に基づいて自動的に公開します。</p>
+
+      <p class="gt-block p">それらを資産に関連付ける前に、ラベルを作成する必要があります。 見る <a class="xref" href="../concepts/chapter_labels.html#chapter_labels" title="外部発行ターゲットに追加すると、ラベルは外部に発行するビデオ、チャンネル、およびチャンネルセットを指定します。">.</a>
+      </p>
+
+      <p class="p">資産のラベルを操作するには：</p>
+
+    </div>
+
+    <ol class="ol steps"><li class="li step stepexpand">
+        <span class="ph cmd"> ラベルをアセットに関連付けるには、 <samp class="ph codeph">POST</samp> とともに
+            <samp class="ph codeph">/ v2 / assets</samp> ルート、アセットID、 <samp class="ph codeph">/ v2 /ラベル</samp>
+          修飾子、およびラベルID。 複数のラベルを同時に関連付けることもできます。</span>
+         次の例では、Motorcycle Racingラベルを
+            <samp class="ph codeph">JxbzdkMjqBEsO</samp> 資産。
+         <pre class="pre codeblock">[PUT]/v2/assets/JxbzdkMjqBEsO/labels/bace921fdea44cc18a5a273155514522</pre>
+
+         <p class="gt-block p"><span class="ph">バックスロット</span> 次のような応答を返します。</p>
+
+          <pre class="pre codeblock">{&quot;items&quot;：[{&quot;name&quot;： &quot;スポーツ&quot;、 &quot;id&quot;： &quot;814efb109416490a98ee3f4fcd6784cf&quot;、 &quot;フルネーム&quot;： &quot;/ Sports&quot;、 &quot;parent_id&quot;：null}、{&quot;name&quot;： &quot;バイクレース&quot;、 &quot; id &quot;：&quot; bace921fdea44cc18a5a273155514522 &quot;、&quot;フルネーム &quot;：&quot; /スポーツ/オートバイレーシング &quot;、&quot; parent_id &quot;：&quot; 814efb109416490a98ee3f4f6784fcdXNUMXcf &quot;}]}}</pre>
+
+          <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+        
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">資産の現在のラベルを表示する <samp class="ph codeph">GET / v2 / assets /<var class="keyword varname">asset_id</var>/ラベル</samp>.</span>
+         次の例では、のラベルを取得します。 <samp class="ph codeph">JxbzdkMjqBEsO</samp>
+          資産。
+         <pre class="pre codeblock">[GET] / v2 / assets / JxbzdkMjqBEsO / labels</pre>
+
+         <p class="gt-block p"><span class="ph">バックスロット</span> 次のような応答を返します。</p>
+
+          <pre class="pre codeblock">{&quot;items&quot;：[{&quot;name&quot;： &quot;スポーツ&quot;、 &quot;id&quot;： &quot;814efb109416490a98ee3f4fcd6784cf&quot;、 &quot;フルネーム&quot;： &quot;/ Sports&quot;、 &quot;parent_id&quot;：null}]}</pre>
+
+          <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+        
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd"> アセットから単一のラベルを削除するには、 <samp class="ph codeph">DELETE</samp> とともに
+            <samp class="ph codeph">/ v2 / assets</samp> ルート、アセットID、 <samp class="ph codeph">/ラベル</samp> 修飾子、およびラベルID。 資産からすべてのラベルの関連付けを解除するには、次のように指定します。
+            <samp class="ph codeph">/ラベル</samp> ラベルIDなし。</span>
+         <div class="note note"><span class="notetitle">注意：</span> ラベルを完全に削除してすべてのアセットから削除するには、 <a class="xref" href="../tasks/label_delete.html" title="ラベルはいつでも削除できます。 ラベルは、そのラベルを使用しているビデオやチャンネルから自動的に削除されます。">ラベルを削除する</a>.</div>
+<p class="p">次の例では、Motorcycle Racingのラベルを <samp class="ph codeph">JxbzdkMjqBEsO</samp> 資産。</p>
+
+         <pre class="pre codeblock">[DELETE]/v2/assets/JxbzdkMjqBEsO/labels/814efb109416490a98ee3f4fcd6784cf</pre>
+
+         
+          <p class="gt-block p"><span class="ph">バックスロット</span> 200応答を返します。</p>
+
+          <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+        
+      </li>
+</ol>
+
+  </div>
+
+
+  <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/content_commonfunctions.html" title="一部の機能は、その種類にかかわらず、すべての資産に共通です。">すべての資産に共通のタスク：PUTまたはPATCHと修飾子</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_labels.html" title="外部発行ターゲットに追加すると、ラベルは外部に発行するビデオ、チャンネル、およびチャンネルセットを指定します。">ラベル</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong><br/>
+<div><a class="link" href="../tasks/api_label_create.html" title="Backlot APIを使用すると、最上位ラベルと子ラベルを作成できます。">ラベルを作成する</a></div>
+</div>
+</div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

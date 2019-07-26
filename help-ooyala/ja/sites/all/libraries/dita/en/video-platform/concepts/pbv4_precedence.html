@@ -1,0 +1,172 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Order of Precedence in Player V4 Settings"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_customize.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_precedence"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>プレーヤーのV4設定の優先順位</title>
+</head>
+<body id="pbv4_precedence">
+
+
+ <h1 class="title topictitle1">プレーヤーのV4設定の優先順位</h1>
+
+ <div class="body conbody">
+  <div class="section">Player V4 provides many options for customizing the player experience. Where the same
+   configuration setting (for example, player background color) is controlled by different
+   mechanisms, it is important to understand which mechanism prevails and appears to the viewer
+   during playback. See <a class="xref" href="pbv4_customize.html">プレーヤV4外観のカスタマイズ</a> for background. </div>
+
+   
+   <div class="section">The following figure shows which settings take precedence in priority order (1 = highest
+      priority). <div class="fig fignone">
+        <img class="image" src="http://help-ooyala.brightcove.com/../image/pbv4_precedence.png" height="292" width="233"/>
+      </div>
+</div>
+
+   
+   <div class="section"><h2 class="title sectiontitle">設定オプション</h2>You can configure playback experience using the
+   following mechanisms.  
+    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" id="d488498e37">メカニズム</th>
+
+       <th class="entry" valign="top" id="d488498e40">詳しくは</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" headers="d488498e37 d488498e40 ">プレイヤースキン（<samp class="ph codeph">skin.json</samp>)</td>
+
+       <td class="entry" valign="top" headers="d488498e37 d488498e40 ">
+        <ul class="ul">
+         <li class="li"><a class="xref" href="../reference/pbv4_skin_schema_docs.html">skin.jsonを使用したPlayer V4スキンのカスタマイズ</a></li>
+
+         <li class="li"><a class="xref" href="android_ios_web_v4_localization.html">Ooyalaプレーヤーの言語設定</a></li>
+
+         <li class="li"><a class="xref" href="pbv4_custom_watermark.html">プレーヤV4にカスタムブランディングオーバーレイを追加する</a></li>
+
+        </ul>
+
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d488498e37 d488498e40 ">バックスロット</td>
+
+       <td class="entry" valign="top" headers="d488498e37 d488498e40 ">
+        <ul class="ul">
+         <li class="li"><a class="xref" href="../tasks/player_configure.html">バックスロットでのプレイヤーの設定</a></li>
+
+         <li class="li"><a class="xref" href="pbv4_discovery.html">Player V4でコンテンツを発見する</a></li>
+
+        </ul>
+
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d488498e37 d488498e40 ">CSS</td>
+
+       <td class="entry" valign="top" headers="d488498e37 d488498e40 ">
+        <ul class="ul">
+         <li class="li"><a class="xref" href="pbv4_css.html">CSSを使用したプレーヤV4外観のカスタマイズ</a></li>
+
+         <li class="li"><a class="xref" href="../tasks/pbv4_customize_controls_graphics.html">グラフィックスを使用したプレーヤV4コントロールのカスタマイズ</a></li>
+
+        </ul>
+
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d488498e37 d488498e40 ">Page-level parameters</td>
+
+       <td class="entry" valign="top" headers="d488498e37 d488498e40 ">
+        <ul class="ul">
+         <li class="li"><a class="xref" href="../api/pbv4_api_embedparams.html">プレーヤV4のページレベルパラメータ</a></li>
+
+         <li class="li"><a class="xref" href="pbv4_configure_ads_embedded_params.html">広告パラメータを設定する</a></li>
+
+         <li class="li"><a class="xref" href="pbv4_analytics.html">Player V4での分析</a></li>
+
+         <li class="li"><a class="xref" href="pbv4_playlist.html">プレーヤV4でのプレイリストの使用</a></li>
+
+        </ul>
+
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d488498e37 d488498e40 ">Inline overrides on the web page (CSS/JS/HTML)</td>
+
+       <td class="entry" valign="top" headers="d488498e37 d488498e40 ">Skin and CSS overrides</td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+</div>
+
+   
+   <div class="section"><h2 class="title sectiontitle">Default Settings and Overrides</h2>Every mechanism has default settings that
+   you can override by changing their default values. </div>
+
+   
+   <div class="section"><h2 class="title sectiontitle">Precedence Depends on Where Skin Resources are Hosted</h2>
+   Where player settings overlap across mechanisms, precedence is conditional based on where the player skin is hosted.
+   <ul class="ul">
+    <li class="li">If Ooyala hosts your skin.json file, then the Backlot setting has priority over the settings in skin.json. See <a class="xref" href="pbv4_resources.html">OoyalaがホストするプレイヤーV4リソース</a>.  </li>
+
+    <li class="li">If you host and modify your skin.json file, then the skin.json file has priority. See <a class="xref" href="pbv4_host.html">ホスティングプレイヤーV4リソース</a>.  </li>
+
+   </ul>
+
+   For example, if the default player color is orange in Backlot and blue in skin.json, the prevailing color (during playback) depends on where skin.json is hosted. 
+    <ul class="ul">
+     <li class="li">If Ooyala hosts your skin.json file, then the viewer will see orange. </li>
+
+     <li class="li">If you host your skin.json file, then the viewer will see blue. </li>
+
+     <li class="li">If you have no settings anywhere, the core default will set a color.</li>
+
+    </ul>
+
+  </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/pbv4_customize.html">プレーヤV4外観のカスタマイズ</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></di

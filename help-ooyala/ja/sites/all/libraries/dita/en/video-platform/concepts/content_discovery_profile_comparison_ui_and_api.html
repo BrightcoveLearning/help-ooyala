@@ -1,0 +1,250 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Comparison of Discovery Profile Settings in Backlot UI and API"/>
+<meta name="abstract" content="This is a comparison of the Backlot UI and the API for creating discovery profiles."/>
+<meta name="description" content="これは、Backlot UIと検出プロファイル作成用のAPIの比較です。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/content_discovery_profile.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="discovery_profile_ui"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Backlot UIとAPIでの検出プロファイル設定の比較</title>
+</head>
+<body id="discovery_profile_ui">
+
+
+  <h1 class="title topictitle1">Backlot UIとAPIでの検出プロファイル設定の比較</h1>
+
+  
+  <div class="body conbody"><p class="shortdesc">これは、Backlot UIと検出プロファイル作成用のAPIの比較です。</p>
+
+    <p class="p">Backlot UIを使用して検出プロファイルを作成します。 Backlot UIまたはDiscovery APIを使用して検出プロファイルを設定して使用します。 Backlot UIは最も一般的な設定作業には十分ですが、Discovery APIは追加の設定オプションを提供します。</p>
+ 
+    <ul class="ul">
+      <li class="li">UIのフィールドの意味については、 <a class="xref" href="discovery_config.html" title="パーソナライズされたおすすめを設定する方法と、ビデオの再生が終了または一時停止したときにOoyalaプレーヤーがおすすめを表示する方法を学びます。">バックスロットUIでの検出の設定</a>.</li>
+
+    <li class="li">APIのプロパティの正確な意味については、 <a class="xref" href="../api/players_discovery_profile.html#players_discovery_profile">ディスカバリープロファイル</a>.</li>
+
+    </ul>
+
+    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+        
+        
+        
+        
+        
+        <thead class="thead" align="left">
+          <tr class="row">
+            <th class="entry" colspan="2" valign="top" id="d277589e56">プロファイルの設定</th>
+
+            <th class="entry" align="center" valign="top" width="1" id="d277589e59">API</th>
+
+            <th class="entry" align="center" valign="top" width="1" id="d277589e62">バックスロットUI</th>
+
+            <th class="entry" valign="top" width="6" id="d277589e65">説明/メモ</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody class="tbody">
+          <tr class="row">
+            <td class="entry" colspan="2" valign="top" headers="d277589e56 ">次の動画の再生開始を設定します（秒単位）</td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e59 ">はい</td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e62 ">いいえ</td>
+
+            <td class="entry" valign="top" width="6" headers="d277589e65 ">APIの使用法については、 <a class="xref" href="../api/players_discovery_setdefaultcountdown.html">デフォルトのカウントダウンを設定する</a>.  </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" colspan="2" valign="top" headers="d277589e56 ">ディスカバリートレイを一時停止画面に表示する</td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e59 ">はい</td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e62 ">はい</td>
+
+            <td class="entry" valign="top" width="6" headers="d277589e65 ">
+              <ul class="ul"><li class="li">Backlot UIの設定については、 <a class="xref" href="discovery_config.html" title="パーソナライズされたおすすめを設定する方法と、ビデオの再生が終了または一時停止したときにOoyalaプレーヤーがおすすめを表示する方法を学びます。">バックスロットUIでの検出の設定</a>.</li>
+
+              <li class="li">APIの使用法については、 <a class="xref" href="../api/players_discovery_turnonpausescreen.html">一時停止画面をオンにする</a>.</li>
+</ul>
+
+            </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" colspan="2" valign="top" headers="d277589e56 ">検出トレイのクリック動作を設定する</td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e59 ">いいえ</td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e62 ">はい</td>
+
+            <td class="entry" valign="top" width="6" headers="d277589e65 ">Backlot UIの使い方については、 <a class="xref" href="discovery_config.html" title="パーソナライズされたおすすめを設定する方法と、ビデオの再生が終了または一時停止したときにOoyalaプレーヤーがおすすめを表示する方法を学びます。">バックスロットUIでの検出の設定</a>.
+            
+            </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" colspan="2" valign="top" headers="d277589e56 ">プロフィールのコンテンツを推薦する</td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e59 ">はい</td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e62 ">はい</td>
+
+            <td class="entry" valign="top" width="6" headers="d277589e65 "> </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" colspan="2" valign="top" headers="d277589e56 ">推奨範囲</td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e59 ">はい</td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e62 ">はい</td>
+
+            <td class="entry" valign="top" width="6" headers="d277589e65 ">
+              <ul class="ul"><li class="li">Backlot UIの使い方については、 <a class="xref" href="discovery_config.html" title="パーソナライズされたおすすめを設定する方法と、ビデオの再生が終了または一時停止したときにOoyalaプレーヤーがおすすめを表示する方法を学びます。">バックスロットUIでの検出の設定</a>.</li>
+
+              <li class="li">APIの使用法については、 <a class="xref" href="../api/players_discovery_properties.html" title="次の表は、プレーヤーに関連付けることができるすべてのプロパティについて説明しています。">Discovery Playerのプロパティ</a>.</li>
+</ul>
+
+            </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" colspan="2" valign="top" headers="d277589e56 ">特定のラベルから掲載順位までコンテンツを宣伝する</td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e59 ">はい</td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e62 ">はい</td>
+
+            <td class="entry" valign="top" width="6" headers="d277589e65 ">ラベルを使用しておすすめのコンテンツを表明する。</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" colspan="2" valign="top" headers="d277589e56 ">カスタムメタデータからシーケンシャルコンテンツを宣伝する</td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e59 ">はい</td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e62 ">はい</td>
+
+            <td class="entry" valign="top" width="6" headers="d277589e65 ">カスタムメタデータフィルタを使用して、順次コンテンツに基づいて推奨事項を提供します。</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" colspan="2" valign="top" headers="d277589e56 ">サブアカウント資産を含める</td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e59 ">はい</td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e62 ">はい</td>
+
+            <td class="entry" valign="top" width="6" headers="d277589e65 ">
+              <ul class="ul"><li class="li">APIの使用法については、 <a class="xref" href="content_discovery_viewprofile.html">検出プロファイルの表示</a>.</li>
+
+              <li class="li">Backlot UIの設定については、 <a class="xref" href="../tasks/content_turnondiscovery_backlotui.html" title="Backlot UIを使用して、定義済みのプレーヤーまたはDiscovery API要求で使用する検出プロファイルを作成できます。">Backlot UIを使用した検出プロファイルの作成</a>.</li>
+</ul>
+
+            </td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" colspan="2" valign="top" headers="d277589e56 ">おすすめのサムネイルを非表示にする</td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e59 ">はい</td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e62 ">はい</td>
+
+            <td class="entry" valign="top" width="6" headers="d277589e65 ">詳細については、を参照してください。 <a class="xref" href="../api/players_discovery_hidethumbnails.html">サムネイルを隠す</a>.</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" rowspan="5" valign="top" width="2.5" headers="d277589e56 ">並び替え</td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d277589e56 "><samp class="ph codeph">post_order = &quot;recency&quot;</samp></td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e59 ">はい</td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e62 ">いいえ</td>
+
+            <td class="entry" valign="top" width="6" headers="d277589e65 ">「新しさ」は、最新のものから古いものへとソートされます。</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="NaN%" headers="d277589e56 "><samp class="ph codeph">from_content_types</samp></td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e59 ">はい</td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e62 ">いいえ</td>
+
+            <td class="entry" valign="top" width="6" headers="d277589e65 ">次のようなコンテンツタイプを含めることができます <samp class="ph codeph">ビデオ</samp>  or  <samp class="ph codeph">live_stream</samp>.</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="NaN%" headers="d277589e56 "><samp class="ph codeph">exclude_content_types</samp></td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e59 ">はい</td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e62 ">いいえ</td>
+
+            <td class="entry" valign="top" width="6" headers="d277589e65 ">次のようなコンテンツタイプを除外できます <samp class="ph codeph">ビデオ</samp>  or  <samp class="ph codeph">live_stream</samp>.</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="NaN%" headers="d277589e56 "><samp class="ph codeph">post_order</samp></td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e59 ">はい</td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e62 ">いいえ</td>
+
+            <td class="entry" valign="top" width="6" headers="d277589e65 ">動画がいつ投稿されたかに基づいておすすめを並べ替えます。</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="NaN%" headers="d277589e56 "><samp class="ph codeph">オーバーライド</samp></td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e59 ">はい</td>
+
+            <td class="entry" align="center" valign="top" width="1" headers="d277589e62 ">いいえ </td>
+
+            <td class="entry" valign="top" width="6" headers="d277589e65 ">ビデオが再生されたら、ディスカバートレイまたは「次へ」ビデオを表示できます。</td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+</div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/content_discovery_profile.html" title="プレーヤーに表示されるコンテンツの推奨事項に対してOoyala Discoveryの設定を構成する再利用可能な検出プロファイルを作成できます。">ディスカバリープロファイル</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

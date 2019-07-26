@@ -1,0 +1,174 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Binding Viewer Devices to Entitlements"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/rights_management_overview.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="reightslocker_devicebinding"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>視聴者デバイスを資格にバインドする</title>
+</head>
+<body id="reightslocker_devicebinding">
+
+
+ <h1 class="title topictitle1">視聴者デバイスを資格にバインドする</h1>
+
+ <div class="body conbody">
+  <p class="gt-block p">Rights Lockerと連携して、資産を保護し、すべての収益を確実に実現するため。 <a class="xref" href="../concepts/device_registration.html#concept_r24_32h_3k">デバイス登録API</a>プログラムで視聴者が購入する権利を視聴者のデバイスにバインドできます。 このバインディングにより、顧客が購入していないコンテンツにアクセスするのを防ぐことができます。</p>
+
+    <div class="section"><h2 class="title sectiontitle">デバイス制限とデバイスバインディングの関係</h2>
+      
+      <p class="p">相互に作用するデバイスとデバイスバインディングに関連するいくつかの異なる制限があります。</p>
+
+    <ul class="ul" id="reightslocker_devicebinding__ul_ub4_3qm_kk">
+        <li class="li">とともに <a class="xref" href="../concepts/device_registration.html#concept_r24_32h_3k">デバイス登録API</a> 登録したデバイスを管理するためのユーザーまたはカスタマーサポート用のポータルを構築できます。 重要なパラメータは <a class="xref" href="device_registration_properties.html#device_registration_properties__device_limit"><samp class="ph codeph"><span class="keyword parmname">device_limit</span></samp></a>：各視聴者が登録できるデバイス数の上限。 この設定はプロバイダレベルで行われ、複数の視聴者が同じアカウントを共有することを防ぎます。</li>
+
+        <li class="li">Rights Lockerを使用すると、権利を使用して視聴者のデバイスをコンテンツに「バインド」または関連付けることができます。 必須パラメータは、バインドできるデバイスの許容数です。 <span class="keyword parmname">num_devices_to_bind</span>。 この設定は視聴者レベルです。 例えば、視聴者がビデオを購入した後、視聴者が特定の装置で購入したビデオを見始めると、ビデオはその特定の装置に制限される。
+     </li>
+
+    </ul>
+
+      <p class="gt-block p">デバイス登録で制限されている数のデバイスをバインドできます <a class="xref" href="device_registration_properties.html#device_registration_properties__device_limit"><samp class="ph codeph"><span class="keyword parmname">device_limit</span></samp></a>.</p>
+
+      <p class="p">これらの制限は、下の図に示されています。</p>
+<div class="fig fignone"><img class="image" id="reightslocker_devicebinding__image_z1b_mlm_kk" src="http://help-ooyala.brightcove.com/../image/device_limits_and_binding.png" height="319" width="624"/></div>
+
+      <ul class="ul">
+        <li class="li">左側（ &quot;A&quot;）は通常の関係です。バインドするデバイスの数は、デバイス全体の制限のサブセットです。</li>
+
+        <li class="li">右側（ &quot;B&quot;）は可能な場合を示していますが、防止するようにしてください。
+        <p class="gt-block p">デバイスバインドエンタイトルメントを作成すると、Ooyalaはプロバイダごとのデバイスの上限に対してバインド可能なデバイスの数をチェックしません。 これはパフォーマンスのスピードと懸念の分離の両方のためです。 最も論理的には、デバイス限定のエンタイトルメントは、サイトでのチェックアウトまたは購入プロセスの一部です。 Ooyalaは、受領権の作成をチェックアウトに合わせて簡単にしましたが、 <em class="ph i">上記の「ケースB」が発生しないようにするのは、あなた次第です。</em>なぜなら、再生時に、「ケースＢ」では、視聴者はアセットにアクセスする許可を拒否されているからである。</p>
+</li>
+
+      </ul>
+
+      したがって、デバイス登録ポータルおよびチェックアウトの設計では、「ケースB」が回避されるように視聴者のデバイスの数を追跡する必要があります。
+    </div>
+
+   <div class="section"><h2 class="title sectiontitle">デバイスバウンドエンタイトルメントの作成</h2>
+      
+      <p class="gt-block p">ときにあなたを <a class="xref" href="../tasks/rightslocker_extendedexample.html#concept_m2n_5td_v3__create_entitlement">資格を作成する</a>含む
+          <samp class="ph codeph"><span class="keyword parmname">num_devices_to_bind</span></samp> 要求の本文の中で、アセットまたはラベルのいずれかについて <a class="xref" href="rightslocker.html">Rights Locker APIリファレンス</a>
+         以下で強調表示されています。</p>
+
+      <pre class="pre codeblock">        
+{“資産”：[{“ content_id”：“<em class="ph i">an_embed_code</em>、「publishing_rule_id」：「<em class="ph i">publishing_rule_id</em>、「external_product_id」：「<em class="ph i">your_product_id</em>&quot;、 &quot;始まる時間&quot; ： <em class="ph i">YYYYMMDD</em>、 &quot;終了時間&quot; ： <em class="ph i">YYYYMMDD</em>,
+       
+       <strong class="ph b">&quot;num_devices_to_bind&quot;</strong>  =  <em class="ph i">コンテンツにバインドするデバイスの上限数</em> 
+     }、{“ content_id”：“<em class="ph i">another_embed_code</em>」 。 。 } 。 。 ]、「ラベル」：[{「content_id」：「<em class="ph i">a_label_id</em>、「publishing_rule_id」：「<em class="ph i">publishing_rule</em>、「external_product_id」：「<em class="ph i">your_product_id</em>&quot;、 &quot;始まる時間&quot; ： <em class="ph i">YYYYMMDD</em>、 &quot;終了時間&quot; ： <em class="ph i">YYYYMMDD</em>
+       <strong class="ph b">&quot;num_devices_to_bind&quot;</strong>  =  <em class="ph i">コンテンツにバインドするデバイスの上限数</em>
+     }、{“ content_id”：“<em class="ph i">another_label_id</em>」 。 。 } 。 。 ]}
+   </pre>
+
+      <div class="note note"><span class="notetitle">注意：</span> Ooyalaは、ラベル用ではなくアセット専用のデバイス限定エンタイトルメントを作成することをお勧めします。 ラベルベースのデバイスバウンドエンタイトルメントは、視聴者が同じデバイスからのみラベルの下のすべてのアセットにアクセスしなければならないことを意味します。これはユーザーエクスペリエンスの悪さです。 </div>
+
+    </div>
+
+  <div class="section"><h2 class="title sectiontitle">エンタイトルメントのnum_devices_to_bindを変更する：新しいエンタイトルメントを作成する</h2>
+   
+  
+   <p class="gt-block p">既存の資格の値を変更することはできません。
+          <span class="keyword parmname">num_devices_to_bind</span>.</p>
+
+      <p class="gt-block p">代わりに、期限切れのエンタイトルメントを削除して、希望の値を持つ新しいエンタイトルメントを作成してください。 <span class="keyword parmname">num_devices_to_bind</span>.</p>
+
+      <p class="p"/>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">デバイス登録とバインドを使用した基本的なワークフロー</h2>
+   
+   <div class="p">次の使用例は、デバイスバインドの基本パターンを示しています。 （詳細は
+          <a class="xref" href="../concepts/device_registration.html#concept_r24_32h_3k">デバイス登録API</a>実際のデバイス登録は自動的に行われます。 明示的な要求をする必要はありません。 <div class="note note"><span class="notetitle">注意：</span> このワークフローには含まれていませんが、デバイス登録ポータルまたはチェックアウトプロセスとの必要な相互作用はありません。</div>
+<ol class="ol">
+          <li class="li">視聴者がシングルデバイスの映画を購入します。</li>
+
+          <li class="li">その視聴者の資格を作成します。
+                <samp class="ph codeph"><span class="keyword parmname">num_devices_to_bind</span> = 1</samp>.</li>
+
+          <li class="li">視聴者はiPhoneで映画を見始めます。</li>
+
+            <li class="li">プレーヤアプリケーションは、Ooyalaサービスに認証を要求します。 <a class="xref" href="../concepts/player_v3_authorization_api.html" title="Authorization APIリクエストは、Ooyalaのコンテンツ保護機能の重要な要素です。">プレーヤV3用プレーヤ認可API</a>.</li>
+
+          <li class="li">Ooyalaサービスはシングルユースエンタイトルメントがまだ使用されていないと判断し、そのエンタイトルメントにiPhoneを登録します。</li>
+
+          <li class="li">視聴者はラップトップで同じ映画を見ようとします。</li>
+
+            <li class="li">プレーヤアプリケーションは、 <a class="xref" href="../concepts/player_v3_authorization_api.html" title="Authorization APIリクエストは、Ooyalaのコンテンツ保護機能の重要な要素です。">プレーヤV3用プレーヤ認可API</a>.</li>
+
+          <li class="li">Ooyalaサービスは、使い捨てライセンスが既に使用されており、再生が <em class="ph i">Studio上ではサポートされていません。</em> 許可されています。</li>
+
+        </ol>
+
+      </div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">考慮すべきいくつかの動作</h2>
+   
+   <div class="p">次に説明するのは、デバイスバインディングの基本的な動作と、考慮に入れるべき「コーナーケース」のいくつかです。
+              <ul class="ul">
+                <li class="li"><strong class="ph b">コンテキスト</strong>：視聴者には2つの資格があります。<ol class="ol" id="reightslocker_devicebinding__ol_fnv_mv5_3k">
+              <li class="li">単一デバイスへのアクセスを制限する資産ベースの資格</li>
+
+              <li class="li">視聴者レベルのデバイス制限を使用したラベルベースの資格（（1内の資産）を含む）</li>
+
+            </ol>
+ 視聴者は既に（2）のデバイスを登録しています。 <p class="gt-block p"><strong class="ph b">動作または結果</strong> 視聴者が同じデバイスでアセットを視聴しようとすると、再生は許可されますが、Ooyalaはエンタイトルメントのためにデバイスを再登録しません（1）。</p>
+</li>
+
+              </ul>
+
+             
+                <ul class="ul"><li class="li"><strong class="ph b">コンテキスト：</strong> 視聴者には2つの資格があります。<ol class="ol" id="reightslocker_devicebinding__ol_lc2_tv5_3k">
+              <li class="li">このアセットの単一デバイスへのアクセスを制限するアセットベースの資格</li>
+
+              <li class="li">視聴者レベルのデバイス制限を使用するラベルベースの資格（（1内の資産を含む）</li>
+
+            </ol>
+<p class="p">視聴者は、どちらの資格にもバインドされていない新しい別のデバイスを使用しています。</p>
+<p class="gt-block p"><strong class="ph b">動作または結果</strong> Ooyalaは、新しいデバイスを1つの資格のみにランダムにバインドします。</p>
+</li>
+
+                               </ul>
+
+              
+              <ul class="ul">
+                <li class="li"><strong class="ph b">コンテキスト：</strong> ラベルに基づいて作成されたシングルデバイスエンタイトルメント
+                <p class="gt-block p"><strong class="ph b">動作または結果</strong> この制限により、視聴者はそのラベルのすべてのアセットを見るために同じデバイスを使用する必要があるため、この使用法はユーザーエクスペリエンスが悪いため推奨されません。</p>
+
+          </li>
+
+              </ul>
+
+              <ul class="ul">
+                <li class="li"><strong class="ph b">コンテキスト：</strong> 2つの異なるシングルデバイスエンタイトルメントのために同じ映画を購入する <p class="p">視聴者はシングルデバイスの映画を購入し、それを自分のTボックスで見ます。 彼はまた携帯電話でこれを見たいと思うので、彼はもう一度映画を購入する。</p>
+<p class="gt-block p"><strong class="ph b">あなたの行動：</strong> 最初の購入の結果
+                  <samp class="ph codeph"><span class="keyword parmname">num_devices_to_bind</span> = 1</samp>。 2回目の購入では、視聴者の既存の資格を増やす必要があります。 まず既存のエンタイトルメントを削除してから新しいエンタイトルメントを作成する必要があります。
+                  <samp class="ph codeph"><span class="keyword parmname">num_devices_to_bind</span> = 2</samp>。 つまり、はじめにで説明したように、視聴者がエンタイトルメントに登録できるデバイスの数を追跡する必要があります。</p>
+</li>
+
+              </ul>
+
+           </div>
+
+  </div>
+
+ </div>
+
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/rights_management_overview.html">権利管理</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div>

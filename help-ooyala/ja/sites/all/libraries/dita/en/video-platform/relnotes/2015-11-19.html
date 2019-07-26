@@ -1,0 +1,174 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2015-11-19 Release"/>
+<meta name="abstract" content="Notable changes for this release include new URL reporting functionality in Ooyala IQ and NPAW integration updates."/>
+<meta name="description" content="このリリースでの注目すべき変更には、Ooyala IQの新しいURLレポート機能とNPAW統合の更新が含まれます。"/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2015.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release20151119"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2015-11-19リリース</title>
+</head>
+<body id="release20151119">
+
+
+    <h1 class="title topictitle1">2015-11-19リリース</h1>
+
+    
+    <div class="body conbody"><p class="shortdesc">このリリースでの注目すべき変更には、Ooyala IQの新しいURLレポート機能とNPAW統合の更新が含まれます。</p>
+
+        <div class="section"><h2 class="title sectiontitle">ソフトウェア機能リリース</h2>
+            
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">Ooyala IQの新機能と機能強化</strong></p>
+
+                <p class="gt-block p"><strong class="ph b">1 新しいURLレポート機能</strong></p>
+
+                <p class="p">Ooyala IQのUIとAPIを使用して、ページ（URL）レベルでコンテンツの掲載結果を追跡できます。 </p>
+
+                <p class="p">UIでは、すべてのデバイス、地域、およびプレーヤーに配信されているすべてのビデオアセットについて、トラフィックソースパネルでトップレベルドメインのURLの内訳を確認できます。 あなたはあなたがあなたの最も実行されたURLがそれぞれのドメインのものであるということを手に入れるでしょう。</p>
+
+                <div class="p">
+                    <div class="note note"><span class="notetitle">注意：</span> このデータは複雑なため、URLディメンションに対しては1次元分析しか実行できません。 つまり、ビジネスインテリジェンスページにフィルタを適用しないと、URLレポートデータのみを表示できます。</div>
+
+                </div>
+
+                <p class="p">APIについては、あなたは今使用することができます <samp class="ph codeph">ディメンション= URL</samp> URLごとに分類された指標を取得します。 このクエリタイプはすべてのURLのデータを返します。 </p>
+
+                <div class="p">
+                    <div class="note note"><span class="notetitle">注意：</span> データの精度により、URL APIレポートには次の制限があります。 <ul class="ul">
+                            <li class="li">あなただけを使用することができます <samp class="ph codeph">URL</samp> の寸法
+                                    <samp class="ph codeph">URL</samp> 問合せ（多次元分析サポートはありません）。</li>
+
+                            <li class="li">あなただけが応募できます <samp class="ph codeph">URL</samp>  or  <samp class="ph codeph">ドメイン</samp>
+                                <a class="xref" href="../api/analytics_v3_api_reporting_filters.html">フィルター</a> for <samp class="ph codeph">URL</samp> クエリ</li>
+
+                            <li class="li">あなたは使えません <samp class="ph codeph">URL</samp> 任意のフィルタ <a class="xref" href="../api/analytics_v3_api_reporting_dimensions.html">レンディション</a> 以外の <samp class="ph codeph">URL</samp>.</li>
+
+                            <li class="li">すべてではない <a class="xref" href="../api/analytics_v3_api_reporting_metrics.html">メトリック</a>  のためにサポートされています <samp class="ph codeph">URL</samp>
+                                寸法。 測定基準を指定しない場合 <samp class="ph codeph">URL</samp>
+                                次元、エラーメッセージが返されます。 サポートされている指標 <samp class="ph codeph">URL</samp> 寸法が含まれます： <ul class="ul">
+                                    <li class="li"><samp class="ph codeph">ディスプレイ</samp></li>
+
+                                    <li class="li"><samp class="ph codeph">plays_requested</samp></li>
+
+                                    <li class="li"><samp class="ph codeph">video_starts</samp></li>
+
+                                    <li class="li"><samp class="ph codeph">time_watched</samp></li>
+
+                                    <li class="li"><samp class="ph codeph">自動再生</samp></li>
+
+                                    <li class="li"><samp class="ph codeph">player_loads</samp></li>
+
+                                    <li class="li"><samp class="ph codeph">リプレイ</samp></li>
+
+                                    <li class="li"><samp class="ph codeph">uniq_plays_requested</samp></li>
+
+                                    <li class="li"><samp class="ph codeph">uniq_displays</samp></li>
+
+                                    <li class="li"><samp class="ph codeph">uniq_video_starts</samp></li>
+
+                                    <li class="li"><samp class="ph codeph">playthrough_25</samp></li>
+
+                                    <li class="li"><samp class="ph codeph">playthrough_50</samp></li>
+
+                                    <li class="li"><samp class="ph codeph">playthrough_75</samp></li>
+
+                                    <li class="li"><samp class="ph codeph">playthrough_100</samp></li>
+
+                                </ul>
+</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <p class="gt-block p"><strong class="ph b">2 監視時間形式および時間監視形式への変更</strong></p>
+
+                <p class="p">UIの時間監視メトリックの形式
+                        <samp class="ph codeph">time_watched</samp> APIのメトリックはHH：MM：SSになりました。 1000時間を超える値にスマートフォーマットを追加しました（たとえば、 &quot;1234：56：57&quot;は &quot;1.2k&quot;に変換されます）。</p>
+
+                <p class="gt-block p"><strong class="ph b">3 UIの新しいソートオプション </strong></p>
+
+                <p class="p">ビジネスインテリジェンスページのアセットパネルで、ディスカバリが有効になっている場合は、アセットのリストを「ディスカバリプレイ」および「ディスカバリリード」メトリクスでソートできるようになりました。</p>
+
+                <p class="gt-block p"><strong class="ph b">バグの修正</strong></p>
+
+                <div class="p">以下のバグがこのリリースで修正されました。 <ul class="ul">
+                        <li class="li">このリリースでは、断続的なAPIエラーの問題が修正されています。</li>
+
+                        <li class="li">このリリースでは、「今日」の時間計算ロジックが修正され、トップKPIメトリクスがダッシュボードに表示されなかった問題が解決されています。</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">NPAWのYOUBORAを搭載したOoyalaのQoSソリューションのアップデート</strong></p>
+
+                <p class="p">このリリースには、OoyalaとNPAWの統合に対する以下の改良が含まれています。 </p>
+
+                <p class="gt-block p"><strong class="ph b">1 新機能</strong></p>
+
+                <p class="p">YOUBORAダッシュボードとの統合に追加のパラメータを追加しました。 YOUBORAダッシュボードで、2 +のQoS、配信スタイルのメトリックスを追跡するために、最大20の追加パラメータ（embed_code、player_idなど）を選択できるようになりました。</p>
+
+                
+                <p class="gt-block p"><strong class="ph b">2 iOS SDKの改良</strong></p>
+
+                <div class="p">このリリースには、iOS SDK統合に関する以下の改善が含まれています。 <ul class="ul">
+                        <li class="li">VoDのiOSでのネイティブサポート。</li>
+
+                        <li class="li">ライブストリームの再生失敗時のエラー処理を改善しました。</li>
+
+                    </ul>
+
+                </div>
+
+                <div class="note note"><span class="notetitle">注意：</span> ライブストリームで再生障害を処理すると、NPAW SDKでクラッシュする可能性があります。</div>
+
+            </div>
+        </div>
+
+
+        
+        <div class="section"><h2 class="title sectiontitle">ドキュメントリリース</h2>
+            
+            <ul class="ul">
+                <li class="li"><a class="xref" href="../concepts/analytics_v3_user_workspace_content_dimensions.html" title="ビジネスインテリジェンスページのディメンションパネルを使用して、さまざまなディメンションにわたる動画を調べます。">さまざまなサイズで動画を調べる</a>：Ooyala IQの新しいURLレポート機能に関するトラブルシューティングのヒントを追加しました。</li>
+
+                <li class="li"><a class="xref" href="../api/analytics_v3_api_reporting_dimensions.html">レンディション</a>：新しい情報を追加しました <samp class="ph codeph">URL</samp> Ooyala IQ APIのディメンション。</li>
+
+                <li class="li"><a class="xref" href="../api/analytics_v3_api_reporting_metrics.html">メトリック</a> 新しい指標で使用できる指標についての情報を追加しました <samp class="ph codeph">URL</samp>
+                    Ooyala IQ APIのディメンションと新しいバージョンの詳細 <samp class="ph codeph">time_watched</samp> フォーマット。</li>
+
+                <li class="li"><a class="xref" href="../api/analytics_v3_api_reporting_filters.html">フィルター</a>：新しい情報を追加しました <samp class="ph codeph">URL</samp> Ooyala IQ APIでフィルタします。</li>
+
+                <li class="li"><a class="xref" href="../concepts/analytics_v3_user_workspace_content_engage.html" title="[エンゲージメント]タブでは、2つのユーザー関連の測定基準の平均値（ビデオの開始あたりの視聴時間と平均視聴時間）が強調表示されます。">エンゲージメントメトリックの表示</a>：新しいフォーマットがHH：MM：SSであることを示すために監視される時間の説明を更新しました。</li>
+
+                
+            </ul>
+    
+        </div>
+
+    </div>
+   
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2015.html" title="2015からのリリースノート。">2015ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

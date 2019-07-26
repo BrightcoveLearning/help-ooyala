@@ -1,0 +1,186 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Creating a Simple Custom XML Syndication"/>
+<meta name="abstract" content=""/>
+<meta name="description" content=""/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_fms.html"/>
+<meta name="DC.Relation" scheme="URI" content="api_asset_associate_with_labels.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="api_syndication_create"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>単純なカスタムXMLシンジケーションの作成</title>
+</head>
+<body id="api_syndication_create">
+
+
+ <h1 class="title topictitle1">単純なカスタムXMLシンジケーションの作成</h1>
+
+ 
+ <div class="body taskbody"><p class="shortdesc"/>
+
+  <div class="section context">
+   <p class="p">To create a simple custom XML syndication:</p>
+
+  </div>
+
+  <ol class="ol steps"><li class="li step stepexpand">
+    <span class="ph cmd"> Create an advanced syndication. </span>
+     The following example creates the "My Custom XML Feed" advanced syndication.
+     <pre class="pre codeblock">[POST]/v2/syndications{  
+   "name":"My Custom XML Feed",
+   "type":"advanced"
+}</pre>
+
+     <p class="gt-block p"><span class="ph">バックスロット</span> returns a response similar to the following,
+      which includes the URL where the feed can be accessed.</p>
+
+     <pre class="pre codeblock">{  
+   "name":"My Custom XML Feed",
+   "include_encodings":[  
+
+   ],
+   "destination_url":"",
+   "require_access_key":false,
+   "title":"",
+   "include_labels":[  
+
+   ],
+   "asset_types":[  
+      "video",
+      "ad"
+   ],
+   "syndication_url":"http://api.ooyala.com/syndications/6b6e72dd71bd4fa/feed?pcode=Y4cG06BlqYMLIjPGyv1NbacSK-x3",
+   "id":"6b6e72dd71bd4fa",
+   "include_all_content":false,
+   "type":"advanced",
+   "description":""
+}</pre>
+
+     <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+    
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">Create a Universal Syndication Template Language (USTL) template.</span>
+     The following template creates a simple list of assets, which specifies the name,
+     description, and length of each asset.
+     
+     <pre class="pre codeblock">
+&lt;feed header&gt;List of My Assets&lt;/feed header&gt;
+{% for asset in assets %}
+  &lt;item&gt;
+    &lt;title&gt; {{asset.name}} &lt;/title&gt;
+    &lt;description&gt; {{asset.description}} &lt;/description&gt;
+    &lt;length&gt; {{asset.duration}} minutes&lt;/length&gt;
+  &lt;/item&gt;
+{% endfor assets %}
+
+    </pre>
+
+    
+     
+     <div class="note note"><span class="notetitle">注意：</span> For more information about USTL, see the Universal Syndication Template Language section
+      of the <span class="ph">バックスロット</span> APIリファレンス</div>
+
+    
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">Attach the Universal Syndication Template Language (USTL) template</span>
+     The following example attaches the template to the newly created syndication.
+     
+     <pre class="pre codeblock">[PUT]/v2/syndications/6b6e72dd71bd4fa/template 
+ &lt;feed header&gt;List of My Assets&lt;/feed header&gt;{  
+   % for asset in assets %
+}&lt;item&gt; 
+ &lt;title&gt;{  
+   {  
+      asset.name
+   }
+}&lt;/title&gt; 
+ &lt;description&gt;{  
+   {  
+      asset.description
+   }
+}&lt;/description&gt; 
+ &lt;length&gt;{  
+   {  
+      asset.duration
+   }
+}minutes&lt;/length&gt; 
+ &lt;/item&gt;{  
+   % endfor assets %
+}</pre>
+
+     <span class="ph">バックスロット</span> 200応答を返します。
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">フィードに動画やその他のアセットを含めるには、ラベルを追加する必要があります。 フィードに関連付けられているアセットにラベルを追加すると、そのアセットが自動的にフィードに追加されます。 </span>
+     次の例では <samp class="ph codeph">638aed2a18734375b</samp> そして
+      <samp class="ph codeph">c42b225963ad481b9</samp> へのラベル <samp class="ph codeph">6b6e72dd71bd4fa</samp>
+     シンジケーション
+     <pre class="pre codeblock">[PATCH] / v2 / syndications / 6b6e72dd71bd4fa {&quot;include_labels&quot;：[&quot;638aed2a18734375b&quot;、 &quot;c42b225963ad481b9&quot;]}</pre>
+
+
+     <p class="gt-block p"><span class="ph">バックスロット</span> 次のような応答を返します。</p>
+
+     <pre class="pre codeblock">{&quot;name&quot;： &quot;My iPhone Feed&quot;、 &quot;include_encodings&quot;：[]、 &quot;destination_url&quot;： &quot;&quot;、 &quot;require_access_key&quot;：false、 &quot;title&quot;： &quot;&quot;、 &quot;include_labels&quot;：[&quot;638aed2a18734375b&quot;、 &quot;c42b225963adXNXbX&quot; ]、 &quot;asset_types&quot;：[ &quot;ビデオ&quot;、 &quot;広告&quot;]、 &quot;syndication_url&quot;： &quot;http://api.ooyala.com/syndications/481b9e6dd6bd72fa/feed?pcode=Y71cG4BlqYMLIjPGyv4NbacSK-x06&quot;、 &quot;ID&quot;： &quot;1b3e6dd6bd72fa &quot;、&quot; include_all_content &quot;：false、&quot; type &quot;：&quot; iphone &quot;、&quot; description &quot;：&quot; &quot;}</pre>
+
+     <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+    
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">To view the results of the feed, open the syndication URL. If you do not have it, you can
+     get it by making a get request against the syndication ID.</span>
+     この例では、
+      <samp class="ph codeph">http://api.ooyala.com/syndications/6b6e72dd71bd4fa/feed?pcode=Y4cG06BlqYMLIjPGyv1NbacSK-x3</samp>
+     URL returns results similar to the following:
+     
+     <pre class="pre codeblock">
+&lt;feed header&gt;List of My Assets&lt;/feed header&gt;
+&lt;item&gt;
+  &lt;title&gt;Presidential Speech #125784&lt;/title&gt;
+  &lt;video_info&gt;The president said something important today about something that happened.&lt;/video_info&gt;
+&lt;/item&gt;
+  &lt;title&gt;Presidential Speech #125785&lt;/title&gt;
+  &lt;video_info&gt;The president said something important today about something that should happen.&lt;/video_info&gt;
+&lt;/item&gt;
+
+    </pre>
+
+    
+   </li>
+</ol>
+
+ </div>
+
+
+ <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_fms.html" title="ユニバーサルシンジケーションを使用すると、ニーズを満たす任意の形式で、カスタムフィードを簡単に作成および変更できます。 一度設定すれば、新しいパートナー、デバイス、およびRoku、Boxee、AppleTVなどの配信チャネルにビデオをすぐに配信できます。">ユニバーサルシンジケーション</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong><br/>
+<div><a class="link" href="api_asset_associate_with_labels.html">ラベルを使った作業</a></div>
+</div>
+</div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- de

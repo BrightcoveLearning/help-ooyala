@@ -1,0 +1,133 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Creating an Integrated Android Sender Application"/>
+<meta name="abstract" content="Review the following content for information about creating an integrated sender application using the Ooyala mobile SDK for Android."/>
+<meta name="description" content="Android用OoyalaモバイルSDKを使用して統合送信側アプリケーションを作成する方法については、以下の内容を確認してください。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chromecast_gsg.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/chromecast_android_mini_controller.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="chromecast_android_sender_app"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>統合Android Senderアプリケーションの作成</title>
+</head>
+<body id="chromecast_android_sender_app">
+
+
+    <h1 class="title topictitle1">統合Android Senderアプリケーションの作成</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">Android用OoyalaモバイルSDKを使用して統合送信側アプリケーションを作成する方法については、以下の内容を確認してください。 </p>
+
+        <div class="section prereq p">
+            <div class="note important"><span class="importanttitle">重要：</span> このトピックには古い情報が含まれており、推奨されていません。 OoyalaとChromecastの統合に関する最新情報は、をご覧ください。 <a class="xref" href="../concepts/chromecast/index.html">Chromecastの統合</a>.</div>
+
+            <ul class="ul">
+                <li class="li">からOoyala SDK for Androidをダウンロードします。 <a class="xref" href="../../../../../../../../ja/downloads/index.html" target="_blank">Ooyala MobileおよびClient SDKのダウンロードページ</a>.</li>
+
+                <li class="li">Android用Cast SDKをダウンロードしてください。</li>
+
+                <li class="li">ダウンロード <a class="xref" href="https://github.com/googlecast/CastCompanionLibrary-android" target="_blank">キャストコンパニオンライブラリー</a>.</li>
+
+                <li class="li">ダウンロード <a class="xref" href="https://github.com/ooyala/android-sample-apps/tree/stable/ChromecastSampleApp" target="_blank">ChromecastSampleApp</a> AndroidサンプルアプリリポジトリのOoyala SDKから。</li>
+
+                <li class="li">Google DevelopersポータルでAndroid送信者アプリケーション開発の詳細を確認します。 <a class="xref" href="https://developers.google.com/cast/docs/android_sender" target="_blank">Androidアプリ開発</a>.</li>
+
+            </ul>
+
+        </div>
+
+        <div class="section context">OoyalaPlayerオブジェクトを使用せずに送信側アプリケーションと統合するには、次の手順を使用します（送信側アプリケーションにプレーヤが含まれていない場合（たとえば、アプリを開いたときにプレーヤ埋め込みなしで再生できる動画のリストのみが含まれます） リストアクティビティとChromecastプレーヤアクティビティには、アプリの実行中にキャスト可能なビデオが表示されます。 プレーヤーアクティビティには、ビデオをレンダリングするOoyalaプレーヤーが含まれています。 <p class="p">これらの手順は、基本的なOoyalaサンプルアプリケーションを拡張するために書かれています。</p>
+
+            <div class="note note"><span class="notetitle">注意：</span> 以下のステップは、あなたがOoyala Core SDKと既存のOoyalaPlayerセットアップのための基本的な統合ステップの知識を持っていると仮定します。 プレーヤーの作成について詳しくは、Ooyala Supportサイトのトピックを参照してください。 <a class="xref" href="mobile_sdk_android_tutorial.html" title="基本的なプレーヤーアプリを素早く作成する方法を学びましょう。">基本的なAndroidアプリの作成</a>.</div>
+
+        </div>
+
+        <ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd">初期設定</span>
+                <ol type="a" class="ol substeps">
+                    <li class="li substep">
+                        <span class="ph cmd">Video Cloud Studioで <a class="xref" href="https://github.com/ooyala/android-sample-apps/tree/stable/ChromecastSampleApp" target="_blank">ChromecastSampleApp</a> Android Studioで。</span>
+                    </li>
+
+                </ol>
+
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">名前空間とアプリIDを設定する</span>
+                 アプリの変更を始めるには、CastManagerを初期化します。
+                <ol type="a" class="ol substeps">
+                    <li class="li substep substepexpand">
+                        <span class="ph cmd">SampleApplication.javaを開き、NAMESPACEとAPP_IDの値を変更します。</span>
+                          これは、次のコードサンプルに示されています。 <pre class="pre codeblock">パブリッククラスSampleApplicationは、Application {... private final Stringを拡張します。NAMESPACE = &quot;urn：x-cast：ooyala&quot;; プライベート最終文字列APP_ID = &quot;4172C76F&quot;; ...</pre>
+
+                            <div class="note note"><span class="notetitle">注意：</span> APP_IDとNAMESPACEはデフォルトのレシーバをサポートしています。 カスタムレシーバーの場合はそれに応じてコードを調整します。</div>
+
+                        
+                    </li>
+
+                    <li class="li substep substepexpand">
+                        <span class="ph cmd">以下の資格情報を使用してCastManagerを初期化します。</span>
+                         
+                            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                                    <tbody class="tbody">
+                                        <tr class="row">
+                                            <td class="entry" valign="top">APP_ID</td>
+
+                                            <td class="entry" valign="top">アプリが受信側アプリに登録されたときに提供されるID。</td>
+
+                                        </tr>
+
+                                        <tr class="row">
+                                            <td class="entry" valign="top">NAMESPACE</td>
+
+                                            <td class="entry" valign="top">関連する受信側アプリに送信されるメッセージのプロトコルを識別するための名前空間。 namespacesは名前空間の配列です。 ほとんどの場合、名前空間は1つだけ必要です。 現在のバージョンのSDKに基づいて、配列内の最初のネームスペースのみが取得されます。 <div class="note note"><span class="notetitle">注意：</span> レシーバーアプリのソースコードを変更しない限り、ネームスペースは変更しないでください。</div>
+</td>
+
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+</div>
+
+                        
+                          この手順は、次のコードサンプルに示されています。 <pre class="pre codeblock">@オーバーライドpublic void onCreate（Bundle savedInstanceState）{... castManager = CastManager.initialize（getApplicationContext（）、APP_ID、NAMESPACE）; castManager.setStopOnDisconnect（true）; ...}</pre>
+
+                            <div class="note note"><span class="notetitle">注意：</span> CastManagerは静的変数です。 アプリのライフサイクルを通してこのオブジェクトを保管してください。</div>
+
+                        
+                    </li>
+
+                </ol>
+
+            </li>
+</ol>
+
+        <div class="section postreq"><a class="xref" href="chromecast_android_mini_controller.html" title="OoyalaモバイルSDK for Androidを使用してミニコントローラーを構成する方法については、以下の内容を確認してください。">Android用Chromecast Miniコントローラーを設定する</a></div>
+
+    </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../tasks/chromecast_android_mini_controller.html">Android用Chromecast Miniコントローラーを設定する</a></strong><br/>
+OoyalaモバイルSDK for Androidを使用してミニコントローラーを構成する方法については、以下の内容を確認してください。 </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chromecast_gsg.html">Chromecastをはじめよう</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-

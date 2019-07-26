@@ -1,0 +1,483 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Using the QoS Solution Powered by NPAW for iOS"/>
+<meta name="abstract" content="The mobile implementation of the Ooyala QoS Solution powered by the NICE PEOPLE AT WORK (NPAW) YOUBORA platform provides analytics for the player events with Ooyala's iOS players."/>
+<meta name="description" content="NICE PEOPLE AT WORK（NPAW）YOUBORAプラットフォームを搭載したOoyala QoSソリューションのモバイル実装は、OoyalaのiOSプレーヤーによるプレーヤーイベントの分析を提供します。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/qos_solution_npaw_youbora.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/qos_solution_npaw_youbora.html"/>
+<meta name="DC.Relation" scheme="URI" content="https://github.com/ooyala/ios-sample-apps/tree/stable/NPAWSampleApp"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/qos_solution_npaw_youbora.html"/>
+<meta name="DC.Relation" scheme="URI" content="http://developer.nicepeopleatwork.com/product-documentation/"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/faq_qos_solution.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="mobile_sdk_ios_qos_npaw"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>iOS用NPAWを搭載したQoSソリューションの使用</title>
+</head>
+<body id="mobile_sdk_ios_qos_npaw">
+
+
+    <h1 class="title topictitle1">Using the QoS Solution Powered by <span class="ph">NPAW</span> iOS用</h1>
+
+    
+    <div class="body taskbody"><p class="gt-block shortdesc">のモバイル実装 <span class="ph">Ooyala</span> によって供給QoSソリューション <span class="ph">職場でのニースの人々（NPAW）</span> プラットフォームは、プレイヤーイベントの分析を提供します。 <span class="ph">ウーヤラ</span> iOSプレーヤー </p>
+
+        
+        <div class="section prereq p">有効にする前に <span class="ph">Ooyala</span> によって供給QoSソリューション <span class="ph">ユブラ</span>次のものが必要です。 <ul class="ul">
+                <li class="li">との顧客関係 <span class="ph">NPAW</span> アカウントを持つ <span class="ph">ユブラ</span>。 お問い合わせください <span class="ph">Ooyala</span> セットアップのための窓口 <span class="ph">NPAW</span>
+                    アカウントID（のID <span class="ph">NPAW</span> ユーザID（デバイスのユーザの識別子）。</li>
+
+                <li class="li">An  <span class="ph">Ooyala</span>
+                    <a class="xref" href="https://backlot.ooyala.com/backlot/web" target="_blank"><span class="ph">バックスロット</span></a> アカウント。</li>
+
+                <li class="li">iOS開発の経験</li>
+
+            </ul>
+
+            <div class="note note"><span class="notetitle">注意：</span> 私たちは今iOSのネイティブサポートをしています <span class="ph">VoD</span>.</div>
+
+        </div>
+
+        <div class="section context">統合するには、少数のコードスニペットを追加する必要があります。 <span class="ph">NPAWのヨガ</span> 既存の <span class="ph">OoyalaPlayer</span> アプリケーション。 </div>
+
+     <ol class="ol steps"><li class="li step stepexpand">
+             <span class="ph cmd">ダウンロード <a class="xref" href="http://smartplugin.youbora.com/v5/ios/ooyala/5.3.0/youbora-plugin.zip" target="_blank">フレームワーク</a> 次のいずれかの方法でプロジェクトにインポートします。</span> <ul class="ul">
+                        <li class="li">(<em class="ph i">推奨されます</em>）それらをプロジェクトフォルダにコピーまたはドラッグしてから <span class="ph uicontrol">リンクされたフレームワークとライブラリ</span>.</li>
+
+                        <li class="li">に追加 <span class="ph uicontrol">リンクされたフレームワークとライブラリ</span>を選択 <span class="ph menucascade"><span class="ph uicontrol">ビルド設定</span> &gt; <span class="ph uicontrol">フレームワーク</span></span> 検索パスは、それらが配置されている場所のパスを追加します。</li>
+
+                    </ul>
+
+         </li>
+<li class="li step stepexpand">
+             <span class="ph cmd">Ooyalaプレーヤーが作成されているコードで、次のいずれかを使用してプラグインをインポートします。
+                        <samp class="ph codeph">インポート</samp> 以下に示すステートメント </span>
+              <pre class="pre codeblock">#import &lt;YouboraOoyalaAdapter / YouboraOoyalaAdapter.h&gt; //または@import YouboraOoyalaAdapter;         </pre>
+
+         </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">プレーヤが作成されたらすぐに、アダプタがそれをプレーヤに渡してプラグインに設定します。 これは通常、
+                        <samp class="ph codeph">viewDidLoad（）</samp> 方法。</span>
+                 
+                    <pre class="pre codeblock">self.plugin = [[YBプラグインの割り当て] initWithOptions：youboraOptions]; [self.plugin [[YBOoyalaAdapteralloc] initWithPlayer：player];                              </pre>
+
+                    <p class="gt-block p"><samp class="ph codeph">youboraOptions</samp> クライアントのYOUBORAアカウント、デバイス情報、およびメディア情報に関連する情報を格納するOptionsオブジェクトです。 これらのオプションについて詳しくは、 <a class="xref" href="http://developer.nicepeopleatwork.com/plugins/general/setting-youbora-options/" target="_blank">NPAW開発者ポータル</a>。 電話で
+                            <samp class="ph codeph">setAdapter（）</samp>プラグインはプレイヤーからイベントを抽出するために必要なリスナーを登録します。 YOUBORAでセッションを作成するためにメディアがロードされるまで待ちます。</p>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">コー​​ル <samp class="ph codeph">removeAdapter（）</samp> クライアントが分析を追跡する必要がなくなったとき。 これは通常、最終ユーザーがフルスクリーンプレーヤーでView Controllerから戻ってきたときに発生します。 この電話を電話にかけることをお勧めします。 <span class="ph uicontrol">バック</span> ボタン。 これをオーバーライドすることによっても達成できます。 <samp class="ph codeph">ViewControllerを</samp>'s
+                        
+                        <samp class="ph codeph">didMoveToParentController（）</samp> メソッドと親パラメータのチェック 次のメソッドは、に設定されているすべてのものを登録解除します。
+                        <samp class="ph codeph">setAdapter（）</samp> メソッドを送信し、 <samp class="ph codeph">/やめる</samp>
+                    YOUBORAセッションが進行中の場合は閉じます。</span>
+                 
+                    <pre class="pre codeblock"> - （void）didMoveToParentViewController：（UIViewController *）parent {if（parent == nil）{//前のView Controllerに移動する[self.plugin removeAdapter]; }}
+ </pre>
+
+                
+            </li>
+<li class="li step stepexpand">
+             <span class="ph cmd">プラグインにログを印刷させたい場合は、 <samp class="ph codeph">setDebug（）</samp> プラグインを作成する前の、他の何よりも前のメソッド：</span>
+              <pre class="pre codeblock">[YBLog setDebugLevel：logLevel];</pre>
+
+                 <p class="gt-block p">  <samp class="ph codeph">logLevel</samp> parameterは、で定義されている定数の値です。 <span class="ph filepath">YBLog.h</span>。 これらのログレベルは詳細度の順に表示されます。</p>
+
+                 <pre class="pre codeblock">
+YBLogLevelSilent; YBLogLevelError; YBLogLevelWarning; YBLogLevelNotice; YBLogLevelDebug; YBLogLevelVerbose;                     
+                 </pre>
+
+                 <p class="gt-block p">完全に統合された例をダウンロードすることができます <a class="xref" href="http://smartplugin.youbora.com/v5/ios/ooyala/5.3.0/example.zip" target="_blank">詳細はこちら</a>.</p>
+
+             
+         </li>
+</ol>
+
+        <div class="section result">設定したとき <span class="ph">Ooyala</span> そして <span class="ph">遊ぼう</span> 正しく、あなたは見ることができるでしょう <span class="ph">NPAW</span>
+            http://test-nqs.nice264.com/に移動するネットワークトレース内の要求、およびログインを参照してください。
+                <span class="ph">Logcat</span> でタグ付け <span class="ph">NICE_PEOPLE_OOYALAとNICE_PEOPLE_BASE</span>.  <p class="gt-block p"><strong class="ph b">YouboraMetadata</strong></p>
+ 環境に関するメタデータを受け取るクラス。 これはに追加されます <span class="ph">ユブラ</span> 使用して <span class="ph">Youbora.updateYouboraMetadata（metadata）;</span>.  <p class="gt-block p">このクラスには以下のメソッドがあります（ただしこれに限定されません）。 詳細な説明や例とともに使用できるキーの完全なリストについては、 <span class="ph">ユブラ</span>
+                <a class="xref" href="http://developer.nicepeopleatwork.com/plugins/setting-youbora-options-media-metadata/" target="_blank">製品ドキュメント</a>.</p>
+
+            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" id="d1072428e275">方法</th>
+
+                            <th class="entry" valign="top" id="d1072428e278">説明</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d1072428e275 d1072428e278 ">YouboraMetadata.setParam1</td>
+
+                            <td class="entry" valign="top" headers="d1072428e275 d1072428e278 "> </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d1072428e275 d1072428e278 ">YouboraMetadata.setParam2</td>
+
+                            <td class="entry" valign="top" headers="d1072428e275 d1072428e278 "> </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d1072428e275 d1072428e278 ">YouboraMetadata.setCdn</td>
+
+                            <td class="entry" valign="top" headers="d1072428e275 d1072428e278 ">
+                                <p class="gt-block p">上書きすることができます <span class="ph">CDN</span> 自動検出 <span class="ph">ユブラ</span> 分析は行います。 これはオプションの方法です。</p>
+
+                                <p class="gt-block p">  <span class="ph">CDN</span> 検出は、YOUBORAがプレーヤーから受け取るリソース/ビデオURLのホストに基づいて行われます。 ただし、その原因となる可能性があるAPI URLを埋め込むことができます。 <span class="ph">ユブラ</span> 間違ったものを返すための自動システム <span class="ph">CDN</span> （または不明） あなたが使用する場合
+                                        <span class="ph">ヨウボラスマートスイッチ</span> またはどちらを知っている
+                                        <span class="ph">CDN</span> コンテンツを送信している場合は、自動値をオーバーライドできます。</p>
+
+                            </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d1072428e275 d1072428e278 ">YouboraMetadata.setIp</td>
+
+                            <td class="entry" valign="top" headers="d1072428e275 d1072428e278 ">
+                                <p class="p">Analyticsが行うIP自動検出を上書きすることを許可します。 これはオプションの方法です。</p>
+
+                                <p class="gt-block p">IPはエンドユーザからの要求IPから来ます。 Smartswitch機能のためにプラグインと分析サーバーの間でミドルウェアを使用すると、 <span class="ph">ユブラ</span> ユーザーの代わりにミドルウェアIPのみを取得します。</p>
+
+                            </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d1072428e275 d1072428e278 ">YouboraMetadata.setIsp</td>
+
+                            <td class="entry" valign="top" headers="d1072428e275 d1072428e278 ">
+                                <p class="gt-block p">を上書きすることを許可します <span class="ph">ISP</span> Analyticsが自動検出します。 これはオプションの方法です。</p>
+
+                            </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d1072428e275 d1072428e278 ">YouboraMetadata.setTransaction</td>
+
+                            <td class="entry" valign="top" headers="d1072428e275 d1072428e278 ">内部のトランザクションコード値を設定します <span class="ph">ユブラ</span> 分析 トランザクションコードは、Analyticsツール内でビューを識別して検索するために使用できる特定のコードです。 このコードはあなたが望むものなら何でも（<span class="ph">purchaseCode、sessionCode、</span> 等々）。
+                            </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d1072428e275 d1072428e278 ">YouboraMetadata.setResource</td>
+
+                            <td class="entry" valign="top" headers="d1072428e275 d1072428e278 ">に送信された動画URLメタデータを上書きします。 <span class="ph">ユブラ</span> システム。 つまり、プレーヤが1つの異なるURLを再生しても、新しいURLをメタデータとして（再生されるビデオとしてではなく）設定することができます。 <span class="ph">CDN</span> 検出。</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+
+            <p class="gt-block p"><strong class="ph b">プロパティマップ</strong></p>
+
+            <div class="p">A  <span class="ph">ハッシュマップ</span> 現在の再生に関する情報を含むプロパティの一覧。 に追加 <span class="ph">ユブラ</span> 使用して <span class="ph">metadata.setProperties（）</span>メタデータは <span class="ph">YouboraMetadata</span> オブジェクト この <span class="ph">ハッシュマップ</span>
+                次のキーを受け付けます（ただしこれに限定されません）。 詳細な説明や例とともに使用できるキーの完全なリストについては、 <span class="ph">ユブラ</span>
+                <a class="xref" href="http://developer.nicepeopleatwork.com/product-documentation/" target="_blank">製品ドキュメント</a>.
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" id="d1072428e442">キー</th>
+
+                                <th class="entry" valign="top" id="d1072428e445">自動入力</th>
+
+                                <th class="entry" valign="top" id="d1072428e448">説明</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d1072428e442 d1072428e445 d1072428e448 ">ファイル名</td>
+
+                                <td class="entry" valign="top" headers="d1072428e442 d1072428e445 d1072428e448 ">いいえ</td>
+
+                                <td class="entry" valign="top" headers="d1072428e442 d1072428e445 d1072428e448 ">現在のメディアコンテンツのファイル名。</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d1072428e442 d1072428e445 d1072428e448 ">content_id</td>
+
+                                <td class="entry" valign="top" headers="d1072428e442 d1072428e445 d1072428e448 ">いいえ</td>
+
+                                <td class="entry" valign="top" headers="d1072428e442 d1072428e445 d1072428e448 ">デフォルトは <span class="ph">Ooyala埋め込みコード/コンテンツID</span>.</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d1072428e442 d1072428e445 d1072428e448 ">transaction_type</td>
+
+                                <td class="entry" valign="top" headers="d1072428e442 d1072428e445 d1072428e448 ">いいえ</td>
+
+                                <td class="entry" valign="top" headers="d1072428e442 d1072428e445 d1072428e448 "><span class="ph">家賃</span>：レンタル用メディア<p class="gt-block p"><span class="ph">サブスクリプション</span>：購読の一部として取得されたメディア。</p>
+<span class="ph">EST（電子販売）</span>：メディアを購入しました。<p class="gt-block p"><span class="ph">無料</span>：経済的取引のないメディア。</p>
+</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d1072428e442 d1072428e445 d1072428e448 ">品質</td>
+
+                                <td class="entry" valign="top" headers="d1072428e442 d1072428e445 d1072428e448 ">いいえ</td>
+
+                                <td class="entry" valign="top" headers="d1072428e442 d1072428e445 d1072428e448 ">HDまたはSD</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d1072428e442 d1072428e445 d1072428e448 ">content_type</td>
+
+                                <td class="entry" valign="top" headers="d1072428e442 d1072428e445 d1072428e448 ">いいえ</td>
+
+                                <td class="entry" valign="top" headers="d1072428e442 d1072428e445 d1072428e448 ">予告編、エピソード、または映画。</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d1072428e442 d1072428e445 d1072428e448 ">content_metadata</td>
+
+                                <td class="entry" valign="top" headers="d1072428e442 d1072428e445 d1072428e448 ">はい</td>
+
+                                <td class="entry" valign="top" headers="d1072428e442 d1072428e445 d1072428e448 ">A  <span class="ph">ハッシュマップ</span> コンテンツに関連する他の多くのメタデータエントリのリスト。</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d1072428e442 d1072428e445 d1072428e448 ">デバイス</td>
+
+                                <td class="entry" valign="top" headers="d1072428e442 d1072428e445 d1072428e448 ">はい</td>
+
+                                <td class="entry" valign="top" headers="d1072428e442 d1072428e445 d1072428e448 ">A  <span class="ph">ハッシュマップ</span> コンテンツに関連する他の多くのメタデータエントリのリスト。</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d1072428e442 d1072428e445 d1072428e448 ">&lt;任意のテキスト&gt;</td>
+
+                                <td class="entry" valign="top" headers="d1072428e442 d1072428e445 d1072428e448 ">いいえ</td>
+
+                                <td class="entry" valign="top" headers="d1072428e442 d1072428e445 d1072428e448 ">に渡される任意のテキスト文字列を指定できます。 <span class="ph">NPAW</span>.</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+</div>
+
+            <p class="gt-block p"><strong class="ph b">メタデータマップ</strong></p>
+
+            <div class="p">A  <span class="ph">ハッシュマップ</span> コンテンツに関する情報の。 プロパティに追加 <span class="ph">ハッシュマップ</span> 使用して <span class="ph">properties.put（ &quot;content_metadata&quot;、metadataMap）;</span>。 この <span class="ph">ハッシュマップ</span> 次のキーを受け付けます（ただしこれに限定されません）。 詳細な説明や例とともに使用できるキーの完全なリストについては、 <span class="ph">ユブラ</span>
+                <a class="xref" href="http://developer.nicepeopleatwork.com/product-documentation/" target="_blank">製品ドキュメント</a>.
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" id="d1072428e614">キー</th>
+
+                                <th class="entry" valign="top" id="d1072428e617">自動入力</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d1072428e614 d1072428e617 ">タイトル</td>
+
+                                <td class="entry" valign="top" headers="d1072428e614 d1072428e617 ">はい</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d1072428e614 d1072428e617 ">ジャンル</td>
+
+                                <td class="entry" valign="top" headers="d1072428e614 d1072428e617 ">いいえ</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d1072428e614 d1072428e617 ">言語</td>
+
+                                <td class="entry" valign="top" headers="d1072428e614 d1072428e617 ">いいえ</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d1072428e614 d1072428e617 ">年</td>
+
+                                <td class="entry" valign="top" headers="d1072428e614 d1072428e617 ">いいえ</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d1072428e614 d1072428e617 ">キャスト</td>
+
+                                <td class="entry" valign="top" headers="d1072428e614 d1072428e617 ">いいえ</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d1072428e614 d1072428e617 ">ディレクター</td>
+
+                                <td class="entry" valign="top" headers="d1072428e614 d1072428e617 ">いいえ</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d1072428e614 d1072428e617 ">所有者</td>
+
+                                <td class="entry" valign="top" headers="d1072428e614 d1072428e617 ">いいえ</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d1072428e614 d1072428e617 ">デュレーション</td>
+
+                                <td class="entry" valign="top" headers="d1072428e614 d1072428e617 ">はい</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d1072428e614 d1072428e617 ">親の</td>
+
+                                <td class="entry" valign="top" headers="d1072428e614 d1072428e617 ">いいえ</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d1072428e614 d1072428e617 ">価格</td>
+
+                                <td class="entry" valign="top" headers="d1072428e614 d1072428e617 ">いいえ</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d1072428e614 d1072428e617 ">評価</td>
+
+                                <td class="entry" valign="top" headers="d1072428e614 d1072428e617 ">いいえ</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d1072428e614 d1072428e617 ">audioType</td>
+
+                                <td class="entry" valign="top" headers="d1072428e614 d1072428e617 ">いいえ</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d1072428e614 d1072428e617 ">audioChannels</td>
+
+                                <td class="entry" valign="top" headers="d1072428e614 d1072428e617 ">いいえ</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+</div>
+
+            <p class="gt-block p"><strong class="ph b">デバイスメタデータマップ</strong></p>
+
+            <p class="gt-block p">A  <span class="ph">ハッシュマップ</span> デバイスに関する情報の。 この <span class="ph">ハッシュマップ</span> 次のキーを受け付けます（ただしこれに限定されません）。 詳細な説明や例とともに使用できるキーの完全なリストについては、 <span class="ph">ユブラ</span>
+                <a class="xref" href="http://developer.nicepeopleatwork.com/product-documentation/" target="_blank">製品ドキュメント</a>.</p>
+
+            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" id="d1072428e774">キー</th>
+
+                            <th class="entry" valign="top" id="d1072428e777">自動入力</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d1072428e774 d1072428e777 ">メーカー</td>
+
+                            <td class="entry" valign="top" headers="d1072428e774 d1072428e777 ">いいえ</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d1072428e774 d1072428e777 ">type</td>
+
+                            <td class="entry" valign="top" headers="d1072428e774 d1072428e777 ">いいえ</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d1072428e774 d1072428e777 ">年</td>
+
+                            <td class="entry" valign="top" headers="d1072428e774 d1072428e777 ">いいえ</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d1072428e774 d1072428e777 ">ファームウェア</td>
+
+                            <td class="entry" valign="top" headers="d1072428e774 d1072428e777 ">いいえ</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+
+        </div>
+
+    </div>
+
+    <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/qos_solution_npaw_youbora.html" title="Ooyalaは現在、NICE PEOPLE AT WORK（NPAW）YOUBORA Analyticsプラットフォームを搭載したサービス品質（QoS）ソリューションを提供しています。 これは、すべてのOoyalaのお客様にご利用いただけるアドオンサービスです。">NPAWのYOUBORAを搭載したOoyala QoSソリューション</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="../concepts/qos_solution_npaw_youbora.html" title="Ooyalaは現在、NICE PEOPLE AT WORK（NPAW）YOUBORA Analyticsプラットフォームを搭載したサービス品質（QoS）ソリューションを提供しています。 これは、すべてのOoyalaのお客様にご利用いただけるアドオンサービスです。">NPAWのYOUBORAを搭載したOoyala QoSソリューション</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong><br/>
+<div><a class="link" href="../reference/faq_qos_solution.html" title="サービス品質（QoS）分析についてよく寄せられる質問">サービス品質に関するFAQ</a></div>
+</div>
+<div class="relinfo"><strong>関連情報</strong><br/>
+<div><a class="link" href="https://github.com/ooyala/ios-sample-apps/tree/stable/NPAWSampleApp" target="_blank">iOSサンプルアプリのNPAW統合</a></div>
+<div><a class="link" href="http://developer.nicepeopleatwork.com/product-documentation/" target="_blank">NPAW開発者ポータル上の製品資料</a></div>
+</div>
+</div>
+    
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

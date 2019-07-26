@@ -1,0 +1,176 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="A Closer Look at the iOS Sample App and Integrations"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_ios_freewheel.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="mobilesdk_ios_freewheel_sampleapp_decomposed"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>iOSサンプルアプリと統合の詳細</title>
+</head>
+<body id="mobilesdk_ios_freewheel_sampleapp_decomposed">
+
+
+
+   <h1 class="title topictitle1">iOSサンプルアプリと統合の詳細 </h1>
+
+   <div class="body conbody">
+
+
+      <div class="p">サンプルアプリのソースコードを詳しく見ると、独自のアプリを構築するために焦点を合わせる必要があるタッチポイントが強調されています。<ul class="ul" id="mobilesdk_ios_freewheel_sampleapp_decomposed__ul_k4r_smk_hl">
+            <li class="li">輸入</li>
+
+            <li class="li"><samp class="ph codeph">ViewControllerを</samp> Ad Managerを使用した実装</li>
+
+            <li class="li">定数</li>
+
+            <li class="li">セットアップを表示 <samp class="ph codeph">OOFreeWheelManager</samp> 初期化</li>
+
+            <li class="li">フリーホイール広告パラメータを設定する</li>
+
+            <li class="li">ビデオを再生する</li>
+
+         </ul>
+</div>
+
+      <p class="p">始めに、 <samp class="ph codeph">FreeWheelSampleApp / ViewController.m</samp> ファイル。</p>
+
+      <div class="section"><h2 class="title sectiontitle">ヘッダファイルとライブラリファイル</h2>
+          あなたのXcodeプロジェクトのために <span class="ph uicontrol">構築フェーズ</span>次の行を必ず含めてください。 <span class="ph uicontrol">バイナリとライブラリのリンク</span> （クリックしてください <span class="ph uicontrol">その他を追加...</span>): 
+ 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+               
+               
+               <tbody class="tbody">
+                  <tr class="row">
+                     <td class="entry" valign="top" width="45.83333333333333%">
+                        <img class="image" src="http://help-ooyala.brightcove.com/../image/mobile_sdk_ios_freewheel_headers.png" alt="フリーホイールヘッダ"/></td>
+
+                     <td class="entry" valign="top" width="54.166666666666664%">
+                        <ul class="ul">
+                           <li class="li"><samp class="ph codeph">OoyalaFreeWheelSDK-iOS / libOoyalaFreeWheel.a</samp></li>
+
+                           <li class="li">ベースラインのOoyala Mobile SDKから、
+                                 <samp class="ph codeph">libOoyalaSDK.a</samp> としょうかん。 （便宜上、これはFreeWheelサンプルアプリディレクトリにも含まれています。）</li>
+
+                           <li class="li">  <samp class="ph codeph">AdManager.framework</samp> FreeWheel Webサイトからダウンロードしたフォルダ</li>
+
+                           <li class="li">以下のフレームワーク（あなたが既にプロジェクトにそれらを持っていない限り）。 これらを追加するには、Xcodeフレームワークのリストからそれらを選択してください。 <ul class="ul">
+                                 <li class="li"><samp class="ph codeph">libxml2.dylib</samp></li>
+
+                                 <li class="li"><samp class="ph codeph">UIKit.framework</samp></li>
+
+                                 <li class="li"><samp class="ph codeph">CoreGraphics.framework</samp></li>
+
+                                 <li class="li"><samp class="ph codeph">QuartzCore.framework</samp></li>
+
+                                 <li class="li"><samp class="ph codeph">MediaPlayer.framework</samp></li>
+
+                                 <li class="li"><samp class="ph codeph">CoreLocation.framework</samp></li>
+
+                                 <li class="li"><samp class="ph codeph">MessageUI.framework</samp></li>
+
+                                 <li class="li"><samp class="ph codeph">EventKit.framework</samp></li>
+
+                                 <li class="li"><samp class="ph codeph">CoreMedia.framework</samp></li>
+
+                                 <li class="li"><samp class="ph codeph">AVFoundation.framework</samp></li>
+
+                                 <li class="li"><samp class="ph codeph">AdSupport.framework（オプション）</samp></li>
+
+                              </ul>
+</li>
+
+                        </ul>
+
+                     </td>
+
+                  </tr>
+
+               </tbody>
+
+            </table>
+</div>
+<p class="p">あなたのXcodeプロジェクト自体に、Ooyalaの
+               <samp class="ph codeph">OoyalaFreeWheelSDK-iOS / FreeWheelHeaders</samp> フォルダにコピーします。 </p>
+</div>
+
+      <div class="section"><h2 class="title sectiontitle">輸入</h2>
+         
+         <p class="p">最初の3つのimportステートメントは、ベースラインのOoyala Mobile SDKからヘッダー定義を取り込みます。</p>
+
+         <p class="p">4番目のインポートでは、Ooyala FreeWheel Managerの定義が取り込まれます。 </p>
+
+         <pre class="pre codeblock">#import &lt;OoyalaSDK / ViewController.h&gt; #import &lt;OoyalaSDK / OOOoyalaPlayerViewController.h&gt; #import &lt;OoyalaSDK / OOOoyalaPlayer.h&gt;
+<strong class="ph b">#import &lt;OoyalaSDK / OOFreeWheelManager.h&gt;</strong></pre>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle"><samp class="ph codeph">ViewControllerを</samp> Ad Managerを使用した実装</h2>
+          これらの行は <samp class="ph codeph">ViewControllerを</samp> 実装。 の定義に注意してください <samp class="ph codeph">fwAdManager</samp> としての財産
+            <samp class="ph codeph">OOFreeWheelManager</samp>型インターフェース。
+         <pre class="pre codeblock">@interface ViewController（）@property（非アトミック、強力）OOOoyalaPlayerViewController * ooyalaPlayerViewController;
+<strong class="ph b">@property（nonatomic、strong）OOFreeWheelManager * fwAdManager;</strong>
+@end @implementation ViewController @synthesize ooyalaPlayerViewController;           </pre>
+
+         についての参照資料 <samp class="ph codeph">OOFreeWheelManager</samp>、を参照してください。
+            <samp class="ph codeph">OoyalaFreeWheelSDK-iOS /ドキュメント</samp> サブディレクトリ。</div>
+
+      <div class="section"><h2 class="title sectiontitle">定数</h2>
+         
+         <p class="gt-block p">サンプルアプリは定数を定義しますが <samp class="ph codeph">PCODE</samp>,
+               
+               <samp class="ph codeph">埋め込みコード</samp>、および <samp class="ph codeph">プレイヤードメイン</samp> （参照してください <a class="xref" href="mobile_sdk_ios_freewheel_tutorial.html#mobilesdk_ios_freewheel_tutorial">iOSで動作中のFreeWheelサンプルアプリを見る</a>）、おそらくあなたは変数を定義したいでしょう。 <samp class="ph codeph">埋め込みコード</samp>
+            定数（アセットIDまたはコンテンツID）。</p>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">ビュー設定とOOFreeWheelManager初期化</h2>
+         
+         <p class="p">サンプルアプリでは、ビューはセットアップされています。 <samp class="ph codeph">fwAdManager</samp> オブジェクトは <samp class="ph codeph">OOFreeWheelManager</samp>:</p>
+
+         <pre class="pre codeblock"> - （void）viewDidLoad {[super viewDidLoad]; ooyalaPlayerViewController = [[OOOoyalaPlayerViewController割り当て] <strong class="ph b">initWithPcode：PCODEドメイン：[[OOPlayerDomain alloc] initWithString：PLAYERDOMAIN];</strong>
+
+  //ビデオビューを設定する[ooyalaPlayerViewController.view setFrame：self.videoView.bounds]; [self addChildViewController：ooyalaPlayerViewController]; [self.videoView addSubview：ooyalaPlayerViewController.view]; //フリーホイールの設定
+  <strong class="ph b">self.fwAdManager</strong> = [[OOFreeWheelManager alloc] initWithOoyalaPlayerViewController：ooyalaPlayerViewController];    </pre>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">フリーホイール広告パラメータを設定する</h2>
+         
+         <p class="p">必要な広告パラメータを設定するには、アプリに含まれるパラメータの値を変更します。 まず、 <samp class="ph codeph">ooyalaPlayerView</samp> コントローラは（前のステップで）初期化されていますが、ビデオを再生しようとする前に、
+               <samp class="ph codeph">NSMutableDictionary</samp> 命名 <samp class="ph codeph">fwParameters</samp>; 次に、希望のパラメータ値を独自の設定に設定します（以下に示すサンプル値を置き換えます）。 </p>
+
+         <p class="gt-block p">以下で強調表示されているパラメータはアプリ自体で設定する必要があります。 他のものはで説明されているように設定できます <a class="xref" href="mobile_sdk_ios_freewheel.html#mobile_sdk_ios_freewheel__freewheel_essential_parms">基本パラメータとFreeWheel OPFモジュール広告セット</a>.</p>
+
+         <pre class="pre codeblock">// FreeWheelパラメータを設定します。 これらはオプションであり、BacklotまたはOoyala内部で設定された設定を上書きすることに注意してください。NSMutableDictionary <strong class="ph b">* fwParameters</strong> = [[NSMutableDictionary alloc] init]; [fwParameters setObject：@ &quot;90750&quot; forKey：@ &quot;fw_ios_mrm_network_id&quot;];
+  <strong class="ph b">[fwParameters setObject：@ &quot;http://demo.v.fwmrm.net/&quot; forKey：@ &quot;fw_ios_ad_server&quot;]; [fwParameters setObject：@ &quot;90750：ooyala_ios&quot; forKey：@ &quot;fw_ios_player_profile&quot;];</strong>
+  [fwParameters setObject：@ &quot;ooyala_test_site_section&quot; forKey：@ &quot;fw_ios_site_section_id&quot;]; [fwParameters setObject：@ &quot;ooyala_test_video_with_bvi_cuepoints&quot; forKey：@ &quot;fw_ios_video_asset_id&quot;]; [fwParameters setObject：@ &quot;channel = TEST; subchannel = TEST; section = TEST; mode = online; player = ooyala; beta = n&quot; forKey：@ &quot;FRMSegment&quot;]; [self.fwAdManager overrideFreeWheelParameters：fwParameters];</pre>
+
+      </div>
+
+
+      <div class="section"><h2 class="title sectiontitle">ビデオを再生する</h2>
+         最後に、以下の行で、
+            <samp class="ph codeph">setEmbedCode</samp> 方法は、ベースラインのOoyala Mobile SDKからのものです。 これらの行は、希望のビデオIDを使用してOoyalaプレーヤーを起動します。 識別子に変数を使用します。 <samp class="ph codeph">埋め込みコード</samp> あなたのアプリで
+         <pre class="pre codeblock">[ooyalaPlayerViewController.player setEmbedCode：EMBEDCODE]; [ooyalaPlayerViewController.player play];</pre>
+
+      </div>
+
+   </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/mobile_sdk_ios_freewheel.html">iOS上のFreeWheelとの統合</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></di

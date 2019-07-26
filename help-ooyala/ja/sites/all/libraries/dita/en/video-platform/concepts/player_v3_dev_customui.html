@@ -1,0 +1,105 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Designing the Skin for an HTML5 Player V3 (Deprecated)"/>
+<meta name="abstract" content="Ooyala provides many options for customizing the appearance and functionality of an HTML5 Player V3 when it is loaded."/>
+<meta name="description" content="Ooyalaには、ロード時にHTML5 Player V3の外観と機能をカスタマイズするための多くのオプションがあります。"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_v3_dev_customui"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>HTML5プレーヤーのスキンの設計V3（廃止予定）</title>
+</head>
+<body id="player_v3_dev_customui">
+
+
+  <h1 class="title topictitle1">HTML5プレーヤーのスキンの設計V3（廃止予定）</h1>
+
+  
+  <div class="body conbody"><p class="shortdesc"> Ooyala provides many options for customizing the appearance and functionality of an
+    HTML5 Player V3 when it is loaded. </p>
+
+    <div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V3は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V3はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V3を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="pbv4_migration_v3.html">Player V3からの移行</a> そして <a class="xref" href="pbv4_migration_faq.html">プレイヤー移行に関するFAQ</a>).</div>
+
+    <div class="section">You can embed your player in a div container and use JavaScript  and CSS to customize
+      the player experience. In addition, you can use CSS styling to modify the player container
+      appearance with any of the available CSS and CSS3 styles. Before you use the CSS3 styles and
+      the CSS styles, you need to make sure that your target browsers support these styles. <p class="p">By
+        enabling you to use CSS to customize your player experience, the player provides a
+        convenient and efficient separation of some aspects of UI customization from backend player
+        functionality. The player also enables you to customize player functionality using
+        JavaScript APIs instead of query string parameters. Instead of working with both query
+        string parameters and JavaScript, you can use JavaScript to create the functionality that
+        you want for your HTML5 player, which allows you to retain your Flash player functionality
+        as well.</p>
+
+    </div>
+
+    
+  
+    <div class="section">
+      <div class="p">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="player_v3_dev_customui__table_srx_bqm_xq" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">表1。 </span></caption>
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="12.004801920768307%" id="d611086e52">メカニズム</th>
+
+                <th class="entry" valign="top" width="87.9951980792317%" id="d611086e55">説明</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="12.004801920768307%" headers="d611086e52 "><strong class="ph b">CSS</strong></td>
+
+                <td class="entry" valign="top" width="87.9951980792317%" headers="d611086e55 ">You can customize the Player UI, changing its default look and feel by
+                  modifying a CSS file. You can also use CSS files to create custom UI skins. This
+                  option enables you to create multiple skins for your Player UI by separating the
+                  backend functionality from the look and feel.  You can provide highly customized
+                  players tailored to a specific geographic region, demographic, or virtually any
+                  type of UI theme that you want.</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="12.004801920768307%" headers="d611086e52 "><strong class="ph b">カスタムモジュール</strong></td>
+
+                <td class="entry" valign="top" width="87.9951980792317%" headers="d611086e55 ">Custom modules enables you to develop JavaScript-based functionality that you
+                  can load with your player. This custom module capability extends your ability to
+                  add complex functionality to your player and create uniquely branded players with
+                  JavaScript.</td>
+
+              </tr>
+
+              
+            </tbody>
+
+          </table>
+</div>
+
+      </div>
+
+    </div>
+
+    <div class="section">The following topics describe how to use the Player CSS and JavaScript customization.
+      For more information about Player, see the <a class="xref" href="book_api_player.html" title="Player V3 APIは、Player v3機能とメッセージバスイベント処理も提供するUI要素をカスタマイズするためのJavaScript APIです。">プレーヤV3 JavaScript APIリファレンス（非推奨）</a>. The
+      HTML5 player gives you three options for customization: </div>
+
+  </div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- de

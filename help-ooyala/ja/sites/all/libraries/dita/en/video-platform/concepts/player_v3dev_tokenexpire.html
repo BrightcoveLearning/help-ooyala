@@ -1,0 +1,90 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Ooyala Player Token Expiration"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/player_v3dev_authoverview.html"/>
+<meta name="DC.Relation" scheme="URI" content="player_v3dev_authoverview.html"/>
+<meta name="DC.Relation" scheme="URI" content="player_v3dev_authtoken.html"/>
+<meta name="DC.Relation" scheme="URI" content="player_v3dev_tokenexpire.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_v3dev_tokenexpire.xml"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Ooyalaプレイヤートークンの有効期限</title>
+</head>
+<body id="player_v3dev_tokenexpire.xml">
+
+
+ <h1 class="title topictitle1">Ooyalaプレイヤートークンの有効期限</h1>
+
+ <div class="body conbody">
+ <div class="section">Ooyalaプレーヤートークンはooyalaドメインに有効です： <a class="xref" href="http://player.ooyala.com/" target="_blank">player.ooyala.com</a>。 Ooyala Player Tokenを使用するときは、さまざまな種類のセッションの有効期限を知っておく必要があります。 <ul class="ul" id="player_v3dev_tokenexpire.xml__internal-source-marker_0.9329864937735756">
+        <li class="li">
+          <p class="gt-block p"><strong class="ph b">URLトークン要求の有効期限</strong> -  Backlotで設定した有効期限よりも短い期間で、この有効期限はサーバー側のプロバイダによって選択され、トークン要求URLに直接含まれます。 </p>
+
+        </li>
+
+        <li class="li">
+          <p class="gt-block p"><strong class="ph b">トークンの有効期限を設定する</strong>  - この有効期限は、Backlotのコンテンツプロバイダによって設定されます。 このタイプの有効期限の設定に関する情報は、トピックで説明されています。
+              <a class="xref" href="../tasks/player_v3dev_settoken.html#player_v3dev_settoken" title="Backlot UIには、Syndication groupフラグを設定してコンテンツ資産をこのシンジケーショングループに追加することで、コンテンツを保護するためのオプションが用意されています。 これにより、プレーヤーを実行するようにWebページを設定し、認証トークンを送信することができます。 （OoyalaアカウントにOoyalaプレーヤートークンが含まれている場合にのみ使用できます。この機能を有効にするには、アカウントマネージャーに連絡してください。）">Ooyalaプレーヤートークンの設定</a>この文書では、</p>
+
+        </li>
+
+        <li class="li">
+          <p class="gt-block p"><strong class="ph b">インタラクショントークンの有効期限</strong> - この種のトークンの有効期限は、プレイヤーを閉じるユーザーの操作によって発生します。 </p>
+
+        </li>
+
+      </ul>
+
+      <p class="p">player.ooyala.comに設定されているOoyalaプレーヤートークンをクリアするには、
+<samp class="ph codeph">player.ooyala.com/sas/revoke_embed_token/:pcode</samp> APIここで、pcodeはプロバイダのpcodeに置き換えられます。</p>
+
+      <p class="gt-block p"><strong class="ph b">注意： </strong>&quot;all&quot;埋め込みコードパラメーターを使用してOoyalaプレーヤートークンを作成した場合、それに関連付けられているシンジケーショングループはないため、Backlotシンジケーショングループに有効期限を設定することはできません。 代わりに、 &quot;wildcard_opt_expiration_time&quot;というプロバイダ属性を作成し、それに秒単位の値を指定する必要があります。 この属性を作成しないと、デフォルトの有効期限10分がトークンに使用されます。</p>
+</div>
+
+  <div class="section"><h2 class="title sectiontitle"> トークン要求URLの有効期限 </h2>
+   
+   <p class="p">トークン要求URLには、Backlotで（またはAPI経由で）設定したトークンの有効期限とは異なる有効期限があります。 前のトピックの「仕組み」の下部にある説明に従って、有効期限を短くすることをお勧めします。 URL自体の中にトークン要求URLの有効期限を設定します。 形式は次の例のようになります。</p>
+
+   <div class="p"><pre class="pre codeblock">expires = {expiredTimeInPOSIXTime}</pre>
+</div>
+
+   <div class="note note"><span class="notetitle">注意：</span> トークン要求URLの作成について詳しくは、トピックを参照してください。 <a class="xref" href="player_v3dev_authtoken.html#player_v3dev_authtoken" title="あなたはOoyalaプレーヤートークンを使って再生を認証することができます。 （Ooyalaアカウントにこの機能が含まれている場合にのみ使用できます。Ooyalaプレーヤートークンを有効にするには、アカウントマネージャーにお問い合わせください。）">Ooyalaプレーヤートークンで再生を制御する</a> この文書では、 </div>
+
+  </div>
+
+   <div class="section"><h2 class="title sectiontitle">バックスロットでのトークン有効期限の設定</h2>
+    
+    <p class="gt-block p">Ooyalaが再生を許可し、トークンオブジェクトを使用してトークン要求に応答すると、ユーザーはトークンの有効期限が切れるまでビデオまたはオーディオコンテンツを再生することが許可されます。 有効期限が切れると、ユーザーは再生権限を失い、コンテンツを再生するためにページをリロードする必要があります。 ユーザーが最初に認証され、再生中にトークンの有効期限が切れると、再生は中止されません。 再生が許可されると、このメカニズムは、ユーザーがページをリロードした（または移動して戻ってきた）場合を除き、アクセスを取り消しません。 Backlotで有効期限を設定する方法について詳しくは、以下のトピックのステップ5を参照してください。 <a class="xref" href="../tasks/player_v3dev_settoken.html#player_v3dev_settoken" title="Backlot UIには、Syndication groupフラグを設定してコンテンツ資産をこのシンジケーショングループに追加することで、コンテンツを保護するためのオプションが用意されています。 これにより、プレーヤーを実行するようにWebページを設定し、認証トークンを送信することができます。 （OoyalaアカウントにOoyalaプレーヤートークンが含まれている場合にのみ使用できます。この機能を有効にするには、アカウントマネージャーに連絡してください。）">Ooyalaプレーヤートークンの設定</a> この文書の後半にあります。</p>
+
+   </div>
+
+    <div class="section"><h2 class="title sectiontitle">インタラクショントークンの有効期限</h2>
+     <p class="gt-block p">ユーザーがページから移動したり再生を停止したりしても、トークンはブラウザに残りますが、その間にトークンは期限切れになる可能性があります。 ユーザーはブラウザを閉じることによってのみトークンのフラッシュを引き起こすことができます。 別のトークンオブジェクトを取得するには、ユーザーはページをリロードして、で説明した経路を再トリガする必要があります。 <a class="xref" href="player_v3dev_authtoken.html#player_v3dev_authtoken" title="あなたはOoyalaプレーヤートークンを使って再生を認証することができます。 （Ooyalaアカウントにこの機能が含まれている場合にのみ使用できます。Ooyalaプレーヤートークンを有効にするには、アカウントマネージャーにお問い合わせください。）">Ooyalaプレーヤートークンで再生を制御する</a> この文書の前半にあります。</p>
+
+  </div>
+
+</div>
+
+  <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/player_v3dev_authoverview.html">プレイヤーV3のOoyalaプレイヤートークン（廃止予定）</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="player_v3dev_authoverview.html">プレイヤーV3のOoyalaプレイヤートークン（廃止予定）</a></div>
+<div><a class="link" href="player_v3dev_authtoken.html" title="あなたはOoyalaプレーヤートークンを使って再生を認証することができます。 （Ooyalaアカウントにこの機能が含まれている場合にのみ使用できます。Ooyalaプレーヤートークンを有効にするには、アカウントマネージャーにお問い合わせください。）">Ooyalaプレーヤートークンで再生を制御する</a></div>
+<div><a class="link" href="player_v3dev_tokenexpire.html">Ooyalaプレイヤートークンの有効期限</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

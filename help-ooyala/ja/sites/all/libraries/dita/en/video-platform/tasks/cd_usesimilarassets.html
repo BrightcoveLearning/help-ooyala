@@ -1,0 +1,285 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Similar Assets Recommendations"/>
+<meta name="abstract" content="Learn about using the Discovery APIs to provide recommendations for similar videos."/>
+<meta name="description" content="ディスカバリーAPIを使用して、同様のビデオに関する推奨事項を提供する方法について説明します。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/cd_api_overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/labels.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_metadata.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="cd_usesimilarassets"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>同様の資産の推奨</title>
+</head>
+<body id="cd_usesimilarassets">
+
+
+    <h1 class="title topictitle1">同様の資産の推奨</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">ディスカバリーAPIを使用して、同様のビデオに関する推奨事項を提供する方法について説明します。</p>
+
+        <div class="section context">
+            <p class="gt-block p"><strong class="ph b">類似資産について</strong></p>
+
+            <p class="p">類似の動画に対するDiscoveryの推奨事項を提供するには、
+                    <samp class="ph codeph">類似/資産</samp> ルート。 このAPIを使用して、アクティブビデオとの関係に基づいて検出の推奨事項を返します。 関係は、ラベルと資産メタデータに基づいて決定されます。 たとえば、視聴者がスカイダイビングビデオを視聴している場合、Ooyala Discoveryアルゴリズムは他のスカイダイビングまたは極端なスポーツビデオを返す可能性があります。 </p>
+
+            <p class="p">同様の動画に基づくおすすめの精度を高めるには、Backlotアセットがラベルやメタデータで明確に定義されていることを確認し、 <samp class="ph codeph">score_type</samp>
+                返された結果を管理するための属性。</p>
+
+            <p class="gt-block p"><strong class="ph b">ステップ</strong></p>
+
+            <p class="gt-block p">以下の手順を使用して、類似の資産に基づいてDiscoveryの推奨事項をテストします。 <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">スクラッチパッド</a>.</p>
+
+        </div>
+
+        <ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd"> 同様の推奨事項のソース資産を選択して、 <samp class="ph codeph">asset_id</samp>。 これは、Backlotの資産に表示されるコンテンツIDです。 詳細については <a class="xref" href="../api/asset_common_routes.html" title="Backlot REST APIでは、すべてのアセットに共通の基本ルートは、それらのタイプに関係なく同じ構文を持ちます。">すべてのアセットタイプに共通のルートと属性</a><a class="xref" href="../api/asset_common_routes.html" title="Backlot REST APIでは、すべてのアセットに共通の基本ルートは、それらのタイプに関係なく同じ構文を持ちます。">すべてのアセットタイプに共通のルートと属性</a>.</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd"> ブラウザを開いてに移動します <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">スクラッチパッド</a>.  </span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">設定する <span class="ph uicontrol">証明</span> Backlotアカウントを使用するには</span>
+                <ol type="a" class="ol substeps">
+                    <li class="li substep">
+                        <span class="ph cmd">現在地に最も近い <span class="ph uicontrol">あなたのアカウント</span> ラジオボタン。</span>
+                    </li>
+
+                    <li class="li substep">
+                        <span class="ph cmd">あなたのBacklotを入力してください <span class="ph uicontrol">APIキー</span>.</span>
+                    </li>
+
+                    <li class="li substep">
+                        <span class="ph cmd">あなたのBacklotを入力してください <span class="ph uicontrol">秘密鍵</span></span>
+                    </li>
+
+                </ol>
+
+                 
+                    <img class="image" src="http://help-ooyala.brightcove.com/../image/scratchpadcredentials.png" height="104" width="315" alt="Backlotの認証情報を入力してください"/>
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">左のテキストボックスに次のルートを入力して置き換えてください <kbd class="ph userinput">asset_id</kbd> とともに <samp class="ph codeph">content_id</samp> あなたのBacklotアカウントからのビデオの： </span>
+                 
+                    <pre class="pre codeblock">/ v2 / discover / similar / assets /<kbd class="ph userinput">asset_id</kbd>？score_type =デフォルト？limit = 2</pre>
+
+                    <div class="p">この経路は以下のパラメーターで構成されています。
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="cd_usesimilarassets__table_osc_bwc_5r" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">表1 スコアタイプの詳細がある類似の資産</span></caption>
+                                
+                                
+                                <thead class="thead" align="left">
+                                    <tr class="row">
+                                        <th class="entry" valign="top" width="23.980815347721823%" id="d1026697e161">パラメーター</th>
+
+                                        <th class="entry" valign="top" width="76.01918465227818%" id="d1026697e164">説明</th>
+
+                                    </tr>
+
+                                </thead>
+
+                                <tbody class="tbody">
+                                    <tr class="row">
+                                        <td class="entry" valign="top" width="23.980815347721823%" headers="d1026697e161 "><samp class="ph codeph">v2</samp></td>
+
+                                        <td class="entry" valign="top" width="76.01918465227818%" headers="d1026697e164 ">このリクエストに使用するAPIのバージョン。</td>
+
+                                    </tr>
+
+                                    <tr class="row">
+                                        <td class="entry" valign="top" width="23.980815347721823%" headers="d1026697e161 "><samp class="ph codeph">発見する</samp></td>
+
+                                        <td class="entry" valign="top" width="76.01918465227818%" headers="d1026697e164 ">このリクエストに使用するAPI。</td>
+
+                                    </tr>
+
+                                    <tr class="row">
+                                        <td class="entry" valign="top" width="23.980815347721823%" headers="d1026697e161 "><samp class="ph codeph">同様の</samp></td>
+
+                                        <td class="entry" valign="top" width="76.01918465227818%" headers="d1026697e164 ">この要求にも同様の経路を使用してください。</td>
+
+                                    </tr>
+
+                                    <tr class="row">
+                                        <td class="entry" valign="top" width="23.980815347721823%" headers="d1026697e161 "><samp class="ph codeph">資産</samp></td>
+
+                                        <td class="entry" valign="top" width="76.01918465227818%" headers="d1026697e164 ">類似の資産を返します。</td>
+
+                                    </tr>
+
+                                    <tr class="row">
+                                        <td class="entry" valign="top" width="23.980815347721823%" headers="d1026697e161 "><samp class="ph codeph">asset_id</samp></td>
+
+                                        <td class="entry" valign="top" width="76.01918465227818%" headers="d1026697e164 ">結果の基になる資産のコンテンツID。</td>
+
+                                    </tr>
+
+                                    <tr class="row">
+                                        <td class="entry" valign="top" width="23.980815347721823%" headers="d1026697e161 "><samp class="ph codeph">score_type</samp></td>
+
+                                        <td class="entry" valign="top" width="76.01918465227818%" headers="d1026697e164 ">クエリに使用するアルゴリズム。</td>
+
+                                    </tr>
+
+                                    <tr class="row">
+                                        <td class="entry" valign="top" width="23.980815347721823%" headers="d1026697e161 "><samp class="ph codeph">limit_2</samp></td>
+
+                                        <td class="entry" valign="top" width="76.01918465227818%" headers="d1026697e164 ">2つ以下の結果を返してください。</td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+</div>
+</div>
+
+                    
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">選択します <span class="ph uicontrol">取得する</span> ドロップダウンメニューから選択します。 </span>
+                 
+                    <img class="image" src="http://help-ooyala.brightcove.com/../image/dc_similarroutesexample.png" height="24" width="366" alt="ルートを入力"/>
+                
+                 <div class="p"><span class="ph">バックスロット</span> 以下のパラメータで結果を返します。
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">表2 スコアタイプが類似する資産 </span></caption>
+                                
+                                
+                                <thead class="thead" align="left">
+                                    <tr class="row">
+                                        <th class="entry" valign="top" width="1.5" id="d1026697e284">パラメーター</th>
+
+                                        <th class="entry" valign="top" width="NaN%" id="d1026697e287">例</th>
+
+                                    </tr>
+
+                                </thead>
+
+                                <tbody class="tbody">
+                                    <tr class="row">
+                                        <td class="entry" valign="top" width="1.5" headers="d1026697e284 "><samp class="ph codeph">デュレーション</samp></td>
+
+                                        <td class="entry" valign="top" width="NaN%" headers="d1026697e287 "><samp class="ph codeph">&quot;期間&quot;： &quot;37033&quot;</samp></td>
+
+                                    </tr>
+
+                                    <tr class="row">
+                                        <td class="entry" valign="top" width="1.5" headers="d1026697e284 "><samp class="ph codeph">名</samp></td>
+
+                                        <td class="entry" valign="top" width="NaN%" headers="d1026697e287 "><samp class="ph codeph">名前 &quot;：&quot; arthurbday.mp4 &quot;</samp></td>
+
+                                    </tr>
+
+                                    <tr class="row">
+                                        <td class="entry" valign="top" width="1.5" headers="d1026697e284 "><samp class="ph codeph">created_at</samp></td>
+
+                                        <td class="entry" valign="top" width="NaN%" headers="d1026697e287 "><samp class="ph codeph">"2014-09-11 21:15:16 +0000"</samp></td>
+
+                                    </tr>
+
+                                    <tr class="row">
+                                        <td class="entry" valign="top" width="1.5" headers="d1026697e284 "><samp class="ph codeph">preview_images</samp></td>
+
+                                        <td class="entry" valign="top" width="NaN%" headers="d1026697e287 "><samp class="ph codeph">&quot;preview_images&quot;： &quot;&lt;previewImage&gt; \ n &lt;url&gt; https://ec.c.ooyala.com/12345678abcdefg &lt;/url&gt; \ n &lt;幅&gt; 400 &lt;/width&gt; \ n &lt;高さ&gt; 250 &lt;/height&gt; \ n &lt;/previewImage&gt; &quot;、
+                                            </samp></td>
+
+                                    </tr>
+
+                                    <tr class="row">
+                                        <td class="entry" valign="top" width="1.5" headers="d1026697e284 "><samp class="ph codeph">bucket_info</samp></td>
+
+                                        <td class="entry" valign="top" width="NaN%" headers="d1026697e287 "><samp class="ph codeph"> &quot;bucket_info&quot;： &quot;1 {\&quot;エンコードされた\ &quot;：\&quot; 12345678abcdefg \ &quot;、\&quot;位置\ &quot;：0}&quot;、 &quot;embed_code&quot;： &quot;12345678abcdefg&quot;</samp></td>
+
+                                    </tr>
+
+                                    <tr class="row">
+                                        <td class="entry" valign="top" width="1.5" headers="d1026697e284 "><samp class="ph codeph">ostedAtURL</samp></td>
+
+                                        <td class="entry" valign="top" width="NaN%" headers="d1026697e287 "><samp class="ph codeph">https://ec.c.ooyala.com"</samp></td>
+
+                                    </tr>
+
+                                    <tr class="row">
+                                        <td class="entry" valign="top" width="1.5" headers="d1026697e284 "><samp class="ph codeph">content_type</samp></td>
+
+                                        <td class="entry" valign="top" width="NaN%" headers="d1026697e287 "><samp class="ph codeph">&quot;content_type&quot;： &quot;ビデオ&quot;</samp></td>
+
+                                    </tr>
+
+                                    <tr class="row">
+                                        <td class="entry" valign="top" width="1.5" headers="d1026697e284 "><samp class="ph codeph">external_id</samp></td>
+
+                                        <td class="entry" valign="top" width="NaN%" headers="d1026697e287 "><samp class="ph codeph">&quot;preview_image_url&quot;： &quot;https://ec.c.ooyala.com/12345678abcdefg/12345678abcdefg&quot;、</samp></td>
+
+                                    </tr>
+
+                                    <tr class="row">
+                                        <td class="entry" valign="top" width="1.5" headers="d1026697e284 "><samp class="ph codeph">preview_image_url</samp></td>
+
+                                        <td class="entry" valign="top" width="NaN%" headers="d1026697e287 "><samp class="ph codeph"> &quot;preview_image_url&quot;： &quot;https://ec.c.ooyala.com/12345678abcdefg&quot;</samp></td>
+
+                                    </tr>
+
+                                    <tr class="row">
+                                        <td class="entry" valign="top" width="1.5" headers="d1026697e284 "><samp class="ph codeph">publishing_rule_id</samp></td>
+
+                                        <td class="entry" valign="top" width="NaN%" headers="d1026697e287 "><samp class="ph codeph">publishing_rule_id &quot;：&quot; 12345678abcdefg &quot;</samp></td>
+
+                                    </tr>
+
+                                    <tr class="row">
+                                        <td class="entry" valign="top" width="1.5" headers="d1026697e284 "><samp class="ph codeph">説明</samp></td>
+
+                                        <td class="entry" valign="top" width="NaN%" headers="d1026697e287 "><samp class="ph codeph">&quot;説明&quot;： &quot;アーサーの2歳の誕生日の写真のビデオ編集。&quot;</samp></td>
+
+                                    </tr>
+
+                                    <tr class="row">
+                                        <td class="entry" valign="top" width="1.5" headers="d1026697e284 "><samp class="ph codeph">理由</samp></td>
+
+                                        <td class="entry" valign="top" width="NaN%" headers="d1026697e287 "><samp class="ph codeph">理由 &quot;：&quot;ラベル：12345678 &quot;</samp></td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+</div>
+</div>
+
+                
+            </li>
+</ol>
+
+        <div class="section postreq">
+            <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+        </div>
+
+        
+    </div>
+
+    <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/cd_api_overview.html" title="これらのディスカバリーAPIを使用するには、ディスカバリー要求を出し、ユーザーのアクション情報を戻してアルゴリズムをトレーニングします。">ディスカバリーREST API</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong><br/>
+<div><a class="link" href="../api/labels.html" title="外部発行ターゲットに追加すると、ラベルは外部に発行するビデオ、チャンネル、およびチャンネルセットを指定します。 さらに、ラベルは、ビデオライブラリの整理、ビデオの検索、およびターゲット分析の取得にも役立ちます。">ラベル</a></div>
+</div>
+<div class="relinfo"><strong>関連情報</strong><br/>
+<div><a class="link" href="../api/asset_metadata.xml">カスタムメタデータ</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absol

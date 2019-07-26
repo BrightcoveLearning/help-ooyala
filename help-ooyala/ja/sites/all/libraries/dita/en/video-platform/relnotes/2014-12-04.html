@@ -1,0 +1,270 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2014-12-04 Release"/>
+<meta name="abstract" content="Notable changes include the migration from Google IMA 1.x and 2.x to Google IMA v3, new Flash player parameters, and a mobile SDK release."/>
+<meta name="description" content="Notable changes include the migration from Google IMA 1.x and 2.x to Google IMA v3, new Flash player parameters, and a mobile SDK release."/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2014.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release20141203"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2014-12-04リリース</title>
+</head>
+<body id="release20141203">
+
+
+    <h1 class="title topictitle1">2014-12-04リリース</h1>
+
+    
+    <div class="body conbody"><p class="shortdesc">注目すべき変更点としては、Google IMA 1.xおよび2.xからGoogle IMA v3への移行、新しいFlashプレーヤーパラメータ、およびモバイルSDKリリースがあります。 </p>
+
+        <div class="section"><h2 class="title sectiontitle">Android用Ooyala Mobile SDK v3.1.0</h2></div>
+
+        <div class="section"><h2 class="title sectiontitle">バージョン3.1.0のフルリリースノート</h2>
+            
+            <p class="gt-block p"><strong class="ph b">新機能と強化</strong></p>
+
+            <p class="p">このリリースには、以下のアップデートが含まれています。</p>
+
+            <ul class="ul">
+                <li class="li">FreeWheelのプリロール広告とミッドロール広告の広告プロンプトでスペイン語のプロンプトがサポートされるようになりました。</li>
+
+                <li class="li">日本語のプロンプトは、FreeWheelのプリロール広告とミッドロール広告の広告プロンプトでサポートされるようになりました。</li>
+
+                <li class="li">最新のVisualOnリリースがサポートされました。 このリリースはAndroid 5.0、AKA Lollipopをサポートし、新しいライセンスが含まれています。 新しいライセンスをアプリケーションに統合するには、統合手順に慎重に従ってください。</li>
+
+                <li class="li">FreeWheel SDKバージョン5.16がサポートされました。</li>
+
+                <li class="li">Google IMA SDKサンプルアプリケーションが更新されました。</li>
+
+            </ul>
+
+            <p class="gt-block p"><strong class="ph b">解決済みの問題</strong></p>
+
+            <p class="p">このリリースには、以下の解決済みの問題が含まれています。</p>
+
+            <ul class="ul">
+                <li class="li">
+                    <p class="p">ネイティブMediaPlayerは時々次のエラーを投げます：</p>
+
+                    <pre class="pre codeblock">「メディアサーバーが停止しました」というエラーです（100、0）。</pre>
+
+                </li>
+
+                <li class="li">Google IMA SDKが頻繁にログインしています。</li>
+
+                <li class="li">プレーヤーがフルスクリーンモードになると、新しいフルスクリーンコントローラが作成されます。</li>
+
+                <li class="li">Androidデバイスからの再生は、Backlot分析で「無効なホスト」として記録されます。</li>
+
+                <li class="li">FreeWheel広告プレーヤーのロックおよびロック解除機能は正しく機能しません。 </li>
+
+            </ul>
+
+        </div>
+
+        
+        <div class="section"><h2 class="title sectiontitle">iOS用Ooyala Mobile SDK v3.1.0</h2>
+            
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">バージョン3.1.0のフルリリースノート</h2>
+            
+            <p class="gt-block p"><strong class="ph b">アップデートと機能強化</strong></p>
+
+            <p class="p">このリリースには、以下のアップデートおよび機能強化が含まれています。</p>
+
+            <ul class="ul">
+                <li class="li">このリリースではSDKライブラリのarmv7アーキテクチャのサポートが含まれています。</li>
+
+                <li class="li">FreeWheelのプリロール広告とミッドロール広告の広告プロンプトでスペイン語のプロンプトが利用できるようになりました。</li>
+
+                <li class="li">日本語のプロンプトは、FreeWheelのプリロール広告とミッドロール広告の広告プロンプトでサポートされるようになりました。</li>
+
+                <li class="li">SDKライブラリはARM64アーキテクチャをサポートするようになりました。</li>
+
+                <li class="li">Google IMA SDKサンプルアプリが更新されました。</li>
+
+            </ul>
+
+            <p class="gt-block p"><strong class="ph b">解決済みの問題</strong></p>
+
+            <p class="p">このリリースでは、以下の問題が解決されています。</p>
+
+            <ul class="ul">
+                <li class="li">armv7アーキテクチャサポートはSDKライブラリに含まれていませんでした。</li>
+
+                <li class="li">横から縦に回転して通話する場合
+                        <samp class="ph codeph">[setFullscreen：NO]</samp> 宣伝中は、[詳細]ボタンが消えることがあります。 </li>
+
+                <li class="li"> デバイスの向きが変わると、[詳細]ボタンが消えることがあります。 </li>
+
+                <li class="li">Google IMA SDKのプレロール広告、ミッドロール広告、ポストポッド広告は予想どおりに再生されず、広告画像が正しく表示されません。</li>
+
+                <li class="li">デバイスがロックされていると、エアプレイの再生は一時停止します。</li>
+
+                <li class="li">アセットオーディオは、アプリの[戻る]ボタンをクリックした後も再生され続けます。</li>
+
+                <li class="li">アセットプログレスバーは、ライブアセットのフルスクリーンモードで表示され続けました。</li>
+
+                <li class="li">FreeWheelミッドロール広告が正しく再生されません。</li>
+
+                <li class="li">分析はiOSデバイスからの再生には正確ではありません。</li>
+
+            </ul>
+
+            <p class="gt-block p"><strong class="ph b">既知の問題点</strong></p>
+
+            <ul class="ul">
+                <li class="li">ユーザーがiOS 8.0.xデバイスでAirPlayの再生を開始すると、断続的なクラッシュが発生することがあります。 これは、AirPlayにデバイスロックコードが使用されている場合にのみ発生します。 この問題を回避するには、アプリを再起動してビデオの再生を再開します。</li>
+
+                <li class="li">デフォルトの問題 <samp class="ph codeph">カスタムコントロール</samp> このリリースでは、packageはカスタムコントロールの使用を妨げます。</li>
+
+            </ul>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Google IMAへの移行</h2>
+             Googleでは、IMA3より前のバージョンのGoogle IMA SDKを非推奨および非アクティブ化しています。 <p class="gt-block p"><strong class="ph b">非推奨のGoogle IMA SDKの無効化</strong></p>
+
+            現在サポートされているIMA SDKのバージョンは、FlashとHTML3の両方でIMA5です。 IMA2 FlashおよびIMA1 HTML5 SDKは、現在のフルDFPおよびAdX機能セットをサポートしていないだけでなく、正式には推奨されておらず、Googleのエンジニアリングチームによって積極的に維持またはサポートされていません。 そのため、IMA2およびIMA1 SDKは、どのパブリッシャによる使用も推奨されなくなりました。 12 / 31以降、IMA2およびIMA1 SDKは完全に非アクティブ化される予定です。 GoogleはホスティングからIMA2およびIMA1 SDKファイルを削除し、無効化されたSDKと統合されているすべてのプレーヤーは広告のリクエストまたはレンダリングを中止します。 中断せずに広告を配信し続けるには、無効化日より前にIMA2 FlashまたはIMA1 HTML5 SDKを使用しているすべてのプレーヤーをIMA3 SDKにアップグレードする必要があります。 <div class="note note"><span class="notetitle">注意：</span> これはHTML5プレーヤー、Ooyala iOSおよびAndroid SDKアプリには影響しません。</div>
+
+            <p class="gt-block p"><strong class="ph b">IMA SDKのバージョンはどこに割り当てられていますか？</strong></p>
+ プレーヤーと統合されているIMA SDKのバージョンは、Backlotの以下の設定によって決まります。 <p class="p">バックスロット→収益化→広告セット→広告ソース。</p>
+ Backlotで[Ad Sets]の下の次の[Ad Sources]が選択されている場合、古いバージョンのIMA SDKがFlashおよびHTML5プレーヤーにロードされます。 <ol class="ol">
+                <li class="li">DoubleClickの</li>
+
+                <li class="li">DoubleClickオーバーレイ</li>
+
+                <li class="li">ビデオインストリームのAdSense</li>
+
+                <li class="li">動画エンドキャップ向けAdSense</li>
+
+                <li class="li">動画オーバーレイ用AdSense</li>
+
+            </ol>
+ 次の広告セットの下の広告ソースがBacklotで選択されている場合、正しいバージョンのIMA SDK3がプレーヤーにロードされます。 <ul class="ul">
+                <li class="li">Google IMA V3</li>
+
+            </ul>
+ DoubleClick広告とAdSense広告は、広告タグを使用したGoogle IMA V3広告ソースから引き続きサポートされます。 <p class="gt-block p"><strong class="ph b">IMA SDKを最新バージョンに変更するにはどうすればいいですか？</strong></p>
+ 移行手順については、カスタマーサクセスマネージャおよびブライトコーブテクニカルサポートにお問い合わせください。 再生に関する問題が推奨されないバージョンまたはサポートされていないバージョンのGoogle IMAを使用しないようにするには、最新の正しい広告ソースであるGoogle IMA V3を使用するようにすべての広告セットを移行する必要があります。 <p class="p"> この移行はプレーヤーでプログラム的に行うことはできません。これは、お客様固有のすべての統合およびエッジケースをテストまたは検証できないためです。 プレーヤーは自動的に最新のIMA V3 SDKをロードするように設計されています。 ただし、BacklotのAd Setsによる設定はプレーヤーのバージョンを上書きします。 したがって、正しいバージョンのIMAモジュールがプレーヤーにロードされていることを確認するために、Backlotで変更を加える必要があります。 </p>
+<p class="p"> テクニカルサポートと協力してテストプレーヤーをオンにし、広告セットと広告ルール間の変更を確認してから、プロダクションで正しい広告ソースに切り替えることをお勧めします。 テクニカルサポートチームは、大規模な広告セットを顧客に移行するのを支援することができます。 このプロセスは正確さおよび効率を保障するために自動化されています。 </p>
+
+            <p class="gt-block p"><strong class="ph b">その他の非推奨</strong></p>
+ Google IMAのキューポイントはサポートされなくなりました。 <p class="gt-block p"><strong class="ph b">Flashの広告ルール</strong></p>
+<div class="note note"><span class="notetitle">注意：</span> 広告ルールはFlashでのみ利用可能です。</div>
+ DFP広告ルールを使用してGoogle IMAの広告位置を設定できます。これを使用すると、広告を正しく表示できるようになります。 <a class="xref" href="../reference/adset_fields_google.html" title="ここで説明しているフィールドは、広告ソースがGoogle IMA V3に設定されているBacklot広告セット用です。">バックスロットUI</a>  or  <a class="xref" href="../api/ad_sets.html" title="広告セットは、再生中のアセットの広告エクスペリエンスを制御する広告設定です。">バックスロットAPI</a>。 DFPと統合する手順は、次のURLにあります。 <a class="xref" href="../concepts/monetization_dfp.html" title="Backoy APIまたはMRSSフィードを介して、OoyalaでホストされているコンテンツをDoubleClick for Publishers（DFP）と同期させることで、Google IMAで収益化することができます。">DFPでOoyalaコンテンツを収益化する</a>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">機能リリース項目</h2>
+            
+            <p class="gt-block p"><strong class="ph b">新しいFlash Playerのパラメータ</strong></p>
+
+            <ul class="ul">
+                <li class="li" id="release20141203__PBI-54">showAdMarquee  - 広告の再生中に広告マーキーを表示するか非表示にするかを指定します。 showAdMarqueeがないかtrueに設定されている場合、広告がプレーヤで再生されている間に広告マーキーが表示されます。 このグローバルパラメータは、Ooyalaでサポートされているすべての広告タイプで機能します。 詳細については、 <a class="xref" href="../api/player_v3_api_embedparams.html">Player V3埋め込みパラメータ（廃止予定）</a>
+                    <div class="note note"><span class="notetitle">注意：</span> このパラメータはFlash専用です。</div>
+</li>
+
+                <li class="li" id="release20141203__PBI-70">設定できるもう1つのパラメータはuseStyledNonLinearAdsです。これは、trueに設定するとノンリニア広告の閉じるボタンを表示します。 このパラメータはオプションです。デフォルトでは、広告を閉じるボタンはノンリニア広告の場合に表示されます。 詳細については、 <a class="xref" href="../reference/ads_ref_googleima.html">プレーヤV3のGoogle IMA Ads埋め込みパラメータ（廃止予定）</a>
+                    
+                    or  <a class="xref" href="../concepts/ads_dev_google_ima.html">Google IMA AdsとPlayer V3を統合する</a>.  <div class="note note"><span class="notetitle">注意：</span> このパラメータはFlash専用です。</div>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">ドキュメントリリース項目</h2>
+            
+            <ul class="ul">
+                <li class="li">サポートサイトの再編成 <ul class="ul">
+                        <li class="li"> MRSSバリデータリンクはSDK MobileとClient SDKサポートページから移動されます。 このリンクは「MRSSフィードの検証」トピックに含まれています。 </li>
+
+                        <li class="li"> SDK MobileおよびClient SDKのサポートページが更新されました。 このページには、リリースノートとサポートドキュメントへのリンクが含まれています。 </li>
+
+                        <li class="li"> [SDK]タブから[Social Integrations]リンクを削除しました。 <a class="xref" href="../concepts/chapter_twitter.html" title="Twitterプレーヤーカードを使用すると、ビデオコンテンツをTwitterサイトやモバイルアプリケーションに直接埋め込むことができます。">Twitter</a>
+                            そして <a class="xref" href="../concepts/chapter_facebook.html" title="OoyalaベースのビデオをFacebookのタイムラインに投稿する方法はいくつかあります。">Facebook</a> ドキュメントは、Social Integrations開発者ガイドのDEVELOPERSタブにあります。 </li>
+
+                        <li class="li"> [SDK]タブから[スクラッチパッド]リンクを削除しました。 スクラッチパッドへのリンクは、にあります。 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </li>
+
+                        <li class="li"> [開発者]タブの[統合ガイド]は、次のように個別のガイドに分割されています。 <a class="xref" href="../concepts/sdk_overview.html" title="Ooyalaはあなたのコンテンツを他の環境やサービスと統合することを可能にするためにAndroidとiOSのためのモバイルSDKを提供します。">Ooyala Mobile SDK開発者ガイド</a>,  <a class="xref" href="../concepts/book_ads_integration.html" title="このドキュメントでは、Player V3の広告サーバー、広告ネットワーク、および広告管理プラットフォームの統合を設定する方法について説明します。">広告統合ガイド</a>,  <a class="xref" href="../concepts/book_device_integration.html" title="OoyalaとChromecastまたはAmazon Fire TVとの統合を使用して、デバイス間の通信範囲を拡大します。">デバイス統合</a> ガイド、 <a class="xref" href="../concepts/paywall_third_party_integrations.html">第三者ペイウォール統合</a>、および <a class="xref" href="../concepts/book_social_media_integration.html" title="OoyalaはあなたのビデオコンテンツをFacebookやTwitterと共有する機能を提供します。">ソーシャルメディア統合ガイド</a>。 わかりやすくするために、これらのガイドは「開発者」タブのナビゲーションの最上位に表示されています。 </li>
+
+                    </ul>
+
+                </li>
+
+                <li class="li">Google IMAからV3への移行 <ul class="ul">
+                        <li class="li">
+                            <a class="xref" href="../api/player_v3_api_embedparams.html">Player V3埋め込みパラメータ（廃止予定）</a> - 「google」AdSenseパラメータへの参照を削除しました。 AdSense広告は、広告セットを作成するときにAdSense広告タグのURLをGoogle IMA V3広告ソースに挿入することで使用できます。 </li>
+
+                        <li class="li">
+                            <a class="xref" href="../concepts/monetization_dfp.html" title="Backoy APIまたはMRSSフィードを介して、OoyalaでホストされているコンテンツをDoubleClick for Publishers（DFP）と同期させることで、Google IMAで収益化することができます。">DFPでOoyalaコンテンツを収益化する</a> -  Backlot UIとAPIを介して広告セットのDFP広告ルールを有効にする方法に関する説明を追加しました。 </li>
+
+                        <li class="li">
+                            <a class="xref" href="../tasks/api_monetization_ads_adsets_integratingadnetworks.html" title="自分の資産を使用する代わりに、広告ネットワークを利用することができます。">広告ソースと統合するための広告セットの作成</a> -  Google AdSense広告ソースをGoogle IMA V3に更新しました。 </li>
+
+                        <li class="li">
+                            <a class="xref" href="../reference/ad_networks.html" title="Ooyalaは、ビデオ広告配信テンプレート（VAST）をサポートするサードパーティの広告ネットワーク（広告プロバイダ）をサポートしています。">サポートされている広告プロバイダ</a> - サポートされている広告ネットワークを更新して、AdSenseとDoubleClickがGoogle IMA V3広告ソースを介してサポートされていることを示しました。 </li>
+
+                        <li class="li">
+                            <a class="xref" href="../reference/adset_fields_google.html" title="ここで説明しているフィールドは、広告ソースがGoogle IMA V3に設定されているBacklot広告セット用です。">Google IMA V3の広告セットフィールド</a>  -  Google IMA V3広告ソースを介してAdSense広告とDoubleClick広告を広告タグのURLで使用できることに注意してトピックを更新しました。 Backlot設定を使用する広告は、Backlotで決定された広告位置の前に動的に読み込まれるという警告が追加されました。 Google IMAは、事前取得のために広告をキューに入れることを可能にするIMA v3の機能を提供していません。 </li>
+
+                        <li class="li">
+                            <a class="xref" href="../api/ad_sets.html" title="広告セットは、再生中のアセットの広告エクスペリエンスを制御する広告設定です。">広告セット</a>  -  ad_typeキューポイントは、Google IMA V3広告ソースには有効な値ではなくなりました。 Backlot APIの有効な広告ソース値からDoubleClickとAdSenseを削除しました。 新しいad_typeの「rules」を追加しました（Google IMA V3のみ）。 </li>
+
+                        <li class="li">
+                            <a class="xref" href="../concepts/ads_dev_chapter_googleima.html">プレーヤV3 Google IMA広告統合</a>
+                            -  Google IMAからV3への移行に関する情報を追加しました。</li>
+
+                        <li class="li">
+                            <a class="xref" href="../concepts/ads_dev_google_ima.html">Google IMA AdsとPlayer V3を統合する</a>  -  Google IMAのキューポイントは廃止予定であるため、DFPを介した広告ルールの使用に関する情報を追加しました。 キューポイントセクションを削除し、代わりにDFPを介して広告ルールを使用することに関するメモを追加しました。 Backlot UIとAPIを介して広告セットのDFP広告ルールを有効にする方法に関する手順を追加しました。 </li>
+
+                    </ul>
+
+                </li>
+
+                <li class="li">
+                    <a class="xref" href="../concepts/ads_dev_vast.html">VAST広告セット統合ガイド</a>
+                    -  VASTコンパニオン広告の実装方法に関する説明を追加しました。  </li>
+
+                <li class="li">新しいFlash Playerのパラメータ <ul class="ul">
+                        <li class="li">
+                            <a class="xref" href="../api/player_v3_api_embedparams.html">showAdMarquee</a>
+                            -  Flash用のshowAdMarqueeを含むようにプレーヤーの埋め込みパラメータのドキュメントを更新しました。 </li>
+
+                        <li class="li">
+                            <a class="xref" href="../reference/ads_ref_googleima.html">プレーヤV3のGoogle IMA Ads埋め込みパラメータ（廃止予定）</a>,  <a class="xref" href="../concepts/ads_dev_google_ima.html">Google IMA AdsとPlayer V3を統合する</a>-  Flash用のuseStyledNonLinearAdsパラメータを含むようにGoogle IMAのドキュメントを更新しました。 </li>
+
+                    </ul>
+
+                </li>
+
+                <li class="li"><a class="xref" href="../concepts/player_v3_dev_localization.html" title="JavaScriptでOoyala Player V3 APIを使用してプレーヤーのユーザーインターフェイスをローカライズできます。">JavaScriptを使用したFlashまたはHTML5プレーヤーV3のローカライズ（廃止予定）</a>-  FlashとHTML5の &quot;locale&quot;プレーヤーパラメータに有効な入力のリストを追加しました。</li>
+
+                <li class="li"><a class="xref" href="../concepts/player_v3_dev_debugtool.html" title="Ooyalaがあなたが遭遇するかもしれないビデオの問題をデバッグするのを助けるのに私達のクロム拡張を使用しなさい。">Player V3でのChromeのデバッグ/トラブルシューティング拡張機能（廃止予定）</a>- デバッガの操作モードとあなた自身のサイトをデバッグする方法に関する内容を追加しました。</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2014.html" title="2014からのリリースノート。">2014ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

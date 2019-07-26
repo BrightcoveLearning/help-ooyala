@@ -1,0 +1,154 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Using CocoaPods"/>
+<meta name="abstract" content="Learn how to integrate CocoaPods into your iOS Mobile app."/>
+<meta name="description" content="CocoaPodをiOSモバイルアプリに統合する方法を学びましょう。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ios_aboutcocoapods.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="ios_usingcocoapods"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>CocoaPodを使う</title>
+</head>
+<body id="ios_usingcocoapods">
+
+
+    <h1 class="title topictitle1">CocoaPodを使う</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">CocoaPodをiOSモバイルアプリに統合する方法を学びましょう。</p>
+
+        <div class="section context">
+            <p class="p">プロジェクトにCocoa Podを設定するには、次の手順に従います。</p>
+
+        </div>
+
+        <ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd">端末を開き、プロジェクトに移動します。</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">次のコマンドを実行してCocoaPodを起動し、プロジェクトの依存関係を定義するためのデフォルトのpodファイルを作成します。</span>
+                 
+                    <pre class="pre codeblock">ポッドの初期化</pre>
+
+                
+                 プロジェクト用にデフォルトのPodfileが作成されます。
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">XcodeでPodefileを開きます。 これは、次の構文を使用してコマンドラインから実行できます。</span>
+                 
+                    <pre class="pre codeblock">open -a Xcode Podfile</pre>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">ポッドファイルを編集用に開きます。</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">デフォルトのiOSプラットフォームを定義します。 次のコード例では、デフォルトプラットフォームは7.0として定義されています。</span>
+                 
+                    <pre class="pre codeblock">プラットフォーム：ios、 &#39;7.0&#39;</pre>
+
+                    <div class="note note"><span class="notetitle">注意：</span> プラットフォームが定義されていない場合は、バージョン4.3が想定されます。</div>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">次の構文を使用して依存関係を定義してください。</span>
+                 <pre class="pre codeblock">pod &#39;依存関係名&#39; &#39;依存関係バージョン&#39;</pre>
+
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">端末から、定義された依存関係をインストールするためにコマンドを実行します。</span>
+                 
+                    <pre class="pre codeblock">ポッドインストール</pre>
+
+                
+                 
+                    <p class="gt-block p">Podsフォルダは、プロジェクトの依存関係と
+                            <span class="ph filepath">project.xcワークスペース</span> 創造された。</p>
+
+                    <div class="note important"><span class="importanttitle">重要：</span> この時点で、すべてのプロジェクト作業はxcworkspaceで行わなければなりません。 </div>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">プロジェクト.xcworkspaceを開きます。</span>
+                 
+                    <p class="p">これで、ワークスペースに2つの別々のプロジェクトがあります。 Podsプロジェクトではなく、Xcodeプロジェクトに新しいファイルを追加します。</p>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd"> に移動して、Xcodeから新しいファイルを作成します。 <span class="ph uicontrol">ファイル&gt;新規&gt;ファイル</span>。 選択する <span class="ph uicontrol">iOS&gt;ソース&gt; Cocoa Touch Class</span>、クリック <span class="ph uicontrol">次</span>.</span>
+                 <img class="image" src="http://help-ooyala.brightcove.com/../image/ios_selectcocoatouchclass.png" height="260" width="440" alt="ココアタッチテンプレートを選択"/>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">クラスに名前を付けてサブクラスとして割り当て、iPhoneまたはiPod用のXIBファイルを作成して、 <span class="ph uicontrol">次</span>.</span>
+                 <img class="image" src="http://help-ooyala.brightcove.com/../image/createxibfile.png" height="259" width="440" alt="XIBファイルを作成する"/>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">新しいファイルを（Podプロジェクトではなく）Xcodeプロジェクトに追加して、
+                        <span class="ph uicontrol">作ります</span>.</span>
+            </li>
+</ol>
+
+        <div class="section result"><p class="gt-block p">プロジェクトをビルドする準備が整いました。 アプリの依存関係と要件を満たすために必要な数のポッドを追加します。 完全なCocoaPod Ooyalaプロジェクトをテストするには、 <a class="xref" href="ios_cocoapods_tutorial.html">Ooyala CocoaPodsチュートリアルのテスト</a>.</p>
+</div>
+
+    </div>
+
+    <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/ios_aboutcocoapods.html" title="iOSモバイルアプリでライブラリの依存関係を管理するためのCocoa Podの使用方法について説明します。">ココアポッドについて</a></div>
+</div>
+</div>
+<div class="topic task nested1" id="installOoyalaSSK">
+        <h2 class="title topictitle2">Cocoapodsを介してOoyala SDK.frameworkをインストールする方法</h2>
+
+        <div class="body taskbody"><ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd">最新バージョンのCocoapodをインストールしてください。</span>
+                 <pre class="pre codeblock">宝石インストールcocoapods</pre>
+
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Ooyalaのプライベートスペックレポをあなたの地元のCocoapodsに追加してください。</span>
+                 例えば：
+                    <pre class="pre codeblock">ポッドリポジトリにooyala-specsを追加するhttps://github.com/ooyala/ios-sdk-podspecs.git</pre>
+
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">レポが最新であることを確認するために、それを更新してください。</span>
+                 <pre class="pre codeblock">ポッドリポジトリアップデートooyala-specs</pre>
+
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">iOSプロジェクトのルートディレクトリでPodfileを開くか作成し、Ooyalaリポジトリのソースを追加して、OoyalaSDKポッドを必要なターゲットに追加します。</span>
+             例えば：
+                        <pre class="pre codeblock">＃ソースの順序は重要です。その順序で検索するので、最初にプライベートリポジトリを（Ooyalaのように）最初に配置し、最後にCocoaPodsの公式リポジトリを配置することをお勧めします。 ソース &#39;https://github.com/ooyala/ios-sdk-podspecs.git&#39;ソース &#39;https://github.com/CocoaPods/Specs.git&#39;ターゲット &#39;MyApp&#39;はポッド &#39;OoyalaSDK&#39;を行います、 &#39;〜&gt; 4.31.1 &#39; 終わり</pre>
+
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">ポッドを取り付けます。</span>
+                 <pre class="pre codeblock">ポッドインストール</pre>
+
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">PodfileでOoyalaSDKバージョンをアップデートするときはいつでも、あなたは再びリポジトリアップデートを実行するべきですそしてそれからどちらかをするべきです <samp class="ph codeph">update</samp>  or  <samp class="ph codeph">install</samp>&gt;</span>
+                 <pre class="pre codeblock">ポッドリポジトリのアップデートooyala-specsポッドのインストールポッドのアップデート＃インストールまたはアップデートのどちらかを使用</pre>
+
+            </li>
+</ol>
+</div>
+
+    </div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolu

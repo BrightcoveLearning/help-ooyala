@@ -1,0 +1,338 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="System Requirements by Platform for Player V4"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_intro.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_standards.html"/>
+<meta name="DC.Relation" scheme="URI" content="pbv4_environments.html"/>
+<meta name="DC.Relation" scheme="URI" content="pbv4_environments_functional.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_requirements"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>プレーヤV4のプラットフォーム別システム要件</title>
+</head>
+<body id="pbv4_requirements">
+
+
+  <h1 class="title topictitle1">プレーヤV4のプラットフォーム別システム要件</h1>
+
+
+  <div class="body conbody">
+    <p class="gt-block p"><span class="ph">プレイヤーV4</span> 利用可能な帯域幅、CPU、デバイス、およびスループットに基づいて、消費者に可能な限り最高品質のストリームを提供します。 あなたが理想的な品質より劣っているのを見ているならば、あなたの環境がこれらの最小要件を満たすことを確認してください。</p>
+
+    <div class="note note"><span class="notetitle">注意：</span> これらの設定は非DRM（クリア）ストリームにのみ適用されます。 DRM保護コンテンツでサポートされているプラ​​ットフォームについては、 <a class="xref" href="contentprotection_optionsbydevice.html" title="テクノロジオプションは、ターゲットデバイスの種類、ネットワーク、ストリーミングプロトコル、およびその他の要因によって異なります。">デバイス別のコンテンツ保護オプション</a> 代わりに。</div>
+
+    <div class="note note"><span class="notetitle">注意：</span> これらの構成は、リリースごとに定期的にテストされます。 他の環境（LinuxやChromeのベータチャンネルなど）でも動作するかもしれませんが、積極的にはテストされていません。</div>
+
+    <div class="section"><h2 class="title sectiontitle">ウィンドウズ</h2>
+      
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" id="d587101e42">要件</th>
+
+              <th class="entry" valign="top" id="d587101e45">説明</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" headers="d587101e42 d587101e45 ">プロセッサ</td>
+
+              <td class="entry" valign="top" headers="d587101e42 d587101e45 ">Intel Pentium 4または1 GHzプロセッサと同等</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d587101e42 d587101e45 ">オペレーティングシステム</td>
+
+              <td class="entry" valign="top" headers="d587101e42 d587101e45 ">
+                <ul class="ul">
+                  <li class="li">利用可能なすべての更新プログラムを適用したWindows 10</li>
+
+                  <li class="li">利用可能なすべての更新プログラムを適用したWindows 8</li>
+
+                  <li class="li">利用可能なすべての更新プログラムを適用したWindows 7</li>
+
+                </ul>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d587101e42 d587101e45 ">RAM</td>
+
+              <td class="entry" valign="top" headers="d587101e42 d587101e45 ">最低512 MB（1 GB推奨）</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d587101e42 d587101e45 ">ビデオカード</td>
+
+              <td class="entry" valign="top" headers="d587101e42 d587101e45 ">最小32 MB（128 MB推奨）</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d587101e42 d587101e45 ">ブラウザ</td>
+
+              <td class="entry" valign="top" headers="d587101e42 d587101e45 ">
+                <ul class="ul">
+                  <li class="li">Chrome v47 +</li>
+
+                  <li class="li">Firefox v48 +</li>
+
+                  <li class="li">インターネットエクスプローラv11 +</li>
+
+                  <li class="li">マイクロソフトエッジ（Windows 10）</li>
+
+                </ul>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d587101e42 d587101e45 ">フラッシュ</td>
+
+              <td class="entry" valign="top" headers="d587101e42 d587101e45 ">
+                <ul class="ul">
+                  <li class="li"><strong class="ph b">リアルタイムメッセージングプロトコル（RTMP）の再生用</strong>：10.0以上（10.1以上を推奨）</li>
+
+                  <li class="li"><strong class="ph b">HTTPダイナミックストリーミング（HDS）再生用</strong>：10.1.0以上</li>
+
+                </ul>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d587101e42 d587101e45 ">画面の解像度</td>
+
+              <td class="entry" valign="top" headers="d587101e42 d587101e45 ">800 x 600の最小値（1280 x 1024以上を推奨）</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d587101e42 d587101e45 ">インターネット接続</td>
+
+              <td class="entry" valign="top" headers="d587101e42 d587101e45 ">ブロードバンド/高速（DSL、ケーブル、T1など） ダイヤルアップ接続はビデオ再生には不十分です。</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+      
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Mac OS Xの</h2>
+      
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" id="d587101e182">要件</th>
+
+              <th class="entry" valign="top" id="d587101e185">説明</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" headers="d587101e182 d587101e185 ">プロセッサ</td>
+
+              <td class="entry" valign="top" headers="d587101e182 d587101e185 ">Intel Core2 Duo 1.83GHz以上のプロセッサ</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d587101e182 d587101e185 ">オペレーティングシステム</td>
+
+              <td class="entry" valign="top" headers="d587101e182 d587101e185 ">10.9GHz以上のIntelプロセッサを搭載したMac OS X 1 +。 PowerPCはサポートされていません。</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d587101e182 d587101e185 ">RAM</td>
+
+              <td class="entry" valign="top" headers="d587101e182 d587101e185 ">最低512 MB（1 GB推奨）</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d587101e182 d587101e185 ">ビデオカード</td>
+
+              <td class="entry" valign="top" headers="d587101e182 d587101e185 ">最小32 MB（128 MB推奨） </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d587101e182 d587101e185 ">ブラウザ</td>
+
+              <td class="entry" valign="top" headers="d587101e182 d587101e185 ">
+                <ul class="ul">
+                  <li class="li">Chrome v47 +</li>
+
+                  <li class="li">Firefox v48 +</li>
+
+                  <li class="li">Safari v8 +</li>
+
+                </ul>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d587101e182 d587101e185 ">フラッシュ</td>
+
+              <td class="entry" valign="top" headers="d587101e182 d587101e185 ">10.0以上（10.1以降を推奨）</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d587101e182 d587101e185 ">画面の解像度</td>
+
+              <td class="entry" valign="top" headers="d587101e182 d587101e185 ">800 x 600の最小値（1280 x 1024以上を推奨） </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d587101e182 d587101e185 ">インターネット接続</td>
+
+              <td class="entry" valign="top" headers="d587101e182 d587101e185 ">ブロードバンド/高速（DSL、ケーブル、T1など） ダイヤルアップ接続はビデオ再生には不十分です。</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">アップルのiOS</h2>
+      
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" id="d587101e295">要件</th>
+
+              <th class="entry" valign="top" id="d587101e298">説明</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" headers="d587101e295 d587101e298 ">オペレーティングシステム</td>
+
+              <td class="entry" valign="top" headers="d587101e295 d587101e298 ">iOS v9 +</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d587101e295 d587101e298 ">ブラウザ</td>
+
+              <td class="entry" valign="top" headers="d587101e295 d587101e298 ">サファリ</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d587101e295 d587101e298 ">インターネット接続</td>
+
+              <td class="entry" valign="top" headers="d587101e295 d587101e298 ">WiFiまたは3G</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+    <div class="section" id="pbv4_requirements__android"><h2 class="title sectiontitle">アイフォン</h2>
+      
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" id="d587101e349">要件</th>
+
+              <th class="entry" valign="top" id="d587101e352">説明</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" headers="d587101e349 d587101e352 ">オペレーティングシステム</td>
+
+              <td class="entry" valign="top" headers="d587101e349 d587101e352 ">Android v4.4 +</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d587101e349 d587101e352 ">ブラウザ</td>
+
+              <td class="entry" valign="top" headers="d587101e349 d587101e352 ">Android用クローム</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d587101e349 d587101e352 ">インターネット接続</td>
+
+              <td class="entry" valign="top" headers="d587101e349 d587101e352 ">WiFiまたは3G</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+      <div class="note note"><span class="notetitle">注意：</span> Androidデバイスのテストは、Samsung、Google、およびHTCの人気のあるAndroidデバイスに限定されています。</div>
+
+    </div>
+
+  </div>
+
+  <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/pbv4_intro.html">プレーヤーV4の紹介</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_standards.html" title="Supported Standards Guideへようこそ。 これらのトピックでは、Ooyalaがサポートする要件と標準について説明します。">サポートされている標準</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="pbv4_environments.html">Player V4でサポートされているブラウザとオペレーティングシステム</a></div>
+<div><a class="link" href="pbv4_environments_functional.html">Player V4の環境を越えた機能サポート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

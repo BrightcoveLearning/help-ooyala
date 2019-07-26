@@ -1,0 +1,133 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Chromecast Integration Prerequisites"/>
+<meta name="abstract" content="Prior to integrating with the Ooyala Chromecast Integration v.2.0 you must have the following."/>
+<meta name="description" content="Ooyala Chromecast Integration v.2.0と統合する前に、次のものが必要です。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chromecast_and_ooyala.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/cors_enablement.html"/>
+<meta name="DC.Relation" scheme="URI" content="chromecast_and_ooyala.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="chromecast_prerequisites"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Chromecast統合の前提条件</title>
+</head>
+<body id="chromecast_prerequisites">
+
+
+    <h1 class="title topictitle1">Chromecast統合の前提条件</h1>
+
+    
+    <div class="body conbody"><p class="shortdesc">Ooyala Chromecast Integration v.2.0と統合する前に、次のものが必要です。</p>
+
+        <div class="note important"><span class="importanttitle">重要：</span> このトピックには古い情報が含まれており、推奨されていません。 OoyalaとChromecastの統合に関する最新情報は、をご覧ください。 <a class="xref" href="chromecast/index.html">Chromecastの統合</a>.</div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                
+                
+                <tbody class="tbody">
+                    <tr class="row">
+                        <td class="entry" valign="top"><strong class="ph b">SDKアクセス</strong></td>
+
+                        <td class="entry" valign="top"><p class="gt-block p">Android用OoyalaモバイルSDKおよび/またはiOS用OoyalaモバイルSDKの最新バージョン <span class="ph">Ooyala <a class="xref" href="../../../../../../../../ja/downloads/index.html" target="_blank">ダウンロード</a></span>.</p>
+</td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" rowspan="2" valign="top"><strong class="ph b">技術的な専門知識</strong>
+                        </td>
+
+                        <td class="entry" valign="top">
+                            <p class="p">iOSまたはAndroidの開発経験</p>
+
+                        </td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top">JavaScript開発の経験</td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" rowspan="4" valign="top"><strong class="ph b">有効化</strong></td>
+
+                        <td class="entry" valign="top">デフォルトの受信機を使用している場合は、サポートセンターにログインし、テクニカルサポートがアカウントに「Chromecastデフォルト受信機」サードパーティモジュールを追加するように要求するチケットを送信してください。 現時点ではあなたのプレーヤーIDと共にテクニカルサポートを提供する必要があります。 プレーヤーIDを取得する方法については、をご覧ください。 <a class="xref" href="../reference/player_v3_dev_tutorial.html" title="このチュートリアルを使用して、HTML5 Player V3の使用を開始してください。">HTML5プレーヤーV3の基本チュートリアル（非推奨）</a>.</td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top"><strong class="ph b">Or</strong></td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top">カスタムレシーバーを使用している場合は、サポートセンターにログインし、テクニカルサポートがアカウントに「Chromecastカスタムレシーバー」サードパーティモジュールを追加するように要求するチケットを送信してください。 現時点ではあなたのプレーヤーIDと共にテクニカルサポートを提供する必要があります。 プレーヤーIDを取得する方法については、をご覧ください。 <a class="xref" href="../reference/player_v3_dev_tutorial.html" title="このチュートリアルを使用して、HTML5 Player V3の使用を開始してください。">HTML5プレーヤーV3の基本チュートリアル（非推奨）</a>.
+                                
+                                <div class="note note"><span class="notetitle">注意：</span> デフォルトのレシーバーとカスタムのレシーバーに同じプレーヤーIDを使用しないでください（テクニカルサポートから「Chromecastカスタムレシーバー」と「Chromecastデフォルトレシーバー」を要求するときは、別のプレーヤーIDを使用してください）。 </div>
+
+                        </td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top">プロファイル処理用のストリーミングプロトコルを有効にするには、テクニカルサポートにお問い合わせください。 </td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" rowspan="2" valign="top"><strong class="ph b">ホスティング</strong>
+                            <div class="note note"><span class="notetitle">注意：</span> OoyalaのサンプルアプリケーションはOoyalaによってホストされており、CORSが有効になっているため、これらのホスティングの前提条件は適用されません。</div>
+
+                        </td>
+
+                        <td class="entry" valign="top">Ooyalaはレシーバーアプリケーションホスティングを提供していません。 あなたはレシーバーアプリケーションのためのあなたのホスティングインフラストラクチャーを促進しなければなりません。 プロダクションレシーバはSSLを介して提供される必要があります。</td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top">コンテンツ配信に使用するCDNでクロスオリジンリソース共有（CORS）有効化を設定します。 CORSを有効にする方法については、を参照してください。 <a class="xref" href="cors_enablement.html">CORSとChromecast</a>.</td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top"><strong class="ph b">登録</strong></td>
+
+                        <td class="entry" valign="top">開発者としてGoogleに登録して、受信側アプリケーションIDを取得します（これは、どの受信側に送信するかを送信側アプリケーションに示します）。 キャスト開発者ライセンスは、にあります。 <a class="xref" href="https://cast.google.com/publish/#/overview" target="_blank"> https://cast.google.com/publish/#/overview</a>。 これにより、レシーバーアプリのWebページのURLが登録されます。 </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+</div>
+
+    </div>
+
+    <div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../concepts/cors_enablement.html">CORSとChromecast</a></strong><br/>
+</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chromecast_and_ooyala.html">ChromecastとOoyala（廃止予定）</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="chromecast_and_ooyala.html">ChromecastとOoyala（廃止予定）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

@@ -1,0 +1,324 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="VR 360 Videos"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/content_videos.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="vr360"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>VR 360ビデオ</title>
+</head>
+<body id="vr360">
+
+
+  <h1 class="title topictitle1">VR 360ビデオ</h1>
+
+  <div class="body conbody">
+    <div class="section" id="vr360__vr360-overview">Ooyalaを使用すると、モバイルデバイスやデスクトップデバイスで没入型のVRを体験したい消費者向けに、バーチャルリアリティ（VR）360程度のビデオを保存、公開、および再生できます。 従来のフラットビデオとは異なり、VR 360ビデオは、全方位のビューをキャプチャする特殊な全方向カメラを使用して作成されているため、VRインタラクションのための「球形」の録画が可能です。</div>
+
+    <div class="section"><h2 class="title sectiontitle">VR 360ビデオに関する考慮事項</h2>VR 360ビデオを扱うときは、次の要素を考慮してください。 <ul class="ul">
+        <li class="li"><strong class="ph b">ソースファイルの作成</strong>：VR 360はVR 360コンテンツを記録するために特別なカメラを必要とします。 このドキュメントの範囲は、Webおよびモバイルアプリで配布するためのVR 360コンテンツの作成および編集方法に関する知識を前提としています。 VR 360ストリームは、フラットビデオコンテンツよりもはるかに広い帯域幅を必要とします。 </li>
+
+        <li class="li"><strong class="ph b">特別な要件</strong>：VR 360は、VR 360フォーマットのストリームのレンダリングとフレーミングの両方、およびカメラアングルを制御する機能を必要とします。 したがって、VR 360ビデオは、カメラアングルをナビゲートするための追加のプレーヤー制御機能を使用してレンダリングされます。 ビデオのソース編集では、デフォルト（ゼロ）のカメラアングルが定義されます。</li>
+
+        <li class="li"><strong class="ph b">VR 360ストリームは、フラットビデオコンテンツよりも多くの帯域幅を必要とします。</strong> VR 360ストリームの表示可能領域は、ストリーム全体のごく一部にすぎないため（表示可能領域は通常、ビデオフレームの10〜20％にすぎません）、フォーカス領域で許容できる品質を実現するには、はるかに高品質のストリームが必要です。 。 その結果、十分なネットワーク帯域幅のしきい値は、VR 360コンテンツでははるかに高くなります。 バッファリングやストールのリスクを最小限に抑えて再生を可能にするには、視聴者は利用可能な最低のビットレートを基準にしておよそ1.2-1.5xの接続帯域幅を持つ必要があります。</li>
+
+      </ul>
+</div>
+
+    <div class="section" id="vr360__vr360_support"><h2 class="title sectiontitle">VR360ビデオのOoyalaサポート</h2>
+    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+           <thead class="thead" align="left">
+              <tr class="row">
+                 <th class="entry" valign="top" id="d638309e48">因子</th>
+
+                 <th class="entry" valign="top" id="d638309e51">説明</th>
+
+               </tr>
+
+             </thead>
+
+             <tbody class="tbody">
+               <tr class="row">
+                   <td class="entry" valign="top" headers="d638309e48 d638309e51 ">サポートされているブラウザ</td>
+
+                    <td class="entry" valign="top" headers="d638309e48 d638309e51 ">Web環境では、VR 360再生は、Ooyala V4プレーヤーでのサポートが認定されている、一般的にサポートされているすべてのブラウザでサポートされています（を参照）。
+                  <a class="xref" href="pbv4_environments.html">Player V4でサポートされているブラウザとオペレーティングシステム</a>).  <ul class="ul">
+                  <li class="li">クロム</li>
+
+                  <li class="li">Firefoxの 
+                  </li>
+
+                  <li class="li">エッジ </li>
+
+                  <li class="li">Internet Explorer 11 +</li>
+
+                  <li class="li">サファリ</li>
+
+                  <li class="li">サファリモバイル <div class="note note"><span class="notetitle">注意：</span> Safari Mobileはフルスクリーンモードではサポートされていません。 代わりに、Ooyalaは上部パネルと下部パネルがまだ表示されている「疑似」フルスクリーンをサポートしています。 Appleはフルスクリーンでネイティブプレーヤーの上にUIコントロールを重ねることを許可していないため（ナビゲーションを容易にするために必要です）、フルスクリーン表示はできません。</div>
+</li>
+
+                  <li class="li">クロームモバイル</li>
+
+                </ul>
+
+                <strong class="ph b">ブラウザに関する考慮事項 </strong><ul class="ul">
+                  <li class="li">標準の埋め込みコードを使用すると、VR 360の再生は自動的に機能します（を参照）。 <a class="xref" href="../tasks/publishing_manual_embed.html">バックスロットでのプレーヤー埋め込み設定</a>） Advanced埋め込みは以下の場合にも動作します。 <ul class="ul">
+                      <li class="li">bit_wrapper.jsプラグインが含まれています</li>
+
+                      <li class="li">すべてのプラグインのバージョンは、Ooyalaプレーヤーの4.21以上にあります。</li>
+
+                    </ul>
+</li>
+
+                  <li class="li">ChromeおよびSafari Mobileの場合、VR 360ビデオナビゲーションは、タッチアンドドラッグナビゲーションと加速度計ナビゲーション（デバイスと一緒に移動）の両方をサポートします。 </li>
+
+                  <li class="li">それをサポートできないブラウザにVR 360コンテンツを配信する場合、視聴者はそのコンテンツをフラットビデオとして見るか（カメラアングルを変更することはできません）、ブラウザがそのコンテンツをサポートしないことを示すメッセージに遭遇します。</li>
+
+                </ul>
+<div class="note important"><span class="importanttitle">重要：</span> Ooyala Skin SDKのみがVR 360ビデオで使用できます。 デフォルトスキンとカスタムスキンは、iOSまたはAndroidのSDKでは使用できません。</div>
+
+              </td>
+
+
+               </tr>
+
+               <tr class="row">
+                   <td class="entry" valign="top" headers="d638309e48 d638309e51 ">サポートされているOoyala Web Playerのバージョン</td>
+
+                   <td class="entry" valign="top" headers="d638309e48 d638309e51 ">
+                        <ul class="ul">
+                          <li class="li">プレーヤーV4 Web v4.20.5以上</li>
+
+                         </ul>
+
+                     </td>
+
+                </tr>
+  
+                 <tr class="row">
+                 <td class="entry" valign="top" headers="d638309e48 d638309e51 ">サポートされているOoyala SDKのバージョン</td>
+
+                 <td class="entry" valign="top" headers="d638309e48 d638309e51 ">
+                   <ul class="ul">
+                     <li class="li">iOS用Ooyala Mobile SDK v4.31.0以上
+                       <div class="note note"><span class="notetitle">注意：</span> VR 360ビデオは、iOS 11 +デバイスのSafari Mobileでのみ再生できます。</div>
+</li>
+
+                     <li class="li">Ooyala Mobile SDK for Android v4.31.0以上</li>
+
+                   </ul>
+
+                 </td>
+
+               </tr>
+
+               
+                 <tr class="row">
+                 <td class="entry" valign="top" headers="d638309e48 d638309e51 ">サポートされているデバイスハードウェア</td>
+
+                 <td class="entry" valign="top" headers="d638309e48 d638309e51 ">4Kビデオ品質またはそれに近い品質を推奨していますが、多くのデバイスにはh.264 4Kビデオのレンダリングに必要な処理リソースがありません。 具体的には、我々は4Kビデオを再生するのに苦労するために次のデバイスが見つかりました： <ul class="ul">
+                  <li class="li">iOS 6以下のデバイス </li>
+
+                  <li class="li">Android 5.x以下のデバイス</li>
+
+                  
+                </ul>
+<div class="note note"><span class="notetitle">注意：</span> 
+                  <p class="p">ジャイロセンサーを搭載していないデバイスでは、VR360ビデオをサポートできません。 プレーヤーは正しい向きの再生を生成するためにジャイロセンサーを頼りにしています。</p>
+
+                </div>
+</td>
+
+               </tr>
+
+               <tr class="row">
+                   <td class="entry" valign="top" headers="d638309e48 d638309e51 ">サポートされている入力形式</td>
+
+                 <td class="entry" valign="top" headers="d638309e48 d638309e51 "><ul class="ul"><li class="li"><strong class="ph b">推奨：</strong> H.264、アップルProRes</li>
+
+        <li class="li"><strong class="ph b">その他のサポートフォーマット：</strong> VR 360ビデオは、OoyalaでサポートされているVR 360ディスプレイに適したビデオコーデックを使用できます。</li>
+</ul>
+
+        <p class="gt-block p">VR 360の詳細については、 
+         <a class="xref" href="../reference/../concepts/vr360.html">VR 360ビデオ</a>.</p>
+
+       </td>
+  
+                 </tr>
+
+                 <tr class="row">
+                     <td class="entry" valign="top" headers="d638309e48 d638309e51 ">サポートされているVR360タイプ</td>
+
+                     <td class="entry" valign="top" headers="d638309e48 d638309e51 ">
+                             <ul class="ul">
+                                     <li class="li"><strong class="ph b">モノスコープ</strong> -  1つの画像が両方の目に向けられている</li>
+
+                                     <li class="li"><strong class="ph b">立体視（サイドバイサイド）</strong> -  2つの画像がそれぞれの目に別々に向けられています</li>
+
+                                     
+                             </ul>
+
+                      </td>
+
+                  </tr>
+
+                     <tr class="row">
+                             <td class="entry" valign="top" headers="d638309e48 d638309e51 ">サポートされているストリーミングフォーマット</td>
+
+                       <td class="entry" valign="top" headers="d638309e48 d638309e51 ">現在、eHLSストリームと同様に、明確なHLSとDASHがVR 360でサポートされています。 デフォルトでは、Ooyalaはアップロード時にVR 360として識別されたすべてのビデオに対してシングルビットレートの処理プロファイルを提供します。 このプロファイルは、最低でも8Kの4K解像度を持つ〜3840 Mbps HLSおよび/またはDASHストリームを作成します。 Ooyalaの取り込みはソースの縦横比を維持し、高さを動的に計算しますが、ソースのフレームレートもソースファイルから保持されます。 詳しくは、 <a class="xref" href="encodings_recommendations_ratios.html">プレーヤV4のための推奨エンコーディング</a>.</td>
+   
+                     </tr>
+                     
+             </tbody>
+
+        </table>
+</div>
+        
+            
+    </div>
+     
+    <div class="section" id="vr360__add"><h2 class="title sectiontitle">BacklotアカウントにVR 360コンテンツを追加する</h2>以下の方法でVR360コンテンツをBacklotに追加できます。 <ul class="ul">
+        <li class="li"><strong class="ph b">バックスロットUI</strong>
+          <ul class="ul">
+            <li class="li">VR 360ビデオのアップロードは、フラットビデオのアップロードと似ています。 主な違いは、ビデオをVR 360として識別し、次にコンテンツがモノスコピックかステレオスコピックかを指定することです。 見る <a class="xref" href="../tasks/video_upload.html" title="動画を管理するには、まずアップロードする必要があります。">動画をアップロードする</a> 詳細については。 </li>
+
+            <li class="li">リモートアセットとしてVR 360ビデオを追加できます。 見る
+              <a class="xref" href="../tasks/remote_asset_upload.html" title="リモートアセットを管理する前に、それをBacklotに追加する必要があります。">Backlotでのリモートアセットの追加</a> 詳細については。</li>
+
+            <li class="li">ビデオアセットをVR 360ビデオに置き換えることができます。 見る
+              <a class="xref" href="../tasks/asset_replacement.html" title="コンテンツの置き換えにより、古いコンテンツを新しいコンテンツに置き換えることができます。 たとえば、技術的な問題があるビデオがある場合や、複数のビデオでロゴを変更する必要がある場合があります。 この機能を有効にするには、テクニカルサポートに連絡してください。">コンテンツを置き換える</a> 詳細については。</li>
+
+          </ul>
+
+           </li>
+
+        <li class="li"><strong class="ph b">バックスロットAPI</strong>  -  VR 360ビデオのアップロードは、フラットビデオのアップロードと似ています。 主な違いは、 <samp class="ph codeph">vr360type</samp> コンテンツがモノスコープかステレオスコピックかを指定するクエリパラメータとしてのattribute。 あなたが指定することができます <samp class="ph codeph">vr360type</samp> 最初に <samp class="ph codeph">POST / v2 / assets</samp> 電話をかけるか、または後で追加して使用できます。 <samp class="ph codeph">PUT / v2 / assets /：embed / metadata</samp>。 見る <a class="xref" href="../api/asset_vr360.html">VR 360コンテンツのアップロード</a> 詳細については。 </li>
+
+        <li class="li"><strong class="ph b">ウーヤラ摂取サービス（OIS）</strong> -  VR 360ビデオのアップロードはフラットビデオの取り込みに似ていますが、VR 360に固有のメタデータが追加されています - ファイルにVR 360というラベルを付け、VR 360タイプ（モノスコープまたはステレオスコピック）を指定します。 <ul class="ul">
+            <li class="li">マニフェストファイルでVR 360ファイルのメタデータを設定できます（ <a class="xref" href="ingestion_fileformats.html">マニフェストファイル形式</a>).  </li>
+
+            <li class="li">マニフェストファイルを使用していない場合は、ファイルのメタデータを <samp class="ph codeph">ffmpeg</samp> コマンドラインユーティリティ（ <a class="xref" href="ingestion_ftp.html" title="FTPS（推奨）またはFTP（非推奨）を使用して、ビデオ、サムネイル、クローズドキャプション、およびマニフェストファイルをBacklotにアップロードできます。">FTP / FTPSを使った取り込み</a>  or  <a class="xref" href="ingestion_aspera.html" title="Asperaファイル転送ソフトウェアを使用して、ビデオ、サムネイル、クローズドキャプション、およびマニフェストファイルをBacklotにアップロードできます。">Asperaでの摂取</a>).</li>
+
+          </ul>
+ OISの概要については、 <a class="xref" href="ingestion_overview.html">コンテンツの取り込みについて</a></li>
+
+      </ul>
+</div>
+
+      <div class="section"><h2 class="title sectiontitle">VR 360アセットの管理</h2>Backlotに保存すると、フラットビデオと同じようにVR 360ビデオを管理および公開できます。 </div>
+
+    <div class="section"><h2 class="title sectiontitle">VR 360ビデオの再生</h2>Ooyalaプレーヤーは自動的にVR 360ストリームを検出し、VR 360ビデオをナビゲートするための適切な再生コントロールを表示します。 次の例は、画面にVR 360アイコンを示しています。<div class="fig fignone">
+        <img class="image" src="http://help-ooyala.brightcove.com/../concepts/../image/vr360_control_screen.png" height="206" width="452"/>
+      </div>
+
+      <p class="gt-block p"><strong class="ph b">カメラアングルを変更する</strong></p>
+ 視聴者には、カメラアングルを変更する方法がいくつかあります。 <div class="fig fignone">
+        <img class="image" src="http://help-ooyala.brightcove.com/../concepts/../image/vr360_camera_angle.png" height="206" width="452"/>
+      </div>
+<strong class="ph b">キーボード。</strong> 視聴者はキーボードコントロール（WASD）を使用してカメラアングルを変更できます。<div class="fig fignone">
+        <img class="image" src="http://help-ooyala.brightcove.com/../concepts/../image/vr360_keyboard.png" height="118" width="164"/>
+      </div>
+<strong class="ph b">マウス。</strong> 視聴者はマウスで選択してドラッグすることでカメラアングルを変更できます。 <div class="fig fignone">
+        <img class="image" src="http://help-ooyala.brightcove.com/../concepts/../image/vr360_prompt.png" height="206" width="452"/>
+      </div>
+
+      <div class="fig fignone">
+        <img class="image" src="http://help-ooyala.brightcove.com/../concepts/../image/vr360_drag.png" height="100" width="180"/>
+      </div>
+<strong class="ph b">モバイルデバイス。</strong> 視聴者は、タッチしてスワイプすることでカメラアングルを変更します。 <div class="fig fignone">
+        <img class="image" src="http://help-ooyala.brightcove.com/../concepts/../image/vr360_touch_swipe.png" height="100" width="180"/>
+      </div>
+
+      <p class="gt-block p"><strong class="ph b">モノスコープモードとステレオモードの切り替え</strong></p>
+ 次のアイコンを使用して、モノスコープモードとステレオモードを切り替えます。 <div class="fig fignone">
+        <img class="image" src="http://help-ooyala.brightcove.com/../concepts/../image/vr360_switch.png" height="58" width="79"/>
+      </div>
+ これがモノスコープモードの例です。<div class="fig fignone">
+        <img class="image" src="http://help-ooyala.brightcove.com/../concepts/../image/vr360_mono.png" height="288" width="576"/>
+      </div>
+ これが立体視モードの例です。<div class="fig fignone">
+        <img class="image" src="http://help-ooyala.brightcove.com/../concepts/../image/vr360_stereo.png" height="288" width="576"/>
+      </div>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">skin.jsonを使用したVR 360再生のカスタマイズ</h2>VR 360の再生設定は、 <samp class="ph codeph">skin.json</samp> ファイル。 見る <a class="xref" href="pbv4_vr360.html">VR 360プレーヤーコントロールのカスタマイズ</a>、 と同様 <a class="xref" href="../reference/pbv4_skin_schema_docs.html">skin.jsonを使用したPlayer V4スキンのカスタマイズ</a> そして <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_v4_skin_config/index.html" target="_blank">プレーヤV4 JSONスキーマ</a>.    </div>
+
+    <div class="section" id="vr360__ads"><h2 class="title sectiontitle">広告とVR 360</h2>フラット動画の場合と同じように、Ooyalaプレーヤー広告プラグインのいずれかをVR 360モノスコープコンテンツで使用できます。 見る <a class="xref" href="pbv4_ads.html">プレーヤーV4の広告</a>.</div>
+
+    <div class="section" id="vr360__discovery"><h2 class="title sectiontitle">ディスカバリーとVR 360</h2>Ooyalaプレーヤーは、ディスカバリーの推奨事項で、フラットビデオとVR 360ビデオの混在を完全にサポートしています。 再生中、プレーヤーはビデオフォーマットに適切に調整し、適用可能なUIとナビゲーション要素を表示または非表示にします。 見る <a class="xref" href="pbv4_discovery.html">Player V4でコンテンツを発見する</a>.</div>
+
+    
+    <div class="section" id="vr360__playlist"><h2 class="title sectiontitle">プレイリストとVR 360</h2>Ooyalaプレーヤーは、同じプレイリスト内でのフラットビデオとVR 360ビデオの混在を完全にサポートしています。 再生中、プレーヤーはビデオフォーマットに適切に調整し、適用可能なUIとナビゲーション要素を表示または非表示にします。 見る <a class="xref" href="pbv4_playlist.html">プレーヤV4でのプレイリストの使用</a>.</div>
+
+    
+    <div class="section" id="vr360__analytics"><h2 class="title sectiontitle">分析とVR 360</h2>標準の分析イベントは、Ooyala IQの他のビデオやサードパーティの分析プラグインと同じように報告されます。 報告は自動的に行われます -  VR 360ビデオに追加の設定は必要ありません。 同じ指標がVR 360ビデオとフラットビデオでも追跡されます。 サポートされているAnalytics統合については、 <a class="xref" href="pbv4_analytics.html">Player V4での分析</a>.
+    
+    </div>
+
+    <div class="section" id="vr360__sdk"><h2 class="title sectiontitle">VR 360とモバイルSDKの開発</h2> Ooyala Mobile SDKは、VR 360コンテンツを再生する機能を提供します。 モノスコープVR 360コンテンツのタッチナビゲーションとヘッドマウントディスプレイを使用したステレオVR 360コンテンツの両方での使用をサポートします。 ネイティブのiOSおよびAndroidアプリでは、内蔵のデバイス加速度計を使用してビデオをナビゲートして、動きによるカメラアングルの操作を可能にすることができます。 <p class="gt-block p"><strong class="ph b">すべてのモバイルSDKに関するVR 360の考慮事項</strong></p>
+<ul class="ul">
+        <li class="li">Ooyala Skin SDKのみがVR 360ビデオで使用できます。 デフォルトスキンとカスタムスキンは、iOSまたはAndroidのSDKでは使用できません。</li>
+
+        <li class="li">iOSまたはAndroidアプリで立体コンテンツを表示するときは、タッチアンドドラッグナビゲーションは無効になります。 これは、ナビゲーションがヘッドマウントディスプレイと組み合わせて加速度計を介して行われると想定されているためです。</li>
+
+        <li class="li">立体映像を表示している場合、ユーザーが立体視用のヘッドマウントデバイスを使用して表示しているため、フラット動画が正しく表示されないため、フラット広告と混在させることはお勧めできません。</li>
+
+      </ul>
+<p class="gt-block p"><strong class="ph b">シンジケーションとVR 360</strong></p>
+
+      <p class="p">VR 360ビデオをFacebookまたはYoutubeにシンジケートする場合、アセットはVR 360ビデオではなく、通常のビデオのように扱われます。</p>
+<p class="gt-block p"><strong class="ph b">iOSとtvOSの要件</strong></p>
+iOS / tvOSアプリでVRコンテンツをサポートするには、アプリプロジェクトの一部としてOoyalaVRSDK.frameworkまたはOoyalaVRTVSDK.frameworkを追加する必要があります。 行う <em class="ph i">Studio上ではサポートされていません。</em> OoyalaSDK.frameworkを含めるとうまくいきません。 あなたはOoyalaSDK.frameworkがOoyalaVRSDKだけで提供するものすべてにアクセスするでしょう。 サンプルアプリの場合：<ul class="ul">
+        <li class="li"><strong class="ph b">iOS</strong>:  <ul class="ul">
+            <li class="li"><span class="ph"><a class="xref" href="http://static.ooyala.com.s3.amazonaws.com/sdk/ios/release/OoyalaVRSDK-iOS.zip" target="_blank">iOS用Ooyala VR 360 SDKをダウンロードしてください</a>.</span></li>
+
+            <li class="li">見ます <a class="xref" href="https://github.com/ooyala/ios-sample-apps/tree/dev/VRSampleApp" target="_blank">VR 360用iOS SDKサンプルアプリ</a></li>
+
+          </ul>
+</li>
+
+        <li class="li"><strong class="ph b">TVOS</strong>Apple TVの場合、TVoSサンプルアプリは現在、リモートコントロールを使用して全画面表示でナビゲートする、VR 360モノスコープコンテンツのサポートされている基本的な再生とナビゲーションのみを示しています。 <ul class="ul">
+            <li class="li"><span class="ph"><a class="xref" href="http://static.ooyala.com.s3.amazonaws.com/sdk/ios/release/OoyalaVRTVSDK-tvOS.zip" target="_blank">TVOS用Ooyala VR 360 SDKをダウンロードする</a>.</span></li>
+
+            <li class="li">見ます <a class="xref" href="https://github.com/ooyala/ios-sample-apps/tree/dev/VRTVSampleApp" target="_blank">TVOS SDKサンプルアプリfor VR 360</a>.</li>
+
+          </ul>
+</li>
+
+      </ul>
+<p class="gt-block p"><strong class="ph b">Androidの要件</strong></p>
+AndroidアプリでVRコンテンツをサポートするには、アプリプロジェクトの一部としてOoyalaVRSDK.jarライブラリを追加する必要があります。 OoyalaVRSDK.jarライブラリの依存関係なので、OoyalaSDK.jarも含める必要があります。 <ul class="ul">
+        <li class="li"><span class="ph"><a class="xref" href="http://static.ooyala.com.s3.amazonaws.com/sdk/android/release/OoyalaVRSDK-Android.zip" target="_blank">Android用Ooyala VR 360 SDKをダウンロード</a>.</span></li>
+
+        <li class="li"> 見ます <a class="xref" href="https://github.com/ooyala/android-sample-apps/tree/candidate/VRSampleApp" target="_blank">VR 360用Android SDKサンプルアプリ</a>.
+        
+        </li>
+
+      </ul>
+<div class="note note"><span class="notetitle">注意：</span> 
+        <p class="p">ジャイロセンサーを搭載していないデバイスでは、VR360ビデオをサポートできません。 プレーヤーは正しい向きの再生を生成するためにジャイロセンサーを頼りにしています。 </p>
+
+      </div>
+<p class="gt-block p"><strong class="ph b">Amazon Fire SDKのVR 360用サンプルアプリ</strong></p>
+ Amazon Fire TVの場合、サンプルアプリは現在、リモートコントロールを使用して全画面表示でナビゲートする、サポートされている基本的な再生とVR 360モノスコープコンテンツのナビゲーションのみを表示します。 </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/content_videos.html" title="Ooyalaに動画をアップロードすると、Ooyalaはアカウントに指定されている設定を使用して自動的に動画をトランスコードし、動画をプレーヤーで再生できるようにします。">動画</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "

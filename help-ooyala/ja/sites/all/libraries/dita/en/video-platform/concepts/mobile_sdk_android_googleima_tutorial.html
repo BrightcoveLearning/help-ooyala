@@ -1,0 +1,86 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="See the IMA Sample App in Action on Android"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_android_googleima.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="mobilesdk_android_googleima_tutorial"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>AndroidでのIMA Sample Appの実例を見る</title>
+</head>
+<body id="mobilesdk_android_googleima_tutorial">
+
+
+  <h1 class="title topictitle1">AndroidでのIMA Sample Appの実例を見る</h1>
+
+
+  <div class="body taskbody">
+    <div class="section context">サンプルアプリを実行するには、次の手順を使用します。</div>
+
+    <ol class="ol steps"><li class="li step stepexpand">
+        <span class="ph cmd">AndroidサンプルアプリGitリポジトリからIMASampleAppをダウンロードします。</span>
+         <a class="xref" href="https://github.com/ooyala/android-sample-apps.git" target="_blank">Ooyala Androidサンプルアプリ</a>
+
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">解凍する <samp class="ph codeph">OoyalaIMASDK-Android.zip</samp> ハードドライブ上の場所にファイルします。</span>
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">Android Studioを開いて選択 <span class="ph uicontrol">既存のプロジェクトを開く</span>.</span>
+         <img class="image" src="http://help-ooyala.brightcove.com/../image/droid_openexisiting.png" height="177" width="301" alt="既存のプロジェクトを開く"/>
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">に移動します <samp class="ph codeph">/ IMASampleApp</samp>フォルダを選択
+            <span class="ph uicontrol">選択する</span>.</span>
+         GradleスクリプトはAndroid Studio IDEでプロジェクトを設定するために実行されます。
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">開いた <samp class="ph codeph">IMAListActivity.java</samp> 編集用です。</span>
+         apps / java / com.ooyala.sample / lists / IMAListActivity.java 
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">アプリに必要な各ビデオの埋め込みコードで選択マップを更新します。</span>
+         この手順は、次の例に示されています。<pre class="pre codeblock">selectionMap = new LinkedHashMap &lt;文字列、PlayerSelectionOption&gt;（）; //埋め込みマップselectionMap.put（ &quot;IMA Ad-Rules Preroll&quot;、new PlayerSelectionOption（ &quot;EzZ29lcTq49IswgZYkMknnU4Ukb9PQMH&quot;、PreconfiguredIMAPlayerActivity.class））; selectionMap.put（ &quot;IMA Ad-Rules Midroll&quot;、新しいPlayerSelectionOption（ &quot;VlaG9lcTqeUU18adfd1DVeQ8YekP3H4l&quot;、PreconfiguredIMAPlayerActivity.class））; selectionMap.put（ &quot;IMA Ad-Rules Postroll&quot;、新しいPlayerSelectionOption（ &quot;BnaG9lcTqLXQNyod7Yv8eDas3Oog2&quot;、PreconfiguredIMAPlayerActivity.class））; selectionMap.put（ &quot;IMA Podded Preroll&quot;、新しいPlayerSelectionOption（ &quot;6wNjE1cDox3G0hQIWxTjsZ3MPUDLSkDY&quot;、PreconfiguredIMAPlayerActivity.class））; selectionMap.put（ &quot;IMA Podded Midroll&quot;、新しいPlayerSelectionOption（ &quot;8yNjE1cDodUEfUfp3WNzHkCZCMb2MUP&quot;、PreconfiguredIMAPlayerActivity.class））; selectionMap.put（ &quot;IMA Podded Postroll&quot;、新しいPlayerSelectionOption（ &quot;47sNjE1cDoN3ZewFm3ce1238J730BMrEJ&quot;、PreconfiguredIMAPlayerActivity.class））; selectionMap.put（ &quot;IMA Poddedプレミッドポスト&quot;、new PlayerSelectionOption（ &quot;ZrOTE4cDoXo3sLOWzQPxjS__M-Qk2Co&quot;、PreconfiguredIMAPlayerActivity.class））; selectionMap.put（ &quot;IMAスキップ可能&quot;、new PlayerSelectionOption（ &quot;FhbGRjbzq32tfaoA8dhfxc3Qs2-RURJfO&quot;、PreconfiguredIMAPlayerActivity.class））; selectionMap.put（ &quot;IMAプリスキップ、ミッドスキップ、ポストスキップ可能&quot;、new PlayerSelectionOption（ &quot;0NjE10cDpj3nUzYiV8PnFsjC1nEvPQAE&quot;、PreconfiguredIMAPlayerActivity.class））; selectionMap.put（ &quot;IMAアプリケーション構成&quot;、new PlayerSelectionOption（ &quot;EzZ6lcTq29IswgZYkMknnU49Ukb4PQMH&quot;、CustomConfiguredIMAPlayerActivity.class））; \ u9</pre>
+
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">開いた <samp class="ph codeph">PreconfiguredIMAPlayerActivity.java</samp> 編集用です。</span>
+         <span class="ph filepath">app / java / com.ooyala.sample / players / PreconfiguredIMAPlayerActivity.java</span>
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">置き換える <samp class="ph codeph">PCODE</samp> Ooyala提供のプロバイダIDコードを使用してください。 詳しくは、 <a class="xref" href="api_keys.html" title="Ooyala APIの認証情報には、APIキーとシークレットが含まれています。これらは、HTTPリクエストに署名するため、およびスクラッチパッドを使用するときに提供するものです。">あなたのAPIクレデンシャル</a>.</span>
+         この手順は、次のコードサンプルに示されています。<pre class="pre codeblock">パブリッククラスPreconfiguredIMAPlayerActivityは、Observerを実装します。 TAG = this.getClass（）。toString（）; 文字列EMBED = null。
+ <strong class="ph b"> final String PCODE = &quot;R2d3I6s06RyB712DN0_2GsQS-RY&quot;;</strong>
+  final String DOMAIN = &quot;http://ooyala.com&quot;; protected OptimizedOoyalaPlayerLayoutController playerLayoutController; 保護されたOoyalaPlayerプレーヤー; \ u0000
+   </pre>
+<div class="note note"><span class="notetitle">注意：</span> 以下のままに
+              <samp class="ph codeph">新しいPlayerDomain（ドメイン）</samp> 変更なし
+              <samp class="ph codeph">http://www.ooyala.com</samp>。 この定数は以下と組み合わせて機能します。
+              <strong class="ph b">シンジケーション制御</strong> （公開ルール） <span class="ph">バックスロット</span>。 ビデオにインターネットドメイン制限を設定している場合 <span class="ph">バックスロット</span> （参照 <em class="ph i"><span class="ph">バックスロット</span> ユーザーガイド</em>）、ここでの定数はそれらの許可されたドメインの1つに設定することができます。 設定していない場合 <strong class="ph b">シンジケーション制御</strong>定数は効果がありません。</div>
+
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">変更を保存します。</span>
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">再生ボタンをクリックして、Android Studioエミュレータでアプリが実行されるのを確認します。</span>
+      </li>
+</ol>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/mobile_sdk_android_googleima.html">Android上のGoogle IMAとの統合</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></di

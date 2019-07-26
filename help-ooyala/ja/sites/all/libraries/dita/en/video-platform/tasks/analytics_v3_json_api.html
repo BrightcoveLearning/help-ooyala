@@ -1,0 +1,165 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Integrating Third-Party Players with IQ Using the JSON API"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/analytics_v3_ug_third_party_players.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/analytics_v3_third_party_players.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/analytics_v3_roku_sdk.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ooyala_iq_user_guide.html"/>
+<meta name="DC.Relation" scheme="URI" content="analytics_v3_ug_ingest_third_party_player.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/analytics_v3_ug_account.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/faq_analytics.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="analytics_v3_json_api"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>JSON APIを使用したサードパーティ製プレイヤーとIQの統合</title>
+</head>
+<body id="analytics_v3_json_api">
+
+
+    <h1 class="title topictitle1">Integrating Third-Party Players with <span class="ph">IQ</span> Using the JSON API</h1>
+
+    
+    <div class="body taskbody">
+        <div class="section context">
+            <p class="gt-block p" id="analytics_v3_json_api__overview">新しいを使う <span class="ph">ウーヤラIQ</span> サードパーティ製プレイヤーのイベントをOoyala IQに伝達するためのJSON API。 このエンドポイントを使用してJSONデータをOoyala IQに送信することも、すぐに使用可能なSDKのいずれかを使用することもできます。 このリリースでは、Roku用のすぐに使えるSDKを提供しています。 </p>
+
+            <p class="gt-block p" id="analytics_v3_json_api__roku_overview">Roku用Ooyala IQ SDKは、JSONデータをOoyala JSON APIエンドポイントに送信し、どのイベントをいつ送信するかについてのベストプラクティスに自動的に従い、すべての必須フィールドが存在することを確認します。 Ooyala IQの実装が容易になるため、Roku用のOoyala IQ SDK for Rokuを使用することをお勧めします。 Roku用Ooyala IQ SDKの詳細については、 <a class="xref" href="../concepts/analytics_v3_roku_sdk.html">Roku統合のためのOoyala IQ SDK</a>.</p>
+
+            <div class="fig fignone">
+                <img class="image" src="http://help-ooyala.brightcove.com/../image/analytics_v3_standalone_options.jpeg" height="499" width="665"/>
+            </div>
+
+            <p class="gt-block p"><strong class="ph b">イベント</strong></p>
+
+            <p class="gt-block p"><span class="ph">ウーヤラIQ</span> 分析データを正しく表示するには、プレーヤーイベントに関する情報を受け取る必要があります。 下の図は、各プレーヤーのイベントを記録するタイミングの流れを示しています。</p>
+
+            <div class="p">
+                <div class="fig fignone">
+                    <img class="image" src="http://help-ooyala.brightcove.com/../image/iq_json_api_event_flow.png"/>
+                </div>
+
+                <ul class="ul">
+                    <li class="li"><strong class="ph b">playerLoad</strong>：プレーヤーが最初にロードされたときに呼び出されます。</li>
+
+                    <li class="li"><strong class="ph b">ディスプレイ</strong>：メディアの準備ができたときに呼び出されます（タイトル、説明、その他のメタデータ）。 これにはビデオ自体が含まれる場合と含まれない場合があります。 これは、の表示指標に相当します。 <span class="ph">ウーヤラIQ</span>.</li>
+
+                    <li class="li"><strong class="ph b">playRequested</strong>：ユーザーが再生ボタンをクリックしたとき、または自動再生が発生したときに呼び出されます。</li>
+
+                    <li class="li"><strong class="ph b">videoStarted</strong>：実際の非広告ビデオコンテンツの再生が開始されたときに呼び出されます。</li>
+
+                    <li class="li"><strong class="ph b">bucketWatched</strong>：視聴者がビデオのどの部分を見たかをキャプチャするために呼び出されます（位置に依存）。 ビデオは40個のバケットに分割されています。 視聴者が動画の最初のバケット（0-2.5％）を見てから最後のバケット（97.5-100％）にスキップしてそれを見る場合、2つのバケット監視イベント[0-2.5％]と[97.5％]を送信する必要があります。 -100％]。 <p class="p">40個のバケットがあり、各バケットのサイズは25で2.5％を表します。 視聴者がビデオの同じ部分（バケット）を何度も見ている場合は、視聴するたびにその視聴イベントを送信する必要があります（プレーヤはビデオの同じ部分のビューの複製を削除しないでください）。 たとえば、視聴者が2.5％ -  5％バケットを5回繰り返し監視する場合は、イベントを5回送信する必要があります。</p>
+<p class="p">このメトリクスは1バレルあたりで、ペイロードはバケットの先頭から最後までです。 動画には合計40個のバケットがあります。各バケットのサイズは25で、2.5％を表します。 from：1とto：25を見れば、それは視聴者がバケット番号1を見たことを意味します。</p>
+</li>
+
+                    <li class="li"><strong class="ph b">プレイスルーパーセンテージ</strong>：メディアの四分位数（25％、50％、75％、および100％）の完了をマークするために呼び出されます。 これは、ユーザーが四分位数へのシークまたはビデオの視聴によって達成率％に達したことを示します。 プレイスルーイベントが生成されたら、ビデオを巻き戻すことでその四分位数のプレイスルーイベントを再送信しないでください。</li>
+
+                    <li class="li"><strong class="ph b">timePlayed</strong>：前回のtimePlayedイベント以降にメディアが再生した時間をキャプチャするために呼び出されます。</li>
+
+                    <li class="li"><strong class="ph b">percentageWatched</strong>：視聴者が視聴したビデオの割合をキャプチャするために呼び出されます（位置に依存しません）。 ビデオは40個のバケットに分割されています。 視聴者が動画の最初のバケット（0-2.5％）を見てから最後のバケット（97.5-100％）にスキップして見る場合は、2つのパーセンテージ監視イベント[0-2.5％]と[2.5％]を送信する必要があります。 -5％]。 <p class="p">視聴者がビデオの同じ部分（バケット）を何度も見ている場合は、その視聴イベントを1回だけ送信する必要があります（ビデオの同じ部分の再生を複製解除するのはプレーヤーの責任です）。 あなたが彼らがビデオを見ている間に視聴者のために見られたすべてのパーセンテージを加えるならば、それは常に&lt;= 100％であるべきです。 </p>
+<p class="p">このメトリクスは1バレルあたりで、ペイロードはバケットの先頭から最後までです。 動画には合計40個のバケットがあります。各バケットのサイズは25で、2.5％を表します。 from：1とto：25を見れば、それは視聴者がバケット番号1を見たことを意味します。</p>
+
+                    </li>
+
+                    <li class="li"><strong class="ph b">playheadUpdate</strong>：ビデオ再生ヘッドが移動したときに呼び出されます。 これは頻繁に呼び出されるべきです（2-3秒ごとに）。</li>
+
+                    <li class="li"><strong class="ph b">求める</strong>：ビデオが検索されたときに呼び出されます。</li>
+
+                    <li class="li"><strong class="ph b">一時停止</strong>：ビデオが一時停止しているときに呼び出されます。</li>
+
+                    <li class="li"><strong class="ph b">履歴書</strong>：ビデオが一時停止状態のときに再生ボタンがクリックされたときに呼び出されます。</li>
+
+                    <li class="li"><strong class="ph b">リプレイ</strong>：動画の再生が要求されたときに呼び出されます。</li>
+
+                    <li class="li"><strong class="ph b">カスタムイベント</strong>：定義したイベントと連携するために呼び出されます。<div class="note note"><span class="notetitle">注意：</span> 現時点ではカスタムイベントを取り込むことができますが、情報を保存することしかできません。 Ooyala IQはカスタムイベントを処理できず、Ooyala IQバックエンドからこの情報にアクセスすることはできません。 ただし、Ooyala IQでカスタムイベントがサポートされている場合にデータを入手できるように、今すぐOoyala IQにカスタムイベントの送信を開始することをお勧めします。</div>
+</li>
+
+                </ul>
+
+            </div>
+
+            <p class="gt-block p"><strong class="ph b">追加データ</strong></p>
+
+            <div class="p"><span class="ph">ウーヤラIQ</span> 分析目的のために、プレーヤーおよびあなたのJSON入力から以下についての詳細を収集することもできます。 <ul class="ul">
+                    <li class="li">ユーザーの詳細</li>
+
+                    <li class="li">デバイスの詳細 </li>
+
+                    <li class="li">資産の詳細</li>
+
+                    <li class="li">地理的な場所の詳細 <div class="note note"><span class="notetitle">注意：</span> Ooyala IQは、緯度と経度の値が整数であることを期待しています。</div>
+
+                    </li>
+
+                    <li class="li">プレイヤーの詳細</li>
+
+                    <li class="li">カスタム寸法 <div class="note note"><span class="notetitle">注意：</span> 現時点ではカスタムディメンションを取り込むことができますが、格納できるのは情報だけです。 Ooyala IQはカスタムディメンションを処理できず、Ooyala IQバックエンドからこの情報にアクセスすることはできません。 ただし、Ooyala IQでカスタムディメンションがサポートされている場合にデータを入手できるように、今すぐOoyala IQにカスタムディメンションの送信を開始することをお勧めします。</div>
+
+                    </li>
+
+                </ul>
+</div>
+
+            <p class="gt-block p"><strong class="ph b">ベストプラクティス</strong></p>
+
+            <ul class="ul">
+                <li class="li">で指定されている間隔でのみOoyalaにデータを送信する <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/iq_json_api/analytics-json-entry.html" target="_blank">APIドキュメント</a>。 各イベントには、送信頻度を示す優先順位が付けられています（高は1秒ごとにデータを送信することを示し、中は5秒ごとにデータを送信することを示し、低は10秒ごとにデータを送信することを示します）。</li>
+
+                <li class="li">必ずデバイスIDを送信してください。</li>
+
+            </ul>
+
+            <p class="gt-block p"><strong class="ph b">JSON APIの統合</strong></p>
+
+            <p class="gt-block p">JSON APIエンドポイントは <a class="xref" href="https://www.google.com/url?q=https://l.ooyala.com/v3/analytics/events&sa=D&ust=1456276736150000&usg=AFQjCNFc6hCNggU75mnS-GU_3UcRgGkCig" target="_blank">https://l.ooyala.com/v3/analytics/events</a>。 JSON APIのAPI資料は、次のURLで見ることができます。 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/iq_json_api/analytics-json-entry.html" target="_blank">docs.brightcove.com/apidocs-ooyala//iq_json_api/analytics-json-entry.html</a>.  </p>
+
+        </div>
+
+        <ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd">Smart TVやその他のデバイスをOoyala IQと統合するには、特定のメタデータとプレーヤーのイベントデータをOoyala IQ JSON APIエンドポイントに送信する必要があります。 今回のリリースでは、Roku用のすぐに使えるSDKをサポートします。 Roku用Ooyala IQ SDKの詳細については、 <a class="xref" href="../concepts/analytics_v3_roku_sdk.html">Roku統合のためのOoyala IQ SDK</a>.</span>
+                 <p class="p" id="analytics_v3_json_api__support">他のプラットフォームも、Ooyalaプロフェッショナルサービス契約を通じて、有料でサポートできます。 あるいは、JSON APIエンドポイントに直接アクセスするための独自のSDKを作成することもできます。 SDKを作成したら、それをホストする必要があります。</p>
+
+                    <p class="p">SDKを作成する場合、SDKは特定のイベントと情報を特定の順序でOoyala IQ JSON APIに報告する必要があります。 一般的な考え方は、プレーヤーの状態が変わるたびに、イベントデータをOoyala IQに送信する必要があるということです。 イベントをキャプチャーする必要がある順序については、上の「イベント」セクションの図を参照してください。</p>
+
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">アダプタを作成したら、HTTPまたはHTTPSリクエストを介してJSON APIエンドポイントにアクセスし、正しくフォーマットされたJSONをOoyala IQに送信します。 </span>
+            </li>
+</ol>
+
+        
+    </div>
+
+    <div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../concepts/analytics_v3_roku_sdk.html">Roku統合のためのOoyala IQ SDK</a></strong><br/>
+</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/analytics_v3_ug_third_party_players.html">サードパーティ製のプレイヤーでOoyala IQを使用する</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/analytics_v3_third_party_players.html">サードパーティ製のプレイヤーでOoyala IQを使用する</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="../concepts/ooyala_iq_user_guide.html">Ooyala IQユーザーガイド</a></div>
+<div><a class="link" href="../concepts/analytics_v3_ug_account.html">Ooyala IQアカウント管理</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong><br/>
+<div><a class="link" href="analytics_v3_ug_ingest_third_party_player.html">Ooyala IQとサードパーティのメタデータを同期させる</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong><br/>
+<div><a class="link" href="../reference/faq_analytics.html" title="Ooyala IQアナリティクスについてよく寄せられる質問">Analyticsのよくある質問</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-

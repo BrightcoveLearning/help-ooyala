@@ -1,0 +1,69 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Customizing the Chromecast Receiver User Interface"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chromecast_customize_receiver_app.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="chromecast_sample_integration"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Chromecast Receiverのユーザーインターフェイスをカスタマイズする</title>
+</head>
+<body id="chromecast_sample_integration">
+
+
+  <h1 class="title topictitle1">Chromecast Receiverのユーザーインターフェイスをカスタマイズする</h1>
+
+  <div class="body conbody">
+    <div class="note important"><span class="importanttitle">重要：</span> このトピックには古い情報が含まれており、推奨されていません。 OoyalaとChromecastの統合に関する最新情報は、をご覧ください。 <a class="xref" href="chromecast/index.html">Chromecastの統合</a>.</div>
+
+    <div class="section"><h2 class="title sectiontitle">ブランディング</h2>
+      
+      <p class="gt-block p">Chromecastレシーバーのブランドをカスタマイズするには、のHTMLやJavaScriptを変更します。 <a class="xref" href="http://player.ooyala.com/static/chromecast/latest/receiver_custom.html">カスタムレシーバーアプリケーション</a>。 HTMLページの本文内で、レシーバUIを変更するためにさまざまなdivを変更できます。 カスタムレシーバーコードを表示して、カスタマイズ可能なさまざまな要素を説明した追加のコメント付きコードを確認してください。</p>
+
+      <p class="gt-block p"><strong class="ph b">スプラッシュ画面</strong></p>
+
+      <pre class="pre codeblock"> &lt;div id = &quot;splash_screen&quot;&gt; &lt;img id = &quot;splash_image&quot;クラス= &quot;absolute_center&quot; src = &quot;./images/ooyala-logo.png&quot; /&gt; &lt;/div&gt; </pre>
+
+      <p class="gt-block p"><strong class="ph b">ロード画面</strong></p>
+
+      <pre class="pre codeblock"> &lt;div id = &quot;loading_screen&quot;&gt; &lt;div id = &quot;loading_container&quot;&gt; &lt;div id = &quot;logo_wrap&quot;&gt; &lt;img id = &quot;logo&quot; src = &quot;./images/ooyala-logo.png&quot;&gt; &lt;/img&gt; &lt; / div&gt; &lt;div id = &quot;information_container&quot;&gt; &lt;div id = &quot;promo_wrapper&quot;&gt; &lt;img id = &quot;promo_image&quot;&gt; &lt;/img&gt; &lt;/div&gt; &lt;div class = &quot;divider&quot;&gt; &lt;/div&gt; &lt;div id = &quot;information&quot;&gt; &lt;div style = &quot;パディング：0px&quot;&gt; &lt;h1 id = &quot;loading_title&quot; class = &quot;cast_text&quot;&gt; &lt;/h1&gt; &lt;h3 id = &quot;loading_description&quot; class = &quot;cast_text&quot;&gt; &lt;/h3&gt; &lt; / div&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt;    </pre>
+
+      <p class="gt-block p"><strong class="ph b">コントロールバー</strong></p>
+
+      <pre class="pre codeblock">  / * _Controlsは、コントロールバーがReceiverに表示される方法を指定します。 あなたは変更、追加、削除することができます： - ロゴ：透かし画像とテレビの評価 - ビデオメタデータ：プロモーション画像、タイトル - 再生/一時停止ボタン - スクラバーバー - 時間と期間 - スピナーアイコン* / _Controls.prototype.init = function （）{this.controls_wrap = document.createElement（ &#39;div&#39;）; this.controls_wrap.className = &quot;oo_controls&quot;; this.rootElement.appendChild（this.controls_wrap）; //コントロールラッパーに初期HTMLを追加するdocument.querySelector（ &quot;。oo_controls&quot;）。innerHTML + = &#39;&lt;div id = &quot;pause_wrapper&quot;&gt; \ &lt;img id = &quot;pause_icon&quot; class = &quot;absolute_center&quot; /&gt; \ &lt;div id = &quot;spinner_icon&quot; class = &quot;absolute_center spinner&quot;&gt; &lt;/div&gt; \ &lt;/div&gt; \ &lt;div id = &quot;promo_title_container&quot;&gt; \ &lt;img id = &quot;promo_icon&quot; /&gt; \ &lt;div id = &quot;title_wrapper&quot;&gt; \ &lt;h1 id = &quot;title_header&quot; class = &quot;cast_text&quot;&gt; &lt;/h1&gt; \ &lt;/div&gt; \ &lt;/div&gt; \ &lt;div id = &quot;watermark_wrapper&quot;&gt; \ &lt;img id = &quot;watermark_icon&quot; /&gt; \ &lt;/ div &gt; \ &lt;div id = &quot;scrubber_wrapper&quot;&gt; \ &lt;div id = &quot;playhead_container&quot;&gt; \ &lt;h5 id = &quot;再生ヘッド&quot;&gt; 00：00 &lt;/h5&gt; \ &lt;/div&gt; \ &lt;div id = &quot;seek_bar&quot;&gt; \ &lt;div id = &quot;progress&quot;&gt; &lt;/div&gt; \ &lt;div id = &quot;buffered_progress&quot;&gt; &lt;/div&gt; \ &lt;/div&gt; \ &lt;div id = &quot;duration_wrapper&quot;&gt; \ &lt;h5 id = &quot;duration&quot;&gt; 00： 00 &lt;/h5&gt; \ &lt;/div&gt; \ &lt;/div&gt; &#39;;
+    
+      </pre>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">イベントリスニング</h2>
+      
+  
+    <p class="gt-block p">カスタムレシーバーUIをカスタマイズして、プレーヤーイベントに反応することができます。 <a class="xref" href="../reference/player_v3_dev_listenevent.html" title="メッセージバスを使用して、単一のイベントまたは複数のイベントを監視できます。">リスニング</a> を
+        <a class="xref" href="../api/player_v3_api_events.html" title="メッセージバスイベントを使用して、動画から広告の再生までのプレーヤイベントを購読または発行します。">V3 HTML5プレーヤーによって公開されたイベント</a> またはCSSを修正することによって。 このカスタマイズは、onCreate関数内でプレーヤパラメータとして、またはV3スクリプトがロードされた後に発生する可能性があります。</p>
+
+    <p class="gt-block p">たとえば、コンテンツが終了したらスプラッシュスクリーンを表示できます。 あなたがあなたのカスタマイズされた受信機であなたがカスタマイズするユーザーインターフェースは従うべきである <a class="xref" href="https://developers.google.com/cast/docs/design_checklist">設計チェックリスト</a> Googleが設置していること 次のコードは、カスタムレシーバーの実際のコードに含まれるもののコードスニペットです。</p>
+
+    <pre class="pre codeblock">
+        player.mb.subscribe（ &quot;*&quot;、 &quot;chromecast&quot;、function（evt）{switch（evt）{case OO.EVENTS.PLAYHEAD_TIME_CHANGED：//再生ヘッドのケースを調整するOO.EVENTS.PLAYED：//スプラッシュスクリーンを表示するOO .EVENTS.SET_EMBED_CODE：//ロード中のスクリーンケースを表示するOO.EVENTS.STREAM_PLAYING：//再生中のスクリーンケースを表示するOO.EVENTS.PAUSED：//一時停止中のコントロールケースを表示するOO.EVENTS.PLAYER_CREATED：//すべてのケースを初期化するOO .EVENTS.SEEKED：//ビデオがケースOO.EVENTS.BUFFERINGを検索したことを表示：//ビデオがケースをバッファリングしていることを表示OO.EVENTS.BUFFERED：//ビデオがケースOO.EVENTS.ERRORのバッファリングを完了したことを表示：//適切なエラーを表示してエラー画面を表示します。</pre>
+  </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chromecast_customize_receiver_app.html">Ooyala Chromecast統合のためのReceiverアプリケーションのカスタマイズ</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

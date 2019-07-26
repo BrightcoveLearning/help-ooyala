@@ -1,0 +1,153 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Overview"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ooyala_iq_developer_guide.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/analytics_v3_best_practices.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/analytics_v3_common_metrics.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/api_endpoints.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/api_scratchpad.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="eventpingapi"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>概要</title>
+</head>
+<body id="eventpingapi">
+
+
+   <h1 class="title topictitle1"> 概要</h1>
+
+   <div class="body refbody">
+      <div class="section">
+         <div class="p">  <span class="ph">ウーヤラIQ</span> 代表状態の移管 <span class="ph">（残り）</span> HTTPを介したAPI（Application Programming Interface）は、次の2つの部分で構成されています。
+               <ul class="ul" id="eventpingapi__ul_nld_crx_2m">
+               <li class="li">書き込みまたは入力コンポーネント（HTTP） <samp class="ph codeph">POST</samp>）再生イベントを記録するため（顧客の使用には利用できません）。</li>
+
+               <li class="li">読み取りまたは出力コンポーネント（HTTP） <samp class="ph codeph">のGET</samp>レポート用。v3 Analytics Reporting APIとして知られています。</li>
+
+            </ul>
+これらは以下の1と3の部分として示されています。 <a class="xref" href="../concepts/analytics_v3_howanalyticsworks.html#understandanalytics">概念的な概要</a> 〜へ <span class="ph">ウーヤラIQ</span> の中に <span class="ph">ウーヤラIQ</span> あなたが全部を読むのを好むかもしれないユーザーガイド。
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="eventpingapi__table_ewr_ngq_xl" class="table" frame="border" border="1" rules="all">
+                  
+                  
+                  
+                  
+                  <thead class="thead" align="left">
+                     <tr class="row">
+                        <th class="entry" valign="top" width="13.251366120218577%" id="d11429e63"> </th>
+
+                        <th class="entry" valign="top" width="6.830601092896174%" id="d11429e65">読み書き</th>
+
+                        <th class="entry" valign="top" width="26.36612021857923%" id="d11429e68">このAPIの詳細</th>
+
+                        <th class="entry" valign="top" width="53.551912568306%" id="d11429e71">説明</th>
+
+                     </tr>
+
+                  </thead>
+
+                  <tbody class="tbody">
+                     <tr class="row">
+                        <td class="entry" valign="top" width="13.251366120218577%" headers="d11429e63 ">一部1</td>
+
+                        <td class="entry" valign="top" width="6.830601092896174%" headers="d11429e65 ">書きます： <samp class="ph codeph">POST</samp></td>
+
+                        <td class="entry" valign="top" width="26.36612021857923%" headers="d11429e68 "> </td>
+
+                        <td class="entry" valign="top" width="53.551912568306%" headers="d11429e71 ">再生中のイベントの発生は、実際の測定基準です。
+                              <span class="ph">ウーヤラIQ</span> にもとづいて。
+                           </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="13.251366120218577%" headers="d11429e63 ">一部2</td>
+
+                        <td class="entry" valign="top" width="6.830601092896174%" headers="d11429e65 "> </td>
+
+                        <td class="entry" valign="top" width="26.36612021857923%" headers="d11429e68 "> </td>
+
+                        <td class="entry" valign="top" width="53.551912568306%" headers="d11429e71 "><span class="ph">ウーヤラIQ</span>舞台裏では、次のようにしてデータキューブ（さまざまな次元の計算された相関）を作成します。 <a class="xref" href="../concepts/analytics_v3_howanalyticsworks.html">データの集約と要約</a>.  </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="13.251366120218577%" headers="d11429e63 ">一部3</td>
+
+                        <td class="entry" valign="top" width="6.830601092896174%" headers="d11429e65 ">読む： <samp class="ph codeph">のGET</samp></td>
+
+                        <td class="entry" valign="top" width="26.36612021857923%" headers="d11429e68 "><a class="xref" href="analytics_v3_api_reporting_overview.html#analytics_reporting">v3 AnalyticsレポーティングAPI</a></td>
+
+                        <td class="entry" valign="top" width="53.551912568306%" headers="d11429e71 "><p class="p">このAPIは、データのダウンロード、独自のレポートシステムへのロード、または独自のカスタム統計グラフィックの構築に使用できます。</p>
+<div class="note note"><span class="notetitle">注意：</span> HTTP GET仕様の230文字の制限を超えるクエリパラメータを持つクエリの場合は、POSTリクエストを使用してください。 一部のブラウザおよびhttpクライアントは、230文字を超える文字をサポートしている場合がありますが、HTTP GET仕様に違反するクエリについては正式なサポートは提供されません。 </div>
+<p class="p"/>
+<strong class="ph b">v3 Analytics Reporting APIを使用するための前提条件</strong><p class="gt-block p">あなたはあなたが必要です <span class="ph">Ooyala</span>に署名するために発行されたAPIキーと秘密
+                                 <samp class="ph codeph">のGET</samp> リクエスト。 見る <a class="xref" href="analytics_v3_api_reporting_setup.html#analytics_v3_reference">v3 Analytics Reporting APIのセットアップ/メカニズム</a>.</p>
+</td>
+
+                     </tr>
+
+                  </tbody>
+
+               </table>
+</div>
+
+            
+         </div>
+
+      </div>
+
+
+      <div class="section"><h2 class="title sectiontitle">v3アナリティクス</h2>
+         
+         <p class="p">Ooyala IQからアナリティクスレポートを取得するには、v3 Analytics Reporting API（v3 Analytics APIおよびOoyala IQ APIとも呼ばれる）を使用します。 </p>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">データ保持</h2>
+         
+         
+         <p class="gt-block p" id="eventpingapi__data_retention_policy">Ooyalaはあなたのデータを37ヶ月までしか保持しません。 これは、過去の36月とともに現在の月として計算されます。 たとえば、今日がJan 29、2015の場合、現在の月から現在まで（Jan 1、2015  -  Jan 29、2015）と過去36の全月（Jan 1、2012  -  Dec 31、2014）のデータがあります。 Ooyalaは、最新の37月の有効なデータについての照会をUIおよびAPIでのみ行い、許可します。 残りのデータはアーカイブされます。 v2 AnalyticsからOoyala IQに移行される履歴データの量については、以下を参照してください。 <a class="xref" href="../concepts/analytics_v3_migrating_from_v2_data.html">データ移行（廃止予定）</a>.  </p>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">JSONの</h2>
+         
+         <p class="gt-block p">Analytics APIのリクエストとレスポンスの本文は、次の要素に依存しています。 <span class="ph">JavaScriptオブジェクト表記法（JSON）</span>。 なじみがない場合 <span class="ph">JSONの</span>から始めて、それについて学ぶために利用可能な多くのリソースがあります <a class="xref" href="http://www.json.org" target="_blank">http://www.json.org</a>.</p>
+
+      </div>
+
+     <div class="section"><h2 class="title sectiontitle">よくある質問</h2>
+         
+        <p class="gt-block p">Ooyala IQに関してよくある質問とその回答を得るには、をご覧ください。 <a class="xref" href="../reference/faq_analytics.html" title="Ooyala IQアナリティクスについてよく寄せられる質問">Ooyala IQ（アナリティクス）FAQ</a>.</p>
+</div>
+
+   </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../concepts/analytics_v3_best_practices.html">v3 Analyticsのベストプラクティス</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/analytics_v3_common_metrics.html">一般的なメトリックの定義と例</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/api_endpoints.html">APIサーバーエンドポイント</a></strong><br/>
+これらのエンドポイントに要求を出してください。</li>
+<li class="link ulchildlink"><strong><a href="../concepts/api_scratchpad.html">スクラッチパッドを使った練習の依頼</a></strong><br/>
+スクラッチパッドで練習要求をすることができます。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/ooyala_iq_developer_guide.html">ウーヤラIQアナリティクス</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

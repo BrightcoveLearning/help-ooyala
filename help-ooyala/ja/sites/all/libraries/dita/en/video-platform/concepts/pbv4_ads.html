@@ -1,0 +1,86 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Ads in Player V4"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_about.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_ads"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>プレーヤーV4の広告</title>
+</head>
+<body id="pbv4_ads">
+
+
+    <h1 class="title topictitle1">プレーヤーV4の広告</h1>
+
+    <div class="body conbody">
+        <div class="section"><div class="note note"><span class="notetitle">注意：</span> My Adsを含め、1つのOoyalaプレーヤーにつき使用できる広告プラグインは1つだけです。 同じOoyalaプレーヤー内で複数の広告プラグインから広告を配信することは、サポートされているプレーヤー構成ではありません。
+        </div>
+</div>
+
+        <div class="section">再生中に広告を配信するには、Player V4と統合されている広告プラグインを使用します。 Backlotから広告を配信するには、 <a class="xref" href="pbv4_ads_my_ads.html">広告を配信する</a> 代わりに。</div>
+
+        <div class="section"><h2 class="title sectiontitle">広告プラグイン</h2>Player V4で広告を配信するには、次の広告プラグインを使用できます。 <div class="p" id="pbv4_ads__ad_plugins">
+                <ul class="ul">
+                    <li class="li"><a class="xref" href="pbv4_ads_dev_chapter_freewheel.html">フリーホイール広告プラグイン</a></li>
+
+                    <li class="li"><a class="xref" href="pbv4_ads_dev_chapter_googleima.html">Google IMA Ad Plugin</a></li>
+
+                    <li class="li"><a class="xref" href="pbv4_ads_dev_chapter_pulse.html">Ooyala Pulse広告プラグイン</a></li>
+
+                    <li class="li"><a class="xref" href="pbv4_ads_dev_chapter_vast.html">VASTとVPAIDの広告プラグイン</a></li>
+
+                </ul>
+
+            </div>
+これらのプラグインは、 <a class="xref" href="pbv4_ads_framework.html">広告マネージャフレームワーク</a>。 詳細については、を参照してください。 <a class="xref" href="pbv4_ads_about.html">広告について</a> そして <a class="xref" href="../tasks/pbv4_integrate_ads.html">広告を統合する</a>. 
+
+            
+            
+             
+
+            
+            
+            <div class="note note"><span class="notetitle">注意：</span> Player V3からPlayer V4に移行する場合は、を参照してください。 <a class="xref" href="pbv4_migration.html">プレーヤV4への移行</a>.</div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">広告プラグインの実行時再生広告フロー</h2>
+            <div class="fig fignone"><img class="image" src="http://help-ooyala.brightcove.com/../image/pbv4_ad_runtime.png"/></div>
+
+            <ol class="ol">
+                <li class="li">HTMLページが開かれると、Ooyalaプレーヤーが作成されてロードされます。</li>
+
+                <li class="li">プレーヤーはページ上のすべての埋め込みパラメータを読み込みます。</li>
+
+                <li class="li">定義されている場合、プレーヤはBacklotからビデオに関するメタデータと広告セットを取得します。</li>
+
+                <li class="li">プレーヤーがビデオの再生を開始します。</li>
+
+                <li class="li">再生中にキューポイントに達すると（たとえば、プレロール広告、ミッドロール広告、またはポストロール広告の場合）、プレーヤは広告またはオーバーレイに関する情報（ホストされているURLなど）を取得します。該当する広告サーバーからのメタデータ）</li>
+
+                <li class="li">プレーヤは指定されたURLから広告またはオーバーレイを引き出してから広告を再生します。</li>
+
+            </ol>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">広告とFirefoxのプライベートブラウジング</h2>使用している消費者のために <a class="xref" href="https://developer.mozilla.org/en-US/Firefox/Privacy/Tracking_Protection" target="_blank">プライベートブラウジングウィンドウ</a> Firefoxでは、プライバシーモードが特定の種類のトラッキングURLをブロックするため、一部の広告が読み込めないことがあります。</div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/pbv4_about.html">プレイヤーV4</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div>

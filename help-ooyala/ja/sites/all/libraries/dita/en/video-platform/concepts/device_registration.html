@@ -1,0 +1,228 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Device Registration API"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/device_registration_overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/device_registration_properties.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/device_registration_userportals.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/device_registration_customersupportportals.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept_r24_32h_3k"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>デバイス登録API</title>
+</head>
+<body id="concept_r24_32h_3k">
+
+
+ <h1 class="title topictitle1">デバイス登録API</h1>
+
+ <div class="body conbody">
+  <div class="section">
+   <p class="gt-block p">Ooyalaと統合されているOoyalaのデバイス登録API <a class="xref" href="chapter_rightslocker.html">権利ロッカー</a>つまり、プロバイダは、コンテンツの所有者の要件を遵守して、1人の視聴者に関連するデバイスの数を制限することができます。 単一の消費者アカウント（「ビューア」と呼ばれる）は、登録されたデバイスの特定の数以下に制限することができ、その制限に達すると、他のデバイスを追加する前にデバイスを「登録解除」する必要があります。 視聴者に登録されているデバイスのみが、デバイス制限ポリシーで公開されているビデオを再生できます。 </p>
+
+   <div class="note note"><span class="notetitle">注意：</span> プレイヤーV4はWidevine Modularのデバイス登録をサポートしていません。</div>
+
+   <div class="p">デバイス登録APIには2つの形式があります。<ol class="ol" id="concept_r24_32h_3k__ol_fqc_3pj_qj">
+    <li class="li">クライアントアプリケーションプログラムが視聴者の機器のリストを登録、削除、および更新するためのAPI。 これらのAPI呼び出しのエンドポイントは
+     <samp class="ph codeph">player.ooyala.com</samp>。 このインタフェースは、視聴者自身が登録済みのデバイスを管理できるビューアセルフサービスの「ポータル」を作成するのに適しています。</li>
+
+    <li class="li">視聴者の特定のアカウントのデバイス履歴を管理および表示し、上記のクライアントアプリケーションAPIで許可されていないデバイスルールまたは設定を変更するためにカスタマーサポートグループが使用するのに適したAPI。 これらのAPI呼び出しのエンドポイントは <samp class="ph codeph">rl.ooyala.com</samp>。 これらの呼び出しは、で説明されているように、プロバイダの秘密鍵によって署名されている必要があります。 <a class="xref" href="api_keys.html" title="Ooyala APIの認証情報には、APIキーとシークレットが含まれています。これらは、HTTPリクエストに署名するため、およびスクラッチパッドを使用するときに提供するものです。">あなたのAPIクレデンシャル</a>.</li>
+
+   </ol>
+</div>
+
+   
+   <p class="gt-block p"><strong class="ph b">サポートされているデバイス、デジタル著作権管理（DRM）システム、およびコンテンツ</strong></p>
+
+   
+   
+   <div class="p">
+    
+       <ul class="ul">
+        <li class="li">デバイス：すべてのOoyalaプレミアムコンテンツ、DRM対応デバイス <ul class="ul">
+       <li class="li">デスクトップブラウザとアプリケーション</li>
+
+       <li class="li">Androidアプリ</li>
+
+       <li class="li">iOSアプリケーション</li>
+
+       <li class="li">接続されているTVアプリケーション（LG Netcast Deviceはサポートされていません）</li>
+
+       <li class="li">Xboxアプリケーション</li>
+
+       <li class="li">セットトップボックス（STB）アプリケーション</li>
+
+      </ul>
+
+     </li>
+
+        <li class="li">DRMテクノロジ
+         <ul class="ul">
+          <li class="li">アドビアクセス</li>
+
+          <li class="li">Google Widevine Modular</li>
+
+          <li class="li">Microsoft PlayReady</li>
+
+          <li class="li">Apple FairPlay</li>
+
+         </ul>
+
+        </li>
+
+        <li class="li">コンテンツの種類 <ul class="ul">
+              <li class="li">DRM保護資産のみ </li>
+
+              <li class="li">ウーヤラがホストする資産</li>
+
+              <li class="li">リモートアセット</li>
+
+              <li class="li">オンデマンド、リニア、およびライブアセット</li>
+
+            </ul>
+</li>
+
+       </ul>
+
+     
+   </div>
+
+   
+   
+   
+   
+   
+   <p class="p">デバイス登録には2つの制限があります。</p>
+
+   
+   <ol class="ol">
+    <li class="li">デバイス制限：消費者アカウントに関連付けられているデバイスの数の上限。 この制限はプロバイダ全体に適用され、公開ルールでプロバイダのすべての資産に適用されます。 <samp class="ph codeph">limit_devices_per_viewer</samp>。 特定のプロバイダに対して、デバイス制限の対象となるすべての資産に同じ制限があります。</li>
+
+    <li class="li">登録解除規則：消費者アカウントを登録解除に制限する <em class="ph i">X</em> のデバイス
+     <em class="ph i">Y</em> 時間間隔。 Ooyalaは、一定期間内に発生する可能性がある削除の数に制限を設けます。 プロバイダ全体をすべての資産に適用します。 </li>
+
+   </ol>
+
+   
+   
+   
+   
+   <p class="p">資産ごとに設定が必要です。</p>
+
+   <ol class="ol">
+    <li class="li">公開ルール &quot;Require Ooyala Player Token&quot;が必要です。
+     <div class="note note"><span class="notetitle">注意：</span> あなたのOoyalaアカウントがこの機能を含んでいる場合にのみ利用可能です。 Ooyala Player Tokenを有効にするには、アカウントマネージャに連絡してください。</div>
+
+    </li>
+
+    
+    <li class="li">公開ルール <samp class="ph codeph">limit_devices_per_viewer</samp> アセットを登録済みデバイスに制限するかどうかを設定します。</li>
+
+   </ol>
+
+   
+   <div class="p">これらの設定は、Backlot UIの下にあります。 <strong class="ph b">シンジケーション制御</strong> 以下に示すように（これは公開ルール用です）、または公開ルール用のBacklot APIを介して。<div class="fig fignone">
+     <img class="image" id="concept_r24_32h_3k__image_cby_fwk_vj" src="http://help-ooyala.brightcove.com/../image/limit_to_registered_devices_backlotui.png" height="187" width="327"/>
+    </div>
+</div>
+
+   <p class="p">その他の考慮事項</p>
+
+   
+   <ul class="ul">         
+    <li class="li">Ooyalaは認証サービスを提供していません。 アプリケーションには独自の認証モデルとサービスがあると想定されています。 </li>
+
+    <li class="li">デバイスを登録するための明示的な呼び出しはありません。</li>
+
+   </ul>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">ユーザポータルをプログラミングするためのハイレベルフローチャート</h2>
+   
+   
+   <div class="p">視聴者セルフサービスポータル用に作成したデバイス登録アプリケーションによる論理的なアクションの流れを以下に説明します。 <div class="fig fignone">
+     <img class="image" id="concept_r24_32h_3k__image_zd2_k42_rj" src="http://help-ooyala.brightcove.com/../image/deviceregistration_processflow.jpg" height="612" width="746"/>
+    </div>
+
+   </div>
+
+   
+   <ol class="ol">
+    <li class="li">認証が完了したら、プロバイダのアイデンティティサービスはOoyala Player Token（OPT）を作成する必要があります。 OPTは認証要求の一部として渡され、
+      <span class="keyword parmname">アカウントID</span>.</li>
+
+    
+    
+    
+    <li class="li">アプリケーションがDRMで保護されたストリームのDRMライセンスを要求します。 ライセンス要求は、認証サービスを介してライセンスサーバーに転送されます。 認証サービスが <span class="keyword parmname">アカウントID</span> そして <span class="keyword parmname">request_id</span> ライセンス要求に。</li>
+
+    
+    
+    
+    <li class="li"> DRMで保護されたアセットのライセンス要求の一部として、ユーザーが「ユーザーエンタイトルメントが必要」ポリシーで公開されたアセットを再生しようとすると、その特定のユーザーのエンタイトルメントがOoyalaに対してチェックされます。 <a class="xref" href="chapter_rightslocker.html">権利ロッカー</a>。 資産のポリシーにデバイス制限が含まれている場合、Ooyalaの認証サービスは、ライセンスを付与する前に、現在のデバイスがそのユーザーのデバイスの登録済みドメインに属していることを確認します。 DRMライセンスサーバーは一意のデバイスIDを生成します。 デバイスIDは暗号化されているため、クライアントアプリケーションから読み取ることはできません。</li>
+
+    
+    
+    
+    <li class="li">エンタイトルメント検証の一環として、Ooyala <a class="xref" href="chapter_rightslocker.html">権利ロッカー</a> に基づいて、デバイスの制限を確認します。 <span class="keyword parmname">アカウントID</span>
+     そして <span class="keyword parmname">デバイスID</span>。 DRMライセンスを取得する前に、正常なチェックが必要です。 安全な認証のために、デバイス登録はOoyalaプレーヤートークンに依存します（<span class="keyword parmname">アカウントID</span>）DRMと堅牢で安全なデバイスID。 <p class="gt-block p">すべての資格チェックに合格すると、ライセンスは暗号的にデバイスにバインドされます。 ブラウザのプライバシー設定/履歴/キャッシュがクリアされている場合、またはブラウザがアンインストールまたは再インストールされている場合、デバイス登録は失敗します。 これらのイベントのいずれかが発生した場合、 <span class="keyword parmname">デバイスID</span> ブラウザにキャッシュされているものは削除されます。 これにより、同じデバイスに新しいデバイスが割り当てられるため、デバイスの制限を超える可能性があります。 <span class="keyword parmname">デバイスID</span> 新しいデバイスとして追跡されます。</p>
+</li>
+
+   
+    <li class="li">デバイスが登録されていない場合、プロバイダはデバイスが自動登録されるように自分のサービスを設定できます。 ユーザーがデバイスの制限を超えていない場合、自動登録はデバイスをユーザーのデバイスドメインに追加します。 （デバイスのユーザーエージェント文字列は自動的に記録されます。）ユーザーは続行することを許可されています。<p class="gt-block p">Ooyala Flash Playerの場合、認証トークンが発行または変更されると、イベントは <samp class="ph codeph">authTokenChanged</samp> トリガーされます。 プレイヤーメッセージバスで、このイベントを聞くことができます。 例については、
+       <a class="xref" href="../reference/player_v3_dev_listenevent.xml" target="_blank">メッセージバスイベントを聞く</a>.</p>
+<p class="p">この時点で、オプションで自動的にユーザーにデバイスのニックネームを要求することができます。 もちろん、ユーザーポータルまたはカスタマーサポートポータルから、ユーザーが後でデバイスのニックネームを追加することもできます。</p>
+</li>
+
+    <li class="li">ユーザーのデバイス制限を超えた場合、システムはエラーを返します。
+     <p class="p">プロバイダのアプリケーションは、APIを使用してエラー情報とユーザーのデバイスニックネームを取得し、デバイス制限の制限を適切に伝達するユーザーエクスペリエンスを作成できます。 プロバイダは、APIを使用してセルフサービスポータルを作成したり、デバイスを（登録解除）したりするためのカスタマーサービス機能を作成したりできます。</p>
+</li>
+
+     <li class="li">認証が失敗した場合、クライアントは失敗の理由を取得し、エラーを修正するための適切なユーザーエクスペリエンスをトリガーするために、以下に定義されているようにユーザーPortal APIに要求を送信する必要があります。
+     <p class="p">デバイスの数に達した場合、デバイスを登録解除するためのユーザエクスペリエンスが引き起こされる可能性があります。</p>
+</li>
+
+    
+    <li class="li">登録解除の制限に達していない場合、ユーザーはデバイスを登録解除できます。
+    
+     <p class="p">アプリケーションは再度ライセンスを取得しようとします。</p>
+</li>
+
+    
+     <li class="li">ユーザーは、ライセンスを正常に取得する前に、登録解除の制限時間を待つ必要があります。</li>
+
+    
+    <li class="li">それ以外の場合、ユーザーはプロバイダのカスタマーサポートに問い合わせる必要があります。カスタマーサポートはデバイス登録APIを使用して制限を上書きできます。</li>
+
+   </ol>
+
+  </div>
+          
+  
+ </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../api/device_registration_properties.html">デバイス登録のプロパティ</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../api/device_registration_userportals.html">ユーザポータル用のデバイス管理API</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../api/device_registration_customersupportportals.html">カスタマーサポートポータル用のデバイス登録API</a></strong><br/>
+</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/device_registration_overview.html">デバイス登録</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absol

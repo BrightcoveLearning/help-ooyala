@@ -1,0 +1,161 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="copyright" content="(C) Copyright 2005" />
+  <meta name="DC.rights.owner" content="(C) Copyright 2005" />
+  <meta name="DC.Type" content="concept" />
+  <meta name="DC.Title" content="Ingestion Release Notes" />
+  <meta name="DC.Relation" scheme="URI" content="../concepts/book_ingest.html" />
+  <meta name="DC.Relation" scheme="URI" content="../concepts/book_ingest.html" />
+  <meta name="DC.Format" content="XHTML" />
+  <meta name="DC.Identifier" content="ois_ingestion_release_notes" />
+  <meta name="DC.Language" content="en-us" />
+  <link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css" />
+  <link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css" />
+  <title>摂取リリースノート</title>
+</head>
+
+<body id="ois_ingestion_release_notes">
+
+
+  <h1 class="title topictitle1">摂取リリースノート</h1>
+
+  <div class="body conbody">
+    <div class="section" id="ois_ingestion_release_notes__2019-05-15">
+      <h2 class="title sectiontitle">オーディオレイトバインディングサポート（2019-05-15）</h2>
+      <p class="p">Ooyala OTSは、すでに取り込まれ処理されたコンテンツの追加のオーディオトラックの関連付けをサポートします。 新しい音声トラックは、追加の言語、新しい音声サービスタイプなどを提供するために使用することができる。</p>
+      <p class="p">摂取は、Ooyala Ingestionサービスへのマニフェストベースの摂取を通じてのみサポートされます。 これがマニフェストの例です。</p>
+<pre><code>
+  &lt;？xml version = &quot;1.0&quot; encoding = &quot;utf-8&quot;？&gt; &lt;rss version = &quot;2.0&quot; xmlns：media = &quot;http://search.yahoo.com/mrss/&quot; xmlns：dcterms = &quot;http：/ /purl.org/dc/terms/ &quot;xmlns：fh =&quot; http://purl.org/syndication/history/1.0 &quot;xmlns：ooyala =&quot; http://www.ooyala.com/mrss/ &quot;&gt; &lt;channel &gt; &lt;item&gt; &lt;media：content url = &quot;test.aac&quot;&gt; &lt;/ media：content&gt; &lt;media：subTitle href = &quot;my_caption.dfxp&quot;&gt; &lt;/ media：subTitle&gt; &lt;media：thumbnail url = &quot;my_thumbnail.jpg &quot;filesize =&quot; 35712 &quot;&gt; &lt;/ media：thumbnail&gt; &lt;media：title&gt;テストXML &lt;/ media：title&gt; &lt;media：description&gt;これは例です&lt;/ media：description&gt; &lt;ooyala：labels&gt; / test、/例：/ xml &lt;/ ooyala：labels&gt; &lt;ooyala：メタデータ名= &#39;MD1&#39;&gt; MDValue1 &lt;/ ooyala：metadata&gt; &lt;ooyala：メタデータ名= &#39;MD2&#39;&gt; MDValue2 &lt;/ ooyala：metadata&gt; &lt;ooyala：embedcode&gt;埋め込みコード&lt;/ ooyala：embedcode&gt; &lt;ooyala：replace&gt; true &lt;/ ooyala：replace&gt; &lt;ooyala：audiolatebinding&gt; true &lt;/ ooyala：audiolatebinding&gt; &lt;ooyala：メタデータ名= &quot;default_language&quot;&gt; eng &lt;/ ooyala：metadata&gt; &lt;dcterms：valid&gt;開始= 2011-10-02-25T15：15：00-XN UMX：07。 end = 00-2026-12T25：16：00：00 &lt;/channel&gt; &lt;/rss&gt;</code></pre>
+      <p class="p">注意：</p>
+      <ul class="ul">
+        <li class="li"><code>ooyala：オーディオ結合</code>  is  <strong>必須</strong> とする必要があります <code>true</code></li>
+        <li class="li"><code>ooyala：交換する</code> オプションですが、存在する場合は、に設定する必要があります。 <code>true</code>そうでないと、取り込みが失敗します。</li>
+        <li class="li">オーディオファイルの長さはビデオの長さと一致する必要があります。一致しない場合は、再生の問題が発生する可能性があります。</li>
+        <li class="li">オーディオディスクリプションオーディオトラックが遅延バインディング用に提供されている場合は、マニフェストの一部として使用および提供されるチャネルレイアウトを持つ特定のプロファイル。</li>
+        <li class="li">次の形式が遅延バインディングでサポートされています。m4a、mp3、wma、aac、wav、およびogg</li>
+        <li class="li">オーディオコーデックが「mp4」コンテナと互換性がない場合、オーディオストリームはバインディングプロセスの後半でAAC / LC / Stereo用にエンコードされます。</li>
+        <li class="li">プロファイルで指定されたすべてのストリームのコンテンツ置換の処理に追加の請求が適用されます。</li>
+        <li class="li">多言語および音声による記述処理に関するすべての制限は、遅延バインディングによるコンテンツのこの段階的なプロモーションに適用されます。</li>
+        <li class="li">遅延バインディングオーディオストリームは既存のソースに追加されます。</li>
+        <li class="li">Azure In地域のお客様には、オーディオレイトバインディングはサポートされていません。</li>
+        <li class="li">遅延バインディングソースにデフォルトのオーディオトラックがある場合でも、初期ソースのデフォルト言語は保持されます。</li>
+        <li class="li">オーディオ遅延結合は、オーディオのみまたはビデオのみのアセットではサポートされていません。</li>
+        <li class="li">現在、AudioアセットはS3バケットに保存されていません。 マージされたファイルだけがS3バケットに保存されます。</li>
+        <li class="li">オーディオレイトバインディング機能はmp4アセットにのみ適用できます。</li>
+      </ul>
+    </div>
+
+    <div class="section" id="ois_ingestion_release_notes__2018-01-04">
+      <h2 class="title sectiontitle">OIS用MRSSフィードバリデータv2.5（2018-01-04）</h2>Ooyala MRSS Feed Validatorは新しいDTDで更新され、現在はOIS v2.5で動作します。 見る <a class="xref" href="ingestion_mrss.html" title="メディアRSS（MRSS）を使用して、Ooyalaに自分が公開しているMRSSフィードから自分のシステムから自分のコンテンツを取り出させることができます。 BacklotはMRSSフィードからメタデータを取得し、リモートアセットを作成するか（ホストされている場所から）ダウンロードして、ビデオと関連ファイル（サムネイル、クローズドキャプションファイルなど）を処理します。">リモートでホストされているMRSSフィードからの取り込み</a>.
+    
+    </div>
+
+
+    <div class="section" id="ois_ingestion_release_notes__2017-12-20">
+      <h2 class="title sectiontitle">OISによるVR 360アップロードのサポート（2017-12-20）</h2>このリリースでは、OISを使用してBacklotにVR 360ビデオをアップロードするためのサポートが導入されました。 VR 360ビデオのアップロードは、フラットビデオの取り込みに似ていますが、VR 360に固有のメタデータが追加されています - ファイルにVR 360というラベルを付け、VR 360タイプ（モノスコープまたはステレオスコピック）を指定します。 <ul class="ul">
+        <li class="li">マニフェストファイルでVR 360ファイルのメタデータを設定できます（ <a class="xref" href="ingestion_fileformats.html">マニフェストファイル形式</a>).  </li>
+
+        <li class="li">マニフェストファイルを使用していない場合は、ファイルのメタデータを <samp class="ph codeph">ffmpeg</samp> コマンドラインユーティリティ（ <a class="xref" href="ingestion_ftp.html" title="FTPS（推奨）またはFTP（非推奨）を使用して、ビデオ、サムネイル、クローズドキャプション、およびマニフェストファイルをBacklotにアップロードできます。">FTP / FTPSを使った取り込み</a>  or  <a class="xref" href="ingestion_aspera.html" title="Asperaファイル転送ソフトウェアを使用して、ビデオ、サムネイル、クローズドキャプション、およびマニフェストファイルをBacklotにアップロードできます。">Asperaでの摂取</a>).</li>
+
+      </ul>
+      概要については、 <a class="xref" href="../concepts/vr360.html">VR 360ビデオ</a>.
+    
+    </div>
+
+
+    <div class="section" id="ois_ingestion_release_notes__2017-10-06">
+      <h2 class="title sectiontitle">ダッシュボードの機能強化と地域内摂取（2017-10-12）</h2>
+      <ul class="ul">
+        <li class="li"><strong class="ph b">パフォーマンスの向上</strong> 取り込まれるコンテンツの平均速度を上げます。 コンテンツはより早く再生可能になります。</li>
+
+        <li class="li"><strong class="ph b">地域内摂取とトランスコーディング</strong>
+          Azure Mediaサービスを使用して、全体的な取り込みとトランスコーディングの時間を短縮し、コンテンツを顧客と同じ地域に保管します。 見る <a class="xref" href="ingestion_overview.html">コンテンツの取り込みについて</a>.</li>
+
+        <li class="li"><strong class="ph b">Ingestion Dashboardの新しい検索機能</strong> 取り込まれている資産を調べて、その状況を表示します。</li>
+
+        <li class="li"><strong class="ph b">Ingestion Dashboardの他のユーザーロールに表示される詳細情報。</strong> [Ingestion Dashboard]（[Ingestion Feed Activity]タブ）を表示するために[Upload Only]権限でログインする必要がなくなりました。 すべてのユーザーロールはこのダッシュボードを見ることができます。 表示できる情報量は、次の表に示すように、Backlotへのログインに使用された資格情報によって決まります。</li>
+
+      </ul>
+
+
+      <div class="tablenoborder">
+        <table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" id="d407238e101">ユーザー役割</th>
+
+              <th class="entry" valign="top" id="d407238e104">追加された機能</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" headers="d407238e101 d407238e104 ">アップロードのみ</td>
+
+              <td class="entry" valign="top" headers="d407238e101 d407238e104 ">開始した取り込みジョブの状況を表示します。 </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d407238e101 d407238e104 ">他のすべてのユーザー役割</td>
+
+              <td class="entry" valign="top" headers="d407238e101 d407238e104 ">取り込みダッシュボードを表示します。 すべての資格情報を使用して、OISからBacklotアカウントにアップロードされたすべてのコンテンツの摂取状況を追跡します。 </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+      </div>
+
+      <p class="gt-block p">見る <a class="xref" href="../tasks/accounttab_ingest.html" title="Backlotにログインすると、Ooyala Ingestion Service（OIS）を介して送信したインジェストジョブのステータスを表示できます。">バックスロットでの取り込みログの表示</a>.</p>
+
+    </div>
+
+
+    <div class="section" id="ois_ingestion_release_notes__2017-06-08">
+      <h2 class="title sectiontitle">クローズドキャプション取り込みのための新しい言語とフレームレートのオプション（2017-06-08）</h2>マニフェストファイルを使用してOoyala Ingestion Service（OIS）を介してクローズドキャプションファイルを取り込む場合は、オプションでクローズドキャプションファイルの言語とフレームレートを指定できます。 見る <a class="xref" href="closed_captions_ingest.html" title="BacklotまたはOoyala Ingestion Service（OIS）を介して字幕ファイルを取り込むことができます。">クローズドキャプションファイルの取り込み</a> 詳細については。
+    </div>
+
+
+    <div class="section" id="ois_ingestion_release_notes__2017-05-10">
+      <h2 class="title sectiontitle">新しい取り込みダッシュボード（2017-05-10）</h2>Backlot UIに <span class="ph uicontrol">摂取フィード活動</span> Ooyala Ingestion Service（OIS）を介してBacklotへの取り込みのために送信されたファイルの読み取り専用ログを表示するタブ。 このダッシュボードには、送信されたファイルの名前と種類、その処理ステータス、およびその他の関連情報が表示されます。 ビューを絞り込んで検索結果を絞り込むことができます。 このタブを見るには、次のユーザでBacklotにログインする必要があります。 <strong class="ph b">アップロードのみ</strong> アクセス。 詳しくは、 <a class="xref" href="../tasks/accounttab_ingest.html" title="Backlotにログインすると、Ooyala Ingestion Service（OIS）を介して送信したインジェストジョブのステータスを表示できます。">バックスロットでの取り込みログの表示</a>.
+    
+    </div>
+
+
+    <div class="section" id="ois_ingestion_release_notes__2017-02-06">
+      <h2 class="title sectiontitle">OIS v2.5でのXMLマニフェスト検証（2017-03-06）</h2> OIS 2.5ユーザーの場合、システムはXMLマニフェストファイル内のサポートされていない要素とタグを許可するように拡張されました。 必要なOoyalaの要素とタグ（ooyala.dtd）が存在する限り、システムログにより、プロセスが失敗することなく取り込みプロセスを続行できます。 以前は、マニフェスト内のサポートされていないタグは取り込み失敗を引き起こしていました。 見る <a class="xref" href="../tasks/ingestion_ftp_xml.html" title="動画を取り込むときは、XMLマニフェストファイルを使用して、サムネイルおよびクローズドキャプションファイルだけでなく、追加のメタデータ（動画のタイトル、説明、掲載時間、ラベル、カスタムメタデータなど）を指定できます。 FTP、Aspera、またはMRSSでコンテンツを取り込むときにXMLマニフェストファイルを使用できます。">XMLマニフェストファイル</a>.
+    
+    </div>
+
+    <div class="section">
+      <h2 class="title sectiontitle">参照</h2>
+      <ul class="ul">
+        <li class="li"><a class="xref" href="book_ingest.html" title="このドキュメントでは、Ooyalaにコンテンツを取り込む（アップロードする）方法について説明します。">摂取</a></li>
+
+        <li class="li"><a class="xref" href="ovp_intro.html">オンラインビデオプラットフォームの紹介</a></li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+  <div class="related-links">
+    <div class="familylinks">
+      <div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_ingest.html" title="このドキュメントでは、Ooyalaにコンテンツを取り込む（アップロードする）方法について説明します。">摂取</a></div>
+    </div>
+  </div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+
+</html>
+<!-- d

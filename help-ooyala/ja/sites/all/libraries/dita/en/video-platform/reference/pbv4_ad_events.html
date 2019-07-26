@@ -1,0 +1,187 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Ad-Related Events"/>
+<meta name="DC.Relation" scheme="URI" content="https://docs.brightcove.com/apidocs-ooyala/player_v4_js/OO.EVENTS.html#toc1"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_ad_events"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>広告関連のイベント</title>
+</head>
+<body id="pbv4_ad_events">
+
+
+    <h1 class="title topictitle1">広告関連のイベント</h1>
+   
+
+    <div class="body refbody">
+        <div class="section">
+            <div class="p">次の表のイベントを含め、広告関連のイベントはPlayer V4メッセージバスに表示されます。 
+                <ul class="ul">
+                    <li class="li">広告に関連するイベントにはすべて接頭辞が付きます
+                        <samp class="ph codeph">OO.EVENTS</samp>.</li>
+
+                    <li class="li">イベントが発生したときに独自のコールバック関数を呼び出すためにイベントを購読することができます。</li>
+                   
+                </ul>
+
+
+                すべてのPlayer V4イベントに関するドキュメントについては、 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_v4_js/OO.EVENTS.html#toc1" target="_blank">docs.brightcove.com/apidocs-ooyala/</a>.</div>
+
+            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="pbv4_ad_events__ad_events" class="table" frame="border" border="1" rules="all">
+                    
+                    
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top"><strong class="ph b">イベント</strong></td>
+
+                            <td class="entry" valign="top"><strong class="ph b">説明</strong></td>
+
+                        </tr>
+
+                        
+                        <tr class="row">
+                            <td class="entry" valign="top"><samp class="ph codeph">WILL_PLAY_ADS </samp></td>
+
+                            <td class="entry" valign="top">指定した時間帯の広告が再生されます。 <p class="p">このイベントの後に複数のイベントが続く可能性があります。 <samp class="ph codeph">AD_POD_STARTED</samp>  or
+                                        
+                                        <samp class="ph codeph">AD_POD_ENDED</samp> イベント。</p>
+</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top"><samp class="ph codeph">ADS_PLAYED</samp></td>
+
+                            <td class="entry" valign="top">特定の時間枠の広告の再生が終了しました。 </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top"><samp class="ph codeph">AD_POD_STARTED</samp></td>
+
+                            <td class="entry" valign="top">特定の広告マネージャからの一連の広告が再生され始めました。<p class="p">このイベントの後に複数の
+                                        <samp class="ph codeph">WILL_PLAY_SINGLE_AD</samp>  or
+                                        
+                                        <samp class="ph codeph">SINGLE_AD_PLAYED</samp> イベント。</p>
+</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top"><samp class="ph codeph">AD_POD_ENDED</samp></td>
+
+                            <td class="entry" valign="top">特定の広告マネージャからの一連の広告が再生を終了しました（終了しました）。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top"><samp class="ph codeph">WILL_PLAY_SINGLE_AD</samp></td>
+
+                            <td class="entry" valign="top">単一のリニア広告がすぐに再生されます。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top"><samp class="ph codeph">SINGLE_AD_PLAYED</samp></td>
+
+                            <td class="entry" valign="top">1つのリニア広告が再生されました。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top"><samp class="ph codeph">WILL_PLAY_NONLINEAR_AD</samp></td>
+
+                            <td class="entry" valign="top">ノンリニア広告が表示されます。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top"><samp class="ph codeph">NONLINEAR_AD_PLAYED</samp></td>
+
+                            <td class="entry" valign="top">ノンリニア広告が表示されました。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top"><samp class="ph codeph">HIDE_NONLINEAR_AD</samp></td>
+
+                            <td class="entry" valign="top">ノンリニア広告は非表示になります。 これは、広告が表示される期間を計時するタイマーに対してカウントされません。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top"><samp class="ph codeph">SHOW_NONLINEAR_AD</samp></td>
+
+                            <td class="entry" valign="top">非線形広告が表示されます。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top"><samp class="ph codeph">WILL_SHOW_COMPANION_ADS</samp></td>
+
+                            <td class="entry" valign="top">コンパニオン広告を再生する必要があります。 広告の詳細はイベントパラメータに含まれています。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top"><samp class="ph codeph">ADS_ERROR</samp></td>
+
+                            <td class="entry" valign="top">これは、広告マネージャがエラーを見つけたことを示します。 広告マネージャはいつでもこのイベントを発生させることができます。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top"><samp class="ph codeph">ADS_CLICKED</samp></td>
+
+                            <td class="entry" valign="top">現在再生中の広告がクリックされました。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top"><samp class="ph codeph">WILL_PAUSE_ADS</samp></td>
+
+                            <td class="entry" valign="top">現在再生中の広告で一時停止が要求されました。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top"><samp class="ph codeph">WILL_RESUME_ADS</samp></td>
+
+                            <td class="entry" valign="top">現在再生中の広告に履歴書が要求されました。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top"><samp class="ph codeph">PLAYHEAD_TIME_CHANGED</samp></td>
+
+                            <td class="entry" valign="top">このイベントには、現在再生中の広告の現在の位置と合計期間が含まれます。 これはスクラバーバーを更新するために使用されます。</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+
+        </div>
+
+    </div>
+
+    <div class="related-links"><div class="relinfo"><strong>関連情報</strong><br/>
+<div><a class="link" href="https://docs.brightcove.com/apidocs-ooyala/player_v4_js/OO.EVENTS.html#toc1" target="_blank">https://docs.brightcove.com/apidocs-ooyala/player_v4_js/OO.EVENTS.html#toc1</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

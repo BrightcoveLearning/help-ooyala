@@ -1,0 +1,66 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="High Performance API Endpoint"/>
+<meta name="abstract" content="The high performance API endpoint caches repeated requests from large volume web sites."/>
+<meta name="description" content="高性能APIエンドポイントは、大容量Webサイトからの繰り返し要求をキャッシュします。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_api_setup.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="api_high_performance"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>高性能APIエンドポイント</title>
+</head>
+<body id="api_high_performance">
+
+
+ <h1 class="title topictitle1">高性能APIエンドポイント</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">高性能APIエンドポイントは、大容量Webサイトからの繰り返し要求をキャッシュします。</p>
+
+
+  <p class="p">High Performance APIエンドポイントを使用するには、 <samp class="ph codeph">のGET</samp> コンテンツ配信ネットワーク（CDN）への要求</p>
+
+  <p class="p"><samp class="ph codeph">https://cdn-api.ooyala.com</samp></p>
+
+  <p class="p">CDN高性能APIエンドポイントのパフォーマンスは、通常のサービスのパフォーマンスを超えることがよくあります。 CDNも地理的に分散されているので、応答時間は世界各地で優れています。</p>
+
+  <p class="p">CDNエンドポイント</p>
+
+  <ul class="ul" id="api_high_performance__ul_lmn_chb_x3">
+   <li class="li">HTTPS（優先）またはHTTP要求を受け入れます。</li>
+
+   <li class="li">受け入れます <samp class="ph codeph">のGET</samp> リクエスト。</li>
+
+  </ul>
+
+  <div class="section"><h2 class="title sectiontitle">キャッシュフレンドリー <samp class="ph codeph">有効期限が切れます</samp> パラメーター</h2>
+  <p class="p">CDNキャッシング層は、各応答のコピーを約5分間保持します。 要求を行うとき、CDNは将来的に同じキャッシュ結果を返すためにあなたの正確な要求をキャッシュします。 要求の一部を変更すると、CDNはそれを新しい要求として扱います。 High Performance APIから最高のパフォーマンスを引き出すには、request expiresパラメータが &quot;cache friendly&quot;であることを確認してください。 つまり、短すぎません。 次のRubyスニペットでは、要求は常に明日の初めに期限切れになります。 </p>
+
+  <pre class="pre codeblock">
+ 今日= Date.todayの有効期限= Time.mktime（today.year、today.month、today.day）+ 86400   
+  </pre>
+
+  <p class="p">埋め込みのFlashまたはiOSアプリケーションで使用するURLを生成している場合は、将来有効期限が切れるURLを生成できます。</p>
+
+  </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_api_setup.html" title="Ooyalaは、Backlotプラットフォームへのリクエストを可能にするRESTベースのインターフェースを提供します。">Backlot REST APIを使用する</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

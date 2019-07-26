@@ -1,0 +1,90 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="VAST Ads Embedded Parameters in Player V3 (Deprecated)"/>
+<meta name="abstract" content="Pass VAST ad server or network tags to the Ooyala player."/>
+<meta name="description" content="VAST広告サーバーまたはネットワークタグをOoyalaプレーヤーに渡します。"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/player_v3_dev_adsparams.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="ads_ref_vast"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>プレーヤV3のVAST Ads埋め込みパラメータ（廃止予定）</title>
+</head>
+<body id="ads_ref_vast">
+
+
+ <h1 class="title topictitle1">プレーヤV3のVAST Ads埋め込みパラメータ（廃止予定）</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">VAST広告サーバーまたはネットワークタグをOoyalaプレーヤーに渡します。</p>
+
+   <div class="section"><div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V3は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V3はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V3を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="../concepts/pbv4_migration_v3.html">Player V3からの移行</a> そして <a class="xref" href="../concepts/pbv4_migration_faq.html">プレイヤー移行に関するFAQ</a>).</div>
+ VASTは、リニア広告（動画広告）、ノンリニア広告（オーバーレイ広告）、コンパニオン広告を表すためにxmlを使用する広告フォーマットです。 埋め込みパラメータを使用してVAST広告サービス関連のタグをプレーヤに渡すことができます。 <div class="p"><strong class="ph b">必須条件</strong>
+        <ul class="ul">
+          <li class="li">OoyalaのVAST広告セットを使用するには、サポートセンターにログインして、この広告ソースをアカウントに追加するように要求するチケットを送信してください。 有効にすると、プレーヤー用の広告セットを作成できるようになります。</li>
+
+          <li class="li">VAST広告タグの埋め込みパラメータを使用するには、広告セットもBacklotに適用する必要があり、広告セットに有効なVAST広告タグを含める必要があります。</li>
+
+        </ul>
+</div>
+現時点では、プレロール広告、ミッドロール広告、ポストロール広告のサポートはプラットフォームによって異なります。 各プラットフォームでどの広告掲載順位がサポートされているかを確認するには、 <a class="xref" href="../concepts/ads_integration_overview.html">クライアントサイド広告統合</a>.</div>
+<div class="section"><h2 class="title sectiontitle">VASTパラメータ</h2>
+      使用 <span class="keyword parmname">広大</span> VAST広告サーバーまたはネットワークタグをOoyalaプレーヤーに渡すためのパラメータ。 このパラメータは、広告サーバーまたはネットワークのURLを表すキーと値のペアを取ります。 また使用することができます <span class="keyword parmname">広大</span> 広告のURLを変更します。 広告URLが <span class="keyword parmname">広大</span> このパラメータを設定すると、バックスロットで再生するように設定されたときに広告が再生されます（プリロール、ミッドロール、またはポストロール）が、再生される広告コンテンツは新しい広告URLで上書きされます。 このパラメータはFlashおよびHTML5用です。 次の例では、 <samp class="ph codeph">広大</samp> パラメータ。
+      <pre class="pre codeblock">var videoPlayer = OO.Player.create（ &#39;playerwrapper&#39;、 &#39;embed_code&#39;、{高さ： &#39;100％&#39;、幅： &#39;100％&#39;、 &#39;vast&#39;：{tagUrl： &#39;some url&#39;、...}}） ;</pre>
+
+    </div>
+
+   <div class="section"><h2 class="title sectiontitle">vastAdsパラメータ</h2>
+     
+     <p class="gt-block p"><strong class="ph b">注意： </strong>このパラメーターはHTML5専用です。</p>
+
+     <p class="gt-block p">使用 <span class="keyword parmname">広大な広告</span> Backlotに適用されたVAST広告または広告セットをプログラムで上書きするためのパラメータ。 この機能を使用すると、VAST広告をアセットに追加したり、プレーヤーの埋め込みパラメータからVAST広告のコンテンツと位置（プリロール、ポストロール、ミッドロール）を更新したりできます。 広告がに設定されている場合 <span class="keyword parmname">広大な広告</span>、Backlotのプレーヤーに関連付けられている広告および広告セットは完全に無視されます。 </p>
+  
+     <div class="p"><span class="keyword parmname">広大な広告</span> 広告で使用されるすべてのパラメータを指定する必要があるコンテナです。<ul class="ul">
+          <li class="li"><strong class="ph b">type</strong>：広告タイプ &quot;広大&quot;に設定します。</li>
+
+          <li class="li"><strong class="ph b">URL</strong>：VAST広告コンテンツへのリンク。</li>
+
+          <li class="li"><strong class="ph b">周波数</strong>：VAST広告を呼び出す頻度 任意の正の整数に設定してください。</li>
+
+          <li class="li"><strong class="ph b">first_shown</strong>：VAST広告が表示されるまでにいくつの動画を再生する必要があるか。 任意の正の整数に設定してください。</li>
+
+          <li class="li"><strong class="ph b">時間</strong>：VAST広告が再生されるまでの時間（ミリ秒）。 任意の正の整数に設定してください。<ul class="ul">
+              <li class="li">プレロール広告を作成するには、時間を0に設定します。</li>
+
+              <li class="li">ミッドロール広告を作成するには、アセットの時間内で時間を他の数値に設定します。 </li>
+
+              <li class="li">ポストロール広告を作成するには、時間を正確に1000000000に設定します。</li>
+
+            </ul>
+
+          </li>
+
+        </ul>
+</div>
+
+     <div class="p">次の例は、プレロール広告とミッドロール広告の設定方法を示しています。
+          <span class="keyword parmname">広大な広告</span>.  <pre class="pre codeblock">var player = OO.Player.create（ &#39;playerwrapper&#39;、embedCode、{&#39;vastAds&#39;：[{type： &quot;vast&quot;、url： &quot;http://pubads.g.doubleclick.net/gampad/ads?sz=640x360&amp;iu = / 6062 / iab_vast_samples / skippable＆ciu_szs = 300x250,728x90＆impl = s＆gdfp_req = 1＆env = vp＆output = xx_vast2＆amp;時間：＆lt; =長さ：X：長さ： URL：「http://pubads.g.doubleclick.net/gampad/ads?sz=1x1&amp;iu=/0/iab_vast_samples/skippable&amp;ciu_szs=0x640x360&amp;impl=s&amp;gdfp_req=6062&amp;env=vp&amp;output=xml_vast300&amp;unviewed_position_start=250,728&amp;url=[referrer_url]&amp;correlator=[timestamp] &quot;、頻度：90、first_shown：1、時間：2}]}）;</pre>
+</div>
+
+   </div>
+
+ </div>
+
+ <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../reference/player_v3_dev_adsparams.html" title="埋め込みパラメータを使用して広告をカスタマイズします。">広告用のPlayer V3埋め込みパラメータ（廃止予定）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- de

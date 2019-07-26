@@ -1,0 +1,174 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Get All Watchlists Belonging to a User"/>
+<meta name="DC.Relation" scheme="URI" content="../api/cd_watchlist_api.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="watchlist_api_get_all"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>ユーザーに属するすべてのウォッチリストを取得する</title>
+</head>
+<body id="watchlist_api_get_all">
+
+
+  <h1 class="title topictitle1">ユーザーに属するすべてのウォッチリストを取得する</h1>
+
+ <div class="body refbody">
+   <div class="section">このエンドポイントは、指定されたユーザー（に指定されている）に属するすべてのウォッチリストを取得します。 <span class="keyword parmname">account_token</span> パラメータ）。 </div>
+
+  <div class="section"><h2 class="title sectiontitle">HTTPリクエスト</h2>
+    <pre class="pre codeblock">GET https://player.ooyala.com/watchlist/v3?account_token= &lt;account_token&gt;</pre>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">クエリパラメータ</h2>
+    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+        
+        
+        
+        
+        <thead class="thead" align="left">
+          <tr class="row">
+            <th class="entry" valign="top" width="14.285714285714285%" id="d54449e45">パラメーター</th>
+
+            <th class="entry" valign="top" width="57.14285714285714%" id="d54449e48">説明</th>
+
+            <th class="entry" valign="top" width="14.285714285714285%" id="d54449e51">タイプ</th>
+
+            <th class="entry" valign="top" width="14.285714285714285%" id="d54449e54">必須</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody class="tbody">
+          <tr class="row">
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d54449e45 "><span class="keyword parmname">api_version</span></td>
+
+            <td class="entry" valign="top" width="57.14285714285714%" headers="d54449e48 ">でなければなりません <span class="keyword parmname">v3</span>.  </td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d54449e51 ">文字列</td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d54449e54 ">はい（URL）</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d54449e45 "><span class="keyword parmname">account_token</span></td>
+
+            <td class="entry" valign="top" width="57.14285714285714%" headers="d54449e48 ">特定のエンドユーザに関連付けられているウォッチリストを参照するためにウォッチリストサービスによって使用されます（UUIDによって識別されます）。 詳しくは、
+                  <a class="xref" href="account_token_api.html" title="eコマースやウォッチリストなどの特定のOoyalaサービスへのアクセスは、Ooyalaアカウントトークンを使用して制御されます。 OoyalaアカウントトークンAPIは、ユーザーを認証するためのアカウントトークンを生成します。 これらのAPIを呼び出すとき、クライアントは認証用のアカウントトークンを提供する必要があります。 アプリケーションがユーザーにログインすると、OoyalaアカウントトークンAPIルートを呼び出してアカウントトークンを取得します。 アカウントトークンは特定の期間、デフォルトでは15分有効です。">OoyalaアカウントトークンAPI</a>.</td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d54449e51 ">文字列</td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d54449e54 ">はい（URL本体）</td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+</div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">リターンコード</h2>
+    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+        
+        
+        
+        <thead class="thead" align="left">
+          <tr class="row">
+            <th class="entry" valign="top" width=".5" id="d54449e126">コード</th>
+
+            <th class="entry" valign="top" width="NaN%" id="d54449e129">理由</th>
+
+            <th class="entry" valign="top" width="NaN%" id="d54449e132">説明</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody class="tbody">
+          <tr class="row">
+            <td class="entry" valign="top" width=".5" headers="d54449e126 "><span class="keyword parmname">200</span></td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d54449e129 ">OK</td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d54449e132 ">GETリクエストは成功しました。</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width=".5" headers="d54449e126 "><span class="keyword parmname">400</span></td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d54449e129 ">リクエストエラー</td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d54449e132 ">パラメーターが欠落しているかフォーマットが正しくないために失敗しました。</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width=".5" headers="d54449e126 "><span class="keyword parmname">401</span></td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d54449e129 ">無断</td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d54449e132 ">指定された <span class="keyword parmname">account_token</span> 無効です。</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width=".5" headers="d54449e126 "><span class="keyword parmname">404</span></td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d54449e129 ">見つかりませんでした</td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d54449e132 ">サーバーが停止しています。</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width=".5" headers="d54449e126 "><span class="keyword parmname">500</span></td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d54449e129 ">内部サーバーエラー</td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d54449e132 ">内部サーバーエラーが発生しました。</td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+</div>
+
+  </div>
+
+   <div class="section"><h2 class="title sectiontitle">例</h2>
+      <strong class="ph b">登録リクエスト</strong>
+      <pre class="pre codeblock">[GET]/watchlist/v3?account_token=NnMvb01DWWRMWmJXdTRRRUJCQmwvWjE4WVQvUytpSittY2h0azlmWWZPVVlUc25MOGxPNzZJV2ttMzk0TG4ydlkvbFZrZTI4VkNIYUJiU0owTGFadlFxenM3YU5mS2VrYXRjSVhpWDBXUS84S2VDQ0dUNmJYTmhEY2VNSkZ1dmc=</pre>
+
+      <strong class="ph b">レスポンス</strong> （成功）<p class="p">これは、ユーザが以前にN個のウォッチリストを作成したと仮定しています。 デフォルトのウォッチリストはすべてのユーザーに対して自動的に作成されます。</p>
+<pre class="pre codeblock">OK（200）{[{ &quot;account_pcode&quot;： &quot;t5SYJyOnyQw1eBBfirDLeVPt_p18&quot;、 &quot;ACCOUNT_ID&quot;： &quot;18285cswfcdf204896230fc2a67a5faf&quot;、 &quot;watchlist_id&quot;： &quot;d074ef35-253d-4f6a-82a1-1be382g7c180&quot;、 &quot;のcreated_at&quot;：1447185083488、 &quot;名前&quot;： &quot;デフォルト &quot; &quot;updated_atの&quot;：1454363150293、 &quot;NUMBER_OF_ITEMS&quot;：0}、{ &quot;account_pcode&quot;： &quot;t5SYJyOnyQw1eBBfirDLeVPt_p18&quot;、 &quot;ACCOUNT_ID&quot;： &quot;18285cswfcdf204896230fc2a67a5faf&quot;、 &quot;watchlist_id&quot;： &quot;d074b535-253d-4f6a-82a1-1be382g7c181&quot;、&quot; created_at &quot;：1454353570368、&quot; name &quot;：&quot;アクションムービー &quot;、&quot; updated_at &quot;：&quot; number_of_items &quot;：1454353570368}、…、{&quot; account_pcode &quot;：&quot; t0SYJyOnyQw5eBBfirDLeVPt_p1 &quot;、&quot; account_dXX &quot;&quot; XXX &quot;&quot; XXX &quot;... &quot;d18b18285-204896230d-2f67a-5a074-535be253e4c6&quot;、 &quot;created_at&quot;：82、 &quot;名前&quot;： &quot;ホラー映画&quot;、 &quot;更新された_at&quot;：1、 &quot;} X_NUMX&quot; &quot;</pre>
+
+    </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/cd_watchlist_api.html">ウォッチリストREST APIリファレンス</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

@@ -1,0 +1,100 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2016-09-30 Release"/>
+<meta name="abstract" content="Notable contents of this release include upgrades to the Dashboard and Business Intelligence board for Live and Video-on-Demand content types."/>
+<meta name="description" content="このリリースの注目すべき内容には、ライブおよびビデオオンデマンドコンテンツタイプ用のダッシュボードおよびビジネスインテリジェンスボードへのアップグレードが含まれます。"/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2016.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release20160930"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2016-09-30リリース</title>
+</head>
+<body id="release20160930">
+
+
+    <h1 class="title topictitle1">2016-09-30リリース</h1>
+
+    
+    
+    <div class="body conbody"><p class="shortdesc">このリリースの注目すべき内容には、ライブおよびビデオオンデマンドコンテンツタイプ用のダッシュボードおよびビジネスインテリジェンスボードへのアップグレードが含まれます。</p>
+
+        <div class="section" id="release20160930__iq_162"><h2 class="title sectiontitle">Ooyala IQリリース - バージョン1.6.2</h2>
+            
+            <p class="gt-block p">以下の機能は両方に適用されます。 <strong class="ph b">Live</strong> コンテンツタイプ <strong class="ph b">ビデオオンデマンド</strong> コンテンツタイプ</p>
+
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">ダッシュボード</strong></p>
+
+                <ul class="ul">
+                    <li class="li">全般的に <strong class="ph b">同時ユーザー傾向</strong> ログインが行われると、アカウント全体のグラフが1分単位で表示されます。 [Concurrent User Trending]ビューには、特定の瞬間のスナップショットが表示されます。 ビューは1分間隔で更新されます。
+                        <ul class="ul">
+                            <li class="li">資産から1つ選択できます。 <strong class="ph b">今人気の</strong> 窓からまたは <strong class="ph b">過去の時間の傾向</strong> ウィンドウを開き、各アセットの同時ユーザー傾向を参照してください。</li>
+
+                            <li class="li">この <em class="ph i">トレンド</em> chartは、現時点から4時間前までの動的な移動チャートです。 リアルタイムに更新されます。</li>
+
+                            <li class="li">チャートをズームインまたはズームアウトできます。</li>
+
+                            <li class="li">あなたはチャートでピーク同時ユーザーを得ることができます。</li>
+
+                        </ul>
+
+                    </li>
+
+                </ul>
+
+                <div class="fig fignone"><img class="image" src="http://help-ooyala.brightcove.com/../image/analytics_dashboard_concurrent_links.png" width="500"/></div>
+
+            </div>
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">ビジネス·インテリジェンス</strong></p>
+
+                <ul class="ul">
+                    <li class="li">  <strong class="ph b">ビジネスインテリジェンスボード</strong> エンドツーエンドの待ち時間は90分に短縮されました。</li>
+
+                    <li class="li">あなたがに行くことができます <strong class="ph b">リーチ</strong> タブをクリックして同時ユーザー履歴データを確認します。</li>
+
+                    <li class="li">最小15分から最大2日までの任意の期間を選択して、同時ユーザーの傾向を確認できます。 たとえば、03 / 30 / 16 12：00pmから03 / 30 / 16：12pmを選択すると、15：12pm、00：12pmのデータポイントが得られます。</li>
+
+                    <li class="li">各資産だけでなく、アカウント全体の同時ユーザー測定基準に関する1分単位のデータ粒度を得ることができます。 上限は50で、複数のビデオアセットでフィルタリングできます。 
+                    </li>
+
+                    <li class="li">ピーク同時ユーザー数は、Concurrent Trendingチャートで確認できます。</li>
+
+                    <li class="li">あなたが見ることができます <em class="ph i">1分あたりの平均同時ユーザー数</em> 左側のパネルで</li>
+
+                </ul>
+
+                <p class="gt-block p"><strong class="ph b">注</strong>：同時接続ユーザー（デバイス、地域など）のその他の寸法内訳は、現在サポートされていません。 つまり、これらの寸法にはフィルタ機能がありません。 ユーザーが1分間の同時ユーザービューにいる場合は、それ以外のすべてのフィルタ <em class="ph i">資産</em> 無効になっています。 同様に、他のフィルタが <em class="ph i">資産</em> が適用されると、1分間の細分性は無効になります。
+                </p>
+
+                <p class="gt-block p">
+                    <strong class="ph b">注</strong>：同時ユーザー測定基準は、1分単位の精度でのみ表示できます。 粒度を15分、1時間などの別の値に変更すると、表示は自動的に固有のユーザーを表示するように切り替わります。 
+                </p>
+
+                <div class="fig fignone"><img class="image" src="http://help-ooyala.brightcove.com/../image/analytics_business_intelligence_concurrent_links.png" width="500"/></div>
+
+            </div>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Ooyalaリリースノートを購読する</h2>
+             見る <a class="xref" href="../concepts/release_notes_subscribe.html">Ooyalaリリースノートを購読する</a> Ooyalaリリースノートの自動通知を購読する方法については、こちらをご覧ください。 </div>
+
+        <div class="section">このコンテンツは09 / 30 / 16の11：00 PM UTCに掲載されました。</div>
+ 
+    </div>
+    
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2016.html" title="2016からのリリースノート。">2016ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:abs

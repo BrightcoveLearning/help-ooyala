@@ -1,0 +1,137 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Updating an Existing Application with the Android Skin"/>
+<meta name="abstract" content=""/>
+<meta name="description" content=""/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/android_v4_gettingthesdk.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="android_v4_sample_app_steps"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Androidスキンを使用した既存のアプリケーションの更新</title>
+</head>
+<body id="android_v4_sample_app_steps">
+
+
+    <h1 class="title topictitle1">Androidスキンを使用した既存のアプリケーションの更新</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc"> </p>
+
+        <div class="section context">
+            <p class="gt-block p">新しいAndroidスキンを使用して既存のアプリケーションを更新することができます。 以下はAndroidのスキンをに統合する方法を説明するチュートリアルです。
+                    <strong class="ph b">BasicPlaybackSampleApp</strong>.</p>
+
+        </div>
+
+        <ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">まだ行っていない場合は、Ooyala Mobile SDK for Androidの最新バージョンをダウンロードしてください（次のURLから入手できます）。 <span class="ph">Ooyala <a class="xref" href="../../../../../../../../ja/downloads/index.html" target="_blank">ダウンロード</a></span>）、および解凍 <span class="ph filepath">OoyalaSkinSDK.zip</span>。 クローン
+                        <strong class="ph b">android-sample-apps</strong> 次のコマンドを入力してリポジトリを作成します。</span>
+                 
+                    <pre class="pre codeblock">Gitクローンhttps://github.com/ooyala/android-sample-apps.git</pre>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">コピー <span class="ph filepath">OoyalaSkinSDK.jar</span> に
+                        <span class="ph uicontrol">libs /</span> アプリのディレクトリ。</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">を修正 <span class="ph uicontrol">アプリ</span> 含めるビルドファイルの設定 <span class="ph uicontrol">OoyalaSDK</span>,  <span class="ph uicontrol">OoyalaSkinSDK</span>、そして <span class="ph uicontrol">反応する</span> 次のGradleビルドファイルスニペットに示すように、サポート。</span>
+                 
+                    <pre class="pre codeblock">依存関係{...コンパイルファイル（ &#39;libs / OoyalaSDK.jar&#39;）コンパイルファイル（ &#39;libs / OoyalaSkinSDK.jar&#39;）コンパイル（名前： &#39;react-native&#39;、バージョン： &#39;0.33.0&#39;、ext： &#39;aar&#39;）。 ..}                        
+                    </pre>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">どちらかを指定する必要があります。 <samp class="ph codeph">AppCompat</samp> テーマまたは1つの拡張。 に <span class="ph uicontrol">AndroidManifest.xml</span>以下を指定
+                        <samp class="ph codeph">アンドロイド：テーマ</samp>:</span>
+                 
+                    <pre class="pre codeblock">
+     &lt;application android：allowBackup = &quot;true&quot; android：icon = &quot;@ drawable / ic_launcher&quot; android：label = &quot;@文字列/ app_name&quot; android：theme = &quot;@ style / Theme.AppCompat&quot;&gt;
+                    </pre>
+
+                    <div class="note note"><span class="notetitle">注意：</span> あなたが拡張する任意のテーマを使用することができます <samp class="ph codeph">Theme.AppCompat</samp>、 といった <samp class="ph codeph">Theme.AppCompat.Light</samp>.</div>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Androidが32ビットデバイスで64ビットライブラリを使用できるようにするには、次のプロパティをに追加します。 <span class="ph uicontrol">gradle.properties</span>:</span>
+                 
+                    <pre class="pre codeblock">android.useDeprecatedNdk = true</pre>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">入れ <span class="ph uicontrol">フォント</span>,
+                    
+                    <span class="ph uicontrol">index.android.jsbundle</span>,  <strong class="ph b">ローカライゼーションファイル</strong>
+                    （en.json、zh.jsonなど）、そして <span class="ph uicontrol">skin.json </span>に
+                        <span class="ph uicontrol">src / main / assets</span>.</span>
+            </li>
+<li class="li step stepexpand"><span class="ph cmd">含める <span class="ph uicontrol">OoyalaSkinLayout</span> 〜へ <span class="ph uicontrol">layout.xml</span> プレイヤーを表示するアクティビティの例：</span>
+                 
+                    <pre class="pre codeblock">
+&lt;com.ooyala.android.skin.OoyalaSkinLayout android：id = &quot;@ + id / ooyalaSkin&quot; ... /&gt;                        
+                    </pre>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">新しいアクティビティを使用するようにアクティビティを変更してください
+                    <span class="ph uicontrol">OoyalaSkinLayout</span>:</span>
+                 
+                    <pre class="pre codeblock">
+public void onCreate（Bundle savedInstanceState）{... setContentView（R.layout.layout.xml）; EMBED = getIntent（）。getExtras（）。getString（ &quot;embed_code&quot;）; //プレーヤーを初期化します。OoyalaSkinLayout skinLayout =（OoyalaSkinLayout）findViewById（R.id.ooyalaPlayer）; PlayerDomain domain = new PlayerDomain（ドメイン）; Options options = new Options.Builder（）.setShowPromoImage（false）.build（）; player = new OoyalaPlayer（PCODE、ドメイン、オプション）。 // SkinOptionsを作成し、Skin SkinOptionsを設定します。skinOptions = new SkinOptions.Builder（）。build（）; playerLayoutController = new OoyalaSkinLayoutController（getApplication（）、skinLayout、player、skinOptions）; ...}                    </pre>
+
+                
+            </li>
+</ol>
+
+        <div class="example"><p class="p">まとめると、以下は、Ooyala Skin SDKがアプリケーションで機能するための要件のリストです。</p>
+
+            <ul class="ul">
+                <li class="li"><span class="ph uicontrol">OoyalaSDK.jar </span>そして
+                        <span class="ph uicontrol">OoyalaSkinSDK.jar</span> アプリケーションにインポートする必要があります。</li>
+
+                <li class="li"><strong class="ph b">ウーヤラスキンSDK</strong>
+                    <ul class="ul">
+                        <li class="li">スキンパッケージのSDKバージョン <strong class="ph b">VERSION</strong> ファイルは <strong class="ph b">VERSION</strong>
+                            Ooyala SDKのファイル。</li>
+</ul>
+
+                </li>
+
+                <li class="li"><strong class="ph b">フォント</strong>
+                    <ul class="ul">
+                        <li class="li">に追加する必要があります <span class="ph uicontrol">資産</span> フォルダにコピーします。</li>
+
+                    </ul>
+</li>
+
+                <li class="li"><strong class="ph b">ローカライゼーションファイル</strong> （en.json、zh.jsonなど）、 <strong class="ph b">skin-config.json</strong>、および
+                        <strong class="ph b">index.android.jsbundle</strong> に追加する必要があります
+                        <span class="ph uicontrol">資産</span> フォルダにコピーします。</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/android_v4_gettingthesdk.html">Android用プレイヤースキン</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

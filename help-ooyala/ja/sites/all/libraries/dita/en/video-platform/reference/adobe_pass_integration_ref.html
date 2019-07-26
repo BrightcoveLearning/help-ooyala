@@ -1,0 +1,305 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Adobe Pass Integration Reference"/>
+<meta name="abstract" content="Please note that Adobe Pass is not currently integrated with the Ooyala Player V4. Player parameters, the APIs, and events associated with Adobe Pass integration."/>
+<meta name="description" content="Adobe Passは現在Ooyala Player V4と統合されていません。 Adobe Passの統合に関連するプレーヤーパラメータ、API、およびイベント。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/authentication_overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/adobepass_integration.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_v3_dev_refdiv"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Adobe Pass統合リファレンス</title>
+</head>
+<body id="player_v3_dev_refdiv">
+
+
+ <h1 class="title topictitle1">Adobe Pass統合リファレンス </h1>
+
+  
+ <div class="body refbody"><p class="shortdesc">Adobe Passは現在Ooyala Player V4と統合されていません。 Adobe Passの統合に関連するプレーヤーパラメータ、API、およびイベント。</p>
+
+  <div class="section"><h2 class="title sectiontitle">プレイヤーパラメータ</h2>
+  </div>
+
+  
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+    <thead class="thead" align="left">
+     <tr class="row">
+      <th class="entry" valign="top" id="d822192e27"><strong class="ph b">パラメーター</strong></th>
+
+      <th class="entry" valign="top" id="d822192e31"><strong class="ph b">説明</strong></th>
+
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr class="row">
+      <td class="entry" valign="top" headers="d822192e27 d822192e31 ">staticResourceId</td>
+
+      <td class="entry" valign="top" headers="d822192e27 d822192e31 ">Adobe Pass Serverに渡されるプレーヤーパラメータ。 BacklotラベルのresourceIdと一致させます。</td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" headers="d822192e27 d822192e31 ">showLoginAtStart</td>
+
+      <td class="entry" valign="top" headers="d822192e27 d822192e31 ">起動時にログインを表示するかどうか。
+       <p class="p">TRUE  - エンドユーザーがまだ認証されていない場合は、自動的にMVPDを表示してログインします。</p>
+
+       <p class="p">FALSE（デフォルト） - ログインにMPVDを表示しません。</p>
+</td>
+
+     </tr>
+
+    </tbody>
+
+   </table>
+</div>
+
+    
+  <div class="section"><h2 class="title sectiontitle">APIリファレンス</h2>
+
+   <strong class="ph b">OO.Pass API</strong>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" id="d822192e80"><strong class="ph b">API呼び出し</strong></th>
+
+       <th class="entry" valign="top" id="d822192e84"><strong class="ph b">説明</strong></th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" headers="d822192e80 d822192e84 ">OO.Pass.login（）</td>
+
+       <td class="entry" valign="top" headers="d822192e80 d822192e84 ">認証とログインを確認してください。 すでにログインしている場合は、OO.EVENTS.ADOBE_PASS_AUTH_STATUSを聞くことができます。それ以外の場合は、ログインダイアログが表示されます。</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d822192e80 d822192e84 ">OO.Pass.logout（）</td>
+
+       <td class="entry" valign="top" headers="d822192e80 d822192e84 ">現在のユーザーをログアウトしようとしました。</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d822192e80 d822192e84 ">OO.Pass.checkAuthentication（）</td>
+
+       <td class="entry" valign="top" headers="d822192e80 d822192e84 ">認証されたらフルチェックを行います。 現在の認証ステータスでOO.EVENTS.ADOBE_PASS_AUTH_STATUSを聞くことができます。</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d822192e80 d822192e84 ">OO.Pass.isAuthenticated（）</td>
+
+       <td class="entry" valign="top" headers="d822192e80 d822192e84 ">認証された場合はtrueを返します。</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d822192e80 d822192e84 ">OO.Pass.selectProvider（イベント）</td>
+
+       <td class="entry" valign="top" headers="d822192e80 d822192e84 ">useProviderDialog（）を参照してください。 この関数を使用してプロバイダを解析し、Adobe PassにMVPDの選択を伝えることができます。</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d822192e80 d822192e84 ">OO.Pass.getSelectedProvider（）</td>
+
+       <td class="entry" valign="top" headers="d822192e80 d822192e84 ">現在ログインしているプロバイダを返します。</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d822192e80 d822192e84 ">OO.Pass.useProviderDialog（ダイアログ）</td>
+
+       <td class="entry" valign="top" headers="d822192e80 d822192e84 ">カスタムMVPDダイアログコールバック関数を使用してください。 サンプルWebページを参照してください。</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d822192e80 d822192e84 ">OO.Pass.checkAuthorization（resourceId）</td>
+
+       <td class="entry" valign="top" headers="d822192e80 d822192e84 ">エンドユーザーが認証されている場合は、指定されたresourceIdに対して承認を得ているかどうかを確認します。
+        <p class="p">成功：OO.EVENTS.ADOBE_PASS_TOKEN_FETCHEDとsetTokenを発行します（Adobe Pass内で特定）。</p>
+
+        <p class="p">失敗：OO.ERROR.ADOBE_PASS_TOKENとtokenRequestFailedを発行します（Adobe Pass内で固有）。</p>
+</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d822192e80 d822192e84 ">OO.Pass.getAuthorization（resourceId）</td>
+
+       <td class="entry" valign="top" headers="d822192e80 d822192e84 ">提供されたresourceIdの許可を得ようとしました。 エンドユーザーが認証されていない場合は、最初にログインを試みます。
+        <p class="p">成功：OO.EVENTS.ADOBE_PASS_TOKEN_FETCHEDとsetTokenを発行します（Adobe Pass内で特定）。</p>
+
+        <p class="p">失敗：OO.ERROR.ADOBE_PASS_TOKENとtokenRequestFailedを発行します（Adobe Pass内で固有）。</p>
+</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d822192e80 d822192e84 ">OO.Pass.isEntitlementLoaded（）</td>
+
+       <td class="entry" valign="top" headers="d822192e80 d822192e84 ">Access Enablerがロードされ初期化されている場合はtrueを返します。</td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+
+  <p class="gt-block p"><strong class="ph b">OO.PASS CALLBACK API</strong></p>
+
+  
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+    <thead class="thead" align="left">
+     <tr class="row">
+      <th class="entry" valign="top" id="d822192e208"><strong class="ph b">API呼び出し</strong></th>
+
+      <th class="entry" valign="top" id="d822192e212"><strong class="ph b">説明</strong></th>
+
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr class="row">
+      <td class="entry" valign="top" headers="d822192e208 d822192e212 ">OO.Pass.onSetToken（func）</td>
+
+      <td class="entry" valign="top" headers="d822192e208 d822192e212 ">Adobe PassがsetTokenイベントを送出したときにコールバックするために、関数func（event、resId、token）の形式で関数を受け取ります。</td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" headers="d822192e208 d822192e212 ">OO.Pass.onTokenRequestFailed（func）</td>
+
+      <td class="entry" valign="top" headers="d822192e208 d822192e212 ">Adobe PassがtokenRequestFailedイベントを送出したときにコールバックする関数func（event、stat、errorCode）の形式の関数を使用します。</td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" headers="d822192e208 d822192e212 ">OO.Pass.onSetAuthenticationStatus（func）
+      </td>
+
+      <td class="entry" valign="top" headers="d822192e208 d822192e212 ">Adobe PassがsetAuthenticationStatusイベントを送出したときにコールバックするために、関数func（event、stat、errorCode）の形式の関数を呼び出します。</td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" headers="d822192e208 d822192e212 ">OO.Pass.onEntitlementLoaded（func）</td>
+
+      <td class="entry" valign="top" headers="d822192e208 d822192e212 ">Adobe PassがentitlementLoadedイベントを送出したときにコールバックするために、関数func（event、stat、errorCode）の形式の関数を呼び出します。</td>
+
+     </tr>
+
+    </tbody>
+
+   </table>
+</div>
+
+  </div>
+  
+  
+  <div class="section"><h2 class="title sectiontitle">イベント紹介</h2>
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" id="d822192e272"><strong class="ph b">イベント</strong></th>
+
+       <th class="entry" valign="top" id="d822192e276"><strong class="ph b">説明</strong></th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" headers="d822192e272 d822192e276 ">OO.EVENTS.ADOBE_PASS_AUTH_STATUS</td>
+
+       <td class="entry" valign="top" headers="d822192e272 d822192e276 ">誰かが認証を確認したとき。</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d822192e272 d822192e276 ">OO.EVENTS.ADOBE_PASS_TOKEN_FETCHED</td>
+
+       <td class="entry" valign="top" headers="d822192e272 d822192e276 ">認証に成功したトークンが取得されたとき。</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d822192e272 d822192e276 ">OO.EVENTS.ERROR</td>
+
+       <td class="entry" valign="top" headers="d822192e272 d822192e276 ">エラーが発生したとき Adobe Passには、一部のAdobe Passエラーに対してリスナーに渡される追加のパラメーターがあります。
+        <p class="gt-block p"><strong class="ph b">注意：</strong> MVPDからのより詳細なエラーは、params.passDetailsにあります。</p>
+</td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+   <p class="p">最も一般的なAdobe Passイベント</p>
+
+   <p class="p">次のリストには、最も一般的なAdobe Passイベントが含まれています。</p>
+
+   <ul class="ul">
+    <li class="li">setToken</li>
+
+    <li class="li">tokenRequestFailed</li>
+
+    <li class="li">setAuthenticationStatus</li>
+
+    <li class="li">entitlementLoaded</li>
+
+   </ul>
+
+   <p class="p">これらのイベントについて詳しくは、Adobe Passの資料を参照してください。</p>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">実装例</h2>
+  <strong class="ph b">サンプルWebページ統合</strong>
+  <pre class="pre codeblock">&lt;html&gt; &lt;head&gt; &lt;script src = &quot;http://player.ooyala.com/v3/[your_player_branding_id]&quot;&gt; &lt;/script&gt; &lt;script&gt; OO.ready（function（）{window.pp = OO.Player） .create（ &quot;video-container&quot;、 &quot;[your_embed_code]&quot;、{width： &#39;400px&#39;、height： &#39;300px&#39;、staticResourceId： &#39;[your_resource_id]&#39;、}）;}）; &lt;/script&gt; &lt;/head&gt; &lt;body&gt; &lt;divクラス= &quot;動画コンテナ&quot; id = &quot;動画コンテナ&quot;&gt; &lt;/div&gt; &lt;a href = &quot;＃&quot; onclick = &quot;javascript：OO.Pass.login（ ）; return false; &quot;&gt;ログイン&lt;/a&gt; &lt;a href=&quot;#&quot; onclick=&quot;javascript:OO.Pass.logout();return false;&quot;&gt;ログアウト&lt;/a&gt; &lt;br /&gt; &lt;/ body&gt; &lt;/html&gt; &lt;/codeblock&gt; &lt;b&gt; Webページ統合のサンプル&lt;/b&gt; &lt;p&gt;次の例では、&lt;/p&gt; &lt;ul&gt; &lt;li&gt;認証するために、コードにmvpd_idが含まれている必要があります。 &lt;/li&gt; &lt;li&gt; ooyalaMvpdPickerContainerという名前は固定されており、変更できません。&lt;/li&gt; &lt;/ul&gt; &lt;codeblock&gt; &lt;html&gt; &lt;head&gt; &lt;script src = &#39;http：//code.jquery.com/jquery -1.8.2.min.js &#39;&gt; &lt;/script&gt; &lt;script src = &quot;http://player.ooyala.com/v3/[your_player_branding_id]&quot;&gt; &lt;/script&gt; &lt;script&gt; //カスタム表示プロバイダダイアログ関数customDisplayProviderDialog（ event、provider）{var selectTitle = &quot;これは私のプロバイダ用のカスタム表示です&quot;; $（ &#39;＃ooyalaMvpdPickerContainer&#39;）。remove（）; //プロバイダリストを作成します。 var loginContainerDiv = $（ &#39;&lt;div id = &quot;ooyalaMvpdPickerContainer&quot; /&gt;&#39;）; $（ &#39;body&#39;）。append（loginContainerDiv）; var cancelButton = $（ &quot;&lt;div class = &#39;cancelDiv&#39; /&gt;&quot;）; cancelButton.html（ &#39;＆nbsp;&#39;）; var titleBar = $（ &quot;&lt;div class = &#39;titleBar&#39; /&gt;&quot;）; titleBar.html（selectTitle）; var providerList = $（ &quot;&lt;div class = &#39;providerList&#39; /&gt;&quot;）; var bottomList = $（ &quot;&lt;div class = &#39;bottomList&#39; /&gt;&quot;）; var innerDiv = $（ &quot;&lt;div class = &#39;innerDiv&#39; /&gt;&quot;）; loginContainerDiv.append（innerDiv）; innerDiv.append（cancelButton）; innerDiv.append（titleBar）; innerDiv.append（providerList）; innerDiv.append（bottomList）; var list = $（ &quot;&lt;ul&gt;&quot;）; providerList.append（list）; //リスト要素の使用とmvpd_idのそれらの属性に注意してください。 $ .each（プロバイダー、関数（インデックス、項目）{var li = $（ &quot;&lt;li&gt;&quot;）; li.attr（ &quot;mvpd_id&quot;、item.ID）; li.append（ &quot;&lt;img src = &#39;&quot; + item.logoURL + &quot;&#39;onclick =&#39; function（）{return false;} &#39;&gt;&quot; + item.displayName）; list.append（li）;}）; $（ &quot;＃ooyalaMvpdPickerContainer li&quot;）。（OO.Pass.selectProvider）をクリックしてください。 cancelButton.click（function（）{$（ &#39;＃ooyalaMvpdPickerContainer&#39;）。remove（）;}）; // //カスタム表示プロバイダダイアログを終了します。&lt;/script&gt; &lt;/head&gt; &lt;body&gt; &lt;divクラス= &quot;動画コンテナ&quot; id = &quot;動画コンテナ&quot;&gt; &lt;/div&gt; &lt;a href = &quot;＃&quot; onclick = &quot; javascript：OO.Pass.login（）; falseを返す; &quot;&gt;ログイン&lt;/a&gt; &lt;a href=&quot;#&quot; onclick=&quot;javascript:OO.Pass.logout();return false;&quot;&gt;ログアウト&lt;/ a&gt; &lt;br /&gt; &lt;/body&gt; &lt;/html&gt;
+  </pre>
+
+  </div>
+
+ </div>
+
+ <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/authentication_overview.html">認証</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="../concepts/adobepass_integration.html">
+     Adobe PassとOoyala Playerの統合</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

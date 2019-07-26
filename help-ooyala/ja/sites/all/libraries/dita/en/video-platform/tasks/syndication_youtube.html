@@ -1,0 +1,283 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Syndication with YouTube"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_syndications_specific.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="syndication_youtube"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>YouTubeとのシンジケート</title>
+</head>
+<body id="syndication_youtube">
+
+
+  <h1 class="title topictitle1">YouTubeとのシンジケート</h1>
+
+  <div class="body conbody">
+    <div class="section">
+      <p class="p">Google YouTubeのログインアカウントを使用して、BacklotのYouTubeチャンネルにコンテンツを配信することができます。 OAuth 2.0プロトコルを使用して、BacklotユーザーにYouTubeへのビデオの配信（シンジケート）を許可します。 このタイプの認証では、Backlotアカウントにログインし、[承認]をクリックしてポップアップウィンドウでGoogle YouTubeアカウントにログインできます。 Google YouTubeアカウントにログインしたら、[OK]をクリックして、Backlotビデオ（シンジケーション）をYouTubeにエクスポートします。</p>
+
+      <div class="p">ここに含まれるトピック： <ul class="ul">
+          <li class="li"><a class="xref" href="#syndication_youtube__accounts/index.html">YouTubeシンジケートについて</a></li>
+
+          <li class="li"><a class="xref" href="#syndication_youtube__privacy_settings/index.html">プライバシー設定</a></li>
+
+          <li class="li"><a class="xref" href="#syndication_youtube__limits/index.html">動画のサイズと長さの制限</a></li>
+
+          <li class="li"><a class="xref" href="#syndication_youtube__labels/index.html">YouTubeシンジケートのラベル</a></li>
+
+          <li class="li"><a class="xref" href="#syndication_youtube__multiple_accounts/index.html">複数のYouTubeアカウントログインから選択する</a></li>
+
+          <li class="li"><a class="xref" href="#syndication_youtube__access_accounts/index.html">YouTubeアカウントにアクセスする</a></li>
+
+          <li class="li"><a class="xref" href="#syndication_youtube__contentreplacement_in_youtube/index.html">YouTubeシンジケートのコンテンツ置換</a></li>
+
+          <li class="li"><a class="xref" href="#syndication_youtube__steps/index.html">YouTubeにシンジケートする手順</a></li>
+
+        </ul>
+</div>
+
+    </div>
+
+    <div class="section" id="syndication_youtube__accounts"><h2 class="title sectiontitle">YouTubeシンジケートについて</h2>
+      
+      <p class="p" id="syndication_youtube__docs-internal-guid-9158b253-aa3c-ee0f-1c83-05ca91991693">Google YouTubeのログインアカウントを使用して、BacklotのYouTubeチャンネルにコンテンツを配信することができます。 OAuth 2.0プロトコルを使用して、BacklotユーザーにYouTubeへのビデオの配信（シンジケート）を許可します。 このタイプの認証では、Backlotアカウントにログインし、[承認]をクリックしてポップアップウィンドウでGoogle YouTubeアカウントにログインできます。 Google YouTubeアカウントにログインしたら、[OK]をクリックして、Backlotビデオ（シンジケーション）をYouTubeにエクスポートします。</p>
+
+      <p class="gt-block p">YouTubeシンジケーション（つまり、YouTubeに動画をエクスポート）の場合 <span class="ph">バックスロット</span> ビデオのソースファイルを自動的にYouTubeに直接アップロードします。これにより、すべてのトランスコードとプレビュー画像の生成が処理されます。</p>
+
+      <div class="fig fignone">
+        <img class="image" src="http://help-ooyala.brightcove.com/../image/youtube_syndication.png"/>
+      </div>
+
+      <p class="gt-block p">YouTubeとのシンジケートは「一方向」です。設定とコンテンツは <span class="ph">バックスロット</span> YouTubeにプッシュされますが、YouTubeの設定とコンテンツは <em class="ph i">Studio上ではサポートされていません。</em> に引っ張ら <span class="ph">バックスロット</span>.</p>
+
+      <p class="p">Backlotでは、YouTubeログインアカウントを通じてシンジケートフィードをYouTubeチャンネルにリンクさせています。 シンジケーションフィードを設定すると、フィードを承認するYouTubeアカウントを選択するようにBacklotから求められます。 複数ある場合：</p>
+
+      <ul class="ul" id="syndication_youtube__ul_bjt_2c1_yn">
+        <li class="li">
+          <p class="gt-block p"><strong class="ph b">YouTubeログインアカウント</strong>、Backlotはあなたのアカウントを一覧表示するウィンドウを表示し、シンジケーションフィードを承認するためのアカウントを一つ選択するようにあなたに促します。 </p>
+
+        </li>
+
+        <li class="li">
+          <p class="gt-block p"><strong class="ph b">YouTubeチャンネル</strong> YouTubeアカウントに関連付けられているBacklotは、チャンネルを一覧表示するウィンドウを表示し、シンジケーションフィード用のチャンネルの1つを選択するように促します。</p>
+
+        </li>
+
+      </ul>
+
+      <p class="p"> 別のシンジケーションフィードに同じYouTubeアカウントのログインを選択した場合、Backlotは別のアカウントのログインを使用するように指示します。 Backlotシンジケーションフィードと許可されたYouTubeログインアカウントの間のリンクを削除して、そのシンジケートに対して別のYouTubeログインアカウントを許可することができます。 このオプションに関する重要な情報については、トピック「シンジケート用の他のYouTubeアカウントの選択」を参照してください。</p>
+
+      <p class="p">次の「複数のYouTubeアカウントからの選択」のトピックでは、Backlotシンジケーション、OAuthベースのアカウント認証、および複数のYouTubeアカウントとチャンネルの処理の関係について詳しく説明しています。</p>
+
+      <div class="note note"><span class="notetitle">注意：</span> 動画をYouTubeにシンジケートすると、各動画にYouTube動画IDが割り当てられます。 ビデオとその一意のIDはリンクされています。 このIDを変更したり、アップロードした動画に新しいIDを付けたりすることはできません。 Backlotでビデオのメタデータ（タイトルと説明）を変更しても、ビデオIDには影響しません。 新しい動画をアップロードするだけで、そのアセットに関連付けられた動画IDが作成されます。</div>
+
+    </div>
+
+    <div class="section" id="syndication_youtube__privacy_settings"><h2 class="title sectiontitle">プライバシー設定</h2><p class="p" id="syndication_youtube__docs-internal-guid-9158b253-aa4b-a775-1662-df2b333bf697">Backlotは2つのシンジケーションプライバシー設定をサポートします。パブリックまたはプライベートです。 BacklotでYouTubeにシンジケーションを設定すると、次のようになります。</p>
+<ul class="ul" id="syndication_youtube__ul_xvg_321_yn">
+        <li class="li">
+          <p class="p">デフォルトでは、あなたのビデオは公開されています。 </p>
+
+        </li>
+
+        <li class="li">
+          <p class="p">プライバシーオプションをパブリックまたはプライベートに設定できます。</p>
+
+        </li>
+
+      </ul>
+<ul class="ul" id="syndication_youtube__ul_yvg_321_yn">
+        <li class="li">プライバシー設定を変更しても、変更後にシンジケーションに追加されたビデオのみが影響を受けます。</li>
+
+      </ul>
+<p class="p">Backlot Manageタブで、個々のアセットをパブリックまたはプライベート設定でマークすることもできます。 アセットレベルの設定は、シンジケーションフィードの設定をオーバーライドします。</p>
+
+      以前YouTubeに配信された動画のプライバシー設定を変更するには、[管理]ページの[詳細]で個々のアセットの設定を変更します。 <p class="p"> 次の例に示すように、特定の資産のサブタブ。</p>
+<div class="p">
+        <div class="fig fignone">
+          <img class="image" id="syndication_youtube__image_pr1_221_yn" src="http://help-ooyala.brightcove.com/../image/backlotui_syndication/backlotui_syndication_youtube_with_privacy.png_perasset.png" height="150" width="432"/>
+        </div>
+
+      </div>
+<div class="note note"><span class="notetitle">注意：</span> YouTube内でシンジケートビデオをパブリックまたはプライベートとしてマークすることもできます。 Backlotでタイトルや説明を変更しても、YouTubeのプライバシー設定は上書きされません。アップロードされた動画とこれらの変更だけが同期されるためです。 </div>
+</div>
+
+    <div class="section" id="syndication_youtube__limits"><h2 class="title sectiontitle">動画のサイズと長さの制限</h2>
+      
+      <div class="p">YouTubeにシンジケートするビデオファイルのサイズと期間には制限があります。 Backlotは、サイズが64ギガバイト以下で期間が15分以下のビデオアセットのみをアップロードします。 見る
+        <a class="xref" href="http://community.ooyala.com/t5/Developers-Knowledge-Base/Publishing-YouTube-Assets-Longer-Than-15-Minutes/ta-p/2286" target="_blank">http://community.ooyala.com/t5/Developers-Knowledge-Base/Publishing-YouTube-Assets-Longer-Than-15-Minutes/ta-p/2286</a>
+        この制限が存在する理由の詳細については。 <div class="fig fignone">
+          <img class="image" id="syndication_youtube__image_hmc_n1j_j3" src="http://help-ooyala.brightcove.com/../image/backlotui_syndication/backlotui_syndication_youtube_with_privacy.png" height="160" width="430"/>
+        </div>
+</div>
+
+    </div>
+
+    <div class="section" id="syndication_youtube__labels"><h2 class="title sectiontitle">YouTubeシンジケートのラベル</h2>YouTubeアカウントにシンジケートすると、シンジケートチャンネルのコンテンツを自動的にYouTubeと同期することができます。 潜在的な問題を回避するには、ラベルの適用がYouTubeへのシンジケーションとどのように連携するかを理解する必要があります。 次の表に、[発行]タブの[外部発行]サブタブでラベルを使用したときにBacklotが実行する処理を示します。 <table cellpadding="4" cellspacing="0" summary="" id="syndication_youtube__simpletable_nlx_bf1_yn" border="1" class="simpletable"><tr class="sthead">
+          <th valign="bottom" align="left" id="d1095624e191" class="stentry" width="25%">もし、あんたが...</th>
+
+          <th valign="bottom" align="left" id="d1095624e194" class="stentry" width="75%">それから...</th>
+
+        </tr>
+<tr class="strow">
+          <td valign="top" headers="d1095624e191" class="stentry">選択します <strong class="ph b">すべてのコンテンツ</strong>,  </td>
+
+          <td valign="top" headers="d1095624e194" class="stentry">Backlotは、ラベル付きまたはラベルなしのすべての動画をYouTubeにアップロードします。 </td>
+
+        </tr>
+<tr class="strow">
+          <td valign="top" headers="d1095624e191" class="stentry">選択します <strong class="ph b">ラベルを追加</strong>,  </td>
+
+          <td valign="top" headers="d1095624e194" class="stentry">
+            <p class="p" id="syndication_youtube__docs-internal-guid-9158b253-aa53-c4f3-41f9-27d18a36b16e">Backlotは、指定されたラベルの付いたすべての動画をYouTubeにアップロードします。</p>
+
+            <p class="p">注意：ラベルのない動画が既にアップロードされている場合にこのオプションを選択すると、ラベルのない動画はYouTubeで削除されます。</p>
+
+          </td>
+
+        </tr>
+<tr class="strow">
+          <td valign="top" headers="d1095624e191" class="stentry">選択します <strong class="ph b">ラベルを追加</strong> 後で選択 <strong class="ph b">すべてのコンテンツ</strong>,  </td>
+
+          <td valign="top" headers="d1095624e194" class="stentry">Backlotはラベル付きの動画をYouTubeにアップロードします。 次に、[すべてのコンテンツ]を選択すると、Backlotはラベルなしのコンテンツをアップロードします。 </td>
+
+        </tr>
+<tr class="strow">
+          <td valign="top" headers="d1095624e191" class="stentry">選択した <strong class="ph b">すべてのコンテンツ</strong> 後で選択 <strong class="ph b">ラベルを追加</strong>,  </td>
+
+          <td valign="top" headers="d1095624e194" class="stentry">Backlotは、ラベル付きまたはラベルなしのすべての動画をYouTubeにアップロードします。 [ラベルを追加]が選択されている場合、Backlotはラベルなしの既存のビデオを削除し、ラベル付きのビデオを追加します。 </td>
+
+        </tr>
+<tr class="strow">
+          <td valign="top" headers="d1095624e191" class="stentry">を削除<strong class="ph b"> ラベル</strong> （Backlotまたはフィード自体を編集して） </td>
+
+          <td valign="top" headers="d1095624e194" class="stentry">そのラベルを持つすべての動画をYouTubeアカウントから削除します。 ビデオに複数のラベルがある場合でも、そのビデオに関連付けられているラベルを1つ削除すると、そのビデオはYouTubeアカウントから削除されます。 これは、以前はビデオに関連付けられていた分析データもすべて失われることを意味します。 </td>
+
+        </tr>
+</table>
+
+    </div>
+
+    <div class="section" id="syndication_youtube__multiple_accounts"><h2 class="title sectiontitle">複数のYouTubeアカウントログインから選択する</h2>
+      
+      <p class="p">複数のGoogle YouTubeアカウント（個人用アカウント、企業用アカウント、その他の種類）を持つことができます。 Backlotでは、複数のYouTubeユーザーアカウントのいずれかを選択して、動画をYouTubeに配信することができます。</p>
+
+      <div class="fig fignone">
+        <img class="image" id="syndication_youtube__image_np1_221_yn" src="http://help-ooyala.brightcove.com/../image/backlotui_syndicate_youtube.png" height="493" width="389"/>
+      </div>
+
+      <p class="gt-block p" id="syndication_youtube__docs-internal-guid-9158b253-aa55-4f01-d7d8-e8f22ccde73c"><strong class="ph b">ログインアカウントに複数のYouTubeチャンネルが関連付けられている場合</strong></p>
+
+      <p class="p">YouTubeでは、作成した各ログインアカウントを使用して、暗黙のデフォルトチャンネルを取得します。 さらにチャンネルを作成したり、YouTubeチャンネルマネージャがYouTubeユーザーにチャンネルを管理するためのアクセス権を付与したりすることもできます。 YouTubeアカウントのログインでシンジケーションを承認した後、複数のチャンネルがある場合は、Backlotは別のウィンドウを表示してシンジケートのチャンネルを選択できるようにします。 次の画像は、アカウント（チャンネル）の選択を促し、利用可能なYouTubeチャンネルを一覧表示する[Backlot]ウィンドウの例を示しています。 </p>
+
+      <p class="p">
+        <img class="image" src="http://help-ooyala.brightcove.com/../image/backlotui_syndication_channels.png" height="211" width="389"/></p>
+
+    </div>
+
+    <div class="section" id="syndication_youtube__access_accounts"><h2 class="title sectiontitle">YouTubeアカウントにアクセスする</h2>
+      
+      <p class="p">複数のGoogle YouTubeアカウントにログインしている場合は、[承認]をクリックすると、Backlotに既知のすべてのGoogle YouTubeアカウントが一覧表示されます。 前の図は、複数のGoogle YouTubeログインアカウントを持つユーザーを表示するポップアップウィンドウを示しています。 アカウントを1つ選択して、手順に従ってシンジケーションを完了します。 次のトピック「YouTubeへのシンジケートの手順」を参照してください。特定のシンジケーションフィードに関連付けるには、1つのGoogle YouTubeアカウントしか選択できません。</p>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle"> シンジケートのための他のYouTubeアカウントの選択 </h2>
+      
+      <p class="p">Backlotではシンジケーションを他のアカウントに関連付けることができますが、一度行うと、以前のアカウントでYouTubeにアップロードした元の動画を変更することはできません。 アカウントを切り替えると、前のアカウントにアップロードされたすべての動画はYouTubeに残りますが、管理されなくなります。 これらの動画（および新しい動画）は、Backlotから別のYouTubeアカウントに個別にアップロードされ、新しいvideoIDが割り当てられます。既存のBacklotシンジケーションを他のアカウントに関連付ける必要がある場合は、次の手順を実行します。</p>
+
+      <ol class="ol" id="syndication_youtube__ol_odm_hg1_yn">
+        <li class="li">BacklotのExternal Publishingタブに行きます。</li>
+
+        <li class="li">[フィードをYouTubeに関連付ける]の下にある[承認を削除]を選択します。 これにより、BacklotのYouTubeチャンネルに関連付けられている既存のアカウントが削除されます。注：「別のアカウントに切り替えると、既存のYouTubeアカウントの動画を削除または変更できなくなります」というポップアップメッセージが表示されます。</li>
+
+        <li class="li">別のYouTubeアカウントに関連付けるシンジケーションを選択してください。 </li>
+
+        <li class="li">[承認]をクリックして、そのシンジケートを他のYouTubeアカウント名と関連付けます。</li>
+
+      </ol>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">複数のユーザーが単一のチャンネルに関連付けられている場合 </h2>
+      
+      <p class="p">Backlotは、シンジケーションフィードを単一のYouTubeチャンネルにリンクすることをサポートしています。 そのチャンネルを管理できるのは1つのシンジケーションフィードだけです（シンジケートが別のYouTubeアカウントで認証されている場合でも）。 Backlotを使うと、あるYouTubeアカウントから別のYouTubeアカウントに切り替えても、引き続きビデオアセットを管理できます。 両方のアカウントが同じYouTubeチャンネルを管理している場合に限り、これを実行できます。</p>
+
+    </div>
+
+    <div class="section" id="syndication_youtube__contentreplacement_in_youtube"><h2 class="title sectiontitle">YouTubeシンジケートのコンテンツ置換</h2>
+      
+      <p class="p" id="syndication_youtube__docs-internal-guid-9158b253-aa56-8fa0-8220-4f4d8dc548b5">YouTube自体は、以前にアップロードされた（またはシンジケートされた）ビデオのコンテンツを直接置き換えることができないように設計されています。 YouTubeでは、新しい動画コンテンツにのみ新しい識別子（ID）が割り当てられています。 YouTubeにアップロードされたシンジケートビデオを削除して置き換えたい場合は、YouTube内からそれらを削除するか、Backlotのラベルの削除オプションを使用してそれらを削除する必要があります。 アップロードされたすべてのコンテンツに新しいYouTubeビデオIDが割り当てられます。 </p>
+
+      <div class="note note"><span class="notetitle">注意：</span> 動画を削除すると、削除された動画に関連付けられているすべてのタイトル、説明、ラベル、および分析データが自動的に削除されます。 YouTubeフィードも3日後に期限切れになります。</div>
+
+      <p class="p">シンジケートでコンテンツを一括置換するには、YouTubeの動画を削除し、Backlotシンジケートのコンテンツを置換し、手順に従って新しいシンジケートアセットをYouTubeにアップロードする必要があります。 新しいアセットにはそれぞれ固有のYouTube識別子があります。</p>
+
+    </div>
+
+    <div class="section" id="syndication_youtube__steps"><h2 class="title sectiontitle">YouTubeにシンジケートする手順</h2>
+      
+      <p class="p">YouTubeへのシンジケーションを作成する（YouTubeに動画をエクスポートする）には：</p>
+
+      <ol class="ol">
+        <li class="li">にログインします。 <a class="xref" href="https://backlot.ooyala.com/" target="_blank"><span class="ph">バックスロットUI</span></a>.  <p class="gt-block p">  <span class="ph">バックスロットUI</span> 開きます。</p>
+
+        </li>
+
+        <li class="li"> Video Cloud Studioで <span class="ph uicontrol">出版</span> のページをご覧ください。 </li>
+
+        <li class="li"> ストリーミングを停止する場合は上部の <span class="ph uicontrol">外部パブリッシング</span>
+          サブタブ </li>
+
+        <li class="li"> 左側のリストボックスから、公開タイプを選択します <strong class="ph b">ユーチューブ</strong> をクリックし
+            <span class="ph uicontrol">新しい</span>.  <p class="p">新しいYouTubeシンジケーションが作成されました。</p>
+
+        </li>
+
+        <li class="li"> 必要に応じて、シンジケーションの名前を変更してください。 </li>
+
+        <li class="li"> 帰ります <span class="ph">バックスロットUI</span> をクリックし
+            <span class="ph uicontrol">承認する</span>.  </li>
+
+        <li class="li"> ポップアップで、コンテンツを配信したいGoogle YouTubeアカウントにログインします。 複数のGoogleアカウントがある場合は、それらが一覧表示されることがあります。 BacklotからYouTubeにビデオをエクスポートするために1つだけ選択できます。</li>
+
+        <li class="li"> シンジケートするコンテンツを指定するには、このシンジケートがすべてのコンテンツに対するものである場合は、をクリックします。 <span class="ph uicontrol">すべてのコンテンツ</span>。 それ以外の場合はクリックします
+            <span class="ph uicontrol">ラベルを追加</span> 1つ以上のラベルを選択します。 </li>
+
+        <li class="li"> 画面の指示に従ってシンジケーションを承認します。 OKをクリックしてください。<p class="p">シンジケーションは許可されています。</p>
+</li>
+
+        
+        <li class="li">
+          <div class="note note"><span class="notetitle">注意：</span> から変更 <span class="ph uicontrol">すべてのコンテンツ</span> 〜へ
+              <span class="ph uicontrol">ラベルを追加</span> またはその逆に、以前YouTubeに配信されたすべてのビデオがYouTubeから削除され、再作成されます。 これは、以前はビデオに関連付けられていた分析データもすべて失われることを意味します。</div>
+
+        </li>
+
+        <li class="li"> 必要に応じて、デフォルトのプライバシー設定を <span class="ph uicontrol">アップロードした動画を公開する</span> チェックボックスをオンにします。 </li>
+
+      </ol>
+
+      <p class="p">アカウントの設定がわからない場合やその他の支援が必要な場合は、Ooyalaテクニカルサポートにお問い合わせください。</p>
+
+    </div>
+
+    
+  </div>
+
+  
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_syndications_specific.html">特定のシンジケーション</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMConten

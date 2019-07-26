@@ -1,0 +1,88 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Ooyala API V1 (Deprecated) to API V2 Migration"/>
+<meta name="abstract" content="The Ooyala V1 APIs had a limited set of functions. The Ooyala V2 APIs provide more control over your resources and are easier to update when new functionality is released."/>
+<meta name="description" content="Ooyala V1 APIには、限られた機能しかありません。 Ooyala V2 APIを使用すると、リソースをより細かく制御でき、新しい機能がリリースされたときに更新が簡単になります。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_archive.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/v1_v2_attribute_update.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/v1_v2_custom_metadata.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/v1_v2_labels.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/v1_v2_players.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/v1_v2_channels.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/v1_v2_channel_sets.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/v1_v2_query.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/v1_v2_thumbnail.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/video_manage_ads.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="api_v1_v2_migration"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Ooyala API V1（非推奨）からAPI V2への移行</title>
+</head>
+<body id="api_v1_v2_migration">
+
+
+ <h1 class="title topictitle1"><span class="ph">Ooyala</span> API V1  (Deprecated) to API V2 Migration</h1>
+
+ 
+ <div class="body conbody"><p class="gt-block shortdesc">  <span class="ph">Ooyala</span> V1 APIには限られた機能しかありません。 の <span class="ph">Ooyala</span> V2 APIを使用すると、リソースをより細かく制御でき、新しい機能がリリースされたときに更新が容易になります。</p>
+
+  <p class="gt-block p">  <span class="ph">Ooyala</span> V2 APIはRepresentational State Transfer（REST）の規則に従います。 各リソースには独自のURLがあり、独自の設定可能なパラメータセットがあり、標準のHTTPメソッドを通じて更新できます。 使用可能なHTTPリクエストメソッドは次のとおりです。 </p>
+
+   <ul class="ul">
+    <li class="li">GET：リソースを見る</li>
+
+    <li class="li">POST：新しいリソースを作成する</li>
+
+    <li class="li">DELETE：リソースを削除します</li>
+
+    <li class="li">PUT：既存のリソースを置き換えます</li>
+
+    <li class="li">PATCH：既存のリソースを更新または修正する</li>
+
+   </ul>
+
+  <p class="p">ほとんどのHTTPライブラリまたはツールでは、要求を出すときにこれらのHTTPメソッドのいずれかを指定できます。  </p>
+
+ </div>
+
+ <div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../archive/v1_v2_attribute_update.html">属性更新API（廃止予定）</a></strong><br/>
+属性更新APIはアセットAPIの一部になりました。 資産に対してGETを実行してそのデータを返すか、POSTを実行して属性設定を更新できます。</li>
+<li class="link ulchildlink"><strong><a href="../archive/v1_v2_custom_metadata.html">カスタムメタデータAPI（廃止予定）</a></strong><br/>
+カスタムメタデータAPIは、アセットAPIの一部になりました。 これで、カスタムメタデータまたはアセットを表示、更新、置換、または削除できます。</li>
+<li class="link ulchildlink"><strong><a href="../archive/v1_v2_labels.html">ラベル管理API（廃止予定）</a></strong><br/>
+新しいラベル管理APIには、Backlot API v1よりも多くの機能があり、それほど複雑ではありません。</li>
+<li class="link ulchildlink"><strong><a href="../archive/v1_v2_players.html">プレーヤ管理API（廃止予定）</a></strong><br/>
+古いプレーヤ管理APIでは、プレーヤに関する情報を一覧表示してそれをアセットに割り当てることができました。 新しいプレーヤAPIを使用すると、プレーヤの属性と設定を作成および変更するだけでなく、これらのタスクを実行できます。</li>
+<li class="link ulchildlink"><strong><a href="../archive/v1_v2_channels.html">チャネルAPI（廃止予定）</a></strong><br/>
+古いチャンネルAPIには、チャンネルのコンテンツの一覧表示、チャンネルへのアセットの割り当て、またはチャンネルの作成を可能にする3つのモードがありました。 チャンネルAPIは、アセットAPIの一部になりました。これにより、チャンネルの作成、編集、削除、およびチャンネルラインナップの作成、編集、削除を行うことができます。</li>
+<li class="link ulchildlink"><strong><a href="../archive/v1_v2_channel_sets.html">チャネルセットAPI（廃止予定）</a></strong><br/>
+古いチャンネルセットAPIには、チャンネルセットの内容の一覧表示、チャンネルセットへのチャンネルの割り当て、または新しいチャンネルセットの作成を可能にする3つのモードがありました。 チャンネルセットAPIがアセットAPIの一部になりました。これにより、チャンネルセットの作成、編集、削除、およびチャンネルセットのラインナップの作成、編集、削除が可能になります。</li>
+<li class="link ulchildlink"><strong><a href="../archive/v1_v2_query.html">クエリAPI（廃止予定）</a></strong><br/>
+新旧のクエリAPIの違いはこのセクションの範囲を超えています。 </li>
+<li class="link ulchildlink"><strong><a href="../archive/v1_v2_thumbnail.html">サムネイルクエリAPI（廃止予定）</a></strong><br/>
+サムネイルクエリAPIは、アセットAPIの一部になりました。 </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_archive.html" title="Ooyala Archiveへようこそ。ここには、廃止予定の機能、ツール、およびAPIのドキュメントが含まれています。">アーカイブ</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="../concepts/video_manage_ads.html" title="広告を資産に直接適用することも、広告セットを使用してプロセスを自動化することもできます。">広告を管理する</a></div>
+</div>
+</div>
+ 
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

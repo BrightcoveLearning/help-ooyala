@@ -1,0 +1,176 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Player V3 Embedded Parameters for Custom Modules (Deprecated)"/>
+<meta name="DC.Relation" scheme="URI" content="../api/player_v3_api_params.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="reference_jkl_th4_rl"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>カスタムモジュール用のPlayer V3埋め込みパラメータ（廃止予定）</title>
+</head>
+<body id="reference_jkl_th4_rl">
+
+
+  <h1 class="title topictitle1">カスタムモジュール用のPlayer V3埋め込みパラメータ（廃止予定）</h1>
+
+
+  <div class="body refbody">
+    <div class="section"><div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V3は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V3はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V3を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="../concepts/pbv4_migration_v3.html">Player V3からの移行</a> そして <a class="xref" href="../concepts/pbv4_migration_faq.html">プレイヤー移行に関するFAQ</a>).</div>
+
+ 
+      <p class="gt-block p">カスタムモジュールの埋め込みパラメータ（キーと値のペア）を
+        <span class="keyword apiname">OO.Player.create（）</span> 方法。 次の表は、これらのカスタムモジュールパラメータについて説明しています。 </p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="20.66115702479339%" id="d89362e46">パラメーター</th>
+
+              <th class="entry" valign="top" width="58.67768595041321%" id="d89362e49">説明</th>
+
+              <th class="entry" valign="top" width="1" id="d89362e52">プレイヤーの種類</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            
+            
+            
+            
+            
+          <tr class="row">
+              <td class="entry" valign="top" width="20.66115702479339%" headers="d89362e46 "><span class="keyword parmname">devModuleCategory</span></td>
+
+              <td class="entry" valign="top" width="58.67768595041321%" headers="d89362e49 ">サードパーティのカスタムモジュールの開発に使用される場合、このパラメータはPlayer.createオプションハッシュの &quot;flashParams&quot;サブハッシュで指定します。 このパラメータを使用して、 &#39;universal&#39;や &#39;ads-manager&#39;などのカスタムモジュールカテゴリを指定します。 <p class="gt-block p"><strong class="ph b">タイプ</strong>：ひも
+                </p>
+<p class="gt-block p"><strong class="ph b">有効な値</strong>:  <samp class="ph codeph"> 「ユニバーサル」や「広告マネージャ」などのカテゴリ名</samp></p>
+<p class="gt-block p">
+                    <strong class="ph b">例</strong>:</p>
+<pre class="pre codeblock">var videoPlayer = OO.Player.create（ &#39;playerwrapper&#39;、 &#39;embed_code&#39;、{高さ：100％、幅：100％、 &#39;flashParams&#39;：{devModuleCategory： &#39;universal&#39;、....}、}）;</pre>
+</td>
+
+              <td class="entry" valign="top" width="1" headers="d89362e52 ">フラッシュのみ</td>
+              
+            </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="20.66115702479339%" headers="d89362e46 "><span class="keyword parmname">devModuleURL</span></td>
+
+              <td class="entry" valign="top" width="58.67768595041321%" headers="d89362e49 ">サードパーティのカスタムモジュールの開発に使用される場合、このパラメータはPlayer.createオプションハッシュの &quot;flashParams&quot;サブハッシュで指定します。 このパラメータを使用して、サードパーティモジュールのswfをダウンロードできる場所のURLを指定します。
+                <p class="gt-block p"><strong class="ph b">タイプ</strong>：ひも </p>
+<p class="gt-block p"><strong class="ph b">有効な値</strong>:  <samp class="ph codeph"> サードパーティモジュールのswfが配置されているダウンロードURL</samp></p>
+<p class="gt-block p">
+                    <strong class="ph b">例</strong>:</p>
+<pre class="pre codeblock">var videoPlayer = OO.Player.create（ &#39;playerwrapper&#39;、 &#39;embed_code&#39;、{高さ：100％、幅：100％、 &#39;flashParams&#39;：{devModuleURL： &#39;someURL&#39;、....}、}）;</pre>
+
+              </td>
+
+              <td class="entry" valign="top" width="1" headers="d89362e52 ">フラッシュのみ</td>
+
+            </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="20.66115702479339%" headers="d89362e46 "><span class="keyword parmname">隠す</span></td>
+
+              <td class="entry" valign="top" width="58.67768595041321%" headers="d89362e49 ">
+                <p class="p">特定のプレイヤー機能を無効にするには、このパラメータを使用します。 V3 HTML5プレーヤーはデフォルトではコントロールを表示しません。 <samp class="ph codeph">隠す</samp> パラメータはV3プレーヤーでは機能しません。 ただし、お使いのデバイスにFlashのフォールバックがある場合は、次のものを使用できます。
+                  <samp class="ph codeph">隠す</samp> パラメータ（ <samp class="ph codeph">プラットフォーム</samp> 前述のパラメータ。 Flashのフォールバックがある場合は、hideを指定する必要があります。
+                  <samp class="ph codeph">flashParams</samp> ハッシュで。</p>
+
+                <p class="gt-block p"><strong class="ph b">タイプ</strong>：ひも </p>
+
+                <p class="gt-block p"><strong class="ph b">有効な値</strong>:  <samp class="ph codeph">すべて オプションのコンマ区切りリスト</samp></p>
+
+                <div class="p"> 値は次のとおりです。 <ul class="ul" id="reference_jkl_th4_rl__ul_rxj_zrg_rl">
+                  <li class="li"><samp class="ph codeph">を</samp> - すべてのコントロールを無効にする </li>
+
+                  <li class="li"><samp class="ph codeph">フルスクリーンチャンネル <samp class="ph codeph">埋め込みます</samp>,
+                          
+                          <samp class="ph codeph">エンドスクリーン</samp>、info、loadingインジケータ、共有、またはボリューム</samp></li>
+
+                </ul>
+
+                  <strong class="ph b">例</strong>:</div>
+
+                <p class="p">次の例では、ハッシュに &#39;flashParams&#39;を指定し、非表示キーと値のペアを追加します。</p>
+
+                <pre class="pre codeblock">var videoPlayer = OO.Player.create（ &#39;playerwrapper&#39;、 &#39;embed_code&#39;、{高さ：100％、幅：100％、 &#39;flashParams&#39;：{hide： &#39;all&#39;、....}、}）;</pre>
+
+                <p class="p"> プレーヤーがクロムレスレイアウトの場合は、無効にすることができます。
+                    <samp class="ph systemoutput">loadingIndicator</samp>。 次の例は、hideパラメーターと一緒にこの値を使用する方法を示しています。</p>
+
+                <pre class="pre codeblock">var videoPlayer = OO.Player.create（ &#39;playerwrapper&#39;、 &#39;embed_code&#39;、{高さ：100％、幅：100％、 &#39;flashParams&#39;：{非表示： &#39;loadingindicator&#39;、....}、}）;</pre>
+
+              </td>
+
+              <td class="entry" valign="top" width="1" headers="d89362e52 ">HTML5とFlash</td>
+
+            </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="20.66115702479339%" headers="d89362e46 "><span class="keyword parmname">レイアウト</span></td>
+
+              <td class="entry" valign="top" width="58.67768595041321%" headers="d89362e49 "><p class="p">このプラットフォームパラメータを使用してUIレイアウトを制御します。 パラメータの形式は次のとおりです。</p>
+
+                <pre class="pre codeblock"><samp class="ph codeph">レイアウト</samp>=(<em class="ph i">クロムレス</em>)</pre>
+
+                <p class="p">Player V3の場合、パラメータには次のオプションがあります。 </p>
+<ul class="ul">
+                  <li class="li"><samp class="ph codeph">クロムレス</samp>  - デフォルトのプレーヤーコントロールのオンとオフを切り替えます。 クロムレスに設定されている場合、パラメータはクロムと開始画面を削除します。 指定されていない場合、プレーヤーはデフォルトのレイアウトに戻ります。</li>
+
+                </ul>
+
+                <p class="gt-block p">クロムレスパラメータは、プレーヤUIのコントロールを無効にして、自動再生だけでビデオを再生します。 Ooyala V3プレーヤーでクロムレスレイアウトを実装するには、 <span class="keyword parmname">layout = &#39;クロムレス&#39;</span> へのパラメータ
+                    <samp class="ph codeph">&lt;script .... / v3&gt;</samp> タグ。 これによりプレーヤコントロールが無効になり、視聴者はコントロールが表示されていなくてもビデオを再生できます。 プレーヤーのコントロールバーを削除すると、再生ボタンが削除されたときに視聴者はビデオを再生できなくなります。 ビデオが自動的に開始されるようにビデオの再生を有効にする必要があります。 をセットする <samp class="ph codeph">自動再生</samp> プレーヤがストリームのロードを終了したらすぐにビデオを開始するように1へのパラメータ。</p>
+
+                <p class="gt-block p"> <strong class="ph b">例</strong>:</p>
+ 
+                <pre class="pre codeblock">var videoPlayer = OO.Player.create（ &#39;playerwrapper&#39;、 &#39;embed_code&#39;、{高さ：100％、幅：100％、レイアウト： &#39;クロムレス&#39;}）;</pre>
+
+              </td>
+
+              <td class="entry" valign="top" width="1" headers="d89362e52 ">HTML5とFlash</td>
+
+            </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="20.66115702479339%" headers="d89362e46 "><span class="keyword parmname">thruParam_dev  - その他</span></td>
+
+              <td class="entry" valign="top" width="58.67768595041321%" headers="d89362e49 ">サードパーティのカスタムモジュールの開発に使用されます。 このパラメータは、Player.createオプションハッシュの &quot;flashParams&quot;サブハッシュで指定します。 このパラメータにより、Ooyalaプレーヤーに基本的なカスタマイズを渡すことができます。 <p class="gt-block p"><strong class="ph b">タイプ</strong>：ひも </p>
+<p class="gt-block p"><strong class="ph b">有効値</strong>:  <samp class="ph codeph"> カスタマイズコード</samp></p>
+<p class="gt-block p">
+                    <strong class="ph b">例</strong>:</p>
+<pre class="pre codeblock">var videoPlayer = OO.Player.create（ &#39;playerwrapper&#39;、 &#39;embed_code&#39;、{高さ：100％、幅：100％、 &#39;flashParams&#39;：{thruParam_dev-other： &#39;カスタマイズ&#39;、....}、}）;</pre>
+</td>
+
+              <td class="entry" valign="top" width="1" headers="d89362e52 ">フラッシュのみ</td>
+
+            </tr>
+</tbody>
+
+        </table>
+</div>
+
+    </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/player_v3_api_params.html" title="プレーヤV3パラメータは、プレーヤ広告、動作をカスタマイズし、プレーヤスタイルを変更するために使用できます。">Player V3 JavaScript APIパラメータ（廃止予定）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

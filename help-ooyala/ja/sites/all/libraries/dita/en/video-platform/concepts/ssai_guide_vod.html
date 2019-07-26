@@ -1,0 +1,236 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="SSAI User Guide for VOD Assets"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_user_map.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="ssai_guide_pulse_dfp"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>VOD資産のSSAIユーザーガイド</title>
+</head>
+<body id="ssai_guide_pulse_dfp">
+
+
+    <h1 class="title topictitle1">VOD資産のSSAIユーザーガイド</h1>
+
+    <div class="body conbody">
+    <div class="section"><p class="gt-block p">このドキュメントでは、OoyalaのSSAIオファリングでサポートされている2つの広告サーバー（PulseとDFP）のVOD資産にSSAIを使用する方法について説明します。 SSAIをOoyala Liveストリームと統合する方法については、をご覧ください。 <a class="xref" href="../../../../../../../../ja/video-platform/concepts/liveplatform_pulse.html" target="_blank">詳細はこちら</a>。 SSAIのエンドツーエンドのガイドについては、をご覧ください。
+        <a class="xref" href="ssai_guide.html">詳細はこちら</a>.</p>
+</div>
+
+    
+        <div class="section"><h2 class="title sectiontitle">DFP Ad ServerでのVOD SSAIのステップバイステップガイド</h2> 
+            <p class="p">DFP広告サーバーを使用して顧客コンテンツにサーバーサイド広告挿入（SSAI）を使用するには、次の手順を実行します。</p>
+
+            <p class="gt-block p"><strong class="ph b">ステップ</strong></p>
+
+            <p class="gt-block p"><u class="ph u">SSAI VODを有効にする</u></p>
+
+            <p class="p">Backlotアカウント内のすべての資産に対して、または資産ごとにSSAIサービスを有効にできます。 SSAIサービスの最初の有効化は、Ooyalaチームによって完了されなければなりません。</p>
+
+                <ol class="ol" id="ssai_guide_pulse_dfp__ol_jjs_s2h_v2b">
+                    <li class="li">SSAI VODを有効にするようにOoyalaに要求してください。</li>
+
+                    <li class="li">有効化リクエストでアカウントレベルの有効化または資産レベルの有効化のどちらが必要かを必ず指定してください。
+                    <ul class="ul">
+                        <li class="li">資産レベルでの有効化を要求している場合は、以下の値も指定する必要があります。 <span class="ph uicontrol">ssai_vod_enabled</span> これらのアセットに対してSSAIを有効にするための、SSAIに必要なアセットのカスタムメタデータ。 この値を空白のままにした場合、SSAIはそれぞれの資産に対してデフォルトで無効になります。 許容値は <samp class="ph codeph">TRUE</samp>  or  <samp class="ph codeph">間違った情報</samp>.</li>
+
+                            <li class="li">プロバイダレベルの有効化を要求している場合は、このコンテンツのプロバイダに対して、関連するすべての資産がSSAIを通じて提供されます。</li>
+
+                    </ul>
+</li>
+
+                </ol>
+
+            <p class="gt-block p"><u class="ph u">オンボードDFP広告プロバイダ</u></p>
+
+            <p class="p">特定の資産に対してDFP SSAIを有効にする方法は3つあります。 資産に対して3つのオプションすべてが設定されている場合、SSAIサービスは次の3つの中で最も高い優先順位を取ります。</p>
+
+            <ul class="ul">
+                <li class="li">バックスロットの広告セット（優先度3  - 最も低い優先度）</li>
+
+                <li class="li">カスタムメタデータ（優先度2）</li>
+
+                <li class="li">プレイヤーレベルのパラメータ（優先度1  - 最高の優先度）</li>
+
+            </ul>
+
+            <p class="p">これらについては、後で詳しく説明します。</p>
+
+            <p class="gt-block p"><u class="ph u">広告セットオプション（優先度3）</u></p>
+
+            <ol class="ol">
+                <li class="li">ストリーミングを停止する場合は上部の <span class="ph uicontrol">収益化</span> タブの<a class="xref" href="https://backlot.ooyala.com/backlot/web#monetize_tab" target="_blank">バックスロット</a>.</li>
+
+                <li class="li">ナビゲーションヘッダーの <span class="ph uicontrol">新しい</span> 新しい広告セットを作成します。 選択する
+                        <span class="ph uicontrol">Google IMA V3</span>  as  <span class="ph uicontrol">広告ソース</span>:
+                    
+                    <p class="p"><img class="image" src="http://help-ooyala.brightcove.com/../image/ad_sets.png"/></p>
+</li>
+
+                <li class="li"><span class="ph uicontrol">広告タグ</span> DFPから取得したタグのURLで、広告を取得するために使用されます。</li>
+
+                <li class="li">DFPアカウントはSSAI用にホワイトリストに登録されている必要があります。 これを行うには、DFPに連絡して承認を要求する必要があります。 ホワイトリストに登録されておらず、機能をテストするだけの場合は、タグのURLに次のものが含まれていることを確認してください。 <samp class="ph codeph">＆ss_req = 0</samp> クエリ文字列の末尾に。 ただし、この設定では、インプレッション数とジオターゲティングが正しく機能しない可能性があります。 </li>
+
+                <li class="li">DFP広告タグリクエストの呼び出しでVASTが返されます。 このタグを手動で作成する方法についての情報はここにあります。 さらに、DFPにはこのタグの作成に役立つツールがいくつかあります。
+                <ul class="ul">
+                    <li class="li">URLには、広告を発信するときにSSAIが解決する次のマクロを含めることができます。
+                    <ul class="ul">
+                        <li class="li">[タイムスタンプ]</li>
+
+                                <li class="li">[referrer_url]</li>
+
+                                <li class="li">[ランダム]</li>
+
+                                <li class="li">[cache_buster]</li>
+
+                    </ul>
+</li>
+
+                    <li class="li"><span class="ph uicontrol">広告掲載順位</span> これらの広告が挿入される位置を選択するために使用されます。 現在、広告ルールはサポートされていません。</li>
+
+                    <li class="li">いつ <span class="ph uicontrol">広告掲載順位</span> に設定されています <span class="ph uicontrol">インストリーム</span>広告を再生するタイミングも指定する必要があります。 SSAIは時間オプションのみをサポートし、パーセントはサポートしません。</li>
+
+                        <li class="li">他のすべてのフィールドはSSAIによって無視されます。</li>
+
+                        <li class="li">広告を挿入する各掲載位置にエントリを追加する必要があります。</li>
+
+                        <li class="li">VODコンテンツがBacklotに追加されたら、それを広告セットに関連付ける必要があります。 これを行うには、BacklotでVODコンテンツを選択してからをクリックします。
+                                <span class="ph uicontrol">収益化</span> をクリックします。<img class="image" src="http://help-ooyala.brightcove.com/../image/monetize.png"/></li>
+
+                </ul>
+</li>
+
+            </ol>
+
+            <p class="gt-block p"><u class="ph u">カスタムメタデータで広告セットを上書きする（優先度2）</u></p>
+
+            <p class="p">コンテンツが広告セットに関連付けられた後、広告セットからの情報を使用して広告の分割が挿入されます。 この情報は、カスタムメタデータを追加することで上書きできます。DFPの広告セット情報を上書きする場合は、1つの選択肢があります。</p>
+
+            <p class="p">custom_paramsという名前のカスタムメタデータエントリを追加します。 このフィールドには、オーバーライド情報を含むJSONが含まれます。 このフィールドがカスタムメタデータに存在する場合、他のすべてのカスタムメタデータは無視されます。</p>
+
+            <p class="p">のデータ例 <samp class="ph codeph">custom_params</samp> フィールド：</p>
+
+            <p class="p">広告の掲載順位はミリ秒単位です。</p>
+
+            <pre class="pre codeblock">{&quot;google-ima-ads-manager&quot;：{&quot;メタデータ&quot;：{&quot;all_ads&quot;：[{&quot;位置&quot;： &quot;70000&quot;、 &quot;tag_url&quot;： &quot;https://pubads.g.doubleclick.net/gampad/広告ENV = VP＆gdfp_req = 1＆出力= xml_vast3＆SZ = 1280x720＆unviewed_position_start = 1＆ad_rule = 0＆pmnd = 0＆pmxd = 90000＆PMAD = 15＆d_impl = 1＆d_imp_hdr = 1＆IU = / 7521029 / live_ad_unit＆URL = [REFERRER_URL]＆cust_params = ibc_test_unit％3Dat＆ss_req = 0 &quot;}、{ &quot;位置？&quot;：&quot; 20000 &quot; &quot;tag_url&quot;：&quot; https://pubads.g.doubleclick.net/gampad/ads?env=vp&amp;gdfp_req=1&amp;output=xml_vast3&amp;sz=1280x720&amp;unviewed_position_start=1&amp;ad_rule=0&amp;pmnd=0&amp;pmxd=90000&amp;pmad=15&amp;d_impl=1&amp;d_imp_hdr=1&amp;iu=/7521029 / live_ad_unit＆url = [referrer_url]＆cust_params = libc_test_unit％3Dma＆ss_req = 0 &quot;}、{&quot;位置 &quot;：&quot; 10000 &quot;、&quot; tag_url &quot;：&quot; https://pubads.g.doubleclick.net/gampad/ads&amp;gpp=pvp=pvp=pvp=pvp=ja 1＆出力= xml_vast3＆SZ = 1280x720＆unviewed_position_start = 1＆ad_rule = 0＆pmnd = 0＆pmxd = 90000＆PMAD = 15＆d_impl = 1＆d_imp_hdr = 1＆IU = / 7521029 / live_ad_unit＆URL = [referrer_url]＆cust_params = ibc_test_unit％3Dsa＆ss_req = 0 &quot;}、{&quot;位置 &quot;：&quot; 90000 &quot;、&quot; tag_url &quot;：&quot; https://pubads.g.doubleclick.net/gampad/ads?env=vp&amp;gdfp_req========= xml_vast1＆SZ = 3x1280＆unviewed_position_start = 720＆ad_rule = 1＆pmnd = 0＆pmxd = 0＆PMAD = 90000＆d_impl = 15＆d_imp_hdr = 1＆IU = / 1 / ibc_ad_unit＆URL = [REFERRER_URL]＆cust_params = ibc_test_unit％7521029Dtj＆ss_req = 3」}]}}}</pre>
+
+            <p class="gt-block p">Backlotには、カスタムメタデータフィールドの2048文字制限があります。 サイズが
+                <samp class="ph codeph">JSON</samp> 2048文字を超える場合は、命名規則を使用してデータを複数のカスタムメタデータエントリに入れることができます。 <span class="ph filepath">custom_params1</span>,  <span class="ph filepath">custom_params2</span>など、各エントリは同じになります <samp class="ph codeph">JSON</samp> all_ads配列の要素を持つ構造体は、カスタムメタデータエントリ全体に広がります。 </p>
+
+            <p class="gt-block p"><u class="ph u">プレーヤページレベルのパラメータでカスタムメタデータを上書きする（優先度1）</u></p>
+
+            <p class="p">カスタムメタデータ情報に設定されている広告タグは、プレーヤページレベルで上書きすることもできます。 このメソッドはカスタムメタデータよりも優先されます。</p>
+
+            <p class="p">名前でクエリ文字列エントリを追加します。 <samp class="ph codeph">player_params</samp>。 このフィールドはエンコードされたURLを含みます <samp class="ph codeph">JSON</samp> これにはオーバーライド情報が含まれています。 このフィールドがクエリ文字列内に存在する場合、他のすべてのクエリ文字列フィールドは無視されます。 例は同じです <samp class="ph codeph">JSON</samp>
+                DFPのカスタムメタデータで説明されています。 </p>
+
+            <p class="gt-block p"><strong class="ph b">広告CMSのビデオ保存ポリシー</strong></p>
+
+            <p class="p">SSAIサービスが新しい広告を検出すると、実行時にDFPサーバーからダウンロードされます。 つまり、最初の数回の再生要求では、VODコンテンツの正しいHLSビットレートと一致するようにトランスコードされている間、広告は挿入されません。 OoyalaのAD CMSは、これらのトランスコードされた広告セットをストレージに保存します。</p>
+
+            <p class="p">広告がトランスコードされると、その広告が使用されている限り保持されます。 7日間連続して操作がないと、広告はOoyalaのAd CMSから削除されます。 7日間の非アクティブ状態の後、広告が再び使用されると、SSAIサービスはそれを再ダウンロードして再トランスコードします。 この7日間の設定は変更できます。</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">PULSE Ad Serverを使用したVOD SSAIのステップバイステップガイド</h2> 
+            <p class="gt-block p"><strong class="ph b">SSAI VOD対応</strong>
+            </p>
+
+            <div class="p">SSAIを介してコンテンツの一部のみを配信したい場合は、必要なアセットのみを有効にできます。<ul class="ul">
+                    <li class="li">加えます <samp class="ph codeph">ssai_vod_enabled</samp>ssai_vod_enabled映画のカスタムメタデータ値。 この値が空の場合、SSAIはこのアセットに対して無効になります。 値をに設定します <samp class="ph codeph">hls</samp> SSAIを有効にします。</li>
+
+                </ul>
+</div>
+
+            <p class="p"><img class="image" src="http://help-ooyala.brightcove.com/../image/pulse.png"/></p>
+
+            <p class="gt-block p"><strong class="ph b">広告プロバイダを有効にする
+            </strong></p>
+
+            <p class="gt-block p">の[収益化]タブで広告セットを作成します。 <a class="xref" href="https://backlot.ooyala.com/backlot/web#monetize_tab" target="_blank">バックスロット</a>.</p>
+
+            <div class="p"><u class="ph u">AdTech（パルス）の場合</u><ul class="ul">
+                <li class="li">ナビゲーションヘッダーの <span class="ph uicontrol">新しい</span> 新しい広告セットを作成します。 選択する <span class="ph uicontrol">ビデオプラザ</span>  as  <span class="ph uicontrol">広告ソース</span>.</li>
+
+                <li class="li"><span class="ph uicontrol">広告掲載順位</span>：広告を挿入する場所を選択してください。</li>
+
+                <li class="li"><span class="ph uicontrol">vpDomain</span>：これはあなたのPulseアカウントのサブドメイン値です。 含まれるべきではありません <samp class="ph codeph">https://</samp>  or  <samp class="ph codeph">http://</samp>.</li>
+
+                    <li class="li"/>
+
+                <li class="li"><span class="ph uicontrol">プレーヤレベルのミッドロール広告の中断</span> 広告が挿入される動画内の位置（秒）のカンマ区切りのリストです。</li>
+
+                <li class="li"><span class="ph uicontrol">プレイヤーレベルのタグ</span> 動画に関連付けるPulseタグです。</li>
+
+                <li class="li"><span class="ph uicontrol">プレイヤーレベルのシェア</span> 動画に関連付けるパルスカテゴリです。</li>
+    
+                <li class="li"><span class="ph uicontrol">アカウントID</span> あなたのpulseアカウントのアカウントID値です。</li>
+
+                <li class="li">他のすべてのフィールドはSSAIによって無視されます。</li>
+
+            </ul>
+</div>
+
+            <p class="gt-block p"><u class="ph u">広告セットやカスタムメタデータを使用する</u></p>
+
+            <ul class="ul">
+                <li class="li">VODコンテンツがBacklotに追加されたら、それを広告セットに関連付ける必要があります。 これを行うには、BacklotでVODコンテンツを選択してからをクリックします。
+                        <span class="ph uicontrol">収益化</span> をクリックします。 <img class="image" src="http://help-ooyala.brightcove.com/../image/adsets2.png"/></li>
+
+                <li class="li">コンテンツが広告セットに関連付けられた後、広告セットからの情報を使用して広告の分割が挿入されます。 この情報は、カスタムメタデータを追加することで上書きできます。</li>
+
+                <li class="li">AdTech（Pulse）の広告セット情報を上書きする場合、2つの選択肢があります。<ul class="ul">
+                        <li class="li">広告セットの特定のフィールドを上書きします。<ul class="ul">
+                            <li class="li">上書きすることはできません <span class="ph uicontrol">vpDomain</span> 広告セットのフィールド。 この値は常に広告セットから取得する必要があります。</li>
+
+                            <li class="li">広告セットのプレーヤレベルのタグを上書きするには、名前を持つカスタムメタデータエントリを追加します。 <samp class="ph codeph">pulse_tags</samp>.</li>
+
+                            <li class="li">広告セットのプレーヤレベルのシェアを上書きするには、名前を付けてカスタムメタデータエントリを追加します。 <samp class="ph codeph">pulse_category</samp>.</li>
+
+                            <li class="li">広告セットでプレーヤーレベルのミッドロール広告の分割を無効にするには、次の名前のカスタムメタデータエントリを追加します <samp class="ph codeph">pulse_linear_cuepoints</samp>.</li>
+
+                            </ul>
+</li>
+
+                    <li class="li">名前でカスタムメタデータエントリを追加します <samp class="ph codeph">custom_params</samp>。 このフィールドには <samp class="ph codeph">JSON</samp> これにはオーバーライド情報が含まれています。 このフィールドがカスタムメタデータに存在する場合、他のすべてのカスタムメタデータは無視されます。 <p class="p">のデータ例
+                                    <samp class="ph codeph">custom_params</samp> フィールド：
+                            </p>
+<pre class="pre codeblock">{&quot;videoplaza-ads-manager&quot;：{&quot;メタデータ&quot;：{&quot;all_ads&quot;：[{&quot;position&quot;： &quot;7&quot;}]、 &quot;playerLevelCuePoints&quot;： &quot;30,10,20&quot;、 &quot;playerLevelShares&quot;： &quot;cat&quot;、 &quot;playerLevelTags&quot; ： &quot;タグ&quot;}}}
+</pre>
+
+                            の値 <samp class="ph codeph">位置</samp> ビットフィールドです。<ul class="ul">
+                                <li class="li">ビット0 =プリロール</li>
+
+                                <li class="li">ビット1 =ミッドロール</li>
+
+                                <li class="li">Bit2 =ポストロール</li>
+
+                            </ul>
+<p class="p">そのため、7の値は、プレロール、ミッドロール、およびポストロールに広告分割が存在する必要があることを意味します。</p>
+</li>
+
+                    </ul>
+</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_user_map.html" title="このトピックでは、Ooyala Video Platformの使用方法について説明します。">ユーザーガイド</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.y

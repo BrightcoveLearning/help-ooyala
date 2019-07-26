@@ -1,0 +1,190 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Analytics and Labels"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/analytics_v3_user_workspace_content.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="analytics_and_labels"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>分析とラベル</title>
+</head>
+<body id="analytics_and_labels">
+
+
+    <h1 class="title topictitle1">分析とラベル</h1>
+
+    <div class="body conbody">
+        <div class="section"><h2 class="title sectiontitle">ラベルクエリと削除されたラベル</h2>
+            
+        <p class="p">アナリティクスデータは、レポートのクエリ時にラベルに関連付けられている削除されていない動画についてのみ返されます。 つまり、動画からラベルを削除したり、動画を削除した場合、ラベルフィルタが適用されていると、アナリティクスレポートは動画のデータを返しません。</p>
+
+        <div class="p"><strong class="ph b">例</strong>:  <ul class="ul">
+                <li class="li">6月1：ビデオ「Movie Trailer」がBacklotにアップロードされ、ラベル「A」が追加され、ビデオが公開されます。</li>
+
+                <li class="li">6月2：ビデオには10の再生があります。</li>
+
+                <li class="li">6月3：ラベル「B」がビデオに追加されました。</li>
+
+                <li class="li">6月4：ビデオには5の再生があります。</li>
+
+                <li class="li">6月5：ラベル「C」がビデオに追加されました。</li>
+
+            </ul>
+</div>
+
+          
+            
+           <div class="p"> この時点で、レポートが6月に実行されると、フィルタを適用したときに次の結果が得られます。
+           
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">表1 返された再生数</span></caption>
+                   
+                   <thead class="thead" align="left">
+                       
+                       <tr class="row">
+                           <th class="entry" valign="top" id="d195070e54">フィルタ</th>
+
+                           <th class="entry" valign="top" id="d195070e57">ビデオ「映画予告編」を再生します</th>
+
+                       
+                       </tr>
+
+                   </thead>
+
+                   <tbody class="tbody">
+                       <tr class="row">
+                           <td class="entry" valign="top" headers="d195070e54 d195070e57 ">ラベル「A」</td>
+
+                           <td class="entry" valign="top" headers="d195070e54 d195070e57 ">15</td>
+
+                      
+                       </tr>
+
+                       <tr class="row">
+                           <td class="entry" valign="top" headers="d195070e54 d195070e57 ">ラベル「B」</td>
+
+                           <td class="entry" valign="top" headers="d195070e54 d195070e57 ">15</td>
+
+                         
+                       </tr>
+
+                       <tr class="row">
+                           <td class="entry" valign="top" headers="d195070e54 d195070e57 ">ラベル「C」</td>
+
+                           <td class="entry" valign="top" headers="d195070e54 d195070e57 ">15</td>
+
+                      
+                       </tr>
+
+                       
+                   </tbody>
+
+               </table>
+</div>
+</div>
+
+            
+<div class="p">この時点で、ラベル「A」が動画から削除され、レポートが6月に実行された場合、フィルタを適用すると次のような結果になります。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">表2 ラベルAを削除した後に再生された再生回数</span></caption>
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" id="d195070e107">フィルタ</th>
+
+                            <th class="entry" valign="top" id="d195070e110">ビデオ「映画予告編」を再生します</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d195070e107 d195070e110 ">ラベル「A」</td>
+
+                            <td class="entry" valign="top" headers="d195070e107 d195070e110 ">ラベル「A」は動画「Movie Trailer」と関連付けられていないため、結果は返されません</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d195070e107 d195070e110 ">ラベル「B」</td>
+
+                            <td class="entry" valign="top" headers="d195070e107 d195070e110 ">15</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d195070e107 d195070e110 ">ラベル「C」</td>
+
+                            <td class="entry" valign="top" headers="d195070e107 d195070e110 ">15</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+</div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">ラベルクエリとラベル階層</h2>
+            
+            <div class="p">Ooyala IQは現在、ラベルでフィルタリングするための2つの階層的なユースケースをサポートしています。 <ul class="ul">
+                    <li class="li">ツリー内のルートラベルとそのすべての子ラベルによるフィルタリング。<div class="note note"><span class="notetitle">注意：</span> 1つのビデオアセットが複数の子ラベルに属している場合、それは分析メトリクスで一度だけカウントされます（二重カウントはありません）。</div>
+</li>
+
+                    <li class="li">単一のリーフ（子）ラベルによるフィルタリング</li>
+
+                </ul>
+
+            </div>
+
+            <p class="gt-block p"><strong class="ph b">例</strong>:</p>
+
+            <div class="p">Backlotで次のラベル階層を作成します。 <ul class="ul">
+                    <li class="li">スポーツの <ul class="ul">
+                            <li class="li">バスケットボール<ul class="ul">
+                                    <li class="li">スパーズ</li>
+
+                                    <li class="li">セルティックス</li>
+
+                                    <li class="li">ピストンズ</li>
+
+                                </ul>
+
+                            </li>
+
+                            <li class="li">サッカー</li>
+
+                            <li class="li">クリケット</li>
+
+                        </ul>
+
+                    </li>
+
+                </ul>
+フィルタの「スポーツ」をIQ UIに適用する（またはIQ APIでクエリする）と、「スポーツ」、「バスケットボール」、「スパー」、「セルティックス」、「ピストンズ」を含むビデオの結果が表示されます。 「フットボール」または「クリケット」のラベルが適用されます。 複数のラベルが付いた動画（「ピストン」や「セルティックス」など）は二重カウントされません。</div>
+
+            <p class="p">フィルタの「バスケットボール」をIQのUIに適用する（またはIQ APIでクエリする）と、「バスケットボール」、「スパー」、「セルティックス」、または「ピストン」のラベルが適用された動画の結果が表示されます。 複数のラベルが付いた動画（「ピストン」や「セルティックス」など）は二重カウントされません。</p>
+
+            <p class="p">フィルタの &quot;Spurs&quot;をIQ UIに適用する（またはIQ APIでクエリする）と、 &quot;Spurs&quot;ラベルが適用されている動画の結果が表示されます。</p>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/analytics_v3_user_workspace_content.html" title="ビジネスインテリジェンスページを使用して、さまざまな方法でフィルタ処理されたデータの詳細を表示し、特定の関心点を特定します。">ビジネスインテリジェンスレポート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- de

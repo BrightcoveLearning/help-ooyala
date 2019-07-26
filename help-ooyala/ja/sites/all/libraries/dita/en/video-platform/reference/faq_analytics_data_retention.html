@@ -1,0 +1,82 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Ooyala IQ Data Retention Policy FAQ"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_faq.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_faq.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="faq_pbv4"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Ooyala IQデータ保持ポリシーに関するよくある質問</title>
+</head>
+<body id="faq_pbv4">
+
+
+        <h1 class="title topictitle1">Ooyala IQデータ保持ポリシーに関するよくある質問</h1>
+
+    <div class="body refbody"> 
+            <div class="section">
+            <p class="gt-block p"><strong class="ph b">Q：何が変わりますか？</strong></p>
+<p class="gt-block p"><strong class="ph b">A:</strong> Ooyala IQのパフォーマンスを維持および向上させるための継続的な取り組みの一環として、Ooyalaは4月に有効な新しいデータ保持ポリシー1、2018を実装しています。</p>
+
+                    <p class="gt-block p"><strong class="ph b">Q：新しいデータ保持ポリシーとは何ですか。また、それはどのように影響を受けますか？</strong></p>
+<p class="gt-block p"><strong class="ph b">A:</strong> 4月現在、1、2018、Ooyala IQは、現在の日付から少なくとも27ヶ月分のデータを保持します。</p>
+
+                    <p class="gt-block p"><strong class="ph b">Q：変更を加える前に古いデータにアクセスすることはできますか</strong></p>
+<p class="gt-block p"><strong class="ph b">A:</strong> はい。 ただし、4月の1、2018では、1月の1、2016より前のデータはすべて削除されます。 変更が有効になった後でそのデータにアクセスする必要がある場合は、データをダウンロードして4月の1、2018の前にローカルに保存する必要があります。</p>
+
+                    <p class="gt-block p"><strong class="ph b">Q：27ヶ月以上前のデータについては気にしません。 何をする必要がありますか？</strong></p>
+<p class="gt-block p"><strong class="ph b">A:</strong> 27ヶ月以上前のデータを気にしないのであれば、何もする必要はありません。</p>
+
+                    <p class="gt-block p"><strong class="ph b">Q：27月のマークを通過する前に古いデータを抽出するための最良の方法は何ですか？</strong></p>
+<p class="gt-block p"><strong class="ph b">A:</strong> パージする前に古いデータを抽出する最善の方法は、Ooyala IQ APIを使用することです。 詳細については、 <a class="xref" href="../api/analytics_v3_api_reporting_post_example.html">長くて詳細なクエリを作成する方法はありますか</a>.</p>
+
+                    <p class="p">始める前に、次のことを確認する必要があります。</p>
+
+                    <ul class="ul"><li class="li">あなたのユースケースをカバーする寸法の組み合わせ。 たとえば、デバイスタイプ+オペレーティングシステム、資産+デバイスタイプなどです。</li>
+
+                            <li class="li">あなたが必要とする測定基準 利用可能な指標のリストについては、 <a class="xref" href="../api/analytics_v3_api_reporting_metrics.html">メトリック</a>.</li>
+
+                            <li class="li">各データポイントの時間粒度（毎日、毎週、毎月）。</li>
+
+                    </ul>
+
+                    <p class="p">次に、以下の経験則を使用して、各要求に含める時間範囲を決定します。</p>
+
+                    <ul class="ul"><li class="li">資産ディメンションを含む要求には、1週以下のデータを含めてください。 あなたの図書館が1日に2000を超える異なるビデオの活動を見ている場合は、1を超えない日のデータを含めることを検討してください。</li>
+
+                            <li class="li">1日の粒度については、1月以下のデータを含めてください（資産ディメンションなし）。</li>
+
+                            <li class="li">フィルタを使わないでください。 これにより、必要なリクエスト数が大幅に増えます。 代わりに、フィルタ処理されていないデータを抽出してから、データのコピーにフィルタを適用します。</li>
+
+                    </ul>
+
+                    <p class="gt-block p"><strong class="ph b">Q：私の質問がここで扱われていない場合はどうなりますか？</strong></p>
+<p class="gt-block p"><strong class="ph b">A:</strong>
+                            でチケットを上げてください 
+                            <a class="xref" href="../../../../../../../../ja/tech-support/index.html" target="_blank">ウーヤラの技術サポート</a>.
+                    
+                    </p>
+
+            
+            </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_faq.html" title="分析、APIとSDK、外部公開、Player V3、Playerセキュリティ、およびアップロードに関するよくある質問と回答。">よくある質問</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

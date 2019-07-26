@@ -1,0 +1,128 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Writing to the Message Bus"/>
+<meta name="abstract" content="Use the publish() function to write to the message bus, setting parameters as needed."/>
+<meta name="description" content="Use the publish() function to write to the message bus, setting parameters as needed."/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_dev_eventmodel.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_dev_writeevent"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>メッセージバスへの書き込み</title>
+</head>
+<body id="pbv4_dev_writeevent">
+
+
+ <h1 class="title topictitle1">メッセージバスへの書き込み</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">必要に応じてパラメータを設定して、メッセージバスに書き込むためにpublish（）関数を使用します。</p>
+
+   <div class="section">メッセージバスに書き込むには、 <samp class="ph codeph">公開（）</samp> 関数。 たとえば、公開することでプレーヤーをフルスクリーンモードに設定できます。
+        <samp class="ph codeph">WILL_CHANGE_FULLSCREEN</samp> のイベントパラメータを持つイベント
+        <samp class="ph codeph">true</samp>:<pre class="pre codeblock">this.mb.publish（OO.EVENTS.WILL_CHANGE_FULLSCREEN、true）;</pre>
+<div class="p">全画面表示を終了するには、 <samp class="ph codeph">WILL_CHANGE_FULLSCREEN</samp> イベントパラメータ
+          <samp class="ph codeph">false</samp>:
+        
+        <pre class="pre codeblock">this.mb.publish（OO.EVENTS.WILL_CHANGE_FULLSCREEN、false）;</pre>
+</div>
+<p class="gt-block p">以下は完全な例です。 <samp class="ph codeph">公開（）</samp> 機能は、プレーヤーのフルスクリーンモードを制御するために使用されます。 を開発する <samp class="ph codeph">head</samp> Playerを表示および作成するための要素とロジック、参照 <a class="xref" href="../reference/pbv4_web_tutorial.html#pbv4_web_tutorial">Player V4の基本チュートリアル</a>.  </p>
+<p class="gt-block p">イベント処理については、をご覧ください。 <a class="xref" href="pbv4_dev_eventmodel.html#pbv4_dev__eventmodel" title="プレーヤーV4はイベントを処理するためにメッセージバスの使用を取り入れています。">プレーヤV4のイベントモデル</a>。 すべてのイベントのリストについては、 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_v4_js/index.html" target="_blank">プレーヤJavaScript APIリファレンス</a>.</p>
+</div>
+
+   <div class="section"><h2 class="title sectiontitle">この例について</h2>この例では、使い方を学びます。
+        <samp class="ph codeph">onCreate（）</samp> フルスクリーンモードの使用に関連するイベントを処理する機能。 この高度なアプリケーションでは、ユーザーはボタンをクリックしてフルスクリーンモードに切り替えます。このモードは、再生ヘッドの時間（ビデオの長さ）を監視するイベントハンドラを介して5秒後に自動的に無効になります。 <div class="p">このWebページの目的は、フルスクリーンモードに切り替えるオプションをユーザーに提供することです。デザインには次のものが含まれます。 <ul class="ul" id="pbv4_dev_writeevent__ul_omg_t13_pr">
+          <li class="li">A  <samp class="ph codeph">head</samp> を含む要素 <samp class="ph codeph">スクリプト</samp> ロードおよび初期化要求を指定するタグ。</li>
+
+          <li class="li">A  <samp class="ph codeph">ボディ</samp> 以下を含む要素<ul class="ul">
+              <li class="li">PlayerコンテナのUI表示とレイアウト。</li>
+
+              <li class="li">再生ヘッドの時間を監視するイベントリスナー。</li>
+
+              <li class="li">A  <samp class="ph codeph">スクリプト</samp> プレーヤを作成するタグ。</li>
+
+              <li class="li">HTML <samp class="ph codeph">ボタン</samp> 関連付けられたボタンクリックイベントハンドラとともに、フルスクリーンモードに切り替えるためのものです。</li>
+
+            </ul>
+</li>
+
+        </ul>
+</div>
+</div>
+
+   <div class="section"><div class="p">Webページを作成するには、以下の手順に従ってください。<ul class="ul">
+          <li class="li"><a class="xref" href="#pbv4_dev_writeevent__section_q4k_ggs_fv/index.html">ステップ1：ボタンクリックをキャプチャする</a></li>
+
+          <li class="li"><a class="xref" href="#pbv4_dev_writeevent__section_kjj_hgs_fv/index.html">ステップ2：プレイ時間を監視する</a></li>
+
+        </ul>
+</div>
+<p class="gt-block p">見る <a class="xref" href="#pbv4_dev_writeevent__section_lpb_3gs_fv/index.html">完全な例</a> Webページ全体のサンプルコードを表示します。</p>
+</div>
+
+   <div class="section" id="pbv4_dev_writeevent__section_q4k_ggs_fv"><h2 class="title sectiontitle">ステップ1：ボタンクリックをキャプチャする</h2>
+      
+      <p class="p">フルスクリーンモードに切り替えるためのボタンとそれに関連するイベントハンドラを作成します。 </p>
+
+      <p class="gt-block p">ラベル付きのボタンを作成しましょう <strong class="ph b">フルスクリーンに交換</strong>。 割り当てます
+          <samp class="ph codeph">id</samp> 呼び出された属性 <samp class="ph codeph">スワップボタン</samp> ボタンをイベントハンドラに関連付けることができるように：</p>
+
+      <div class="p">
+        <pre class="pre codeblock">&lt;button id = &quot;swapbutton&quot;&gt;全画面表示に切り替える&lt;/button&gt;</pre>
+
+      </div>
+
+      <div class="p">ボタンクリックイベントハンドラも定義し、そのボタンを使ってボタンを参照する必要があります。
+          <samp class="ph codeph">id</samp> の属性 <samp class="ph codeph">スワップボタン</samp>。 私達は利用します <a class="xref" href="https://jquery.com" target="_blank">jQueryの</a> Ooyala V4 Playerに含まれているライブラリ。このライブラリに含まれるjQuery機能を使用してボタンを参照します。 <samp class="ph codeph">OO</samp>
+        名前空間：<pre class="pre codeblock">OO。$（ &quot;＃swapbutton&quot;）。クリック（function（）{//全画面表示ボタンを処理するロジック}）;</pre>
+</div>
+
+      <p class="gt-block p">これで、ボタンがクリックされた後にフルスクリーンイベントを処理するロジックを追加できます。 の
+          <a class="xref" href="pbv4_dev_eventmodel.html#pbv4_dev__eventmodel" title="プレーヤーV4はイベントを処理するためにメッセージバスの使用を取り入れています。">プレーヤV4のイベントモデル</a> 作成したPlayerオブジェクトのを介してアクセスするメッセージバスを提供します。 <samp class="ph codeph">mb</samp> オブジェクト この場合、メッセージバスを使います。 <samp class="ph codeph">公開（）</samp> フルスクリーンモードに変更していることをプレイヤーに通知する機能</p>
+
+      <p class="p"><samp class="ph codeph">player.mb.publish（OO.EVENTS.WILL_CHANGE_FULLSCREEN、true）;</samp></p>
+
+      <p class="gt-block p">この場合は、 <samp class="ph codeph">OO.EVENTS.WILL_CHANGE_FULLSCREEN</samp> の値を持つイベント <samp class="ph codeph">true</samp>これは、プレーヤーがフルスクリーンモードに切り替えることを示しています。 すべてのイベントのリストについては、 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_v4_js/index.html" target="_blank">プレーヤJavaScript APIリファレンス</a>。 これが私たちがこれまでに持っているウェブページのデザインです：</p>
+
+     <pre class="pre codeblock"> 
+&lt;！DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;link rel = &quot;スタイルシート&quot; href = &quot;url_where_hosted / skin-plugin / html5-skin.min.css&quot; /&gt; &lt;スクリプト言語= &quot;javascript&quot; src = &quot;url_where_hosted / core .min.js &quot;&gt; &lt;/script&gt; &lt;script type =&quot;テキスト/ javascript &quot;src =&quot; url_where_hosted / video-plugin / main_html5.min.js &quot;&gt; &lt;/script&gt; &lt;script type =&quot; text / javascript &quot;src = &quot;url_where_hosted / skin-plugin / html5-skin.min.js&quot;&gt; &lt;/script&gt; &lt;/head&gt; &lt;ヘッド&gt; &lt;b&gt;フルスクリーンの例&lt;/b&gt; &lt;br/&gt; &lt;br/&gt; &lt;div id = &#39; container &#39;style =&#39; width：640px; height：480px &#39;&gt; &lt;/div&gt; &lt;script&gt; OO.ready（関数（）{window.pp = OO.Player.create（&#39; container &#39;、&#39; YOUR_ASSET_ID &#39;、{&quot;playerBrandingId &quot;：&quot; YOUR_PLAYER_ID &quot;、&quot; pcode &quot;：&quot; YOUR_PCODE &quot;、&quot; skin &quot;：{config：&quot; url_where_hosted / skin-plugin / skin.json &quot;}、//上記で定義したonCreate（）関数をこれらの埋め込みパラメータに含めます。 &quot;onCreate&quot;：window.onCreate}）;}）; //この関数は、クリックしたときにフルスクリーンモードを有効にするボタンを定義します。 // id、swapbuttonは、以下に定義する&lt;button&gt;コントロールのid属性と一致します。 OO。$（ &quot;＃swapbutton&quot;）。click（function（）{// WILL_CHANGE_FULLSCREENイベントを発行するためにメッセージバスAPIを使用する。//今回はブール値の引数（true）は//全画面設定を許可することを示すplayer.mb.publish（OO.EVENTS.WILL_CHANGE_FULLSCREEN、true）;}）; &lt;/script&gt; &lt;br /&gt; &lt;！ - プレーヤーコンテナの下にボタンを配置します。 そのid属性（swapbutton）はクリックイベントの中で参照されています。  - &gt; &lt;button id = &quot;swapbutton&quot;&gt;全画面表示に切り替え&lt;/button&gt; &lt;/body&gt; &lt;/html&gt;</pre>
+
+    </div>
+
+   <div class="section" id="pbv4_dev_writeevent__section_kjj_hgs_fv"><h2 class="title sectiontitle">ステップ2：プレイ時間を監視する</h2>Playerオブジェクトに関連するすべてのイベント、エラー、およびカスタマイズを管理できます。
+        <samp class="ph codeph">onCreate（）</samp> に含まれる関数 <samp class="ph codeph">ボディ</samp> ここに示すように： <div class="p"><pre class="pre codeblock">
+   &lt;body&gt; &lt;b&gt;フルスクリーンの例&lt;/b&gt; &lt;br/&gt; &lt;br/&gt; &lt;div id = &#39;container&#39; style = &#39;width：640px; height：480px&#39;&gt; &lt;/div&gt; &lt;スクリプト&gt; //常にonCreate（）関数内にイベントリスナーとエラー処理を追加します。 // Player.create（）呼び出しの埋め込みパラメータにこの関数を含めます。 function onCreate（player）{}</pre>
+この場合は、再生時間を監視しています。 再生ヘッドが5秒に達したら、フルスクリーンモードを無効にします。 <samp class="ph codeph">OO.EVENTS.PLAYHEAD_TIME_CHANGED</samp> イベント このイベントはいくつかの引数でハンドラを呼び出します。 <samp class="ph codeph">引数[1]</samp> 秒単位の継続時間です。 <samp class="ph codeph">引数[1]</samp> 公開前に5秒を超えている
+          <samp class="ph codeph">OO.EVENTS.WILL_CHANGE_FULLSCREEN</samp> の値を持つイベント
+          <samp class="ph codeph">false</samp> （フルスクリーンモードを無効にする）：</div>
+<pre class="pre codeblock">
+    &lt;script&gt; // onCreate（）関数内に常にイベントリスナとエラー処理を追加する。 // Player.create（）呼び出しの埋め込みパラメータにこの関数を含めます。 function onCreate（player）{//再生ヘッドの時間変更イベントを監視し、//再生の5秒後にフルスクリーンモードを無効にします。player.mb.subscribe（OO.EVENTS.PLAYHEAD_TIME_CHANGED、 &#39;test&#39;、function（event）{/ / PLAYHEAD_TIME_CHANGEDイベントは、いくつかの引数を指定してハンドラーを呼び出します// // [1]&gt; 1）{//メッセージバスAPIを使用してWILL_CHANGE_FULLSCREENイベントを発行します。 false）イベントに付随し、//全画面設定を無効にすることを示しますplayer.mb.publish（OO.EVENTS.WILL_CHANGE_FULLSCREEN、false）;}}}）; }          </pre>
+<div class="p">これで、 <samp class="ph codeph">onCreate（）</samp> 関数は、埋め込みパラメータに含める必要があります。 <samp class="ph codeph">OO.Player.create（）</samp>
+        メソッド呼び出し<pre class="pre codeblock">
+            window.pp = OO.Player.create（ &#39;container&#39;、 &#39;YOUR_ASSET_ID&#39;、{&quot;playerBrandingId&quot;： &quot;YOUR_PLAYER_ID&quot;、 &quot;pcode&quot;： &quot;YOUR_PCODE&quot;、 &quot;スキン&quot;：{config： &quot;url_where_hosted / skin-plugin / skin .json &quot;}、//上記で定義したonCreate（）関数をこれらの埋め込みパラメータに含めます。&quot; onCreate &quot;：window.onCreate}）;</pre>
+</div>
+</div>
+
+   <div class="section" id="pbv4_dev_writeevent__section_lpb_3gs_fv"><h2 class="title sectiontitle">完全な例</h2>
+      これは、再生ヘッド時間を監視するイベントハンドラを介して5秒後に自動的に無効になるフルスクリーンモードに切り替えるためにユーザーがボタンをクリックすることを可能にするWebページの完全な実用例です。<pre class="pre codeblock"> 
+&lt;！DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;link rel = &quot;スタイルシート&quot; href = &quot;url_where_hosted / skin-plugin / html5-skin.min.css&quot; /&gt; &lt;スクリプト言語= &quot;javascript&quot; src = &quot;url_where_hosted / core .min.js &quot;&gt; &lt;/script&gt; &lt;script type =&quot;テキスト/ javascript &quot;src =&quot; url_where_hosted / video-plugin / main_html5.min.js &quot;&gt; &lt;/script&gt; &lt;script type =&quot; text / javascript &quot;src = &quot;url_where_hosted / skin-plugin / html5-skin.min.js&quot;&gt; &lt;/script&gt; &lt;/head&gt; &lt;ヘッド&gt; &lt;b&gt;フルスクリーンの例&lt;/b&gt; &lt;br/&gt; &lt;br/&gt; &lt;div id = &#39; container &#39;style =&#39; width：640px; height：480px &#39;&gt; &lt;/div&gt; &lt;script&gt; // onCreate（）関数内に常にイベントリスナとエラー処理を追加する。 // Player.create（）呼び出しの埋め込みパラメータにこの関数を含めます。 function onCreate（player）{//再生ヘッドの時間変更イベントを監視し、//再生の5秒後にフルスクリーンモードを無効にします。player.mb.subscribe（OO.EVENTS.PLAYHEAD_TIME_CHANGED、 &#39;test&#39;、function（event）{/ / PLAYHEAD_TIME_CHANGEDイベントは、いくつかの引数を指定してハンドラーを呼び出します// // [1]&gt; 1）{//メッセージバスAPIを使用してWILL_CHANGE_FULLSCREENイベントを発行します。 false）イベントに付随し、//全画面設定を無効にすることを示しますplayer.mb.publish（OO.EVENTS.WILL_CHANGE_FULLSCREEN、false）;}}}）; } OO.ready（function（）{window.pp = OO.Player.create（ &#39;コンテナ&#39;、 &#39;YOUR_ASSET_ID&#39;、{&quot;playerBrandingId&quot;： &quot;YOUR_PLAYER_ID&quot;、 &quot;pcode&quot;： &quot;YOUR_PCODE&quot;、 &quot;スキン&quot;：{config ： &quot;url_where_hosted / skin-plugin / skin.json&quot;}、//上記で定義したonCreate（）関数をこれらの埋め込みパラメータに含めます。 &quot;onCreate&quot;：window.onCreate}）;}）; //この関数は、クリックしたときにフルスクリーンモードを有効にするボタンを定義します。 // id、swapbuttonは、以下で定義されている&lt;button&gt;コントロールのid属性と一致します。 OO。$（ &quot;＃swapbutton&quot;）。click（function（）{// WILL_CHANGE_FULLSCREENイベントを発行するためにメッセージバスAPIを使用します。//今回はブール値の引数（true）は//全画面設定を// player.mb.publish（OO.EVENTS.WILL_CHANGE_FULLSCREEN、true）;}）; &lt;/script&gt; &lt;br /&gt; &lt;！ - プレーヤーコンテナの下にボタンを配置します。 そのid属性（swapbutton）はクリックイベントの中で参照されています。  - &gt; &lt;button id = &quot;swapbutton&quot;&gt;全画面表示に切り替え&lt;/button&gt; &lt;/body&gt; &lt;/html&gt;</pre>
+
+    </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/pbv4_dev_eventmodel.html" title="プレーヤーV4はイベントを処理するためにメッセージバスの使用を取り入れています。">プレーヤV4のイベントモデル</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div>

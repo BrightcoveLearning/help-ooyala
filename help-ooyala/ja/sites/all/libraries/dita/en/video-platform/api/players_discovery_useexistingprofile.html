@@ -1,0 +1,50 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Using a Previously Created Discovery Profile"/>
+<meta name="DC.Relation" scheme="URI" content="../api/players_discovery_examples.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="players_discovery_useexistingprofile"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>以前に作成した検出プロファイルを使用する</title>
+</head>
+<body id="players_discovery_useexistingprofile">
+
+
+  <h1 class="title topictitle1">以前に作成した検出プロファイルを使用する</h1>
+
+  <div class="body refbody">
+    <div class="section refsyn">
+      <p class="p">Discovery APIリクエストで既存の検出プロファイルを利用するには、クエリ文字列パラメータを追加します。 <samp class="ph codeph">discovery_profile_id = profile_id</samp>。 ザ <samp class="ph codeph">profile_id</samp>
+        以前に作成されたプロファイルの識別子です。 このクエリ文字列パラメータは、リクエストに含まれる他のクエリ文字列パラメータに優先します。</p>
+
+      <p class="p">次のリクエストとレスポンスの例は、パーソナライズされた推奨のリクエストを示しています。 <samp class="ph codeph">discovery_profile</samp> クエリ文字列パラメータ。</p>
+
+      <p class="gt-block p"><strong class="ph b">要求：</strong></p>
+
+      <pre class="pre codeblock">[GET] / v2 / discover / trending？discovery_profile_id = {profile_id}</pre>
+
+      <p class="gt-block p"><strong class="ph b">応答：</strong></p>
+
+      <pre class="pre codeblock">{&quot;results&quot;：[{&quot;name&quot;： &quot;arthurbday.mp4&quot;、 &quot;external_id&quot;：null、&quot;ostedAtURL &quot;：null、&quot; duration &quot;：&quot; 37033 &quot;、&quot; embed_code &quot;：&quot; xxxxxxxxx &quot;、&quot; bucket_info &quot;：&quot; 1 {\ &quot;エンコード\&quot;：\ &quot;xxxxxxx \&quot;、\ &quot;位置\&quot;：0} &quot;、&quot; content_type &quot;：&quot;ビデオ &quot;、&quot;理由 &quot;：&quot;トップ &quot;、&quot;説明 &quot;：&quot;からの画像のビデオ編集Arthurの2歳の誕生日。 &quot;、&quot; publishing_rule_id &quot;：&quot; xxxxxxxx &quot;、&quot; created_at &quot;：&quot; 2014-09-11 21：15：16 + 0000 &quot;、&quot; preview_image_url &quot;：&quot; http://ak.c.ooyala.com/ xxxxxxx &quot;、&quot;スコア &quot;：&quot; 60.0 &quot;、...</pre>
+
+    </div>
+
+     </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/players_discovery_examples.html" title="以下の要求および応答の例は、Discovery Profiles APIの使用方法を示しています。">ディスカバリプロファイルAPIの例</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

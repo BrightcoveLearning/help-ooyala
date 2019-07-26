@@ -1,0 +1,136 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2016-07-01 Release"/>
+<meta name="abstract" content="Notable contents of this release include Ooyala Live version 2.0.0 and support for live server side ad insertion in Player V4."/>
+<meta name="description" content="Notable contents of this release include Ooyala Live version 2.0.0 and support for live server side ad insertion in Player V4."/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2016.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release20160701"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2016-07-01リリース</title>
+</head>
+<body id="release20160701">
+
+
+    <h1 class="title topictitle1">2016-07-01リリース</h1>
+
+    
+    <div class="body conbody"><p class="shortdesc">このリリースの注目すべき内容には、Ooyala Liveバージョン2.0.0と、Player V4でのライブサーバーサイド広告挿入のサポートがあります。</p>
+        
+        <div class="section"><h2 class="title sectiontitle">ウーヤラライブリリース - バージョン2.0.0</h2>
+            
+            <div class="sectiondiv"><p class="gt-block p"><strong class="ph b">新機能と強化</strong></p>
+
+                <ul class="ul">
+                    <li class="li">チャンネル、イベント、およびスケジュールにUIの機能強化が追加されました。</li>
+
+                    <li class="li">ユーザーは、広告チャンネルの作成中に広告スレートを選択するよう求められます。</li>
+
+                    <li class="li">RTPインジェストは、Ooyala Packaged Channelでサポートされるようになりました。</li>
+
+                    <li class="li">イベント作成が検証されました。</li>
+
+                    <li class="li">FairPlay DRMによるHLSが、Ooyala Packaged Channelでサポートされるようになりました。</li>
+
+                    <li class="li">PlayReadyを搭載したDASH CENCは、Ooyala Packaged Channelでサポートされるようになりました。</li>
+
+                    <li class="li">これでユーザーは直接イベントを作成して開始することができます。 <span class="ph uicontrol">イベント</span> のページをご覧ください。</li>
+
+                    <li class="li">次の30分以内に予定されているイベントがない場合、アドホックチャンネルは自動的に停止します。</li>
+
+                    <li class="li">次のAzureサポートが追加されました。
+                        <ul class="ul">
+                            <li class="li">ライブチャンネルとイベント管理</li>
+
+                            <li class="li">DRM /暗号化
+                                <ul class="ul">
+                                    <li class="li">スムーズストリーム+ PlayReady</li>
+
+                                    <li class="li">DASH CENC + PlayReady</li>
+
+                                    <li class="li">DASH CENC + Widevine Modular</li>
+
+                                    <li class="li">HLS +フェアプレイ</li>
+
+                                    <li class="li">eHLS</li>
+
+                                </ul>
+
+                            </li>
+
+                            <li class="li">DVR</li>
+
+                            <li class="li">VODにライブ</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="li">イベントのアーカイブ制限が8時間に増えました。</li>
+
+                    <li class="li">Ooyalaのパッケージチャンネルには、広告なしのLive to VODサポートが追加されました。</li>
+
+                    <li class="li">Player V4 SSAI Pulseプラグインを介して、Player V4のサーバーサイド広告挿入（SSAI）サポートが追加されました。 プラグインにアクセスするには、を見てください。 <a class="xref" href="../concepts/pbv4_resources.html">OoyalaがホストするプレイヤーV4リソース</a>。 SSAIの詳細については、 <a class="xref" href="../concepts/liveplatform_pulse.html">Ooyalaライブストリーム統合（SSAI）</a>.</li>
+
+                </ul>
+
+                <p class="gt-block p"><strong class="ph b">解決済みの問題</strong></p>
+
+                <ul class="ul">
+                    <li class="li">Facebookシンジケートを有効にすることに問題がありました。 これらの問題は解決されました。</li>
+
+                    <li class="li">暗号化されたHLSストリームに問題がありました。 これらの問題は解決されました。</li>
+
+                    <li class="li">Akamaiのパッケージチャンネル作成ページに問題がありました。 これらの問題は解決されました。</li>
+
+                </ul>
+
+                <p class="gt-block p"><strong class="ph b">既知の問題点</strong></p>
+
+                <ul class="ul">
+                    <li class="li">Azure暗号化HLSストリームには既知の問題があります。 過度にバッファリングされ、ストリームがスムーズに再生されないことがあります。</li>
+
+                    <li class="li">Azure Live Channelで作成されたイベントのVODアセットトリミングは、自動START / STOPと手動START / STOPのどちらでも正しく機能しません。</li>
+
+                    <li class="li">MP4イベントの終了後にElemental Deltaによって生成されたファイル期間は、最初に選択されたイベント期間と比較して正確ではありません。</li>
+
+                    <li class="li">Ooyalaパッケージチャンネルを使用してライブからVODへの変換を実行するときのクローズドキャプションの抽出とBacklotへのアップロードは現在サポートされていません。</li>
+
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">ドキュメントリリース</h2>
+            
+            <ul class="ul">
+                <li class="li"><a class="xref" href="../concepts/liveplatform_pulse.html">Ooyalaライブストリーム統合（SSAI）</a>,  <a class="xref" href="../concepts/pbv4_resources.html">OoyalaがホストするプレイヤーV4リソース</a>、および <a class="xref" href="../concepts/pbv4_plugins.html">プレイヤーV4プラグイン</a>：Player V4 SSAI Pulseプラグインに関する詳細を追加しました。</li>
+
+            </ul>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Ooyalaリリースノートを購読する</h2>
+             見る <a class="xref" href="../concepts/release_notes_subscribe.html">Ooyalaリリースノートを購読する</a> Ooyalaリリースノートの自動通知を購読する方法については、こちらをご覧ください。 </div>
+
+        <div class="section">このコンテンツは07 / 01 / 16の11：00 PM UTCに掲載されました。</div>
+
+    </div>
+    
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2016.html" title="2016からのリリースノート。">2016ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

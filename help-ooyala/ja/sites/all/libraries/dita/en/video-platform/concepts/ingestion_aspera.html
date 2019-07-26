@@ -1,0 +1,124 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Ingesting with Aspera"/>
+<meta name="abstract" content="You can use Aspera file transfer software to upload videos, thumbnails, closed captions and manifest files to Backlot."/>
+<meta name="description" content="Asperaファイル転送ソフトウェアを使用して、ビデオ、サムネイル、クローズドキャプション、およびマニフェストファイルをBacklotにアップロードできます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ingestion_ois.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ingestion_ois.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="ingestion_aspera"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Asperaでの摂取</title>
+</head>
+<body id="ingestion_aspera">
+
+
+ <h1 class="title topictitle1">Asperaでの摂取</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">Asperaファイル転送ソフトウェアを使用して、ビデオ、サムネイル、クローズドキャプション、およびマニフェストファイルをBacklotにアップロードできます。</p>
+
+  <div class="section">
+   <div class="note note"><span class="notetitle">注意：</span> このトピックは、OIS v2.5とOIS v1の両方に適用されます。 指示がある場合、特定のセクションは1つのバージョンにのみ適用されます。 OIS v1は無効になっています。 OIS v1を使用しているお客様は、OIS v2.5に切り替える必要があります。</div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">Aspera Ingestの概要</h2>
+   <div class="fig fignone">
+    <img class="image" src="http://help-ooyala.brightcove.com/../image/ingest_aspera.png" height="183" width="625"/>
+   </div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">Asperaについて</h2><a class="xref" href="http://asperasoft.com/" target="_blank">アスペラ</a> Backlotにビデオをアップロードするための高性能ファイル転送クライアントを提供します。 Asperaはデータ転送中に暗号化を使用します。</div>
+ 
+  
+  <div class="section"><h2 class="title sectiontitle">アカウントポリシー</h2>あなたのアカウントは、いつでも取り込みサーバー上の最大100GBに制限されています。 さらにコンテンツをアップロードする予定がある場合は、カスタマーサクセスマネージャーまたはテクニカルサポートに一時的な増加をリクエストできます。 </div>
+
+ 
+  <div class="section"><h2 class="title sectiontitle">摂取資格情報の取得</h2>Asperaを介してファイルをOoyalaにアップロードするには、認証情報を取得する必要があります。 <p class="gt-block p"><strong class="ph b">バックスロットでのアップロード専用ユーザーの設定（OIS v2.5）</strong></p>
+<div class="note note"><span class="notetitle">注意：</span> 基本的な取り込みとマニフェストベースの取り込みの両方を使用する場合は、それぞれに固有の名前の、アップロード専用の個別のユーザーアカウントを作成する必要があります（たとえば、
+          <samp class="ph codeph">user1_basic@example.com</samp> そして
+        <samp class="ph codeph">user1_manifest@example.com</samp>).</div>
+<ol class="ol">
+        <li class="li">Backlot GUI（「アカウント」&gt;「ユーザー管理」）で、自分のアカウントに「アップロードのみ」権限を持つユーザーを追加します（を参照）。 <a class="xref" href="chapter_usermanagement.html" title="[アカウント]タブの[ユーザー管理]サブタブを使用して、Backlotアカウントに関連付けられているユーザーを管理し、そのユーザーができることを制御します。">ユーザーの管理</a>).</li>
+
+        <li class="li">このアカウントのパスワードを設定してください。</li>
+
+        <li class="li">このユーザに関連付けられている電子メールアドレスとパスワードを使用して、取り込みエンドポイントにログインします（を参照）。 <a class="xref" href="alternative_ftp_aspera_servers.html">Ooyalaインジェストサーバーエンドポイント</a>).</li>
+
+      </ol>
+<div class="note note"><span class="notetitle">注意：</span> マニフェストベースのインジェストを使用する場合は、Ooyalaに連絡してアカウントのこの機能を有効にしてください。</div>
+
+      </div>
+   
+  <div class="section"><h2 class="title sectiontitle">Asperaクライアントのダウンロード</h2>Asperaは無料のブラウザプラグインとして、あるいはライセンスを取得したデスクトップクライアントとして利用できます。 ユーザーが最初に取り込みエンドポイントに接続してログインに成功したときに、Asperaブラウザプラグインがダウンロード用に提供されます。 ソフトウェアを個別にダウンロードすることもできます。
+   <ul class="ul">
+    <li class="li">無料のブラウザプラグインをダウンロードするには、にアクセスしてください。 <a class="xref" href="http://downloads.asperasoft.com/" target="_blank">Asperaダウンロードページ</a> そしてAspera Connectプラグインをダウンロードしてください。</li>
+
+    <li class="li">デスクトップクライアントをダウンロードするには、にアクセスしてください。 <a class="xref" href="http://asperasoft.com/software/client-options/desktop-client/" target="_blank">アスペラクライアント</a>.  </li>
+
+   </ul>
+</div>
+
+   <div class="section"><h2 class="title sectiontitle">VR 360ファイルメタデータの設定</h2>
+     <p class="p">VR 360ビデオファイルをアップロードする場合は、まずファイルにVR 360とラベルを付けて、どのタイプのVR 360（モノスコープまたはステレオ）かを伝えます。 ファイルメタデータを使用してこの情報を送信してください。</p>
+
+     <p class="gt-block p">マニフェストファイルでVR 360ファイルのメタデータを設定できます（ <a class="xref" href="ingestion_fileformats.html">マニフェストファイル形式</a>).  </p>
+
+      <p class="p">マニフェストファイルを使用していない場合は、ファイルのメタデータを <samp class="ph codeph">ffmpeg</samp> コマンドラインユーティリティ。 たとえば、Matroska（.mkv）ファイルをアップロードしようとしているとします。 この種類のファイルでは、次の名前のカスタムメタデータタグを作成できます。 
+       <samp class="ph codeph">vr360type</samp> 次のいずれかの値を割り当てます。
+       <samp class="ph codeph">モノ</samp>  or  <samp class="ph codeph">stereo_lr</samp>。 例えば：</p>
+
+     <pre class="pre codeblock">ffmpeg -i inputFile.mkv -cコピー-metadata &quot;vr360type = mono&quot; outputFile.mkv</pre>
+
+     <p class="p">一部のファイル形式はカスタムメタデータをサポートしません。 たとえば、MP4ファイルでは、
+          <samp class="ph codeph">ffmpeg</samp> 定義済みのメタデータタグのみを許可します。 回避策として、汎用を使用してください。 <samp class="ph codeph">説明</samp> VR 360ファイルタイプを示す定義済みの値を持つフィールド。 の価値 <samp class="ph codeph">説明</samp> テキストを含める必要があります <samp class="ph codeph">VR 360</samp> そして、以下のうちの1つ： <samp class="ph codeph">モノ</samp>  or
+        
+        <samp class="ph codeph">stereo_lr</samp>。 例えば：</p>
+
+     <pre class="pre codeblock">ffmpeg -i inputFile.mp4 -cコピー-metadata &quot;description&quot; = &quot;VR 360タイプはモノラルです...&quot; outputFile.mp4</pre>
+
+     <p class="gt-block p">VR 360の詳細については、 
+       <a class="xref" href="../concepts/../concepts/vr360.html">VR 360ビデオ</a>.</p>
+
+   </div>
+
+  <div class="section"><h2 class="title sectiontitle">Aspera Clientを使った取り込み</h2> マニフェストの有無にかかわらず、Asperaクライアントを介してビデオをアップロードできます。 <div class="note note"><span class="notetitle">注意：</span> すべてのアップロードファイルは、に記載されている取り込み要件に準拠する必要があります。 <a class="xref" href="../reference/input_formats.html" title="コンテンツをBacklotにアップロードする前に、サポートされているファイル形式を使用し、ソースファイルのベストプラクティスに従っていることを確認してください。">サポートされている取り込みフォーマット</a></div>
+<p class="gt-block p"><strong class="ph b">Asperaクライアント（OIS v2.5）を介してファイルをアップロードする</strong>
+   </p>
+<ol class="ol">
+    <li class="li">アップロードしたいファイルを準備します。</li>
+
+    <li class="li">ブラウザで、エンドポイントtransfer.ooyala.comを入力します。 このエンドポイントはすべての場所から機能します。 地域に特定のエンドポイントを使用することもできます。 見る <a class="xref" href="alternative_ftp_aspera_servers.html">Ooyalaインジェストサーバーエンドポイント</a>.</li>
+
+    <li class="li">Backlotユーザーアカウントの認証情報（電子メールとパスワード）を使用して取り込みエンドポイントにログインします。</li>
+
+    <li class="li">メッセージが表示されたら、Asperaアプリを開きます。 （プロンプトが表示されない場合は、Asperaアプリは既に開いています。）</li>
+   
+    <li class="li">取り込むファイル（ビデオ、サムネイル、クローズドキャプションファイルなど）をアップロードします。 マニフェストファイルを使用している場合は、マニフェストファイルで参照されているすべてのファイルを必ずアップロードしてください。</li>
+
+    <li class="li">Ooyalaは、マニフェストファイルを最後にアップロードすることを提案しています。</li>
+
+   </ol>
+ ファイルはすべて処理された直後に削除されます。 取り込みワークフロー全体を通過しなかった（たとえば、マニフェストファイルのアップロードを待っている）送信済みファイルは、7日後にサーバーから削除されます。</div>
+
+  
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/ingestion_ois.html">ウーヤラ摂取サービス（OIS）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></di

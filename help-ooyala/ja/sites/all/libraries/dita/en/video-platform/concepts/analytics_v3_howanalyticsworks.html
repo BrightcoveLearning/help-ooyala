@@ -1,0 +1,273 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="How Ooyala IQ Works"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/analytics_v3_user_intro.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="understandanalytics"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Ooyala IQのしくみ</title>
+</head>
+<body id="understandanalytics">
+
+
+<h1 class="title topictitle1">認定 <span class="ph">ウーヤラIQ</span> ワークス</h1>
+
+      <div class="body conbody">
+         <div class="section">
+         再生中に、ビデオプレーヤーはさまざまなディメンションに沿って記録され、レポートおよび分析のために集計および集計されたイベントベースのメトリックを送信します。 いくつかの重要な概念を提示した後、この概要はの主要な要素を説明します <span class="ph">ウーヤラIQ</span>.
+         
+         </div>
+
+
+      <div class="section" xml:lang="en-us" lang="en-us" id="understandanalytics__keyConcepts.d0e16"><h2 class="title sectiontitle">主な概念</h2>
+         
+
+            <p class="gt-block p">理解するには3つのアイデアが不可欠です <span class="ph">ウーヤラIQ</span>：1）ファクト、2）イベント、および3）ディメンション。 これらの点について以下に説明する。</p>
+
+            <div class="p">
+               <ol class="ol">
+                  <li class="li">によって測定されたすべての情報 <span class="ph">ウーヤラIQ</span> アセット（通常はビデオまたはライブストリーム）に関連付けられています。 従来の分析用語では、ビデオは事実と呼ばれています。 すべてのビデオには、識別子と呼ばれる固有の識別番号があります。 </li>
+
+                  <li class="li">ビデオが再生されると、ビデオプレーヤーは次のようなイベントを記録します。 <span class="ph">&quot;表示&quot;</span>,  <span class="ph">“ playStarted”</span>に電子メールを送るか、もしくは <span class="ph">&quot;コンプリート&quot;</span>）ビデオの寿命の中で あなたのビデオ（事実）とそれに関連する出来事がすべての測定基準の基礎となります。 </li>
+
+                  <li class="li">すべてのイベントとビデオの組み合わせには、トラフィックソース、プレーヤー、地理、デバイスなど、事実に関連するディメンション（または属性）と呼ばれる定義済みの側面もあります。</li>
+
+               </ol>
+
+               
+            </div>
+
+            <p class="gt-block p"><span class="ph">ウーヤラIQ</span> 再生中に、次の定義済みディメンションに沿ってイベントからのデータを時間の経過とともに記録します。
+               </p>
+
+            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="understandanalytics__predefined_dimensions" class="table" frame="border" border="1" rules="all">
+                  <thead class="thead" align="left">
+                     <tr class="row">
+                        <th class="entry" valign="top" id="d202940e71">
+                           <p class="p">次元</p>
+
+                        </th>
+
+                        <th class="entry" valign="top" id="d202940e77">
+                           <p class="p">説明</p>
+
+                        </th>
+
+                     </tr>
+
+                  </thead>
+
+                  <tbody class="tbody">
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d202940e71 d202940e77 ">
+                           <p class="p">デバイス</p>
+
+                        </td>
+
+                        <td class="entry" valign="top" headers="d202940e71 d202940e77 ">
+                           <p class="p">モバイル、タブレット、iPhone、iPodなど、ビデオが再生されたデバイスの種類。</p>
+
+                        </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d202940e71 d202940e77 ">
+                           <p class="p">地理</p>
+
+                        </td>
+
+                        <td class="entry" valign="top" headers="d202940e71 d202940e77 ">
+                           <p class="p">国、都道府県、指定マーケティング地域など、ビデオが再生された場所。</p>
+
+                        </td>
+
+                     </tr>
+
+                     
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d202940e71 d202940e77 ">
+                           <p class="p">プレーヤー</p>
+
+                        </td>
+
+                        <td class="entry" valign="top" headers="d202940e71 d202940e77 ">
+                           <p class="p">どのビデオプレーヤーで再生されましたか。 あなたはこれらのプレイヤーの名前を自分で定義することができます。</p>
+
+                        </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d202940e71 d202940e77 ">
+                           <p class="p">トラフィックソース</p>
+
+                        </td>
+
+                        <td class="entry" valign="top" headers="d202940e71 d202940e77 ">
+                           <p class="p">ビデオの配信元。</p>
+
+                        </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d202940e71 d202940e77 ">
+                           <p class="p">時間</p>
+
+                        </td>
+
+                        <td class="entry" valign="top" headers="d202940e71 d202940e77 ">
+                           <p class="p">時間は、イベントがいつ発生するかを表す「隠れた」ディメンションです。 すべてのイベントには、システムによって明示的なタイムスタンプが記録されています。</p>
+
+                        </td>
+
+                     </tr>
+
+                  </tbody>
+
+               </table>
+</div>
+
+         
+      </div>
+
+      <div class="section" xml:lang="en-us" lang="en-us" id="understandanalytics__threeStepsOfOoyalaAnalytics.d0e197"><h2 class="title sectiontitle">の3つのステップ <span class="ph">ウーヤラIQ</span></h2>
+         
+
+            <p class="gt-block p"><span class="ph">ウーヤラIQ</span> 3つの主要部分があります。 1と3の部分を
+                  <span class="ph">ウーヤラIQ</span> パート2をします。</p>
+
+            <ol class="ol">
+               <li class="li"><a class="xref" href="#understandanalytics__recordingMetricData/index.html">メトリックデータの記録</a></li>
+
+               <li class="li"><a class="xref" href="#understandanalytics__aggregatingAndSummarizingData/index.html">データの集計と集計</a></li>
+
+               <li class="li"><a class="xref" href="#understandanalytics__reportingAnalysesAndDataVisualization/index.html">レポート作成、分析、およびデータの視覚化</a></li>
+
+            </ol>
+
+            <div class="p">
+               <div class="fig fignone">
+                  <img class="image" id="understandanalytics__image_m31_trj_xl" src="http://help-ooyala.brightcove.com/../image/analytics_v3_Analytics3StagesConcept.png" height="714" width="902"/>
+               </div>
+
+            </div>
+
+            <p class="p">各ステップについては、このセクションの残りの部分で説明します。 </p>
+
+         
+      </div>
+
+      <div class="section" xml:lang="en-us" lang="en-us" id="understandanalytics__recordingMetricData"><h2 class="title sectiontitle">メトリックデータの記録</h2>
+         
+
+            <p class="gt-block p">メトリックを収集するための最初のステップでは、再生中に発生した特定のイベントが発生したときにビデオプレーヤーによって記録されます。 <span class="ph">&quot;playStarted&quot;</span>,  <span class="ph">「一時停止」</span>、 その他。 これらのイベントは、ハイパーテキストトランスポートプロトコル（HTTP）を介してRepresentational State Transfer（REST）アプリケーションプログラミングインターフェイス（API）を介して送信される「データティック」です。 単一の要求で送信される単一のイベントまたはイベントのグループは、pingと呼ばれることがあります。 </p>
+
+            <p class="p">
+               
+            </p>
+
+            <p class="p"/>
+
+            <p class="p">イベントはイベントストアと呼ばれるデータベースに記録されます。</p>
+
+
+      </div>
+
+      <div class="section" xml:lang="en-us" lang="en-us" id="understandanalytics__aggregatingAndSummarizingData"><h2 class="title sectiontitle">データの集計と集計</h2>
+
+            <p class="gt-block p">第二段階では、一日を通して、 <span class="ph">ウーヤラIQ</span> これらのイベント駆動型メトリックを、日ごと、月ごと、年ごとなど、さまざまな時間の「チャンク」（またはセグメント）にまとめて集約します。
+               </p>
+
+            <div class="p">
+               <div class="fig fignone">
+                  <img class="image" id="understandanalytics__image_qpg_yrj_xl" src="http://help-ooyala.brightcove.com/../image/analytics_v3_DataAgregation.png" height="211" width="266"/>
+               </div>
+
+            </div>
+
+            <p class="p">「集計」とは、さまざまなディメンション間の交差が事前計算されるため、レポートが速くなることを意味します。 たとえば、集計では、「どの地域でどのデバイスが使用されていましたか」や「どのデバイスでどのプレーヤーが使用されていましたか」などの質問をすることができます。</p>
+
+            <p class="p">生データに基づいて他のメトリックを計算するなど、他のデータ変換も発生する可能性があります。</p>
+
+            <p class="p">集計、集計、およびその他の変換の最終結果は、これらの事前計算された交差点を格納するデータキューブです。 </p>
+
+
+      </div>
+
+      <div class="section" xml:lang="en-us" lang="en-us" id="understandanalytics__reportingAnalysesAndDataVisualization"><h2 class="title sectiontitle">レポート作成、分析、およびデータの視覚化</h2>
+         
+
+            <p class="gt-block p">3番目のステップでは、メトリクスが <a class="xref" href="#understandanalytics__aggregatingAndSummarizingData/index.html">収集、要約、および集計されたデータキューブ</a>データを使用する準備が整いました。</p>
+
+            <div class="p">
+               <div class="fig fignone">
+                  <img class="image" id="understandanalytics__image_ern_1sj_xl" src="http://help-ooyala.brightcove.com/../image/analytics_v3_MultidimensionalAnalysis.png" height="176" width="305"/>
+               </div>
+
+            </div>
+
+            <p class="p">それで、あなたが最も興味を持っているデータの特定の関係に集中することができます、あなたはいくつかの異なる方法で分析データにアクセスすることができます：</p>
+
+            <ol class="ol">
+               <li class="li">次のものを含むGUI。 <ul class="ul" id="understandanalytics__ul_dng_gsj_xl">
+                     <li class="li">
+                        <p class="p">ほぼリアルタイムの分析のためのダッシュボード。 </p>
+
+                     </li>
+
+                     <li class="li">
+                        <p class="p">ビジネスインテリジェンスページ。データをさまざまなディメンションでフィルタリングしたり、他の方法で操作したりできます。</p>
+
+                     </li>
+
+                     <li class="li">
+                        <p class="p">[動画の詳細]ページでは、特定の動画のメトリックの詳細な内訳を確認できます。 </p>
+
+                        
+                     </li>
+
+                  </ul>
+
+               </li>
+
+               <li class="li">REST-over-HTTP API。データのダウンロードや独自のレポートシステムへのフィードインに使用できます。</li>
+
+               
+            </ol>
+
+            <p class="p">データの交差部分を視覚化するために多次元分析を作成できます。 多次元とは、複数の次元を意味します。 前のセクションで述べたように、「どの地域でどのデバイスが使用されていましたか」または「どのデバイスがどのデバイスで使用されていましたか」という質問に答えることができます。</p>
+
+            <p class="p">ディメンションを使用した分析は、上記の事前計算済みデータキューブに依存します。 </p>
+
+            <p class="p">フィルタによってデータを制限することもできます（このようなフィルタリングは、スライスとダイシングとも呼ばれます）。 日付、地理などのフィルタを適用して、表示するデータ量をますます絞り込むことができます。 したがって、あなたはあなたが興味を持っているデータのサブセットだけを見ることができます。</p>
+
+
+      </div>
+
+      <div class="section" xml:lang="en-us" lang="en-us" id="understandanalytics__data_retention"><h2 class="title sectiontitle">データ保持</h2>
+         
+            <p class="gt-block p" id="understandanalytics__data_retention_policy">Ooyalaはあなたのデータを37ヶ月までしか保持しません。 これは、過去の36月とともに現在の月として計算されます。 データは、1月以降の日付に使用可能になります1、2014。 Ooyalaは、最新の37月の有効なデータについての照会をUIおよびAPIでのみ行い、許可します。 残りのデータはアーカイブされます。 v2 AnalyticsからOoyala IQに移行される履歴データの量については、以下を参照してください。 <a class="xref" href="analytics_v3_migrating_from_v2_data.html">データ移行（廃止予定）</a>.</p>
+
+      </div>
+
+   </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/analytics_v3_user_intro.html">Ooyala IQの紹介</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><

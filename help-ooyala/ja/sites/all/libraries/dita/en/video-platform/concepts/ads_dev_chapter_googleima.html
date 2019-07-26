@@ -1,0 +1,151 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="copyright" content="(C) Copyright 2005" />
+  <meta name="DC.rights.owner" content="(C) Copyright 2005" />
+  <meta name="DC.Type" content="concept" />
+  <meta name="DC.Title" content="Player V3 Google IMA Ad Integration" />
+  <meta name="DC.Relation" scheme="URI" content="mobile_sdk_android_googleima.html" />
+  <meta name="DC.Relation" scheme="URI" content="mobile_sdk_ios_googleima.html" />
+  <meta name="DC.Relation" scheme="URI" content="pbv4_ads_dev_chapter_googleima.html" />
+  <meta name="DC.Format" content="XHTML" />
+  <meta name="DC.Identifier" content="ads_dev_chapter_googleima" />
+  <meta name="DC.Language" content="en-us" />
+  <link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css" />
+  <link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css" />
+  <title>プレーヤV3 Google IMA広告統合</title>
+</head>
+
+<body id="ads_dev_chapter_googleima">
+
+
+  <h1 class="title topictitle1">プレーヤV3 Google IMA広告統合</h1>
+
+  <div class="body conbody">
+    <div class="section">
+      <p class="gt-block p">The following documentation describes the Google IMA integration with Player V3. For documentation on the Google IMA integration with Player V4, see <a class="xref" href="pbv4_ads_dev_chapter_googleima.html">Google IMA Ad Plugin</a>.</p>
+
+    </div>
+
+
+    <div class="section">
+      <h2 class="title sectiontitle">Google IMA v3.0</h2>
+
+      <p class="p">Google IMA v3.0.120 is an ad server and ad management platform. The Google Interactive Media Ads (IMA) SDK enables publishers to display linear, non-linear, and companion ads in interactive media content such as videos and games. Publishers can use the IMA SDK to request and display ads served by DoubleClick for Publishers (DFP), the Google AdSense network, or any VAST-compliant ad server. Common scenarios for using the IMA SDK include displaying pre-rolls or overlays in video content.</p>
+
+    </div>
+
+    <div class="section">
+      <h2 class="title sectiontitle">Supported Publishers</h2>
+      <div class="p"><a class="xref" href="https://developers.google.com/interactive-media-ads/" target="_blank">Googleごと</a>, the Google IMA SDK is intended for the following publishers: <ul class="ul">
+          <li class="li"><strong class="ph b">DFP users</strong>: Publishers can use DFP to traffic, target, and serve their directly-sold ads. The IMA SDK offers advanced video ad serving features.</li>
+
+          <li class="li"><strong class="ph b">AdSenseサイト運営者</strong>: Publishers can also use the Google AdSense Network (AdSense for Video (AFV) and AdSense for Games (AFG)) to monetize their inventory. If you only want to display AFV/AFG ads, DFP is not required. However, AFV/AFG ads still require the IMA SDK. </li>
+
+          <li class="li"><strong class="ph b">VAST広告を使用しているサイト運営者</strong> from a third-party ad server: Publishers can book their VAST ads in DFP and use the IMA SDK to request and display them. VAST ad responses are parsed prior to ad playback. Refer to the VAST guidelines for details.</li>
+
+          <li class="li"><strong class="ph b">動画向けAdExchange</strong>: Publishers can make use of remnant ad inventory from AdExchange for Video via the Google AdSense Network.</li>
+
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="section">
+      <h2 class="title sectiontitle">サポートされているプラ​​ットフォーム</h2>
+      <div class="p">Ooyala supports the Google IMA ad manager on the following platforms for Player V3: <ul class="ul">
+          <li class="li">フラッシュ </li>
+
+          <li class="li">HTML5ウェブ </li>
+
+          <li class="li">iOSモバイルSDK</li>
+
+          <li class="li">AndroidモバイルSDK</li>
+
+        </ul>
+      </div>
+
+      <div class="note note"><span class="notetitle">注意：</span> Any Publisher wanting to use any of the above Google products needs to use Google IMA v3. </div>
+
+    </div>
+
+    <div class="section">
+      <h2 class="title sectiontitle">広告ルール</h2>
+      <div class="p">The Ooyala player supports Ad Rules. Ad Rules define how ads display with video content. Publishers can create Ad Rules on their DFP Premium account to determine when ads play in a video, for how long, and as a result of which triggers, such as content targeting parameters. They can also target Ad Rules so that they apply to:
+        <ul class="ul">
+          <li class="li">特定のテレビ番組の全エピソードなどの特定のビデオ。</li>
+
+          <li class="li">「スポーツ」ジャンルのビデオなどのビデオメタデータ。</li>
+
+          <li class="li">ユーザーの地理</li>
+
+          <li class="li">ユーザーのブラウザ</li>
+
+          <li class="li">定義したカスタムターゲティングキーと値。</li>
+
+        </ul>
+      </div>
+      Ad Rulesでサポートされているプラ​​ットフォームの詳細については、にアクセスしてください。 <a class="xref" href="https://developers.google.com/interactive-media-ads/video_features_and_sdk_versions#html5_footnote" target="_blank">https://developers.google.com/interactive-media-ads/video_features_and_sdk_versions#html5_footnote</a>
+      <div class="note note"><span class="notetitle">注意：</span> Google IMA's AdRules feature supports ad-breaks without additional code. Do not use AdRules with other types of ads. We highly discourage you from mixing other adTagUrls with an AdRule adTag as it may lead to unexpected behavior. For example, we recommend against using an AdRule adTag along with a mid-roll ad position set via Backlot for Flash.</div>
+
+    </div>
+
+    <div class="section">
+      <h2 class="title sectiontitle">Ad Position Support</h2>
+
+      Ads are supported on V3 Flash Players, V3 HTML5 players, and mobile SDKs for the
+      following ad positions: <ul class="ul">
+        <li class="li">プリロール</li>
+
+        <li class="li">ミッドロール</li>
+
+        <li class="li">ポストロール</li>
+
+        <li class="li">ポッド</li>
+
+        <li class="li">スキップ可能</li>
+
+      </ul>
+
+
+    </div>
+
+    <div class="section">
+      <h2 class="title sectiontitle">広告とFirefoxのプライベートブラウジング</h2>For
+      consumers using <a class="xref" href="https://developer.mozilla.org/en-US/Firefox/Privacy/Tracking_Protection" target="_blank">プライベートブラウジングウィンドウ</a> in Firefox, some ads may fail to load because privacy mode blocks certain kinds of
+      tracking URLs.
+    </div>
+
+    <div class="section">
+      <h2 class="title sectiontitle">参照</h2>
+
+
+
+    </div>
+
+
+  </div>
+
+  <div class="related-links">
+    <div class="relinfo relconcepts"><strong>関連する概念</strong><br />
+      <div><a class="link" href="mobile_sdk_android_googleima.html">Android上のGoogle IMAとの統合</a></div>
+      <div><a class="link" href="mobile_sdk_ios_googleima.html">iOS上のGoogle IMAとの統合</a></div>
+      <div><a class="link" href="pbv4_ads_dev_chapter_googleima.html">Google IMA Ad Plugin</a></div>
+    </div>
+  </div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+
+</html>
+<!-- de

@@ -1,0 +1,968 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Managing Players Using the Backlot REST API"/>
+<meta name="abstract" content="When you create a player and assign it to one or more assets in your account, it defines the playback options and the look and feel of your content."/>
+<meta name="description" content="プレーヤーを作成してアカウント内の1つ以上のアセットに割り当てると、再生オプションとコンテンツの外観が決まります。"/>
+<meta name="DC.Relation" scheme="URI" content="../api/players.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/players.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="players_core"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Backlot REST APIを使用したプレーヤーの管理</title>
+</head>
+<body id="players_core">
+
+
+    <h1 class="title topictitle1">Backlot REST APIを使用したプレーヤーの管理</h1>
+
+    
+    <div class="body refbody"><p class="shortdesc">プレーヤーを作成してアカウント内の1つ以上のアセットに割り当てると、再生オプションとコンテンツの外観が決まります。 </p>
+
+        <div class="section">
+            <div class="note note"><span class="notetitle">注意：</span> Ooyalaプレーヤー用のREST APIコマンドについて詳しくは、以下を参照してください。 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/backlot_api/index.html" target="_blank">バックスロットAPIリファレンス</a>.</div>
+
+        </div>
+
+        <div class="section">
+            <div class="note note"><span class="notetitle">注意：</span> デフォルトのプレーヤーを変更するには <span class="keyword parmname">is_default</span>）、単にデフォルトとしてあなたが欲しい新しいプレーヤーを指定します。 以前のデフォルトを「設定解除」しないでください。</div>
+
+        </div>
+
+
+        <div class="section refsyn"><h2 class="title sectiontitle">プレーヤーを作成する</h2>
+            <pre class="pre codeblock">[POST] / v2 / players {
+   <a class="xref" href="players_core.html#players_core__player_core_properties"><kbd class="ph userinput">プロパティ</kbd></a>
+
+}</pre>
+
+        </div>
+
+        <div class="section refsyn"><h2 class="title sectiontitle">プレーヤーのリスト</h2>
+            <pre class="pre codeblock">[GET] / v2 / players</pre>
+
+        </div>
+
+        <div class="section refsyn"><h2 class="title sectiontitle">プレイヤー情報を見る</h2>
+            <pre class="pre codeblock">[GET] / v2 / players /<a class="xref" href="players_core.html#players_core__player_id"><kbd class="ph userinput">player_id</kbd></a></pre>
+
+        </div>
+
+        <div class="section refsyn"><h2 class="title sectiontitle">プレイヤーを削除する</h2>
+            <pre class="pre codeblock">[削除] / v2 / players /<a class="xref" href="players_core.html#players_core__player_id"><kbd class="ph userinput">player_id</kbd></a></pre>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">ルート属性</h2>
+            
+            <p class="p">次の表は、ルートを通じて表現できるすべての属性を示しています。</p>
+
+            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" id="d101124e95">ルート属性</th>
+
+                            <th class="entry" valign="top" id="d101124e98">説明</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        
+                    <tr class="row">
+                            <td class="entry" valign="top" headers="d101124e95 d101124e98 "><var class="keyword varname" id="players_core__player_id">player_id</var></td>
+
+                            <td class="entry" valign="top" headers="d101124e95 d101124e98 "><p class="p">プレイヤーのID プレイヤーのリストを取得するには、 <samp class="ph codeph">/選手</samp> ルート。 </p>
+
+                                <p class="p">タイプ：文字列 </p>
+
+                                <p class="p">デフォルト：なし </p>
+
+                                <p class="p">Example: /players/b4f1a93b779145b4a9c8ef15f8502345 </p>
+
+                            </td>
+
+                        </tr>
+</tbody>
+
+                </table>
+</div>
+
+        </div>
+
+        <div class="section" id="players_core__player_core_properties"><h2 class="title sectiontitle">プロパティ</h2>
+            
+            <p class="gt-block p">次の表は、プレーヤーに関連付けることができるすべてのプロパティについて説明しています。 エンドユーザーの視点からのプレーヤビジュアルコンポーネントの紹介については、
+                    <a class="xref" href="../concepts/player_components.html" title="Ooyala Player V3のビジュアルコンポーネント。">プレーヤV3コンポーネント（非推奨）</a>.</p>
+
+            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                    
+                    
+                    
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" width="30.555555555555557%" id="d101124e162">プロパティ</th>
+
+                            <th class="entry" valign="top" width="47.22222222222222%" id="d101124e165">説明</th>
+
+                            <th class="entry" valign="top" width="22.22222222222222%" id="d101124e168">必須？</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    <tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">アクセントの色</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">アクセントカラーをWebカラー形式で指定します。 </p>
+
+                                <p class="p">タイプ：文字列 </p>
+
+                                <p class="p">デフォルト：ffbb00 </p>
+
+                                <p class="p">例：「66FF33」 </p>
+
+                                <p class="p">親：ooyala_branding</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">アルファ</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">透かしの透明度を指定します。 </p>
+
+                                <p class="p">タイプ：文字列 </p>
+
+                                <p class="p">デフォルト：なし </p>
+
+                                <p class="p">例：1.0 </p>
+
+                                <p class="p">有効な値：0.0から1.0 </p>
+
+                                <p class="p">親：透かし</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">いつも見せる</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">ビデオ再生中にスクラバーバーを表示します。 </p>
+
+                                <p class="p">タイプ：ブール </p>
+
+                                <p class="p">有効な値は以下のとおりです。 偽 </p>
+
+                                <p class="p">デフォルト：false </p>
+
+                                <p class="p">例： &quot;false&quot; </p>
+
+                                <p class="p">親：スクラバー</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">buffer_on_pause</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">一時停止時にビデオをバッファに入れます。 これは、ネットワーク接続が遅いユーザに役立ちます。 </p>
+
+                                <p class="p">タイプ：ブール </p>
+
+                                <p class="p">有効な値は以下のとおりです。 偽 </p>
+
+                                <p class="p">デフォルト：false </p>
+
+                                <p class="p">例： &quot;false&quot; </p>
+
+                                <p class="p">親：プレイバック</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">click_behavior</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">サムネイルをクリックしたときに関連ビデオを開く方法を指定します。 </p>
+
+                                <p class="p">タイプ：文字列 </p>
+
+                                <p class="p">有効な値：same_player | same_page | 新しいページ </p>
+
+                                <p class="p">デフォルト：same_player </p>
+
+                                <p class="p">条件：related_videosが指定されている場合は必須。 </p>
+
+                                <p class="p">例： &quot;same_player&quot; </p>
+
+                                <p class="p">親：related_videos</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">条件付きの</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">click_url</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">透かしがクリックされたときにユーザーが向けられるURL。 </p>
+
+                                <p class="p">タイプ：文字列 </p>
+
+                                <p class="p">デフォルト：なし </p>
+
+                                <p class="p">例：「www.mywebsite.com」 </p>
+
+                                <p class="p">親：透かし</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">default_closed_caption_language</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">クローズドキャプションのデフォルト言語を指定します。 </p>
+
+                                <p class="p">タイプ：文字列 </p>
+
+                                <p class="p">デフォルト：なし </p>
+
+                                <p class="p">例：「true」 </p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">digg_sharing</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">Digg共有を有効にします。 有効にした場合、show_share_buttonをtrueに設定する必要があります。 </p>
+
+                                <p class="p">タイプ：ブール </p>
+
+                                <p class="p">有効な値は以下のとおりです。 偽 </p>
+
+                                <p class="p">デフォルト：false </p>
+
+                                <p class="p">例：「true」 </p>
+
+                                <p class="p">親：ooyala_branding</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">email_sharing</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">ユーザーが電子メールでビデオを共有できるようにします。 有効にした場合、show_share_buttonをtrueに設定する必要があります。 </p>
+
+                                <p class="p">タイプ：ブール </p>
+
+                                <p class="p">有効な値は以下のとおりです。 偽 </p>
+
+                                <p class="p">デフォルト：true </p>
+
+                                <p class="p">例：「true」 </p>
+
+                                <p class="p">親：ooyala_branding</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">enable_error_screen</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">再生エラーがあると、Ooyalaエラー画面を表示します。 </p>
+
+                                <p class="p">タイプ：ブール </p>
+
+                                <p class="p">有効な値は以下のとおりです。 偽 </p>
+
+                                <p class="p">デフォルト：true </p>
+
+                                <p class="p">例：「true」 </p>
+
+                                <p class="p">親：ooyala_branding</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">facebook_sharing</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">Facebookの共有を有効にします。 有効にした場合、show_share_buttonをtrueに設定する必要があります。 </p>
+
+                                <p class="p">タイプ：ブール </p>
+
+                                <p class="p">有効な値は以下のとおりです。 偽 </p>
+
+                                <p class="p">デフォルト：false </p>
+
+                                <p class="p">例：「true」 </p>
+
+                                <p class="p">親：ooyala_branding</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">image_url</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">読み取り専用 動画をスクラブしている間に表示されるプレースホルダのサムネイルのURL。 新しい画像をアップロードするには、[Scrubber]（/ v2 / docs / players_scrubber）を参照してください。 </p>
+
+                                <p class="p">タイプ：文字列 </p>
+
+                                <p class="p">デフォルト：なし </p>
+
+                                <p class="p">例： &quot;http://ak.c.ooyala.com/ZnMmM6AO3C- iBubra3R2Xd6pXHgK /シェルフ123467931&quot; </p>
+
+                                <p class="p">親：スクラバー</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">image_url</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">読み取り専用 動画中に表示される透かし。 .PNG、.JPG、.GIF、および.SWF透かしを使用できます。また、透明な背景を持つ.PNGファイルを使用することをお勧めします。 新しい画像をアップロードするには、[透かし]（/ v2 / docs / players_watermark）を参照してください。 </p>
+
+                                <p class="p">タイプ：文字列 </p>
+
+                                <p class="p">デフォルト：なし </p>
+
+                                <p class="p">例： &quot;http://ak.c.ooyala.com/ZnMmM6AO3C-iBubra3R2Xd6pXHgK / watermark123467943&quot; </p>
+
+                                <p class="p">親：透かし</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname" id="players_core__isdefault">is_default</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">このプレーヤーを、新しいプレーヤーを作成するときに使用するデフォルトのプレーヤーテンプレートとして設定します。 </p>
+
+                                <p class="p">タイプ：ブール </p>
+
+                                <p class="p">有効な値は以下のとおりです。 偽 </p>
+
+                                <p class="p">デフォルト：false </p>
+
+                                <p class="p">例：「true」 </p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">ラベル</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">共有ビデオに使用するラベルを指定します。 </p>
+
+                                <p class="p">タイプ：文字列の配列 </p>
+
+                                <p class="p">デフォルト：なし </p>
+
+                                <p class="p">条件：sourceが指定されている場合は必須。 </p>
+
+                                <p class="p">例：[&quot;videos_of_kittens&quot;、 &quot;video_of_dogs&quot;] </p>
+
+                                <p class="p">親：related_videos</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">条件付きの</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">名</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">プレイヤーの名前 </p>
+
+                                <p class="p">タイプ：文字列 </p>
+
+                                <p class="p">例：「私の透かし入りプレーヤー」 </p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">はい</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">ooyala_branding</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">ブランドオプションを指定します。 タイプ：コンテナ </p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">注文</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">関連動画を昇順でソートするか降順でソートするかを指定します。 </p>
+
+                                <p class="p">タイプ：文字列 </p>
+
+                                <p class="p">有効な値： &quot;asc&quot; | &quot;desc&quot; </p>
+
+                                <p class="p">デフォルト： &quot;desc&quot; </p>
+
+                                <p class="p">例： &quot;desc&quot; </p>
+
+                                <p class="p">親：related_videos</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">再生</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">再生オプションを指定します。 タイプ：コンテナ </p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">位置</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 ">透かしの表示位置を指定します。<p class="p">タイプ：文字列</p>
+<p class="p">デフォルト：右下</p>
+<p class="p">例：左下</p>
+<p class="p">有効な値は以下のとおりです。 左下| 右下| 左| 右| トップ| 左上| 右上</p>
+<p class="p">親：透かし</p>
+</td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">provider_homepage_url</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">あなたのウェブサイトのホームページへのURL。 </p>
+
+                                <p class="p">タイプ：文字列 </p>
+
+                                <p class="p">デフォルト：なし </p>
+
+                                <p class="p">条件：show_info_screen_homepage_linkがtrueに設定されている場合は必須。 </p>
+
+                                <p class="p">例：「http://myhomepage.com」 </p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">条件付きの</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">related_videos</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">関連するビデオ設定を指定します。 タイプ：コンテナ </p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">スクラバー</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">スクラバーオプションを指定します。 タイプ：コンテナ </p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">show_ad_countdown</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">アドバタイズ中にカウントダウンタイマーを表示して、ビデオの開始時刻をユーザーに知らせます。 </p>
+
+                                <p class="p">タイプ：ブール </p>
+
+                                <p class="p">有効な値は以下のとおりです。 偽 </p>
+
+                                <p class="p">デフォルト：true </p>
+
+                                <p class="p">例：「true」 </p>
+
+                                <p class="p">親：ooyala_branding</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">show_bitrate_button</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">ユーザーが利用可能なビットレートから選択できるボタンを表示します。 </p>
+
+                                <p class="p">タイプ：ブール </p>
+
+                                <p class="p">有効な値は以下のとおりです。 偽 </p>
+
+                                <p class="p">デフォルト：false </p>
+
+                                <p class="p">例：「true」 </p>
+
+                                <p class="p">親：ooyala_branding</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">show_channel_button</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">ユーザーがクリックしてチャンネルの他のコンテンツを表示できる[チャンネル]ボタンを表示します。 </p>
+
+                                <p class="p">タイプ：ブール </p>
+
+                                <p class="p">有効な値は以下のとおりです。 偽 </p>
+
+                                <p class="p">デフォルト：true </p>
+
+                                <p class="p">例：「true」 </p>
+
+                                <p class="p">親：ooyala_branding</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">show_embed_button</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">ユーザーが自分のWebサイトに埋め込むことができるビデオのコードスニペットを含む埋め込みボタンを表示します。 </p>
+
+                                <p class="p">タイプ：ブール </p>
+
+                                <p class="p">有効な値は以下のとおりです。 偽 </p>
+
+                                <p class="p">デフォルト：true </p>
+
+                                <p class="p">例：「true」 </p>
+
+                                <p class="p">親：ooyala_branding</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">show_end_screen_replay_button</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">ビデオが完成したら、ユーザーがボタンをクリックしてビデオを再生できるようにします。 </p>
+
+                                <p class="p">タイプ：ブール </p>
+
+                                <p class="p">有効な値は以下のとおりです。 偽 </p>
+
+                                <p class="p">デフォルト：true </p>
+
+                                <p class="p">例：「true」 </p>
+
+                                <p class="p">親：ooyala_branding</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">show_info_button</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">ユーザーがビデオに関する情報を表示するために使用できる情報ボタンを有効にします。 </p>
+
+                                <p class="p">タイプ：ブール </p>
+
+                                <p class="p">有効な値は以下のとおりです。 偽 </p>
+
+                                <p class="p">デフォルト：false </p>
+
+                                <p class="p">例：「true」 </p>
+
+                                <p class="p">親：ooyala_branding</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">show_info_screen_description</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">ユーザーが[情報]ボタンをクリックしたときにビデオの説明を表示します。 有効にした場合、show_info_buttonをtrueに設定する必要があります。 </p>
+
+                                <p class="p">タイプ：ブール </p>
+
+                                <p class="p">有効な値は以下のとおりです。 偽 </p>
+
+                                <p class="p">デフォルト：false </p>
+
+                                <p class="p">例：「true」 </p>
+
+                                <p class="p">親：ooyala_branding</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">show_info_screen_homepage_link</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">ビデオプロバイダへのリンクを表示します。 有効にした場合は、show_info_screen_homepage_linkおよびshow_info_screen_homepage_nameを指定する必要があります。 </p>
+
+                                <p class="p">タイプ：ブール </p>
+
+                                <p class="p">有効な値は以下のとおりです。 偽 </p>
+
+                                <p class="p">デフォルト：false </p>
+
+                                <p class="p">例：「true」 </p>
+
+                                <p class="p">親：ooyala_branding</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">条件付きの</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">show_info_screen_title</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">ユーザーが情報ボタンをクリックしたときにビデオのタイトルを表示します。 有効にした場合、show_info_buttonをtrueに設定する必要があります。 </p>
+
+                                <p class="p">タイプ：ブール </p>
+
+                                <p class="p">有効な値は以下のとおりです。 偽 </p>
+
+                                <p class="p">デフォルト：false </p>
+
+                                <p class="p">例：「true」 </p>
+
+                                <p class="p">親：ooyala_branding</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">show_share_button</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">ユーザーがソーシャルネットワークとコンテンツを共有できるようにする共有ボタンを有効にします。 他の共有オプション（twitter_sharingなど）を有効にせずにこのボタンを有効にした場合、ボタンはオプションなしで表示されます。 </p>
+
+                                <p class="p">タイプ：ブール </p>
+
+                                <p class="p">有効な値は以下のとおりです。 偽 </p>
+
+                                <p class="p">デフォルト：true </p>
+
+                                <p class="p">条件：1つ以上の共有オプションが指定されている場合は必須。 </p>
+
+                                <p class="p">例：「true」 </p>
+
+                                <p class="p">親：ooyala_branding</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">条件付きの</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">show_volume_button</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">音量ボタンを表示します。 </p>
+
+                                <p class="p">タイプ：ブール </p>
+
+                                <p class="p">有効な値は以下のとおりです。 偽 </p>
+
+                                <p class="p">デフォルト：true </p>
+
+                                <p class="p">例：「true」 </p>
+
+                                <p class="p">親：ooyala_branding</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">sort</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">関連動画の並べ替え方法を指定します。 </p>
+
+                                <p class="p">タイプ：文字列 </p>
+
+                                <p class="p">有効な値： &quot;upload_time&quot; </p>
+
+                                <p class="p">デフォルト： &quot;upload_time&quot; </p>
+
+                                <p class="p">例：「upload_time」 </p>
+
+                                <p class="p">親：related_videos</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">source</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">どのタイプのビデオを関連ビデオとして表示するかを指定します。 </p>
+
+                                <p class="p">タイプ：文字列 </p>
+
+                                <p class="p">有効な値：shared_labels | specified_label </p>
+
+                                <p class="p">デフォルト：なし </p>
+
+                                <p class="p">条件：related_videosが指定されている場合は必須。 </p>
+
+                                <p class="p">例： &quot;same_player&quot; </p>
+
+                                <p class="p">親：related_videos</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">条件付きの</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">stumbleupon_sharing</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">StumbleUpon共有を有効にします。 有効にした場合、show_share_buttonをtrueに設定する必要があります。 </p>
+
+                                <p class="p">タイプ：ブール </p>
+
+                                <p class="p">有効な値は以下のとおりです。 偽 </p>
+
+                                <p class="p">デフォルト：false </p>
+
+                                <p class="p">例：「true」 </p>
+
+                                <p class="p">親：ooyala_branding</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">twitter_sharing</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">Twitterの共有を有効にします。 有効にした場合、show_share_buttonをtrueに設定する必要があります。 </p>
+
+                                <p class="p">タイプ：ブール </p>
+
+                                <p class="p">有効な値は以下のとおりです。 偽 </p>
+
+                                <p class="p">デフォルト：false </p>
+
+                                <p class="p">例：「true」 </p>
+
+                                <p class="p">親：ooyala_branding</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">url_sharing</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">URLのコピーボタンを表示します。 有効にした場合、show_share_buttonをtrueに設定する必要があります。 </p>
+
+                                <p class="p">タイプ：ブール </p>
+
+                                <p class="p">有効な値は以下のとおりです。 偽 </p>
+
+                                <p class="p">デフォルト：true </p>
+
+                                <p class="p">例：「true」 </p>
+
+                                <p class="p">親：ooyala_branding</p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="30.555555555555557%" headers="d101124e162 "><span class="keyword parmname">透かし</span></td>
+
+                            <td class="entry" valign="top" width="47.22222222222222%" headers="d101124e165 "><p class="p">透かしオプションを指定します。 タイプ：コンテナ </p>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d101124e168 ">いいえ</td>
+
+                        </tr>
+</tbody>
+
+                </table>
+</div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">例</h2>
+            
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">例：デフォルト設定でBasic Playerを作成する</strong></p>
+
+                <p class="p"> この例では、すべてのデフォルト設定を使用する基本的なプレーヤーを作成しています。 </p>
+
+                <pre class="pre codeblock">[POST] / v2 / players {&quot;名前&quot;： &quot;基本プレーヤー&quot;}</pre>
+
+                <p class="gt-block p"><span class="ph">バックスロット</span> 次のような応答を返します。</p>
+
+                <pre class="pre codeblock">{&quot;ooyala_branding&quot;：{&quot;show_share_button&quot;：true、 &quot;twitter_sharing&quot;：false、 &quot;show_info_screen_homepage_link&quot;：true、 &quot;show_ad_countdown&quot;：true、 &quot;show_info_screen_title&quot;：true、 &quot;facebook_sharing&quot;：false、 &quot;show_info_button&quot;：ur、true &quot;：false、&quot; email_sharing &quot;：true、&quot; digg_sharing &quot;：false、&quot; show_info_screen_description &quot;：false、&quot; show_bitrate_button &quot;：false、&quot; show_channel_button &quot;：true、&quot; enable_error_screen &quot;：true、&quot; show_end_screen_replay_button &quot;：&quot; true、 &quot;accent_color&quot;： &quot;＃ffbb00&quot;、 &quot;show_volume_button&quot;：true}、 &quot;name&quot;： &quot;Basic Player&quot;、 &quot;provider_homepage_url&quot;：null、 &quot;related_videos&quot;：{&quot;click_behavior&quot;： &quot;new_page&quot;、 &quot;order&quot;： &quot;desc&quot;、 &quot;sort&quot;： &quot;upload_time&quot;、 &quot;labels&quot;：[]、 &quot;source&quot;： &quot;shared_labels&quot;}、 &quot;is_default&quot;：false、 &quot;scrubber&quot;：{&quot;image_url&quot;：null、 &quot;always_show&quot;：false }、 &quot;playback&quot;：{&quot;buffer_on_pause&quot;：false}、 &quot;id&quot;： &quot;83fc33534581448eab446935baa6b1f0&quot;、 &quot;default_closed_caption_language&quot;： &quot;&quot;、 &quot;透かし&quot;：{&quot;image_url&quot;：null、 &quot;click_url&quot; 1.0、 &quot;位置&quot;： &quot;下右 t &quot;}}</pre>
+
+                <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+                <div class="note note"><span class="notetitle">注意：</span> プレーヤーIDに対してgetリクエストを生成することで、いつでもこの情報を取得できます（例： <samp class="ph codeph">[GET] /v2/players/83fc33534581448eab446935baa6b1f0</samp>).</div>
+
+            </div>
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">例：アクセントの色を変更してTwitterとFacebookを有効にする</strong></p>
+
+                <p class="p"> この例では、アクセントの色をピンクに変更し、TwitterとFacebookの共有を有効にします。 </p>
+
+                <pre class="pre codeblock">[PATCH] / v2 / players / 83fc33534581448eab446935baa6b1f0 {&quot;ooyala_branding&quot;：{&quot;twitter_sharing&quot;：true、 &quot;facebook_sharing&quot;：true、 &quot;アクセント色&quot;： &quot;＃FF1493&quot;}}</pre>
+
+                <p class="gt-block p"><span class="ph">バックスロット</span> 次のような応答を返します。</p>
+
+                <pre class="pre codeblock">{&quot;ooyala_branding&quot;：{&quot;show_share_button&quot;：true、 &quot;twitter_sharing&quot;：true、 &quot;show_info_screen_homepage_link&quot;：true、 &quot;show_ad_countdown&quot;：true、 &quot;show_info_screen_title&quot;：true、 &quot;facebook_sharing&quot;：true、 &quot;show_info_button&quot;：true、 &quot;show_info_button&quot;：true、 &quot;show_info_button&quot;：true、 &quot; &quot;：false、&quot; email_sharing &quot;：true、&quot; digg_sharing &quot;：false、&quot; show_info_screen_description &quot;：false、&quot; show_bitrate_button &quot;：false、&quot; show_channel_button &quot;：true、&quot; enable_error_screen &quot;：true、&quot; show_end_screen_replay_button &quot;：&quot; true、 &quot;accent_color&quot;： &quot;＃FF1493&quot;、 &quot;show_volume_button&quot;：true}、 &quot;name&quot;： &quot;Basic Player&quot;、 &quot;provider_homepage_url&quot;：null、 &quot;related_videos&quot;：{&quot;click_behavior&quot;： &quot;new_page&quot;、 &quot;order&quot;： &quot;desc&quot;、 &quot;sort&quot;： &quot;upload_time&quot;、 &quot;labels&quot;：[]、 &quot;source&quot;： &quot;shared_labels&quot;}、 &quot;is_default&quot;：false、 &quot;scrubber&quot;：{&quot;image_url&quot;：null、 &quot;always_show&quot;：false }、 &quot;playback&quot;：{&quot;buffer_on_pause&quot;：false}、 &quot;id&quot;： &quot;83fc33534581448eab446935baa6b1f0&quot;、 &quot;default_closed_caption_language&quot;： &quot;&quot;、 &quot;透かし&quot;：{&quot;image_url&quot;：null、 &quot;click_url&quot; 1.0、 &quot;位置&quot;： &quot;右下&quot;} }</pre>
+
+            </div>
+            <div class="sectiondiv">
+               <p class="gt-block p"><strong class="ph b">例：全プレイヤーの一覧表示</strong></p>
+
+               <p class="p"> この例はすべてのプレイヤーを一覧表示します。 </p>
+<pre class="pre codeblock">[GET] / v2 / players</pre>
+
+               <p class="gt-block p"><span class="ph">バックスロット</span> プレーヤーとその構成設定のリストを返します。</p>
+
+               <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+            </div>
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">例：プレーヤーを削除する</strong></p>
+
+                <p class="p"> この例ではプレーヤーを削除します。 </p>
+
+                <pre class="pre codeblock">[DELETE]/v2/players/83fc33534581448eab446935baa6b1f0</pre>
+
+                <p class="gt-block p"><span class="ph">バックスロット</span> 200応答を返します。</p>
+
+                <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+            </div>
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/players.html">プレイヤー（Backlot REST API）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

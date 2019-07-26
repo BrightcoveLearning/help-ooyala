@@ -1,0 +1,104 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Using Closed Captions with Chromecast Integration"/>
+<meta name="DC.Relation" scheme="URI" content="../../concepts/chromecast/index.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="chromecast_cc"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../../css/ooyala.css"/>
+<title>Chromecast統合でクローズドキャプションを使用する</title>
+</head>
+<body id="chromecast_cc">
+
+
+    <h1 class="title topictitle1">Chromecast統合でクローズドキャプションを使用する</h1>
+
+    <div class="body conbody">
+        <div class="section">
+        <p class="gt-block p">Chromecast統合では、VOD（すべてのストリーム）コンテンツとLive（HLSおよびeHLS）コンテンツにクローズドキャプションを使用できます。 サンプルの送信者および受信者アプリケーションでは、クローズドキャプションはデフォルトで有効になっています。 デフォルトでは、プレーヤーはクローズドキャプション付きのすべてのアセットに対してクローズドキャプションボタンを表示します。 自分の送信側および受信側アプリケーションでデフォルトでサポートされるようにするには、サンプルの送信側および受信側アプリケーションからクローズドキャプション（CC）コードをコピーする必要があります。 紹介については、 <a class="xref" href="../pbv4_closed_caption_settings.html">Player V4のクローズドキャプション</a>.</p>
+
+        <div class="note note"><span class="notetitle">注意：</span> Chromecast統合は現在ユーザーのスタイル設定（FCCスタイル設定）をサポートしていませんが、今後これを実装することを検討しています。</div>
+</div>
+
+        <div class="section"><h2 class="title sectiontitle">サポートされているクローズドキャプションフォーマット</h2>
+                <ul class="ul">
+                    <li class="li">TTML（以前のDFXP）</li>
+
+                    <li class="li">組み込みCES-608 / 708（ライブ）</li>
+
+                </ul>
+
+            <div class="note note"><span class="notetitle">注意：</span> iOSおよびAndroidでクローズドキャプションをサポートするには、ファイルをTTML（以前のDFXP）形式で取り込む必要があります。</div>
+
+          追加情報については、 <a class="xref" href="../../reference/closed_caption_language.html" title="クローズドキャプションファイルをBacklotにアップロードする前に、サポートされている言語とファイル形式を使用していることを確認してください。">サポートされているクローズドキャプション</a>.
+        
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">ワークフロー</h2>
+            
+            <div class="p">次の手順は、VODアセットのクローズドキャプションのワークフローの概要です。 <ol class="ol">
+                    <li class="li">送信者は言語を設定するコマンドを発行します。</li>
+
+                    <li class="li">受信側は、aを受け入れてインスタンス化します。 <samp class="ph codeph">&lt;トラック&gt;</samp> CCを表示するための要素</li>
+
+                    <li class="li">受信機はChromecastのブラウザデフォルトサポートを使用します。</li>
+
+                </ol>
+</div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">有効化</h2>
+            使用可能化は必要ありません。 クローズドキャプションは、送信側アプリケーションと受信側アプリケーションではデフォルトで有効になっています。 </div>
+
+        <div class="section"><h2 class="title sectiontitle">クローズドキャプションファイルをアップロードする</h2>アセットのクローズドキャプションファイルをアップロードするだけです <a class="xref" href="../../tasks/closed_captions_upload.html" title="クローズドキャプションファイルを準備したら、それをBacklotにアップロードできます。">Backlot UIを介して</a>  or  <a class="xref" href="../../api/asset_closed_caption.html" title="動画、広告、リモートアセット、またはYouTube動画にクローズドキャプションを追加できます。">Backlot APIを介して</a>.  </div>
+
+        <div class="section"><h2 class="title sectiontitle">送信者アプリケーション</h2>
+            
+            <div class="p">iOSおよびAndroidの送信側アプリケーションは、クローズドキャプションに対して次のことを行います。
+            <ul class="ul">
+                <li class="li">CCファイル（Live、VoD）を含むアセットのCCボタンを表示します。</li>
+
+                <li class="li">キャプションをオンまたはオフにするには、受信者にCCメッセージを送信します。</li>
+
+                <li class="li">アイコンの強調表示によって、送信側デバイスのCCの現在のステータス（オンまたはオフ）を表示します。</li>
+
+            </ul>
+</div>
+
+            <div class="p">エンドユーザーは送信側アプリケーションで次のことを実行できます。
+            <ul class="ul">
+                <li class="li">キャプションをいつでもオンまたはオフにすることができます。</li>
+
+                <li class="li">キャプションの言語はいつでも選択または変更できます。</li>
+
+            </ul>
+</div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">受信機アプリケーション</h2>
+            
+            <p class="p">受信側アプリケーションは送信側アプリケーションをリッスンして、エンドユーザによって設定されたクローズドキャプション言語の選択を表示します。 エンドユーザーが送信者アプリケーションでクローズドキャプションの言語を変更すると、受信者は新しい言語のクローズドキャプションを表示します。</p>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../../concepts/chromecast/index.html">Chromecastの統合</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

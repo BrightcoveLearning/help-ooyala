@@ -1,0 +1,91 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Syncing Third-Party Metadata with Ooyala IQ"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/analytics_v3_ug_third_party_players.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/analytics_v3_third_party_players.html"/>
+<meta name="DC.Relation" scheme="URI" content="ingestion_mrss_remote_assets.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ingestion_mrss.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/asset_remote.html"/>
+<meta name="DC.Relation" scheme="URI" content="api_externalid_edit.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/analytics_v3_ug_third_party_players.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/analytics_v3_ug_account.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/faq_analytics.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="analytics_v3_ug_ingest_third_party_player"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Ooyala IQとサードパーティのメタデータを同期させる</title>
+</head>
+<body id="analytics_v3_ug_ingest_third_party_player">
+
+
+    <h1 class="title topictitle1">Syncing Third-Party Metadata with <span class="ph">ウーヤラIQ</span></h1>
+
+    
+    <div class="body taskbody">
+        <div class="section context"><p class="gt-block p">サードパーティのプレイヤーを使っている場合 <span class="ph">ウーヤラIQ</span> あなたのコンテンツメタデータをあなたの中に同期させることができます <span class="ph">Ooyala以外のCMS</span> とともに <span class="ph">ウーヤラバックスロットCMS</span> であなたのビデオを識別できるように
+                    <span class="ph">IQ</span>。 新しいメタデータは5分ごとに取り込むことができます。 メタデータの同期は必須ではありませんが、IQのメタデータ情報を使って豊富な分析を得たい場合にはお勧めします。 メタデータを同期しないと、ビデオタイトルをで見ることはできません。 <span class="ph">IQ</span> ユーザーインターフェース（これがどのように見えるかの例については、下の画像を参照してください）。 </p>
+
+            <div class="fig fignone"><img class="image" src="http://help-ooyala.brightcove.com/../image/iq_standalone_without_metadata.png" height="234" width="594"/></div>
+
+            <div class="note note"><span class="notetitle">注意：</span> メタデータを同期したい場合は、提供する必要があります。 <span class="ph">バックスロット</span> ととも​​に <a class="xref" href="../concepts/chapter_external_ids.html" title="外部識別子を使用すると、アセットにカスタム識別子を割り当てることができるので、それらを整理、更新、および変更するのが簡単になります。 それらはあなた自身の内部識別子と相関させるために時々使われます。"><samp class="ph codeph">external_id</samp></a> 資産ごとに。 あ <samp class="ph codeph">external_id</samp> 資産のカスタム識別子です。 <span class="ph">ウーヤラIQ</span> UIにアセットメタデータを表示するために使用します。 external_idはCMSからのコンテンツIDである必要があります。そうすれば、アセットをCMSにマッピングし直すことができます。 なしで <samp class="ph codeph">external_id</samp> でアセットメタデータを見ることはできません <span class="ph">ウーヤラIQ</span>。 MRSSメタデータの同期については、 <samp class="ph codeph">external_id</samp> を通じて提供されます <a class="xref" href="ingestion_ftp_xml.html" title="動画を取り込むときは、XMLマニフェストファイルを使用して、サムネイルおよびクローズドキャプションファイルだけでなく、追加のメタデータ（動画のタイトル、説明、掲載時間、ラベル、カスタムメタデータなど）を指定できます。 FTP、Aspera、またはMRSSでコンテンツを取り込むときにXMLマニフェストファイルを使用できます。">XMLフィールド
+                        <samp class="ph codeph">GUID</samp></a>。 リモートアセットのメタデータを同期するには、 <samp class="ph codeph">external_id</samp> POSTリクエストの本文にあります。</div>
+
+            <p class="gt-block p">あなたのコンテンツメタデータをあなたの中に同期させるには <span class="ph">Ooyala以外のCMS</span> 　 <span class="ph">バックスロット</span>次のいずれかを実行してください。 ビデオアセットは <span class="ph">バックスロット</span>.</p>
+</div>
+
+<ul class="ul steps-unordered"><li class="li step stepexpand">
+    
+        <span class="ph cmd">メタデータを取得するための1つ以上のMRSSフィードを（プロバイダごとに1つ）作成します。 <span class="ph">バックスロット</span> XMLがホストされている場所のURLをBrightcoveテクニカルサポートに送信してください。 を使用するようにしてください <samp class="ph codeph">GUID</samp> タグと
+                        <samp class="ph codeph">ooyala：remoteasset</samp> メタデータのみの取り込み用のタグ。 たとえば、リモートアセットのURLを渡すために使用します。
+                        <samp class="ph codeph">&lt;ooyala：remoteasset durationInMs = &#39;5000&#39; url = &quot;http：//domain/your_remote_asset.mp4&quot; /&gt; </samp>。 見る <a class="xref" href="../concepts/ingestion_mrss.html" title="メディアRSS（MRSS）を使用して、Ooyalaに自分が公開しているMRSSフィードから自分のシステムから自分のコンテンツを取り出させることができます。 BacklotはMRSSフィードからメタデータを取得し、リモートアセットを作成するか（ホストされている場所から）ダウンロードして、ビデオと関連ファイル（サムネイル、クローズドキャプションファイルなど）を処理します。">リモートでホストされているMRSSフィードからの取り込み</a> MRSSフィードの設定、使用、検証に関する文書については、 <a class="xref" href="ingestion_mrss_remote_assets.html" title="Media RSS（MRSS）を使用してリモートアセットを追加または更新できます。">MRSSを介したリモートアセットの取り込み</a> MRSS経由でリモートアセットを取り込む方法の詳細については。</span>
+     
+        <div class="note note"><span class="notetitle">注意：</span> XMLファイルへのURLをOoyalaテクニカルサポートに送信し、機能の有効化を要求するまでは、この機能を使用できません。 </div>
+
+        <p class="p">OR</p>
+
+    </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">実装する <span class="ph">バックスロット</span> リモートアセットのメタデータを同期するAPI <span class="ph">バックスロット</span> 使用して <samp class="ph codeph">&quot;asset_type&quot;： &quot;remote_asset&quot;</samp>。 見る
+                        <a class="xref" href="../api/asset_remote.html" title="リモートアセットは、Backlotの外部でホストされるコンテンツの一部です。 コンテンツをアップロード、トランスコーディング、およびBacklotに保存する代わりに、必要に応じてBacklotがコンテンツを見つけることができるように、そのURLやその他の説明情報をアップロードするだけです。">リモートアセット</a> にリモートアセットメタデータを追加する方法についてのドキュメント <span class="ph">バックスロット</span> 使用して
+                        <span class="ph">バックスロット</span> API 各資産を
+                    <samp class="ph codeph">external_id</samp> を追加して <samp class="ph codeph">external_id</samp> POST本文のパラメータ。
+        </span>
+         YouTube CMSを使用している場合は、 <samp class="ph codeph">&quot;asset_type&quot;： &quot;youtube&quot;</samp>.
+    
+    </li>
+</ul>
+
+    </div>
+
+    <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/analytics_v3_ug_third_party_players.html">サードパーティ製のプレイヤーでOoyala IQを使用する</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/analytics_v3_third_party_players.html">サードパーティ製のプレイヤーでOoyala IQを使用する</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="../concepts/ingestion_mrss.html" title="メディアRSS（MRSS）を使用して、Ooyalaに自分が公開しているMRSSフィードから自分のシステムから自分のコンテンツを取り出させることができます。 BacklotはMRSSフィードからメタデータを取得し、リモートアセットを作成するか（ホストされている場所から）ダウンロードして、ビデオと関連ファイル（サムネイル、クローズドキャプションファイルなど）を処理します。">リモートでホストされているMRSSフィードからの取り込み</a></div>
+<div><a class="link" href="../concepts/analytics_v3_ug_third_party_players.html">サードパーティ製のプレイヤーでOoyala IQを使用する</a></div>
+<div><a class="link" href="../concepts/analytics_v3_ug_account.html">Ooyala IQアカウント管理</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong><br/>
+<div><a class="link" href="ingestion_mrss_remote_assets.html" title="Media RSS（MRSS）を使用してリモートアセットを追加または更新できます。">MRSSを介したリモートアセットの取り込み</a></div>
+<div><a class="link" href="api_externalid_edit.html" title="外部IDはいつでも資産に追加できます。">既存の資産への外部IDの追加</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong><br/>
+<div><a class="link" href="../api/asset_remote.html" title="リモートアセットは、Backlotの外部でホストされるコンテンツの一部です。 コンテンツをアップロード、トランスコーディング、およびBacklotに保存する代わりに、必要に応じてBacklotがコンテンツを見つけることができるように、そのURLやその他の説明情報をアップロードするだけです。">リモートアセット</a></div>
+<div><a class="link" href="../reference/faq_analytics.html" title="Ooyala IQアナリティクスについてよく寄せられる質問">Analyticsのよくある質問</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div

@@ -1,0 +1,71 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="JSONP"/>
+<meta name="abstract" content="You can specify the name of a JavaScript callback function on GET requests to the high performance API endpoint."/>
+<meta name="description" content="You can specify the name of a JavaScript callback function on GET requests to the high performance API endpoint."/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_api_setup.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="api_jsonp"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>JSONP</title>
+</head>
+<body id="api_jsonp">
+
+
+ <h1 class="title topictitle1">JSONP</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">JavaScriptのコールバック関数の名前は <samp class="ph codeph">のGET</samp>
+    高性能APIエンドポイントへの要求。</p>
+
+  <p class="p">WebページからAPIリクエストを呼び出す際のクロスドメイン制限を回避するには、
+        <samp class="ph codeph">のGET</samp> 埋め込みJavaScriptからのリクエスト <samp class="ph codeph">&lt;script&gt;</samp>■コールバック問合せ文字列パラメータを使用して、JavaScriptコールバック関数の名前を指定できます。 これはでのみサポートされています <samp class="ph codeph">のGET</samp> リクエスト。</p>
+
+   <div class="note note"><span class="notetitle">注意：</span> パフォーマンスの面では、JSONPは高性能キャッシュAPIからのみ利用可能です。 詳細については、 <a class="xref" href="api_high_performance.html" title="高性能APIエンドポイントは、大容量Webサイトからの繰り返し要求をキャッシュします。">高性能APIエンドポイント</a>.
+   
+   </div>
+ 
+   <p class="p">次の例では、標準 <samp class="ph codeph">のGET</samp> requestはアカウント内のすべてのラベルを返します。</p>
+
+   <pre class="pre codeblock">[GET] / v2 / labels</pre>
+
+   <p class="gt-block p"><span class="ph">バックスロット</span> 次のような応答を返します。</p>
+
+   <pre class="pre codeblock">{ &quot;アイテム&quot;：[{ &quot;FULL_NAME&quot;： &quot;/趣味/ホッケー&quot;、 &quot;ID&quot;： &quot;85042f300fc143c093e8f4ee01892af8&quot;、 &quot;名&quot;： &quot;ホッケー&quot;、 &quot;PARENT_ID&quot;： &quot;d5751b77a0c24972888bf906734d8c34&quot;}、{ &quot;FULL_NAME&quot;： &quot;/趣味 &quot;、&quot; id &quot;：&quot; d5751b77a0c24972888bf906734d8c34 &quot;、&quot;名前 &quot;：&quot;趣味 &quot;、&quot; parent_id &quot;：null}、{&quot;フルネーム &quot;：&quot; / Sports / Motorcycle Racing &quot;、&quot; id &quot;：&quot; baceXNXXXX &quot;、&quot; baceXNXXXX &quot;、&quot; ： &quot;オートバイレーシング&quot;、 &quot;parent_id&quot;： &quot;921efb44a18ee5f273155514522fcd814cf&quot;}、{&quot;フルネーム&quot;： &quot;/ Sports&quot;、 &quot;id&quot;： &quot;109416490efb98a3}&quot; &quot;name&quot;、 &quot;name：&quot;、 &quot;name：&quot;</pre>
+
+   
+    <p class="p">次の例では、 <samp class="ph codeph">のGET</samp> リクエストは
+        <samp class="ph codeph">&lt;script&gt;</samp>結果は
+      <samp class="ph codeph">get_my_labels</samp> 機能。 </p>
+
+  <pre class="pre codeblock">[GET] / v2 / labels？callback = get_my_labels</pre>
+
+  <p class="gt-block p"><span class="ph">バックスロット</span> 次のような応答を返します。</p>
+
+  <pre class="pre codeblock"> get_my_labels({"items":
+[{"name":"Hobbies","full_name":"/Hobbies","id":"d5751b77a0c24972888bf906734d8c34","parent_id":null},
+{"name":"Hockey","full_name":"/Hobbies/Hockey","id":"85042f300fc143c093e8f4ee01892af8","parent_id":"d5751b77a0c24972888bf906734d8c34"},
+{"name":"Motorcycle Racing","full_name":"/Sports/Motorcycle Racing","id":"bace921fdea44cc18a5a273155514522","parent_id":"814efb109416490a98ee3f4fcd6784cf"},
+{"name":"Sports","full_name":"/Sports","id":"814efb109416490a98ee3f4fcd6784cf","parent_id":null}]})
+  </pre>
+ 
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_api_setup.html" title="Ooyalaは、Backlotプラットフォームへのリクエストを可能にするRESTベースのインターフェースを提供します。">Backlot REST APIを使用する</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

@@ -1,0 +1,228 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="HTML5 Player V3 (Deprecated)"/>
+<meta name="abstract" content="HTML5 Player V3 documentation."/>
+<meta name="description" content="HTML5 Player V3のドキュメント。"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_html5"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>HTML5プレーヤーV3（廃止予定）</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="player_html5">
+
+
+ <h1 class="title topictitle1">HTML5プレーヤーV3（廃止予定）</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">HTML5 Player V3のドキュメント。</p>
+
+   <div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V3は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V3はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V3を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="pbv4_migration_v3.html">Player V3からの移行</a> そして <a class="xref" href="pbv4_migration_faq.html">プレイヤー移行に関するFAQ</a>).</div>
+
+  <div class="section"><h2 class="title sectiontitle">About HTML5 Player V3</h2>
+   
+   <p class="p">Since the advent of the Internet, HTML has been through several iterations. The early versions
+    only supported text and graphics. The latest version, HTML5, has native support for video. </p>
+
+   <p class="p">HTML5 is an emerging web standard that enables you to reach a wider audience on many different
+    devices without having to re-code an app or web page for each device. Users don’t have to
+    install and reinstall the same app on their different devices. HTML5 also provides the benefit
+    of full UI customization that is easily achieved using CSS. This lets you separate the design
+    from the backend functionality.</p>
+
+   <p class="p">Important to video consumers, HTML5 includes support for video through a &lt;video&gt;
+    tag. In addition to its HTML attributes, this video tag provides an extensive JavaScript API for
+    controlling its content. The Player V3 supports both the HTML5
+    &lt;video&gt; tag and &lt;flash&gt; playback. If Flash is supported and present on a device,
+    Player V3, by default, uses Flash. On mobile devices if Flash is not present or supported, the
+    Player V3 uses HTML5.</p>
+
+   <p class="p">Player V3 not only enables you to take advantage of the benefits of HTML5, it also continues
+    to support Flash players. Essentially, Player V3 makes the best choice of player depending upon
+    your device capabilities. You use the new embed style for both types of players but you can also
+    continue to use your V2 players as the Player V3 enables them to continue to run.</p>
+
+   <p class="p">Although HTML5 has a rich set of features, it does not support content protection and other
+    features provided through the Flash player.</p>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">システム要件</h2>
+   
+   <ul class="ul">
+    <li class="li"><a class="xref" href="../reference/player_requirements.html" title="Player V3は、ライブビデオとオンデマンドビデオに最高品質のエクスペリエンスを提供するように設計されています。">プラットフォーム別のPlayer V3システム要件（旧式）</a></li>
+
+    <li class="li"><a class="xref" href="../concepts/player_v3_dev_reqs.html" title="Player V3は、Flash再生、HTML5再生、およびFlash再生（HTML5フォールバックを使用）のサポートを多数のプラットフォームで提供しています。">Player V3プラットフォームとブラウザのサポート（廃止予定）</a></li>
+
+    <li class="li"><a class="xref" href="../reference/player_supported_technologies_and_devices.html" title="Ooyalaがさまざまな環境でサポートするPlayer V3機能。">環境を越えたPlayer V3機能サポート（非推奨）</a></li>
+
+   </ul>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">配信プロトコル</h2>
+   
+   <p class="p">Ooyala supports the following delivery protocols for HTML5 Player V3: </p>
+
+   <div class="p">
+    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="player_html5__table_pyv_psm_xq" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 1. Delivery Protocols for HTML5 Player V3</span></caption>
+      
+      
+      <thead class="thead" align="left">
+       <tr class="row">
+        <th class="entry" valign="top" width="27.70083102493075%" id="d600284e112">プラットフォーム</th>
+
+        <th class="entry" valign="top" width="72.29916897506925%" id="d600284e115">Delivery Protocol</th>
+
+       </tr>
+
+      </thead>
+
+      <tbody class="tbody">
+       <tr class="row">
+        <td class="entry" valign="top" width="27.70083102493075%" headers="d600284e112 ">Desktop (HTML5 V3)</td>
+
+        <td class="entry" valign="top" width="72.29916897506925%" headers="d600284e115 "><ul class="ul">
+          <li class="li">MP4 stream</li>
+
+          <li class="li">No Live Streaming support</li>
+
+         </ul>
+</td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" width="27.70083102493075%" headers="d600284e112 ">Android Web（HTML5 V3）</td>
+
+        <td class="entry" valign="top" width="72.29916897506925%" headers="d600284e115 "><ul class="ul">
+          <li class="li">Remote Assets (We support HDS for Flash/MP4 streams for Android devices that don't
+           support Flash)</li>
+
+          <li class="li">No Live Streaming support</li>
+
+         </ul>
+</td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" width="27.70083102493075%" headers="d600284e112 ">アンドロイド（フック）</td>
+
+        <td class="entry" valign="top" width="72.29916897506925%" headers="d600284e115 "><ul class="ul">
+          <li class="li">HLS</li>
+
+          <li class="li">HDS</li>
+
+         </ul>
+</td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" width="27.70083102493075%" headers="d600284e112 ">iOSウェブ（HTML5 V3） </td>
+
+        <td class="entry" valign="top" width="72.29916897506925%" headers="d600284e115 "><ul class="ul">
+          <li class="li">HLS</li>
+
+          <li class="li">MP4</li>
+
+         </ul>
+</td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" width="27.70083102493075%" headers="d600284e112 ">プレミアムHLSを備えたAndroid SDK </td>
+
+        <td class="entry" valign="top" width="72.29916897506925%" headers="d600284e115 "><ul class="ul">
+          <li class="li">HLS</li>
+
+          <li class="li">HDS</li>
+
+         </ul>
+</td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" width="27.70083102493075%" headers="d600284e112 ">iOS SDK</td>
+
+        <td class="entry" valign="top" width="72.29916897506925%" headers="d600284e115 "><ul class="ul">
+          <li class="li">HLS</li>
+
+          <li class="li">MP4</li>
+
+         </ul>
+</td>
+
+       </tr>
+
+      </tbody>
+
+     </table>
+</div>
+
+   </div>
+
+   <p class="p"> </p>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">Key Topics for HTML5 Player V3</h2>
+   
+   <ul class="ul">
+    <li class="li"><a class="xref" href="../concepts/player_compare.html" title="どのプレーヤV3を実装するかを決めるのに役立ちます：HTML5プレーヤまたはFlashプレーヤ。">Player V3  -  HTML5とFlash Playerの比較（廃止予定）</a></li>
+
+    
+    <li class="li"><a class="xref" href="../concepts/player_overview.html">プレイヤーV3（廃止予定）</a></li>
+
+    <li class="li"><a class="xref" href="../concepts/player_use_cases.html" title="Use cases for implementing Player V3.">Use Cases for Customizing Player V3 (Deprecated)</a></li>
+
+    <li class="li"><a class="xref" href="../concepts/player_gs.html" title="How to begin using the Ooyala Player V3.">Getting Started with Player V3 (Deprecated)</a></li>
+
+    <li class="li"><a class="xref" href="../concepts/player_backlot_intro.html" title="Backlot APIを使用して、Ooyalaプレーヤーに変更を加えることができます。">Setting up Players Using the Backlot REST API (Deprecated)</a></li>
+
+    <li class="li"><a class="xref" href="../api/players.html">プレイヤー（Backlot REST API）</a></li>
+
+    <li class="li"><a class="xref" href="../concepts/player_api.html" title="Player V3 JavaScript APIドキュメント。">Player V3 JavaScript APIを使用した開発（非推奨）</a></li>
+
+    <li class="li"><a class="xref" href="../concepts/player_v3_dev_customplayer.html" title="The Ooyala V3 Player offers a new way to embed players in your web pages with more control over how and when the Player behaves.">Player V3 JavaScript API Programming (Deprecated)</a></li>
+
+    <li class="li"><a class="xref" href="book_api_player.html" title="Player V3 APIは、Player v3機能とメッセージバスイベント処理も提供するUI要素をカスタマイズするためのJavaScript APIです。">プレーヤV3 JavaScript APIリファレンス（非推奨）</a></li>
+
+    
+    <li class="li"><a class="xref" href="../concepts/starting_samples_html5.html" title="This sample produces web pages with several Ooyala features.">HTML5 Player V3 Starting Sample (Deprecated)</a></li>
+
+    <li class="li"><a class="xref" href="../concepts/xmp_securexdr_install.html" title="Secure XDR code sample can help you get started in creating a multi-feature playback experience with Ooyala Cross-Device Resume, Google IMA ads integration, and Ooyala Player Token authentication.">Secure XDR Player V3 Sample (Deprecated)</a></li>
+
+    <li class="li"><a class="xref" href="../concepts/player_v3dev_customize_apps_features.html" title="You can incorporate and customize many of the Player V3 features and apps to offer your customers the ability to view videos on multiple devices, dedicated mobile device app, start viewing a video on one device and move it to another, and more.">Player V3 Features and Apps Customization</a></li>
+
+    <li class="li"><a class="xref" href="../concepts/player_v3_dev_migrate.html" title="You can migrate from your legacy players to the Ooyala player.">Migrating from Player V2 to Player V3 (Deprecated)</a></li>
+
+   </ul>
+
+  </div>
+
+ </div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

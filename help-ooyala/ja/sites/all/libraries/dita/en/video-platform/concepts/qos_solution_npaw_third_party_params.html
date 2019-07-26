@@ -1,0 +1,109 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Enabling Third Parties to Pass Parameters to YOUBORA"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/qos_solution_npaw_youbora.html"/>
+<meta name="DC.Relation" scheme="URI" content="http://developer.nicepeopleatwork.com/product-documentation/"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/qos_solution_npaw_desktop.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/mobile_sdk_android_qos_npaw.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/mobile_sdk_ios_qos_npaw.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/faq_qos_solution.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="qos_solution_npaw_third_party_params"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>第三者がパラメータをYOUBORAに渡すことを可能にする</title>
+</head>
+<body id="qos_solution_npaw_third_party_params">
+
+
+    <h1 class="title topictitle1">第三者がパラメータをYOUBORAに渡すことを可能にする </h1>
+
+    <div class="body conbody">
+        <p class="p">Certain third parties can pass data (parameters) through to the YOUBORA dashboard. Please
+            talk to your Ooyala point of contact to see if a specific third party is able to pass
+            parameters to the YOUBORA dashboard.</p>
+
+        <p class="p">The Ooyala-NPAW plugin passes over the entire player message bus to NPAW. Other third
+            parties need to work with NPAW to identify what variables they need to assign on their
+            end (e.g. a "Client Id" for a user login) and then listen for on the other end to
+            receive that data (e.g. NPAW receiving the third party's "Client ID" in their "username"
+            parameter).</p>
+
+        <div class="p">In order for NPAW to get extra data from a third party integration, the third party will
+            need to leverage the following code that creates the Ooyala player.
+            <pre class="pre codeblock">window.pp = OO.Player.create('player', 'yourEmbedCode',
+{ autoplay: false, enableDiagnostics:true, preload: false, }
+});</pre>
+</div>
+
+        <p class="p">The last parameter, <samp class="ph codeph">{ autoplay: false, enableDiagnostics:true, preload: false }</samp>
+        </p>
+
+        <div class="p">is an object that can contain extra data for optional player functionality, such as
+            autoplay, enableDiagnostics, etc. A third party can use this object to programmatically
+            send new parameters for NPAW. The params will need to be contained in a new object
+            called npaw_extra_params. The parameters are named extraParam1and extraParam2, etc.. You
+            can also include Youbora parameters in this object. Below is an example of what the last
+            parameter will look like if you want to send two third party parameters and a user ID
+            value that lets you get statistics for a specific user:
+            <pre class="pre codeblock">{
+    autoplay: false,
+    enableDiagnostics:true,
+    preload: false,
+    npaw_extra_params:
+        {
+            extraParam1: "myEmbedCode",
+            extraParam2: "myPlayerId",
+            username: "example@ooyalA.com"
+        }
+}</pre>
+</div>
+
+        <p class="p">In the example above, the code is always sending the embed code as parameter 1 and the
+            player id as parameter 2. The data must be consistent. If the embed code is sent as
+            parameter 2, NPAW will assume it's actually the player id (in this case). If you need to
+            assign a label for what extraParam1 and extraParam2 signify, then you must take care of
+            that on the YOUBORA dashboard.</p>
+
+        <p class="gt-block p">見ます <span class="ph">ユブラ</span>
+            <a class="xref" href="http://developer.nicepeopleatwork.com/product-documentation/" target="_blank">製品ドキュメント</a> for the full list of
+            YOUBORA parameters you can use. </p>
+
+            
+    </div>
+
+    <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/qos_solution_npaw_youbora.html" title="Ooyalaは現在、NICE PEOPLE AT WORK（NPAW）YOUBORA Analyticsプラットフォームを搭載したサービス品質（QoS）ソリューションを提供しています。 これは、すべてのOoyalaのお客様にご利用いただけるアドオンサービスです。">NPAWのYOUBORAを搭載したOoyala QoSソリューション</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong><br/>
+<div><a class="link" href="../tasks/qos_solution_npaw_desktop.html" title="NICE PEOPLE AT WORK（NPAW）YOUBORAプラットフォームを搭載したOoyala QoS Solutionのデスクトップ実装は、OoyalaのHTML5およびFlashプレーヤーによるプレーヤーイベントの分析を提供します。">Using the QoS Solution powered by NPAW for Desktop</a></div>
+<div><a class="link" href="../tasks/mobile_sdk_android_qos_npaw.html" title="NicePeopleAtWork（NPAW）YOUBORAプラットフォームを搭載したOoyala QoSソリューションのモバイル実装は、OoyalaのAndroidプレーヤーのイベントに対する分析を提供します。">Using the QoS Solution powered by NPAW for Android</a></div>
+<div><a class="link" href="../tasks/mobile_sdk_ios_qos_npaw.html" title="NICE PEOPLE AT WORK（NPAW）YOUBORAプラットフォームを搭載したOoyala QoSソリューションのモバイル実装は、OoyalaのiOSプレーヤーによるプレーヤーイベントの分析を提供します。">Using the QoS Solution powered by NPAW for iOS</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong><br/>
+<div><a class="link" href="../reference/faq_qos_solution.html" title="サービス品質（QoS）分析についてよく寄せられる質問">サービス品質に関するFAQ</a></div>
+</div>
+<div class="relinfo"><strong>関連情報</strong><br/>
+<div><a class="link" href="http://developer.nicepeopleatwork.com/product-documentation/" target="_blank">NPAW開発者ポータル上の製品資料</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

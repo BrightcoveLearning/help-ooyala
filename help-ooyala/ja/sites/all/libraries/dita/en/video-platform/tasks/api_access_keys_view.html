@@ -1,0 +1,72 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Viewing Access Keys"/>
+<meta name="abstract" content="You can view the access keys associated with a syndication."/>
+<meta name="description" content="シンジケーションに関連付けられているアクセスキーを表示できます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_access_key.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="api_access_keys_view"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>アクセスキーの表示</title>
+</head>
+<body id="api_access_keys_view">
+
+
+    <h1 class="title topictitle1">アクセスキーの表示</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">シンジケーションに関連付けられているアクセスキーを表示できます。 </p>
+
+        <div class="section context">
+            <p class="p">シンジケーションに関連付けられているアクセスキーを表示するには</p>
+
+        </div>
+
+        <ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd">
+                    シンジケーションのIDを取得します。 
+                </span>
+                 次の例では、シンジケーションIDを取得しています。
+                 <pre class="pre codeblock">[GET] / v2 / syndications</pre>
+
+                 <p class="gt-block p"><span class="ph">バックスロット</span> 次のような応答を返します。</p>
+
+                    <pre class="pre codeblock">{&quot;items&quot;：[{&quot;name&quot;： &quot;私のYouTubeシンジケート&quot;、 &quot;created_at&quot;： &quot;2011-08-10 + 21 + 13：29&quot;、 &quot;require_access_key&quot;：false、 &quot;include_labels&quot;：[]、 &quot;should_create_youtube_videos&quot;：true、 &quot;asset_types&quot;：[&quot;video&quot;、 &quot;ad&quot;]、 &quot;username&quot;： &quot;&quot;、 &quot;id&quot;： &quot;00a00e9dcba6c1d36&quot;、 &quot;include_all_content&quot;： &quot;false&quot;、 &quot;あなた&quot;、 &quot;あなた&quot; unrestricted_youtube_account &quot;：false、&quot; should_delete_youtube_videos &quot;：true}、{&quot; include_encodings &quot;：[]、&quot;名前 &quot;：&quot;私のiTunesシンジケート &quot;、&quot; created_at &quot;：&quot; 452-95-2011：08：10：20： &quot;require_access_key&quot;：true、 &quot;category&quot;： &quot;&quot;、 &quot;title&quot;： &quot;&quot;、 &quot;include_labels&quot;：[]、 &quot;author&quot;： &quot;&quot;、 &quot;asset_types&quot;：[&quot;video&quot;、 &quot;ad&quot;]、 &quot;syndication_url&quot; &quot;：&quot; http://api.ooyala.com/v11/syndications/b56b00a00e2a839c27/feed?pcode=Y4cG844BlqYMLIjPGyv5NbacSK-x9 &quot; &quot;サブタイトル&quot;： &quot;&quot;、 &quot;ID&quot;： &quot;b4b06a1e3a839c27&quot;、 &quot;include_all_content&quot;：偽、&quot; type &quot;：&quot; itunes &quot;、&quot; description &quot;：&quot; &quot;、&quot; keywords &quot;：&quot; &quot;}]}</pre>
+
+                    <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+                    
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">シンジケーションに関連付けられているすべてのアクセスキーを表示します。 </span> 
+                 次の例では、シンジケーションIDを取得しています。
+                 <pre class="pre codeblock">[GET]/v2/syndications/b839b27a4e844a5c9/access_keys</pre>
+
+                 <div class="p"><span class="ph">バックスロット</span> 次のような応答を返します。
+                        <pre class="pre codeblock">{&quot;名前&quot;： &quot;自分のアクセスキー&quot;、 &quot;access_key&quot;： &quot;12345678-abcd-abcd-12ab-12345678&quot;}</pre>
+</div>
+
+                    
+            </li>
+</ol>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_access_key.html">アクセスキーの制限</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

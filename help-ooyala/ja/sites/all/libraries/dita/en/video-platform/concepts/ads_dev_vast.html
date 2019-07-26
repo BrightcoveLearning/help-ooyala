@@ -1,0 +1,275 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Integrating VAST Ads with Player V3"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/ads_ref_vast.html"/>
+<meta name="DC.Relation" scheme="URI" content="ads_integration_overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_ads_integration.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="ads_dev_vast"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Integrating VAST Ads with Player V3</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="ads_dev_vast">
+
+
+ <h1 class="title topictitle1">Integrating VAST Ads with Player V3</h1>
+
+
+ <div class="body conbody">
+   <div class="section"><h2 class="title sectiontitle">概要</h2>
+            The following documentation describes the VAST integration with
+            Player V3. For documentation on the VAST integration with Player V4, see <a class="xref" href="pbv4_ads_dev_chapter_vast.html">VASTとVPAIDの広告プラグイン</a>.  </div>
+
+        <div class="section">VAST is an ad format defined by the Interactive Advertising Bureau (<a class="xref" href="http://www.iab.com/guidelines/digital-video-ad-serving-template-vast-3-0/" target="_blank">IAB</a>). VAST uses XML to describe
+            linear ads (video ads), non-linear ads (overlay ads) and companion ads. Ooyala’s V3
+            video player is VAST 2.0 compliant, which means that you can use the ad tags of this
+            standard to run overlays as well as pre-, mid- and post-rolls on your video content.
+                <p class="gt-block p">To see which ad types are supported for VAST, see <a class="xref" href="../concepts/ads_dev_chapter_vast.html">プレーヤV3 VAST 2.0広告統合</a>.</p>
+
+            <p class="p">After you enable VAST ads for your account, you can associate VAST ad tags with your
+                videos. You must create an ad set in Backlot for your VAST ads, and can optionally
+                specify embedded parameters at the page level of a Flash or HTML5 player. </p>
+
+            <div class="note note"><span class="notetitle">注意：</span> The VAST ad set can't handle VPAID creative, and VPAID ads module can't handle
+                VAST responses. </div>
+</div>
+
+  <div class="section"><h2 class="title sectiontitle">必須条件</h2>
+      <p class="gt-block p">Before you can use Ooyala's VAST ad integration, you need to log into the <a class="xref" href="../../../../../../../../ja/contact/index.html" target="_blank">カスタマーポータル</a> and submit a ticket requesting to add the
+                VAST ad source to your account. Once the ad source is enabled you'll be able to
+                create ad sets for VAST.</p>
+</div>
+
+     <div class="section">
+     
+</div>
+
+  
+   <div class="section"><h2 class="title sectiontitle">Step 1: Create an Ad Set with Backlot</h2>
+       
+     <p class="p">For VAST ads, you always need to create an ad set with Backlot. You can create an ad set
+                through the Backlot UI or API. </p>
+
+            <p class="gt-block p"><strong class="ph b">バックスロットUI</strong>: For instructions on how to create an ad set using the Backlot UI,
+                see <a class="xref" href="../tasks/monetization_ads_adsets_integratingadnetworks.html" title="自分のアセットを使用する代わりに、他の広告ソースを使用することができます。">Creating Ad Sets for Integrating with Ad
+                    Sources</a>.  </p>
+
+            <p class="gt-block p"><strong class="ph b">バックスロットAPI</strong>: For instructions on how to create an ad set with the Backlot API,
+                see <a class="xref" href="../api/ad_sets.html" title="広告セットは、再生中のアセットの広告エクスペリエンスを制御する広告設定です。">広告セット</a>.</p>
+
+            <div class="note note"><span class="notetitle">注意：</span> For Ad Source you can choose between VAST Compliant In-Stream and VAST Compliant
+                Overlay.</div>
+
+            <div class="p">The ad set fields for creating a VAST Compliant In-Stream ad set are: <ul class="ul" id="ads_dev_vast__vast_fields">
+                    <li class="li"><em class="ph i">広告セット名</em>: You will enter a name for the ad set. </li>
+
+                    <li class="li"><em class="ph i">広告タグ</em>: You will input your VAST 2.0 ad tag here (this is provided by
+                        an ad server).</li>
+
+                    <li class="li"><em class="ph i">広告掲載順位</em>: Define where in the video stream the VAST ad should
+                        appear: <ul class="ul">
+                            <li class="li">プリロール </li>
+
+                            <li class="li">In-stream (mid-roll): Include the time in seconds where the VAST tag
+                                will be called. </li>
+
+                            <li class="li">ポストロール </li>
+
+                        </ul>
+</li>
+
+                    <li class="li"><em class="ph i">トラッキングピクセルURL</em>: Use this field to track impressions using your
+                        own or a 3rd-party URL.</li>
+
+                    <li class="li"><em class="ph i">広告の頻度</em>: Use this field to define how frequently the VAST tag
+                        should be called.</li>
+
+                </ul>
+
+            </div>
+
+            <div class="p">The fields for creating a VAST Compliant Overlay ad set are: <ul class="ul">
+                    <li class="li"><em class="ph i">広告セット名</em>: You will enter a name for the ad set. </li>
+
+                    <li class="li"><em class="ph i">広告タグ</em>: You will input your VAST 2.0 ad tag here (this is provided by
+                        an ad server).</li>
+
+                    <li class="li"><em class="ph i">トラッキングピクセルURL</em>: Use this field to track impressions using your
+                        own or a 3rd-party URL.</li>
+
+                    <li class="li"><em class="ph i">広告掲載順位</em>: Define the time (in seconds) where the overlay ad should
+                        appear. </li>
+
+                    <li class="li"><em class="ph i">広告の頻度</em>: Use this field to define how frequently the VAST tag
+                        should be called. </li>
+
+                </ul>
+
+            </div>
+
+           </div>
+
+     <div class="section"><h2 class="title sectiontitle">Step 2: Assign the Ad Set to an Asset with Backlot or the Player API</h2>
+         
+           Assign an ad set to an asset or multiple assets using the Backlot UI, Player API, or
+                    Backlot API. <p class="gt-block p"><strong class="ph b">バックスロットUI</strong>: For instructions on how to assign your VAST
+                        ad set to a single asset, see <a class="xref" href="../tasks/asset_manage_monetization.html" title="広告を使用してコンテンツを収益化したり、ペイウォールを使用してペイパービューエクスペリエンスを作成したりできます。">Managing
+                            Monetization</a>. For instructions on how to assign your VAST ad set
+                        to multiple assets, see <a class="xref" href="../tasks/asset_bulk.html" title="Backlot UIを使用して、一度に複数の資産に設定を適用することができます。">一括適用設定</a>.  </p>
+<p class="gt-block p"><strong class="ph b">Player API</strong>: With the
+                        Player API you can only associate an ad set with an asset on your web page.
+                        To associate an ad set with an asset on multiple players you must replicate
+                        the code for each player. To associate an ad set with an asset using the
+                        Player API, see <a class="xref" href="../concepts/player_v3_dev_assignadset.html" title="プレーヤーを使用すると、広告セットを動的に割り当てることができます。">広告セットを動的に割り当てる</a>.  </p>
+<p class="gt-block p"><strong class="ph b">バックスロットAPI</strong>: With
+                        the Backlot API you can associate an ad set with an asset more concretely.
+                        That is, when you associate an asset with an ad set using the Backlot API
+                        the asset and the ad set will be paired together on any player and page you
+                        play the asset on. To associate an asset with an ad set using the Backlot
+                        API, see <a class="xref" href="../api/asset_ad_set.html" title="広告セットをビデオ、ライブストリーム、およびリモートアセットに関連付けることができます。 広告セットの作成については、 『Backlotユーザーガイド』を参照してください。">Associate Ad Set
+                            with Asset</a>.</p>
+
+       
+   </div>
+
+     <div class="section"><h2 class="title sectiontitle">(Optional) Step 3: Specify Player Embedded Parameters</h2>
+         
+         <div class="p">You can optionally specify player embedded parameters for VAST ads.<ol class="ol">
+                    <li class="li">プレーヤV3を使う <var class="keyword varname">OO.Player.create</var> function to create the
+                        player. See <a class="xref" href="../tasks/player_v3_dev_adsetoocreate.html" title="Player V3では、OO.Player.createとadSetCodeパラメータを使用して広告セットを動的に割り当てることができます。">Assigning an Ad Set with OO.Player.create</a> for
+                        instructions on how to use <var class="keyword varname">OO.Player.create</var>.</li>
+
+                    <li class="li">Specify the ad set code from your Backlot ad set with the <var class="keyword varname">adSetCode</var>
+                        パラメータ 見る <a class="xref" href="../tasks/player_v3_dev_adsetoocreate.html" title="Player V3では、OO.Player.createとadSetCodeパラメータを使用して広告セットを動的に割り当てることができます。">Player V3でOO.Player.createを使用して広告セットを割り当てる（廃止予定）</a> for instructions for how to retrieve your <var class="keyword varname">adSetCode</var>.<div class="note note"><span class="notetitle">注意：</span> The ad set code identifier is not available by default for security reasons. Please contact your Customer Success Manager or Technical Support to enable this feature for your account.</div>
+</li>
+
+                    <li class="li">を使用してVAST広告タグをOoyalaプレーヤーに渡します。 <var class="keyword varname">広大</var> そして
+                            <var class="keyword varname">tagUrl</var> embedded parameters. <var class="keyword varname">tagUrl</var>
+                        correlates with the Ad Tag field. <var class="keyword varname">広大</var> is the parent of
+                            <var class="keyword varname">tagUrl</var> and any other parameters you want to
+                        specify.</li>
+
+                    <li class="li">Specify additional embedded parameters. For the full list of parameters you
+                        can use with <var class="keyword varname">広大</var>を参照してください <a class="xref" href="#ads_dev_vast__vast_fields/index.html">Ad Set Fields</a>.</li>
+
+                </ol>
+The following is an example of creating the player and using the
+                    <var class="keyword varname">広大</var> パラメータ。</div>
+
+         <pre class="pre codeblock">var videoPlayer = OO.Player.create("playerwrapper","embed_code",{
+    height:"100%",
+    width:"100%",
+    adSetCode: "your Backlot ad set code",
+    "vast":{
+        tagUrl: "some url"
+     }    
+  });</pre>
+
+     </div>
+
+   <div class="section"><h2 class="title sectiontitle">Special Case: VAST Companion Ads</h2>
+     <div class="p">Inserting VAST companion ads requires additional JavaScript to render the companion and a
+                div that represents the companion ad placement or placements on the page. To
+                implement VAST companion ads: <ol class="ol">
+                    <li class="li">Include a reference to the Ooyala VAST Companion JS template file on your
+                        own server in the header of your page. You can download the template <a class="xref" href="http://ads.demo.ooyala.com/js/ooyala_companion_ads.js" target="_blank">詳細はこちら</a>.</li>
+
+                    <li class="li">Add inline JS required by the ad source example. <div class="note note"><span class="notetitle">注意：</span> The following call
+                            should only be made after the WILL_SHOW_COMPANION_ADS event has been
+                            fired.</div>
+Make a call to
+                        <pre class="pre codeblock"> ooyalaVASTCompanionAds.ooyalaShowVASTCompanionAd(&lt;div id&gt;, &lt;reference to ad in ads_object&gt;, &lt;width&gt;, &lt;height&gt;) </pre>
+
+                        to display the companion ad. <div class="p">例えば： <pre class="pre codeblock">&lt;script&gt;
+    OO.Player.create(‘ooyalaplayer’, &lt; some_embed_code &gt; , {
+        onCreate: function(player) {
+            player.mb.subscribe(OO.EVENTS.WILL_SHOW_COMPANION_ADS, ‘example’, function(event, ads_objects) {
+
+                ooyalaVASTCompanionAds.ooyalaShowVASTCompanionAd(‘companion1’, ads_objects[“ads”][0], ‘120 px’, ‘60 px’);
+                ooyalaVASTCompanionAds.ooyalaShowVASTCompanionAd(‘companion2’, ads_objects[“ads”][1], ‘200 px’, ‘200 px’);
+            });
+        }
+
+    });
+&lt;/script&gt;</pre>
+</div>
+</li>
+
+                    <li class="li">Specify the companion div and its locations by including an empty div in the
+                        body of your page with the id of 'companion' where you would like the
+                        companion to appear. By default, VAST ads will display the first companion
+                        ad returned in the XML. For example,
+                        <pre class="pre codeblock">&lt;div id="companion1"&gt;&lt;/div&gt;</pre>
+</li>
+
+                </ol>
+</div>
+
+     <p class="p">A full example is shown below.</p>
+
+     <div class="p"><pre class="pre codeblock">&lt;!DOCTYPE HTML&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+    &lt;title&gt;VAST Sample&lt;/title&gt;
+    &lt;script src="//PATH/TO/YOUR/DOMAIN/ooyala_companion_ads.js" type="text/javascript" charset="utf-8"&gt;&lt;/script&gt;
+    &lt;script src='//player.ooyala.com/v3/player_branding_id'&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;s
+    &lt;div id='player' style='width:640px;height:360px'&gt;&lt;/div&gt;
+    &lt;!--IMPORTANT: Don't forget to include a div element for you companion ad--&gt;
+    &lt;div id='companion1'&gt;&lt;/div&gt;
+    &lt;div id='OOYALA_DEBUG_CONSOLE' style='width:90%;height:400px;color:red;overflow:scroll'&gt;&lt;/div&gt;
+    &lt;script&gt;
+        OO.ready(function() {
+            window.pp = OO.Player.create('player', "embed_code", {
+                onCreate: function(player) {
+                    //this is the VAST specific code
+                    player.mb.subscribe(OO.EVENTS.WILL_SHOW_COMPANION_ADS, 'example', function(eventName, ads_objects) {
+                        ooyalaVASTCompanionAds.ooyalaShowVASTCompanionAd('companion1', ads_objects["ads"][0], '120px', '60px');
+                    });
+                    //end of VAST specific code
+                }
+            });
+        });
+    &lt;/script&gt;
+    &lt;noscript&gt;
+        &lt;div&gt;Please enable Javascript to watch this video&lt;/div&gt;
+    &lt;/noscript&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</pre>
+</div>
+
+   </div>
+
+ </div>
+
+  <div class="related-links"><div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="ads_integration_overview.html">クライアントサイド広告統合</a></div>
+<div><a class="link" href="../concepts/book_ads_integration.html" title="このドキュメントでは、Player V3の広告サーバー、広告ネットワーク、および広告管理プラットフォームの統合を設定する方法について説明します。">プレーヤV3広告統合</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong><br/>
+<div><a class="link" href="../reference/ads_ref_vast.html" title="VAST広告サーバーまたはネットワークタグをOoyalaプレーヤーに渡します。">プレーヤV3のVAST Ads埋め込みパラメータ（廃止予定）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</

@@ -1,0 +1,258 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Integrating Ooyala Pulse Ads"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="ads_dev_pulse"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Ooyala Pulse Adsの統合</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="ads_dev_pulse">
+
+
+  <h1 class="title topictitle1">Ooyala Pulse Adsの統合</h1>
+
+
+  <div class="body conbody">
+    <div class="section">You can integrate Ooyala Pulse ads with Player V4 using the <a class="xref" href="pbv4_ads_dev_chapter_pulse.html">Ooyala Pulse広告プラグイン</a> 
+       
+      (<samp class="ph codeph">pulse.min.js</samp>).<div class="note note"><span class="notetitle">注意：</span> <span class="ph">どこにいても <samp class="ph codeph"><span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span></samp> サンプルコードでは、（コード内の）これを、リソースがホストされている場所を指すURLに置き換えます。 Ooyalaがホストするパスのリストについては、を参照してください。 <a class="xref" href="pbv4_resources.html">OoyalaがホストするプレイヤーV4リソース</a>。 URLは、同じホスト上の場所（内部リンク）または別のホスト上（前に次の文字列が付いた場所）を指すことができます。 <samp class="ph codeph">http://</samp>  or  <samp class="ph codeph">https://</samp>） 自分でリソースをホストしている場合（ <a class="xref" href="pbv4_host.html">ホスティングプレイヤーV4リソース</a>）、ファイル内のパスの依存関係を必ず確認してください。</span>
+      </div>
+</div>
+
+    <div class="section"><h2 class="title sectiontitle">Usage Considerations</h2>
+           <ul class="ul">
+             <li class="li">Muted autoplay is not supported currently with the Pulse plugin. Autoplay should not be used in combination with ads served using the Pulse plugin.</li>
+
+           </ul>
+
+         </div>
+
+    <div class="section"><h2 class="title sectiontitle">Enabling the Ooyala Pulse Ad Source for Your Account</h2> Before you can use
+      Ooyala's Pulse ad integration: <ol class="ol">
+        <li class="li">にログインします <span class="ph">Ooyala <a class="xref" href="../../../../../../../../ja/contact/index.html" target="_blank">カスタマーポータル</a></span>.</li>
+
+        <li class="li">Submit a ticket requesting that the Ooyala Pulse ad source be added to your Ooyala
+          account.</li>
+
+      </ol>
+</div>
+
+    <div class="section"><h2 class="title sectiontitle">広告タグをビデオアセットに関連付けるためのオプション</h2>
+      <p class="p">Once the Ooyala Pulse ad source is enabled for your account, you can associate Ooyala Pulse
+        ads with your videos using:</p>
+
+      <ul class="ul">
+        <li class="li"><a class="xref" href="#ads_dev_pulse__embeddedParams/index.html">Player Embedded
+            Parameters</a>. Specify embedded parameters at the page level of the player.</li>
+
+        <li class="li"><a class="xref" href="#ads_dev_pulse__backlotCustom/index.html">Custom Metadata in
+            Backlot</a>. Specify custom metadata on individual videos with the Backlot UI or
+          API.</li>
+
+        <li class="li"><a class="xref" href="#ads_dev_pulse__backlotAdSet/index.html">Backlot Ad Sets</a>. Create ad
+          sets with the Backlot UI or API.</li>
+
+      </ul>
+
+      <p class="gt-block p">These ways of setting parameters complement each other, which means that it is possible to
+        set the same parameter in different locations. Values for parameters are read from their
+        base location first, if present, and then read from any subsequent location where they can
+        be set. In general, parameters set in the player override those set as custom metadata,
+        which in turn override those set in the ad set. For a list of where each parameter can be
+        set and where the base values are located, see <a class="xref" href="pbv4_ads_dev_pulse_parameters.html">Ooyala Pulseの広告パラメータ</a>.</p>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Loading the Ooyala Pulse Plugin on the Page</h2>
+      
+      <div class="note note"><span class="notetitle">注意：</span> 
+        <ul class="ul">
+          <li class="li">HTML埋め込みコードを生成するためにBacklotを使用していて、 <strong class="ph b">V4 HTML5標準プレーヤー埋め込みコード（推奨）</strong> option, the Ooyala Pulse plugin
+            is automatically included and should not be explicitly added to the web page where you
+            launch the player. For details, see <a class="xref" href="../tasks/publishing_manual_embed.html">バックスロットでのプレーヤー埋め込み設定</a>.</li>
+ 
+          <li class="li">あなたが <strong class="ph b">V4 HTML5プレーヤー埋め込みコード（詳細）</strong> option in Backlot, or if you manually create the HTML embed code yourself, you need to add the Ooyala Pulse plugin  to your web page so that the Ooyala Pulse plugin loads
+            before the player is created. </li>
+
+        </ul>
+</div>
+
+      
+      For every page on which you
+      want to use the Ooyala Pulse plugin with a player (regardless of how you associated Ooyala
+      Pulse ads with your videos): <ol class="ol">
+        <li class="li">加えます <samp class="ph codeph">pulse.min.js</samp> プレーヤーをロードしているページにスクリプトを書きます。 このプラグインをロードする必要があります <em class="ph i">After</em> core.min.jsをロードします。
+          <pre class="pre codeblock">&lt;script language =“ javascript &quot;src =&quot;<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/pulse.min.js"&gt;&lt;/script&gt;</pre>
+</li>
+
+        <li class="li">Associate the player with the Ooyala Pulse ad plugin by passing in
+            <samp class="ph codeph">videoplaza-ads-manager</samp> as one of the player parameters during the
+          player creation (<var class="keyword varname">OO.Player.create</var>).  </li>
+
+        <li class="li">グローバルパラメータを渡します。 見る <a class="xref" href="pbv4_configure_ads_embedded_params.html">広告パラメータを設定する</a>.</li>
+
+      </ol>
+</div>
+
+    <div class="section" id="ads_dev_pulse__embeddedParams"><h2 class="title sectiontitle">Option: Integrate with Ooyala Pulse Using Player Embedded
+        Parameters</h2>Pass Ooyala Pulse ad tags to the Ooyala player using the
+        <samp class="ph codeph">videoplaza-ads-manager</samp> parameter and its child parameters, as described in
+        <a class="xref" href="pbv4_ads_dev_pulse_parameters.html">Ooyala Pulseの広告パラメータ</a>.  <p class="p">The following
+        example shows how to use Ooyala Pulse page-level parameters with Player V4.</p>
+<div class="note note"><span class="notetitle">注意：</span> The
+        values in the following example are used only to illustrate how to use the
+          <samp class="ph codeph">videoplaza-ads-manager</samp> parameter. You need to replace them with your own
+        profiles, IDs, URLs, and other values.
+      </div>
+<pre class="pre codeblock" id="ads_dev_pulse__pulseAdManagerExample">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Ooyala Pulse Example&lt;/title&gt;
+    &lt;!-- V4 JS core is required. Plugins such as skin, discovery and Advertising need to be loaded separately --&gt;
+    &lt;script src="<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/core.min.js &quot;&gt; &lt;/script&gt; &lt;script src =&quot;<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/other-plugin/discovery_api.min.js"&gt;&lt;/script&gt;
+    &lt;!-- Change these html5-skin.min.css and html5-skin.js to your local build if necessary --&gt;
+    &lt;script src="<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/html5-skin/build/html5-skin.min.js"&gt;&lt;/script&gt;
+    &lt;link rel="stylesheet" href="<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/html5-skin.min.css"/&gt;
+    &lt;!-- A Video Plugin is required. This example shows the Main Video Plugin --&gt;
+    &lt;script src="<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/video-plugin/main_html5.min.js"&gt;&lt;/script&gt;
+    &lt;!-- Ad module --&gt;
+    &lt;script src="<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/pulse.min.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="container" style="width:640px; height:360px;"&gt;&lt;/div&gt;
+    &lt;script&gt;
+      var playerParam = {
+        "pcode": "YOUR_PCODE",
+        "playerBrandingId": "YOUR_PLAYER_ID",
+        "skin": {
+          // Config contains the configuration setting for player skin. Change to your local config when necessary.
+          "config": "<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/skin.json"
+        },
+        "videoplaza-ads-manager":{
+          // Pulse settings
+          "pulse_host": "//pulse-host.videoplaza.tv",
+          "pulse_device_container": "deviceContainer",
+          "pulse_persistend_id": "persistendId",
+
+          // Values mapped to the request settings
+          "pulse_height": 640,
+          "pulse_width": 360,
+          "pulse_max_bitrate": 400,
+          "pulse_linear_cuepoints": "5,23,34",
+          "pulse_non_linear_cuepoints": "12,14,50",
+          "pulse_insertion_point_filter": "onBeforeContent,playbackPosition",
+          "pulse_referrer_url": "//www.ooyala.com",
+          "pulse_linear_slot_size": 3,
+          "pulse_max_linear_break_duration": 20,
+
+          // Values mapped to the content metadata
+          "pulse_category": "myCategory",
+          "pulse_content_form": "longForm", //Can be 'longForm' or 'shortForm'
+          "pulse_content_id": "myCustomId",
+          "pulse_content_partner": "myContentPartner",
+          "pulse_duration": 52,
+          // The flags will be merged with the ones coming from the Backlot Ad Set, if any. 
+          // If you want to override them completely, set pulse_override_metadata to true.
+          "pulse_flags": "flag1,flag2",
+          // The tags will be merged with the ones coming from the Backlot Ad Set, if any.
+          // If you want to override them completely, set pulse_override_metadata to true.
+          "pulse_tags": "tag1,tag2",
+          "pulse_custom_parameters": {
+            "key1": value1,
+            "key2": value2
+          },
+
+          // Integration settings
+          "pulse_override_metadata": true, // If set, all the Backlot metadata (ad set or custom) will be ignored.
+          "pulse_show_ad_title": false
+        }
+      };
+      OO.ready(function() {
+        window.pp = OO.Player.create("container", "YOUR_ASSET_ID", playerParam);
+      });
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+</div>
+
+    <div class="section"><h2 class="title sectiontitle">Option: Integrate with Ooyala Pulse through Backlot Custom
+        Metadata</h2>
+      
+      <div class="p">Add Ooyala Pulse parameters as custom metadata to individual video assets using the Backlot
+        UI or Backlot API:<ul class="ul">
+          <li class="li"><strong class="ph b">バックスロットUI</strong>: For instructions on how to set custom metadata on an asset using
+            the Backlot UI, see <a class="xref" href="../tasks/metadata_create.html" title="資産には最大100個の名前と値のペアを追加できます。">カスタムメタデータの追加</a>.</li>
+
+          <li class="li"><strong class="ph b">バックスロットAPI</strong>: For instructions on how to set custome metadata on an asset using
+            the Backlot API, see <a class="xref" href="../api/asset_metadata.html" title="どのタイプのアセットにも、最大100個の名前と値のペアを追加できます。">カスタムメタデータ</a>.</li>
+
+        </ul>
+</div>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Option: Integrate with Ooyala Pulse through Backlot Ad Sets</h2>
+      
+      <ol class="ol">
+        <li class="li">Create an Ooyala Pulse ad set using: <ul class="ul">
+            <li class="li"><strong class="ph b">バックスロットUI</strong>：Backlot UIを使用して広告セットを作成するには、 <a class="xref" href="../tasks/monetization_ads_adsets_integratingadnetworks.html" title="自分のアセットを使用する代わりに、他の広告ソースを使用することができます。">広告ソースと統合するための広告セットの作成</a>.</li>
+
+            <li class="li"><strong class="ph b">バックスロットAPI</strong>：プログラムで広告セットを作成するには、 <a class="xref" href="../api/ad_sets.html" title="広告セットは、再生中のアセットの広告エクスペリエンスを制御する広告設定です。">広告セット</a>. For the Ad Source, select
+              the <strong class="ph b">Videoplaza Module</strong>.</li>
+
+          </ul>
+<p class="gt-block p">  <strong class="ph b">required ad set field</strong> for creating an Ooyala Pulse ad set is:
+              </p>
+<p class="gt-block p"><em class="ph i">vpDomain</em>: The host for your Ooyala Pulse account, which is derived from
+            the "sub-domain" found in the Pulse UI. Here is how it is
+          formulated:</p>
+<pre class="pre codeblock">//[sub-domain].videoplaza.tv</pre>
+</li>
+
+        <li class="li">以下を使用して、広告セットをアセットまたは複数のアセットに割り当てます。 <ul class="ul">
+            <li class="li"><strong class="ph b">バックスロットUI</strong>: For instructions on how to assign your Ooyala Pulse ad set to <ul class="ul">
+                <li class="li">a single asset, see <a class="xref" href="../tasks/asset_manage_monetization.html" title="広告を使用してコンテンツを収益化したり、ペイウォールを使用してペイパービューエクスペリエンスを作成したりできます。">収益化の管理</a></li>
+
+                <li class="li">multiple assets, see <a class="xref" href="../tasks/asset_bulk.html" title="Backlot UIを使用して、一度に複数の資産に設定を適用することができます。">一括適用設定</a></li>
+
+              </ul>
+</li>
+
+            <li class="li"><strong class="ph b">Player API</strong>: With the Player API, you can only associate an ad set with an
+              asset on your web page. To associate an ad set with an asset on multiple players you
+              must replicate the code for each player. To associate an ad set with an asset using
+              the Player API, see <a class="xref" href="../concepts/player_v3_dev_assignadset.html" title="プレーヤーを使用すると、広告セットを動的に割り当てることができます。">広告セットを動的に割り当てる</a>.  </li>
+
+            <li class="li"><strong class="ph b">バックスロットAPI</strong>: With the Backlot API, you can associate an ad set with an asset
+              more concretely. When you associate an asset with an ad set using the Backlot API, the
+              asset and the ad set will be paired together on any player and page on which you play
+              the asset. For details, see <a class="xref" href="../api/asset_ad_set.html" title="広告セットをビデオ、ライブストリーム、およびリモートアセットに関連付けることができます。 広告セットの作成については、 『Backlotユーザーガイド』を参照してください。">Associate Ad Set with Asset</a>.</li>
+
+          </ul>
+
+        </li>
+
+      </ol>
+
+    </div>
+
+  </div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div

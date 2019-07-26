@@ -1,0 +1,79 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Enabling and Disabling Discovery Profiles for a Player"/>
+<meta name="DC.Relation" scheme="URI" content="../api/players_discovery_examples.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="players_discovery_enabledisableprofile"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>プレーヤーの検出プロファイルの有効化と無効化</title>
+</head>
+<body id="players_discovery_enabledisableprofile">
+
+
+  <h1 class="title topictitle1">プレーヤーの検出プロファイルの有効化と無効化</h1>
+
+  <div class="body refbody">
+    <div class="section refsyn"><p class="p"> プレーヤーの検出プロファイルを有効にするには、 <samp class="ph codeph">discovery_enabled</samp> プロパティへ
+          <samp class="ph codeph">true</samp> リクエストボディに <samp class="ph codeph">PATCH</samp> 方法。 次の要求と応答の例は、プレーヤーに関連付けられている検出プロファイルを有効にする方法を示しています。 </p>
+
+      <div class="note note"><span class="notetitle">注意：</span> これは <span class="ph uicontrol">このプレイヤーの発見をオンにする</span>
+        Backlot UIでの設定 <a class="xref" href="../concepts/content_discovery_profile_ui.html#discovery_profile_ui" title="Backlot UIを使用して、定義済みのプレーヤーまたはDiscovery API要求で使用する検出プロファイルを作成できます。">Backlot UIを使用したプロファイルの作成と管理について</a>.</div>
+
+      <p class="gt-block p"><strong class="ph b">要求：</strong></p>
+
+      <pre class="pre codeblock">[PATCH] / v2 / players / {player_id} / discovery / profile {
+<strong class="ph b">&quot;discovery_enabled&quot;： &quot;true&quot;</strong>
+
+}</pre>
+
+      <p class="gt-block p"><strong class="ph b">応答：</strong></p>
+
+      <pre class="pre codeblock">... &quot;optimize_goal&quot;： &quot;play_time&quot;、 &quot;compute_trending_labels&quot;： &quot;false&quot;}、
+<strong class="ph b">&quot;discovery_enabled&quot;： &quot;true&quot;</strong>
+...</pre>
+
+      <p class="p"> プレーヤーセットの検出プロファイルを無効にするには <samp class="ph codeph">discovery_enable</samp>
+        プロパティへ <samp class="ph codeph">false</samp> リクエストボディに <samp class="ph codeph">PATCH</samp>
+        方法。 次の要求と応答の例は、プレーヤーに関連付けられている検出プロファイルを無効にする方法を示しています。 </p>
+
+      <p class="gt-block p"><strong class="ph b">要求：</strong></p>
+
+      <pre class="pre codeblock">[PATCH] / v2 / players / {player_id} / discovery / profile {&quot;discovery_enabled&quot;： &quot;false&quot;}</pre>
+
+      <p class="gt-block p"><strong class="ph b">応答：</strong></p>
+
+      <pre class="pre codeblock">... &quot;optimize_goal&quot;： &quot;play_time&quot;、 &quot;compute_trending_labels&quot;： &quot;false&quot;}、
+<strong class="ph b">&quot;discovery_enabled&quot;： &quot;false&quot;</strong>
+
+}</pre>
+
+      <p class="p"> 可能なHTTPレスポンスコードとボディ： </p>
+
+      <ul class="ul">
+        <li class="li">200：レスポンスはディスカバリプロファイルのJSONオブジェクトになります。 </li>
+
+        <li class="li">40x：レスポンスボディはJSONのエラーメッセージになります。 </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/players_discovery_examples.html" title="以下の要求および応答の例は、Discovery Profiles APIの使用方法を示しています。">ディスカバリプロファイルAPIの例</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

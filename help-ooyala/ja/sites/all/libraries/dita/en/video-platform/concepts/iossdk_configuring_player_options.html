@@ -1,0 +1,72 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Configuring the Ooyala Player Options"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_ios_about.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_ios_cc.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_ios_fccratings.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="iosplayerconfigureoptions"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Ooyalaプレーヤーオプションの設定</title>
+</head>
+<body id="iosplayerconfigureoptions">
+
+
+ <h1 class="title topictitle1">Ooyalaプレーヤーオプションの設定</h1>
+
+ <div class="body conbody">
+  <p class="gt-block p">The iOS Mobile SDK allows you to programmatically configure Ooyala Player options,
+   including TV Ratings, VisualOn, cue points, and other options. To get started, view the
+   documentation for the <samp class="ph codeph">OOOptions</samp> で利用可能なクラス <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/ios_mobilesdk/index.html" target="_blank">iOS用モバイルSDK</a>.</p>
+
+  <div class="p">Once you create an instance of the <samp class="ph codeph">OOOptions</samp> class, you can set any of the available options. The following example, which configures the promo image, preload content, and connection timeout, illustrates
+   how to create the object and configure the desired options:<pre class="pre codeblock">  OOOptions *options = [OOOptions new];
+
+  if (_switch1 != nil) {
+    options.showPromoImage = _switch1.on;
+  }
+
+  if (_switch2 != nil) {
+    options.preloadContent = _switch2.on;
+  }
+
+  if (_text1 != nil) {
+    NSTimeInterval timeout = [_text1.text floatValue];
+    options.connectionTimeout = timeout;
+  }
+
+  // Create Ooyala ViewController
+  OOOoyalaPlayer *player = [[OOOoyalaPlayer alloc] initWithPcode:self.pcode domain:[[OOPlayerDomain alloc] initWithString:self.playerDomain] options:options];
+</pre>
+</div>
+
+  
+  <p class="gt-block p">見る <a class="xref" href="https://github.com/ooyala/ios-sample-apps/blob/stable/OptionsSampleApp/OptionsSampleApp/Players/OptionsViewController.m" target="_blank">OptionsViewController</a> for a complete code
+   example.</p>
+
+ </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../concepts/mobile_sdk_ios_cc.html">iOSのクローズドキャプションを使用する</a></strong><br/>
+With the Mobile SDK, there are many ways you can work with closed captions, from the     most basic features that need no programming to more advanced programming features.</li>
+<li class="link ulchildlink"><strong><a href="../concepts/mobile_sdk_ios_fccratings.html">iOS用FCCレーティングの使用</a></strong><br/>
+</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/mobile_sdk_ios_about.html">iOS用Ooyala Mobile SDKを使用する</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

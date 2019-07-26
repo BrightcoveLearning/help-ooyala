@@ -1,0 +1,401 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Configuring Discovery in the Backlot UI"/>
+<meta name="abstract" content="Learn how to configure personalized recommendations and how the Ooyala player displays recommendations when video playback ends or pauses."/>
+<meta name="description" content="パーソナライズされたおすすめを設定する方法と、ビデオの再生が終了または一時停止したときにOoyalaプレーヤーがおすすめを表示する方法を学びます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_discovery_dg.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_discovery_dg.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="discovery_config"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>バックスロットUIでの検出の設定</title>
+</head>
+<body id="discovery_config">
+
+
+  <h1 class="title topictitle1">バックスロットUIでの検出の設定</h1>
+
+  
+ <div class="body conbody"><p class="shortdesc">パーソナライズされたおすすめを設定する方法と、ビデオの再生が終了または一時停止したときにOoyalaプレーヤーがおすすめを表示する方法を学びます。</p>
+
+   <div class="note note"><span class="notetitle">注意：</span> Player Webの場合、[検出]タブの特定の設定は特定のプレイヤーバージョンにのみ影響します。 このトピックの各セクションは、サポートされているプレーヤーのバージョンを示しています。 についての追加情報 <span class="ph">プレイヤーV4</span>
+      そして発見、参照して下さい <a class="xref" href="pbv4_discovery.html">Player V4でコンテンツを発見する</a>.</div>
+
+   <p class="gt-block p">モバイルプラットフォームでのディスカバリーに関する情報は、
+          <a class="xref" href="android_aboutdiscovery.html">Androidネイティブアプリの検出について</a> そして <a class="xref" href="ios_aboutdiscovery.html">iOSネイティブアプリの検出について</a>.</p>
+   
+  <div class="section" id="discovery_config__select"><h2 class="title sectiontitle">設定するプレーヤーを選択してください</h2>
+    <div class="note note"><span class="notetitle">注意：</span> この機能はOoyalaに適用されます <span class="ph">プレイヤーV4</span> そして <span class="ph">プレイヤーV3</span> （廃止予定）</div>
+
+    <ol class="ol">
+        <li class="li">Backlotアカウントにサインインします。</li>
+
+        <li class="li">ナビゲーションヘッダーの <span class="ph uicontrol">出版</span> &gt; <span class="ph uicontrol">Discovery</span>.</li>
+
+        <li class="li">からプレーヤーを選択してください <span class="ph uicontrol">プレイヤーの選択</span> リスト。</li>
+
+        <li class="li">検出設定を構成するには、[検出]タブを選択します。</li>
+
+  </ol>
+<div class="note note"><span class="notetitle">注意：</span> 検出設定への変更は、選択したプレーヤーにのみ適用されます。</div>
+ </div>
+
+  <div class="section" id="discovery_config__enable"><h2 class="title sectiontitle">プレーヤーの検出を有効にする</h2>
+    <div class="note note"><span class="notetitle">注意：</span> この機能はOoyalaに適用されます <span class="ph">プレイヤーV4</span> そして <span class="ph">プレイヤーV3</span> （廃止予定）</div>
+ おすすめを表示するには、プレーヤーはディスカバリーを有効にしておく必要があります。 選択したプレーヤーの検出を有効にするには、 <span class="ph uicontrol">このプレイヤーの発見をオンにする</span>.</div>
+
+   
+   <div class="section" id="discovery_config__engine"><h2 class="title sectiontitle">Recommendationsエンジンを構成する</h2>
+      <div class="note note"><span class="notetitle">注意：</span> この機能はOoyalaに適用されます <span class="ph">プレイヤーV4</span> そして <span class="ph">プレイヤーV3</span> （廃止予定）</div>
+
+      <div class="note note"><span class="notetitle">注意：</span> ネイティブモバイルアプリケーションの場合は、代わりにiOSまたはAndroidのマニュアルを参照してください。</div>
+Ooyalaの特許取得済みビデオ推奨エンジンは、機械学習アルゴリズムを使用してパーソナライズされた推奨を作成します。 の設定を変更して、おすすめの結果に影響を与えることができます。 <span class="ph uicontrol">発見編集コントロール</span> の項目を検索します。
+          <p class="gt-block p"><strong class="ph b">のコンテンツをおすすめ</strong>
+      </p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="NaN%" id="d287276e131">設定</th>
+
+              <th class="entry" valign="top" width="NaN%" id="d287276e134">説明</th>
+
+              <th class="entry" valign="top" width="1" id="d287276e137">プレイヤーV4</th>
+
+              <th class="entry" valign="top" width="1" id="d287276e140">プレイヤーV3</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="NaN%" headers="d287276e131 "><span class="ph uicontrol">指定ラベル</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d287276e134 ">結果を特定のラベルに制限するには、このオプションを選択します。 ドロップダウンメニューからこのオプションを選択すると、 <span class="ph uicontrol">ラベルを選択</span> ボタンが表示されます。 ボタンをクリックしてラベル選択ダイアログボックスを開きます。</td>
+
+              <td class="entry" align="center" valign="top" width="1" headers="d287276e137 ">✓</td>
+
+              <td class="entry" align="center" valign="top" width="1" headers="d287276e140 ">✓</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="NaN%" headers="d287276e131 "><span class="ph uicontrol">共有ラベル</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d287276e134 ">現在再生中のビデオと同じラベルが付いた他のコンテンツから結果を生成するには、このオプションを選択します。</td>
+
+              <td class="entry" align="center" valign="top" width="1" headers="d287276e137 ">✓</td>
+
+              <td class="entry" align="center" valign="top" width="1" headers="d287276e140 ">✓</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="NaN%" headers="d287276e131 "><span class="ph uicontrol">個別の</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d287276e134 ">このオプションを選択すると、他のユーザー（このビデオも消費したことがあるユーザー）が消費している可能性があるコンテンツをユーザーが発見できるようにする自己最適化動作（共同フィルタリング）を設定できます。 自己最適化システムは、1つ以上のDiscovery APIを使用します。 推奨するコンテンツのプールは、ラベルのホワイトリストまたはブラックリストに基づいて制限できます。 <p class="gt-block p"><strong class="ph b">推奨範囲</strong></p>
+<ul class="ul">
+                  <li class="li">結果を特定のラベルに制限するには、 <span class="ph uicontrol">特定のラベルからのみ</span> [推奨範囲]リストボックスから、[OK]をクリックします。
+                      <span class="ph uicontrol">ラベルを追加</span> 1つ以上のラベルを選択します。</li>
+
+                  <li class="li">結果から特定のラベルを削除するには、 <span class="ph uicontrol">特定のラベルからの投稿</span> [推奨範囲]リストボックスから、[OK]をクリックします。
+                      <span class="ph uicontrol">ラベルを追加</span> 1つ以上のラベルを選択します。</li>
+
+                </ul>
+<p class="gt-block p"><strong class="ph b">特定のラベルのコンテンツを掲載位置に宣伝する</strong></p>
+<p class="p">コンテンツを宣伝する場合は、コンテンツのラベルと表示位置を指定します。 たとえば、ラベルプロモを位置番号2に表示するように指定できます。 これにより、そのラベルの付いたビデオが2番目のおすすめとして自動的に表示されます。</p>
+<div class="note note"><span class="notetitle">注意：</span>  宣伝するコンテンツを指定する前に、ラベルを作成し、それに1つ以上のビデオを関連付ける必要があります。 ラベルに関連付けられているビデオがない場合、Ooyala Discoveryは自動的に別のビデオを推薦します。 </div>
+<p class="gt-block p"><strong class="ph b">カスタムメタデータキー内からシーケンシャルコンテンツを宣伝する</strong></p>
+<p class="gt-block p">動画がシリーズの一部である場合は、連続コンテンツに使用するカスタムメタデータキーを <span class="ph uicontrol">特定のラベルのコンテンツを位置％{zero}にプロモートします</span> フィールド、および推奨事項を表示する位置。</p>
+<p class="gt-block p">たとえば、カスタムメタデータキーがあるとします。 <strong class="ph b">next_item</strong> それはシリーズの次のビデオの埋め込みコードを含みます、Ooyalaディスカバリーは自動的にあなたが指定した位置にそのビデオを推薦することができます。 </p>
+<div class="note note"><span class="notetitle">注意：</span> このオプションを設定する前に、連続して表示される動画のカスタムメタデータキーを設定する必要があります。 カスタムメタデータキーが動画に設定されていない場合、Ooyala Discoveryは自動的に別の動画を選択して推奨します。 </div>
+
+              </td>
+
+              <td class="entry" align="center" valign="top" width="1" headers="d287276e137 ">✓</td>
+
+              <td class="entry" align="center" valign="top" width="1" headers="d287276e140 ">✓</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+<div class="note note"><span class="notetitle">注意：</span> ディスカバリー構成（と呼ばれる <em class="ph i">検出プロファイル</em>）設定中にプレーヤーにのみ適用されます。</div>
+
+      <p class="gt-block p"><strong class="ph b">サブアカウント資産を含める</strong></p>
+ 推奨元の資産プールにサブアカウントの資産を含める場合は、このオプションを選択します。 </div>
+
+
+   <div class="section" id="discovery_config__interface"><h2 class="title sectiontitle">次のビデオオプションを設定 <span class="ph">フラッシュプレイヤーV3</span></h2>選択したプレーヤーのUp Nextの動作を変更するには、 <span class="ph uicontrol">ディスカバリーインターフェース</span> のセクション <span class="ph uicontrol">Discovery</span> タブで、以下の設定を行います。
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="NaN%" id="d287276e288">設定</th>
+
+              <th class="entry" valign="top" width="NaN%" id="d287276e291">説明</th>
+
+              <th class="entry" valign="top" width="1" id="d287276e294">プレイヤーV4</th>
+
+              <th class="entry" valign="top" width="1" id="d287276e297">フラッシュプレイヤーV3</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="NaN%" headers="d287276e288 "><span class="ph uicontrol">現在の動画が終了した直後</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d287276e291 ">一連のビデオの場合、ユーザーがDiscoveryの推奨事項にカーソルを合わせない限り、次のビデオが自動的に再生されます。<div class="note note"><span class="notetitle">注意：</span>  このオプションを選択した場合は、 <span class="ph uicontrol">カウントダウンプレビュー</span>.</div>
+</td>
+
+              <td class="entry" valign="top" width="1" headers="d287276e294 "> </td>
+
+              <td class="entry" align="center" valign="top" width="1" headers="d287276e297 ">✓</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="NaN%" headers="d287276e288 "><span class="ph uicontrol">現在の動画が終了してからの秒数</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d287276e291 ">現在のビデオが終了した直後に自動的に再生されるようにシリーズの次のビデオを設定するには、このオプションを選択して、いつ自動的に開始するかを指定します（デフォルトは10秒です）。</td>
+
+              <td class="entry" valign="top" width="1" headers="d287276e294 "> </td>
+
+              <td class="entry" align="center" valign="top" width="1" headers="d287276e297 ">✓</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="NaN%" headers="d287276e288 "><span class="ph uicontrol">カウントダウンプレビュー</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d287276e291 "><div class="note note"><span class="notetitle">注意：</span> このオプションは次の場合にのみ利用可能です。 <span class="ph uicontrol">現在の動画が終了した直後</span> 有効になっています。</div>
+クレジットの長さが変わる場合は、カスタム開始時間を指定できます。 <span class="ph uicontrol">カウントダウンプレビュー</span> 各ビデオの画面。 を作成
+                  <span class="keyword parmname">ディスカバリー：countown_seconds</span> 各ビデオのカスタムメタデータエントリを選択し、[次へカウントダウンプレビュー]画面をいつ表示するかを指定します。<div class="note note"><span class="notetitle">注意：</span> 広告の再生中は[次へ]は表示されません。</div>
+</td>
+
+              <td class="entry" valign="top" width="1" headers="d287276e294 "> </td>
+
+              <td class="entry" align="center" valign="top" width="1" headers="d287276e297 ">✓</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+</div>
+
+     
+   <div class="section" id="discovery_config__pause"><h2 class="title sectiontitle">の一時停止画面の設定 <span class="ph">プレイヤーV3</span></h2>再生が一時停止しているときに（選択したプレーヤーの）検出の推奨事項の表示を変更するには、画面の一時停止設定を構成します。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="NaN%" id="d287276e393">設定</th>
+
+              <th class="entry" valign="top" width="NaN%" id="d287276e396">説明</th>
+
+              <th class="entry" valign="top" width="1" id="d287276e399">プレイヤーV4</th>
+
+              <th class="entry" valign="top" width="1" id="d287276e402">プレイヤーV3</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="NaN%" headers="d287276e393 "><span class="ph uicontrol">一時停止画面にディスカバートレイを表示する</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d287276e396 ">再生が一時停止しているときにプレーヤーにおすすめを表示させる場合は、このチェックボックスをオンにします。</td>
+
+              <td class="entry" align="center" valign="top" width="1" headers="d287276e399 ">✓</td>
+
+              <td class="entry" align="center" valign="top" width="1" headers="d287276e402 ">✓</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="NaN%" headers="d287276e393 "><span class="ph uicontrol">トレイクリック動作の検出</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d287276e396 ">ドロップダウンメニューから次のいずれかのオプションを選択します。 <ul class="ul">
+                  <li class="li">同じページで開く（Player V3のみ）</li>
+
+                <li class="li">同じプレーヤーで開く（プレーヤーV4とV3）</li>
+
+                <li class="li">新しいページで開く（Player V3のみ）</li>
+
+                </ul>
+<div class="note note"><span class="notetitle">注意：</span> ために <span class="ph">HTML5プレーヤーV3</span>、次の動画へのおすすめは、元の動画と同じページに表示されます。</div>
+</td>
+
+              <td class="entry" align="center" valign="top" width="1" headers="d287276e399 ">✓</td>
+
+              <td class="entry" align="center" valign="top" width="1" headers="d287276e402 ">✓</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+<div class="note note"><span class="notetitle">注意：</span> ミッドロール広告を配信している場合は、ビデオ分析の測定基準があいまいになる可能性があるため、一時停止画面にディスカバリの推奨事項を表示しないことをお勧めします。 たとえば、一時停止イベントが一時停止画面に起因するのか、それともミッドロール広告によるのかは不明です。</div>
+</div>
+
+   
+   <div class="section" id="discovery_config__end"><h2 class="title sectiontitle">終了画面の設定</h2>
+      <div class="note note"><span class="notetitle">注意：</span> これらの設定は、ディスカバリが <strong class="ph b">無効</strong> 選択したプレイヤーの</div>
+再生が終了したときに（選択したプレーヤーの）Discoveryの推奨事項の表示を変更するには、[画面の終了]オプションを構成します。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="NaN%" id="d287276e489">設定</th>
+
+              <th class="entry" valign="top" width="NaN%" id="d287276e492">説明</th>
+
+              <th class="entry" valign="top" width="1" id="d287276e495">プレイヤーV4</th>
+
+              <th class="entry" valign="top" width="1" id="d287276e498">プレイヤーV3</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="NaN%" headers="d287276e489 "><span class="ph uicontrol">職務</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d287276e492 ">終了画面のタイトル</td>
+
+              <td class="entry" align="center" valign="top" width="1" headers="d287276e495 ">✓</td>
+
+              <td class="entry" align="center" valign="top" width="1" headers="d287276e498 ">✓</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="NaN%" headers="d287276e489 "><span class="ph uicontrol">説明</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d287276e492 ">終了画面の説明</td>
+
+              <td class="entry" align="center" valign="top" width="1" headers="d287276e495 ">✓</td>
+
+              <td class="entry" align="center" valign="top" width="1" headers="d287276e498 ">✓</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="NaN%" headers="d287276e489 "><span class="ph uicontrol">リプレイ</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d287276e492 ">このチェックボックスを選択すると、ビデオの最後に再生ボタンが表示されます。</td>
+
+              <td class="entry" align="center" valign="top" width="1" headers="d287276e495 ">✓</td>
+
+              <td class="entry" align="center" valign="top" width="1" headers="d287276e498 ">✓</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="NaN%" headers="d287276e489 "><span class="ph uicontrol">シェア</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d287276e492 ">このチェックボックスをオンにすると、視聴者はビデオを共有できます。 顧客の共有方法を指定するには、をクリックしてください。 <span class="ph uicontrol">オプション</span> サポートされている各共有オプションのチェックボックスをオンにします。</td>
+
+              <td class="entry" valign="top" width="1" headers="d287276e495 "> </td>
+
+              <td class="entry" align="center" valign="top" width="1" headers="d287276e498 ">✓</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="NaN%" headers="d287276e489 "><span class="ph uicontrol">埋め込む</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d287276e492 ">このチェックボックスを選択すると、視聴者がクリックしてビデオの埋め込みURLを取得できる埋め込みボタンが表示されます。 埋め込みURLは、視聴者のWebサイト、ブログなどにビデオを表示するために使用できます。</td>
+
+              <td class="entry" valign="top" width="1" headers="d287276e495 "> </td>
+
+              <td class="entry" align="center" valign="top" width="1" headers="d287276e498 ">✓</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="NaN%" headers="d287276e489 "><span class="ph uicontrol">インフォ</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d287276e492 ">このチェックボックスを選択してビデオに関する情報を提供します。 どの情報を指定するには、をクリックします。 <span class="ph uicontrol">オプション</span> 情報の種類ごとにチェックボックスをオンにします。</td>
+
+              <td class="entry" valign="top" width="1" headers="d287276e495 "> </td>
+
+              <td class="entry" align="center" valign="top" width="1" headers="d287276e498 ">✓</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="NaN%" headers="d287276e489 "><span class="ph uicontrol">検出トレイの表示</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d287276e492 ">ビデオが終了する前に検出の推奨事項を表示するには、このチェックボックスをオンにします。</td>
+
+              <td class="entry" valign="top" width="1" headers="d287276e495 "> </td>
+
+              <td class="entry" align="center" valign="top" width="1" headers="d287276e498 ">✓</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+</div>
+
+
+  <div class="section"><h2 class="title sectiontitle">詳細は</h2>
+   <ul class="ul">
+        <li class="li"><a class="xref" href="pbv4_discovery.html">Player V4でコンテンツを発見する</a>.</li>
+
+     <li class="li"><a class="xref" href="../concepts/cd_api_overview.html" title="これらのディスカバリーAPIを使用するには、ディスカバリー要求を出し、ユーザーのアクション情報を戻してアルゴリズムをトレーニングします。">ディスカバリーREST API</a></li>
+
+     <li class="li">モバイルプラットフォームでのディスカバリーに関する情報は、 <a class="xref" href="android_aboutdiscovery.html">Androidのドキュメント</a> そして <a class="xref" href="ios_aboutdiscovery.html">iOSのドキュメント</a>.</li>
+
+     <li class="li">その他の質問については、 <a class="xref" href="../reference/content_discovery_faq.html" title="ディスカバリーに関してよく寄せられる質問に対する回答を見つけてください。">発見に関するFAQ</a>.  </li>
+
+   </ul>
+
+  </div>
+
+   </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_discovery_dg.html" title="Ooyalaのコンテンツ検出機能を使用して、コンテンツの推奨事項、詳細なプログラミングガイド、およびパーソナライズされたコンテンツキューを提供することで、顧客エンゲージメントを高めます。">コンテンツの発見と推奨事項</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

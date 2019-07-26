@@ -1,0 +1,158 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Ooyala Account Token API"/>
+<meta name="abstract" content="Access to certain Ooyala services, such as eCommerce and Watchlist, is controlled using an Ooyala Account Token. The Ooyala Account Token API generates an account token to authenticate a user. When calling these APIs, the client is required to provide the account token for authentication. After your application has logged in a user, it calls the Ooyala Account Token API route to get the account token. The account token is valid for a specific amount of time, 15 minutes by default."/>
+<meta name="description" content="eコマースやウォッチリストなどの特定のOoyalaサービスへのアクセスは、Ooyalaアカウントトークンを使用して制御されます。 OoyalaアカウントトークンAPIは、ユーザーを認証するためのアカウントトークンを生成します。 これらのAPIを呼び出すとき、クライアントは認証用のアカウントトークンを提供する必要があります。 アプリケーションがユーザーにログインすると、OoyalaアカウントトークンAPIルートを呼び出してアカウントトークンを取得します。 アカウントトークンは特定の期間、デフォルトでは15分有効です。"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="reference_accounttoken"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>OoyalaアカウントトークンAPI</title>
+</head>
+<body id="reference_accounttoken">
+
+
+	<h1 class="title topictitle1">OoyalaアカウントトークンAPI</h1>
+
+	
+	<div class="body refbody"><p class="shortdesc">eコマースやウォッチリストなどの特定のOoyalaサービスへのアクセスは、Ooyalaアカウントトークンを使用して制御されます。 OoyalaアカウントトークンAPIは、ユーザーを認証するためのアカウントトークンを生成します。 これらのAPIを呼び出すとき、クライアントは認証用のアカウントトークンを提供する必要があります。 アプリケーションがユーザーにログインすると、OoyalaアカウントトークンAPIルートを呼び出してアカウントトークンを取得します。 アカウントトークンは特定の期間、デフォルトでは15分有効です。 </p>
+
+						
+		<div class="section"><h2 class="title sectiontitle">APIルート</h2>
+			
+			<p class="p">次のルートはアカウントトークンを取得します。</p>
+
+<pre class="pre codeblock">POST https://player.ooyala.com/authentication/v1/providers/<span class="keyword parmname">pcode</span>/ gigya？uid = user_id＆signatureTimestamp =<span class="keyword parmname">タイムスタンプ</span>＆UIDSignature =<span class="keyword parmname">署名</span></pre>
+		
+		</div>
+
+		<div class="section"><h2 class="title sectiontitle">パラメーター</h2><div class="p">以下の変数は、それらの実際の値で置き換える必要があります。 <div class="note note"><span class="notetitle">注意：</span> アイデンティティ管理にGigyaを使用する場合、 <span class="keyword parmname">USER_ID</span>,
+						
+						<span class="keyword parmname">タイムスタンプ</span> そして <span class="keyword parmname">署名</span> GigyaのAPIを使って取得できます。 Gigyaとの統合については、Ooyalaカスタマーサポートマネージャにお問い合わせください。</div>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="reference_accounttoken__table_xfj_glc_jj" class="table" frame="border" border="1" rules="all">
+						
+						
+						<thead class="thead" align="left">
+							<tr class="row">
+								<th class="entry" valign="top" width="34.01360544217687%" id="d821091e62">パラメーター</th>
+
+								<th class="entry" valign="top" width="65.98639455782312%" id="d821091e65">説明</th>
+
+							</tr>
+
+						</thead>
+
+						<tbody class="tbody">
+							<tr class="row">
+								<td class="entry" valign="top" width="34.01360544217687%" headers="d821091e62 "><span class="keyword parmname">pcode </span></td>
+
+								<td class="entry" valign="top" width="65.98639455782312%" headers="d821091e65 ">Ooyalaアカウントのプロバイダコード。</td>
+
+							</tr>
+
+							<tr class="row">
+								<td class="entry" valign="top" width="34.01360544217687%" headers="d821091e62 "><span class="keyword parmname">USER_ID </span></td>
+
+								<td class="entry" valign="top" width="65.98639455782312%" headers="d821091e65 ">エンドユーザーを識別するために使用する一意の識別子。</td>
+
+							</tr>
+
+							<tr class="row">
+								<td class="entry" valign="top" width="34.01360544217687%" headers="d821091e62 "><span class="keyword parmname">タイムスタンプ</span></td>
+
+								<td class="entry" valign="top" width="65.98639455782312%" headers="d821091e65 ">The UNIX timestamp (seconds since epoch) at which the request
+									expires. in UTC time. The request is rejected if this timestamp
+									is in the past or more than 3 minutes into the future. </td>
+
+							</tr>
+
+							<tr class="row">
+								<td class="entry" valign="top" width="34.01360544217687%" headers="d821091e62 "><span class="keyword parmname">署名</span></td>
+
+								<td class="entry" valign="top" width="65.98639455782312%" headers="d821091e65 ">The URI escaped, BASE64 encoded signature computed using the
+									algorithm described below.</td>
+
+							</tr>
+
+						</tbody>
+
+					</table>
+</div>
+</div>
+<p class="p">JSONレスポンスはアカウントトークンとその有効期限を返します。</p>
+<pre class="pre codeblock">{“ account_token”：“<span class="keyword parmname">不透明な文字列</span>、「期限切れ」：「<span class="keyword parmname">トークンの有効期限が切れる時刻</span>”}	</pre>
+<p class="p">例：</p>
+<pre class="pre codeblock">POST https://player.ooyala.com/authentication/v1/providers/<span class="keyword parmname">mypcode</span>/gigya?uid=1234abcde&amp;signatureTimestamp=1457727984&amp;UIDSignature=d%2FN%FP0wMSel7ptE%3D</pre>
+<p class="p">応答：</p>
+<pre class="pre codeblock">{“ account_token”：“<span class="keyword parmname">Xvrw4qxPYCidlM</span>、「期限切れ」：「<span class="keyword parmname">2014-03-02T23:20:19+00:00</span>”}	 </pre>
+<p class="p">要求が失敗した場合は、200以外の状況コードが戻されます。 応答の本文にはエラーメッセージのみが含まれています。これが、要求が失敗した特定の理由になります。
+					<samp class="ph codeph">無効な署名</samp>.</p>
+</div>
+
+		<div class="section"><h2 class="title sectiontitle">秘密鍵と署名を生成する前に</h2>
+			<p class="p">ID管理にGigyaを使用している場合は、Ooyalaカスタマーサポートマネージャーに連絡して、秘密鍵と署名の入手方法についてご案内ください。</p>
+
+			<div class="note note"><span class="notetitle">注意：</span> Gigyaを使用していない場合は、次の手順に従って秘密鍵と署名を生成してください。
+			</div>
+
+		</div>
+
+			<div class="section refsyn"><h2 class="title sectiontitle">秘密鍵を生成する</h2>
+			<p class="p">Constructing the signature requires a secret key. This secret key should be the BASE64-encoded
+				version of a 32-byte value.</p>
+
+			<p class="p">秘密鍵の例： <samp class="ph codeph">Khs41aqNVOcfZRLViNajqvIDDirO2fn3VhhWGKgBT8g =</samp>。 これは公にここで文書化されているので、この正確な値はあなたの実装で決して使われるべきではありません。 あなたはあなた自身のものを作り出す必要があります。</p>
+
+			<p class="p">署名に使用する秘密鍵を作成するには、UNIXまたはMacマシンで次のコマンドを使用します。 </p>
+
+			<pre class="pre codeblock">openssl rand -base64 32</pre>
+
+			<p class="p">Ooyalaと秘密鍵を共有する前に、電子メールの暗号化を設定し、公開鍵証明書をOoyalaに送信する必要があります。 その後、PGP暗号化された電子メールを介して、署名のための秘密鍵をOoyalaに送信できます。 https://ssd.eff.org/en/module/how-use-pgp-mac-os-xを参照してください。</p>
+
+		</div>
+
+		
+		<div class="section refsyn"><h2 class="title sectiontitle">署名を生成する</h2>
+			<p class="p">To create the BASE64 signature, work on the server side so your secret key can be used
+				safely.</p>
+ 
+			<ol class="ol" id="reference_accounttoken__ol_mwk_fr2_gv">
+				<li class="li">の基本文字列を作成します。 <span class="keyword parmname">タイムスタンプ</span>_<span class="keyword parmname">UID</span>。 置換
+						<span class="keyword parmname">タイムスタンプ</span> そして <span class="keyword parmname">UID</span> （user_id）とそれに対応する値。 </li>
+
+			<li class="li">UTF-8エンコーディングを使用してこの文字列をバイナリ配列に変換します。</li>
+
+			<li class="li">Convert the BASE64 secret key into a binary array.</li>
+
+			<li class="li">変換された基本文字列と変換された秘密鍵を使用して、HMAC-SHA1アルゴリズムで暗号化署名を計算します。 応答は署名を含むバイナリ配列です。</li>
+
+				<li class="li">Convert the signature array into a BASE64 string.</li>
+	
+			</ol>
+
+			<p class="p">Rubyコードの例：</p>
+
+			<pre class="pre codeblock">def generate_signature(uid, secret, timestamp) 
+    base_string = <span class="keyword parmname">タイムスタンプ</span>_<span class="keyword parmname">UID</span>
+    key = secret.unpack("m0").first      
+    signature = OpenSSL::HMAC.digest("sha1", key, base_string)            
+    [signature].pack("m0")
+end</pre>
+
+		</div>
+		
+	</div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

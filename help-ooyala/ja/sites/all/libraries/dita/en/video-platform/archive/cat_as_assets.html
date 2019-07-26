@@ -1,0 +1,324 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Assets ActionScript APIs (Player V2 Deprecated)"/>
+<meta name="abstract" content="Assets ActionScript APIs can be used to handle ratings, videos (play/pause, describe), and channels."/>
+<meta name="description" content="アセットActionScript APIを使用して、評価、ビデオ（再生/一時停止、説明）、およびチャンネルを処理できます。"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/player_api_as_intro.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="cat_as_assets"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>ActionScript APIのアセット（Player V2は非推奨）</title>
+</head>
+<body id="cat_as_assets">
+
+
+ <h1 class="title topictitle1">ActionScript APIのアセット（Player V2は非推奨）</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">アセットActionScript APIを使用して、評価、ビデオ（再生/一時停止、説明）、およびチャンネルを処理できます。</p>
+
+<div class="section">
+ <div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V2は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V2はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V2を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="../concepts/pbv4_about.html">プレイヤーV4</a>.</div>
+
+  <p class="p">Ooyalaに動画をアップロードすると、Ooyalaはアカウントに指定されている設定を使用して自動的に動画をトランスコードし、動画をプレーヤーで再生できるようにします。 動画をH.264でOoyalaにアップロードすることをお勧めしますが、一般的に使用されているコーデック（MPEG-1、MPEG-2、VP4、H.6、H.264、WMV / WMA、およびMJPEG）もサポートします。 ） 次のAPIを使用すると、アセットを評価できるコンピュータを制御したり、タイトルや長さなどのビデオに関する情報を収集したりするなど、ビデオまたはオーディオアセットの側面を制御できます。 </p>
+
+</div>
+
+<div class="section"><h2 class="title sectiontitle">資産のプロパティ</h2>
+   
+   <p class="p">次の表は、アセットに関連付けられているすべてのActionScriptプロパティを説明しています。</p>
+
+</div>
+
+  <div class="section">
+  
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="cat_as_assets__table_assets_jsprop" class="table" frame="border" border="1" rules="all">
+  <thead class="thead" align="left">
+  <tr class="row">
+       <th class="entry" valign="top" id="d135682e49">プロパティ</th>
+
+       <th class="entry" valign="top" id="d135682e52">説明</th>
+
+  </tr>
+
+  </thead>
+
+  <tbody class="tbody">
+  
+      
+      
+      
+      
+      
+      
+    
+   
+   <tr class="row">
+  <td class="entry" valign="top" headers="d135682e49 d135682e52 "><span class="keyword apiname" id="cat_as_assets__as_canR1">canRateCurrentItem</span>
+       </td>
+
+       <td class="entry" valign="top" headers="d135682e49 d135682e52 ">
+        <p class="p">現在のコンピュータが現在のアイテムを評価できるかどうかを指定します。 彼らが以前に現在のアイテムを評価したことがある場合、これは偽になります。</p>
+
+        <p class="p">タイプ：ブール </p>
+
+        <p class="p">戻り値：true | 偽 </p>
+
+       </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d135682e49 d135682e52 "><span class="keyword apiname" id="cat_as_assets__as_curIAR1">currentItemAverageRating</span>
+  </td>
+
+  <td class="entry" valign="top" headers="d135682e49 d135682e52 ">
+        <p class="p">商品に与えられた平均評価を返します。 </p>
+
+        <p class="p">タイプ：整数 </p>
+
+        <p class="p">戻り値：数の平均 </p>
+
+        <p class="p">例：与えられた評価（1、7、14、0、2、22、6、0）は、6.5を返します</p>
+
+  </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d135682e49 d135682e52 "><span class="keyword apiname" id="cat_as_assets__as_curIRat1">currentItemRatings </span>
+       </td>
+
+       <td class="entry" valign="top" headers="d135682e49 d135682e52 "><p class="p">現在の商品の評価分布を返します。 </p>
+        
+        <p class="p">タイプ：整数 </p>
+
+        <p class="p">戻り値：整数の配列。各整数は、特定の評価がアイテムに与えられた回数を表します。 </p>
+
+         <p class="p">例：[0、16、0、0、0、0、0、0、25]は、項目に「0」に対する0票と「16」に対する1票があることを示します。</p>
+
+  </td>
+
+      </tr>
+<tr class="row">
+      <td class="entry" valign="top" headers="d135682e49 d135682e52 "><span class="keyword apiname" id="cat_as_assets__as_curIT1">currentItemTitle</span>
+      </td>
+
+      <td class="entry" valign="top" headers="d135682e49 d135682e52 ">
+      <p class="p">アクティブなビデオのタイトルを返します。 </p>
+
+      <p class="p">バインド可能 </p>
+
+      <p class="p">フォーマット：読み取り専用 </p>
+
+      <p class="p">タイプ：文字列 </p>
+
+      <p class="p">戻り値：ビデオタイトルを表す英数字の文字列 </p>
+
+      <p class="p">例：「ボイドに」  </p>
+
+      </td>
+
+      </tr>
+<tr class="row">
+      <td class="entry" valign="top" headers="d135682e49 d135682e52 "><span class="keyword apiname" id="cat_as_assets__as_des1">説明</span>
+      </td>
+
+      <td class="entry" valign="top" headers="d135682e49 d135682e52 ">
+      <p class="gt-block p">プレーヤソースの説明を返します。 通常、これはBacklotのビデオまたはオーディオアセットに入力された説明です。 このAPIを使用すると、Backlotに設定されている入力された説明を取得できます。 <strong class="ph b">管理&gt;詳細</strong> タブまたは同等の手動設定。 </p>
+
+       <p class="p">バインド可能 </p>
+   
+       <p class="p">フォーマット：読み取り専用 </p>
+   
+       <p class="p">タイプ：文字列   </p>
+   
+       <p class="p">戻り値：資産の英数字による説明 </p>
+   
+       <p class="p">例：「シーズン22オープニングゲーム」</p>
+    
+       </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d135682e49 d135682e52 "><span class="keyword apiname" id="cat_as_assets__as_ite1">項目</span>
+       </td>
+
+       <td class="entry" valign="top" headers="d135682e49 d135682e52 "><p class="p">現在のビデオを記述するオブジェクトを取得します。 返されるオブジェクトは
+         <samp class="ph codeph">埋め込みコード</samp>,  <samp class="ph codeph">タイトル</samp>,  <samp class="ph codeph">説明</samp>,
+         
+         <samp class="ph codeph">時間</samp> （プレイの長さは秒で）、 <samp class="ph codeph">並びます</samp>,
+         
+         <samp class="ph codeph">プロモーション</samp>、および <samp class="ph codeph">ostedAtURL</samp>.  </p>
+
+        <p class="p">バインド可能 </p>
+   
+        <p class="p">フォーマット：読み取り専用 </p>
+   
+        <p class="p">タイプ：オブジェクト </p>
+
+       </td>
+ 
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d135682e49 d135682e52 "><span class="keyword apiname" id="cat_as_assets__as_lin1">並びます </span>
+       </td>
+
+       <td class="entry" valign="top" headers="d135682e49 d135682e52 "><p class="p">現在のチャンネルを記述するオブジェクトの配列を返します。 </p>
+
+              <p class="p">バインド可能 </p>
+
+              <p class="p">フォーマット：読み取り専用 </p>
+
+              <p class="p">タイプ：配列</p>
+
+      </td>
+ 
+    </tr>
+<tr class="row">
+     <td class="entry" valign="top" headers="d135682e49 d135682e52 "><span class="keyword apiname" id="cat_as_assets__as_til1">タイトル</span></td>
+
+    <td class="entry" valign="top" headers="d135682e49 d135682e52 "><p class="p">現在のチャンネルまたはチャンネルが指定されていない場合はビデオのタイトルを取得します。 </p>
+
+       <p class="p">バインド可能 </p>
+
+       <p class="p">フォーマット：読み取り専用。 </p>
+
+       <p class="p">タイプ：文字列 </p>
+
+       <p class="p">戻り値：英数字文字列 </p>
+
+       <p class="p">例： &quot;Xゲーム&quot; </p>
+
+   </td>
+
+   </tr>
+<tr class="row">
+    <td class="entry" valign="top" headers="d135682e49 d135682e52 "><span class="keyword apiname" id="cat_as_assets__as_tot1">totalTime</span>
+    </td>
+
+     <td class="entry" valign="top" headers="d135682e49 d135682e52 ">
+        <p class="p">アクティブなビデオの長さを取得します（ミリ秒の精度で秒単位）。 </p>
+
+        <p class="p">バインド可能 </p>
+
+        <p class="p">フォーマット：読み取り専用。 </p>
+   
+        <p class="p">タイプ：整数 </p>
+
+        <p class="p">例：5400 </p>
+
+   </td>
+
+   </tr>
+</tbody>
+
+   </table>
+</div>
+
+</div>
+
+<div class="section"><h2 class="title sectiontitle">資産機能</h2>
+   
+      <p class="p">次の表は、アセットに関連付けられているすべてのActionScriptメソッドを説明しています。</p>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="cat_as_assets__table_assets_jsfunc" class="table" frame="border" border="1" rules="all">
+   <thead class="thead" align="left">
+   <tr class="row">
+   <th class="entry" valign="top" id="d135682e327">関数</th>
+
+   <th class="entry" valign="top" id="d135682e330">説明</th>
+
+   </tr>
+
+   </thead>
+
+     <tbody class="tbody">
+      
+      
+      
+      
+     <tr class="row">
+       <td class="entry" valign="top" headers="d135682e327 d135682e330 "><span class="keyword apiname" id="cat_as_assets__as_incCIR1">incrementCurrentItemRating（評価）</span>
+       </td>
+
+       <td class="entry" valign="top" headers="d135682e327 d135682e330 "><p class="p">現在のアイテムの評価を上げます。 このコンピュータが以前にこの項目を評価している場合は、この関数を呼び出しても効果はありません。 </p>
+
+         <p class="p">タイプ：整数 </p>
+
+         <p class="p">パラメータ：評価 </p>
+
+         <p class="p">戻り値：0から10までの整数。</p>
+
+      </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d135682e327 d135682e330 "><span class="keyword apiname" id="cat_as_assets__as_loaRA1">loadRatingsApi（）</span>
+       </td>
+
+       <td class="entry" valign="top" headers="d135682e327 d135682e330 ">Ratings APIをロードします。 Ratings APIは、次のようにRating API関数を呼び出す前にロードする必要があります。 <samp class="ph codeph">incrementCurrentItemRating（）</samp> そして
+        <samp class="ph codeph">getCanRateCurrentItem（）</samp>。 ratingsApiReadyイベントは、APIの使用準備が整ったときに送出されます。</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d135682e327 d135682e330 "><span class="keyword apiname" id="cat_as_assets__as_pauMov1">pauseMovie（）</span>
+       </td>
+
+       <td class="entry" valign="top" headers="d135682e327 d135682e330 ">現在のビデオを一時停止します。</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d135682e327 d135682e330 "><span class="keyword apiname" id="cat_as_assets__as_plaMov1">映画を再生（）</span>
+       </td>
+
+       <td class="entry" valign="top" headers="d135682e327 d135682e330 ">
+          <p class="p">現在のビデオを再生します。 </p>
+
+       </td>
+
+      </tr>
+</tbody>
+
+    </table>
+</div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">関連情報 </h2>
+   
+   <p class="p">以下のリストは、資産に関する一般的な情報を提供するBacklotの資料へのリンクを示しています。</p>
+
+  </div>
+
+  <div class="section">
+   <ul class="ul">
+    <li class="li"><a class="xref" href="../api/assets.html" title="/ v2 / assetsルートはすべての種類の資産を扱います。">資産</a></li>
+
+    <li class="li"><a class="xref" href="../api/asset_associations.html" title="定義したら、広告セット、公開ルール、ラベルをアセットに関連付けることができます。">アセットアソシエーション</a></li>
+
+    <li class="li"><a class="xref" href="../concepts/chapter_publishing.html" title="公開を使用すると、動画や動画のメタデータを複数のWebプロパティやコンテンツネットワークと共有できます。">コンテンツ発行</a></li>
+
+   </ul>
+
+  </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../archive/player_api_as_intro.html" title="Ooyala PlayerのActionScript APIを使用すると、Adobe Flashベースのプレーヤーおよびビデオエクスペリエンスをカスタマイズできます。">プレーヤActionScript API（プレーヤV2は廃止予定）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- de

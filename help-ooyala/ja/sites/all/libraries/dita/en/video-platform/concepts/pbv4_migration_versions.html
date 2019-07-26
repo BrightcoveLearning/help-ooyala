@@ -1,0 +1,826 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Differences Between Player Versions"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_migration.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_migration_versions"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>プレーヤーのバージョン間の違い</title>
+</head>
+<body id="pbv4_migration_versions">
+
+
+    <h1 class="title topictitle1">プレーヤーのバージョン間の違い</h1>
+
+    <div class="body conbody">
+        <div class="section">Player V3に精通しているお客様のために、このトピックではPlayer V4に見られるいくつかの違いについて説明します。 <ul class="ul">
+                <li class="li">UIをカスタマイズする</li>
+
+                <li class="li">Player V3からのサードパーティ分析プラグイン</li>
+
+                <li class="li">広告設定パラメータと設定</li>
+
+                <li class="li">その他のJavaScript APIの変更</li>
+
+            </ul>
+</div>
+
+            <div class="section" id="pbv4_migration_versions__ui"><h2 class="title sectiontitle">プレーヤーの外観をカスタマイズする</h2>Player V4 UIをカスタマイズするには、Backlot UI、ページレベルのパラメータ、インラインオーバーライド、さまざまな方法でプレーヤインターフェイスを設定できます。 <samp class="ph codeph">skin.json</samp> 設定ファイル、およびCSSプロパティ。 手順については、 <a class="xref" href="pbv4_customize.html">プレーヤV4外観のカスタマイズ</a>.  </div>
+
+        <div class="section" id="pbv4_migration_versions__analytics"><h2 class="title sectiontitle">Player V3からのサードパーティ分析プラグイン</h2>
+            
+            <p class="gt-block p">  <a class="xref" href="pbv4_analytics_framework.html">分析フレームワーク</a> サードパーティの分析をプレーヤと統合することができます。</p>
+
+                <p class="gt-block p"><strong class="ph b">プラグイン</strong></p>
+
+                <p class="p">Analytics Frameworkを使用して、サードパーティの分析プロバイダとの統合を再作成することができます。 弊社は、トップサードパーティの分析プロバイダ向けに、すぐに使える統合プラグインを提供しています。 あるいは、Ooyalaプロフェッショナルサービスと協力して、移行を支援することもできます。 </p>
+
+            <p class="gt-block p"><strong class="ph b">イベントメッセージ</strong></p>
+
+            <p class="p" id="pbv4_migration_versions__af_events">Analytics Frameworkは、Player V3イベントおよびPlayer V4イベントとは異なるイベントメッセージを使用します。 以下の表は、Analyticsフレームワークが予期しているイベントとPlayer V3 / Player V4イベントの間のマッピングを示しています。 このマッピングを使用して分析プラグインを作成できます。 </p>
+
+            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="pbv4_migration_versions__analytics_framework_events" class="table" frame="border" border="1" rules="all">
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" id="d471687e75">プレーヤOO.EVENTS名前空間内のイベント（例：OO.EVENTS.PLAYER_CREATED）</th>
+
+                            <th class="entry" valign="top" id="d471687e78">Analytics Framework OO.Analytics.EVENTS名前空間のイベント（例：OO.Analytics.EVENTS.VIDEO_PLAYER_CREATED）</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">PLAYER_CREATED</samp></td>
+
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">VIDEO_PLAYER_CREATED</samp></td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">EMBED_CODE_CHANGED</samp></td>
+
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">VIDEO_SOURCE_CHANGED</samp></td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">METADATA_FETCHED</samp></td>
+
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">VIDEO_STREAM_METADATA_UPDATED</samp></td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">CONTENT_TREE_FETCHED</samp></td>
+
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">VIDEO_CONTENT_METADATA_UPDATED</samp></td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">INITIAL_PLAY</samp></td>
+
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">INITIAL_PLAYBACK_REQUESTED</samp></td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">再生しました</samp></td>
+
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">PLAYBACK_COMPLETED</samp></td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">遊びます</samp></td>
+
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">VIDEO_PLAY_REQUESTED</samp></td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">プレイ</samp></td>
+
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">VIDEO_PLAYING</samp></td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">PAUSE</samp></td>
+
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">VIDEO_PAUSE_REQUESTED</samp></td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">PAUSED</samp></td>
+
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">VIDEO_PAUSED</samp></td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">REPLAY</samp></td>
+
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">VIDEO_REPLAY_REQUESTED</samp></td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">シーク</samp></td>
+
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">VIDEO_SEEK_REQUESTED</samp></td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">探している</samp></td>
+
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">VIDEO_SEEK_COMPLETED</samp></td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">ダウンロード</samp></td>
+
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">VIDEO_STREAM_DOWNLOADING</samp></td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">バッファリング</samp></td>
+
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">VIDEO_BUFFERING_STARTED</samp></td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">緩衝</samp></td>
+
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">VIDEO_BUFFERING_ENDED</samp></td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">WILL_PLAY_ADS</samp></td>
+
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">AD_BREAK_STARTED</samp></td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">ADS_PLAYED</samp></td>
+
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">AD_BREAK_ENDED</samp></td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">破壊する</samp></td>
+
+                            <td class="entry" valign="top" headers="d471687e75 d471687e78 "><samp class="ph codeph">破壊する</samp></td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+
+            <p class="gt-block p">各Analytics Frameworkメッセージには、一緒に送信されたデータがあります。 各イベントで送信されるデータを確認するには、次のWebサイトのドキュメントを読んでください。 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/analytics_framework/OO.Analytics.EVENTS.html" target="_blank">Analytics Framework API</a>.</p>
+
+        </div>
+
+        
+        <div class="section" id="pbv4_migration_versions__ads"><h2 class="title sectiontitle">広告設定パラメータと設定</h2>
+            
+            <p class="gt-block p">とともに <a class="xref" href="pbv4_ads_framework.html">広告マネージャフレームワーク</a> プレーヤV4用Ad Managerフレームワーク、設定パラメータ、および一部のページレベル設定は、プレーヤV3とは異なります。 Backlot設定をページレベルで上書きしない場合、広告には完全な下位互換性があります。 </p>
+
+            <p class="gt-block p"><strong class="ph b">一般的な広告の変更</strong></p>
+
+            <div class="p">次のグローバル広告パラメータは、Player V4の新機能です。 見る <a class="xref" href="pbv4_configure_ads_embedded_params.html">広告パラメータを設定する</a> これらのパラメータの詳細については、<ul class="ul">
+                    <li class="li"><samp class="ph codeph"><a class="xref" href="pbv4_configure_ads_embedded_params.html#pbv4_configure_ads_embedded_params__pauseAdOnClick">pauseAdOnClick</a></samp></li>
+
+                    <li class="li"><samp class="ph codeph"><a class="xref" href="pbv4_configure_ads_embedded_params.html#pbv4_configure_ads_embedded_params__replayAds">replayAds</a></samp>
+                    </li>
+
+                    <li class="li"><samp class="ph codeph"><a class="xref" href="pbv4_configure_ads_embedded_params.html#pbv4_configure_ads_embedded_params__showNonLinearCloseButton">showNonLinearCloseButton</a></samp></li>
+
+                    <li class="li"><samp class="ph codeph"><a class="xref" href="pbv4_configure_ads_embedded_params.html#pbv4_configure_ads_embedded_params__showLinearAdSkipButton">showLinearAdSkipButton</a></samp>
+                    </li>
+
+                    <li class="li"><samp class="ph codeph"><a class="xref" href="pbv4_configure_ads_embedded_params.html#pbv4_configure_ads_embedded_params__linearAdSkipButtonStartTime">linearAdSkipButtonStartTime</a></samp>
+                    </li>
+
+                    <li class="li"><samp class="ph codeph"><a class="xref" href="pbv4_configure_ads_embedded_params.html#pbv4_configure_ads_embedded_params__allowAdClickThroughOnVideo">allowAdClickThroughOnVideo</a></samp>
+                    </li>
+
+                </ul>
+次の広告パラメータは、Player V4ではサポートされていません。 </div>
+<div class="p">
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" id="d471687e384">プレーヤV4ではサポートされないグローバル広告パラメータ</th>
+
+                                <th class="entry" valign="top" id="d471687e387">プレイヤーV4相当</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e384 d471687e387 "><samp class="ph codeph">showInAdControlBar</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e384 d471687e387 "><span class="ph">修正します <a class="xref" href="../reference/pbv4_skin_schema_docs.html">skin.json</a> 
+                                    広告コントロールバーの機能を変更する。 これは、VAST 2.0またはVAST 3.0広告をレンダリングするときのFreeWheel広告プラグイン、VASTおよびVPAIDプラグインに適用されます。</span></td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e384 d471687e387 "><samp class="ph codeph">showAdMarquee</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e384 d471687e387 "><span class="ph">Google IMA広告プラグインの場合、このパラメータは無視されます。 プラグインにページレベルの上書き（showAdControls）を使用しない限り、広告の広告コントロールバーは表示されません。 グーグルはそれ自身のUIを提供し、これは私たちのUIがそれを覆い隠すのを防ぎます。 VASTおよびVPAIDプラグインでは、VPAID 2.0広告をレンダリングしているため、広告コントロールも強制的にオフに設定されています。 これは、広告の双方向性を妨げないようにするためです。</span></td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+            </div>
+
+            <p class="p">新しいAd Manager Frameworkでは、広告マネージャプラグインを使用して、広告マネージャとプレーヤを統合しています。 Google IMA、VAST、FreeWheel、VPAID、およびその他の広告マネージャの場合は、広告統合が自分の目的のために機能するようにプレーヤを作成する前に、HTMLページに広告マネージャプラグイン（ad_manager_vast.min.jsなど）を読み込む必要があります。プレーヤー。 </p>
+<p class="gt-block p"><strong class="ph b">Google IMA固有の変更</strong></p>
+
+            <div class="p">Google IMA広告をページにロードしなくなりました。
+                <pre class="pre codeblock">&quot;google-ima-ads-manager&quot;：{&quot;adTagUrl&quot;： &quot;yourAdTagUrl&quot;}</pre>
+広告タグは配列にラップされています <samp class="ph codeph">adTagUrl</samp> 名前が変更されました
+                    <samp class="ph codeph">tag_url</samp>。 見る <a class="xref" href="pbv4_ads_dev_google_ima.html">Google IMA広告の統合</a> Google IMA広告の実装方法の詳細については、</div>
+
+            <div class="p">次のIMA固有のパラメータは、Player V4ではサポートされていません。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" id="d471687e457">プレーヤV4ではサポートされていないIMAパラメータ</th>
+
+                                <th class="entry" valign="top" id="d471687e460">プレイヤーV4相当</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e457 d471687e460 "><samp class="ph codeph">adTagUrl</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e457 d471687e460 ">用途 <samp class="ph codeph">tag_url</samp>。 見る <a class="xref" href="pbv4_ads_dev_google_ima.html">Google IMA広告の統合</a> Google IMA広告の実装方法の詳細については、</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e457 d471687e460 "><samp class="ph codeph">useStyledNonLinearAds</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e457 d471687e460 ">同等のプレーヤーV4はありません。</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e457 d471687e460 "><samp class="ph codeph">showInAdControlBar</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e457 d471687e460 ">このパラメータは、この広告マネージャではグローバルに推奨されていません。 Google IMA広告プラグインの場合、広告の双方向性がブロックされないように、skin.jsonの広告コントロールバーの設定は無視されます（強制的にオフに設定されます）。</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e457 d471687e460 "><samp class="ph codeph">showAdMarquee</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e457 d471687e460 ">Google IMA広告プラグインの場合、広告の双方向性がブロックされないように、skin.jsonの広告マーキー設定は無視されます（強制的にオフに設定されます）。</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e457 d471687e460 "><samp class="ph codeph">playWhenAdClick</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e457 d471687e460 ">使用 <samp class="ph codeph"><a class="xref" href="pbv4_configure_ads_embedded_params.html#pbv4_configure_ads_embedded_params__pauseAdOnClick">pauseAdOnClick</a></samp> グローバルパラメータ</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e457 d471687e460 "><samp class="ph codeph">adRequestTimeout</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e457 d471687e460 ">使用 <samp class="ph codeph"><a class="xref" href="pbv4_configure_ads_embedded_params.html#pbv4_configure_ads_embedded_params__adLoadTimeout">adLoadTimeout</a></samp> グローバルパラメータ</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+ 次の表は、プレーヤV4（iOSおよびAndroid用のHTML5プレーヤおよびモバイルSDK）とプレーヤV3（iOSおよびAndroid用のHTMLプレーヤおよびモバイルSDK）でサポートされている広告位置を比較したものです。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" id="d471687e556">サポートされている広告掲載順位</th>
+
+                                <th class="entry" valign="top" id="d471687e559">プレイヤーV4</th>
+
+                                <th class="entry" valign="top" id="d471687e562">プレイヤーV3</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e556 d471687e559 d471687e562 ">プリロール</td>
+
+                                <td class="entry" align="center" valign="top" headers="d471687e556 d471687e559 d471687e562 ">✔</td>
+
+                                <td class="entry" align="center" valign="top" headers="d471687e556 d471687e559 d471687e562 ">✔</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e556 d471687e559 d471687e562 ">ミッドロール</td>
+
+                                <td class="entry" align="center" valign="top" headers="d471687e556 d471687e559 d471687e562 ">✔</td>
+
+                                <td class="entry" align="center" valign="top" headers="d471687e556 d471687e559 d471687e562 ">✔</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e556 d471687e559 d471687e562 ">ポストロール</td>
+
+                                <td class="entry" align="center" valign="top" headers="d471687e556 d471687e559 d471687e562 ">✔</td>
+
+                                <td class="entry" align="center" valign="top" headers="d471687e556 d471687e559 d471687e562 ">✔</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e556 d471687e559 d471687e562 ">ポッド</td>
+
+                                <td class="entry" align="center" valign="top" headers="d471687e556 d471687e559 d471687e562 ">✔</td>
+
+                                <td class="entry" align="center" valign="top" headers="d471687e556 d471687e559 d471687e562 ">✔</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e556 d471687e559 d471687e562 ">スキップ可能</td>
+
+                                <td class="entry" align="center" valign="top" headers="d471687e556 d471687e559 d471687e562 ">✔</td>
+
+                                <td class="entry" align="center" valign="top" headers="d471687e556 d471687e559 d471687e562 ">✔</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e556 d471687e559 d471687e562 ">クリックスルー</td>
+
+                                <td class="entry" align="center" valign="top" headers="d471687e556 d471687e559 d471687e562 ">✔</td>
+
+                                <td class="entry" align="center" valign="top" headers="d471687e556 d471687e559 d471687e562 ">✔</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e556 d471687e559 d471687e562 ">オーバーレイ</td>
+
+                                <td class="entry" align="center" valign="top" headers="d471687e556 d471687e559 d471687e562 ">✔</td>
+
+                                <td class="entry" valign="top" headers="d471687e556 d471687e559 d471687e562 "> </td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e556 d471687e559 d471687e562 ">コンパニオン</td>
+
+                                <td class="entry" align="center" valign="top" headers="d471687e556 d471687e559 d471687e562 ">✔</td>
+
+                                <td class="entry" valign="top" headers="d471687e556 d471687e559 d471687e562 "> </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+</div>
+
+            <p class="gt-block p"><strong class="ph b">フリーホイール固有の変更</strong></p>
+ 次の表は、プレーヤV4（iOSおよびAndroid用のHTML5プレーヤおよびモバイルSDK）とプレーヤV3（iOSおよびAndroid用のHTMLプレーヤおよびモバイルSDK）でサポートされている広告位置を比較したものです。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" id="d471687e679">サポートされている広告掲載順位</th>
+
+                            <th class="entry" valign="top" id="d471687e682">プレイヤーV4</th>
+
+                            <th class="entry" valign="top" id="d471687e685">プレイヤーV3</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d471687e679 d471687e682 d471687e685 ">プリロール</td>
+
+                            <td class="entry" align="center" valign="top" headers="d471687e679 d471687e682 d471687e685 ">✔</td>
+
+                            <td class="entry" align="center" valign="top" headers="d471687e679 d471687e682 d471687e685 ">✔</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d471687e679 d471687e682 d471687e685 ">ミッドロール</td>
+
+                            <td class="entry" align="center" valign="top" headers="d471687e679 d471687e682 d471687e685 ">✔</td>
+
+                            <td class="entry" valign="top" headers="d471687e679 d471687e682 d471687e685 "> </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d471687e679 d471687e682 d471687e685 ">ポストロール</td>
+
+                            <td class="entry" align="center" valign="top" headers="d471687e679 d471687e682 d471687e685 ">✔</td>
+
+                            <td class="entry" align="center" valign="top" headers="d471687e679 d471687e682 d471687e685 ">✔</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d471687e679 d471687e682 d471687e685 ">ポッド</td>
+
+                            <td class="entry" align="center" valign="top" headers="d471687e679 d471687e682 d471687e685 ">✔</td>
+
+                            <td class="entry" valign="top" headers="d471687e679 d471687e682 d471687e685 "> </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d471687e679 d471687e682 d471687e685 ">スキップ可能</td>
+
+                            <td class="entry" align="center" valign="top" headers="d471687e679 d471687e682 d471687e685 ">✔</td>
+
+                            <td class="entry" valign="top" headers="d471687e679 d471687e682 d471687e685 "> </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d471687e679 d471687e682 d471687e685 ">クリックスルー</td>
+
+                            <td class="entry" align="center" valign="top" headers="d471687e679 d471687e682 d471687e685 ">✔</td>
+
+                            <td class="entry" align="center" valign="top" headers="d471687e679 d471687e682 d471687e685 ">✔</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d471687e679 d471687e682 d471687e685 ">オーバーレイ</td>
+
+                            <td class="entry" align="center" valign="top" headers="d471687e679 d471687e682 d471687e685 ">✔</td>
+
+                            <td class="entry" valign="top" headers="d471687e679 d471687e682 d471687e685 "> </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+
+            <p class="gt-block p"><strong class="ph b">VAST固有の変更</strong></p>
+
+            <p class="gt-block p">  <samp class="ph codeph">広大な広告</samp> パラメータは新しいVASTプラグインでは現在サポートされていません。 見る <a class="xref" href="pbv4_ads_dev_vast.html">VAST広告とVPAID広告の統合</a> VAST広告統合の詳細については。</p>
+
+            <p class="gt-block p"><strong class="ph b">VPAID固有の変更</strong></p>
+
+            <div class="p">VASTとVPAIDの広告統合機能が1つのプラグインに統合されました。 見る <a class="xref" href="pbv4_ads_dev_vast.html">VAST広告とVPAID広告の統合</a> VASTとVPAIDの広告統合の詳細については。 次のVPAID固有のパラメータは、Player V4ではサポートされていません。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" id="d471687e809">プレーヤV4ではサポートされていないVPAIDパラメータ</th>
+
+                                <th class="entry" valign="top" id="d471687e812">プレイヤーV4相当</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e809 d471687e812 "><samp class="ph codeph">vpaid-ads-manager</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e809 d471687e812 ">用途 <samp class="ph codeph">広大な広告マネージャ</samp>。 見る <a class="xref" href="pbv4_ads_dev_vast.html">VAST広告とVPAID広告の統合</a> VPAID広告の実装方法の詳細については、</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e809 d471687e812 "><samp class="ph codeph">adLayout</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e809 d471687e812 ">同等のプレーヤーV4はありません。</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e809 d471687e812 "><samp class="ph codeph">adTag</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e809 d471687e812 ">用途 <samp class="ph codeph">tag_url</samp>。 見る <a class="xref" href="pbv4_ads_dev_vast.html">VAST広告とVPAID広告の統合</a> VPAID広告の実装方法の詳細については、</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e809 d471687e812 "><samp class="ph codeph">showAdMarquee</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e809 d471687e812 ">VPAID 2.0広告をレンダリングするVASTプラグインとVPAIDプラグインの場合、skin.jsonの広告マーキー設定は無視され（そして強制的にoffに設定され）、広告の双方向性がブロックされるのを防ぎます。</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e809 d471687e812 "><samp class="ph codeph">showInAdControlBar</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e809 d471687e812 ">VPAID 2.0広告をレンダリングするVASTおよびVPAIDプラグインの場合、skin.jsonの広告コントロールバーの設定は無視され（そして強制的にoffに設定され）、広告の双方向性がブロックされないようにします。</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e809 d471687e812 "><samp class="ph codeph">playWhenAdClick</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e809 d471687e812 ">使用 <samp class="ph codeph"><a class="xref" href="pbv4_configure_ads_embedded_params.html#pbv4_configure_ads_embedded_params__pauseAdOnClick">pauseAdOnClick</a></samp> グローバルパラメータ</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+</div>
+
+            <p class="gt-block p"><strong class="ph b">LiveRail固有の変更</strong></p>
+
+            <p class="gt-block p">Player V4は、VASTおよびVPAIDプラグインを通じてLiveRail VAST広告タグをサポートします。 見る <a class="xref" href="pbv4_ads_dev_vast.html">VAST広告とVPAID広告の統合</a> VASTとVPAIDの広告統合の詳細については、</p>
+
+            <p class="p">VASTおよびVPAIDプラグインは、VAST XMLであるLiveRail広告タグURLをサポートしています。 これは、BacklotのLiveRail（VAST）オーバーレイ広告とLiveRail（VAST）インストリーム広告セットタイプに関連しています。 </p>
+
+            <div class="note note"><span class="notetitle">注意：</span> VASTおよびVPAIDプラグインは、VAST XML形式を使用しないLiveRail広告をサポートしません。</div>
+
+            <div class="p"> 以下のLiveRail固有のパラメータは、Player V4ではサポートされていません。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" id="d471687e930">LiveRailパラメータはPlayer V4ではサポートされていません</th>
+
+                                <th class="entry" valign="top" id="d471687e933">プレイヤーV4相当</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e930 d471687e933 "><samp class="ph codeph">liverail-ads-manager</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e930 d471687e933 ">用途 <samp class="ph codeph">広大な広告マネージャ</samp>。 見る <a class="xref" href="pbv4_ads_dev_vast.html">VAST広告とVPAID広告の統合</a> VAST広告の実装方法の詳細については、</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e930 d471687e933 "><samp class="ph codeph">LR_PUBLISHER_ID </samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e930 d471687e933 ">同等のプレーヤーV4はありません。</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e930 d471687e933 "><samp class="ph codeph">LR_PARTNERS</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e930 d471687e933 ">同等のプレーヤーV4はありません。</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e930 d471687e933 "><samp class="ph codeph">LR_TAGS</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e930 d471687e933 ">用途 <samp class="ph codeph">tag_url</samp> LiveRail VAST広告タグ用。 見る <a class="xref" href="pbv4_ads_dev_vast.html">VAST広告とVPAID広告の統合</a> VPAID広告を実装する方法の詳細については。</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e930 d471687e933 "><samp class="ph codeph">LR_ADMAP</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e930 d471687e933 ">同等のプレーヤーV4はありません。</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+</div>
+
+        </div>
+
+
+
+        
+        <div class="section" id="pbv4_migration_versions__api"><h2 class="title sectiontitle">その他のJavaScript APIの変更</h2> 上記の変更に加えて、このセクションではPlayer V4のPlayer JavaScript APIの変更点について説明します。 <p class="gt-block p"><strong class="ph b">埋め込みパラメータ</strong></p>
+Player V4では、埋め込みパラメータ（Player V4では「ページレベルパラメータ」と呼ばれます）にいくつかの変更が加えられています。
+                <span class="keyword apiname">OO.Player.create（）</span> 方法。 見る <a class="xref" href="../api/pbv4_api_embedparams.html">プレーヤV4のページレベルパラメータ</a> サポートされている埋め込みパラメータの詳細な説明 <p class="gt-block p"><strong class="ph b">V4の新しい埋め込みパラメータ</strong>。 次のパラメータは、Player V4に追加されたものです。</p>
+<ul class="ul">
+                <li class="li"><samp class="ph codeph"><a class="xref" href="../api/pbv4_api_embedparams.html#pbv4_api_embedparams__encodingPriority">encodingPriority</a></samp></li>
+
+                <li class="li"><samp class="ph codeph"><a class="xref" href="../api/pbv4_api_embedparams.html#pbv4_api_embedparams__initialVolume">initialVolume</a></samp></li>
+
+                <li class="li"><samp class="ph codeph"><a class="xref" href="../api/pbv4_api_embedparams.html#pbv4_api_embedparams__initialBitrate">initialBitrate</a></samp></li>
+
+            </ul>
+ 完全なリストについては、 <a class="xref" href="../api/pbv4_api_embedparams.html">プレーヤV4のページレベルパラメータ</a>.  <p class="gt-block p"><strong class="ph b">V4ではサポートされていない埋め込みパラメータ</strong>。 次のような（ただし、これらに限定されない）特定のPlayer V3パラメータは、Player V4ではサポートされなくなりました。</p>
+<div class="p">
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" id="d471687e1067">プレーヤV4ではサポートされていないグローバルパラメータ</th>
+
+                                <th class="entry" valign="top" id="d471687e1070">プレイヤーV4相当</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 "><strong class="ph b">埋め込みパラメータ</strong></td>
+
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 "> </td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 "><samp class="ph codeph">インストリーム</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 ">同等のプレーヤーV4はありません。</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 "><samp class="ph codeph">ローカル</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 ">修正します <a class="xref" href="../reference/pbv4_skin_schema_docs.html">skin.json</a> プレーヤUIのローカライズを変更します。 見る <a class="xref" href="android_ios_web_v4_localization.html">Ooyalaプレーヤーの言語設定</a> 詳細については。 </td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 "><samp class="ph codeph">プリバッファリング</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 ">同等のプレーヤーV4はありません。</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 "><samp class="ph codeph">tvRatingsPosition</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 ">同等のプレーヤーV4はありません。</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 "><samp class="ph codeph">tvRatingsTimer</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 ">同等のプレーヤーV4はありません。</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 "><samp class="ph codeph">useFirstVideoFromPlaylist</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 ">同等のプレーヤーV4はありません。</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 "><samp class="ph codeph">enableChannels</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 ">同等のプレーヤーV4はありません。</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 "><samp class="ph codeph">showInAdControlBar</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 "><span class="ph" id="pbv4_migration_versions__control_bar_note">修正します <a class="xref" href="../reference/pbv4_skin_schema_docs.html">skin.json</a> 
+                                    広告コントロールバーの機能を変更する。 これは、VAST 2.0またはVAST 3.0広告をレンダリングするときのFreeWheel広告プラグイン、VASTおよびVPAIDプラグインに適用されます。</span></td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 "><samp class="ph codeph">showAdMarquee</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 "><span class="ph" id="pbv4_migration_versions__ad_marquee_note">Google IMA広告プラグインの場合、このパラメータは無視されます。 プラグインにページレベルの上書き（showAdControls）を使用しない限り、広告の広告コントロールバーは表示されません。 グーグルはそれ自身のUIを提供し、これは私たちのUIがそれを覆い隠すのを防ぎます。 VASTおよびVPAIDプラグインでは、VPAID 2.0広告をレンダリングしているため、広告コントロールも強制的にオフに設定されています。 これは、広告の双方向性を妨げないようにするためです。</span></td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 "><strong class="ph b">カスタムモジュールパラメータ</strong></td>
+
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 "> </td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 "><samp class="ph codeph">devModuleCategory</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 ">同等のプレーヤーV4はありません。</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 "><samp class="ph codeph">devModuleURL</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 ">同等のプレーヤーV4はありません。</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 "><samp class="ph codeph">隠す</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 ">同等のプレーヤーV4はありません。</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 "><samp class="ph codeph">レイアウト</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 ">同等のプレーヤーV4はありません。</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 "><samp class="ph codeph">thruParam_dev  - その他</samp></td>
+
+                                <td class="entry" valign="top" headers="d471687e1067 d471687e1070 ">同等のプレーヤーV4はありません。</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+            </div>
+<p class="gt-block p"><strong class="ph b">クエリ文字列パラメータ</strong></p>
+<p class="p">Player V3クエリ文字列パラメータ（<samp class="ph codeph">名前空間</samp>,  <samp class="ph codeph">プラットフォーム</samp>、および
+                    <samp class="ph codeph">微調整</samp>）はPlayer V4には適用されません。</p>
+<p class="gt-block p"><strong class="ph b">プレイヤーイベント</strong></p>
+ プレイヤーイベントはプレイヤーV3とプレイヤーV4の間で変更されました。
+                    <div class="p"><strong class="ph b">廃止予定のプレーヤーイベント</strong>。 次のPlayer V3イベントはPlayer V4では推奨されておらず、機能しません。 Ooyalaはこのイベントを削除しました。<ul class="ul">
+                    <li class="li"><samp class="ph codeph">SET_TARGET_BITRATE_QUALITY</samp></li>
+
+                </ul>
+
+                <strong class="ph b">新しいプレイヤーイベント</strong>。 以下のイベントは、Player V4に追加されたものです。 詳細なイベントの説明はこちらで確認できます。 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_v4_js/OO.EVENTS.html#toc0" target="_blank">docs.brightcove.com/apidocs-ooyala/</a>.  <ul class="ul">
+                    <li class="li"><samp class="ph codeph">BITRATE_INFO_AVAILABLE</samp></li>
+
+                    <li class="li"><samp class="ph codeph">BITRATE_CHANGED</samp></li>
+
+                    <li class="li"><samp class="ph codeph">SET_TARGET_BITRATE</samp></li>
+
+                    <li class="li"><samp class="ph codeph">SET_CLOSED_CAPTIONS_LANGUAGE</samp></li>
+
+                    <li class="li"><samp class="ph codeph">CLOSED_CAPTIONS_INFO_AVAILABLE</samp></li>
+
+                </ul>
+</div>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/pbv4_migration.html">プレーヤV4への移行</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

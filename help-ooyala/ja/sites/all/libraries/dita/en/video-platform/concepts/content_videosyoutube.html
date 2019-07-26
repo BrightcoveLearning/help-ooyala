@@ -1,0 +1,117 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="YouTube Videos"/>
+<meta name="abstract" content="A YouTube video is a video hosted by YouTube and played through the Ooyala player."/>
+<meta name="description" content="YouTubeビデオは、YouTubeによってホストされ、Ooyalaプレーヤーを通じて再生されたビデオです。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_upload.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/youtube_upload.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/youtube_manage_details.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_asset_manage.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/api_youtube_upload.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/api_remote_assets_youtube.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="content_videosyoutube"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>YouTubeのビデオ</title>
+</head>
+<body id="content_videosyoutube">
+
+
+ <h1 class="title topictitle1">YouTubeのビデオ</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">YouTubeビデオは、YouTubeによってホストされ、Ooyalaプレーヤーを通じて再生されたビデオです。 </p>
+
+  <div class="note note"><span class="notetitle">注意：</span> YouTubeの要件が急速かつ予測不能に変化したため、YouTubeアセットの再生は、古いOoyalaプレーヤー（Player v4.10.6以前、およびPlayer V3）でのみサポートされています。 BacklotにアップロードされたYouTubeアセットの再生は、Ooyala Player V4の最近のリリースでは機能しません。 Ooyalaは、コンテンツ管理を目的としたYouTubeアセットのアップロードを引き続きサポートします。</div>
+
+  <div class="section" id="content_videosyoutube__benefits"><h2 class="title sectiontitle">YouTubeでホストされている動画を再生する利点</h2>
+ <ul class="ul">
+  <li class="li">
+   Ooyalaプレーヤーまたはカスタムプレーヤーを使用して、サイト全体で一貫した外観を維持します。
+  </li>
+
+  <li class="li">
+   統合されたカスタマイズされたエクスペリエンスのためにOoyalaの豊富なAPIの使用を活用してください。  
+  </li>
+
+  <li class="li">
+   アカウント内のすべての動画について、Ooyalaの優れた分析機能の洞察を得てその利点を維持します。
+  </li>
+
+  <li class="li">
+   インターネット最大のビデオライブラリ、Youtubeからあなたのサイトの補足コンテンツを見つけましょう。
+  </li>
+
+  <li class="li">
+   コンテンツに時間、地域、またはドメインベースのルールを適用します。
+  </li>
+
+  <li class="li">
+   Ooyalaの直感的で包括的なツールを活用して、YouTubeコンテンツを自分のコンテンツと共に管理、シンジケート、カスタマイズ、および分析します。
+  </li>
+
+ </ul>
+
+  </div>
+
+  <div class="section" id="content_videosyoutube__hosting"><h2 class="title sectiontitle">動画はBacklotではなくYouTubeでホストされています</h2>YouTubeのビデオはYouTubeから提供されています。 Backlotでは、ビデオは、編集可能なタイトルと説明とともに、そのYouTube URLを含むYouTubeアセットとして表されます。 Backlotでは、アセットタイプは &quot;youtube&quot;です。そのため、我々のドキュメントでは、これらをアセットタイプと呼んでいます。 <em class="ph i">YouTubeの資産</em>.  <div class="fig fignone">
+    <img class="image" src="http://help-ooyala.brightcove.com/../image/pbv4_youtube.png"/>
+   </div>
+したがって：<ul class="ul">
+    <li class="li">BacklotはYoutubeビデオを取り込んでトランスコードしません。</li>
+
+    <li class="li">YouTubeの動画は、配信または管理対象コンテンツの割り当てには適用されません。</li>
+
+   </ul>
+ その結果、すべての動画にYouTubeの透かしが含まれ、プレーヤーの埋め込みサイズに基づいて、YouTubeが提供できる最高の品質で配信されます。</div>
+
+  <div class="section" id="content_videosyoutube__considerations"><h2 class="title sectiontitle">考慮事項</h2>
+   <ul class="ul">
+  <li class="li">BacklotはYouTubeの動画をトランスコードしないため、
+   <ul class="ul">
+    <li class="li">Backlotはプレビュー画像を生成しません。</li>
+
+    <li class="li">iOSデバイスではコンテンツを再生できません。</li>
+
+   </ul>
+</li>
+
+  <li class="li">YouTubeコンテンツは、常にプレーヤが利用できるとは限りません。 たとえば、動画が削除されたり、YouTubeサイト運営者の規則に基づいて動画が制限されたり、YouTubeへのアクセスが視聴者の会社や機関によってブロックされたりする可能性があります。 </li>
+
+   </ul>
+
+  </div>
+
+ </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../tasks/youtube_upload.html">YouTubeビデオを追加する</a></strong><br/>
+YouTubeでホストされているビデオを管理する前に、それをに追加する必要があります <span class="ph">バックスロット</span>.</li>
+<li class="link ulchildlink"><strong><a href="../tasks/youtube_manage_details.html">YouTubeアセット詳細の管理</a></strong><br/>
+YouTubeでホストされているビデオをBacklotのアセットとして追加した後は、メタデータを設定してプレーヤーを指定できます。 </li>
+<li class="link ulchildlink"><strong><a href="../tasks/api_youtube_upload.html">YouTubeビデオをアップロードする</a></strong><br/>
+YouTubeビデオを管理する前に、それをに追加する必要があります <span class="ph">バックスロット</span>.</li>
+<li class="link ulchildlink"><strong><a href="../tasks/api_remote_assets_youtube.html">YouTubeでリモートアセットを利用可能にする</a></strong><br/>
+YouTubeでリモートアセットを利用可能にするには、YouTubeシンジケーションを設定し（1回だけ）、YouTubeにビデオをアップロードし、でリモートアセットを作成する必要があります。 <span class="ph">バックスロット</span>、YouTube IDをアセットに追加し、YouTubeシンジケーションをトリガーするラベルをアセットに追加します。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_upload.html" title="Backlotへのコンテンツのアップロードは簡単で、いくつかの方法で行うことができます。 Backlotのコンテンツは、個別の資産として、または自分が作成したグループとして管理できます。">コンテンツのアップロードと管理</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_asset_manage.html" title="Backlotでは、アセットはビデオ、オーディオ、ライブストリームなどのさまざまな種類のコンテンツの一部です。">資産の管理</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></di

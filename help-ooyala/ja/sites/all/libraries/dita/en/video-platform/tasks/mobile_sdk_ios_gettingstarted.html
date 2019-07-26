@@ -1,0 +1,313 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Getting Started: Setting Up Your Environment in Xcode"/>
+<meta name="abstract" content="Learn how to set up a basic project using the Ooyala Mobile SDK for iOS and Xcode."/>
+<meta name="description" content="iOSおよびXcode用のOoyala Mobile SDKを使用して基本プロジェクトを設定する方法を学びます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_ios_getstarted.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="mobile_sdk_ios_gettingstarted"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>はじめに：Xcodeで環境を設定する</title>
+</head>
+<body id="mobile_sdk_ios_gettingstarted">
+
+
+  <h1 class="title topictitle1">はじめに：Xcodeで環境を設定する</h1>
+
+  
+  <div class="body taskbody"><p class="shortdesc">iOSおよびXcode用のOoyala Mobile SDKを使用して基本プロジェクトを設定する方法を学びます。</p>
+
+    <div class="section prereq p"> このチュートリアルを完了するには： <ul class="ul" id="mobile_sdk_ios_gettingstarted__ul_h3v_mmr_ns">
+        <li class="li">ダウンロード <a class="xref" href="../../../../../../../../ja/downloads/index.html" target="_blank">iOS用Ooyala Mobile SDK</a> （バージョン4.3.0以降）そしてそれをあなたのシステムの都合の良いディレクトリに解凍してください。</li>
+
+        <li class="li">システムにXcode 6（またはそれ以降）をインストールしてください。</li>
+
+      </ul>
+<ul class="ul" id="mobile_sdk_ios_gettingstarted__ul_i3v_mmr_ns">
+        <li class="li">Backlotアカウントにログインして、に移動します。 <span class="ph uicontrol">アカウント</span> &gt;
+            <span class="ph uicontrol">開発者</span>。 ザ <span class="ph uicontrol">APIキー</span> ピリオド（ &quot;。&quot;）の前の英数字と同じであり、指定する値です。
+            <samp class="ph codeph">PCODE</samp> チュートリアルでは定数です。 たとえば、APIキーが
+            <samp class="ph codeph">xxxxxxxxxxxxxxxxxxxxxxxxxxxx.0000</samp>その後、最初の28文字（<samp class="ph codeph">xxxxxxxxxxxxxxxxxxxxxxxxxxxx</samp>） のために <samp class="ph codeph">PCODE</samp>。 詳しくは、 <a class="xref" href="../concepts/api_keys.html" title="Ooyala APIの認証情報には、APIキーとシークレットが含まれています。これらは、HTTPリクエストに署名するため、およびスクラッチパッドを使用するときに提供するものです。">あなたのAPIクレデンシャル</a>.</li>
+
+        <li class="li">Backlotアカウントにログインし、以下の手順で
+            <samp class="ph codeph">埋め込みコード</samp>:<ol class="ol" id="mobile_sdk_ios_gettingstarted__ol_j3v_mmr_ns">
+            <li class="li">案内する <span class="ph uicontrol">管 理</span>.  </li>
+
+            <li class="li">資産を選択してください。</li>
+
+            <li class="li">選択します <span class="ph uicontrol">埋め込む</span>.</li>
+
+            <li class="li">を入手 <span class="ph uicontrol">コンテンツID</span>.</li>
+
+          </ol>
+<img class="image" id="mobile_sdk_ios_gettingstarted__image_k3v_mmr_ns" src="http://help-ooyala.brightcove.com/../image/getcontentid.png" height="222" width="288" alt="コンテンツIDを取得"/></li>
+
+        <li class="li">プレーヤードメインのURLを持っています。</li>
+
+      </ul>
+</div>
+
+    <div class="section context">XcodeでOoyala Mobileアプリスケルトンアプリを設定する方法を学ぶには、このチュートリアルを完了してください。</div>
+
+    <ol class="ol steps"><li class="li step stepexpand">
+        <span class="ph cmd">Xcodeを起動して選択 <span class="ph uicontrol">フィレット</span> &gt; <span class="ph uicontrol">新しい</span> &gt;
+            <span class="ph uicontrol">プロジェクト</span>.</span>
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">選択します <strong class="ph b">シングルビューアプリケーション</strong> をクリックして <strong class="ph b">次</strong>.</span>
+         
+          <img class="image" src="http://help-ooyala.brightcove.com/../image/xcodeprojectemplate.png" height="174" width="295" alt="Xcodeプロジェクトテンプレート"/>
+        
+         新しいプロジェクトオプションダイアログボックスが表示されます。
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">次のプロジェクトオプションを設定して、[]をクリックします。 <span class="ph uicontrol">次</span>.</span>
+        
+<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="" class="simpletable choicetable choicetableborder">
+<thead><tr><th id="d1070147e152-option" valign="bottom" align="left">オプション</th>
+<th id="d1070147e152-desc" valign="bottom" align="left">説明</th></tr></thead>
+<tbody>
+          <tr class="strow chrow">
+            <td valign="top" headers="d1070147e152-option" id="d1070147e156" class="stentry choption"><strong>名前</strong></td>
+
+            <td valign="top" headers="d1070147e152-desc d1070147e156" class="stentry chdesc">プロジェクトの名前を入力してください。</td>
+
+          </tr>
+
+          <tr class="strow chrow">
+            <td valign="top" headers="d1070147e152-option" id="d1070147e165" class="stentry choption"><strong>組織名</strong></td>
+
+            <td valign="top" headers="d1070147e152-desc d1070147e165" class="stentry chdesc">組織の名前を入力してください。</td>
+
+          </tr>
+
+          <tr class="strow chrow">
+            <td valign="top" headers="d1070147e152-option" id="d1070147e174" class="stentry choption"><strong>組織識別子</strong></td>
+
+            <td valign="top" headers="d1070147e152-desc d1070147e174" class="stentry chdesc">組織の識別子を入力してください。</td>
+
+          </tr>
+
+          <tr class="strow chrow">
+            <td valign="top" headers="d1070147e152-option" id="d1070147e183" class="stentry choption"><strong>Language</strong></td>
+
+            <td valign="top" headers="d1070147e152-desc d1070147e183" class="stentry chdesc">このチュートリアルではObjective-Cを選択してください。</td>
+
+          </tr>
+
+          <tr class="strow chrow">
+            <td valign="top" headers="d1070147e152-option" id="d1070147e192" class="stentry choption"><strong>デバイス</strong></td>
+
+            <td valign="top" headers="d1070147e152-desc d1070147e192" class="stentry chdesc">このチュートリアルではユニバーサルを選択してください。</td>
+
+          </tr>
+
+        </tbody></table>
+
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">プロジェクトの場所を選択してクリック <strong class="ph b">次</strong>.</span>
+         プロジェクトが作成されました。
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">選択します <strong class="ph b">フィレット</strong> &gt; <span class="ph uicontrol">にファイルを追加...</span>次のようにします。 </span>
+        <ol type="a" class="ol substeps">
+          <li class="li substep substepexpand">
+            <span class="ph cmd">OoyalaSDK-iOSフォルダを開き、
+              <samp class="ph codeph">OoyalaSDK.framework</samp>.</span>
+          </li>
+
+          <li class="li substep substepexpand">
+            <span class="ph cmd">アクティブ化 <span class="ph uicontrol">保存先&gt;必要に応じてアイテムをコピー</span> チェックボックスをオンにしてクリック <span class="ph uicontrol">Add をクリックします。</span>.  </span>
+             <img class="image" src="http://help-ooyala.brightcove.com/../image/ios_addooframework.png" height="371" width="355" alt="Ooyalaフレームワークを追加する"/>
+          </li>
+
+        </ol>
+
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">残りの必要なフレームワークをプロジェクトに追加します。</span>
+        <ol type="a" class="ol substeps">
+          <li class="li substep substepexpand">
+            <span class="ph cmd"> ストリーミングを停止する場合は上部の <strong class="ph b">構築フェーズ</strong> をクリックします。 </span>
+          </li>
+
+          <li class="li substep substepexpand">
+            <span class="ph cmd"> 展開 <strong class="ph b">バイナリとライブラリのリンク</strong>.  </span>
+          </li>
+
+          <li class="li substep substepexpand">
+            <span class="ph cmd"> プラス記号をクリックします（<span class="ph uicontrol">+</span>）。</span>
+             
+              <img class="image" src="http://help-ooyala.brightcove.com/../image/xcodelinkbinary.png" height="161" width="289" alt="リンクライブラリ"/>
+          </li>
+
+        </ol>
+
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">以下のフレームワークを選択してクリック <span class="ph uicontrol">Add をクリックします。</span>:</span>
+         
+          <ul class="ul">
+            <li class="li">AVFoundation.framework</li>
+
+            <li class="li">AVKit.framework</li>
+
+            <li class="li">CFNetwork.framework</li>
+
+            <li class="li">CoreGraphics.framework</li>
+
+            <li class="li">CoreMedia.framework</li>
+
+            <li class="li">CoreText.framework</li>
+
+            <li class="li">Foundation.framework</li>
+
+            <li class="li">libxml2.dylib</li>
+
+            <li class="li">libc ++。dylib</li>
+
+            <li class="li">MediaAccessibility.framework</li>
+
+            <li class="li">MediaPlayer.framework</li>
+
+            <li class="li">QuartzCore.framework</li>
+
+            <li class="li">Security.framework</li>
+
+            <li class="li">SystemConfiguration.framework</li>
+
+            <li class="li">UIKit.framework</li>
+
+          </ul>
+<p class="p">このステップが完了すると、リンカーライブラリのリストは次のスクリーンショットのようになります。</p>
+
+          <img class="image" src="http://help-ooyala.brightcove.com/../image/ios_gsframeworks.png" height="248" width="382" alt="リンカーライブラリ"/>
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">左側のペインで、を選択して開きます。 <samp class="ph codeph">ViewController.h</samp> ファイル。</span>
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">加えます <samp class="ph codeph">OOOoyalaPlayerViewController</samp> importステートメントの下のクラス 次の例にこれを示します。</span>
+         
+          <pre class="pre codeblock">#import &lt;UIKit / UIKit.h&gt;
+
+<strong class="ph b">@class OOOoyalaPlayerViewController;</strong>
+
+@interface ViewController：UIViewController</pre>
+
+        
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">インターフェース宣言の下で、
+            <samp class="ph codeph">OOOoyalaPlayerViewController</samp> とプロパティ
+            <samp class="ph codeph">非原子</samp> そして <samp class="ph codeph">強い</samp> 属性 次の例にこれを示します。 </span>
+         
+          <pre class="pre codeblock">@interface ViewController：UIViewController
+
+<strong class="ph b">@property（nonatomic）OOOoyalaPlayerViewController * ooyalaPlayerViewController;
+</strong>
+@終わり          </pre>
+
+        
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">左側のペインで、を選択して開きます。 <samp class="ph codeph">ViewController.mファイル。</samp></span>
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">以下のヘッダファイルをインポートします。</span>
+         
+          <ul class="ul">
+            <li class="li"><samp class="ph codeph">&lt;OoyalaSDK / OOOoyalaPlayer.h&gt;</samp></li>
+
+            <li class="li"><samp class="ph codeph">&lt;OoyalaSDK / OOooyalaPlayerViewController.h&gt;</samp></li>
+
+            <li class="li"><samp class="ph codeph">&lt;OoyalaSDK / OOPlayerDomain.h&gt;</samp></li>
+
+          </ul>
+
+          <p class="p"> この手順は、次の例に示されています。 </p>
+
+          <pre class="pre codeblock">#import &quot;ViewController.h&quot;
+<strong class="ph b">#import &lt;OoyalaSDK / OOOoyalaPlayer.h&gt; #import &lt;OoyalaSDK / OOooyalaPlayerViewController.h&gt; #import &lt;OoyalaSDK / OOPlayerDomain.h&gt;</strong></pre>
+
+        
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">下 <samp class="ph codeph">ViewControllerを</samp> 実装は、
+            <samp class="ph codeph">NSString</samp> 次の定数をインスタンス化するクラス</span>
+         <ul class="ul">
+            <li class="li">
+              <samp class="ph codeph">PCODE</samp></li>
+
+            <li class="li">
+              <samp class="ph codeph">埋め込みコード</samp>
+            </li>
+
+            <li class="li"><samp class="ph codeph">プレイヤードメイン</samp>
+            </li>
+
+          </ul>
+<p class="p">この手順は、次の例に示されています。</p>
+<pre class="pre codeblock">@implementation ViewController
+
+<strong class="ph b">NSString * const PCODE = @ &quot;yourapikey&quot;; NSString * const EMBED_CODE = @ &quot;yourcontentid&quot;; NSString * const PLAYERDOMAIN = @ &quot;http://yourdomain.com&quot;;</strong></pre>
+
+          <strong class="ph b">注意：</strong>   <samp class="ph codeph">プレイヤードメイン</samp> コンテンツを再生できるドメインを指定します。 ドメインは文字列の一致です。 コンテンツがホストされているドメインに文字列が含まれている場合は、再生が許可されます。 提供されているサンプルアプリには、テスト目的でOoyalaが提供するコンテンツが含まれています。
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">次のコードサンプルに示すようにView Controllerを作成します。</span>
+         
+          <pre class="pre codeblock"> <strong class="ph b"> OOOoyalaPlayer * player = [[OOOoyalaPlayer alloc] initWithPcode：PCODEドメイン：[[OOPlayerDomain alloc] initWithString：PLAYERDOMAIN]]; _ooyalaPlayerViewController = [[OOOoyalaPlayerViewController alloc] initWithPlayer：player];</strong></pre>
+
+        
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">次のコード例に示すように、View Controllerを現在のビューに接続します。</span>
+         
+          <pre class="pre codeblock">  - （void）viewDidLoad {[super viewDidLoad]; //ビューをロードした後、通常はペン先から追加の設定を行います。
+    
+  <strong class="ph b">// Ooyala ViewControllerを作成します。 _ooyalaPlayerViewController = [[OOOoyalaPlayerViewController alloc] initWithPlayer：player];</strong>
+
+
+
+}</pre>
+
+        
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">ナビゲーションヘッダーの <strong class="ph b">ラン</strong>.</span>
+         シミュレートされたiPhoneが埋め込みビデオプレーヤーと共に表示されます。 再生ボタンを選択して、で呼び出されたコンテンツを再生します。 <samp class="ph codeph">埋め込みコード</samp> 値。
+      </li>
+</ol>
+
+    <div class="section postreq"><strong class="ph b">ノート</strong>:<ul class="ul">
+        <li class="li">ビデオの表示に問題がある場合は、シンジケーション設定がiPhoneおよびiPadデバイスを許可するように設定されていることを確認してください。 詳細については、Ooyala Backlot User GuideのPublishing Rulesセクションを参照してください。 </li>
+
+        <li class="li">ビデオがドロップアウトしてもオーディオが再生され続ける場合は、低帯域幅の接続がある可能性があります。 これにより、視聴者は引き続きコンテンツを体験できます。 これはAppleが設計した予想される動作です。 </li>
+
+      </ul>
+
+      <div class="note note"><span class="notetitle">注意：</span> 完成したGettingStartedサンプルアプリをでダウンロードしてください。 <a class="xref" href="https://github.com/ooyala/ios-sample-apps" target="_blank">iOSサンプルアプリ用のOoyala SDK</a>.</div>
+
+    </div>
+
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/mobile_sdk_ios_getstarted.html">iOS用Ooyala Mobile SDKを使い始める</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </

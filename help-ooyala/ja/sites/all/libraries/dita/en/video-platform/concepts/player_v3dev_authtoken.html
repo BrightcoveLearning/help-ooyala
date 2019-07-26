@@ -1,0 +1,102 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Controlling Playback with the Ooyala Player Token"/>
+<meta name="abstract" content="You can authorize playback using the Ooyala Player Token. (Available only if your Ooyala account includes this functionality. To enable Ooyala Player Token, contact your account manager.)"/>
+<meta name="description" content="あなたはOoyalaプレーヤートークンを使って再生を認証することができます。 （Ooyalaアカウントにこの機能が含まれている場合にのみ使用できます。Ooyalaプレーヤートークンを有効にするには、アカウントマネージャーにお問い合わせください。）"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/player_v3dev_authoverview.html"/>
+<meta name="DC.Relation" scheme="URI" content="chapter_rightslocker.html"/>
+<meta name="DC.Relation" scheme="URI" content="device_registration.html"/>
+<meta name="DC.Relation" scheme="URI" content="player_v3dev_tokenexpire.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/player_v3dev_settoken.html"/>
+<meta name="DC.Relation" scheme="URI" content="player_v3dev_tokensdks.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_v3dev_authtoken"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Ooyalaプレーヤートークンで再生を制御する</title>
+</head>
+<body id="player_v3dev_authtoken">
+
+
+  <h1 class="title topictitle1">Ooyalaプレーヤートークンで再生を制御する</h1>
+
+  
+  <div class="body conbody"><p class="shortdesc">あなたはOoyalaプレーヤートークンを使って再生を認証することができます。 （Ooyalaアカウントにこの機能が含まれている場合にのみ使用できます。Ooyalaプレーヤートークンを有効にするには、アカウントマネージャーにお問い合わせください。）
+  </p>
+
+    <div class="section">再生を認証されたユーザーだけに制限し、あなたのページだけに制限するには、トークン要求URLをプレーヤーに通信する必要があります。これにより、プレーヤーは認証中にこのURLを使用できます。 これは次の手順で行われます。 <ul class="ul" id="player_v3dev_authtoken__internal-source-marker_0.9329864937735756">
+        <li class="li"><strong class="ph b">トークン要求と承認URLを生成する</strong>。 サーバー側で署名付きトークン要求URLを生成し、query-stringパラメーターの1つとして短い有効期限を指定します。 プロバイダコードと埋め込みコードのカンマ区切りリストも含める必要があります。 このURLはJavaScriptのコールバックを介して私たちのプレーヤーに渡されます。 その短い有効期限はそれがあなたのページから持ち上げられて他の場所で使われるのを防ぎます。 </li>
+
+        <li class="li">
+          <p class="gt-block p"><strong class="ph b">トークンの有効期限を設定する</strong>。 Backlot SyndicationタブでPlayback Tokenの有効期限を設定する必要があります。 この有効期限は、トークン要求の有効期限とは無関係です。 その機能は、（Ooyalaによって発行された）トークンが有効である期間を指定することであり、指定された期間の間、許可されたプレーヤーへの視聴者のアクセスを制御します。 スペース。</p>
+
+        </li>
+
+        <li class="li">
+          <p class="gt-block p"><strong class="ph b">発行認証へのURLの埋め込み</strong>。 細工されたトークンリクエストのURLがプレイヤーに転送されると、Ooyalaの承認応答は承認/不許可の決定を送信します。 クライアントが肯定的な承認応答を受信すると、ビデオの再生が有効になります。 </p>
+
+        </li>
+
+        <li class="li"><strong class="ph b">再生の承認</strong> ビデオの再生が始まる前に、Ooyalaプレーヤーは認証要求を送信してトークンを受け取ります。 認可サーバーはURLを検証すると、コンテンツの再生を認可します。 許可はセッションが期限切れになるまで有効です。 セッションが期限切れになった場合、視聴者はブラウザを更新する必要があります。 </li>
+
+      </ul>
+<div class="note note"><span class="notetitle">注意：</span> URLが無効な場合は、エラーメッセージが表示されます。 エラーの詳細については、このドキュメントの「エラーの種類」のトピックを参照してください。</div>
+</div>
+
+    <div class="section"><h2 class="title sectiontitle">2種類の有効期限</h2>
+      
+      <div class="p"> この設計では、2つの有効期限の違いに注意する必要があります。 あなたが設定する必要があります： <ul class="ul" id="player_v3dev_authtoken__internal-source-marker_0.5012084729124661">
+          <li class="li">トークン要求の1有効期限（ページに埋め込まれるURL  - プロバイダのサーバー側の実装によって調整可能）。 URLスニペットに短い有効期限を使用して、スニペットが他のドメインにまたがって複製されないようにします（埋め込むことはできますが、機能しなくなります）。 </li>
+
+          <li class="li">トークンオブジェクト自体のもう一方の有効期限（Backlotアカウントで調整可能な有効期限）。 トークンオブジェクトには、有効期限が長いため、必要に応じて長い有効期限を設定できます。 <a class="xref" href="http://www.w3.org/Security/wiki/Same_Origin_Policy" target="_blank">同一オリジンポリシー</a> その配布を保護します。 </li>
+
+        </ul>
+</div>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Ooyalaトークンと他のコンテンツ認証タイプの組み合わせ</h2>
+      
+      <div class="p">Ooyala Player Tokenは、ユーザーが許可されたコンテンツに確実にアクセスできるようにするために、Ooyalaが提供する（またはサポートする）単独または他のタイプのデジタル著作権管理（DRM）ソリューションと連携して機能します。 また、Ooyala Player Tokenを以下と組み合わせて使用​​することもできます。 <ul class="ul">
+          <li class="li">OoyalaのRights Lockerエンタイトルメント施行システム</li>
+
+          <li class="li">Ooyalaの機器登録システム</li>
+
+          <li class="li">リアルタイムメッセージングプロトコル（RTMP）ストリームへの直接リンクの不正な共有を防ぐためのCDNトークン。 </li>
+
+          <li class="li">ストリームの記録を防ぐための暗号化された配信（RTMPEやHLS AES暗号化など）。 </li>
+
+          <li class="li">コンテンツの使用権を強制するためのDRMテクノロジ（Flash Accessなど）。</li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/player_v3dev_authoverview.html">プレイヤーV3のOoyalaプレイヤートークン（廃止予定）</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="chapter_rightslocker.html">権利ロッカー</a></div>
+<div><a class="link" href="device_registration.html">デバイス登録API</a></div>
+<div><a class="link" href="player_v3dev_tokenexpire.html">Ooyalaプレイヤートークンの有効期限</a></div>
+<div><a class="link" href="../tasks/player_v3dev_settoken.html" title="Backlot UIには、Syndication groupフラグを設定してコンテンツ資産をこのシンジケーショングループに追加することで、コンテンツを保護するためのオプションが用意されています。 これにより、プレーヤーを実行するようにWebページを設定し、認証トークンを送信することができます。 （OoyalaアカウントにOoyalaプレーヤートークンが含まれている場合にのみ使用できます。この機能を有効にするには、アカウントマネージャーに連絡してください。）">Ooyalaプレーヤートークンの設定</a></div>
+<div><a class="link" href="player_v3dev_tokensdks.html" title="Ooyala iOSおよびAndroid SDKでのユーザー認証には、Ooyalaプレーヤートークンを使用できます。 （Ooyalaアカウントにこの機能が含まれている場合にのみ使用できます。Ooyalaプレーヤートークンを有効にするには、アカウントマネージャーにお問い合わせください。）">Ooyala iOSおよびAndroid SDKでのOoyalaプレーヤートークンの使用</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

@@ -1,0 +1,128 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Adding a Custom Branding Overlay to Player V4"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_customize.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_custom_watermark"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>プレーヤV4にカスタムブランディングオーバーレイを追加する</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="pbv4_custom_watermark">
+
+
+    <h1 class="title topictitle1">プレーヤV4にカスタムブランディングオーバーレイを追加する</h1>
+
+
+    <div class="body conbody">
+        <div class="section">You can configure branding overlays on stream (formerly known as "watermarks") in
+            Backlot (PUBLISH &gt; Player Branding &gt; Branding), as described in <a class="xref" href="../tasks/player_configure.html">バックスロットでのプレイヤーの設定</a>. You can also override Backlot settings
+            (location, transparency, click URL, and scaling) using CSS and
+                <span class="ph filepath">skin.json</span> settings, as described below. Images used for
+            branding overlays must be in the PNG, JPG, or JPEG format. </div>
+
+        <div class="section"> Player V4 supports showing custom branding overlays during playback, where the
+      image URL is specified in skin.json and inline page parameter configurations. To add a custom
+      branding overlay in Player V4: <ol class="ol" id="pbv4_custom_watermark__ol_ohr_wbd_wv">
+        <li class="li">Configure the following values in <span class="ph filepath">skin.json</span>, which must be locally
+          hosted to configure your own .PNG file:
+          <pre class="pre codeblock">
+"watermark": {
+  "imageResource": {
+      "url": "watermark.png",
+      "androidResource" : "logo",
+      "iosResource" : "logo"
+    },
+  "clickUrl": "//www.ooyala.com/",
+  "width": 177,
+  "height": 44
+},
+</pre>
+
+        </li>
+
+        <li class="li">To add the branding overlay as a new <samp class="ph codeph">div要素</samp> in the playing screen, you
+          must customize the <span class="ph filepath">html5-skin-json</span> file. Follow the setup
+          instructions at <a class="xref" href="https://github.com/ooyala/html5-skin" target="_blank">https://github.com/ooyala/html5-skin</a>. Once this is complete your
+            <span class="ph filepath">sample.html</span> will be running at <a class="xref" href="http://0.0.0.0:4444/" target="_blank">http://0.0.0.0:4444/</a>.  </li>
+
+        <li class="li">Add the following code to <span class="ph filepath">playingScreen.js</span>, which customizes the
+          appearance of the screen while the asset is playing:
+          <pre class="pre codeblock">
+// Under the required variables, add this line:
+ClassNames = require('classnames') 
+
+// Add this clickthrough handler:
+handleWatermarkClick: function() {
+  var watermarkClickUrl = this.props.skinConfig.controlBar.watermark.clickUrl;
+  if (watermarkClickUrl) { 
+    window.open(watermarkClickUrl,'_blank'); 
+  }
+}                        
+                    </pre>
+
+        </li>
+
+        <li class="li">の中に <samp class="ph codeph">レンダー</samp> function, add the following variable to properly add the
+          class to the branding overlay <samp class="ph codeph">div要素</samp> and to the click URL configured in
+            <span class="ph filepath">skin.json</span>:
+          
+          <pre class="pre codeblock">
+ var watermarkClass = ClassNames({ 
+   "oo-playeScreen-watermark": true, 
+   "oo-non-clickable-watermark": !this.props.skinConfig.controlBar.watermark.clickUrl 
+ });                    
+                </pre>
+
+        </li>
+
+        <li class="li">Look for this <samp class="ph codeph">div要素</samp>:
+          
+          <pre class="pre codeblock">
+&lt;div className="oo-state-screen-selectable" 
+        onMouseUp={this.handlePlayerMouseUp}
+         onTouchEnd={this.handleTouchEnd}
+&gt;&lt;/div&gt;                    
+                </pre>
+
+          Right after that <samp class="ph codeph">div要素</samp>, add the new branding overlay <samp class="ph codeph">div要素</samp>:
+          
+          <pre class="pre codeblock">
+&lt;div className={watermarkClass}&gt;
+&lt;img src={watermarkUrl} onClick={this.handleWatermarkClick}/&gt;&lt;/div&gt;                        
+                    </pre>
+
+        </li>
+
+        <li class="li">After saving, the <samp class="ph codeph">飛びます</samp> system should detect the changes and build a new
+            <span class="ph filepath">html.skin.js</span> 下 <span class="ph filepath">ビルド</span> フォルダにコピーします。</li>
+
+      </ol>
+
+    </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/pbv4_customize.html">プレーヤV4外観のカスタマイズ</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- de

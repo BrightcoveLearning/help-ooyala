@@ -1,0 +1,163 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2016-04-28 Release"/>
+<meta name="abstract" content="Notable contents of this release include the release of version 4.3.3 of the Ooyala Player V4."/>
+<meta name="description" content="Notable contents of this release include the release of version 4.3.3 of the Ooyala Player V4."/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2016.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release20160419"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2016-04-28リリース</title>
+</head>
+<body id="release20160419">
+
+
+    <h1 class="title topictitle1">2016-04-28リリース</h1>
+
+    
+    <div class="body conbody"><p class="shortdesc">このリリースの注目すべき内容には、Ooyala Player V4.3.3のバージョン4のリリースが含まれます。 </p>
+ 
+        <div class="section"><h2 class="title sectiontitle">プレーヤーV4リリース - バージョン4.3.3</h2>
+            
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">このリリースの新機能 </strong></p>
+
+                <ul class="ul">
+                    <li class="li">新しいLive DVR機能 <ul class="ul">
+                            <li class="li">この機能により、ライブストリーミング（HLSストリーム）中に、スライダーを時間的に後方にドラッグし、現在の時間に追いつくために右いっぱいまでドラッグすることができます。</li>
+
+                            <li class="li">この機能には、bit_wrapper.min.jsビデオプラグインが必要です。 ブラウザでFlashを有効にする必要があります。</li>
+
+                            <li class="li">この機能は、Chrome、Firefox、OS / X用Safari、Internet Explorer、およびMicrosoft Edgeのデスクトップブラウザでサポートされています。</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="li">新しいOoyala Pulse Ad Managerプラグイン。 <ul class="ul">
+                            <li class="li">このプラグインを使用すると、広告サーバーおよび広告管理プラットフォームであるOoyala Pulseと統合して、サイト運営者が広告在庫を完全に管理し、オーディエンスとビデオコンテンツに基づくターゲティングを使用して、リアルタイムシミュレーション、動的広告配信、代替広告ソース</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="li">Android WebでのHLSのサポート。</li>
+
+                    <li class="li">SafariでのHLS再生のためのDVRとビットレート選択のサポート。 </li>
+
+                    <li class="li">プレーヤーのスキンによってレンダリングされたクローズドキャプション。</li>
+
+                    <li class="li">プレイヤースキンの更新 <ul class="ul">
+                            <li class="li">プレーヤスキンのCSSクラス名は「oo-」という接頭辞を持ち、ダッシュ形式を使用するようになりました。</li>
+
+                            <li class="li">プレーヤの最小幅に対するプレーヤスキンの値は現在最大320pxに制限されています。</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="li">VAST Ad Managerプラグインの更新 <ul class="ul">
+                            <li class="li">VAST広告マネージャが更新され、広告の事前読み込み（動画の再生が始まる前にXMLのリクエストの送信）が許可されなくなり、広告マネージャ間で広告読み込みが普遍的になり、広告インプレッション数が正確になります。</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="li">ID3の検出 <ul class="ul">
+                            <li class="li"><span class="ph" id="release20160419__d43355e26687">OoyalaプレーヤーV4は、HLSストリームに埋め込まれたID3タグ情報を認識します。</span></li>
+
+                            <li class="li"><span class="ph" id="release20160419__d43355e26691">HLSストリームにID3が埋め込まれている場合、Ooyalaプレーヤーは自動的にvideoTagFoundという値を持つイベントVC_TAG_FOUNDを発生させ、ID3キューが検出されたことを示します。 </span></li>
+
+                            <li class="li"><span class="ph" id="release20160419__d43355e26695">この機能により、Ooyala PlayerはID3キューがさまざまなユースケースのWebアプリケーションによって簡単に検出されることを保証します。</span></li>
+
+                        </ul>
+
+                    </li>
+
+                </ul>
+
+            </div>
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">デフォルトのプレイヤーリンク</strong></p>
+
+                <ul class="ul">
+                    <li class="li">Core Player（必須）：http://player.ooyala.com/static/v4/stable / 4.3.3 / core.min.js</li>
+
+                    <li class="li">プレイヤーのスキン： <ul class="ul">
+                            <li class="li">http://player.ooyala.com/static/v4/stable/4.3.3/skin-plugin/html5-skin.min.js</li>
+
+                            <li class="li">http://player.ooyala.com/static/v4/stable/4.3.3/skin-plugin/skin.json</li>
+
+                            <li class="li">http://player.ooyala.com/static/v4/stable/4.3.3/skin-plugin/html5-skin.min.css</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="li">ビデオプラグイン（少なくとも1つは必須） <ul class="ul">
+                            <li class="li">HLSおよびMP4用のメインビデオプラグイン：http://player.ooyala.com/static/v4/stable / 4.3.3 / video-plugin / main_html5.min.js</li>
+
+                            <li class="li">HDS用のOSMF Flashプラグイン：http://player.ooyala.com/static/v4/stable / 4.3.3 / video-plugin / osmf_flash.min.js</li>
+
+                            <li class="li">HLSおよびDASH用のBitmovinプラグイン：http://player.ooyala.com/static/v4/stable / 4.3.3 / video-plugin / bit_wrapper.min.js
+                            </li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="li">広告プラグイン <ul class="ul">
+                            <li class="li">Ooyala Pulse広告プラグイン：https://player.ooyala.com/static/v4/stable / 4.3.3 / ad-plugin / pulse.min.js</li>
+
+                            <li class="li">VASTおよびVPAID広告プラグイン：https://player.ooyala.com/static/v4/stable / 4.3.3 / ad-plugin / ad_manager_vast.min.js</li>
+
+                            <li class="li">Google IMA広告プラグイン：https://player.ooyala.com/static/v4/stable / 4.3.3 / ad-plugin / google_ima.min.js</li>
+
+                            <li class="li">FreeWheel広告プラグイン：https://player.ooyala.com/static/v4/stable / 4.3.3 / ad-plugin / freewheel.min.js</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="li">ディスカバリー：http://player.ooyala.com/static/v4/stable / 4.3.3 /other-plugin/discovery_api.min.js</li>
+
+                </ul>
+
+            </div>
+            <div class="sectiondiv">見る <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/concepts/pbv4_release_notes.html#pbv4_release_notes__20160428_known_issues">Player V4リリースノート</a> このリリースの既知の問題の完全なリストについては。</div>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">ドキュメントリリース</h2>
+            
+            <ul class="ul">
+                <li class="li"><a class="xref" href="../reference/pbv4_dev_loadvideoplugins.html">ビデオプラグインのロード</a>：Flash Video Renderingセクションを更新して、すべてのブラウザでHLSをレンダリングする際のbit_wrapper.js Player V4ビデオプラグインの新しい動作について説明しました。</li>
+
+                <li class="li"><strong class="ph b">ドキュメントを取り込む：</strong> 再編成され合理化されました。 さまざまなトピックをFTPの1つの主要トピックに統合しました（<a class="xref" href="../concepts/ingestion_ftp.html" title="FTPS（推奨）またはFTP（非推奨）を使用して、ビデオ、サムネイル、クローズドキャプション、およびマニフェストファイルをBacklotにアップロードできます。">FTP / FTPSを使った取り込み</a>、Aspera（<a class="xref" href="../concepts/ingestion_aspera.html" title="Asperaファイル転送ソフトウェアを使用して、ビデオ、サムネイル、クローズドキャプション、およびマニフェストファイルをBacklotにアップロードできます。">Asperaでの摂取</a>）、およびMRSS（<a class="xref" href="../concepts/ingestion_mrss.html" title="メディアRSS（MRSS）を使用して、Ooyalaに自分が公開しているMRSSフィードから自分のシステムから自分のコンテンツを取り出させることができます。 BacklotはMRSSフィードからメタデータを取得し、リモートアセットを作成するか（ホストされている場所から）ダウンロードして、ビデオと関連ファイル（サムネイル、クローズドキャプションファイルなど）を処理します。">リモートでホストされているMRSSフィードからの取り込み</a>） 廃止された子トピックファイルを削除しました。</li>
+
+            </ul>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Ooyalaリリースノートを購読する</h2>
+             見る <a class="xref" href="../concepts/release_notes_subscribe.html">Ooyalaリリースノートを購読する</a> Ooyalaリリースノートの自動通知を購読する方法については、こちらをご覧ください。 </div>
+
+    </div>
+
+    
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2016.html" title="2016からのリリースノート。">2016ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

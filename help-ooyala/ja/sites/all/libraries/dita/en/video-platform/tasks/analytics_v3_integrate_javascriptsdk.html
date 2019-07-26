@@ -1,0 +1,213 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Integrating Third-Party Players with IQ Using the JS SDK"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/analytics_v3_ug_third_party_players.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/analytics_v3_third_party_players.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/analytics_v3_jssdk_jwplayer_adapter.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/analytics_v3_jssdk_brightcove_adapter.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/analytics_v3_jssdk_flowplayer_adapter.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/analytics_v3_jssdk_kaltura_adapter.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/analytics_v3_jssdk_html5_tag_adapter.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/analytics_v3_jssdk_youtube_adapter.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/analytics_v3_jssdk_xbox_one_adapter.html"/>
+<meta name="DC.Relation" scheme="URI" content="https://docs.brightcove.com/apidocs-ooyala/iq_standalone/index.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ooyala_iq_user_guide.html"/>
+<meta name="DC.Relation" scheme="URI" content="analytics_v3_ug_ingest_third_party_player.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/analytics_v3_ug_account.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/faq_analytics.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="analytics_v3_integrate_javascriptsdk"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>JS SDKを使用したサードパーティ製プレイヤーとIQの統合</title>
+</head>
+<body id="analytics_v3_integrate_javascriptsdk">
+
+
+    <h1 class="title topictitle1">Integrating Third-Party Players with <span class="ph">IQ</span> Using the JS SDK</h1>
+
+    
+    <div class="body taskbody">
+        <div class="section context"><p class="gt-block p">新しいを使う <span class="ph">ウーヤラIQ</span> サードパーティのプレイヤーのイベントを伝えるためのJavaScript SDK <span class="ph">ウーヤラIQ</span>。 このSDKをプレーヤーと統合する必要があります。 <span class="ph">IQ</span> 働く。 JavaScript SDKは、JavaScriptをサポートするWebベースのプラットフォームのみをサポートします。 使用 <a class="xref" href="analytics_v3_json_api.html">Ooyala IQ JSON API</a> JavaScriptをサポートしていないデバイスや <a class="xref" href="../concepts/analytics_v3_roku_sdk.html">Roku用Ooyala IQ SDK</a> Rokuデバイス用。</p>
+
+        <p class="gt-block p"><strong class="ph b">イベント</strong></p>
+
+            <p class="gt-block p"><span class="ph">ウーヤラIQ</span> 分析データを正しく表示するには、プレーヤーイベントに関する情報を受け取る必要があります。 下の図は、各プレーヤーのイベントを記録するタイミングの流れを示しています。</p>
+
+            <div class="p"><div class="fig fignone">
+                    <img class="image" src="http://help-ooyala.brightcove.com/../image/iq_js_sdk_event_flow.png" height="580" width="797"/>
+                </div>
+</div>
+
+            <ul class="ul">
+                <li class="li"><strong class="ph b">setDeviceInfo</strong>：機器情報を設定するために1回呼び出されます。</li>
+
+                <li class="li"><strong class="ph b">setPlayerInfo</strong>：プレーヤー情報を設定するために一度呼び出されます。</li>
+
+                <li class="li"><strong class="ph b">reportPlayerLoad</strong>：プレイヤーが作成（ロード）されたときに呼び出されます。</li>
+
+                <li class="li"><strong class="ph b">initializeMedia</strong>：動画コンテンツが再生される前にプレーヤに読み込まれて表示される時期を測定します（プリロール広告が存在する場合は、プリロール広告が完成してメイン動画が読み込まれるまでキャプチャされません）。 これは、ロードされたビデオが変更されるたびに、たとえばプレーヤがプレイリスト内の次のビデオに移動するときにも呼び出されます。</li>
+
+                <li class="li"><strong class="ph b">setMediaDuration</strong>：メディアの初期化後に呼び出されます。</li>
+
+                <li class="li"><strong class="ph b">reportPlayRequested</strong>：再生ボタンが手動または自動でトリガーされたときに測定します。 要求されたコンテンツは、広告コンテンツまたは実際のビデオコンテンツです。</li>
+
+                <li class="li"><strong class="ph b">reportPlaybackStarted</strong>：メディアが正常に再生を開始したときに呼び出されます。</li>
+
+                <li class="li"><strong class="ph b">reportPlayHeadUpdate</strong>：ビデオ再生ヘッドが移動したときに呼び出されます。 このイベントは定期的に報告されます（少なくとも2から3秒ごとに）。</li>
+
+                <li class="li"><strong class="ph b">reportPause</strong>：ビデオが一時停止しているときに呼び出されます。</li>
+
+                <li class="li"><strong class="ph b">reportResume</strong>：一時停止後にビデオが再開されたときに呼び出されます。</li>
+
+                <li class="li"><strong class="ph b">reportSeek</strong>：視聴者がビデオをシークスルーし、ビデオのある時点から別の時点にジャンプしたときに呼び出されます。</li>
+
+                <li class="li"><strong class="ph b">reportReplay</strong>：動画の再生時に呼び出されます。</li>
+
+                <li class="li"><strong class="ph b">reportComplete</strong>：動画の全長が再生されたときに呼び出されます。</li>
+
+                <li class="li"><strong class="ph b">reportCustomEvent</strong>：カスタムイベントをOoyala IQに報告したいときはいつでも呼び出されます。<div class="note note"><span class="notetitle">注意：</span> 現時点ではカスタムイベントを取り込むことができますが、情報を保存することしかできません。 Ooyala IQはカスタムイベントを処理できず、Ooyala IQバックエンドからこの情報にアクセスすることはできません。 ただし、Ooyala IQでカスタムイベントがサポートされている場合にデータを入手できるように、今すぐOoyala IQにカスタムイベントの送信を開始することをお勧めします。</div>
+</li>
+
+            </ul>
+
+            <p class="gt-block p"><strong class="ph b">追加データ</strong></p>
+
+            <div class="p"><span class="ph">ウーヤラIQ</span> 分析目的で、プレーヤーから次のデータも収集します。
+            <ul class="ul">
+                    <li class="li"><strong class="ph b">デバイス情報</strong> （setDeviceInfo）：設定されていない場合に生成されるデバイスの一意の識別子、プレーヤをロードするために使用されたブラウザ、ブラウザのバージョン、オペレーティングシステム、デバイスタイプ（モバイル、デスクトップなど）、デバイスのブランドおよびモデル。 この情報はIQのデバイスパネルに使用されます。</li>
+
+                    <li class="li"><strong class="ph b">選手情報</strong> （setPlayerInfo）：プレイヤーの一意の識別子、プレイヤー名、およびプレイヤーバージョン。</li>
+
+            </ul>
+</div>
+
+            <p class="gt-block p"><strong class="ph b"> JavaScript SDK</strong></p>
+
+            <p class="gt-block p">JavaScript SDKはanalytics.jsファイルであり、次の場所にあります。 <a class="xref" href="https://analytics.ooyala.com/static/v3/analytics.js" target="_blank">https://analytics.ooyala.com/static/v3/analytics.js</a>。 SDKのAPIドキュメントは、次のサイトで閲覧できます。 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/iq_standalone/index.html" target="_blank">https://docs.brightcove.com/apidocs-ooyala/iq_standalone/index.html</a>.  </p>
+
+            <p class="p">次の図は、サードパーティ製プレイヤーとOoyala IQとの統合アーキテクチャを示しています（プレイヤーはサードパーティ製プレイヤーです）。 </p>
+
+            <div class="fig fignone"><img class="image" src="http://help-ooyala.brightcove.com/../image/iq_standalone_jwplayer_arch.png" height="308" width="403"/></div>
+
+        </div>
+
+        <ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd">JavaScript SDKと統合するには、プレーヤーのイベントとAPIを変換してOoyala IQ JavaScript SDKで定義されているイベントと関連付けるアダプタを使用する必要があります。</span>
+                 
+                    <p class="p" id="analytics_v3_integrate_javascriptsdk__support">あなたはOoyalaアダプタを使うことも、独自のアダプタを作ることもできます。</p>
+
+                    <div class="p">Ooyalaは、以下のプラットフォームの関連標準バージョン用のアダプタを提供しています。 <ul class="ul">
+                            <li class="li"><a class="xref" href="../tasks/analytics_v3_jssdk_brightcove_adapter.html">Brightcove（ビデオおよび経験）</a></li>
+
+                            <li class="li"><a class="xref" href="../tasks/analytics_v3_jssdk_jwplayer_adapter.html">JWプレーヤー6と7</a></li>
+
+                            <li class="li"><a class="xref" href="../tasks/analytics_v3_jssdk_flowplayer_adapter.html">フロープレーヤー6</a></li>
+
+                            <li class="li"><a class="xref" href="../tasks/analytics_v3_jssdk_kaltura_adapter.html">カルツラ</a></li>
+
+                            <li class="li"><a class="xref" href="../tasks/analytics_v3_jssdk_html5_tag_adapter.html">following following- 13- following following- following装置-装置-13--- 13-- following-----装置--装置----following装置---装置----</a></li>
+
+                            <li class="li"><a class="xref" href="../tasks/analytics_v3_jssdk_youtube_adapter.html">YouTubeプレーヤー（iframe_api）</a></li>
+
+                            <li class="li"><a class="xref" href="analytics_v3_jssdk_xbox_one_adapter.html#analytics_v3_jssdk_xbox_one_adapter">Xbox One</a></li>
+
+                        </ul>
+<div class="note note"><span class="notetitle">注意：</span> Xbox Oneアダプターを除くこれらのアダプターは、シークイベントやカスタムイベントの報告をまだサポートしていません。また、デバイスに関する情報も収集していません。</div>
+あなたは無料で私たちの統合ソリューションを自分で実装することができます、あるいはOoyalaプロフェッショナルサービスはあなたが有料で上記のソリューションを実装するのを助けることができます。 JavaScriptで実行できる他のすべてのWebベースのプレーヤーまたはネイティブのモバイル/タブレットSDKも、有料でOoyalaプロフェッショナルサービス契約を通じてサポートできます。 </div>
+
+                    <p class="p">あるいは、アダプタを自分で作成することもできます。 アダプタを作成したら、それをホストする必要があります。 Ooyalaがアダプタを作成すると、Ooyalaがそれをホストします。 アダプタを作成した場合、アダプタは以下の情報をOoyala JavaScript SDKに報告する必要があります。 イベントをキャプチャーする必要がある順序については、上の「イベント」セクションの図を参照してください。</p>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">サードパーティのプレイヤーを作成してください。 </span>
+                
+               <ol type="a" class="ol substeps">
+                   <li class="li substep substepexpand">
+                        <span class="ph cmd">プレーヤーがホストされているページでanalytics.jsを参照します。 これは、プレーヤーがあるページに対して行う必要があります。</span>
+                    </li>
+
+                    <li class="li substep substepexpand">
+                        <span class="ph cmd">アダプタコードを含めます（詳細については、アダプタ固有のドキュメントを参照）。</span>
+                    </li>
+
+                   <li class="li substep substepexpand">
+                       <span class="ph cmd">（オプション）でメディアコンテンツタイプを指定します。
+                           <samp class="ph codeph">MediaContentType</samp> 表示するかどうかを示すパラメータ
+                           <samp class="ph codeph">MEDIAID</samp> OoyalaビデオアセットまたはOoyala以外のビデオアセットを指定します。 メディアコンテンツタイプは、次の2つの値のいずれかに設定できます。 メディアコンテンツタイプを指定しない場合、デフォルト値は
+                           <samp class="ph codeph">EXTERNAL_CONTENT</samp> （Ooyala以外のメディア資産） </span>
+                        <ul class="ul" id="analytics_v3_integrate_javascriptsdk__MediaContentType">
+                           <li class="li"><strong class="ph b"><samp class="ph codeph">OOYALA_CONTENT</samp></strong>：
+                                        <samp class="ph codeph">MEDIAID</samp> はOoyalaの埋め込みコードです。 Ooyalaアセットを指定するために必要な情報を入手するには、Backlot APIクエリを作成します。 <samp class="ph codeph">/ assets / &lt;資産コード&gt; / streams</samp> アセットの場合は、目的のエンコーディングの結果をコピーします。 以下の例は、
+                                        <samp class="ph codeph">OOYALA_CONTENT</samp> JW Playerアダプタで指定します。<pre class="pre codeblock" id="analytics_v3_integrate_javascriptsdk__ooyala_content">&lt;script type = &quot;text / javascript&quot;&gt; var jwPlayer = jwplayer（ &quot;video&quot;）。setup（{ファイル： &#39;pathToYourOoyalaMp4VideoAsset&#39;、メディアID： &#39;yourOoyalaEmbedCode&#39;、タイプ： &#39;mp4&#39;}）; var jwOoyalaReporter = Ooyala.Analytics.JWReporter（ &quot;&lt;pcode&gt;&quot;、jwPlayer、{contentType：Ooyala.Analytics.MediaContentType.OOYALA_CONTENT}）; &lt;/script&gt;</pre>
+
+                                </li>
+
+                           <li class="li"><strong class="ph b"><samp class="ph codeph">EXTERNAL_CONTENT</samp></strong>：
+                                        <samp class="ph codeph">MEDIAID</samp> これは、Ooyalaの埋め込みコードではありません（そして、Ooyala以外のCMSからの顧客定義のメディアIDです）。 以下の例は、 <samp class="ph codeph">EXTERNAL_CONTENT</samp> JW Playerアダプタで指定します。<pre class="pre codeblock" id="analytics_v3_integrate_javascriptsdk__external_content">&lt;script type = &quot;text / javascript&quot;&gt; var jwPlayer = jwplayer（ &quot;video&quot;）。setup（{ファイル： &#39;pathToYourVideoAsset&#39;、メディアID： &#39;yourMediaID&#39;}）; ;））; var jwOoyalaReporter = Ooyala.Analytics.JWReporter（ &quot;&lt;pcode&gt;&quot;、jwPlayer、{contentType：Ooyala.Analytics.MediaContentType.EXTERNAL_CONTENT}）; &lt;/script&gt;</pre>
+
+                                </li>
+
+                       </ul>
+
+                           <div class="note note" id="analytics_v3_integrate_javascriptsdk__multiple_content_types"><span class="notetitle">注意：</span> Ooyala IQ JavaScript SDKは、ページ内の同じプレーヤインスタンス内で複数のコンテンツタイプを指定することをサポートしていません。 ただし、同じページの異なるプレーヤーに対して複数のコンテンツタイプを指定することはサポートされています。 たとえば、Ooyalaのビデオアセットと外部アセットを再生するページに1人のプレーヤーがいる場合のユースケースの分析はサポートされていません。 一方がOoyalaビデオアセットを再生し、もう一方が外部（Ooyalaビデオアセット以外）を再生する、同じページに2人のプレーヤーがいるユースケースの分析をサポートします。 </div>
+
+                   </li>
+
+               </ol>
+
+            </li>
+</ol>
+
+        
+    </div>
+
+    <div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../tasks/analytics_v3_jssdk_jwplayer_adapter.html">JS SDKを使用したJW PlayerとIQの統合</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../tasks/analytics_v3_jssdk_brightcove_adapter.html">JS SDKを使用したBrightcove PlayerとIQの統合</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../tasks/analytics_v3_jssdk_flowplayer_adapter.html">JS SDKを使用したFlowPlayerとIQの統合</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../tasks/analytics_v3_jssdk_kaltura_adapter.html">JS SDKを使用したKalturaプレーヤーとIQの統合</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../tasks/analytics_v3_jssdk_html5_tag_adapter.html">JS SDKを使用したHTML5ビデオタグとIQの統合</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../tasks/analytics_v3_jssdk_youtube_adapter.html">JS SDKを使用したYouTubeプレーヤーとIQの統合</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../tasks/analytics_v3_jssdk_xbox_one_adapter.html">JS SDKを使用したXbox OneビデオアプリとIQの統合</a></strong><br/>
+</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/analytics_v3_ug_third_party_players.html">サードパーティ製のプレイヤーでOoyala IQを使用する</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/analytics_v3_third_party_players.html">サードパーティ製のプレイヤーでOoyala IQを使用する</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="../concepts/ooyala_iq_user_guide.html">Ooyala IQユーザーガイド</a></div>
+<div><a class="link" href="../concepts/analytics_v3_ug_account.html">Ooyala IQアカウント管理</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong><br/>
+<div><a class="link" href="analytics_v3_ug_ingest_third_party_player.html">Ooyala IQとサードパーティのメタデータを同期させる</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong><br/>
+<div><a class="link" href="../reference/faq_analytics.html" title="Ooyala IQアナリティクスについてよく寄せられる質問">Analyticsのよくある質問</a></div>
+</div>
+<div class="relinfo"><strong>関連情報</strong><br/>
+<div><a class="link" href="https://docs.brightcove.com/apidocs-ooyala/iq_standalone/index.html" target="_blank">Ooyala IQ JavaScript SDK APIドキュメント</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:abso

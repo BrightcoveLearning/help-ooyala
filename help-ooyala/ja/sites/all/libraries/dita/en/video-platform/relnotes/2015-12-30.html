@@ -1,0 +1,137 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2015-12-30 Release"/>
+<meta name="abstract" content="Notable contents of this release include the new Ooyala Live portal and the release of the mobile SDKs for iOS and Android v.4.9.0."/>
+<meta name="description" content="Notable contents of this release include the new Ooyala Live portal and the release of the mobile SDKs for iOS and Android v.4.9.0."/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2015.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release20151230"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2015-12-30リリース</title>
+</head>
+<body id="release20151230">
+
+
+    <h1 class="title topictitle1">2015-12-30リリース</h1>
+
+    
+    <div class="body conbody"><p class="shortdesc">このリリースの注目すべき内容には、新しいOoyala Liveポータル、およびiOSおよびAndroid v.4.9.0用のモバイルSDKのリリースが含まれます。</p>
+
+        <div class="section"><h2 class="title sectiontitle">ソフトウェア機能リリース</h2>
+            
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">ウーヤラライブ</strong></p>
+
+                <p class="p">Ooyala Liveのメジャーアップデートをお知らせいたします。 Ooyalaは現在、TVチャンネル、Live TVチャンネル、およびライブからVODへの録画付きのライブアドホックイベントやスケジュールされたイベントをすばやく設定して配信できるセルフサービスポータルを提供しています。</p>
+
+                <div class="p"><strong class="ph b">メリット</strong>
+                    <ul class="ul">
+                        <li class="li"><strong class="ph b">フルコントロール</strong>：Ooyala Liveは、1つの管理コンソールを使用して、チャンネルのグローバルなプロビジョニング、プログラム、および配信にかかる時間を大幅に短縮します。 DVR機能を使ってライブからVODへの変換を可能にすることに加えて、Ooyala Liveは、トランスコーディング、パッケージング、コンテンツの暗号化/保護、およびリニアストリームまたはイベントの健全性の監視を含むチャンネル/イベントプロビジョニングパイプラインを管理します。</li>
+
+                        <li class="li"><strong class="ph b">エンドツーエンドのプラットフォームサポート</strong>：OoyalaのBacklot CMSと完全に統合されているため、優れたコンテンツ管理、ビデオ再生、配信、シンジケーション、コンテンツ検出、ビデオ推奨、収益化ツール、および業界をリードするOoyala IQの分析と完璧な再生の恩恵を受けることができます。</li>
+
+                        <li class="li"><strong class="ph b">アクティブな監視</strong>：ストリームのアクティブモニタリング、シームレスなLive-to-VOD、および単一のコンテンツIDを使用した分析の集約により、Ooyala Liveはライブストリームテレメトリデータを含む、エンドツーエンドのビデオストリーム全体からの即時通知およびアラートを提供します。</li>
+
+                    </ul>
+
+                </div>
+
+                <p class="gt-block p"><strong class="ph b">ライブにアクセスする</strong></p>
+
+                <p class="p">Liveポータルを使用するには、Ooyala Backlotアカウントが必要です。 アカウントでは、パッケージ内でリモートアセットとEPGが有効になっている必要があります。 </p>
+
+                <p class="p">Ooyala Liveアカウントの設定については、アカウントマネージャにお問い合わせください。</p>
+
+                <p class="gt-block p"><strong class="ph b">既知の問題点</strong></p>
+
+                <p class="p">ライブイベントのHDSストリームのDVR機能は、Live 1.0では機能しません。 HLS Streamsはライブイベントに対応しています。 ただし、イベントが完了したら、アーカイブフラグが有効になっていれば、作成されたVODアセットでDVRが利用可能になります。 DVR機能はライブチャンネルでは期待通りに機能します。 </p>
+
+            </div>
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">Chromecast統合v.2.0</strong></p>
+
+                <p class="p">既存のChromecast統合をアップグレードしています。 アップグレードされた実装は、複数のストリーミングプロトコルやその他の再生機能のサポートを含む、新機能のサポートを提供します。 </p>
+
+                <p class="gt-block p">Ooyala Chromecast統合v.2.0には、コンテンツライブラリ用のChromecastストリーミング機能を使用して簡単に統合して市場に出すことができるサンプルの送信側および受信側アプリケーションが含まれています。 サンプルアプリケーションをカスタマイズしたり、Ooyala送信側または受信側アプリケーションを独自の送信側および受信側アプリケーションと選択的に使用したりできます。 あなたのためのサンプル送信者アプリケーションを見つけることができます <a class="xref" href="https://github.com/ooyala/ios-sample-apps/tree/stable/ChromecastSampleApp" target="_blank">iOS</a> そして <a class="xref" href="https://github.com/ooyala/android-sample-apps/tree/stable/ChromecastSampleApp" target="_blank">アイフォン</a> そして <a class="xref" href="https://github.com/ooyala/chromecast-sample-receiver" target="_blank">サンプル受信機アプリケーション</a> Ooyalaの公開GitHubリポジトリにあります。</p>
+
+                <p class="p">以下はChromecast Integration v.2.0の既知の問題です。 ユーザーがモバイルデバイスでビデオを再生してChromecastにキャストしているシナリオでは、分析が更新され、各アセットに対して2ディスプレイおよび2再生が要求されたときにOoyala IQに表示されます。プレイとキャストのシナリオのためのOoyala IQによるデバイス。</p>
+
+                <p class="gt-block p">Chromecast統合の詳細については、 <a class="xref" href="../concepts/chromecast_and_ooyala.html">ChromecastとOoyala（廃止予定）</a>。 完全な統合とカスタマイズのドキュメンテーションは1月の2016で利用可能になるでしょう。
+                </p>
+
+            </div>
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">Android用モバイルSDK v.4.9.0</strong></p>
+
+                <div class="p">このリリースでは、次の機能が追加されました。 <ul class="ul">
+                        <li class="li">OoyalaPlayerにDiscovery APIのサポートを追加しました。</li>
+
+                        <li class="li">エラーに関するログを追加しました。</li>
+
+                        <li class="li">Secureplayerライブラリを03_05_02_0001に更新しました。 </li>
+
+                    </ul>
+</div>
+
+                <p class="p">このリリースではsetEmbedCodes（）が正しく動作しなかったバグの修正も含まれています。</p>
+
+            </div>
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">iOS用モバイルSDK v.4.9.0</strong></p>
+
+                <p class="p">このリリースには、Live StreamsにLive UI要素が表示されないことがあるというバグの修正が含まれています。</p>
+
+            </div>
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">Windows 10認定</strong></p>
+ OoyalaのV3 HTML5およびFlashプレーヤーは、現在Windows 10の認定を受けています。 <p class="p">以下はFlashの断続的な既知の問題です。 Windows 10 Edgeを使用するFlashプレーヤーの場合、LiveRailプリロール広告はユーザーが広告をクリックすると一時停止します。 フルスクリーンモードでは、クリックスルー動作は予想通りフルスクリーンを終了しますが、クリックスルーページ/タブが開かれないことがあります。 この動作はLiveRailプラグインに固有のものであり、現在および既存の動作に対する変更はすべてLiveRailが所有および変更する必要があります。 </p>
+
+            </div>
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">XMLおよびCSVメタデータファイルを使用したクローズドキャプションファイルの取り込み</strong></p>
+
+                <p class="p">FTPを介してXMLメタデータとCSVメタデータを使用して字幕ファイルを取り込むことができます。 以前は、これを行う唯一の方法はBacklot UIを使用することでした。</p>
+
+            </div>
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">MRSSを介したリモートアセットの取り込み</strong></p>
+
+                <p class="p">これで、MRSS経由でリモートアセットを追加および更新できます。 以前は、これを行う唯一の方法は、Backlot UIまたはBacklot APIを使用することでした。</p>
+
+            </div></div>
+ 
+        <div class="section"><h2 class="title sectiontitle">ドキュメントリリース</h2>
+            
+            <ul class="ul">
+                <li class="li"><a class="xref" href="../concepts/chapter_live_streaming.html" title="Ooyala Liveは、Ooyala Backlotと連携して、24x7またはアドホックチャンネルでのチャンネル管理など、ストリーミングビデオのすべての課題を管理するための統合インターフェースを提供します。 さまざまなコンテンツ配信ネットワーク上の複数の配信フォーマット 人気のソーシャルメディアへのライブストリームなど。">Ooyala Liveの概要</a>：新しいOoyala Live用の新しいユーザーガイドとワークスペースの参照を追加しました。</li>
+
+              <li class="li"><a class="xref" href="../concepts/chromecast_and_ooyala.html">ChromecastとOoyala（廃止予定）</a>：OoyalaとChromecastの統合のv.2.0に関する新しいドキュメントを追加しました。</li>
+
+                <li class="li"><a class="xref" href="../concepts/closed_captions_ingest.html" title="BacklotまたはOoyala Ingestion Service（OIS）を介して字幕ファイルを取り込むことができます。">クローズドキャプションファイルの取り込み</a>：クローズドキャプションのさまざまな取り込みオプションについて説明する新しいトピックを追加しました。 <a class="xref" href="../tasks/closed_captions_ingest_csv.html" title="CSVマニフェストファイルを使用して字幕ファイルを取り込むことができます。">CSVマニフェストファイルを使用した字幕の取り込み</a> そして <a class="xref" href="../tasks/closed_captions_ingest_xml.html" title="XMLマニフェストファイルを使用して字幕ファイルを取り込むことができます。">XMLマニフェストファイルを使用したクローズドキャプションの取り込み</a>.</li>
+
+                <li class="li"><a class="xref" href="../tasks/ingestion_mrss_remote_assets.html" title="Media RSS（MRSS）を使用してリモートアセットを追加または更新できます。">MRSSを介したリモートアセットの取り込み</a>：MRSSを使用してリモート資産を取り込む方法を説明する新しいトピックを追加しました。</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2015.html" title="2015からのリリースノート。">2015ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- de

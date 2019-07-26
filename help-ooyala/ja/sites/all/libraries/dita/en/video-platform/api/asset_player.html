@@ -1,0 +1,222 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Associate Player with Asset"/>
+<meta name="abstract" content="You can associate a player with videos, ads, live streams, remote players, and YouTube videos."/>
+<meta name="description" content="You can associate a player with videos, ads, live streams, remote players, and YouTube videos."/>
+<meta name="DC.Relation" scheme="URI" content="../api/assets.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/assets.html"/>
+<meta name="DC.Relation" scheme="URI" content="players.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="asset_player"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>プレーヤーをアセットに関連付ける</title>
+</head>
+<body id="asset_player">
+
+
+ <h1 class="title topictitle1">プレーヤーをアセットに関連付ける</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">You can associate a player with videos, ads, live streams, remote players, and YouTube
+  videos.</p>
+
+  <div class="section"><div class="note note"><span class="notetitle">注意：</span> Backlot REST APIコマンドについて詳しくは、以下を参照してください。
+     <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/backlot_api/index.html" target="_blank">バックスロットAPIリファレンス</a>.</div>
+</div>
+
+   <div class="section refsyn"><h2 class="title sectiontitle">Add Player to Asset</h2>
+   <pre class="pre codeblock">[PUT] / v2 / assets /<a class="xref" href="asset_common_routes.html#assets_common_routes__asset_id"><kbd class="ph userinput">asset_id</kbd></a>/player/<kbd class="ph userinput">player_id</kbd></pre>
+
+   </div>
+
+  <div class="section refsyn"><h2 class="title sectiontitle">View Player for an Asset</h2>
+   <pre class="pre codeblock">[GET]/v2/assets/<a class="xref" href="asset_common_routes.html#assets_common_routes__asset_id"><kbd class="ph userinput">asset_id</kbd></a>/プレーヤー</pre>
+</div>
+
+  
+
+  
+  <div class="section"><h2 class="title sectiontitle">例</h2>
+   
+   <div class="sectiondiv">
+    <p class="p"> この例では、 <samp class="ph codeph">b4f1a93b779145b4a9c8ef15f8502345</samp> player with
+     asset <samp class="ph codeph">IzNnllMjphu2XF3_UgPROoCi9B2rtWs</samp>:  </p>
+
+    <pre class="pre codeblock">[PUT]/v2/assets/IzNnllMjphu2XF3_UgPROoCi9B2rtWs/player/b4f1a93b779145b4a9c8ef15f8502345</pre>
+
+   </div>
+   <div class="sectiondiv">
+    <p class="p">This example retrieves all the players defined for the account making the request.</p>
+
+    <pre class="pre codeblock">[GET] / v2 / players</pre>
+
+    <p class="gt-block p"><span class="ph">バックスロット</span> 次のような応答を返します。</p>
+
+    <pre class="pre codeblock">{  
+   "items":[  
+      {  
+         "provider_homepage_url":"",
+         "default_closed_caption_language":"",
+         "scrubber":{  
+            "always_show":"false",
+            "image_url":""
+         },
+         "related_videos":{  
+            "labels":[  
+
+            ],
+            "click_behavior":"new_page",
+            "order":"desc",
+            "source":"shared_labels",
+            "sort":"upload_time"
+         },
+         "id":"e18ab1da1813483499554ea2d8e67fbd",
+         "watermark":{  
+            "alpha":"1.0",
+            "image_url":"",
+            "click_url":""
+         },
+         "playback":{  
+            "buffer_on_pause":"false"
+         },
+         "ooyala_branding":{  
+            "url_sharing":"true",
+            "show_info_screen_homepage_link":"true",
+            "show_end_screen_info_button":"true",
+            "digg_sharing":"false",
+            "show_embed_button":"true",
+            "enable_error_screen":"true",
+            "show_channel_button":"true",
+            "show_info_screen_description":"false",
+            "show_ad_countdown":"true",
+            "show_info_button":"true",
+            "show_share_button":"true",
+            "show_bitrate_button":"false",
+            "chromeless":"false",
+            "twitter_sharing":"false",
+            "email_sharing":"true",
+            "show_volume_button":"true",
+            "show_info_screen_title":"true",
+            "accent_color":"#ffbb00",
+            "show_end_screen_share_button":"true",
+            "show_end_screen_more_videos":"true",
+            "stumble_upon_sharing":"false",
+            "facebook_sharing":"false",
+            "show_info_screen_presented_by":"true",
+            "show_end_screen_replay_button":"true",
+            "show_end_screen_embed_button":"true"
+         },
+         "is_default":"true",
+         "name":"Default Player",
+         "up_next_preview":{  
+            "seconds_before_end":"",
+            "timing":"disabled"
+         },
+         "provider_name":"",
+         "audio":{  
+            "show_download":"false"
+         }
+      },
+      {  
+         "provider_homepage_url":"",
+         "default_closed_caption_language":"en",
+         "scrubber":{  
+            "always_show":"false",
+            "image_url":""
+         },
+         "related_videos":{  
+            "labels":[  
+
+            ],
+            "click_behavior":"new_page",
+            "order":"desc",
+            "source":"shared_labels",
+            "sort":"upload_time"
+         },
+         "id":"1b80572b5bd64648b17db6c515f551ab",
+         "watermark":{  
+            "alpha":"0.44",
+            "image_url":"<kbd class="ph userinput">image_url</kbd>",
+            "click_url":"",
+            "position":"bottom-right"
+         },
+         "playback":{  
+            "buffer_on_pause":"false"
+         },
+         "ooyala_branding":{  
+            "url_sharing":"false",
+            "show_info_screen_homepage_link":"true",
+            "show_end_screen_info_button":"false",
+            "digg_sharing":"false",
+            "show_embed_button":"true",
+            "enable_error_screen":"true",
+            "show_channel_button":"false",
+            "show_info_screen_description":"false",
+            "show_ad_countdown":"false",
+            "show_info_button":"true",
+            "show_share_button":"true",
+            "show_bitrate_button":"false",
+            "chromeless":"false",
+            "twitter_sharing":"false",
+            "email_sharing":"true",
+            "show_volume_button":"true",
+            "show_info_screen_title":"true",
+            "accent_color":"#ff00",
+            "show_end_screen_share_button":"false",
+            "show_end_screen_more_videos":"false",
+            "stumble_upon_sharing":"false",
+            "facebook_sharing":"false",
+            "show_info_screen_presented_by":"true",
+            "show_end_screen_replay_button":"true",
+            "show_end_screen_embed_button":"false"
+         },
+         "is_default":"false",
+         "name":"alex player",
+         "up_next_preview":{  
+            "seconds_before_end":"",
+            "timing":"disabled"
+         },
+         "provider_name":"",
+         "audio":{  
+            "show_download":"false"
+         }
+      }
+   ]
+}            </pre>
+
+   </div>
+  </div>
+
+  
+ </div>
+
+ 
+ <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/assets.html" title="/ v2 / assetsルートはすべての種類の資産を扱います。">資産</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="players.html">プレイヤー（Backlot REST API）</a></div>
+</div>
+</div>
+ 
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

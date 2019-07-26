@@ -1,0 +1,199 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="How to Export Your Data With the v2 Analytics API (Deprecated)"/>
+<meta name="abstract" content=""/>
+<meta name="description" content=""/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/analytics_v3_migrating_from_v2.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_api_setup.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/analytics_v3_migrating_from_v2.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_analytics.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/analytics_overview.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="ads_integration_overview"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>v2 Analytics APIを使用してデータをエクスポートする方法（廃止予定）</title>
+</head>
+<body id="ads_integration_overview">
+
+
+    <h1 class="title topictitle1">v2 Analytics APIを使用してデータをエクスポートする方法（廃止予定） </h1>
+
+    
+    <div class="body conbody"><p class="shortdesc"/>
+
+        <div class="section">
+            <div class="p">
+                <div class="note warning"><span class="warningtitle">警告：</span> v2 Analytics APIは非推奨になりました。 見る <a class="xref" href="ooyala_iq_developer_guide.html">ウーヤラIQアナリティクス</a> 新しいv3 Analytics APIの詳細については、</div>
+
+            </div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">はじめに</h2>
+            
+            <p class="p">以下の情報は、アナリティクスv2データの取得と保存についてのガイドとなります。 </p>
+
+            <div class="p">顧客をv2 AnalyticsからOoyala IQ（v3 Analytics）に移行する際には、次のことを知っておく必要があります。 <ul class="ul">
+                    <li class="li">すべてのお客様は、1月から始まる再処理されたデータにアクセスできます1、2014。 </li>
+
+                    <li class="li">2、30の6月まで、古いv2016 Analytics APIに引き続きアクセスできます。 </li>
+
+                </ul>
+ つまり、1年以上の過去の分析データにアクセスする必要がある場合は、v2 APIを使用してデータをアクティブにしたままエクスポートする必要があります。 </div>
+
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">概要：Ooyala v2 Analytics API</h2>
+            
+            <p class="p">Ooyala v2 Analytics APIを使用すると、分析データを提供するレポートを簡単に作成できます。 結果はJSON形式になります。 （JSONは読み書きしやすい軽量のデータ交換フォーマットです。）</p>
+
+            <p class="p">特定の日付範囲から分析結果を取得するには、MacのターミナルなどのターミナルエミュレータまたはOoyala Scratchpadで、API呼び出し/ v2 / analytics / reports /を使用して必要な結果のタイプを定義するだけです。</p>
+
+            <p class="gt-block p"><strong class="ph b">APIとは</strong></p>
+
+            <p class="gt-block p">コンピュータプログラミング <strong class="ph b">API（アプリケーションプログラミングインタフェース）</strong> ソフトウェアアプリケーション用の一連のルーチンおよびプロトコルの名前です。 あ <strong class="ph b">API</strong>
+                操作と結果の観点からソフトウェアコンポーネントを表現します。</p>
+
+            <p class="gt-block p"><strong class="ph b">自分のAPI資格情報はどこにありますか？</strong></p>
+
+            <div class="p">あなたはBacklot UIであなたのAPIキーと秘密を見つけることができます。 [アカウント]&gt; [開発者]タブの[Backlot]にあるAPI v2認証情報を使用してください。 <div class="fig fignone"><span class="figcap">図1 APIキーを見つける</span>
+                    
+                    <br/><img class="image" src="http://help-ooyala.brightcove.com/../image/find_api_keys.png" height="126" width="424" alt="APIキーの場所"/><br/>
+                </div>
+</div>
+
+            <p class="gt-block p"><strong class="ph b">APIの仕組み</strong></p>
+
+            <p class="p"> Ooyala API呼び出しには、4基本要素（APIキー、APIシークレット、署名、および有効期限）が必要です。</p>
+
+            <p class="gt-block p">API呼び出しは <a class="xref" href="http://www.w3.org/Protocols/rfc2616/rfc2616.html" target="_blank">HTTP</a> メソッド GET API呼び出しは、データを直接変更せずにデータを取得するために使用され、オブジェクトのIDに基づいて型付きのJSONドキュメントレスポンスを取得することを可能にします。</p>
+
+            <p class="gt-block p"><strong class="ph b">Ooyala v2 Analytics APIで取得できる結果は何ですか？</strong></p>
+
+            <p class="p">v2 Analytics APIには、結果を取得するために識別する必要がある4キー修飾子があります。</p>
+
+            <p class="gt-block p"><strong class="ph b">asset_id</strong>注：この値は、探す場所によって異なる名前で参照されます。 Backlot APIでは、asset_idは特定の資産のIDです。 asset_idは、コンテンツを表すBacklot UIにあるコンテンツIDと同じ値を持ちます。 値はすべてのシナリオで同じです。 特定の資産の結果を取得したい場合は、asset_idを使用できます。 または、自分のアカウントの結果を取得することもできます。これには、すべての資産が含まれます。 </p>
+
+            <p class="gt-block p"><strong class="ph b">日付範囲</strong>：このレポートの日付範囲を定義します。 分析は日付に基づいています。 形式（YYYY-MM-DD）に従って日付を定義することも、（YYYY-MM-DD ... YYYY-MM-DD）を使用して日付範囲を定義することもできます。</p>
+
+            <p class="gt-block p"><strong class="ph b">レポートリクエスト</strong>：取得するレポートの種類を定義します。 有効な値は以下のとおりです。 <a class="xref" href="../api/analytics_performance.html" title="資産実績レポートは、アカウントまたは資産レベルでの包括的な実績を示します。">パフォーマンス</a>,  <a class="xref" href="../api/analytics_sharing.html" title="共有レポートには、アカウント内のすべてのコンテンツまたは個々のアセットに対する共有操作（Facebook、Twitterなど）の数が表示されます。">シェアリング</a>,  <a class="xref" href="../api/analytics_engagement.html" title="エンゲージメントレポートには、ビデオの再生中の視聴者数が表示されます。これにより、視聴者が興味を失うポイントを特定し、広告掲載の効果を見つけ、その全体的な効果を評価できます。">婚約</a>、および <a class="xref" href="../archive/analytics_delivery.html" title="配信レポートは、アカウント内のすべてのコンテンツまたは個々のアセットに配信されたVODバイト数を返します。 配信APIはUsage REST APIに移行されました。">配達</a>.</p>
+
+            <p class="gt-block p"><strong class="ph b">次元</strong>：ディメンションは、ユーザーアクティビティが発生した日付やユーザーが居住していた国など、データを集計するために使用される一般的な基準です。 すべてのディメンションには「<strong class="ph b">ドリルダウン</strong>これにより、各ディメンションの特定の値で結果を絞り込むことができます。 </p>
+
+            <p class="gt-block p">一般的なクエリ文字列パラメータと属性は、次のURLにあります。 <a class="xref" href="../api/analytics_attributes_and_parms.html" title="これらの属性とクエリ文字列パラメータは、Analyticsルートで使用されます。">共通属性とクエリ文字列パラメータ（廃止予定）</a>.  </p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">v2 Analyticsデータを取得する方法</h2>
+            
+            <p class="gt-block p"><strong class="ph b">API呼び出しフォーマットとは何ですか？</strong></p>
+
+            <p class="p">v2 Analytics APIは、API本体の特定の順序に従います。</p>
+
+            <p class="p">たとえば、API呼び出しは次のとおりです。
+                    <samp class="ph codeph">/ v2 / analytics / reports / account / performance / [：ディメンション/：ドリルダウン] /：date_range</samp></p>
+
+            <div class="p">2011-01-01から2014-01-01へのパフォーマンスレポートを取得する場合は、次のようになります。 <div class="fig fignone"><span class="figcap">図2 掲載結果レポートのAPI呼び出し</span>
+                    
+                    <br/><img class="image" src="http://help-ooyala.brightcove.com/../image/API_call.png" height="35" width="372" alt="サンプルAPI呼び出し"/><br/>
+                </div>
+
+            </div>
+
+            <p class="gt-block p"><strong class="ph b">スクラッチパッドを使用してレポートを保存する方法はありますか</strong></p>
+
+            <p class="p">スクラッチパッドは、ブラウザでAPIクエリを実行できるようにする、Ooyalaによって作成されたツールです。</p>
+
+            <div class="p">スクラッチパッドを使用して分析レポートを取得するには <ol class="ol">
+                <li class="li">次のURLに行きます <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>.</li>
+
+                    <li class="li">ページの右上隅にある認証情報セクションで「あなたのアカウント」を選択します。</li>
+
+                    <li class="li">ページの右上隅にある認証情報セクションにv2 API認証情報（APIキーとシークレット）を入力します。 </li>
+
+                    <li class="li">ページの左側にある[クエリ]フィールドに、Analyticsクエリを入力します。 たとえば、パフォーマンスレポートを2011から2014に取得したい場合は、このクエリをコピーして貼り付けます。
+                            <samp class="ph codeph">/v2/analytics/reports/account/performance/total/2011-01-01...2014-01-01</samp></li>
+
+                    <li class="li">GETを選択してください。</li>
+
+                    <li class="li">送信をクリックします。 <div class="note note"><span class="notetitle">注意：</span> あなたの回答が回答欄に表示されます。</div>
+
+                    </li>
+
+                    <li class="li">結果をより大きなブラウザウィンドウで表示する場合は、[送信]ボタンの上に緑色で表示されているAPI URLをブラウザにコピーします。 この場合、URLは次のようになります。 <a class="xref" href="https://api.ooyala.com/v2/analytics/reports/account/performance/total/2011-01-01...2014-01-01?api_key=yourApiKey&signature=yourSignature&expires=1418771221">https://api.ooyala.com/v2/analytics/reports/account/performance/total/2011-01-01...2014-01-01?api_key=yourApiKey&amp;signature=yourSignature&amp;expires=1418771221</a>.  </li>
+
+                    <li class="li">ブラウザで[ファイル]&gt; [名前を付けて保存]を選択してJSONを保存します。 JSONをCSVに変換する方法については、を参照してください。 <a class="xref" href="../tasks/api_analytics_convert_to_csv.html" title="Backlot UIでは、データをコンマ区切り値（CSV）形式でダウンロードできます。 これはプログラム的にこれを行うための一般的なアプローチです。">Analytics JSONからCSVへの変換（廃止予定）</a>
+                    </li>
+
+                </ol>
+</div>
+
+            <p class="gt-block p"><strong class="ph b">追加のクエリ例</strong></p>
+
+            <div class="p">Scratchpadでクエリを作成する方法と特定の分析レポートタイプの詳細については、以下を参照してください。 <ul class="ul">
+                    <li class="li"><a class="xref" href="../api/analytics_performance.html" title="資産実績レポートは、アカウントまたは資産レベルでの包括的な実績を示します。">洗浄力</a> クエリ例</li>
+
+                    <li class="li"><a class="xref" href="../api/analytics_sharing.html" title="共有レポートには、アカウント内のすべてのコンテンツまたは個々のアセットに対する共有操作（Facebook、Twitterなど）の数が表示されます。">分担</a> クエリ例</li>
+
+                    <li class="li"><a class="xref" href="../api/analytics_engagement.html" title="エンゲージメントレポートには、ビデオの再生中の視聴者数が表示されます。これにより、視聴者が興味を失うポイントを特定し、広告掲載の効果を見つけ、その全体的な効果を評価できます。">エンゲージメント</a>
+                        クエリ例</li>
+
+                    <li class="li"><a class="xref" href="../archive/analytics_delivery.html" title="配信レポートは、アカウント内のすべてのコンテンツまたは個々のアセットに配信されたVODバイト数を返します。 配信APIはUsage REST APIに移行されました。">配信</a>
+                        クエリ例</li>
+
+                </ul>
+</div>
+
+                <div class="note note"><span class="notetitle">注意：</span> アカウントのレポートタイプのすべてのデータを取得するには、“ total”クエリ文字列パラメータを使用します。 上記の各クエリ例のリンクに「total」を使用して例を見つけることができます。 「合計」は、アカウントの特定のレポートタイプのすべてのデータを取得するために使用されます。</div>
+ <div class="p">たとえば、次のクエリは、日付範囲2011-08-01 ... 2011-08-02にわたるアカウントのすべての掲載結果データを取得します。 
+                    <pre class="pre codeblock">[GET] / v2 / analytics / reports / account / performance /<strong class="ph b">合計</strong>/2011-08-01...2011-08-02</pre>
+</div>
+
+              
+            
+            <p class="gt-block p"><strong class="ph b">独自のAPIレポートを作成する方法</strong></p>
+
+            <p class="p">Ooyala APIに慣れていてスクリプトを作成したことがある場合、または事前に作成したクエリを変更してデータを取得できる技術リソースがある場合にのみ、独自のAPIスクリプトを作成してください。 </p>
+
+            <div class="p">あなたが私たちからの以下のスニペットをチェックするならば <a class="xref" href="../tasks/api_signing_requests_appendix.html" title="リクエストに署名するためのさまざまなプログラミング言語のサンプルコードの集まりです。">サンプルコード</a> それは端末を示しています、あなたは私たちが使用してAPI呼び出しのリクエストを送信していることを識別することができます <a class="xref" href="http://curl.haxx.se/" target="_blank">curl</a>。 cURLは、あなたがパラメータとヘッダを修正することができるところでhttpリクエストをします。 <div class="fig fignone"><span class="figcap">図3 サンプルAPIレポート</span>
+                    
+                    <br/><img class="image" src="http://help-ooyala.brightcove.com/../image/sample_api_report.png" height="217" width="523" alt="APIレポート"/><br/>
+                </div>
+
+            </div>
+
+            <div class="note note"><span class="notetitle">注意：</span> その他のスクリプト例については、サポートサイトのドキュメントを参照してください。 <a class="xref" href="../tasks/api_signing_requests_appendix.html" title="リクエストに署名するためのさまざまなプログラミング言語のサンプルコードの集まりです。">署名要求のサンプルコード</a>.  </div>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/analytics_v3_migrating_from_v2.html" title="v2 Analyticsからv3 Analytics（Ooyala IQ）に移行する際の考慮事項がいくつかあります。">v2 Analyticsからの移行（廃止予定）</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_api_setup.html" title="Ooyalaは、Backlotプラットフォームへのリクエストを可能にするRESTベースのインターフェースを提供します。">Backlot REST APIを使用する</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_analytics.html" title="Ooyalaには、v2 Analytics APIを使用してデータを取得するという基本的な分析機能がありました。">v2 Analytics（非推奨）</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/analytics_overview.html" title="アカウントに基づいて、さまざまな分析パッケージを利用できます。">v2 Analytics API（廃止予定）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noi

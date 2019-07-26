@@ -1,0 +1,97 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Related Content Recommendations"/>
+<meta name="abstract" content="The related content algorithms return content related to the current asset, which you can display on a web page or within in App."/>
+<meta name="description" content="The related content algorithms return content related to the current asset, which you can display on a web page or within in App."/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/cd_api_overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/content_discovery_shared.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="cd_api_get_related"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>関連コンテンツの推奨事項</title>
+</head>
+<body id="cd_api_get_related">
+
+
+    <h1 class="title topictitle1">関連コンテンツの推奨事項</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">関連コンテンツアルゴリズムは、現在のアセットに関連するコンテンツを返します。現在のアセットは、WebページまたはApp内に表示できます。</p>
+
+        <div class="section context">
+            <div class="note note"><span class="notetitle">注意：</span> （要求ごとに個別のパラメーターを使用して）アドホック要求を作成するのではなく、ディスカバリー・プロファイルを使用して設定と推奨動作を一元管理することを検討してください。 検出プロファイルは、ユーザーが作成した設定の定義済み構成です。 <samp class="ph codeph">のGET</samp> ルート 詳細については、 <a class="xref" href="../concepts/../concepts/content_discovery_profile.html" title="プレーヤーに表示されるコンテンツの推奨事項に対してOoyala Discoveryの設定を構成する再利用可能な検出プロファイルを作成できます。">ディスカバリープロファイル</a>.</div>
+
+            <p class="gt-block p"><strong class="ph b">関連コンテンツについて</strong>
+            </p>
+<p class="p">関連コンテンツアルゴリズムは、最初はメタデータを使用して関係を判断しますが、ユーザーの行動に基づいて結果を最適化します。 たとえば、アルゴリズムはアイスホッケー、アイススケート、およびZamboniビデオの間の関係を見つけるかもしれません。 時が経てば、アイスホッケーのビデオやザンボニのビデオを見たり、アイススケートやザンボニのビデオを見たり、ザンボニのビデオだけを見たりする人もいます。</p>
+<p class="p">関連コンテンツの結果を表示すると、コンテンツ間の関係の一部が明らかになっています。 しかし、それほど明白ではないかもしれないものがたくさんあります。 たとえば、スポーツビデオの場合、関連コンテンツアルゴリズムは次のようにグループ化します。</p>
+<ul class="ul">
+                <li class="li">ハイライト動画</li>
+
+                <li class="li">NG集</li>
+
+                <li class="li">スポーツを超えたトップパフォーマンス</li>
+
+                <li class="li">エクストリームスポーツの最高</li>
+
+            </ul>
+<p class="p">これらのテーマは明白ですが、他のそれほど明確ではないテーマが現れるかもしれません。 さらに、結果は動的です。 ユーザーが時間の経過とともにさまざまなコンテンツを視聴するにつれて、おすすめ動画も変わります。</p>
+<p class="gt-block p"><strong class="ph b">ステップ</strong></p>
+ 関連コンテンツの推奨事項を返すようにDiscoveryを設定するには、次の手順を使用します。 </div>
+
+        <ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd">関連コンテンツを取得する資産を選択してください。 </span>
+                 次の例では、アセットに関連する2つの動画を返します <samp class="ph codeph">xtNnJ4OkQzLNI1wI2rYDvl5saZphlRaI</samp>:
+                 
+                 <pre class="pre codeblock">[GET] / v2 / discover / similar / assets / &quot;<kbd class="ph userinput">asset_id</kbd>-h？limit = 2               </pre>
+
+                 <span class="ph">バックスロット</span> 次のような応答を返します。
+                    <pre class="pre codeblock">{&quot;結果&quot;：[{&quot;名前&quot;： &quot;夜のハイライト&quot;、 &quot;説明&quot;： &quot;Team1は、ゲーム1のPlayer2の欠如を利用して、109-92勝利にロールします。&quot;、 &quot;embed_code&quot;： &quot;<kbd class="ph userinput">埋め込みコード</kbd>&quot;、&quot; external_id &quot;：&quot;<kbd class="ph userinput">external_id</kbd>&quot;、&quot; preview_image_url &quot;：&quot;<kbd class="ph userinput">image_url</kbd>&quot;、&quot;期間 &quot;：&quot; 91000 &quot;、&quot;ostedAtURL&quot;：null、 &quot;bucket_info&quot;： &quot;1 {\&quot;<kbd class="ph userinput">bucket_info_id</kbd>&quot;、&quot; reason &quot;：&quot; top &quot;}、{&quot; name &quot;：&quot; Player1、Team1リード2-0 &quot;、&quot;説明 &quot;：&quot; Team38からTeam1に勝ってTeam104に勝ったプレーヤーは100を獲得してください。 &quot;、 &quot;埋め込みコード&quot;：&quot;<kbd class="ph userinput">埋め込みコード</kbd>&quot;、&quot; external_id &quot;：&quot;<kbd class="ph userinput">external_id</kbd>&quot;、&quot; preview_image_url &quot;：&quot;<kbd class="ph userinput">image_url</kbd>&quot;、&quot;期間 &quot;：&quot; 61000 &quot;、&quot;ostedAtURL&quot;：null、 &quot;bucket_info&quot;： &quot;<kbd class="ph userinput">bucket_info_id</kbd>&quot;、&quot; reason &quot;：&quot; top &quot;}]}            </pre>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">各結果から情報を取得してWebページコンテンツを生成します。 </span>
+                 <div class="note note"><span class="notetitle">注意：</span> のコピーを必ず保管してください <samp class="ph codeph">bucket_info</samp> 最終ステップで使用する各推奨事項に関連付けられています。 </div>
+次の例は単純なHTMLコンテンツを示しています。
+            </li>
+<li class="li step stepexpand" id="cd_api_get_related__do_feedback">
+                <span class="ph cmd">あなたの視聴者が表示されるたびに、Ooyala DiscoveryからのビデオまたはOoyala Discoveryによって提示されたリンクをクリックするたびに、関連する <samp class="ph codeph">bucket_info</samp> 次のいずれかの方法で、フィードバックとしてOoyalaに返送してください。 </span>
+                 <ul class="ul">
+                        <li class="li">  <samp class="ph codeph">/ v2 /発見/フィードバック/印象</samp> 動画の表示を記録するためのルートです。 詳細と使用例については、 <a class="xref" href="../tasks/cd_api_setup_impression_events.html#cd_api_setup_impression_events" title="APIを介してOoyala Discoveryの推奨事項をユーザーに表示するには、表示される結果を報告するためにOoyalaを呼び出す必要があります。 報告された情報はDiscoveryの実装に供給され、推奨アルゴリズムが強化され、サイトと視聴者の結果が最適化されます。">インプレッションイベントを返す</a>.</li>
+
+                        <li class="li">  <samp class="ph codeph">/ v2 /発見/フィードバック/再生</samp> ビデオを再生するためのクリックを記録するルートです。 詳細と使用例については、 <a class="xref" href="../tasks/cd_api_setup_click_events.html#cd_api_setup_click_events" title="リコメンデーションフィードバックループのクリックインプレッションを記録するように実装を設定する方法を学びます。">クリックイベントを返す</a>.</li>
+
+                    </ul>
+
+            </li>
+</ol>
+
+        <div class="section postreq">
+            <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+        </div>
+
+    </div>
+
+    <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/cd_api_overview.html" title="これらのディスカバリーAPIを使用するには、ディスカバリー要求を出し、ユーザーのアクション情報を戻してアルゴリズムをトレーニングします。">ディスカバリーREST API</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong><br/>
+<div><a class="link" href="../api/content_discovery_shared.html" title="Translator Note: This is shared content used by several topics.">共有コンテンツ</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- de

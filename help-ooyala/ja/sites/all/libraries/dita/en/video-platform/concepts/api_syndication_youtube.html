@@ -1,0 +1,79 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Syndication with YouTube"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_syndications_specific.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/api_syndication_youtube_captcha.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/api_syndication_youtube_privacy.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept_lqx_sbc_gl"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>YouTubeとのシンジケート</title>
+</head>
+<body id="concept_lqx_sbc_gl">
+
+
+ <h1 class="title topictitle1">YouTubeとのシンジケート</h1>
+
+ 
+ <div class="body conbody">
+  <div class="section">YouTubeシンジケーション（つまり、YouTubeに動画をエクスポート）の場合 <span class="ph">バックスロット</span> ビデオのソースファイルを自動的にYouTubeに直接アップロードします。これにより、すべてのトランスコードとプレビュー画像の生成が処理されます。 </div>
+
+  <div class="section"><h2 class="title sectiontitle">一方向でシンジケーションが発生する</h2>YouTubeとのシンジケートは「一方向」です。 <span class="ph">バックスロット</span> YouTubeにプッシュされます。 <div class="fig fignone">
+    <img class="image" src="http://help-ooyala.brightcove.com/../image/youtube_syndication.png"/>
+   </div>
+YouTubeの設定とコンテンツは <em class="ph i">Studio上ではサポートされていません。</em> 引き戻した <span class="ph">バックスロット</span>.</div>
+
+  <div class="section"><h2 class="title sectiontitle">YouTubeアカウントごとに1つのYouTubeシンジケート</h2>1つのYouTubeアカウントにはYouTubeシンジケーションを1つだけ含めることができます。 たとえば、YouTubeアカウントabc@abc.comとxyz@abc.comがある場合、abc@abc.comにはYouTubeシンジケートがあり、xyz@abc.comには別のYouTubeシンジケートがある必要があります。</div>
+
+  <div class="section"><h2 class="title sectiontitle">YouTubeアカウントの制限</h2>Ooyalaは、YouTubeに配信するビデオファイルのサイズと期間に制限を設けていません。 これらの制限は、YouTubeとの関係（YouTubeアカウント設定）によって決まります。 内のメッセージを無視してください <span class="ph">バックスロットUI</span> 下に示された。
+   <div class="fig fignone">
+    <img class="image" id="concept_lqx_sbc_gl__image_hmc_n1j_j3" src="http://help-ooyala.brightcove.com/../image/backlotui_syndication/backlotui_syndication_youtube_with_privacy.png" height="133" width="358"/>
+   </div>
+</div>
+
+  <div class="section"><h2 class="title sectiontitle">YouTubeによる変更処理</h2>YouTubeでは、以前にアップロードされた（またはシンジケートされた）ビデオのコンテンツをあなたに置き換えることはできません。 代わりに、YouTubeは新しい動画コンテンツに新しい識別子（ID）を割り当てます。 この設計のため、資産や設定に多くの変更を加えます <span class="ph">バックスロット</span> 次のような新しい動画識別子をYouTubeに作成させます。 <ul class="ul">
+    <li class="li">ビデオの名前を変更する</li>
+
+    <li class="li">説明など、その他の詳細を変更する</li>
+
+    <li class="li">動画のメタデータを変更する</li>
+
+    <li class="li">ビデオからラベルを削除する <span class="ph">バックスロットUI</span> またはフィード自体を編集してラベルを削除します。 そのラベルに以前関連付けられていたビデオはYouTubeから削除されます。</li>
+
+    <li class="li">プライバシー設定。 YouTubeでプライバシー設定を変更した場合、 <span class="ph">バックスロット</span> YouTubeを更新すると、アカウントに関する統計情報を含め、YouTubeに対する以前の変更は失われます。<p class="gt-block p"><span class="ph">バックスロット</span> YouTubeのプライバシー設定は、公開と非公開の2つのみです。 YouTubeシンジケーションを作成すると、デフォルトであなたのビデオはYouTubeで公開されます。 以下の最後の手順で詳しく説明するように、このデフォルトを変更できます。
+      </p>
+<div class="p">プライバシー設定を変更しても、シンジケーションに追加されたビデオにのみ影響します。 <em class="ph i">変更後</em>。 以前にYouTubeに配信されたビデオのプライバシー設定を変更するには、個々のアセットの設定を <span class="ph uicontrol">管理</span> ページ <span class="ph uicontrol">細部</span> 次の例に示すように、特定の資産のサブタブ。 <div class="fig fignone">
+       <img class="image" id="concept_lqx_sbc_gl__image_fvs_pb1_gl" src="http://help-ooyala.brightcove.com/../image/backlotui_syndication/backlotui_syndication_youtube_with_privacy.png_perasset.png" height="112" width="324"/>
+      </div>
+</div>
+</li>
+
+   </ul>
+
+  </div>
+
+ </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../tasks/api_syndication_youtube_captcha.html">YouTubeからのCAPTCHAチャレンジの処理</a></strong><br/>
+あなたが悪いパスワードでYouTubeシンジケーションを数回作成しようとした場合、あなたはCAPTCHAチャレンジに直面するかもしれません。</li>
+<li class="link ulchildlink"><strong><a href="../tasks/api_syndication_youtube_privacy.html">YouTubeシンジケートのプライバシー設定およびその他の考慮事項</a></strong><br/>
+Youtubeでシンジケートするアセットのデフォルトのプライバシー設定を設定できます。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_syndications_specific.html">特定のシンジケーション</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640

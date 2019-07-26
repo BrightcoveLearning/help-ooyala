@@ -1,0 +1,281 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Configuring Player Embed Settings in Backlot"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_publishing.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_channels.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_channelsets.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_publishing_manual.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="publishing_manual_embed"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>バックスロットでのプレーヤー埋め込み設定</title>
+</head>
+<body id="publishing_manual_embed">
+
+
+  <h1 class="title topictitle1">バックスロットでのプレーヤー埋め込み設定</h1>
+
+  <div class="body conbody">
+   <div class="section">プレーヤーを作成した後（参照 <a class="xref" href="player_create.html" title="Backlotには、好きなだけプレーヤーを作成して構成することができます。 プレーヤーを好きなだけビデオに関連付けることができます。 Player V3の場合、プレーヤーをオーディオアセット、チャンネル、またはチャンネルセットに関連付けることもできます。">Backlotでプレイヤーを作成する</a>）、埋め込み設定を構成できます。 このプレーヤーに関連付けられているすべての動画に変更が自動的に適用されます。
+    <div class="note note"><span class="notetitle">注意：</span> あなたのウェブサイトのコードに残っているページレベルのプレイヤーパラメータはまだ優先されます。 見る <a class="xref" href="../concepts/pbv4_precedence.html">プレーヤーのV4設定の優先順位</a>.</div>
+
+    プレーヤV4の場合も参照してください。 <a class="xref" href="../concepts/pbv4_backlot_basic.html">基本的な埋め込み情報</a> そして <a class="xref" href="../concepts/pbv4_embed.html">WebページへのプレーヤーV4の埋め込み</a>.  </div>
+
+   <div class="section"><h2 class="title sectiontitle">プレイヤーの埋め込みサブタブ</h2> Backlot UIでプレーヤーの埋め込み設定を構成するには、埋め込みサブタブに移動します。<ol class="ol">
+     <li class="li">Backlotにログインします。 <a class="xref" href="https://backlot.ooyala.com/" target="_blank">https://backlot.ooyala.com/</a>.  </li>
+
+     <li class="li">[管理]タブを選択します。</li>
+
+     <li class="li">リストから資産を選択します。</li>
+
+     <li class="li">埋め込みタブを選択します。</li>
+
+    </ol>
+
+    
+    このタブは2つのセクションで構成されています。 <ul class="ul">
+     <li class="li">プレーヤーの設定</li>
+
+     <li class="li">埋め込みコードを生成する</li>
+
+    </ul>
+</div>
+
+   <div class="section"><h2 class="title sectiontitle">設定するプレーヤーを選択してください</h2>
+    [プレーヤーの設定]の[カスタムプレーヤー]で、構成するプレーヤーをリストから選択します。 プレーヤーのバージョンによって、どの埋め込みコードのオプションを利用できるかが決まります。
+   </div>
+
+   <div class="section" id="publishing_manual_embed__settings"><h2 class="title sectiontitle">プレーヤー設定を構成する</h2> 選択したプレーヤーの基本的な埋め込み設定を構成します。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="20%" id="d1084979e89">設定</th>
+
+              <th class="entry" valign="top" width="80%" id="d1084979e92">説明</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d1084979e89 "><strong class="ph b">プレイヤー（カスタムまたはデフォルト）</strong></td>
+
+              <td class="entry" valign="top" width="80%" headers="d1084979e92 ">設定するプレーヤーを選択してください。</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d1084979e89 "><strong class="ph b">コンテンツが埋め込まれているパーマリンク</strong></td>
+
+              <td class="entry" valign="top" width="80%" headers="d1084979e92 ">コンテンツが埋め込まれているURL。 </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d1084979e89 "><strong class="ph b">コンテンツID</strong></td>
+
+              <td class="entry" valign="top" width="80%" headers="d1084979e92 ">選択したコンテンツのバックスロットID。</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d1084979e89 "><strong class="ph b">プレーヤーID</strong></td>
+
+              <td class="entry" valign="top" width="80%" headers="d1084979e92 ">選択したプレーヤーのバックスロットID。</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+</div>
+
+   <div class="section" id="publishing_manual_embed__generate"><h2 class="title sectiontitle">埋め込みコードの生成</h2> 選択したプレーヤーの埋め込みコードを生成します。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="20%" id="d1084979e158">設定</th>
+
+              <th class="entry" valign="top" width="80%" id="d1084979e161">説明</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d1084979e158 "><strong class="ph b">サイズ</strong></td>
+
+              <td class="entry" valign="top" width="80%" headers="d1084979e161 ">プレイヤーウィンドウのサイズ。 次のいずれかの設定 </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d1084979e158 "> </td>
+
+              <td class="entry" valign="top" width="80%" headers="d1084979e161 ">
+                <ul class="ul">
+                  <li class="li"><strong class="ph b">敏感な</strong> （Player V4のみ） - 埋め込まれているWebコンテナに基づいて自動的にサイズ変更されます</li>
+
+                </ul>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d1084979e158 "> </td>
+
+              <td class="entry" valign="top" width="80%" headers="d1084979e161 ">
+                <ul class="ul">
+                  <li class="li"><strong class="ph b">プリセットサイズ</strong> - 選択したアセットのエンコードサイズを含む</li>
+
+                </ul>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d1084979e158 "> </td>
+
+              <td class="entry" valign="top" width="80%" headers="d1084979e161 "><ul class="ul">
+                  <li class="li"><strong class="ph b">カスタム</strong></li>
+
+                </ul>
+カスタムサイズを選択した場合は、寸法を指定します。 <ul class="ul">
+                  <li class="li">高さ</li>
+
+                  <li class="li">幅</li>
+
+                  <li class="li">アスペクト比を維持
+                    </li>
+
+                </ul>
+</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d1084979e158 "><strong class="ph b">自動再生</strong></td>
+
+              <td class="entry" valign="top" width="80%" headers="d1084979e161 ">
+                <ul class="ul">
+                  <li class="li">アセットが読み込まれたらすぐに自動的に再生を開始するには、（チェック）を選択します。</li>
+
+                  <li class="li">ユーザーがアセットの再生を開始するために[再生]ボタンをクリックするように要求するには、オフ（オフ）にします。</li>
+
+                </ul>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d1084979e158 "><strong class="ph b">自動繰り返し</strong></td>
+
+              <td class="entry" valign="top" width="80%" headers="d1084979e161 ">
+                <ul class="ul">
+                  <li class="li">再生が終了したらすぐに自動的にアセットの再生（ビデオのみ）を開始するには（オン）を選択します。</li>
+
+                  <li class="li">ユーザーが[再生]ボタンをクリックしてアセットの再生を再開するように要求するには、オフ（オフ）にします。</li>
+
+                </ul>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d1084979e158 "><strong class="ph b">埋め込みコードの種類</strong></td>
+
+              <td class="entry" valign="top" width="80%" headers="d1084979e161 ">リストボックスから埋め込みコードの種類を選択します。 利用可能なオプションは、選択したプレーヤーに関連付けられているプレーヤーのバージョンによって異なります。 
+                <ul class="ul">
+                  <li class="li"><strong class="ph b">V4 HTML5標準プレーヤー埋め込みコード（推奨）</strong>:  <p class="p">以下のプラグインを自動的に含みます。 </p>
+<ul class="ul">
+                      <li class="li">コアプレーヤー（<samp class="ph codeph">core.min.js</samp>)</li>
+
+                      <li class="li">プレイヤースキン（<samp class="ph codeph">html5-skin.min.js</samp>,
+                          
+                          <samp class="ph codeph">html5-skin.min.css</samp>） ご了承ください <samp class="ph codeph">skin.json</samp>
+                        自動的には含まれないため、BacklotからプレーヤーのUI設定を読み取ることができます。</li>
+
+                      <li class="li">HLSとDASH用のBitmovinプラグイン（<samp class="ph codeph">bit_wrapper.min.js</samp>)</li>
+
+                      <li class="li">HLSとMP4のメインビデオプラグイン（<samp class="ph codeph">main_html5.min.js</samp>)</li>
+
+                      <li class="li">広告プラグイン（Pulse、Google IMA、Freewheel、VAST）</li>
+
+                      <li class="li">ディスカバリープラグイン（<samp class="ph codeph">discovery_api.min.js</samp>)</li>
+
+                    </ul>
+この埋め込みコードを選択すると、これらのプラグインをWebページに追加しなくなります（重複したプラグインの埋め込みにより予期しない結果が生じる可能性があるため、現在インラインの場合は削除する必要があります）。 他のすべてのプラグイン（たとえば、分析プラグイン）の場合は、Webページにプラグインを明示的に追加する必要があります。</li>
+
+                  <li class="li"><strong class="ph b">V4 HTML5プレーヤー埋め込みコード（詳細）</strong> プラグインは含まれていません。 Webページで使用するすべてのプラグインを指定しなければなりません。 <div class="note note"><span class="notetitle">注意：</span> これは、Maylot 4、Backlotの31より前に利用可能になったPlayer V2017埋め込みコードと同じです。</div>
+</li>
+
+                  <li class="li"><strong class="ph b">V4 HTML5プレーヤーiFrame</strong>：プレーヤーをHTML iFrameに埋め込むときにこのオプションを選択します。 詳しくは、 <a class="xref" href="../reference/pbv4_embed_iframe.html">プレーヤV4をHTML iframeに埋め込む</a>.</li>
+
+                  <li class="li"><strong class="ph b">V3 HTML埋め込みコード</strong>  or  <strong class="ph b">V3 HTML（HTTPS）埋め込みコード</strong>：プレイヤーV3のみ。 どちらもURLに &quot;//&quot;を使用します。</li>
+
+                  <li class="li"><strong class="ph b">V2 Flash埋め込みコード（非推奨）</strong>  or  <strong class="ph b">V2フラッシュ（HTTPS）埋め込みコード（廃止予定）</strong>：プレイヤーV2のみ。 どちらもURLに &quot;//&quot;を使用します。</li>
+
+                </ul>
+<div class="note note"><span class="notetitle">注意：</span> Flash埋め込みコードを使用すると、iOSデバイスはビデオを見ることができなくなります。 ビデオをAppleデバイスで表示できるようにするには、HTML埋め込みコードを使用してください。 </div>
+<div class="note note"><span class="notetitle">注意：</span> オーディオアセットにはHTMLが必要です。</div>
+</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d1084979e158 "><strong class="ph b">生成された埋め込みコード</strong></td>
+
+              <td class="entry" valign="top" width="80%" headers="d1084979e161 ">このタブでの他の選択に基づいてBacklotが生成するコード（HTMLフォーマット）を埋め込みます。 クリック <span class="ph uicontrol">コピー</span> 埋め込みコード全体をクリップボードにコピーするためのボタン。 公開するページにコンテンツを貼り付けます。 HTMLにパブリッシュする場合は、コンテンツがHTML内にあることを確認してください。
+                  <samp class="ph codeph">&lt;BODY&gt;</samp> 素子。 Player V4については、 <a class="xref" href="../concepts/pbv4_embed.html">WebページへのプレーヤーV4の埋め込み</a>.  </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+   </div>
+
+  </div>
+
+ <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_publishing.html" title="公開を使用すると、動画や動画のメタデータを複数のWebプロパティやコンテンツネットワークと共有できます。">コンテンツ発行</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_channels.html" title="あなたはチャンネルを作成し管理することができます。">チャンネル（廃止予定）</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_channelsets.html" title="チャンネルセットを作成および管理できます。">チャンネルセット（廃止予定）</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_publishing_manual.html" title="コンテンツを公開する最も一般的な方法は、HTML埋め込みコードをWebページにコピーすることです。">マニュアル発行</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

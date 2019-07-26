@@ -1,0 +1,174 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="XTV Connect SDK for iOS"/>
+<meta name="abstract" content="To increase engagement with your content, Ooyala provides SDKs, code samples, and other tools to enable you to view your content on connected TVs."/>
+<meta name="description" content="コンテンツとのエンゲージメントを高めるために、OoyalaはSDK、コードサンプル、および接続されたテレビでコンテンツを表示できるようにするその他のツールを提供しています。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_ios_integrations.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/integrate_xtv_ios_steps.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/integrate_xtv_testing_with_xbmc.html"/>
+<meta name="DC.Relation" scheme="URI" content="sdk_overview.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="integration_overview"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>iOS用XTV Connect SDK</title>
+</head>
+<body id="integration_overview">
+
+
+ <h1 class="title topictitle1">iOS用XTV Connect SDK</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">コンテンツとのエンゲージメントを高めるために、OoyalaはSDK、コードサンプル、および接続されたテレビでコンテンツを表示できるようにするその他のツールを提供しています。 </p>
+
+  <p class="p">iOS用のXTV Connect SDK（以前のiOS用のMobile Connect SDK）を使用すると、視聴者はモバイルアプリケーション（たとえば、スマートフォンやタブレット）を介して、接続されているテレビに直接コンテンツを送信できます。 <dfn class="term">XTV</dfn>2番目の画面としてモバイルデバイスを使用しながら、）。 これは私たちのモバイルSDKへのプラグインとして利用可能です。 視聴者は、任意のAndroidまたはiOSアプリケーションからサポートされている任意のXTV（AppleTVを含む）にコンテンツをストリーミングできます。</p>
+
+  <p class="gt-block p"><strong class="ph b">要件</strong></p>
+
+  <p class="p"> iOS用XTV Connect SDKプラグインを使い始めるには、次のものが必要です。 </p>
+
+  <ul class="ul">
+   <li class="li">AppleのXcodeまたは他の同様のIDEなどの統合開発環境（IDE）</li>
+
+   <li class="li">Ooyala iOS SDK（から入手可能） <span class="ph">Ooyala <a class="xref" href="../../../../../../../../ja/downloads/index.html" target="_blank">ダウンロード</a></span>)</li>
+
+   <li class="li">iOS用のOoyala DLNA SDK。 <p class="gt-block p"><strong class="ph b">注意： </strong>このSDKのコピーを入手するには、カスタマーサクセスマネージャーに連絡してください。 </p>
+</li>
+
+   <li class="li">適切なDLNA対応テレビまたはセットトップボックス。 XBMCメディアセンタークライアント（DLNAレンダラー）を使用することもできます。 このツールはプロジェクトのテストとデバッグに使用できます。 （DLNAは、デジタルリビングネットワークアライアンスです。 <a class="xref" href="http://www.dlna.org" target="_blank">www.dlna.org</a>.)</li>
+
+  </ul>
+
+  <p class="p">XTV Connectでは、顧客が必要とする追加機能に基づいてXTVアプリをカスタマイズできます。 顧客は、XTV Connectアプリ、プラグイン、およびiOS SDKを使用して、購読などの高度な機能を変更および追加します。 視聴者はテレビのリモコンを使ってXTVアプリを制御することも、セカンドスクリーンアプリを使って制御することもできます。</p>
+
+  <div class="p">
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="integration_overview__table_e2f_yfh_wk" class="table" frame="border" border="1" rules="all">
+     
+     
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top"><strong class="ph b">サポート</strong></td>
+
+       <td class="entry" valign="top"><strong class="ph b">説明</strong></td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top">接続されているテレビ、セットトップボックス、およびブルーレイプレーヤー </td>
+
+       <td class="entry" valign="top">Ooyalaは以下をサポートしています。<ul class="ul" id="integration_overview__ul_bff_yfh_wk">
+         <li class="li">
+          <p class="p">アップルTV（iOS 4.3、5.0、6.0）</p>
+
+         </li>
+
+         <li class="li">
+          <p class="p">LG（モデル：47LM860Vなど）</p>
+
+         </li>
+
+         <li class="li">
+          <p class="p">Samsung（モデルなど：UE ‑ 46ES8007）</p>
+
+         </li>
+
+        </ul>
+東芝、パナソニック、Roku、Xboxなど、他のLGやサムソンのモデルやさまざまな種類の接続テレビ、セットトップボックス、およびブルーレイプレーヤーがDLNA経由でのビデオ再生をサポートしているかどうかを確認することもできます。<a class="xref" href="http://www.dlna.org/consumer-home/look-for-dlna/product-search" target="_blank"> DLNA組織のウェブサイト</a>.</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top">フォーマット</td>
+
+       <td class="entry" valign="top">mp4</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top">アナリティクス</td>
+
+       <td class="entry" valign="top">はい</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top">DRM</td>
+
+       <td class="entry" valign="top">いいえ</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top">認証と資格</td>
+
+       <td class="entry" valign="top">部分的です。 セキュリティは携帯アプリで管理する必要があります）</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top">テレビで必要なアプリ</td>
+
+       <td class="entry" valign="top">なし</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top">コンテンツの種類</td>
+
+       <td class="entry" valign="top">VOD</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top">広告</td>
+
+       <td class="entry" valign="top">プリロール、ミッドロール、ポストロール</td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">使ってみよう</h2>以下のトピックを参照してください。<ul class="ul">
+    <li class="li"><a class="xref" href="../tasks/integrate_xtv_ios_steps.html" title="iOS開発用のプロジェクトを設定する必要があります。">XTV用のiOS開発プロジェクトを作成する</a></li>
+
+    <li class="li">
+     <a class="xref" href="chapter_sdk_ios.html">iOS用モバイルSDK</a></li>
+
+   </ul>
+</div>
+
+ </div>
+
+ <div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../tasks/integrate_xtv_ios_steps.html">XTV用のiOS開発プロジェクトを作成する</a></strong><br/>
+ iOS開発用のプロジェクトを設定する必要があります。 </li>
+<li class="link ulchildlink"><strong><a href="../tasks/integrate_xtv_testing_with_xbmc.html">XBMCを使用したDLNA再生の設定とテスト</a></strong><br/>
+</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/mobile_sdk_ios_integrations.html">iOSサードパーティ統合</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="sdk_overview.html" title="Ooyalaはあなたのコンテンツを他の環境やサービスと統合することを可能にするためにAndroidとiOSのためのモバイルSDKを提供します。">モバイルプラットフォーム開発</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

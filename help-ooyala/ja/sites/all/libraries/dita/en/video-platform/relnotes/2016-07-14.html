@@ -1,0 +1,151 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2016-07-14 Release"/>
+<meta name="abstract" content="Notable contents of this release include version 4.5.7 of the Ooyala Player."/>
+<meta name="description" content="Notable contents of this release include version 4.5.7 of the Ooyala Player."/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2016.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release20160714"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2016-07-14リリース</title>
+</head>
+<body id="release20160714">
+
+
+    <h1 class="title topictitle1">2016-07-14リリース</h1>
+
+    
+    <div class="body conbody"><p class="shortdesc">このリリースの注目すべき内容はOoyalaプレイヤーのバージョン4.5.7を含みます。</p>
+
+        <div class="section"><h2 class="title sectiontitle">ソフトウェア機能リリース</h2>
+            <p class="gt-block p"><strong class="ph b">プレーヤーV4リリース - バージョン4.5.7</strong></p>
+
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">このPlayerリリースの新機能 </strong></p>
+
+                <ul class="ul">
+                    <li class="li">セキュアトークン用のAkamaiライブおよびリモートアセットのエンコードのサポート。 </li>
+
+                    <li class="li">サーバーサイド広告挿入を使用した場合の広告要求に対するキャッシュ無効化のサポート。 &#39;[CACHEBUSTING]&#39;マクロを持つURLはランダムな文字列に置き換えられます。 この機能のデフォルト設定はtrueに設定されており、常にキャッシュバスティングを行います。 キャッシュバスティングを無効にするには、プレーヤパラメータに次の変数を設定する必要があります。
+                        <pre class="pre codeblock">{&quot;ssai-pulse-ads-manager&quot;：{&quot;cacheBuster&quot;：false}}</pre>
+
+                    </li>
+
+                </ul>
+
+            </div>
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">デフォルトのプレイヤーリンク</strong></p>
+
+                <div class="p" id="release20160714__d43355e25828">以前のバージョンのPlayer V4から最新のPlayer V4バージョンに更新するには、次の手順を実行します。 <ol class="ol">
+                        <li class="li">すべての新しいプレーヤーリソースをダウンロードしてホストします（コアプラグイン、 <a class="xref" href="https://github.com/ooyala/html5-skin/releases" target="_blank">スキンプラグイン、CSS、フォント、および画像リソース</a>,  <a class="xref" href="https://github.com/ooyala/html5-video-plugins/releases" target="_blank">ビデオプラグイン</a>,
+                                
+                                <a class="xref" href="https://github.com/ooyala/html5-ad-plugins/releases" target="_blank">広告プラグイン</a>,  <a class="xref" href="https://github.com/ooyala/html5-analytics-plugins/releases" target="_blank">分析プラグイン</a>など）を追加して、これらの新しいファイルを指すようにリソースを更新します。</li>
+
+                        <li class="li">独自のバージョンのskin.jsonを使用して独自のPlayerスキンをカスタマイズした場合は、最新のskin.jsonファイルをダウンロードし、このファイルの変更内容をカスタマイズしたskin.jsonファイルとマージします。 </li>
+
+                    </ol>
+
+                </div>
+
+                <ul class="ul">
+                    <li class="li">Core Player（必須）：http://player.ooyala.com/static/v4/stable / 4.5.7 / core.min.js</li>
+
+                    <li class="li">プレイヤーのスキン： <ul class="ul">
+                            <li class="li">http://player.ooyala.com/static/v4/stable/4.5.7/skin-plugin/html5-skin.min.js</li>
+
+                            <li class="li">http://player.ooyala.com/static/v4/stable/4.5.7/skin-plugin/skin.json</li>
+
+                            <li class="li">http://player.ooyala.com/static/v4/stable/4.5.7/skin-plugin/html5-skin.min.css</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="li">ビデオプラグイン（少なくとも1つは必須） <ul class="ul">
+                            <li class="li">HLSおよびMP4用のメインビデオプラグイン：http://player.ooyala.com/static/v4/stable / 4.5.7 / video-plugin / main_html5.min.js</li>
+
+                            <li class="li">HDS用のOSMF Flashプラグイン：http://player.ooyala.com/static/v4/stable / 4.5.7 / video-plugin / osmf_flash.min.js</li>
+
+                            <li class="li">HLSおよびDASH用のBitmovinプラグイン：http://player.ooyala.com/static/v4/stable / 4.5.7 / video-plugin / bit_wrapper.min.js </li>
+
+                            <li class="li">Akamai HDビデオプラグイン：http://player.ooyala.com/static/v4/stable / 4.5.7 / video-plugin / akamaiHD_flash.min.js</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="li">広告プラグイン <ul class="ul">
+                            <li class="li">Ooyala Pulse広告プラグイン：https://player.ooyala.com/static/v4/stable / 4.5.7 / ad-plugin / pulse.min.js</li>
+
+                            <li class="li">VASTおよびVPAID広告プラグイン：https://player.ooyala.com/static/v4/stable / 4.5.7 / ad-plugin / ad_manager_vast.min.js</li>
+
+                            <li class="li">Google IMA広告プラグイン：https://player.ooyala.com/static/v4/stable / 4.5.7 / ad-plugin / google_ima.min.js</li>
+
+                            <li class="li">FreeWheel広告プラグイン：https://player.ooyala.com/static/v4/stable / 4.5.7 / ad-plugin / freewheel.min.js</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="li">分析プラグイン <ul class="ul">
+                            <li class="li">Adobe Analytics（Omniture）プラグイン：https://player.ooyala.com/static/v4/stable / 4.5.7 /analytics-plugin/omniture.js </li>
+
+                            <li class="li">comScore Analyticsプラグイン：このプラグインへのアクセスについては、アカウントマネージャにお問い合わせください。</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="li">検出プラグイン：http://player.ooyala.com/static/v4/stable / 4.5.7 /other-plugin/discovery_api.min.js</li>
+
+                    <li class="li">ライブSSAIパルスプラグイン：http://player.ooyala.com/static/v4/stable / 4.5.7 / ad-plugin / ssi_pulse.js</li>
+
+                </ul>
+
+            </div>
+            <div class="sectiondiv">見る <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/concepts/pbv4_release_notes.html#pbv4_release_notes__20160714_known_issues">Player V4リリースノート</a> このリリースの既知の問題の完全なリストについては。</div>
+            <p class="gt-block p"><strong class="ph b">強化された利用API</strong></p>
+<p class="gt-block p">VOD GB配信用の埋め込みコードレベルの内訳を含む、いくつかの新しいUsage APIが追加されました。これにより、埋め込みコードごとのVOD GB配信を毎日追跡することができます。 最新を見る <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/usage_api/index.html" target="_blank">利用APIリファレンス</a> 詳細については。</p>
+</div>
+        
+        
+        <div class="section"><h2 class="title sectiontitle">ドキュメントリリース</h2>
+            
+            <ul class="ul">
+                <li class="li"><a class="xref" href="../concepts/pbv4_configure_ads_embedded_params.html#pbv4_configure_ads_embedded_params__cacheBuster">埋め込みパラメータを使用したプレーヤV4広告設定の構成</a>：新しいプレイヤーパラメータに関する詳細を追加しました <span class="keyword parmname">ssai-pulse-ads-manager.cacheBuster</span>.</li>
+
+                <li class="li"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/usage_api/index.html" target="_blank">利用APIリファレンス</a>：以下の新しいUsage APIを追加しました。
+                    <pre class="pre codeblock">http://api.ooyala.com/v3/billing/usage/report/provider/{pcode}
+http://api.ooyala.com/v3/billing/usage/reports/asset/{embed_code}/delivery/total/{date_range}
+http://api.ooyala.com/v3/billing/usage/reports/account/delivery/total/{date_range}               </pre>
+</li>
+
+            </ul>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Ooyalaリリースノートを購読する</h2>
+             見る <a class="xref" href="../concepts/release_notes_subscribe.html">Ooyalaリリースノートを購読する</a> Ooyalaリリースノートの自動通知を購読する方法については、こちらをご覧ください。 </div>
+
+        <div class="section">このコンテンツは07 / 14 / 16の09：00 PM UTCに掲載されました。</div>
+
+    </div>
+    
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2016.html" title="2016からのリリースノート。">2016ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

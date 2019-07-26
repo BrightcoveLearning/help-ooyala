@@ -1,0 +1,96 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Listening to a Message Bus Event"/>
+<meta name="abstract" content="You can use the message bus to listen to a single event or multiple events."/>
+<meta name="description" content="メッセージバスを使用して、単一のイベントまたは複数のイベントを監視できます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_dev_eventmodel.html"/>
+<meta name="DC.Relation" scheme="URI" content="pbv4_dev_pubsub.html"/>
+<meta name="DC.Relation" scheme="URI" content="pbv4_dev_mbapi.html"/>
+<meta name="DC.Relation" scheme="URI" content="pbv4_dev_listenevent.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_dev_listenevent"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>メッセージバスイベントを聞く</title>
+</head>
+<body id="pbv4_dev_listenevent">
+
+
+  <h1 class="title topictitle1">メッセージバスイベントを聞く</h1>
+
+  
+  <div class="body refbody"><p class="shortdesc">メッセージバスを使用して、単一のイベントまたは複数のイベントを監視できます。</p>
+
+    <div class="section"> 次の例は、メッセージバスを使用してイベントをリッスンして使用する方法を示しています。 <samp class="ph codeph">addDependent（）</samp> 一時停止イベントをブロックして確認メッセージを表示します。 <p class="gt-block p">あなたが使用することができます <samp class="ph codeph">addDependent（）</samp> 他のイベントのイベントをブロックする機能。 次の例では、 <samp class="ph codeph">addDependent（）</samp> 一時停止ボタンを押すと、メッセージボックスを表示して確認を求めることができるように、一時停止機能をブロックする機能。 使用方法の詳細については <samp class="ph codeph">addDependent（）</samp> 機能は、 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_v4_js/index.html" target="_blank">プレーヤJavaScript APIリファレンス</a>.</p>
+<p class="gt-block p">を開発する <samp class="ph codeph">head</samp> Playerを表示および作成するための要素とロジック、参照 <a class="xref" href="pbv4_web_tutorial.html#pbv4_web_tutorial">Player V4の基本チュートリアル</a>.  </p>
+<p class="gt-block p">イベント処理については、をご覧ください。 <a class="xref" href="../concepts/pbv4_dev_eventmodel.html#pbv4_dev__eventmodel" title="プレーヤーV4はイベントを処理するためにメッセージバスの使用を取り入れています。">プレーヤV4のイベントモデル</a>。 すべてのイベントのリストについては、 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_v4_js/index.html" target="_blank">プレーヤJavaScript APIリファレンス</a>.</p>
+</div>
+
+    <div class="section" id="pbv4_dev_listenevent__section_bnk_25y_fv">Webページがビデオプレーヤーとのユーザーインタラクションにどのように反応するかをカスタマイズしたいとします。 この例では、一時停止とプレイイベントを傍受します。 ユーザーが一時停止コントロールをクリックすると、ビデオが一時停止する前に確認ダイアログが表示されます。 ユーザーが再生コントロールまたは一時停止コントロールをクリックすると、テキストボックスにプレーヤーの新しい状態が表示されます。<div class="p">このWebページの目的は、フルスクリーンモードに切り替えるオプションをユーザーに提供することです。デザインには次のものが含まれます。 <ul class="ul" id="pbv4_dev_listenevent__ul_rlp_lvp_rr">
+          <li class="li">A  <samp class="ph codeph">head</samp> を含む要素 <samp class="ph codeph">スクリプト</samp> ロードおよび初期化要求を指定するタグ。</li>
+
+          <li class="li">A  <samp class="ph codeph">ボディ</samp> 以下を含む要素<ul class="ul" id="pbv4_dev_listenevent__ul_a4p_lvp_rr">
+              <li class="li">PlayerコンテナのUI表示とレイアウト。</li>
+
+              <li class="li">プレイヤーイベントを監視して応答するイベントリスナー。</li>
+
+              <li class="li">A  <samp class="ph codeph">スクリプト</samp> プレーヤを作成するタグ。</li>
+
+              <li class="li">HTML <samp class="ph codeph">入力</samp> 動画が再生中か一時停止中かを示すテキストを表示する要素。</li>
+
+            </ul>
+</li>
+
+        </ul>
+</div>
+</div>
+
+    <div class="section"><div class="p">Webページを作成するには、次の手順に従ってください。<ul class="ul">
+      <li class="li"><a class="xref" href="../concepts/pbv4_dev_listen_multi_event.html#pbv4_dev_listen_multi_event__section_svc_n3s_fv">ステップ1：複数のイベントを聴く</a></li>
+
+    </ul>
+</div>
+<p class="gt-block p">見る <a class="xref" href="#pbv4_dev_listenevent__section_lrp_x5y_fv/index.html">完全な例</a> Webページ全体のコードを表示します。</p>
+</div>
+
+
+    <div class="section"><h2 class="title sectiontitle">ステップ1：複数のイベントを聴く</h2>
+      
+      <div class="p">時には、一度に複数のイベントを監視して応答すると便利です。 これを行う1つの方法は、すべてのイベントを購読することです。 の <a class="xref" href="../concepts/pbv4_dev_eventmodel.html#pbv4_dev__eventmodel" title="プレーヤーV4はイベントを処理するためにメッセージバスの使用を取り入れています。">プレーヤV4のイベントモデル</a> 作成したPlayerオブジェクトのを介してアクセスするメッセージバスを提供します。 <span class="keyword apiname">mb</span> オブジェクト この場合、メッセージバスを使います。 <span class="keyword apiname">申し込む（）</span> ワイルドカードを指定する関数（<samp class="ph codeph">&quot;*&quot;</samp>）イベント名の場合<pre class="pre codeblock">          function onCreate（player）{/ *すべてのイベントを購読する：*これにより、複数のイベントに基づいてロジックを作成することができます。 * / player.mb.subscribe（ &quot;*&quot;、 &#39;example&#39;、function（eventName）{}）; }</pre>
+</div>
+
+      <div class="p">考えられるすべてのイベントをリスニングしているので、コールバック関数内に複数のイベントに基づくロジックを含めることができます。 <span class="keyword parmname">イベント名</span> パラメータ この例では、ダウンロードと再生ヘッドの時間変更イベントを除くすべてのイベントを書き込みます（<span class="keyword apiname">OO.EVENTS.DOWNLOADING</span> そして
+          <span class="keyword apiname">OO.EVENTS.PLAYHEAD_TIME_CHANGED</span> JavaScriptコンソールログに）：<pre class="pre codeblock">          function onCreate（player）{/ * *すべてのイベントを購読する：*これにより、複数のイベントに基づいてロジックを作成できます*。 * / player.mb.subscribe（ &quot;*&quot;、 &#39;example&#39;、function（eventName）{/ *ダウンロードおよび再生ヘッドの時間変更イベントを除くすべてのイベントを* JavaScriptコンソールに書き込みます。* / if（eventName！= OO .EVENTS.DOWNLOADING &amp;&amp; eventName！= OO.EVENTS.PLAYHEAD_TIME_CHANGED）console.log（eventName）;}）; }</pre>
+</div>
+
+    </div>
+
+
+    <div class="section" id="pbv4_dev_listenevent__section_lrp_x5y_fv"><h2 class="title sectiontitle">完全な例</h2>これで、複数のOoyala V4プレーヤーをロードし、一時停止を傍受してイベントを再生し、確認ダイアログとメッセージを表示するテキストボックスを使用してビデオプレーヤーとのユーザーインタラクションに応答し、プレーヤーを作成するWebページの完全な実用例があります。 <pre class="pre codeblock"> 
+&lt;！DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;link rel = &quot;スタイルシート&quot; href = &quot;url_where_hosted / skin-plugin / html5-skin.min.css&quot; /&gt; &lt;スクリプト言語= &quot;javascript&quot; src = &quot;url_where_hosted / core .min.js &quot;&gt; &lt;/script&gt; &lt;script type =&quot;テキスト/ javascript &quot;src =&quot; url_where_hosted / video-plugin / main_html5.min.js &quot;&gt; &lt;/script&gt; &lt;script type =&quot; text / javascript &quot;src = &quot;url_where_hosted / skin-plugin / html5-skin.min.js&quot;&gt; &lt;/script&gt; &lt;/head&gt; &lt;ヘッド&gt; &lt;div id = &#39;コンテナ&#39;スタイル= &#39;幅：640px;高さ：480px&#39;&gt; &lt;/div&gt; &lt;script&gt; / * *再生状態メッセージを制御します。 * / justStartedPlaying = true; / * * onCreate（）関数内に*イベントリスナとエラー処理*を常に追加する。 * Player.create（）呼び出しの埋め込みパラメータに*この関数を含めます。 * / function onCreate（player）{/ * *すべてのイベントを購読する：*これにより、複数のイベントに基づいてロジックを作成できます*。 * / player.mb.subscribe（ &quot;*&quot;、 &#39;example&#39;、function（eventName）{if（eventName！= OO.EVENTS.DOWNLOADING &amp;&amp; eventName！= OO.EVENTS.PLAYHEAD_TIME_CHANGED）console.log（eventName）;}） ; } OO.ready（function（）{window.pp = OO.Player.create（ &#39;コンテナ&#39;、 &#39;YOUR_ASSET_ID&#39;、{&quot;playerBrandingId&quot;： &quot;YOUR_PLAYER_ID&quot;、 &quot;pcode&quot;： &quot;YOUR_PCODE&quot;、スキン：{config： &quot; url_where_hosted / skin-plugin / skin.json &quot;、}、//上記で定義したonCreate（）関数をこれらの埋め込みパラメータに含めます。onCreate：window.onCreate}）;}）; &lt;/script&gt;メッセージ：&lt;input type = &quot;text&quot; id = &quot;messagesTxt&quot; size = &quot;108&quot; value = &quot;&quot;&gt; &lt;/body&gt; &lt;/html&gt;</pre>
+
+    </div>
+
+  </div>
+
+  <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/pbv4_dev_eventmodel.html" title="プレーヤーV4はイベントを処理するためにメッセージバスの使用を取り入れています。">プレーヤV4のイベントモデル</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong><br/>
+<div><a class="link" href="pbv4_dev_pubsub.html" title="イベント処理のためにメッセージをパブリッシュおよびサブスクライブできます。">イベントの発行と購読</a></div>
+<div><a class="link" href="pbv4_dev_mbapi.html" title="パブリッシュ、サブスクライブ、およびその他の機能を使用してメッセージバスと通信します。">メッセージバスAPI</a></div>
+<div><a class="link" href="pbv4_dev_listenevent.html" title="メッセージバスを使用して、単一のイベントまたは複数のイベントを監視できます。">メッセージバスイベントを聞く</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</

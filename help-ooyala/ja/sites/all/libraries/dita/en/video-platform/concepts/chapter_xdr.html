@@ -1,0 +1,124 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Cross-device Resume (XDR)"/>
+<meta name="abstract" content="Cross-device resume (XDR) enables viewers to start watching a video on one device, pause it, and continue to play it later from a different device. Ooyala Player (V4 and V3) and the mobile SDKs support cross-device resumption of playback, in conjunction with Ooyala's REST APIs."/>
+<meta name="description" content="クロスデバイスレジューム（XDR）を使用すると、視聴者はあるデバイスでビデオの視聴を開始し、一時停止し、後で別のデバイスからビデオを再生し続けることができます。 Ooyala Player（V4およびV3）とモバイルSDKは、OoyalaのREST APIと組み合わせて、デバイス間での再生再開をサポートします。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/sdk_overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/xdr_serverarchitecture.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/xdr_xdr.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/xdr_opt.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/xdr_playback.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="chapter_xdr"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>クロスデバイスレジューム（XDR）</title>
+</head>
+<body id="chapter_xdr">
+
+
+ <h1 class="title topictitle1">クロスデバイスレジューム（XDR）</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">Cross-device resume (XDR) enables viewers to start watching a video on one device, pause
+  it, and continue to play it later from a different device. Ooyala Player (V4 and V3) and the
+  mobile SDKs support cross-device resumption of playback, in conjunction with Ooyala's REST APIs. </p>
+
+  <div class="section"><div class="note note"><span class="notetitle">注意：</span> この機能はOoyalaに適用されます <span class="ph">プレイヤーV4</span> そして <span class="ph">プレイヤーV3</span> （廃止予定）</div>
+</div>
+
+  <div class="section"><h2 class="title sectiontitle">About Cross-device Resume</h2>Ooyala's XDR service records per-user viewing
+   activity, storing the most recent play position so that playback can resume even if the device
+   changes. XDR benefits include: <ul class="ul">
+    <li class="li">Allows viewers start a video on one device and pick up watching where they left off on
+     another device.</li>
+
+    <li class="li">Is supported by any player that uses the IQ JSON API, for instance Roku or Xbox One.</li>
+
+    <li class="li">Works with assets hosted in Backlot and third-party content-management systems.</li>
+
+    <li class="li">Integrates into your customer website or mobile device app through a combination of
+     REST-based APIs and native language calls on desktop or mobile devices. </li>
+
+   </ul>
+<p class="p">XDR history is available for 90 days per viewer. 
+   </p>
+</div>
+
+  <div class="section"><h2 class="title sectiontitle">Enabling XDR</h2>XDR must be explicitly enabled for your account. Contact
+   Ooyala Sales, your Customer Success Manager, or Brightcove Technical Support to request XDR. </div>
+
+  <div class="section"><h2 class="title sectiontitle">サポートされている構成</h2>
+   
+   <p class="p">Ooyala's XDR requires the capability to gather information about the viewer's
+    playback position. As such, it works on players and player apps that support Ooyala's Analytics. </p>
+
+   <ul class="ul">
+    <li class="li">XDR is fully supported by Player V4, Flash Player V3, and HTML5 V3 Player on either desktop
+     or mobile devices.</li>
+
+    <li class="li">XDR is supported by the Ooyala Mobile SDK for Android and Mobile SDK for iOS.  </li>
+
+   </ul>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">あなたが必要なもの </h2>
+   
+   <ul class="ul" id="chapter_xdr__ul_iyh_l1y_xl">
+    <li class="li">To work with XDR in the Mobile SDK, you need the Mobile SDK itself, <p class="gt-block p">Mobile SDKはからダウンロードできます。 <span class="ph">Ooyala <a class="xref" href="../../../../../../../../ja/downloads/index.html" target="_blank">ダウンロード</a></span>。 適切なバージョンをクリックして、Mobile SDKパッケージのzipファイルをダウンロードします。</p>
+</li>
+
+    <li class="li">Your Ooyala-provided provider code (sometimes called "pcode"), API key, and secret. For
+     information about where to obtain these, see <a class="xref" href="api_keys.html" title="Ooyala APIの認証情報には、APIキーとシークレットが含まれています。これらは、HTTPリクエストに署名するため、およびスクラッチパッドを使用するときに提供するものです。">あなたのAPIクレデンシャル</a>.</li>
+
+    <li class="li">Code to sign your REST API requests. The signing algorithm is fully explained at <a class="xref" href="../tasks/api_signing_requests.html" title="Backlotに対して行われるすべてのリクエストは、認証のために3つのクエリ文字列パラメータを必要とします：APIキー、リクエストの有効期限、そして署名です。 このトピックでは、署名を生成する方法について説明します。">要求に署名するための一般的なアルゴリズム</a>.</li>
+
+    <li class="li">A customer service or other portal that can communicate both with Ooyala's API services and
+     with your client application (desktop or mobile).</li>
+
+    <li class="li">A user identifier of some kind, which is referred to as an "account ID". For recommendations
+     on how to secure your account IDs, see <a class="xref" href="rightslocker_accountsecurity.html">あなたのユーザ、あなたのアカウント：セキュリティ</a>.</li>
+
+   </ul>
+
+  </div>
+
+ 
+ </div>
+   
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../concepts/xdr_serverarchitecture.html">XDRの高度な手順とサーバーアーキテクチャ</a></strong><br/>
+For security, you need a server to communicate with Ooyala's servers, rather than     directly from your client application.</li>
+<li class="link ulchildlink"><strong><a href="../concepts/xdr_xdr.html">サーバー間：再生位置の取得</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/xdr_opt.html">Ooyalaプレーヤートークン文字列のサーバー側フォーマット</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/xdr_playback.html">アプリケーションで再生を再開する</a></strong><br/>
+</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/sdk_overview.html" title="Ooyalaはあなたのコンテンツを他の環境やサービスと統合することを可能にするためにAndroidとiOSのためのモバイルSDKを提供します。">モバイルプラットフォーム開発</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

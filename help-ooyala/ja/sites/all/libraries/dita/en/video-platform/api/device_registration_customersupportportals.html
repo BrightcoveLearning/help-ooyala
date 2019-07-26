@@ -1,0 +1,181 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Device Registration API for Customer Support Portals"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/device_registration.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="reference_ah5_mfh_3k"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>カスタマーサポートポータル用のデバイス登録API</title>
+</head>
+<body id="reference_ah5_mfh_3k">
+
+
+
+    <h1 class="title topictitle1">カスタマーサポートポータル用のデバイス登録API</h1>
+
+  <div class="body refbody">
+    <div class="section" xml:lang="en-us" lang="en-us" id="reference_ah5_mfh_3k__deviceManagementApiForAdmins.d0e772">
+    <p class="gt-block p">ウーヤラの一部 <a class="xref" href="../concepts/chapter_rightslocker.html">権利ロッカー</a> APIのファミリーであるOoyalaのRESTベースのデバイス登録APIは、カスタマーサポートツールを構築するために使用できます。 APIは、カスタマーサポートが使用するプロバイダーの管理ポータルを実行しているサーバーから呼び出されるように設計されています。 APIには、以下の機能が含まれています。</p>
+
+    
+    <ul class="ul">
+      <li class="li">最大1年間の顧客固有のアカウントの削除、追加、およびエラーの履歴を取得する </li>
+
+      <li class="li">特定のアカウントのデバイス制限を上書きする </li>
+
+      <li class="li">特定のアカウントのデバイス情報を更新する </li>
+
+      <li class="li">削除制限を増やさずにデバイスを削除します。 </li>
+
+    </ul>
+
+    <div class="note note"><span class="notetitle">注意：</span> これらの呼び出しの終点は <samp class="ph codeph">rl.ooyala.com</samp>.</div>
+
+  </div>
+
+  <div class="section" id="reference_ah5_mfh_3k__actor"><h2 class="title sectiontitle">更新/削除用のアクターについて</h2>
+      依存している要求で <samp class="ph codeph">PUT</samp>
+      そして <samp class="ph codeph">DELETE</samp> 設定を更新または削除するには、操作に必要なその他のプロパティに加えて、要求の本文に次のプロパティを含める必要があります。 <samp class="ph codeph">俳優</samp> 管理者のユーザー名です。
+      <pre class="pre codeblock">{。 。 。 「<a class="xref" href="device_registration_properties.html#device_registration_properties__actor">俳優</a>&quot;：&quot;<kbd class="ph userinput">管理者のユーザー名</kbd>「」<a class="xref" href="device_registration_properties.html#device_registration_properties__actor_type">actor_type</a>&quot;：&quot;<kbd class="ph userinput">管理人</kbd>&quot;... ...}</pre>
+
+    </div>
+
+  <div class="section refsyn"><h2 class="title sectiontitle">ビューア用に登録されているデバイスのリストを取得する</h2>
+    <div class="p">
+      <pre class="pre codeblock">[GET] rl.ooyala.com/device_management/pcode/<a class="xref" href="device_registration_properties.html#device_registration_properties__pcode"><kbd class="ph userinput">pcode</kbd></a>/アカウントID/<a class="xref" href="device_registration_properties.html#device_registration_properties__account_id"><kbd class="ph userinput">アカウントID</kbd></a>/ devices</pre>
+
+    </div>
+
+    
+    <p class="gt-block p"><strong class="ph b">レスポンス</strong></p>
+
+    <p class="p">応答では、 <samp class="ph codeph">デバイス</samp> ビューアに登録されている各デバイスの次のフィールドを含む配列です。</p>
+
+    <pre class="pre codeblock">{“<a class="xref" href="device_registration_properties.html#device_registration_properties__device_limit">device_limit</a>&quot;：&quot;<kbd class="ph userinput">許可されているデバイスの最大数</kbd>「」<a class="xref" href="device_registration_properties.html#device_registration_properties__next_delete_time">next_delete_time</a>&quot;：&quot;<kbd class="ph userinput">デバイスを削除できる時間（ISO 8601）</kbd>”“デバイス”：[{&quot;<a class="xref" href="device_registration_properties.html#device_registration_properties__public_device_id">public_device_id</a>&quot;：&quot;<kbd class="ph userinput">sample_device_id</kbd>「」<a class="xref" href="device_registration_properties.html#device_registration_properties__user_agent">USER_AGENT</a>「：」<kbd class="ph userinput">sample_user_agent</kbd>「」<a class="xref" href="device_registration_properties.html#device_registration_properties__registration_time">registration_time</a>&quot;：&quot;<kbd class="ph userinput">登録した時刻（ISO 8601）</kbd>”」<a class="xref" href="device_registration_properties.html#device_registration_properties__nickname">ニックネーム</a>&quot;：&quot;<kbd class="ph userinput">device_nickname</kbd>」 。 。 ]}</pre>
+
+  </div>
+ 
+  
+    <div class="section refsyn" id="reference_ah5_mfh_3k__last_result"><h2 class="title sectiontitle">アカウントの最新結果を取得 </h2>
+      
+      <p class="gt-block p">の値 <samp class="ph codeph">結果</samp> からの応答に含まれるプロパティ
+          <samp class="ph codeph">/ last_result</samp> 修飾子は、アカウントによる最近のデバイス登録試行の成功または失敗に関するメッセージです。 このリクエストは <a class="xref" href="device_registration_userportals.html#reference_wzy_ffh_3k__last_result_for_user_portals"><samp class="ph codeph">/ last_results</samp> ユーザーポータルの修飾子</a>カスタマサポートを除いて、指定されたアカウントのすべての再生セッションのすべての結果が返されます。 （ユーザーポータルの場合、 <samp class="ph codeph">/ last_result</samp> 渡されたものに関連付けられている特定の再生セッションに関する情報のみを返します。 <var class="keyword varname">auth_token</var>.)</p>
+
+      
+      <pre class="pre codeblock">[GET] rl.ooyala.com/device_management/pcode/<a class="xref" href="device_registration_properties.html#device_registration_properties__pcode"><kbd class="ph userinput">pcode</kbd></a>/アカウントID/<a class="xref" href="device_registration_properties.html#device_registration_properties__account_id"><kbd class="ph userinput">アカウントID</kbd></a>/ last_result</pre>
+
+      
+      
+      <p class="gt-block p"><strong class="ph b">レスポンス例</strong></p>
+
+      <p class="p">以下の例は、2つのデバイス登録が両方とも成功したことを示しています。</p>
+
+      <pre class="pre codeblock">[{&quot;<a class="xref" href="device_registration_properties.html#device_registration_properties__user_agent">USER_AGENT</a>&quot;：&quot; Mozilla / 5.0（Macintosh; Intel Mac OS X 10.7; rv：23.0）Gecko / 20100101 Firefox / 23.0 &quot;、&quot;<a class="xref" href="device_registration_properties.html#device_registration_properties__registration_time">registration_time</a>&quot;：&quot; 2013-09-09 13：15：01 -0700 &quot;、&quot;<a class="xref" href="device_registration_properties.html#device_registration_properties__result">結果</a>&quot;：&quot;新しい機器が登録されました &quot;、&quot;<a class="xref" href="device_registration_properties.html#device_registration_properties__public_device_id">public_device_id</a>&quot;：&quot; aadf73a0-54ec-424d-9666-c70d17bc8f8b &quot;}、{&quot;<a class="xref" href="device_registration_properties.html#device_registration_properties__user_agent">USER_AGENT</a>&quot;：&quot; Mozilla / 5.0（Macintosh; Intel Mac OS X 10.7; rv：23.0）Gecko / 20100101 Firefox / 23.0 &quot;、&quot;<a class="xref" href="device_registration_properties.html#device_registration_properties__registration_time">registration_time</a>&quot;：&quot; 2013-09-09 12：21：18 -0700 &quot;、&quot;<a class="xref" href="device_registration_properties.html#device_registration_properties__result">結果</a>&quot;：&quot;新しいデバイスが登録されました &quot;、&quot; public_device_id &quot;：&quot; 48cf9f3f-71f6-4114-a544-a1c13d97a298 &quot;}}]</pre>
+
+
+    </div>
+
+    <div class="section refsyn" id="reference_ah5_mfh_3k__history"><h2 class="title sectiontitle">アカウントに対するすべての操作の履歴を取得する </h2>
+    
+    <p class="p">アカウントの履歴は、カスタマーサポートがデバイスの削除、名前の変更、およびアカウントへのデバイスの追加に関する問題を診断するために使用できます。 アカウント履歴には、実行された操作、実行された日時、および実行者が表示されます。</p>
+
+    
+    <pre class="pre codeblock">[GET] rl.ooyala.com/device_management/pcode/<a class="xref" href="device_registration_properties.html#device_registration_properties__pcode"><kbd class="ph userinput">&gt; pcode</kbd></a>/アカウントID/<a class="xref" href="device_registration_properties.html#device_registration_properties__account_id"><kbd class="ph userinput">アカウントID</kbd></a>/歴史</pre>
+
+        
+    <p class="gt-block p"><strong class="ph b">レスポンス</strong></p>
+
+    <pre class="pre codeblock">[{&quot;<a class="xref" href="device_registration_properties.html#device_registration_properties__public_device_id">public_device_id</a>&quot;：&quot;<kbd class="ph userinput">sample_device_id</kbd>「」<a class="xref" href="device_registration_properties.html#device_registration_properties__user_agent">USER_AGENT</a>&quot;：&quot;<kbd class="ph userinput">sample_user_agent</kbd>、「action_time」：「<kbd class="ph userinput">アクションが発生した時刻（ISO 8601）</kbd>「、行動」：「<kbd class="ph userinput">sample_action</kbd>「」<a class="xref" href="device_registration_properties.html#device_registration_properties__nickname">ニックネーム</a>”：””、”<a class="xref" href="device_registration_properties.html#device_registration_properties__actor">俳優</a>&quot;：&quot;<kbd class="ph userinput">sample_actor</kbd>」 。 。 ]</pre>
+
+    <ul class="ul">
+      <li class="li"><samp class="ph codeph">action_time</samp>：アクションが起こった時間。</li>
+
+      <li class="li"><samp class="ph codeph">アクション</samp>：デバイス登録、デバイス削除、デバイスニックネーム追加などのアクション。</li>
+
+      <li class="li"><samp class="ph codeph">俳優</samp>：カスタマーサポートAPIがアクションを呼び出した場合、ユーザーのアカウントIDまたは管理者サポートEメール。</li>
+
+    </ul>
+
+  </div>
+
+  <div class="section refsyn"><h2 class="title sectiontitle">単一のデバイスを削除</h2>
+    
+    <pre class="pre codeblock">[削除] rl.ooyala.com/device_management/pcode/<a class="xref" href="device_registration_properties.html#device_registration_properties__pcode"><kbd class="ph userinput">pcode</kbd></a>/アカウントID/<a class="xref" href="device_registration_properties.html#device_registration_properties__account_id"><kbd class="ph userinput">アカウントID</kbd></a>/ devices /<a class="xref" href="device_registration_properties.html#device_registration_properties__public_device_id"><kbd class="ph userinput">public_device_id</kbd></a>{&quot;<a class="xref" href="device_registration_properties.html#device_registration_properties__actor">俳優</a>「」<kbd class="ph userinput">管理者のユーザー名</kbd>「」<a class="xref" href="device_registration_properties.html#device_registration_properties__actor_type">actor_type</a>&quot;：&quot;管理者 &quot;}</pre>
+
+    <p class="gt-block p"><strong class="ph b">回答</strong></p>
+
+    <p class="p">200 {&quot;メッセージ&quot;： &quot;OK&quot;}  - 要求は成功しました</p>
+
+    <p class="p">404 {&quot;メッセージ&quot; &quot;デバイスが存在しません&quot;}  -  <var class="keyword varname">アカウントID</var> 下 <var class="keyword varname">pcode</var> 見つかりません</p>
+
+  </div>
+
+  <div class="section refsyn"><h2 class="title sectiontitle">すべての機器を削除</h2>
+    
+    <pre class="pre codeblock">[削除] rl.ooyala.com/device_management/pcode/<a class="xref" href="device_registration_properties.html#device_registration_properties__pcode"><kbd class="ph userinput">pcode</kbd></a>/アカウントID/<a class="xref" href="device_registration_properties.html#device_registration_properties__account_id"><kbd class="ph userinput">アカウントID</kbd></a>/ devices {&quot;<a class="xref" href="device_registration_properties.html#device_registration_properties__actor">俳優</a>「」<kbd class="ph userinput">管理者のユーザー名</kbd>「」<a class="xref" href="device_registration_properties.html#device_registration_properties__actor_type">actor_type</a>&quot;：&quot;管理者 &quot;}</pre>
+
+    <p class="gt-block p"><strong class="ph b">回答</strong></p>
+
+    <p class="p">200 {&quot;メッセージ&quot;： &quot;OK&quot;}  - 要求は成功しました</p>
+
+    <p class="p">404 {&quot;メッセージ&quot; &quot;デバイスが存在しません&quot;}  -  <var class="keyword varname">アカウントID</var> 下 <var class="keyword varname">pcode</var> 見つかりません</p>
+
+  </div>
+
+  <div class="section refsyn"><h2 class="title sectiontitle">デバイス制限の変更</h2>
+    
+    <pre class="pre codeblock">[PUT] rl.ooyala.com/device_management/pcode/<a class="xref" href="device_registration_properties.html#device_registration_properties__pcode"><kbd class="ph userinput">pcode</kbd></a>/アカウントID/<a class="xref" href="device_registration_properties.html#device_registration_properties__account_id"><kbd class="ph userinput">アカウントID</kbd></a>/ device_limit {&quot;<a class="xref" href="device_registration_properties.html#device_registration_properties__device_limit">device_limit</a>":<kbd class="ph userinput">device_limit</kbd>
+
+}</pre>
+
+
+    <p class="gt-block p"><strong class="ph b">回答</strong></p>
+
+    <p class="p">200 {&quot;メッセージ&quot;： &quot;OK&quot;}  - 要求は成功しました</p>
+
+    <p class="p">404 {&quot;メッセージ&quot; &quot;デバイスが存在しません&quot;}  -  <var class="keyword varname">アカウントID</var> 下 <var class="keyword varname">pcode</var> 見つかりません</p>
+
+  </div>
+
+  <div class="section refsyn"><h2 class="title sectiontitle">デバイス制限を取得する</h2>
+    <pre class="pre codeblock">[GET] rl.ooyala.com/device_management/pcode/<a class="xref" href="device_registration_properties.html#device_registration_properties__pcode"><kbd class="ph userinput">pcode</kbd></a>/アカウントID/<a class="xref" href="device_registration_properties.html#device_registration_properties__account_id"><kbd class="ph userinput">アカウントID</kbd></a>/ device_limit</pre>
+
+    <p class="gt-block p"><strong class="ph b">回答</strong></p>
+
+    <pre class="pre codeblock">{“<a class="xref" href="device_registration_properties.html#device_registration_properties__device_limit">device_limit</a>&quot;：&quot;<kbd class="ph userinput">実際の限界</kbd>”、}</pre>
+
+  </div>
+
+  <div class="section refsyn"><h2 class="title sectiontitle">デバイスのニックネームを更新する</h2>
+    
+      <pre class="pre codeblock">[PUT] rl.ooyala.com/device_management/pcode/<a class="xref" href="device_registration_properties.html#device_registration_properties__pcode"><kbd class="ph userinput">pcode</kbd></a>/アカウントID/<a class="xref" href="device_registration_properties.html#device_registration_properties__account_id"><kbd class="ph userinput">アカウントID</kbd></a>/ devices /<a class="xref" href="device_registration_properties.html#device_registration_properties__public_device_id"><kbd class="ph userinput">public_device_id</kbd></a>{&quot;<a class="xref" href="device_registration_properties.html#device_registration_properties__nickname">ニックネーム</a>「」<kbd class="ph userinput">someNickname</kbd>「」<a class="xref" href="device_registration_properties.html#device_registration_properties__actor">俳優</a>「」<kbd class="ph userinput">管理者のユーザー名</kbd>「」<a class="xref" href="device_registration_properties.html#device_registration_properties__actor_type">actor_type</a>&quot;：&quot;管理者 &quot;}</pre>
+
+    
+    <p class="gt-block p"><strong class="ph b">回答</strong></p>
+
+    <p class="p">200 {&quot;メッセージ&quot;： &quot;OK&quot;}  - 要求は成功しました。</p>
+
+    <p class="p">404 {&quot;メッセージ&quot; &quot;デバイスが存在しません&quot;}  -  <var class="keyword varname">アカウントID</var> 下 <var class="keyword varname">pcode</var> 見つかりません</p>
+
+  </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/device_registration.html">デバイス登録API</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- de

@@ -1,0 +1,230 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Closed Captions in Player V4"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_customize.html"/>
+<meta name="DC.Relation" scheme="URI" content="closed_captions_ingest.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/closed_captions_upload.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_closed_caption_settings"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Player V4のクローズドキャプション</title>
+</head>
+<body id="pbv4_closed_caption_settings">
+
+
+    <h1 class="title topictitle1">Player V4のクローズドキャプション</h1>
+
+    <div class="body conbody">
+        <div class="section">クローズドキャプションは、再生中にビデオ内に表示される追加のテキストです。 キャプションには通常、ビデオの音声記録が含まれています。 概要については、 
+            <a class="xref" href="chapter_closed_captions.html" title="あなたのビデオにクローズドキャプションを追加することができます。">クローズドキャプションの管理</a>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">クローズドキャプションのユーザーエクスペリエンス</h2>
+            <p class="p">ビデオにクローズドキャプションが利用可能な場合、エンドユーザーはPlayer V4コントロールバーのCCボタンをクリックして、Webおよびモバイルプラットフォームを搭載したすべてのブラウザのクローズドキャプション画面を開くことができます。 クローズドキャプション画面では、エンドユーザーは自分が選択した言語でクローズドキャプションを有効または無効にしたり、色、不透明度、フォントスタイル設定を適用したりできます。</p>
+
+            <p class="p">Player V4では、クローズドキャプションはテキスト、背景、およびウィンドウで構成されています。 ウィンドウはテキストを含む背景を含む長方形です。</p>
+
+            <div class="fig fignone">
+                <img class="image" src="http://help-ooyala.brightcove.com/../image/pbv4_cc_sample.png"/>
+            </div>
+
+            <p class="p">クローズドキャプション画面から、エンドユーザーは設定を適用する前に、プレーヤー上でクローズドキャプションがどのように見えるかをプレビューできます。 クローズドキャプションがオフの場合、たとえば言語の選択など、GUIで選択を行うと、その設定が適用された状態でクローズドキャプションが自動的にオンになります。</p>
+
+            <div class="fig fignone">
+                <img class="image" src="http://help-ooyala.brightcove.com/../image/pbv4_cc_preview.png" height="47" width="460"/>
+            </div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Player V4の設定オプション</h2>
+            <p class="gt-block p">デフォルトで、クローズドキャプションファイルがビデオで利用可能な場合、それらは有効になり、英語で表示されます。 プレーヤーのクローズドキャプションのデフォルトの動作と言語は、で設定できます。 <span class="ph filepath">skin.json</span> を修正することによって <samp class="ph codeph">使用可能</samp> そして <samp class="ph codeph">言語</samp> の属性 <samp class="ph codeph">closedCaptionOptions</samp> オブジェクト。</p>
+</div>
+
+        <div class="section"><h2 class="title sectiontitle">サポートされている入力形式</h2>
+            <p class="gt-block p">クローズドキャプションファイルは、ビデオファイルと一緒にBacklotにアップロードする必要があります。 クローズドキャプションファイルをBacklotにアップロードする方法の詳細については、 <a class="xref" href="closed_captions_ingest.html" title="BacklotまたはOoyala Ingestion Service（OIS）を介して字幕ファイルを取り込むことができます。">クローズドキャプションファイルの取り込み</a> そして <a class="xref" href="../tasks/closed_captions_upload.html" title="クローズドキャプションファイルを準備したら、それをBacklotにアップロードできます。">Backlotでクローズドキャプションファイルをアップロードする</a>.</p>
+
+            <div class="p">Player V4クローズドキャプションでは、次の入力フォーマットがサポートされています。 <ul class="ul">
+                    <li class="li">DFXP</li>
+
+                    <li class="li">VTT</li>
+
+                    <li class="li">CEA-608（Ooyala Liveのみ）</li>
+
+                    <li class="li">SCC</li>
+
+                    
+                </ul>
+
+            </div>
+
+            <div class="note note"><span class="notetitle">注意：</span> クローズドキャプションファイルで指定されたスタイル設定はすべて無視されます。</div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">FCCコンプライアンス</h2>
+            
+            <div class="p">Player V4は現在、米国連邦通信委員会（FCC）に準拠しており、21世紀のコミュニケーションおよびビデオアクセシビリティ法（FCC）に従って、FCCの字幕スタイルをサポートしています（<a class="xref" href="https://www.fcc.gov/consumers/guides/21st-century-communications-and-video-accessibility-act-cvaa" target="_blank">CVAA）</a> 必要条件 FCC準拠のクローズドキャプションのスタイル設定により、エンドユーザーは次のようなクローズドキャプションのプレーヤ上での表示方法を変更できます。 <ul class="ul">
+                    <li class="li">多言語サポート</li>
+
+                    <li class="li">フォント</li>
+
+                    <li class="li">文字サイズ</li>
+
+                    <li class="li">テキスト、背景、およびウィンドウの色</li>
+
+                    <li class="li">テキスト、背景、ウィンドウの不透明度</li>
+
+                    <li class="li">テキストスタイル</li>
+
+                </ul>
+
+            </div>
+
+            <p class="p">クローズドキャプションがビデオに使用できる場合、エンドユーザーは上記のスタイルを適用することができます。</p>
+
+            <div class="note note"><span class="notetitle">注意：</span> FCCクローズドキャプションのスタイル設定は、デスクトップWebおよびモバイルWebのWeb Playerバージョン4.5 +でのみサポートされています。 ネイティブSDKには、Ooyalaプレーヤー内にスタイル設定はありません。 Androidの場合、Android Skin SDKはオペレーティングシステムのクローズドキャプションスタイリング情報を使用してクローズドキャプションをレンダリングします。 6月現在、23、2016、iOSスキンSDKはFCCのクローズドキャプションスタイルをサポートしていません。 私たちはこの機能の追加に取り組んでいます。 Android Skin SDKはFCC字幕スタイルをサポートしています。</div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">クローズドキャプション設定の保存</h2>
+            
+            <p class="gt-block p">クローズドキャプション画面のUIコントロールを使用すると、エンドユーザーはその場でクローズドキャプションのスタイルを変更できます。 Player V4はクローズドキャプション設定を自動的にブラウザに保存します。 ユーザーが設定を変更した場合（たとえば、別のフォントの色を選択した場合）、その変更は新しいブラウザタブまたはウィンドウを開いたとき、または新しいブラウザセッションを起動したときに有効になります。 情報はローカルストレージキーを使用して保存されます
+                    <span class="keyword parmname">&quot;ooyala_player_settings&quot;</span>。 変更が保存されると、OO.EVENTS.SAVE_PLAYER_SETTINGSイベントが発生します。</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">クローズドキャプションの有効化または無効化</h2>
+            
+            <p class="gt-block p">クローズドキャプションをオンにするには、エンドユーザーがクリックします <span class="ph menucascade"><span class="ph uicontrol">CCボタン</span> &gt; <span class="ph uicontrol">On</span></span>。 エンドユーザーがクリックした直後にクローズドキャプションが表示される <span class="ph menucascade"><span class="ph uicontrol">CCボタン</span> &gt; <span class="ph uicontrol">On</span></span> デフォルトのクローズドキャプション言語で。 skin.jsonで特に指定されていない限り、デフォルトのクローズドキャプション言語は英語です。</p>
+
+            <div class="fig fignone">
+                <img class="image" src="http://help-ooyala.brightcove.com/../image/pbv4_cc_on.png"/>
+            </div>
+
+            <p class="gt-block p">クローズドキャプションをオフにするには、エンドユーザーがクリックします。 <span class="ph menucascade"><span class="ph uicontrol">CCボタン</span> &gt; <span class="ph uicontrol">Off</span></span>.  </p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">言語とキャプションの設定</h2>ポップオーバーで、をクリックします
+                <strong class="ph b">キャプションオプション</strong> 字幕の言語やその他の設定を変更します。</div>
+
+        <div class="section"><h2 class="title sectiontitle">言語を選択する</h2>
+            
+            <p class="p">クローズドキャプションをビデオに関連付けている場合、エンドユーザーは指定した言語の中からキャプションの言語を選択できます。</p>
+
+            <p class="gt-block p">字幕言語をカスタマイズするには、エンドユーザーがクリックします。
+                    <span class="ph uicontrol">Language</span> 希望のクローズドキャプション言語を選択します。</p>
+
+            <div class="note note"><span class="notetitle">注意：</span> クローズドキャプション画面の各言語選択のエントリは、それぞれの言語にローカライズされています。 たとえば、イタリア語はItalianoとして表示されます。</div>
+
+            <p class="p">skin.jsonのclosedCaptionOptionsオブジェクトのdefaultLanguage属性で特に指定されていない限り、デフォルト言語は英語です。</p>
+
+            <div class="fig fignone">
+                <img class="image" src="http://help-ooyala.brightcove.com/../image/pbv4_cc_language.png" height="192" width="460"/>
+            </div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">テキスト、背景、ウィンドウの色を選択する</h2>
+            
+            <p class="p">クローズドキャプションテキストの場合、エンドユーザーは適用するカラーオプションを選択できます。</p>
+
+            <p class="p">クローズドキャプションの背景とウィンドウの場合、エンドユーザーは適用するカラーオプションまたは透明オプションを選択できます。</p>
+
+            <p class="gt-block p">色をカスタマイズするには、エンドユーザーをクリックします <span class="ph uicontrol">色の選択</span> そして色を選択します。 デフォルトの色設定は、透明なウィンドウと黒い背景を持つ白いテキストです。</p>
+
+            <div class="fig fignone">
+                <img class="image" src="http://help-ooyala.brightcove.com/../image/pbv4_cc_color.png" height="195" width="460"/>
+            </div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">テキスト、背景、ウィンドウの不透明度を選択する</h2>
+            
+            <p class="p">クローズドキャプションのテキスト、背景、およびウィンドウの場合、エンドユーザーはスライドバーを使用して不透明度を選択できます。 デフォルトの不透明度設定は、テキストの100％不透明度、ウィンドウの0％不透明度、および背景の60％不透明度です。</p>
+
+            <p class="gt-block p">不透明度のオプションを表示するには、エンドユーザーをクリックします <span class="ph uicontrol">キャプションの不透明度</span>.</p>
+
+            <div class="fig fignone">
+                <img class="image" src="http://help-ooyala.brightcove.com/../image/pbv4_cc_opacity.png" height="195" width="460"/>
+            </div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">フォントの種類を選択する</h2>
+            
+            <p class="p">エンドユーザーはさまざまなフォントタイプから選択できます。 表示されているすべてのフォントタイプは、ブラウザが自動的にレンダリングできるWebセーフフォントです。</p>
+
+            <p class="gt-block p">フォントの種類をカスタマイズするには、エンドユーザーをクリックします <span class="ph uicontrol">フォントの種類</span> そしてフォントを選択します。 デフォルトのフォントはProportional Sans-Serifです。</p>
+
+            <div class="fig fignone">
+                <img class="image" src="http://help-ooyala.brightcove.com/../image/pbv4_cc_font_type.png" height="195" width="460"/>
+            </div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">フォントサイズの選択</h2>
+            
+            <p class="p">エンドユーザーは、小、中、大、および特大のフォントサイズから選択できます。</p>
+
+            <p class="gt-block p">フォントサイズをカスタマイズするには、エンドユーザーをクリックします <span class="ph uicontrol">フォントサイズ</span> サイズを選択してください。 デフォルトのサイズは、2番目のテキストサイズアイコン（中）です。</p>
+
+            <div class="fig fignone">
+                <img class="image" src="http://help-ooyala.brightcove.com/../image/pbv4_cc_font_size.png" height="191" width="460"/>
+            </div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">テキスト拡張の​​適用</h2>
+            
+            <div class="p">エンドユーザーは、クローズドキャプションに次のテキスト拡張を適用できます。 一度に適用できる拡張は1つだけです。 <ul class="ul">
+                    <li class="li">均一の</li>
+
+                    <li class="li">意気消沈した</li>
+
+                    <li class="li">隆起しました</li>
+
+                    <li class="li">影</li>
+
+                </ul>
+
+            </div>
+
+            <p class="gt-block p">テキストの機能強化を適用するには、エンドユーザーをクリックします。 <span class="ph uicontrol">テキストの機能強化</span> そしてオプションを選択します。</p>
+
+            <div class="fig fignone">
+                <img class="image" src="http://help-ooyala.brightcove.com/../image/pbv4_cc_enhancements.png" height="192" width="460"/>
+            </div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">既知の問題点</h2>
+            
+            <p class="p" id="pbv4_closed_caption_settings__pbw4457">MacデバイスおよびSafariブラウザでHLSビデオアセットを使用すると、クローズドキャプションファイルがビデオアセットに関連付けられていなくても、クローズドキャプションボタンが常に表示されます。 これはSafariの本質的な問題によるものです。</p>
+
+        </div>
+
+    </div>
+
+    <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/pbv4_customize.html">プレーヤV4外観のカスタマイズ</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="closed_captions_ingest.html" title="BacklotまたはOoyala Ingestion Service（OIS）を介して字幕ファイルを取り込むことができます。">クローズドキャプションファイルの取り込み</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong><br/>
+<div><a class="link" href="../tasks/closed_captions_upload.html" title="クローズドキャプションファイルを準備したら、それをBacklotにアップロードできます。">Backlotでクローズドキャプションファイルをアップロードする</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[

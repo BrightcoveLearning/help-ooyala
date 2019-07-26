@@ -1,0 +1,134 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="HTTP Response Codes"/>
+<meta name="abstract" content="Depending on request results, the Backlot REST API returns different HTTP response codes."/>
+<meta name="description" content="Depending on request results, the Backlot REST API returns different HTTP response codes."/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_api_setup.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_api.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_api.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="api_response_codes"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>HTTP応答コード</title>
+</head>
+<body id="api_response_codes">
+
+
+ <h1 class="title topictitle1">HTTP応答コード </h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">要求結果に応じて、Backlot REST APIはさまざまなHTTP応答コードを返します。 </p>
+
+  <div class="note note"><span class="notetitle">注意：</span> Backlot REST APIコマンドについて詳しくは、以下を参照してください。
+     <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/backlot_api/index.html" target="_blank">バックスロットAPIリファレンス</a>.</div>
+
+  
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+    
+    
+    
+    <thead class="thead" align="left">
+     <tr class="row">
+      <th class="entry" valign="top" width="17.21170395869191%" id="d231343e35">応答コード</th>
+
+      <th class="entry" valign="top" width="25.817555938037863%" id="d231343e38">短い説明</th>
+
+      <th class="entry" valign="top" width="56.970740103270224%" id="d231343e41">注釈</th>
+
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr class="row">
+      <td class="entry" valign="top" width="17.21170395869191%" headers="d231343e35 ">200</td>
+
+      <td class="entry" valign="top" width="25.817555938037863%" headers="d231343e38 ">OK</td>
+
+      <td class="entry" valign="top" width="56.970740103270224%" headers="d231343e41 ">  <span class="ph">バックスロットAPI</span> 要求を正常に処理しました。</td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="17.21170395869191%" headers="d231343e35 ">204</td>
+
+      <td class="entry" valign="top" width="25.817555938037863%" headers="d231343e38 ">コンテンツなし</td>
+
+      <td class="entry" valign="top" width="56.970740103270224%" headers="d231343e41 ">サーバーは要求を実行しましたが、entity-bodyを返す必要はありません。 応答にメッセージ本文がありません。</td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="17.21170395869191%" headers="d231343e35 ">400</td>
+
+      <td class="entry" valign="top" width="25.817555938037863%" headers="d231343e38 ">不正な要求</td>
+
+      <td class="entry" valign="top" width="56.970740103270224%" headers="d231343e41 ">要求の形式が正しくないか、無効なデータが含まれています。 たとえば、 <span class="ph">バックスロットAPI</span> リクエストに誤った形式のJSONが含まれているか、 &quot;400：25：00&quot;のような無効な設定が含まれている場合、00レスポンスコードを返します。</td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="17.21170395869191%" headers="d231343e35 ">401</td>
+
+      <td class="entry" valign="top" width="25.817555938037863%" headers="d231343e38 ">許可されていません</td>
+
+      <td class="entry" valign="top" width="56.970740103270224%" headers="d231343e41 ">要求が正しく署名されていないか、無効なAPIキーで署名されています。</td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="17.21170395869191%" headers="d231343e35 ">403</td>
+
+      <td class="entry" valign="top" width="25.817555938037863%" headers="d231343e38 ">禁断の</td>
+
+      <td class="entry" valign="top" width="56.970740103270224%" headers="d231343e41 ">要求された操作に対して要求が正しく認証されていません。</td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="17.21170395869191%" headers="d231343e35 ">404</td>
+
+      <td class="entry" valign="top" width="25.817555938037863%" headers="d231343e38 ">見つかりませんでした</td>
+
+      <td class="entry" valign="top" width="56.970740103270224%" headers="d231343e41 ">リソースが存在しません。 たとえば、間違ったコンテンツIDを使用して動画を削除しようとした場合などです。</td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="17.21170395869191%" headers="d231343e35 ">429</td>
+
+      <td class="entry" valign="top" width="25.817555938037863%" headers="d231343e38 "> </td>
+
+      <td class="entry" valign="top" width="56.970740103270224%" headers="d231343e41 ">要求を満たすには「APIクレジット」が不十分です。 見る <a class="xref" href="api_rate_limiting.html" title="Ooyala APIを通して、あなたは毎分300リクエストを許可されます。 毎分、カウンターはリセットされます。">APIレート制限</a>.</td>
+
+     </tr>
+
+    </tbody>
+
+   </table>
+</div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_api_setup.html" title="Ooyalaは、Backlotプラットフォームへのリクエストを可能にするRESTベースのインターフェースを提供します。">Backlot REST APIを使用する</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_api.html" title="プレーヤーのクロム（デザイン要素）をカスタマイズするには、Backlot REST APIを使用してください。 これには、フォント、色、スクラバーバーなどのUI要素が含まれます。">バックスロットREST API</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

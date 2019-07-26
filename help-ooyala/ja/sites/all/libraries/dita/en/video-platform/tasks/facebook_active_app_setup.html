@@ -1,0 +1,95 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Active Sharing Setup"/>
+<meta name="abstract" content="This section contains basic instructions for setting up active sharing via embedded meta tags."/>
+<meta name="description" content="このセクションでは、埋め込みメタタグを使用してアクティブ共有を設定するための基本的な手順について説明します。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/facebook_active_sharing.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="facebook_active_app_setup"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>アクティブ共有設定</title>
+</head>
+<body id="facebook_active_app_setup">
+
+
+<h1 class="title topictitle1">アクティブ共有設定</h1>
+
+ 
+<div class="body taskbody"><p class="shortdesc">このセクションでは、埋め込みメタタグを介したアクティブ共有の設定に関する基本的な手順について説明します。</p>
+
+ <div class="section context">
+  <p class="p">アプリケーションを設定するには</p>
+
+ </div>
+
+ <ol class="ol steps"><li class="li step stepexpand">
+   <span class="ph cmd">からプログラミング言語のフォルダを探します。 <span class="ph">Facebookのコード例（で入手可能） <a class="xref" href="https://ooyala.app.box.com/s/848a8775de91da90405c" target="_blank">zipダウンロード</a>)</span> zipファイルをダウンロードして、その内容をプロジェクトフォルダにコピーします。 </span>
+  </li>
+<li class="li step stepexpand">
+   <span class="ph cmd">Ooyala Facebook用法ファイルを開く <span class="ph">Facebookのコード例（で入手可能） <a class="xref" href="https://ooyala.app.box.com/s/848a8775de91da90405c" target="_blank">zipダウンロード</a>)</span>.  </span>
+  </li>
+<li class="li step stepexpand">
+   <span class="ph cmd">内容をアプリケーションにコピーしてください。
+   </span>
+  </li>
+<li class="li step stepexpand">
+   <span class="ph cmd">インポートしたファイルを必ず含めてください。
+   </span>
+  </li>
+<li class="li step stepexpand">
+   <span class="ph cmd">Insert the return value of the head prefix method as an attribute of the HTML head tag. For example:&#8232;  &lt;head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# video: http://ogp.me/ns/video#"&gt;
+   </span>
+  </li>
+<li class="li step stepexpand">
+   <span class="ph cmd">挿入する <a class="xref" href="../concepts/chapter_facebook.html#chapter_facebook__fb_meta_tags">メタタグ</a> HTMLのheadタグの下。 これらのタグの説明については、 <a class="xref" href="../concepts/chapter_facebook.html#chapter_facebook" title="OoyalaベースのビデオをFacebookのタイムラインに投稿する方法はいくつかあります。">Facebookでビデオを共有する</a>。 例えば： </span>
+    
+    <pre class="pre codeblock">&lt;meta property="og:type" content="video.other" /&gt;
+&lt;meta property="og:title" content="Bhangra Empire - Jashan 2011" /&gt;
+&lt;meta property="og:description" content="dancing" /&gt;
+&lt;meta property="og:url" content="iamaurl"&gt;
+&lt;meta property="og:image" content="http://ak.c.ooyala.com/c1d3AxMzo5_lJK08LHYfpzFF02StTtfk/Y2BrwET1VVpfCiI35jMDoxOjBrOwKdHu" /&gt;
+&lt;meta property="og:video" content="http://glowing-spring-6591.herokuapp.com/share" /&gt;
+&lt;meta property="og:video:secure_url" content="https://glowing-spring-6591.herokuapp.com/share" /&gt;
+&lt;meta property="og:video" content="http://player.ooyala.com/player.swf?embedCode=c1d3AxMzo5_lJK08LHYfpzFF02StTtfk&amp;keepEmbedCode=true&amp;docUrl=http%3A%2F%2Fexample.com" /&gt;
+&lt;meta property="og:video:secure_url” content=" https://player.ooyala.com/player.swf?embedCode=c1d3AxMzo5_lJK08LHYfpzFF02StTtfk&amp;keepEmbedCode=true " /&gt;
+	&lt;meta property="og:video:type " content="application/x-shockwave-flash " /&gt;&#8232;	 
+	&lt;meta property="og:video:height " content="480 " /&gt;
+    &lt;meta property="og:video:width " content="640 " /&gt;	
+      
+    </pre>
+
+   
+  </li>
+<li class="li step stepexpand">
+   <span class="ph cmd">If you want to add a share button, add the following to your
+     page:&#8232;
+    </span>
+    <samp class="ph codeph">&lt;a name="fb_share"&gt;&lt;/a&gt;&#8232;&lt;script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"&gt;&lt;/script&gt;</samp>
+  </li>
+<li class="li step stepexpand">
+   <span class="ph cmd">アプリケーションを実行してテストします。
+   </span>
+  </li>
+</ol>
+
+</div>
+
+ 
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/facebook_active_sharing.html" title="Facebookコード例（zipダウンロードで入手可能）を使用すると、視聴者がクリックしてタイムラインにビデオを追加できる共有ボタンを埋め込むことができます。 [共有]ボタンをクリックすると、視聴者は何らかの行動を取る必要があります。">アクティブ共有</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

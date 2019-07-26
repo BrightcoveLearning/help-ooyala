@@ -1,0 +1,296 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Configuring Ad Parameters"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/pbv4_integrate_ads.html"/>
+<meta name="DC.Relation" scheme="URI" content="pbv4_ads_dev_pulse.html"/>
+<meta name="DC.Relation" scheme="URI" content="pbv4_ads_dev_freewheel.html"/>
+<meta name="DC.Relation" scheme="URI" content="pbv4_ads_dev_vast.html"/>
+<meta name="DC.Relation" scheme="URI" content="pbv4_ads_dev_google_ima.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_configure_ads_embedded_params"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>広告パラメータを設定する</title>
+</head>
+<body id="pbv4_configure_ads_embedded_params">
+
+
+  <h1 class="title topictitle1">広告パラメータを設定する</h1>
+
+
+  <div class="body conbody">
+          <div class="section"><p class="p">統合広告を使用してPlayer V4を読み込むページでは、ページレベルの埋め込み広告パラメータを使用して広告設定を構成できます。 </p>
+</div>
+
+      <div class="section"><h2 class="title sectiontitle">埋め込みパラメータの種類</h2> 使用できるパラメータは2種類あります。 <ul class="ul">
+                <li class="li"><strong class="ph b">グローバルパラメータ</strong> あなたが設定すること <em class="ph i">外側</em> 広告マネージャハッシュの。 これらのパラメータについては、このトピックの後半で説明します。</li>
+
+                <li class="li"><strong class="ph b">広告マネージャ固有のパラメータ</strong> あなたが設定すること <em class="ph i">以内</em> 広告マネージャのハッシュ これらのマネージャについては、以下のトピックで説明します。 <ul class="ul">
+                        <li class="li"><a class="xref" href="pbv4_ads_dev_pulse_parameters.html">Ooyala Pulseの広告パラメータ</a></li>
+
+                        <li class="li"><a class="xref" href="pbv4_ads_dev_freewheel_parameters.html">フリーホイール広告パラメータ</a></li>
+
+                        <li class="li"><a class="xref" href="pbv4_ads_dev_google_ima_parameters.html">Google IMA広告パラメータ</a></li>
+
+                        <li class="li"><a class="xref" href="pbv4_ads_dev_vast_parameters.html">VASTとVPAIDの広告パラメータ</a></li>
+
+                    </ul>
+</li>
+
+            </ul>
+</div>
+
+      <div class="section"><h2 class="title sectiontitle">優先順位はプラグインごとに異なります</h2>
+                <ul class="ul">
+                    <li class="li">Ooyala Pulse、FreeWheel、VAST広告の場合、設定は構成されています <em class="ph i">内部</em>
+                    広告マネージャハッシュは、広告マネージャハッシュの外部で設定された設定を上書きします。</li>
+
+                    <li class="li">Google IMAの場合、設定は構成されています <em class="ph i">外側</em> 広告マネージャハッシュは、広告マネージャハッシュ内で設定されている設定を上書きします。</li>
+
+                </ul>
+
+        </div>
+
+          <div class="section" id="pbv4_configure_ads_embedded_params__global_params"><h2 class="title sectiontitle">グローバルパラメータ</h2>以下のグローバルパラメータが有効です。
+                <em class="ph i">を</em> このリリースのOoyala V4プレーヤーでサポートされている広告タイプ。 これらのグローバルパラメータのいずれかをに追加できます。 <span class="keyword parmname">playerParam</span> デフォルトの広告設定を変更するための変数。 <div class="note note"><span class="notetitle">注意：</span>   <samp class="ph codeph">showAdMarquee</samp> そして
+                    <samp class="ph codeph">showInAdControlBar</samp> パラメータはページレベルまたは広告マネージャレベルでは設定できなくなりました。 skin.jsonを変更して、広告マーキーとコントロールバーを設定できます。</div>
+
+        </div>
+
+      
+      <div class="section">
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="pbv4_configure_ads_embedded_params__global_parameters" class="table" frame="border" border="1" rules="all">
+                    
+                    
+                    
+                    
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" width="1" id="d450672e117"><strong class="ph b">名前</strong></th>
+
+                            <th class="entry" valign="top" width="NaN%" id="d450672e121"><strong class="ph b">説明</strong></th>
+
+                            <th class="entry" valign="top" width="1" id="d450672e125"><strong class="ph b">タイプ</strong></th>
+
+                            <th class="entry" valign="top" width="1" id="d450672e129"><strong class="ph b">必須？</strong></th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr id="pbv4_configure_ads_embedded_params__adLoadTimeout" class="row">
+                            <td class="entry" valign="top" width="1" headers="d450672e117 "><span class="keyword parmname">adLoadTimeout</span></td>
+
+                            <td class="entry" valign="top" width="NaN%" headers="d450672e121 ">2つの方法で適用される値（秒単位）。 <ul class="ul">
+                                    <li class="li">Ad Managerコントローラはこのパラメータを使用して、すべての広告プラグインの広告読み込みタイムアウト（広告リクエストと広告再生）を制御します。 広告要求は成功したが、広告の再生が開始されるまでに時間がかかりすぎる場合は、この設定を指定して広告の再生がタイムアウトする時間を制御します。 <strong class="ph b">デフォルト：</strong>
+                                        25秒 </li>
+
+                                    <li class="li">  <a class="xref" href="pbv4_ads_dev_chapter_googleima.html">Google IMA Ad Plugin</a> このパラメータを使用して、Google IMA広告の広告要求タイムアウトを制御します。 <strong class="ph b">デフォルト：</strong> 15秒</li>
+
+                                </ul>
+<p class="gt-block p"><strong class="ph b">有効な値：</strong> 0以上の任意の整数。</p>
+</td>
+
+                            <td class="entry" valign="top" width="1" headers="d450672e125 ">整数</td>
+
+                            <td class="entry" valign="top" width="1" headers="d450672e129 ">いいえ</td>
+
+                        </tr>
+
+                        <tr id="pbv4_configure_ads_embedded_params__allowAdClickThroughOnVideo" class="row">
+                            <td class="entry" valign="top" width="1" headers="d450672e117 "><span class="keyword parmname">allowAdClickThroughOnVideo</span>
+                                <div class="note note"><span class="notetitle">注意：</span> このパラメータは、Ooyala VASTおよびVPAID Ad Pluginでのみ使用されます。</div>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="NaN%" headers="d450672e121 ">
+                                <ul class="ul">
+                                    <li class="li">に設定した場合 <samp class="ph codeph">true</samp> ユーザーが広告ビデオまたは詳細ボタンをクリックまたはタップすると（デフォルト）、このアクションにより広告が一時停止され、新しいタブでクリックスルーURLが開きます。 </li>
+
+                                    <li class="li">に設定した場合 <samp class="ph codeph">false</samp>広告ビデオをタップまたはクリックしても広告は一時停止（および後で再開）されるだけで、クリックスルーURLは開かず、[詳細]ボタンをクリックまたはタップしても新しいページが表示されます。</li>
+
+                                </ul>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="1" headers="d450672e125 ">ブーリアン</td>
+
+                            <td class="entry" valign="top" width="1" headers="d450672e129 ">いいえ</td>
+
+                        </tr>
+
+                        <tr id="pbv4_configure_ads_embedded_params__linearAdSkipButtonStartTime" class="row">
+                            <td class="entry" valign="top" width="1" headers="d450672e117 "><span class="keyword parmname">linearAdSkipButtonStartTime</span></td>
+
+                            <td class="entry" valign="top" width="NaN%" headers="d450672e121 ">リニア広告のスキップボタンが表示されるまでの秒単位の値。 0に設定すると、スキップボタンがすぐに表示されます。 広告が指定した時間より短い場合、スキップボタンは表示されません。 0以上の整数にすることができます（デフォルトは5秒です）。</td>
+
+                            <td class="entry" valign="top" width="1" headers="d450672e125 ">整数</td>
+
+                            <td class="entry" valign="top" width="1" headers="d450672e129 ">いいえ</td>
+
+                        </tr>
+
+                        <tr id="pbv4_configure_ads_embedded_params__pauseAdOnClick" class="row">
+                            <td class="entry" valign="top" width="1" headers="d450672e117 "><span class="keyword parmname">pauseAdOnClick</span></td>
+
+                            <td class="entry" valign="top" width="NaN%" headers="d450672e121 ">
+                                <ul class="ul">
+                                    <li class="li">に設定した場合 <samp class="ph codeph">true</samp> （デフォルト）、ユーザーがクリックすると広告の再生が一時停止します。</li>
+
+                                    <li class="li">に設定した場合 <samp class="ph codeph">false</samp>クリックしても広告は再生され続けます。</li>
+
+                                </ul>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="1" headers="d450672e125 ">ブーリアン</td>
+
+                            <td class="entry" valign="top" width="1" headers="d450672e129 ">いいえ</td>
+
+                        </tr>
+
+                        <tr id="pbv4_configure_ads_embedded_params__replayAds" class="row">
+                            <td class="entry" valign="top" width="1" headers="d450672e117 "><span class="keyword parmname">replayAds</span></td>
+
+                            <td class="entry" valign="top" width="NaN%" headers="d450672e121 ">
+                                <ul class="ul">
+                                    <li class="li">に設定した場合 <samp class="ph codeph">true</samp> （デフォルト）、動画が再生されると広告が再生されます。</li>
+
+                                    <li class="li">に設定した場合 <samp class="ph codeph">false</samp>動画が再生されても、広告は再生されません。</li>
+
+                                </ul>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="1" headers="d450672e125 ">ブーリアン</td>
+
+                            <td class="entry" valign="top" width="1" headers="d450672e129 ">いいえ</td>
+
+                        </tr>
+
+                        
+                        <tr id="pbv4_configure_ads_embedded_params__showLinearAdSkipButton" class="row">
+                            <td class="entry" valign="top" width="1" headers="d450672e117 "><span class="keyword parmname">showLinearAdSkipButton</span></td>
+
+                            <td class="entry" valign="top" width="NaN%" headers="d450672e121 ">
+                                <ul class="ul">
+                                    <li class="li">に設定した場合 <samp class="ph codeph">true</samp>動画広告中に[広告をスキップ]ボタンを有効にします。</li>
+
+                                    <li class="li">に設定した場合 <samp class="ph codeph">false</samp> （デフォルト）は、[広告をスキップ]ボタンを無効にします。</li>
+
+                                </ul>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="1" headers="d450672e125 ">ブーリアン</td>
+
+                            <td class="entry" valign="top" width="1" headers="d450672e129 ">いいえ</td>
+
+                        </tr>
+
+                        <tr id="pbv4_configure_ads_embedded_params__showNonLinearCloseButton" class="row">
+                            <td class="entry" valign="top" width="1" headers="d450672e117 "><span class="keyword parmname">showNonLinearCloseButton</span></td>
+
+                            <td class="entry" valign="top" width="NaN%" headers="d450672e121 ">
+                                <ul class="ul">
+                                    <li class="li">に設定した場合 <samp class="ph codeph">true</samp>オーバーレイ広告の場合、プレーヤーは閉じるボタン（X）を表示します。</li>
+
+                                    <li class="li">に設定した場合 <samp class="ph codeph">false</samp> （デフォルト）オーバーレイ広告の場合、プレーヤーは閉じるボタンを表示しません。</li>
+
+                                </ul>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="1" headers="d450672e125 ">ブーリアン</td>
+
+                            <td class="entry" valign="top" width="1" headers="d450672e129 ">いいえ</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">サーバーサイド広告挿入プラグインのパラメータ</h2> サーバーサイド広告挿入プラグインの広告設定を変更するには、次のパラメータを使用します。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="pbv4_configure_ads_embedded_params__server_side_parameters" class="table" frame="border" border="1" rules="all">
+                    
+                    
+                    
+                    
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" width="1" id="d450672e377"><strong class="ph b">名前</strong></th>
+
+                            <th class="entry" valign="top" width="NaN%" id="d450672e381"><strong class="ph b">説明</strong></th>
+
+                            <th class="entry" valign="top" width="1" id="d450672e385"><strong class="ph b">タイプ</strong></th>
+
+                            <th class="entry" valign="top" width="1" id="d450672e389"><strong class="ph b">必須？</strong></th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr id="pbv4_configure_ads_embedded_params__cacheBuster" class="row">
+                            <td class="entry" valign="top" width="1" headers="d450672e377 "><span class="keyword parmname">ssai-pulse-ads-manager.cacheBuster</span></td>
+
+                            <td class="entry" valign="top" width="NaN%" headers="d450672e381 ">サーバーサイド広告挿入を使用するときに広告要求のキャッシュバスティングを実装します。 <ul class="ul">
+                                    <li class="li">に設定した場合 <samp class="ph codeph">true</samp> （デフォルト）、 &#39;[CACHEBUSTING]&#39;マクロを持つURLはランダムな文字列に置き換えられます。</li>
+
+                                    <li class="li">に設定した場合 <samp class="ph codeph">false</samp>、 &#39;[CACHEBUSTING]&#39;マクロを含むURLは <em class="ph i">Studio上ではサポートされていません。</em> ランダムな文字列に置き換えます。</li>
+
+                                </ul>
+</td>
+
+                            <td class="entry" valign="top" width="1" headers="d450672e385 ">ブーリアン</td>
+
+                            <td class="entry" valign="top" width="1" headers="d450672e389 ">いいえ</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+</div>
+
+          <div class="section"><h2 class="title sectiontitle">広告マネージャの例</h2> 次の例は、サンプル広告マネージャの一般設定を変更する方法を示しています。 資産の埋め込みコードは、BacklotのMANAGEページのEmbedタブにあります。 <div class="note note"><span class="notetitle">注意：</span> <span class="ph">どこにいても <samp class="ph codeph"><span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span></samp> サンプルコードでは、（コード内の）これを、リソースがホストされている場所を指すURLに置き換えます。 Ooyalaがホストするパスのリストについては、を参照してください。 <a class="xref" href="pbv4_resources.html">OoyalaがホストするプレイヤーV4リソース</a>。 URLは、同じホスト上の場所（内部リンク）または別のホスト上（前に次の文字列が付いた場所）を指すことができます。 <samp class="ph codeph">http://</samp>  or  <samp class="ph codeph">https://</samp>） 自分でリソースをホストしている場合（ <a class="xref" href="pbv4_host.html">ホスティングプレイヤーV4リソース</a>）、ファイル内のパスの依存関係を必ず確認してください。</span></div>
+<pre class="pre codeblock">&lt;！DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;title&gt;広告埋め込みパラメータの例&lt;/title&gt; &lt;！ -  V4 JSコアが必要です。 スキン、ディスカバリー、広告などのプラグインは別々に読み込む必要があります - &gt; &lt;script src = &quot;<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/core.min.js &quot;&gt; &lt;/script&gt; &lt;！ - 必要に応じて、これらのhtml5-skin.min.cssおよびhtml5-skin.jsをローカルビルドに変更してください - &gt; &lt;script src =&quot;<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/html5-skin.min.js &quot;&gt; &lt;/script&gt; &lt;link rel =&quot;スタイルシート &quot;href =&quot;<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/html5-skin.min.css &quot;/&gt; &lt;！ - ビデオプラグインが必要です。この例は、メインビデオプラグインを示しています - &gt; &lt;script src =&quot;<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/main_html5.min.js &quot;&gt; &lt;/script&gt; &lt;！ - 広告モジュール - 実際の広告プラグインに置き換えます - &gt; &lt;script src =&quot;<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/ad_manager_example.js &quot;&gt; &lt;/script&gt; &lt;/head&gt; &lt;body&gt; &lt;div id =&quot; container &quot;style =&quot; width：640px; 高さ：360px; &quot;&gt; &lt;/div&gt; &lt;script&gt; var playerParam = {
+              <strong class="ph b">&quot;pcode&quot;： &quot;YOUR_PCODE&quot;</strong>,
+              
+              <strong class="ph b">&quot;playerBrandingId&quot;： &quot;YOUR_PLAYER_ID&quot;</strong>、 &quot;skin&quot;：{// Configにはプレイヤーのスキンの設定が含まれています。 必要に応じてローカル設定に変更してください。 &quot;config&quot;： &quot;<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/skin.json &quot;}、
+              <strong class="ph b">//ここにグローバル広告パラメータを適用する</strong>
+              &quot;example-ads-manager&quot;：{
+             <strong class="ph b"> //これは、広告マネージャ固有のパラメータを適用する広告マネージャ固有のハッシュです。</strong>
+                      &quot;adTagUrl&quot;： &quot;// my-ad-tag.com&quot;}、 &quot;自動再生&quot;：false、 &quot;プリロード&quot;：false、 &quot;allowAdClickThroughOnVideo&quot;：true、 &quot;replayAds&quot;：true}; OO.ready（function（）{window.pp = OO.Player.create（ &quot;コンテナ&quot;、 <strong class="ph b">&quot;YOUR_ASSET_ID&quot;</strong>、playerParam）; ;））; &lt;/script&gt; &lt;/body&gt; &lt;/html&gt;           </pre>
+</div>
+
+ 
+
+      </div>
+
+      <div class="related-links"><div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="../tasks/pbv4_integrate_ads.html">広告を統合する</a></div>
+<div><a class="link" href="pbv4_ads_dev_pulse.html">Ooyala Pulse Adsの統合</a></div>
+<div><a class="link" href="pbv4_ads_dev_freewheel.html">フリーホイール広告の統合</a></div>
+<div><a class="link" href="pbv4_ads_dev_vast.html">VAST広告とVPAID広告の統合</a></div>
+<div><a class="link" href="pbv4_ads_dev_google_ima.html">Google IMA広告の統合</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

@@ -1,0 +1,81 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Ooyala Live’s Linear VOD Playlist"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/liveplatform_deliver_live_content.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="multi-audio"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Ooyala LiveのリニアVODプレイリスト</title>
+</head>
+<body id="multi-audio">
+
+
+    <h1 class="title topictitle1"><strong class="ph b" id="docs-internal-guid-a59b3690-9618-44d6-56c2-a663338d519c">Ooyala Live’s Linear VOD
+            Playlist </strong></h1>
+
+    <div class="body conbody">
+        <div class="section">
+            <p class="p">Ooyala LiveのリニアVODプレイリストにより、ライブストリーミングからVODプレイリストにジャンプしてライブストリーミングに戻ることができます。 これで、チャンネルを作成するときに、ネットワーク入力（ライブフィード）、選択したバックアップスレート、さらに既に作成したプレイリストを追加できます。 </p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">プレイリストを設定する</h2>Linear VODプレイリストを使用するには、ネットワーク入力用にチャンネルを設定する必要があります。 <div class="note note"><span class="notetitle">注意：</span> 
+                <ul class="ul">
+                    <li class="li">プレイリスト作成の詳細については、 <a class="xref" href="../../../../../../../../ja/video-platform/tasks/liveplatform_stream_prerecorded_videos.html" target="_blank">プレイリストを追加</a>.</li>
+
+                    <li class="li">チャンネル作成の詳細については、 <a class="xref" href="../../../../../../../../ja/video-platform/concepts/liveplatform_setup_channel.html" target="_blank">チャンネルを追加する</a>.</li>
+
+                </ul>
+
+            </div>
+
+            <p class="gt-block p">Encoding Setupページで、 <span class="ph uicontrol">エンコーダ入力プロファイル</span> 〜へ
+                    <span class="ph uicontrol">ネットワーク入力付きプレイリスト</span>:</p>
+
+            <img class="image" src="http://help-ooyala.brightcove.com/../image/encode_network.png"/>
+            <p class="p">利用可能なプレイリストから選択して、プレイリストと組み合わせるスレートを選択します。 他のチャンネルに関連付けられていないプレイリストのみを選択できます。 チャンネルが作成されたら、チャンネルの詳細に取り込みURLを含める必要があります。 コンテンツをストリーミングできるようにするには、このURLをソースエンコーダで入力する必要があります。 </p>
+
+            <img class="image" src="http://help-ooyala.brightcove.com/../image/ingest_url.png" height="281" width="546"/></div>
+<div class="section"><h2 class="title sectiontitle">プレイリストをストリーミングする</h2>の中に <span class="ph uicontrol">MONITOR</span> タブでは、表示する入力を選択できます。 ライブフィードを通じてライブインジェストが再生されていない場合は、スレートが再生されます。 現在のソースはモニタタブで強調表示されています。 <p class="p"/>
+<img class="image" src="http://help-ooyala.brightcove.com/../image/monitor.png"/>
+            <p class="gt-block p">ナビゲーションヘッダーの <span class="ph uicontrol">SWITCH</span> プレイリストタイル上で出力をそのプレイリストに切り替えます。 表示されているとおりに次のプレイリストアセットを選択するか、「<span class="ph uicontrol">開始ビデオを切り替えて設定する</span>別の資産を選択します。</p>
+
+            <img class="image" src="http://help-ooyala.brightcove.com/../image/playlist.png"/>
+            <p class="gt-block p">プレイリストはライブフィードの代わりに再生されます。 各ビデオアセットは、プレイリストの最後まで再生され、次に再生されるビデオのサムネイルが <span class="ph uicontrol">プレイリスト</span> タイル。 各プレイリストアセットには特定のIDがあり、それによって再生順序が決まります。 プレイリストが終了すると、リストの一番上のアセットから自動的に再開されます。 </p>
+
+            <div class="note note"><span class="notetitle">注意：</span> 
+                <ul class="ul">
+                    <li class="li">チャンネルは最初にライブストリームを表示し、手動でプレイリストに切り替える必要があります。</li>
+
+                    <li class="li">マルチオーディオ、クローズドキャプション、およびHAは、リニアVODプレイリストではサポートされていません。</li>
+
+                    <li class="li">プレイリストには少なくとも2つのアセットが含まれている必要があります。</li>
+
+                    <li class="li">プレイリストには、最大で30 VODアセットを含めることができます。</li>
+
+                    <li class="li">プレイリストアセットの長さは少なくとも1分でなければなりません。</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/liveplatform_deliver_live_content.html" title="単一のセルフサービスインターフェイスから、チャンネル、スケジュール、イベント、プレイリストを作成および更新し、チャンネル出力を監視します。">ライブコンテンツを配信する</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/wa

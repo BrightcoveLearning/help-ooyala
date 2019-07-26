@@ -1,0 +1,192 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Embedding an HTML5 Player V3 in an HTML iframe (Deprecated)"/>
+<meta name="abstract" content="Using a special page from Ooyala, you can embed your player in an iframe."/>
+<meta name="description" content="Ooyalaからの特別なページを使って、あなたはiframeにあなたのプレーヤーを埋め込むことができます。"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_v3_iframe"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>HTML iframeへのHTML5プレイヤーV3の埋め込み（非推奨）</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="player_v3_iframe">
+
+
+ <h1 class="title topictitle1">HTML iframeへのHTML5プレイヤーV3の埋め込み（非推奨）</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">Ooyalaからの特別なページを使って、あなたはiframeにあなたのプレーヤーを埋め込むことができます。</p>
+
+  <div class="section">
+   <div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V3は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V3はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V3を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="../concepts/pbv4_migration_v3.html">Player V3からの移行</a> そして <a class="xref" href="../concepts/pbv4_migration_faq.html">プレイヤー移行に関するFAQ</a>).</div>
+
+   With the HTML <samp class="ph codeph">&lt;iframe&gt;</samp> ("inline frame") tag, you can embed content in
+   a separately defined "container" of a web page. Detailed here is how you can embed the Ooyala
+   player in an <samp class="ph codeph">&lt;iframe&gt;</samp>.  <p class="p">To use this feature, you should already have
+    created a web page and should know where you want to embed the "iframed" player.</p>
+</div>
+
+  <div class="section"><h2 class="title sectiontitle">Ooyala HTML for iframe</h2>
+    Examine the following HTML. You should put this in your web
+   page where you want the player to appear. <p class="p">この <samp class="ph codeph">iframe.html</samp> page provided by
+    Ooyala does all the work of embedding your player in the iframe. It takes the values you specify
+    in the <samp class="ph codeph">&lt;iframe&gt;</samp> attributes and invokes the Ooyala Player in the inline
+    frame.</p>
+The lines below have been broken for readability; in actual use, be sure to put this
+   all on a single
+   line.<pre class="pre codeblock">
+&lt;iframe width="480" height="320" src="http://player.ooyala.com/iframe.html?
+<strong class="ph b">ec</strong>=<em class="ph i">埋め込みコード</em>
+＆<strong class="ph b">pbid</strong>=<em class="ph i">player_branding_id</em>
+＆<strong class="ph b">docUrl</strong>=<em class="ph i">http％3A％2F％2Fexample.com</em>
+＆<strong class="ph b">プラットフォーム</strong>=<em class="ph i">プラットフォーム</em>
+＆<strong class="ph b">オプション</strong>[<em class="ph i">オプション名</em>]=<em class="ph i">値</em>＆オプション[<em class="ph i">オプション名</em>]=<em class="ph i">値</em>..."
+frameborder="0" allowfullscreen&gt;
+&lt;/iframe&gt;  
+</pre>
+Explanation
+   of the <samp class="ph codeph">&lt;iframe&gt;</samp> 属性：<ul class="ul" id="player_v3_iframe__ul_psf_wtn_fm">
+    <li class="li">Width and height: You can modify these as desired to fit your web page, although the values
+     shown are optimal.</li>
+
+    <li class="li">の値 <samp class="ph codeph">SRC</samp>: Leave this as is, except for the protocol
+      (<samp class="ph codeph">HTTP</samp>  or  <samp class="ph codeph">HTTPS</samp>) and the values for <samp class="ph codeph">ec</samp>,
+      
+      <samp class="ph codeph">pbid</samp>,  <samp class="ph codeph">docUrl</samp>、および <samp class="ph codeph">プラットフォーム</samp> (detailed
+     below). </li>
+
+    <li class="li">Depending on the security of the web page where you will put this iframe, set the protocol
+     to either <samp class="ph codeph">HTTP</samp>  or  <samp class="ph codeph">HTTPS</samp>. Insecure iframes (served by
+      <samp class="ph codeph">HTTP</samp>) in a secure web page (served by <samp class="ph codeph">HTTPS</samp>) cause alarming
+     error messages about security mismatches in a user's browser. 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="player_v3_iframe__iframe_parms" class="table" frame="border" border="1" rules="all">
+       
+       
+       <thead class="thead" align="left">
+        <tr class="row">
+         <th class="entry" valign="top" width="36.36363636363637%" id="d908579e156">パラメーター</th>
+
+         <th class="entry" valign="top" width="63.63636363636363%" id="d908579e159">値の説明</th>
+
+        </tr>
+
+       </thead>
+
+       <tbody class="tbody">
+        <tr class="row">
+         <td class="entry" valign="top" width="36.36363636363637%" headers="d908579e156 "><samp class="ph codeph">ec</samp>  or  <samp class="ph codeph">埋め込みコード</samp></td>
+
+         <td class="entry" valign="top" width="63.63636363636363%" headers="d908579e159 ">Ooyalaは、目的の動画のコード（アセットまたはコンテンツID）を埋め込みます。</td>
+
+        </tr>
+
+        <tr class="row">
+         <td class="entry" valign="top" width="36.36363636363637%" headers="d908579e156 "><samp class="ph codeph">pbid</samp></td>
+
+         <td class="entry" valign="top" width="63.63636363636363%" headers="d908579e159 ">A "player branding ID" (or simply "player ID") for a player you have defined in
+          Ooyala Backlot.</td>
+
+        </tr>
+
+        <tr class="row">
+         <td class="entry" valign="top" width="36.36363636363637%" headers="d908579e156 "><samp class="ph codeph">docUrl</samp></td>
+
+         <td class="entry" valign="top" width="63.63636363636363%" headers="d908579e159 ">This parameter can be used to specify the analytics URL of a video (must be URL
+          encoded). This causes analytics events for the video to be grouped under the URL specified
+          rather than the URL the player is placed on.</td>
+
+        </tr>
+
+        <tr class="row">
+         <td class="entry" valign="top" width="36.36363636363637%" headers="d908579e156 "><samp class="ph codeph">プラットフォーム</samp></td>
+
+         <td class="entry" valign="top" width="63.63636363636363%" headers="d908579e159 ">の定義済み値 <samp class="ph codeph">プラットフォーム</samp> パラメータの詳細
+           <a class="xref" href="../api/player_v3_api_qparams.html">プレーヤV3クエリ文字列パラメータ（廃止予定）</a>、 といった <samp class="ph codeph">フラッシュ</samp>  or
+           
+           <samp class="ph codeph">html5フォールバック</samp></td>
+
+        </tr>
+
+        <tr class="row">
+         <td class="entry" valign="top" width="36.36363636363637%" headers="d908579e156 "><samp class="ph codeph">オプション</samp></td>
+
+         <td class="entry" valign="top" width="63.63636363636363%" headers="d908579e159 ">次のセクションで説明する標準のOoyalaプレーヤーランタイムオプション。 の
+            <samp class="ph codeph"><em class="ph i">オプション名</em></samp>s of nested passthrough parameters (for instance, ad
+          manager parameters) are in dotted notation of the form
+            <samp class="ph codeph"><em class="ph i">パラメーター</em>.<em class="ph i">サブパラメーター</em></samp>、のような
+           <samp class="ph codeph">ad-manager.url</samp>。 値はURLエンコードされている必要があります。</td>
+
+        </tr>
+
+       </tbody>
+
+      </table>
+</div>
+
+    </li>
+
+   </ul>
+</div>
+
+  <div class="section"><h2 class="title sectiontitle">Passing Embedded Parameters to the Player in an &lt;iframe&gt;</h2>
+    Standard Ooyala Player
+   syntax allows you to specify certain runtime arguments as the third argument on the player
+   invocation, such as <samp class="ph codeph">自動再生：true</samp>,  <samp class="ph codeph">initialTime：122</samp>, and other
+   options detailed at <a class="xref" href="../api/player_v3_api_embedparams.html">埋め込みパラメータ</a>.  <p class="p">ウーヤラとは
+     <samp class="ph codeph">&lt;iframe&gt;</samp> 同じ埋め込みパラメータを
+     <samp class="ph codeph">&amp;options=</samp> 属性。 あなたは繰り返すことができます <samp class="ph codeph">＆オプション</samp>
+    attribute and values as many times as you like. The only limit is the maximum length of a
+    URL.</p>
+<p class="p">Following the syntax in the code sample above, the <samp class="ph codeph">&amp;options=</samp>
+    attributes look like the following. Be sure to URL-encode values that require it, such as
+    URLs.</p>
+
+   <div class="p">
+    <pre class="pre codeblock">&lt;iframe width="480" height="320" src="http://player.ooyala.com/iframe.html?
+ec=<em class="ph i">埋め込みコード</em>
+＆pbid =<em class="ph i">player_branding_id</em>
+＆platform =<em class="ph i">プラットフォーム</em>
+<strong class="ph b">＆options [autoplay] = true＆options [initialTime] = 122</strong>"
+frameborder="0" allowfullscreen&gt;
+&lt;/iframe&gt;       
+   </pre>
+
+   </div>
+</div>
+
+  <div class="section"><h2 class="title sectiontitle">Example: Passing Google IMA Ad Tags</h2>
+   <p class="p">In the example below, the embedded parameters to set the Google Interactive Media Ads (IMA)
+     <samp class="ph codeph">adTagUrl</samp> and other parameters are specified in the
+     <samp class="ph codeph">＆オプション</samp> attribute for the iframe.</p>
+<pre class="pre codeblock">&lt;iframe width="480" height="320" src="http://player.ooyala.com/iframe.html?
+ec=<em class="ph i">埋め込みコード</em>
+＆pbid =<em class="ph i">player_branding_id</em>
+＆platform =<em class="ph i">プラットフォーム</em>
+&amp;options[google-ima-ads-manager.adTagUrl]=<em class="ph i">someUrlThatIsURLencoded</em>
+&amp;options[google-ima-ads-manager.additionalAdTagParameters.cust_params]=env%3Dmobilevcmshost%26siteview%3D1%26pth%3Djsbin.com
+&amp;options[google-ima-ads-manager.additionalAdTagParameters.vid]=547632
+&lt;/iframe&gt;</pre>
+</div>
+
+ </div>
+
+ 
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

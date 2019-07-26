@@ -1,0 +1,123 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2014-09-16 Release"/>
+<meta name="abstract" content="Notable changes include the release of the Ooyala mobile SDK for iOS v.2.7.1 and a documentation update to Player V3 error handling."/>
+<meta name="description" content="Notable changes include the release of the Ooyala mobile SDK for iOS v.2.7.1 and a documentation update to Player V3 error handling."/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2014.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release_2014-09-16"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2014-09-16リリース</title>
+</head>
+<body id="release_2014-09-16">
+
+
+    <h1 class="title topictitle1">2014-09-16リリース</h1>
+
+    
+    <div class="body conbody"><p class="shortdesc">注目すべき変更点には、iOS用OoyalaモバイルSDK v.2.7.1のリリース、およびPlayer V3エラー処理に関するドキュメントの更新があります。</p>
+
+        <div class="section"><h2 class="title sectiontitle">ソフトウェア機能リリース</h2>
+            
+            <p class="p">以下は新しいソフトウェアリリース項目です。</p>
+
+            <p class="gt-block p"><strong class="ph b">iOS用モバイルSDK v.2.7.1をリリース</strong></p>
+
+            <p class="p">iOS用OoyalaモバイルSDKはiOS8に対応しています。 すべてのお客様が新しいオペレーティングシステムをサポートできるように、Appleの9月17thの公開日より前にSDKのアップデートをリリースしています。</p>
+
+            <p class="gt-block p">iOS用GA OoyalaモバイルSDKは、次のWebサイトで入手できます。 <span class="ph">Ooyala <a class="xref" href="../../../../../../../../ja/downloads/index.html" target="_blank">ダウンロード</a></span>。 すべてのお客様がiOS用OoyalaモバイルSDKをダウンロードしてGAバージョンに更新することをお勧めします。</p>
+
+            <div class="p">以下の推奨事項を検討してください。 <ul class="ul">
+                    <li class="li">最新のiOS SDKを使ってアプリをアップグレードし、そのアプリをApple App Storeに送信してください。</li>
+
+                    <li class="li">再生に関する問題が発生した場合は、ブライトコーブテクニカルサポートまでご連絡ください。</li>
+
+                    <li class="li">iOSアプリで広告を使用している場合は、エンドユーザーが自分のデバイスでiOS 8 GAバージョンをダウンロードしたときに本番環境で広告の問題が発生しないように、Apple GAタイムラインより前にOoyalaアップデートを適用します。</li>
+
+                </ul>
+</div>
+
+            <p class="gt-block p"><strong class="ph b">何が修正されました</strong></p>
+
+            <div class="p">iOS用OoyalaモバイルSDKのベータリリースで見つかった以下の問題が解決されました。 <ul class="ul">
+                    <li class="li">アプリがVAST広告でクラッシュしました。</li>
+
+                    <li class="li">動画がミッドロール広告（VAST、IMA、FreeWheel）から再開されませんでした。</li>
+
+                    <li class="li">IMAラッパー広告を再生しようとしたときにアプリがクラッシュしました。</li>
+
+                    <li class="li">IMA広告のタイミングが10x遅く、コンテンツの再生が遅れました。</li>
+
+                    <li class="li">IMAスキップ広告：スキップ広告を読み込むのに長い時間がかかりました。 読み込みが完了した後、スキップ広告が再生されませんでした。</li>
+
+                    <li class="li">Widevine暗号化ビデオのiPadシミュレータで、クローズドキャプション表示ボタンがオフになりました。</li>
+
+                </ul>
+
+                <div class="note note"><span class="notetitle">注意：</span>  iOSアプリでGoogle IMA Adsを使用している場合は、最新のGoogle IMA iOS SDKをダウンロードしてください。 <a class="xref" href="https://developers.google.com/interactive-media-ads/docs/sdks/ios/download" target="_blank">IMA iOS SDK</a></div>
+</div>
+
+            <p class="gt-block p">Google IMAとの統合については、をご覧ください。 <a class="xref" href="../concepts/mobile_sdk_ios_googleima.html">iOS上のGoogle IMAとの統合</a>.</p>
+
+            <p class="gt-block p"><strong class="ph b">既知の問題点</strong></p>
+
+            <div class="p">以下の項目は、既存のiOS SDKリリースの既知の問題です。 これらの項目は将来のリリースで対処される予定です。 <ul class="ul">
+                    <li class="li">初回の再生とAirplayの再生を求めます。</li>
+
+                    <li class="li">ビデオが一時停止しているときはシークできません。</li>
+
+                    <li class="li">Airplay中にパスコードの入力を求められた後、ビデオの再生が断続的にクラッシュします（AppleTVがiOS8デバイスでAirplayの問題を解決しているため）。</li>
+
+                </ul>
+</div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">ドキュメントリリース項目</h2>
+            <p class="p">以下は、新しいドキュメントのリリース項目です。 </p>
+
+            <ul class="ul">
+                <li class="li">
+                    <p class="gt-block p"><strong class="ph b">Facebookの共有</strong></p>
+
+                    <ul class="ul">
+                        <li class="li"><a class="xref" href="../concepts/chapter_facebook.html" title="OoyalaベースのビデオをFacebookのタイムラインに投稿する方法はいくつかあります。">Facebookでビデオを共有する</a>-  Facebookにビデオを共有する方法を含む更新された概要。</li>
+
+                    </ul>
+
+                </li>
+
+                <li class="li">
+                    <p class="gt-block p"><strong class="ph b"><strong class="ph b" id="release_2014-09-16__docs-internal-guid-01c30a71-1856-9d12-05b0-1442effc9808">プレーヤーV3エラー</strong></strong></p>
+
+                    <ul class="ul">
+                        <li class="li"><a class="xref" href="../reference/player_v3_dev_errors.html" title="エラー処理機能とイベントを使用すると、Player V3に関する情報を取得できます。">JavaScriptを使用したHTML5プレーヤーV3のエラー処理（非推奨）</a>-  FlashおよびHTML3用の更新されたPlayer V5エラー。 </li>
+
+                    </ul>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2014.html" title="2014からのリリースノート。">2014ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

@@ -1,0 +1,238 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Viewing the Ingest Log in Backlot"/>
+<meta name="abstract" content="When you log in to Backlot, you can view the status of ingest jobs that you have submitted via the Ooyala Ingestion Service (OIS)."/>
+<meta name="description" content="Backlotにログインすると、Ooyala Ingestion Service（OIS）を介して送信したインジェストジョブのステータスを表示できます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_account.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="accounttab_ingest"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>バックスロットでの取り込みログの表示</title>
+</head>
+<body id="accounttab_ingest">
+
+
+ <h1 class="title topictitle1">バックスロットでの取り込みログの表示</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">Backlotにログインすると、Ooyala Ingestion Service（OIS）を介して送信したインジェストジョブのステータスを表示できます。</p>
+ 
+ <div class="section">[Ingestion Feed Activity]タブ（「取り込みダッシュボード」）には、特定のファイルの処理ステータスとその他の関連情報が表示されます。 小グループの取り込みジョブに焦点を合わせるためにフィルタを適用できます。 関連情報については、以下を参照してください。 <ul class="ul">
+        <li class="li"><a class="xref" href="../concepts/book_ingest.html" title="このドキュメントでは、Ooyalaにコンテンツを取り込む（アップロードする）方法について説明します。">摂取</a> OISの紹介</li>
+
+        <li class="li"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/ingestion_log_api/index.html" target="_blank">ログ取得REST API</a> OIS取り込みログへのプログラムによるアクセス用。 Backlot UIにログインしたユーザーは、[Ingestion Feed Activity]タブでOIS摂取ログを見ることができます。</li>
+
+      </ul>
+</div>
+
+  <div class="section"><h2 class="title sectiontitle">Backlotにログイン</h2>[Ingestion Feed Activity]タブを表示するには、Backlotにログインする必要があります。 </div>
+
+
+  <div class="section"><h2 class="title sectiontitle">[Ingestion Feed Activity]タブに移動します</h2>次のURLに行きます
+    <span class="ph uicontrol">アカウント</span> &gt; <span class="ph uicontrol">摂取フィード活動</span>.  </div>
+
+ 
+  <div class="section"><h2 class="title sectiontitle">取り込みダッシュボードを表示する</h2>取り込みダッシュボードに取り込みジョブのリストが表示されます。 
+    <div class="note note"><span class="notetitle">注意：</span> アップロード専用権限を持つユーザーとしてログインした場合は、自分のユーザーアカウントによって送信された取り込みジョブのみを見ることができます。 何らかの権限でログインした場合は、他のユーザーから送信されたものも含め、すべての取り込みジョブが表示されます。</div>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" id="d990030e67">コラム</th>
+
+              <th class="entry" valign="top" id="d990030e70">説明</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" headers="d990030e67 d990030e70 "><span class="ph uicontrol">状態</span></td>
+
+              <td class="entry" valign="top" headers="d990030e67 d990030e70 ">この取り込みジョブの現在の状況 詳細については、後述の「取り込みプロセスのステータス」を参照してください。</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d990030e67 d990030e70 "><span class="ph uicontrol">ファイル名</span></td>
+
+              <td class="entry" valign="top" headers="d990030e67 d990030e70 ">取り込みのために送信されたファイルの名前。</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d990030e67 d990030e70 "><span class="ph uicontrol">ファイルの種類</span></td>
+
+              <td class="entry" valign="top" headers="d990030e67 d990030e70 ">処理中のファイルの種類 以下のいずれかの値です。 <ul class="ul">
+                  <li class="li"><samp class="ph codeph">ビデオ</samp></li>
+
+                  <li class="li"><samp class="ph codeph">マニフェスト</samp></li>
+
+                  <li class="li"><samp class="ph codeph">サムネイル</samp></li>
+
+                  <li class="li"><samp class="ph codeph">キャプション</samp>
+                  </li>
+
+                </ul>
+</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d990030e67 d990030e70 "><span class="ph uicontrol">作成した</span></td>
+
+              <td class="entry" valign="top" headers="d990030e67 d990030e70 ">取り込みジョブが作成された日時。 </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d990030e67 d990030e70 "><span class="ph uicontrol">埋め込みコード</span></td>
+
+              <td class="entry" valign="top" headers="d990030e67 d990030e70 ">ファイルの取り込みに成功した後にBacklotによって割り当てられたコードを埋め込みます（status = Done）。</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d990030e67 d990030e70 "><span class="ph uicontrol">資産ID</span></td>
+
+              <td class="entry" valign="top" headers="d990030e67 d990030e70 ">ファイルが正常に取り込まれた後にBacklotによって割り当てられた資産ID（状況=完了）。</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+</div>
+
+
+  <div class="section"><h2 class="title sectiontitle">取り込みダッシュボードをスクロールする</h2>デフォルトでは、取り込みダッシュボードには、過去の月のデータが一度に100レコードとともに表示されます。 後続のページに移動するには、データセットの下部までスクロールします。 ページ上部の検索アイコンを使用して、探しているファイルをすばやく見つけることもできます。</div>
+
+  <div class="section"><h2 class="title sectiontitle">取り込みジョブをフィルタリングする</h2>次の方法で表示を絞り込むことで、検索に集中できます。 <ul class="ul">
+        <li class="li">ファイル名</li>
+
+        <li class="li">状態</li>
+
+        <li class="li">作成日： <ul class="ul">
+            <li class="li">カスタム日付範囲のカレンダー日付ピッカー</li>
+
+            <li class="li">先月の1月</li>
+
+            <li class="li">先週の1週</li>
+
+            <li class="li">最後の1日</li>
+
+          </ul>
+</li>
+
+        <li class="li">資産ID</li>
+
+      </ul>
+</div>
+
+  <div class="section"><h2 class="title sectiontitle">取り込みプロセスのステータス</h2>取り込みプロセス中に、取り込まれたファイルは次のような状態になります。 <div class="fig fignone">
+        <img class="image" src="http://help-ooyala.brightcove.com/../image/ingest_status.png" height="249" width="431"/>
+      </div>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" id="d990030e215">状態</th>
+
+              <th class="entry" valign="top" id="d990030e218">説明</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" headers="d990030e215 d990030e218 "><strong class="ph b">受信された</strong></td>
+
+              <td class="entry" valign="top" headers="d990030e215 d990030e218 ">ファイルがOISによって受信されたことを示します。 ファイルが受信されると、システムによる処理に適格になります。 <div class="note note"><span class="notetitle">注意：</span> ファイルがシステムに取り込まれることはないため、リモート資産が受信状態になることはありません。</div>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d990030e215 d990030e218 "><strong class="ph b">加工、処理</strong></td>
+
+              <td class="entry" valign="top" headers="d990030e215 d990030e218 ">次のことを示します。 <ul class="ul">
+                  <li class="li">マニフェストファイル（CSVまたはXML） - 構文検証は現在行われています。</li>
+
+                  <li class="li">メディアファイル（ビデオ、サムネイル、クローズドキャプションファイル） -  Ooyalaエコシステムへの取り込みが現在行われています。</li>
+
+                </ul>
+</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d990030e215 d990030e218 "><strong class="ph b">ファイル待機中</strong></td>
+
+              <td class="entry" valign="top" headers="d990030e215 d990030e218 ">マニフェストファイル（CSVまたはXML）が取り込まれて処理され、他のメディアファイル（ビデオ、サムネイル、およびクローズドキャプションファイル）が取り込まれるのを待っていることを示します。</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d990030e215 d990030e218 "><strong class="ph b">メタデータ待機</strong></td>
+
+              <td class="entry" valign="top" headers="d990030e215 d990030e218 ">メディアファイル（ビデオ、サムネイル、またはクローズドキャプション）が取り込まれ、関連するメタデータを含むマニフェストファイル（CSVまたはXML）が取り込まれるのを待っていることを示します。</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d990030e215 d990030e218 "><strong class="ph b">クリックします</strong></td>
+
+              <td class="entry" valign="top" headers="d990030e215 d990030e218 ">正常に処理された場合は、以下のことを示します。 <ul class="ul">
+                  <li class="li">マニフェストファイル - マニフェストは構文的に有効です。</li>
+
+                  <li class="li">ビデオファイル - ファイルは（そのメタデータと共に）処理され、埋め込みコードがOoyalaによって割り当てられました。</li>
+
+                  <li class="li">サムネイルファイルと字幕ファイル - ファイルは取り込まれて動画に関連付けられています。</li>
+
+                </ul>
+</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d990030e215 d990030e218 "><strong class="ph b">エラー</strong></td>
+
+              <td class="entry" valign="top" headers="d990030e215 d990030e218 ">ファイルの取り込み中または処理中に問題が発生した場合、ステータスはエラー状態になります。 この場合、取り込みダッシュボードには、問題の原因を説明するエラーメッセージが含まれます。 <ul class="ul">
+                  <li class="li">マニフェストファイル - 構文的に無効であることが判明したことを示します。</li>
+
+                  <li class="li">メディアファイル（ビデオ、サムネイル、クローズドキャプション） - ファイルの処理中に問題が発生したことを示します。</li>
+
+                </ul>
+</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+ 
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_account.html" title="Backlotへのコンテンツのアップロードを始める前に、あなたのアカウントが設定されていることを確認しなければなりません。 アカウントの設定は[アカウント]タブで行います。">アカウント設定</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div

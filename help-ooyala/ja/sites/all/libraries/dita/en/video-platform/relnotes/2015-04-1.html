@@ -1,0 +1,223 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2015-04-2 Release"/>
+<meta name="abstract" content="Notable changes for this release include a mobile SDK release and v3 player updates."/>
+<meta name="description" content="このリリースでの注目すべき変更には、モバイルSDKリリースとv3プレーヤーのアップデートが含まれます。"/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2015.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release20150310"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2015-04-2リリース</title>
+</head>
+<body id="release20150310">
+
+
+    <h1 class="title topictitle1">2015-04-2リリース</h1>
+
+    
+    <div class="body conbody"><p class="shortdesc">このリリースでの注目すべき変更には、モバイルSDKリリースとv3プレーヤーのアップデートが含まれます。 </p>
+
+        <p class="gt-block p"><strong class="ph b">ソフトウェア機能リリース</strong></p>
+
+        <div class="section"><h2 class="title sectiontitle">1.3.1をGoogle Playストアにフックします。</h2>
+            
+            <p class="p">このリリースには、以下のアップデートが含まれています。</p>
+
+            <ul class="ul">
+                <li class="li">Widevine共有オブジェクトが削除されました。</li>
+
+                <li class="li">リクエストされたビデオが利用できなかったり、Hook互換エンコーディングを持っていなかったりした場合にアプリがクラッシュする問題は解決されました。</li>
+
+                <li class="li">このリリースには、Google Analyticsイベントのログ記録の改善が含まれています。 </li>
+
+            </ul>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">V3プレーヤーのアップデート</h2>
+            
+            <p class="p">AndroidのGoogle IMAプリロール広告でコンテンツの履歴書が送信されなかった問題が解決されました。</p>
+<p class="p">Google IMAポストロール広告が一時停止状態から再開せず、代わりに広告が閉じて動画が最初から再開されるというHTML5の問題が解決されました。</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Android用モバイルSDKリリース4.0.0</h2>
+            
+            <p class="p">このリリースには、以下のアップデートおよび機能強化が含まれています。</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">4.0.0をリリース4 / 2 / 15をリリース</h2>
+            
+            <strong class="ph b">アップデートと機能強化</strong>
+            <p class="p">このリリースには、以下の更新および機能拡張が含まれています。 </p>
+<ul class="ul" id="release20150310__d42456e1907">
+                <li class="li">  <a class="xref" href="https://github.com/ooyala/ios-sample-apps" target="_blank">Androidサンプルアプリ用のOoyala Mobile SDK</a> GitHubリポジトリが公開されました。 このポータルを使用して、最新のサンプルアプリを入手してください。 詳細については <a class="xref" href="../concepts/mobile_sdk_android_sampleapps.html" title="サンプルアプリを使用してSDK APIについて学び、アプリをすばやく起動して実行する。">Android Mobile SDKのサンプルアプリケーション</a>.</li>
+
+                <li class="li">新しいDevice Managementサンプルアプリは、次のWebサイトで入手できます。 <a class="xref" href="https://github.com/ooyala/ios-sample-apps" target="_blank">Androidサンプルアプリ用のOoyala Mobile SDK</a> GitHubリポジトリ</li>
+
+                <li class="li">Googleが推奨するプラクティスに基づいて、Ooyalaは次のように切り替えました。 <a class="xref" href="http://developer.android.com/sdk/index.html" target="_blank">Androidのメーカー</a>。 すべての顧客アプリケーションはまだ私たちのライブラリと互換性がありますが、私たちのサンプルアプリケーションは <a class="xref" href="http://developer.android.com/sdk/index.html" target="_blank">Androidのメーカー</a>。 これには、Core SDKとFreewheel、IMA、その他の統合が含まれます。 詳細については <a class="xref" href="../concepts/mobile_sdk_ios_sampleapps.html" title="Mobile SDKサンプルアプリケーションを使用して堅牢なモバイルアプリケーションを作成する方法を学びます。">iOS Mobile SDKのサンプルアプリケーション</a>.</li>
+
+                <li class="li">  <samp class="ph codeph">OOOoyalaPlayerViewController</samp> APIが変更されました。 このリリースの時点では、インスタンス化する必要があります <samp class="ph codeph">OooyalaPlayer</samp> このプレイヤーを使って <samp class="ph codeph">OoyalaPlayerLayoutController</samp>。 これは、次のコード例に示されています。
+                    <pre class="pre codeblock">OoyalaPlayerプレーヤー=新しいOoyalaPlayer（pcode、domain、options）OoyalaPlayerLayoutControllerコントローラー=新しいOoyalaPlayerLayoutController（playerLayout、player） </pre>
+</li>
+
+                <li class="li">カスタムコントロールフォルダの内容は、削除されたレガシファイルと不要なファイルに更新されます。 詳細については <a class="xref" href="../concepts/mobile_sdk_android_custom_controls.html" title="Androidの再生用にカスタムコントロールでプレーヤーを設定する方法を学びます。">Android用のカスタムコントロールの実装</a>.  </li>
+
+                <li class="li">  <samp class="ph codeph">ClosedCaptionsStyle</samp> そして <samp class="ph codeph">ClosedCaptionsView</samp>
+                    クラスは <samp class="ph codeph">com.ooyala.android</samp> へのパッケージ
+                        <samp class="ph codeph">com.ooyala.android.captions</samp> パッケージ。</li>
+
+                <li class="li">  <samp class="ph codeph">デバッグモード</samp>,  <samp class="ph codeph">OrderedMap</samp>,
+                        
+                        <samp class="ph codeph">OrderedMapValue</samp>他のユーティリティクラスは、 <samp class="ph codeph">com.ooyala.android</samp> へのパッケージ
+                        <samp class="ph codeph">com.ooyala.android.utils</samp> パッケージ。</li>
+
+                <li class="li" id="release20150310__d42456e1987">クリックスルー広告のアプリ内レンダリングのサポートが利用可能になりました。 </li>
+
+                <li class="li" id="release20150310__d42456e1990">次のファイルの可視性がパブリックからパッケージプライベートに変更されました。 <ul class="ul">
+                        <li class="li"><samp class="ph codeph">VASTAd</samp></li>
+
+                        <li class="li"><samp class="ph codeph">VASTAdPlayer</samp></li>
+
+                        <li class="li"><samp class="ph codeph">VASTAdSpot</samp></li>
+
+                        <li class="li"><samp class="ph codeph">VASTLinearAd</samp></li>
+
+                        <li class="li"><samp class="ph codeph">VastSequenceItem</samp></li>
+
+                        <li class="li"><samp class="ph codeph">VASTStream</samp></li>
+
+                        <li class="li"><samp class="ph codeph">VASTUtils</samp></li>
+
+                        <li class="li"><samp class="ph codeph">VASTWrapperAd</samp></li>
+
+                    </ul>
+
+                </li>
+
+
+            </ul>
+<p class="gt-block p"><strong class="ph b">解決済みの問題</strong></p>
+<p class="p">このリリースでは、以下の問題が解決されています。</p>
+<ul class="ul">
+                <li class="li" id="release20150310__d42456e2036">アプリがエラーをスローする問題 <samp class="ph codeph">履歴書（ ）</samp> 以前に呼ばれた <samp class="ph codeph">setEmbedCode</samp> 解決されました。</li>
+
+                <li class="li" id="release20150310__d42456e2045">SDKは現在、コンソールにエラーイベントを記録します。</li>
+
+                <li class="li" id="release20150310__d42456e2048">VisualOnビデオに空白の画面が表示され、再生イベントが開始されたときにビデオが開始されるまでに長い時間がかかるという問題が解決されました。</li>
+
+            </ul>
+</div>
+
+        <div class="section"><h2 class="title sectiontitle">iOS用モバイルSDKリリース4.0.0</h2>
+            
+            <p class="p">このリリースには、以下のアップデートおよび機能強化が含まれています。</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">4.0.0をリリース4 / 2 / 15をリリース</h2>
+            
+            <strong class="ph b">アップデートと機能強化</strong>
+            <p class="p">このリリースには、以下の更新および機能拡張が含まれています。 </p>
+<ul class="ul" id="release20150310__d42417e1783">
+                <li class="li">  <a class="xref" href="https://github.com/ooyala/ios-sample-apps" target="_blank">iOS用Ooyala Mobile SDKサンプルアプリ</a> GitHubリポジトリが公開されました。 このポータルを使用して、最新のサンプルアプリを入手してください。 詳細については <a class="xref" href="../concepts/mobile_sdk_ios_sampleapps.html#mobile_sdk_ios_sampleapps" title="Mobile SDKサンプルアプリケーションを使用して堅牢なモバイルアプリケーションを作成する方法を学びます。">iOS Mobile SDKのサンプルアプリケーション</a>.  <div class="note note"><span class="notetitle">注意：</span> Omnitureサンプルアプリはこのリポジトリには含まれていません。 Omnitureの詳細については <a class="xref" href="../concepts/mobile_sdk_ios_omniture.html">iOS上のOmnitureとの統合</a>.</div>
+</li>
+
+                <li class="li">Apple Watch用のサンプルアプリは現在、 <a class="xref" href="https://github.com/ooyala/ios-sample-apps" target="_blank">iOS用Ooyala Mobile SDKサンプルアプリ</a> GitHubリポジトリ</li>
+
+                <li class="li">  <samp class="ph codeph">OOOoyalaPlayerViewController</samp> APIが変更されました。 このリリースの時点では、インスタンス化する必要があります <samp class="ph codeph">OOOoyalaPlayer</samp> このプレイヤーを使って <samp class="ph codeph">OOOPlayerViewController</samp>。 これは、次のコード例に示されています。
+                    <pre class="pre codeblock">OOOoyalaPlayer * player = [[OOOoyalaPlayer alloc] pcode：PCODE domain：domain]; OOOoyalaPlayerViewController * controller = [[OOOoyalaPlayerViewController割り当て] initWithPlayer：player];</pre>
+</li>
+
+                <li class="li">
+                    <p class="p">SDKの更新および統合タスクを改善するために、iOS SDKは静的フレームワークを使用するように更新され、静的ライブラリは推奨されなくなりました。 この変更には、コアSDKとFreewheel、IMA、その他の統合が含まれます。</p>
+
+                    <p class="p">このリリースのアプリを更新するには、すべて削除しました <samp class="ph codeph">OoyalaSDK.a </samp>ヘッダ参照 <samp class="ph codeph">OoyalaSDK.framework </samp>すべてのヘッダー参照を参照してフレームワーク参照に変更します。 例えば：</p>
+
+                    <p class="p">置換：</p>
+
+                    <pre class="pre codeblock">#import &quot;OOPlayerDomain.h&quot;</pre>
+
+                    <p class="p">を使用して：</p>
+
+                    <pre class="pre codeblock">#import &lt;OoyalaSDK / OOPlayerDomain.h&gt; </pre>
+
+                </li>
+
+                <li class="li"><samp class="ph codeph">[カスタムコントロール]フォルダの内容が更新され、従来の不要なファイルが削除され、次の不足しているファイルが追加されます。</samp>
+                    <ul class="ul" id="release20150310__d42417e1849">
+                        <li class="li"><samp class="ph codeph">OOClosedCaptionsSelectorBackgroundViewController</samp></li>
+
+                        <li class="li"><samp class="ph codeph">OOClosedCaptionsSelectorViewController</samp></li>
+
+                    </ul>
+<p class="gt-block p">詳細は <a class="xref" href="../concepts/mobile_sdk_ios_aboutcustomcontrols.html">iOSのカスタムコントロールについて</a>.  </p>
+</li>
+
+                <li class="li" id="release20150310__d42417e1865">クリックスルー広告のアプリ内レンダリングのサポートが利用可能になりました。 </li>
+
+
+            </ul>
+<p class="gt-block p"><strong class="ph b">解決済みの問題</strong>
+            </p>
+<p class="p">このリリースでは、以下の問題が解決されています。 </p>
+<ul class="ul" id="release20150310__d42417e1874">
+                <li class="li" id="release20150310__d42417e1876">FreeWheel統合アプリは、広告が利用できない場合、キューポイントイベントで空白の画面を表示します。</li>
+
+                <li class="li" id="release20150310__d42417e1879">Google IMA広告がiOSアプリで機能していませんでした。</li>
+
+                <li class="li" id="release20150310__d42417e1882">シークイベント後、ビデオの時間とコンテンツが同期していませんでした。 </li>
+
+                <li class="li" id="release20150310__d42417e1885">シークイベントはライブストリームでアプリをクラッシュさせます。 </li>
+
+                <li class="li" id="release20150310__d42417e1888">ビデオがGoogle IMA広告のテキストと重なっています。 </li>
+
+                <li class="li" id="release20150310__d42417e1892">Google IMAの広告終了イベントが失敗しました。 </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="section"><h2 class="title sectiontitle">ドキュメントリリース</h2>
+            <ul class="ul">
+                <li class="li"><strong class="ph b">Mobile SDK 4.0.0 APIリファレンスの更新</strong>注：Mobile SDK APIの参照内容は、拡張された資料のコメントで更新されています。 詳細については <a class="xref" href="http://docs.brightcove.com/apidocs-ooyala/" target="_blank">Ooyala APIドキュメント</a>、AndroidまたはiOS用Mobile SDK。 </li>
+
+                <li class="li"><strong class="ph b"><a class="xref" href="../reference/faq_player.html" title="Player V3に関してよく寄せられる質問">プレイヤーFAQ</a></strong>：SmartTVとセットアップボックスのサポートに関する新しいFAQを追加しました（「制限事項」の最後のFAQを参照）。</li>
+
+                <li class="li"><strong class="ph b"><a class="xref" href="../reference/glossary.html#tracking_pixel_url">トラッキングピクセルURL</a></strong>：ピクセルURLを追跡するための用語集のエントリを更新しました。</li>
+
+                <li class="li"><strong class="ph b"><a class="xref" href="../tasks/ingestion_ftp_xml.html" title="動画を取り込むときは、XMLマニフェストファイルを使用して、サムネイルおよびクローズドキャプションファイルだけでなく、追加のメタデータ（動画のタイトル、説明、掲載時間、ラベル、カスタムメタデータなど）を指定できます。 FTP、Aspera、またはMRSSでコンテンツを取り込むときにXMLマニフェストファイルを使用できます。">XMLマニフェストファイル</a></strong>：タグの説明を追加 <samp class="ph codeph">&lt;media：keywords&gt;</samp>.  </li>
+
+                
+                <li class="li"><strong class="ph b"><a class="xref" href="../concepts/player_v3_dev_javascript_body.html" title="本体に基本的なセクションを設定します。">体の整理</a></strong>：タイトルを変更（以前は <strong class="ph b">いくつかのセクションのボディ</strong>).</li>
+
+                <li class="li"><strong class="ph b"><a class="xref" href="../concepts/player_v3_dev_javascript_body_oncreate.html" title="onCreate関数内で、Playerオブジェクトに関連するすべてのアクションとカスタマイズを管理できます。">onCreateを使ったプレーヤー状態の処理</a></strong>：タイトルを変更（以前は <strong class="ph b">エラー処理を使用してプレーヤオブジェクトを作成する</strong>).</li>
+
+            </ul>
+</div>
+
+
+
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2015.html" title="2015からのリリースノート。">2015ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

@@ -1,0 +1,192 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Adding a TV Rating Watermark to a Flash Player V3 (Deprecated)"/>
+<meta name="abstract" content="Add a TV rating watermark to assets using player parameters and custom metadata in Backlot."/>
+<meta name="description" content="Backlotのプレーヤパラメータとカスタムメタデータを使用して、TVレーティングウォーターマークをアセットに追加します。"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_v3_fcc_tv_rating"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Flash PlayerへのTVレーティングの透かしの追加V3（廃止予定）</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="player_v3_fcc_tv_rating">
+
+
+    <h1 class="title topictitle1">Flash PlayerへのTVレーティングの透かしの追加V3（廃止予定）</h1>
+
+    
+    <div class="body refbody"><p class="shortdesc">Add a TV rating watermark to assets using player parameters and custom metadata in
+        Backlot.</p>
+
+        <div class="section"><div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V3は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V3はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V3を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="../concepts/pbv4_migration_v3.html">Player V3からの移行</a> そして <a class="xref" href="../concepts/pbv4_migration_faq.html">プレイヤー移行に関するFAQ</a>).</div>
+
+            <p class="gt-block p"><strong class="ph b">注意： </strong>この機能はFlashデスクトップでのみ利用可能です。</p>
+
+            
+            Ooyala Flashプレーヤーは今 <a class="xref" href="http://www.tvguidelines.org/ratings.htm" target="_blank">FCC対応</a> 表示用 <a class="xref" href="http://transition.fcc.gov/eb/oip/RateBlock.html" target="_blank">テレビの評価</a> associated with broadcast content. TV ratings are
+            applied at the asset level, and each asset can only have one TV rating. The TV rating
+            watermark appears when the video starts playing and will appear again when the video
+            resumes after ad playback. <div class="fig fignone">
+                <img class="image" src="http://help-ooyala.brightcove.com/../image/player_v3_tv_rating.png" height="473" width="756"/>
+            </div>
+
+            <p class="gt-block p"><strong class="ph b">注意： </strong>The TV rating watermark will not appear during ad playback.</p>
+
+        </div>
+
+<div class="section"><h2 class="title sectiontitle">Custom Metadata to Add to Backlot per Asset</h2>
+    <p class="gt-block p">Populate the following metadata in Backlot <a class="xref" href="../tasks/metadata_create.html" title="資産には最大100個の名前と値のペアを追加できます。">as custom metadata</a> for each asset you want to give a TV
+                rating watermark.</p>
+
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+        <thead class="thead" align="left">
+            <tr class="row">
+                <th class="entry" valign="top" id="d914599e75">カスタムメタデータ</th>
+
+                <th class="entry" valign="top" id="d914599e78">説明</th>
+
+                <th class="entry" valign="top" id="d914599e81">有効な値</th>
+
+                <th class="entry" valign="top" id="d914599e84">必須</th>
+
+                <th class="entry" valign="top" id="d914599e87">例</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody class="tbody">
+            <tr class="row">
+                <td class="entry" valign="top" headers="d914599e75 d914599e78 d914599e81 d914599e84 d914599e87 "><samp class="ph codeph">精進する</samp></td>
+
+                <td class="entry" valign="top" headers="d914599e75 d914599e78 d914599e81 d914599e84 d914599e87 ">視聴率または推奨視聴者を指定します。</td>
+
+                <td class="entry" valign="top" headers="d914599e75 d914599e78 d914599e81 d914599e84 d914599e87 "><p class="p">TV-X</p>
+
+                    <p class="p">Where X can be one of the following: Y | Y7 | G | PG | 14 | MA</p>
+
+                    <p class="gt-block p">Go to the FCC site to see <a class="xref" href="http://transition.fcc.gov/vchip/#guidelines" target="_blank">descriptions of each rating</a>.</p>
+</td>
+
+                <td class="entry" valign="top" headers="d914599e75 d914599e78 d914599e81 d914599e84 d914599e87 ">はい</td>
+
+                <td class="entry" valign="top" headers="d914599e75 d914599e78 d914599e81 d914599e84 d914599e87 "><samp class="ph codeph">テレビ：“ TV-PG”</samp></td>
+
+            </tr>
+
+            <tr class="row">
+                <td class="entry" valign="top" headers="d914599e75 d914599e78 d914599e81 d914599e84 d914599e87 "><samp class="ph codeph">TVsubratings</samp></td>
+
+                <td class="entry" valign="top" headers="d914599e75 d914599e78 d914599e81 d914599e84 d914599e87 "><p class="p">Specifies content label or nature of content.</p>
+
+                    <p class="gt-block p"><strong class="ph b">注意： </strong>tvsubratings can only be applied to Y7, PG, and 14 TV ratings.</p>
+</td>
+
+                <td class="entry" valign="top" headers="d914599e75 d914599e78 d914599e81 d914599e84 d914599e87 "><div class="p">V | S | L | D | FV
+                <ul class="ul">
+                    <li class="li">V: violence</li>
+
+                    <li class="li">S: sexual situations</li>
+
+                    <li class="li">L: coarse or crude indecent language</li>
+
+                    <li class="li">D: suggestive dialogue FV: fantasy violence</li>
+
+                </ul>
+</div>
+
+                    <p class="gt-block p"><strong class="ph b">注意： </strong>For multiple sub ratings, values should be comma or semicolon separated with no spaces between values.</p>
+</td>
+
+                <td class="entry" valign="top" headers="d914599e75 d914599e78 d914599e81 d914599e84 d914599e87 ">いいえ</td>
+
+                <td class="entry" valign="top" headers="d914599e75 d914599e78 d914599e81 d914599e84 d914599e87 "><samp class="ph codeph">tvsubratings:</samp>
+                    <p class="p"><samp class="ph codeph">”D,S”</samp></p>
+</td>
+
+            </tr>
+
+            <tr class="row">
+                <td class="entry" valign="top" headers="d914599e75 d914599e78 d914599e81 d914599e84 d914599e87 "><samp class="ph codeph">Tvratingurl</samp>
+                <p class="p">（オプション）</p>
+</td>
+
+                <td class="entry" valign="top" headers="d914599e75 d914599e78 d914599e81 d914599e84 d914599e87 ">クリックスルーURL。</td>
+
+                <td class="entry" valign="top" headers="d914599e75 d914599e78 d914599e81 d914599e84 d914599e87 ">A URL link.</td>
+
+                <td class="entry" valign="top" headers="d914599e75 d914599e78 d914599e81 d914599e84 d914599e87 ">いいえ</td>
+
+                <td class="entry" valign="top" headers="d914599e75 d914599e78 d914599e81 d914599e84 d914599e87 "><samp class="ph codeph">tvratingurl = &quot;http://www.parentstv.org/ptc/parentsguide/tvratings2.html&quot;</samp></td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+</div>
+
+    
+</div>
+
+        <div class="section"><h2 class="title sectiontitle">プレイヤーパラメータ</h2>
+            
+            <p class="p">Apply the following parameters at the page level.</p>
+
+            <div class="p"><strong class="ph b">tvRatingsTimer</strong>: This required parameter specifies the duration of the TV
+                rating watermark on the player (in seconds) on initial play and every time the video
+                resumes from Ad breaks. The default value of this parameter is "never", but other
+                valid values include "always" and "some_number". <ul class="ul">
+                    <li class="li">always：透かしはビデオの間表示されます（広告の再生中は表示されません）。 </li>
+
+                    <li class="li">never：透かしは表示されません。</li>
+
+                    <li class="li">some_number：some_numberは、テレビのレーティングをプレーヤーに表示し続ける秒数に置き換えます。</li>
+
+                </ul>
+</div>
+
+            <p class="gt-block p"><strong class="ph b">tvRatingsPosition</strong>: This optional parameter specifies the position on the
+                player where the TV rating will appear. By default this value is set to "top-left",
+                but other valid values include "top-right",  "bottom-left", and "bottom-right". </p>
+
+            
+        </div>
+
+        
+        <div class="section"><h2 class="title sectiontitle">例</h2>
+            
+            <p class="p">The following example shows how to set the <samp class="ph codeph">tvRatingsPosition</samp> そして <samp class="ph codeph">tvRatingsTimer</samp>
+                player parameters.</p>
+
+        </div>
+
+        <div class="section">
+            <pre class="pre codeblock">var player = OO.Player.create('playerwrapper', embedCode, {
+    tvRatingsPosition: "top-left",
+    tvRatingsTimer: "15"
+});</pre>
+
+        </div>
+
+    </div>
+
+    
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div

@@ -1,0 +1,220 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Add an Item to a Watchlist"/>
+<meta name="DC.Relation" scheme="URI" content="../api/cd_watchlist_api.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="watchlist_api_item_add"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>ウォッチリストにアイテムを追加する</title>
+</head>
+<body id="watchlist_api_item_add">
+
+
+  <h1 class="title topictitle1">ウォッチリストにアイテムを追加する</h1>
+
+ <div class="body refbody">
+   <div class="section">このエンドポイントは、指定されたユーザーの指定されたウォッチリストにアイテムを追加します。 </div>
+
+   <div class="section"><h2 class="title sectiontitle">ウォッチリスト内のアイテムの位置</h2>
+     <ul class="ul">
+       <li class="li">位置の索引付け（番号付け）は0から始まります。</li>
+
+       <li class="li">項目はスタック順に挿入されます。 最後に追加された項目は位置0を占めます。 最も最近に追加されたアイテムは位置nを占めます（ユーザーのウォッチリストにn + 1個のアイテムがあるとします）。 例えば、項目Aを追加した場合、Aは位置0です。 アイテムBを追加した場合、Bは位置0、Aは位置1です。</li>
+
+       <li class="li">挿入時に、他のすべての項目の位置は自動的に更新されます。</li>
+
+     </ul>
+
+</div>
+
+  <div class="section"><h2 class="title sectiontitle">HTTPリクエスト</h2>
+    <pre class="pre codeblock">POST https://player.ooyala.com/watchlist/v3/&lt;watchlist_id&gt;/items?account_token= &lt;account_token&gt; {&quot;item_id&quot;： &quot;&lt;12345&gt;&quot;}</pre>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">クエリパラメータ</h2>
+    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+        
+        
+        
+        
+        <thead class="thead" align="left">
+          <tr class="row">
+            <th class="entry" valign="top" width="14.285714285714285%" id="d55281e59">パラメーター</th>
+
+            <th class="entry" valign="top" width="57.14285714285714%" id="d55281e62">説明</th>
+
+            <th class="entry" valign="top" width="14.285714285714285%" id="d55281e65">タイプ</th>
+
+            <th class="entry" valign="top" width="14.285714285714285%" id="d55281e68">必須</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody class="tbody">
+          <tr class="row">
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d55281e59 "><span class="keyword parmname">api_version</span></td>
+
+            <td class="entry" valign="top" width="57.14285714285714%" headers="d55281e62 ">でなければなりません <span class="keyword parmname">v3</span>.  </td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d55281e65 ">文字列</td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d55281e68 ">はい（URL）</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d55281e59 "><span class="keyword parmname">watchlist_id</span></td>
+
+            <td class="entry" valign="top" width="57.14285714285714%" headers="d55281e62 ">アイテムを追加するウォッチリストのID。 ユーザーのアカウントに関連付けられている既存のウォッチリストにリンクされている有効なUUIDである必要があります。 指定しない場合、アイテムはユーザーのデフォルトのウォッチリストに追加されます。</td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d55281e65 ">UUIDv4または文字列</td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d55281e68 ">いいえ（URL）</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d55281e59 "><span class="keyword parmname">account_token</span></td>
+
+            <td class="entry" valign="top" width="57.14285714285714%" headers="d55281e62 ">特定のエンドユーザに関連付けられているウォッチリストを参照するためにウォッチリストサービスによって使用されます（UUIDによって識別されます）。 詳しくは、
+                  <a class="xref" href="account_token_api.html" title="eコマースやウォッチリストなどの特定のOoyalaサービスへのアクセスは、Ooyalaアカウントトークンを使用して制御されます。 OoyalaアカウントトークンAPIは、ユーザーを認証するためのアカウントトークンを生成します。 これらのAPIを呼び出すとき、クライアントは認証用のアカウントトークンを提供する必要があります。 アプリケーションがユーザーにログインすると、OoyalaアカウントトークンAPIルートを呼び出してアカウントトークンを取得します。 アカウントトークンは特定の期間、デフォルトでは15分有効です。">OoyalaアカウントトークンAPI</a>.</td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d55281e65 ">文字列</td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d55281e68 ">はい（URL本体）</td>
+
+          </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d55281e59 "><span class="keyword parmname">item_id</span></td>
+
+              <td class="entry" valign="top" width="57.14285714285714%" headers="d55281e62 ">追加するアイテム（アセット）のID。 <div class="note note"><span class="notetitle">注意：</span> 指定した項目がターゲットのウォッチリストにすでに存在する場合、変更は行われませんがエラーはスローされません。 システムはの有効性をチェックしません。 <span class="keyword parmname">item_id</span> ウォッチリストに
+                </div>
+</td>
+
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d55281e65 ">文字列</td>
+
+              <td class="entry" valign="top" width="14.285714285714285%" headers="d55281e68 ">はい（ボディ）</td>
+
+            </tr>
+
+        </tbody>
+
+      </table>
+</div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">リターンコード</h2>
+    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+        
+        
+        
+        <thead class="thead" align="left">
+          <tr class="row">
+            <th class="entry" valign="top" width=".5" id="d55281e177">コード</th>
+
+            <th class="entry" valign="top" width="NaN%" id="d55281e180">理由</th>
+
+            <th class="entry" valign="top" width="NaN%" id="d55281e183">説明</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody class="tbody">
+          <tr class="row">
+            <td class="entry" valign="top" width=".5" headers="d55281e177 "><span class="keyword parmname">201</span></td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d55281e180 ">OK</td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d55281e183 ">POST要求は成功しました。 新しいアイテムは正常に作成されました。</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width=".5" headers="d55281e177 "><span class="keyword parmname">400</span></td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d55281e180 ">リクエストエラー</td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d55281e183 ">次の問題が原因で失敗しました。 <ul class="ul">
+                  <li class="li">パラメーターが欠落しているかフォーマットが正しくありません。</li>
+
+                  <li class="li">指定されたアイテムは既にウォッチリストに存在します。</li>
+
+                  <li class="li">指定された <span class="keyword parmname">watchlist_id</span> 空ではなく、存在しません。</li>
+
+                </ul>
+</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width=".5" headers="d55281e177 "><span class="keyword parmname">401</span></td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d55281e180 ">無断</td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d55281e183 ">指定された <span class="keyword parmname">account_token</span> 無効です。</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width=".5" headers="d55281e177 "><span class="keyword parmname">404</span></td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d55281e180 ">見つかりませんでした</td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d55281e183 ">サーバーが停止しています。</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width=".5" headers="d55281e177 "><span class="keyword parmname">500</span></td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d55281e180 ">内部サーバーエラー</td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d55281e183 ">内部サーバーエラーが発生しました。</td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+</div>
+
+  </div>
+
+   <div class="section"><h2 class="title sectiontitle">例</h2>
+      <strong class="ph b">登録リクエスト</strong>
+      <pre class="pre codeblock">[POST]/watchlist/v3/d074b535-253d-4f6a-82a1-1be384e7c182/items?account_token=NnMvb01DWWRMWmJXdTRRRUJCQmwvWjE4WVQvUytpSittY2h0azlmWWZPVVlUc25MOGxPNzZJV2ttMzk0TG4ydlkvbFZrZTI4VkNIYUJiU0owTGFadlFxenM3YU5mS2VrYXRjSVhpWDBXUS84S2VDQ0dUNmJYTmhEY2VNSkZ1dmc=
+{
+    "item_id" : "VlNWJrdarkDhWd-y4D0NuEbHi872V9_x"
+}</pre>
+
+      <strong class="ph b">レスポンス</strong> （成功） <pre class="pre codeblock">OK（200）</pre>
+
+    </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/cd_watchlist_api.html">ウォッチリストREST APIリファレンス</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

@@ -1,0 +1,126 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2014-10-27 Release"/>
+<meta name="abstract" content="Notable changes include the release of anonymous proxy controls and the adRequestTimeout Flash parameter."/>
+<meta name="description" content="Notable changes include the release of anonymous proxy controls and the adRequestTimeout Flash parameter."/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2014.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release_2014-10-13"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2014-10-27リリース</title>
+</head>
+<body id="release_2014-10-13">
+
+
+    <h1 class="title topictitle1">2014-10-27リリース</h1>
+
+    
+    <div class="body conbody"><p class="shortdesc">注目すべき変更には、匿名プロキシコントロールのリリースとadRequestTimeout Flashパラメータがあります。</p>
+
+        <div class="section"><h2 class="title sectiontitle">ソフトウェア機能リリース</h2>
+            
+            <strong class="ph b">匿名プロキシ制御</strong>
+            <div class="p">Ooyalaコンテンツ保護は、コンテンツへのアクセスに使用される匿名プロキシの検出と制限を通じて、匿名プロキシコントロールの機能を追加します。 特定のアカウントに対して有効になっている場合、匿名プロキシが検出され、BacklotのSyndication Controlsを通じて選択的に制限されます。 この新しいOoyalaコンテンツ保護製品オファリングは、以下をサポートします。 <ul class="ul">
+                    <li class="li">匿名プロキシ接続の検出と識別</li>
+
+                    <li class="li">IPアドレスを偽装してブラックリストおよびホワイトリストポリシーを明示的に回避してジオロケーションを変更または難読化することにより、匿名インターネットプロキシサービスを使用してコンテンツにアクセスしようとするユーザーの防止。</li>
+
+                    <li class="li">Neustar Anonymizerのプロキシ識別および制限方法論を利用して、プロキシサービスを介して接続しているユーザに関連するリスクのレベルを識別し、そのリスクに基づいて、ユーザによるビデオコンテンツへのアクセスをブロック/防止するかどうかを決定します。</li>
+
+                    <li class="li">Neustar Anonymizerのプロキシ識別と制限方法論を利用した匿名プロキシの検出/防止の実施は、BacklotのSyndication Rule内で設定可能です。 詳細モードでは、特定のステータスを制限のために分類できるように、詳細なレベル/ステータスを設定できます。 <ul class="ul">
+                            <li class="li">プライベート</li>
+
+                            <li class="li">現在行われているキャンペーン</li>
+
+                            <li class="li">疑う</li>
+
+                            <li class="li">非アクティブ</li>
+
+                        </ul>
+
+                    </li>
+
+                </ul>
+匿名プロキシ制御を使用すると、誰がコンテンツにアクセスし、どこからコンテンツが発行されるかをきめ細かく制御する、信頼できる団体の配信戦略を考案できます。 この機能は、通常のOoyalaプラットフォームライセンスの一部として、追加料金なしですべてのOoyalaのお客様にご利用いただけます。 </div>
+<p class="gt-block p">Backlotで匿名プロキシ制御を設定するには、 <a class="xref" href="../tasks/publishing_rules_create.html" title="好きなだけ公開ルールを作成し、それらをビデオ、チャンネル、またはチャンネルセットに割り当てることができます。 再生中は、最も制限の厳しい規則が適用されます。">公開ルールを作成する</a>.</p>
+
+            <p class="gt-block p"><strong class="ph b">adRequestTimeoutパラメータ</strong></p>
+
+            <p class="p">adReqeustTimeoutは、Google IMA広告の新しいFlashパラメータで、ミリ秒単位で広告要求のタイムアウトを設定してビデオの再生を継続するのにかかる時間をカスタマイズできます。</p>
+
+            <p class="gt-block p"><a class="xref" href="../reference/ads_ref_googleima.html">プレーヤV3のGoogle IMA Ads埋め込みパラメータ（廃止予定）</a></p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">ドキュメントリリース項目</h2>
+            
+            <ul class="ul">
+                <li class="li"><strong class="ph b">Google IMAのadRequestTimeoutパラメータ</strong>
+                    <ul class="ul">
+                        <li class="li"><a class="xref" href="../reference/ads_ref_googleima.html">プレーヤV3のGoogle IMA Ads埋め込みパラメータ（廃止予定）</a> そして
+                                <a class="xref" href="../concepts/ads_dev_google_ima.html">Google IMA AdsとPlayer V3を統合する</a>
+                            - コード内のパラメータの機能と形式を説明するGoogle IMAのadRequestTimeoutパラメータに関するドキュメントを追加しました。 </li>
+
+                    </ul>
+
+                </li>
+
+                <li class="li"><strong class="ph b">デバイス登録API</strong>                    
+                    <ul class="ul">
+                        <li class="li"><a class="xref" href="../api/device_registration_customersupportportals.html">カスタマーサポートポータル用のデバイス登録API</a> - デバイス登録に関するGETおよびPUTの例を更新しました。 </li>
+
+                    </ul>
+
+                </li>
+
+                <li class="li"><strong class="ph b">匿名プロキシ制御    </strong>                
+                    <ul class="ul">
+                        <li class="li"><a class="xref" href="../concepts/chapter_publishing_rules.html" title="公開ルールを使用すると、コンテンツをいつどこで表示できるかを制御できるため、コンテンツを完全に制御できます。">公開ルール</a>,  <a class="xref" href="../tasks/publishing_rules_create.html" title="好きなだけ公開ルールを作成し、それらをビデオ、チャンネル、またはチャンネルセットに割り当てることができます。 再生中は、最も制限の厳しい規則が適用されます。">公開ルールを作成する</a>、および <a class="xref" href="../tasks/publishing_rules_edit.html" title="公開ルールはいつでも編集できます。 公開ルールを使用するビデオ、チャンネル、またはチャンネルセットは自動的に更新されます。">公開ルールの編集</a>- 匿名プロキシ制御を有効にする方法を説明するための更新された公開ルールのドキュメント。 
+                        </li>
+
+                    </ul>
+
+                </li>
+
+                <li class="li"><strong class="ph b">Backlot ACCOUNTタブドキュメンテーション </strong>
+                    <ul class="ul">
+                        <li class="li"><a class="xref" href="../concepts/chapter_account.html" title="Backlotへのコンテンツのアップロードを始める前に、あなたのアカウントが設定されていることを確認しなければなりません。 アカウントの設定は[アカウント]タブで行います。">アカウント設定</a>-  [アカウント]タブとサブタブ（[使用状況]、[ユーザー管理]、[開発者]、および[アカウント設定]）のドキュメントを拡張および更新しました。</li>
+
+                    </ul>
+
+                </li>
+
+                <li class="li"><strong class="ph b">Ooyalaプレイヤートークン </strong>                   
+                    <ul class="ul">
+                        <li class="li"><a class="xref" href="../concepts/player_v3dev_authparts.html" title="Ooyala Player Tokenを使用すると、セッショントークンを使用してユーザーをプロビジョニングできます。">Ooyalaプレイヤートークンの一部</a>,
+                                
+                                <a class="xref" href="../concepts/player_v3dev_authtemplate.html" title="これは、Ooyala Player Tokenリクエストを作成する方法です。">URLトークン要求の構築</a>-  Ooyala Player Tokenの必須パラメータと部分を明確にするためにドキュメントを更新しました。</li>
+
+                    </ul>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+      </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2014.html" title="2014からのリリースノート。">2014ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

@@ -1,0 +1,126 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Ad Set Fields for FreeWheel Ad Manager"/>
+<meta name="abstract" content="The fields described here are for Backlot ad sets with ad source set to FreeWheel ad manager in the Backlot UI."/>
+<meta name="description" content="ここに記載されているフィールドは、Backlot UIで広告ソースがFreeWheel広告マネージャに設定されているBacklot広告セット用です。"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/monetization_ads_adsets_integratingadnetworks.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ads_dev_chapter_freewheel.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/monetization_ads_adsets_adnetworks_wrapper.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="adsetfields_freewheel"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>FreeWheel Ad Managerの広告セットフィールド</title>
+</head>
+<body id="adsetfields_freewheel">
+
+
+ <h1 class="title topictitle1">FreeWheel Ad Managerの広告セットフィールド</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">ここに記載されているフィールドは、Backlot UIで広告ソースがFreeWheel広告マネージャに設定されているBacklot広告セット用です。</p>
+  
+ <div class="section">
+  <div class="note note"><span class="notetitle">注意：</span> フィールドの正確な意味については、常に広告ソースのドキュメントを確認してください。</div>
+
+  
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" id="d826351e27">フィールド名</th>
+
+       <th class="entry" valign="top" id="d826351e30">説明</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">     
+      <tr class="row">
+       <td class="entry" valign="top" headers="d826351e27 d826351e30 ">MRMネットワークID</td>
+
+       <td class="entry" valign="top" headers="d826351e27 d826351e30 ">FreeWheelによって割り当てられ、会社を識別する一意の識別子。 統合時にクライアントには独自のネットワークIDが割り当てられ、プレーヤは広告要求を行う前にこの値をAdManagerに渡します。 </td>
+
+      </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" headers="d826351e27 d826351e30 ">プレイヤープロフィール</td>
+
+      <td class="entry" valign="top" headers="d826351e27 d826351e30 ">プレーヤーの環境とフレームワークを前提として、どの広告を再生できるかを定義する一連の構成。 たとえば、プロファイルを使用すると、広告サーバーはFlashプレーヤーにSilverlight広告を返さないようにできます。 これは統合中にバックエンドで設定され、設定するプレーヤーの正しいプロファイルはFreeWheelによって提供されます。 </td>
+
+     </tr>
+       
+      <tr class="row">
+       <td class="entry" valign="top" headers="d826351e27 d826351e30 ">ビデオアセットネットワークID</td>
+
+       <td class="entry" valign="top" headers="d826351e27 d826351e30 "> ユーザーが表示しているコンテンツです。 プレーヤは、FreeWheelの一括ビデオ取り込み（BVI）で提供されるカスタムアセットIDを使用して、ターゲティング目的でAdManagerにアセットを識別する必要があります。 </td>
+
+      </tr>
+ 
+      <tr class="row">
+       <td class="entry" valign="top" headers="d826351e27 d826351e30 ">サイトセクションID</td>
+
+       <td class="entry" valign="top" headers="d826351e27 d826351e30 ">サイトセクションタグは、ビデオアセットのカスタムビデオIDと同様に、サイトセクションを識別する文字列です。 これは、ネットワークモジュールであなたが指定したサイトセクションタグです。 <p class="p">プレイヤーがBVIと直接対話することはありませんが、これは、提供するカスタムアセットIDをFreeWheelシステムに入力するためのシステムです。 その結果、プレーヤーは、このIDを提供できるように、同じCMS情報の少なくともいくつかにアクセスする必要があります。  </p>
+</td>
+
+      </tr>
+ 
+      <tr class="row">
+       <td class="entry" valign="top" headers="d826351e27 d826351e30 ">サイトセクションIDの種類</td>
+
+       <td class="entry" valign="top" headers="d826351e27 d826351e30 ">サイトセクションIDの種類</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d826351e27 d826351e30 ">サイトセクションネットワークID</td>
+
+       <td class="entry" valign="top" headers="d826351e27 d826351e30 ">セグメント広告を取得するためのサイトセクションネットワークの一意の識別子</td>
+
+      </tr>
+ 
+      <tr class="row">
+       <td class="entry" valign="top" headers="d826351e27 d826351e30 ">トラッキングピクセルURL</td>
+
+       <td class="entry" valign="top" headers="d826351e27 d826351e30 ">広告資産の配信を監視するためにピクセルを追跡するためのURL </td>
+
+      </tr>
+ 
+     
+     </tbody>
+
+    </table>
+</div>
+
+  <div class="note note"><span class="notetitle">注意：</span> FreeWheelのHTML5プレーヤーとの統合には追加の設定が必要です。 Ooyalaカスタマーサクセスマネージャーに連絡してください。</div>
+
+  
+ </div>
+
+ </div>
+
+ 
+ <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../tasks/monetization_ads_adsets_integratingadnetworks.html" title="自分のアセットを使用する代わりに、他の広告ソースを使用することができます。">広告ソースと統合するための広告セットの作成</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="../concepts/ads_dev_chapter_freewheel.html">Player V3フリーホイール広告の統合</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong><br/>
+<div><a class="link" href="../tasks/monetization_ads_adsets_adnetworks_wrapper.html" title="この資料には、Backlotで広告セットを作成する方法、および広告ソースと統合する方法が含まれています。">独自の広告資産、広告セット、および広告ソースを操作する</a></div>
+</div>
+</div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

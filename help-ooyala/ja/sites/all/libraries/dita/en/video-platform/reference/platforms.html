@@ -1,0 +1,393 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Device Type Mapping (Deprecated)"/>
+<meta name="abstract" content="Within analytics, information is collected about different platforms used to access your content."/>
+<meta name="description" content="分析では、コンテンツへのアクセスに使用されるさまざまなプラットフォームに関する情報が収集されます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_analytics.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="platforms"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>デバイスタイプマッピング（廃止予定）</title>
+</head>
+<body id="platforms">
+
+
+ <h1 class="title topictitle1">デバイスタイプマッピング（廃止予定） </h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">分析では、コンテンツへのアクセスに使用されるさまざまなプラットフォームに関する情報が収集されます。</p>
+
+  <div class="section">
+   <div class="p">
+    <div class="note warning"><span class="warningtitle">警告：</span> v2 Analytics APIは非推奨になりました。 見る <a class="xref" href="../concepts/ooyala_iq_developer_guide.html">ウーヤラIQアナリティクス</a> 新しいv3 Analytics APIの詳細については、</div>
+
+   </div>
+
+   <p class="p">プラットフォームは、次の形式で表示されるデバイスタイプ、オペレーティングシステム、およびブラウザの組み合わせです。</p>
+
+   <pre class="pre codeblock"><em class="ph i">デバイスタイプ</em>:<em class="ph i">オペレーティング・システム</em>-<em class="ph i">ブラウザ</em></pre>
+
+   <p class="p">たとえば、WindowsとChromeブラウザを実行しているデスクトップコンピュータは次のように返されます。 <samp class="ph codeph">デスクトップ：windows-chrome</samp> Androidタブレットは次のように返されます。 <samp class="ph codeph">タブレット：android-unknown.browser</samp>.</p>
+
+
+    <p class="p">次の表に、サポートされているデバイスの種類を示します。</p>
+
+    
+    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" id="d897169e60">デバイスの種類</th>
+
+       <th class="entry" valign="top" id="d897169e63">バックスロット名</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" headers="d897169e60 d897169e63 ">モバイル</td>
+
+       <td class="entry" valign="top" headers="d897169e60 d897169e63 ">モバイル</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d897169e60 d897169e63 ">タブレット</td>
+
+       <td class="entry" valign="top" headers="d897169e60 d897169e63 ">タブレット</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d897169e60 d897169e63 ">デスクトップ/ラップトップ</td>
+
+       <td class="entry" valign="top" headers="d897169e60 d897169e63 ">デスクトップ</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d897169e60 d897169e63 ">セットトップ</td>
+
+       <td class="entry" valign="top" headers="d897169e60 d897169e63 ">セットトップ</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d897169e60 d897169e63 ">不明なデバイスタイプ</td>
+
+       <td class="entry" valign="top" headers="d897169e60 d897169e63 ">unknown.devicetype</td>
+
+      </tr>
+      
+     </tbody>
+
+    </table>
+</div>
+   
+
+    <p class="p">次の表に、サポートされているオペレーティングシステムを示します。</p>
+
+    
+    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+      <thead class="thead" align="left">
+       <tr class="row">
+        <th class="entry" valign="top" id="d897169e129">オペレーティングシステム</th>
+
+        <th class="entry" valign="top" id="d897169e132">バックスロット名</th>
+
+       </tr>
+
+      </thead>
+
+      <tbody class="tbody">
+       <tr class="row">
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">モバイル</td>
+
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 "> </td>
+
+       </tr>
+     
+       <tr class="row">
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">iOS（iPhone）</td>
+
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">iphone</td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">iOS（iPod）</td>
+
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">iPodの</td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">アイフォン</td>
+
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">アンドロイド</td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">ブラックベリー</td>
+
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">ブラックベリー</td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">PalmOS</td>
+
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">ヤシ</td>
+
+       </tr>
+      
+       <tr class="row">
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">Windows Mobile</td>
+
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">windowsmob</td>
+
+       </tr>
+  
+       <tr class="row">
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">プレイステーションポータブル</td>
+
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">PSP</td>
+
+       </tr>
+     
+       <tr class="row">
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">他のモバイルOS</td>
+
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">他の</td>
+
+       </tr>
+ 
+       
+       <tr class="row">
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">タブレット</td>
+
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 "> </td>
+
+       </tr>
+     
+       <tr class="row">
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">iOS（iPad）</td>
+
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">iPad</td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">アイフォン</td>
+
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">アンドロイド</td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">その他のOS</td>
+
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">unknown.os</td>
+
+       </tr>
+
+
+
+       <tr class="row">
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">デスクトップ</td>
+
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 "> </td>
+
+       </tr>
+     
+       <tr class="row">
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">ウィンドウズ</td>
+
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">ウィンドウズ</td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">Mac</td>
+
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">MAC</td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">リナックス</td>
+
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">linuxの</td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">Unix（BSD）</td>
+
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">bsd</td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">Unix（サン）</td>
+
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">スノス</td>
+
+       </tr>
+      
+       <tr class="row">
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">その他のOS</td>
+
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">unknown.os</td>
+
+       </tr>
+  
+
+
+       <tr class="row">
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">セットトップ</td>
+
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 "> </td>
+
+       </tr>
+     
+       <tr class="row">
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">任天堂Wii</td>
+
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">wiiの</td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">プレイステーション</td>
+
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">プレイステーション</td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">ボクシー</td>
+
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">ボクシー</td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">年</td>
+
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">六</td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">GoogleTV</td>
+
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">google_tv</td>
+
+       </tr>
+      
+       <tr class="row">
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">その他のOS</td>
+
+        <td class="entry" valign="top" headers="d897169e129 d897169e132 ">unknown.os</td>
+
+       </tr>
+  
+      </tbody>
+
+     </table>
+</div>
+   
+
+
+   <p class="p">次の表は、サポートされているブラウザの一覧です。</p>
+
+   
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" id="d897169e396">ブラウザ</th>
+
+       <th class="entry" valign="top" id="d897169e399">バックスロット名</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" headers="d897169e396 d897169e399 ">クロム</td>
+
+       <td class="entry" valign="top" headers="d897169e396 d897169e399 ">クロム</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d897169e396 d897169e399 ">Firefoxの</td>
+
+       <td class="entry" valign="top" headers="d897169e396 d897169e399 ">Firefoxの</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d897169e396 d897169e399 ">インターネットエクスプローラ</td>
+
+       <td class="entry" valign="top" headers="d897169e396 d897169e399 ">ie</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d897169e396 d897169e399 ">サファリ</td>
+
+       <td class="entry" valign="top" headers="d897169e396 d897169e399 ">サファリ</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d897169e396 d897169e399 ">Opera</td>
+
+       <td class="entry" valign="top" headers="d897169e396 d897169e399 ">オペラ</td>
+
+      </tr>
+     
+      <tr class="row">
+       <td class="entry" valign="top" headers="d897169e396 d897169e399 ">他のブラウザ</td>
+
+       <td class="entry" valign="top" headers="d897169e396 d897169e399 ">unknown.browser</td>
+
+      </tr>
+     
+     </tbody>
+
+    </table>
+</div>
+   
+
+   
+  </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_analytics.html" title="Ooyalaには、v2 Analytics APIを使用してデータを取得するという基本的な分析機能がありました。">v2 Analytics（非推奨）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- de

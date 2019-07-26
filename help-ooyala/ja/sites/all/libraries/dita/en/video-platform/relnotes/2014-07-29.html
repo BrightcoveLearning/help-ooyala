@@ -1,0 +1,188 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2014-07-29 Release"/>
+<meta name="abstract" content="Notable changes include new default player features. In the Flash player you can now hide the control bar during ad playback and apply a TV rating watermark to your assets. These features will be available for HTML5 soon. In the HTML5 player you can now programmatically override any VAST ads or ad sets applied in Backlot."/>
+<meta name="description" content="注目すべき変更には、新しいデフォルトのプレーヤー機能が含まれます。 Flashプレーヤーでは、広告の再生中にコントロールバーを非表示にしたり、TVレーティングの透かしをアセットに適用することができます。 これらの機能はまもなくHTML5で利用可能になります。 HTML5プレーヤーでは、Backlotに適用されたVAST広告または広告セットをプログラムで上書きすることができます。"/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2014.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release_2014-07-29"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2014-07-29リリース</title>
+</head>
+<body id="release_2014-07-29">
+
+
+    <h1 class="title topictitle1">2014-07-29リリース</h1>
+
+    
+    <div class="body conbody"><p class="shortdesc">注目すべき変更には、新しいデフォルトのプレーヤー機能が含まれます。 Flashプレーヤーでは、広告の再生中にコントロールバーを非表示にしたり、TVレーティングの透かしをアセットに適用することができます。 これらの機能はまもなくHTML5で利用可能になります。 HTML5プレーヤーでは、Backlotに適用されたVAST広告または広告セットをプログラムで上書きすることができます。</p>
+
+        <div class="section"><h2 class="title sectiontitle">ソフトウェア機能リリース</h2><p class="p">以下は新しいソフトウェアリリース項目です。</p>
+
+            <p class="gt-block p"><strong class="ph b">showInAdControlBarプレイヤーパラメータ</strong></p>
+
+           <p class="gt-block p"><em class="ph i">プレイヤーパラメータ</em></p>
+
+            <p class="gt-block p"><strong class="ph b">注意： </strong>このパラメータはFlashプレーヤーでのみ利用可能です。</p>
+
+            <p class="p">オプションハッシュタグで &#39;showInAdControlBar&#39;プレーヤパラメータをfalseに設定することで、広告再生中にコントロールバーを非表示にできるようになりました。 このグローバルパラメータは、Ooyalaでサポートされているすべての広告タイプで機能します。 これは、広告の再生中にコントロールバーを非表示にするための推奨方法です。</p>
+
+            <p class="p">Google IMAの埋め込みパラメータである「showInAdControlBar」（後述）で技術的な問題が発生している場合は、GoogleのIMAパラメータを削除し、代わりにこの新しいグローバルパラメータを使用してください。</p>
+
+        
+            <p class="gt-block p"><em class="ph i">Google IMAパラメータ</em></p>
+
+            <p class="p">FlashおよびHTML5で使用可能なGoogle IMAパラメータshowInAdControlBarは、Google IMA広告の再生中にのみコントロールバーを非表示にするために使用されます。 Google IMAのshowInAdControlBarパラメータは、既に使用されている広告ではサポートされる予定ですが、今後は推奨されなくなります。</p>
+
+            <p class="gt-block p"><strong class="ph b">注意： </strong>OoyalaプレーヤーとGoogle IMAのshowInAdControlBarパラメーターの両方を同時に使用しないでください。結果が矛盾することになります。</p>
+
+            <p class="gt-block p"><a class="xref" href="../reference/player_v3_hide_controller.html" title="オプションハッシュタグを使用して、広告再生中にコントロールバーを非表示にします。">パラメータハッシュタグで広告再生用のコントロールバーを非表示にする</a></p>
+
+            <p class="gt-block p"><strong class="ph b">FCCテレビの評価</strong></p>
+
+            <p class="gt-block p">Ooyala Flashプレーヤーは今 <a class="xref" href="http://transition.fcc.gov/eb/oip/RateBlock.html" target="_blank">FCC対応</a> 表示用
+                <a class="xref" href="http://www.tvguidelines.org/ratings.htm" target="_blank">テレビの評価</a> 放送コンテンツに関連付けられています。 Backlotのカスタムメタデータとプレーヤーの埋め込みパラメータを使用して、テレビの格付け透かしをアセットに適用できるようになりました。 TV評価は資産レベルで適用され、各資産はTV評価を1つだけ持つことができます。 テレビのレーティングの透かしは、動画の再生が開始されると表示され、広告の再生後に動画が再開されると再び表示されます。</p>
+
+            <p class="gt-block p"><strong class="ph b">注意： </strong>この機能はFlashデスクトップでのみ利用可能です。</p>
+
+            <p class="gt-block p"><a class="xref" href="../reference/player_v3_fcc_tv_rating.html" title="Backlotのプレーヤパラメータとカスタムメタデータを使用して、TVレーティングウォーターマークをアセットに追加します。">Flash Playerへのテレビ格付け透かしの追加</a></p>
+
+            <p class="gt-block p"><strong class="ph b">vastAdsパラメータでVAST広告セットを上書きする</strong></p>
+
+            <p class="gt-block p"><strong class="ph b">注意： </strong>この機能はHTML5プレーヤーでのみ利用可能です。</p>
+
+            <p class="p">vastAdsパラメータを使用すると、Backlotに適用されているすべてのVAST広告または広告セットをプログラムで上書きできます。 この機能を使用すると、プレーヤの埋め込みパラメータからプリロール広告、ポストロール広告、またはミッドロール広告としてVAST広告をアセットに追加できます。 広告がvastAdで設定されている場合、Backlotのアセットに関連付けられている広告および広告セットは無視されます。</p>
+
+            <p class="gt-block p"><a class="xref" href="../reference/ads_ref_vast.html" title="VAST広告サーバーまたはネットワークタグをOoyalaプレーヤーに渡します。">VAST Ads埋め込みパラメータ</a></p>
+
+            <p class="gt-block p"><strong class="ph b">DMA / IPジオブロッキング機能</strong></p>
+
+            <p class="p">国の地域ブロック機能は、現在、DMA地域およびIPアドレス/範囲レベルでもサポートされています。 これにより、プロバイダーはジオブロッキングの精度を向上させることができます。 これらの新機能は、国の地域制限が設定されているのと同じ方法（APIまたはBacklot UI）で設定できます。</p>
+
+            <p class="gt-block p"><a class="xref" href="../api/publishing_rules.html" title="公開ルールは、いつどこでコンテンツを再生できるかを指定します。 公開ルールを使用すると、コンテンツを特定の地域に限定し、特定のドメインにのみ埋め込まれるようにして、特定の時間にのみ表示できるようにすることができます。">公開ルール</a></p>
+
+            <p class="gt-block p"><strong class="ph b">キューポイントマーカーの切り替え</strong></p>
+
+            <p class="gt-block p"><strong class="ph b">注意： </strong>この機能は現在Flashデスクトップ広告とFreeWheel広告でのみ利用可能です。</p>
+
+            <p class="p">広告再生中にスクラバーバーのキューポイントマーカーを表示または非表示にできるようになりました。 デフォルトでは、キューポイントマーカーは非表示です。 新しいshouldDisplayCuePointMarkersパラメータをTrueに設定することで、キューポイントマーカーを表示できます。 あるいは、プレーヤの再生中にコンソールログで新しいshouldDisplayCuePointMarkers JavaScript API（ブール値TRUEを渡す）を呼び出すこともできます。</p>
+
+             <p class="gt-block p"><a class="xref" href="../api/player_v3_apis.html" title="プレーヤV3 JavaScript関数を使用してプレーヤの動作と外観をカスタマイズできます。">プレーヤV3 JavaScript API関数</a></p>
+
+            <p class="gt-block p"><a class="xref" href="../reference/player_v3_dev_cuepoint_markers.html" title="キューポイントマーカーを表示または非表示にします。">キューポイントマーカー</a></p>
+
+          
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">ドキュメントリリース項目</h2>
+            <p class="p">以下は、新しいドキュメントのリリース項目です。 </p>
+
+            <ul class="ul">
+                <li class="li">
+                    <p class="gt-block p"><strong class="ph b">新しい &#39;showInAdControlBar&#39;プレーヤーパラメータ</strong></p>
+
+                    <ul class="ul">
+                        <li class="li"><a class="xref" href="../reference/player_v3_hide_controller.html" title="オプションハッシュタグを使用して、広告再生中にコントロールバーを非表示にします。">パラメータハッシュタグで広告再生用のコントロールバーを非表示にする</a>- 新しい「showInAdControlBar」プレーヤパラメータに関するドキュメントを追加しました（Flashデスクトップのみ）。</li>
+
+                        <li class="li"><a class="xref" href="../api/player_v3_api_embedparams.html">埋め込みパラメータ</a>- 「showInAdControlBar」を含めるためのプレーヤ埋め込みパラメータに関する更新されたドキュメント（Flashデスクトップのみ）。</li>
+
+                    </ul>
+
+                </li>
+
+                
+                <li class="li">
+                    <p class="gt-block p"><strong class="ph b">新しいshouldDisplayCuePointMarkersプレーヤパラメータ/ API</strong></p>
+
+                    <ul class="ul">
+                        <li class="li"><a class="xref" href="../api/player_v3_apis.html" title="プレーヤV3 JavaScript関数を使用してプレーヤの動作と外観をカスタマイズできます。">プレーヤV3 JavaScript API関数</a>- 新しい「shouldDisplayCuePointMarkers」JavaScript API（Flash DesktopとFreeWheel Adsのみ）に関するドキュメントを追加しました。</li>
+
+                        <li class="li"><a class="xref" href="../reference/player_v3_dev_cuepoint_markers.html" title="キューポイントマーカーを表示または非表示にします。">キューポイントマーカー</a>- 新しい「shouldDisplayCuePointMarkers」プレーヤーパラメータに関するドキュメントを追加しました（FlashデスクトップおよびFreeWheel Adsのみ）。</li>
+</ul>
+
+                </li>
+
+                <li class="li">
+                    <p class="gt-block p"><strong class="ph b">Flash PlayerでFCC TV評価の透かしを表示する</strong></p>
+
+                    
+                    <ul class="ul"><li class="li"><a class="xref" href="../reference/player_v3_fcc_tv_rating.html" title="Backlotのプレーヤパラメータとカスタムメタデータを使用して、TVレーティングウォーターマークをアセットに追加します。">Flash Playerへのテレビ格付け透かしの追加</a>- アセットごとにTVレーティング透かしを追加するための新しいプレーヤー機能に関するドキュメントを追加しました（Flashデスクトップのみ）。</li>
+
+                        <li class="li"><a class="xref" href="../api/player_v3_api_embedparams.html">埋め込みパラメータ</a>-  &#39;tvRatingsPosition&#39;および &#39;tvRatingsTimer&#39;（Flashデスクトップのみ）を含むように、プレーヤの埋め込みパラメータに関するドキュメントを更新しました。</li>
+</ul>
+
+                </li>
+
+                <li class="li">
+                    <p class="gt-block p"><strong class="ph b">vastAdsパラメータを使用してVAST広告セットを上書きする（HTML5のみ）</strong></p>
+
+                    <ul class="ul"><li class="li"><a class="xref" href="../concepts/ads_dev_vast_page_override.html">vastAdsパラメータでVAST広告セットを上書きする</a>-  vastAdsパラメータの使用方法に関するドキュメントを追加しました。</li>
+
+                        <li class="li"><a class="xref" href="../api/player_v3_api_embedparams.html">埋め込みパラメータ</a>- パラメータテーブルにvastAdを追加しました。</li>
+
+                        <li class="li"><a class="xref" href="../reference/ads_ref_vast.html" title="VAST広告サーバーまたはネットワークタグをOoyalaプレーヤーに渡します。">VAST Adsの埋め込みパラメータ</a>-  vastAdsパラメータに関する参照情報を追加しました。</li>
+</ul>
+
+                </li>
+    
+                <li class="li">
+                    <p class="gt-block p"><strong class="ph b">Adobe Passのドキュメントを更新</strong></p>
+
+                    <ul class="ul"><li class="li"><a class="xref" href="../concepts/adobepass_integration.html">
+                        Adobe PassとOoyala Playerの統合</a>-  Adob​​e Pass統合に関するドキュメントを更新しました。</li>
+
+                    <li class="li"><a class="xref" href="../reference/adobe_pass_integration_ref.html" title="Adobe Passは現在Ooyala Player V4と統合されていません。 Adobe Passの統合に関連するプレーヤーパラメータ、API、およびイベント。">Adobe Pass統合リファレンス</a></li>
+</ul>
+ 
+                </li>
+
+                <li class="li">
+                    <p class="gt-block p"><strong class="ph b">文書化された新しいDMA / IPジオブロッキング機能</strong></p>
+
+                    <ul class="ul"><li class="li"><a class="xref" href="../api/publishing_rules.html" title="公開ルールは、いつどこでコンテンツを再生できるかを指定します。 公開ルールを使用すると、コンテンツを特定の地域に限定し、特定のドメインにのみ埋め込まれるようにして、特定の時間にのみ表示できるようにすることができます。">公開ルール</a>- 新しい「dmas」および「ips」パラメータの説明を追加しました。 </li>
+</ul>
+
+                </li>
+
+                <li class="li">
+                    <p class="gt-block p"><strong class="ph b">Adset / Syndicationのドキュメントを更新</strong></p>
+
+                    <ul class="ul">
+                        <li class="li"><a class="xref" href="../concepts/backlot_subaccounts.html" title="複数のBacklotアカウントをマスターアカウントとサブアカウントとしてリンクすることができます。">サブアカウントについて</a>- マスター/サブアカウントの説明を追加しました。 </li>
+
+                    </ul>
+
+                </li>
+
+                <li class="li"><p class="gt-block p"><strong class="ph b">広告カウントダウンドキュメントの更新</strong></p>
+
+                <ul class="ul">
+                    <li class="li"><a class="xref" href="../reference/glossary.html#ad_countdown">用語集</a>- 広告カウントダウンの設定に関する説明を追加しました。 </li>
+
+                </ul>
+</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2014.html" title="2014からのリリースノート。">2014ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

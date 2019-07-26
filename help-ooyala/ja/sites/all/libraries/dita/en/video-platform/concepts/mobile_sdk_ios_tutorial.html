@@ -1,0 +1,114 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Getting Started: iOS Sample Application"/>
+<meta name="abstract" content="A few short steps are all that's needed to setup the SDK in the popular Xcode development environment."/>
+<meta name="description" content="A few short steps are all that's needed to setup the SDK in the popular Xcode development environment."/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_ios_getstarted.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept_jnv_bk2_yj"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>はじめに：iOSサンプルアプリケーション</title>
+</head>
+<body id="concept_jnv_bk2_yj">
+
+
+  <h1 class="title topictitle1">はじめに：iOSサンプルアプリケーション</h1>
+
+  
+  <div class="body taskbody"><p class="shortdesc">一般的なXcode開発環境でSDKを設定するために必要なのは、いくつかの短いステップだけです。</p>
+
+
+    <div class="section prereq p"> SDKを使い始めるには、次のものが必要です。 <ul class="ul">
+        <li class="li">iOS用Mobile SDK自体<p class="gt-block p">Mobile SDKはからダウンロードできます。 <span class="ph">Ooyala <a class="xref" href="../../../../../../../../ja/downloads/index.html" target="_blank">ダウンロード</a></span>。 適切なバージョンをクリックして、Mobile SDKパッケージのzipファイルをダウンロードします。</p>
+</li>
+
+
+        <li class="li">iOSアプリケーションおよびApple iOS SDK 6用のXcode 5以降の開発環境 <a class="xref" href="http://developer.apple.com/xcode/" target="_blank">http://developer.apple.com/xcode/</a></li>
+
+        <li class="li">Backlotアカウントにログインして、に移動します。 <span class="ph uicontrol">アカウント</span> &gt;
+            <span class="ph uicontrol">開発者</span>。 あなたに <span class="ph uicontrol">APIキー</span>ピリオドの前の英数字（ &quot;。&quot;）は、 <samp class="ph codeph">PCODE</samp>
+          チュートリアルで使用する定数です。 たとえば、APIキーが
+            <samp class="ph codeph">xxxxxxxxxxxxxxxxxxxxxxxxxxxx.0000</samp>その後、最初の28文字（<samp class="ph codeph">xxxxxxxxxxxxxxxxxxxxxxxxxxxx</samp>） のために <samp class="ph codeph">PCODE</samp>。 詳しくは、 <a class="xref" href="api_keys.html" title="Ooyala APIの認証情報には、APIキーとシークレットが含まれています。これらは、HTTPリクエストに署名するため、およびスクラッチパッドを使用するときに提供するものです。">あなたのAPIクレデンシャル</a>.</li>
+
+
+        <li class="li">再生したい動画の埋め込みコード（コンテンツIDまたはアセットID）</li>
+
+      </ul>
+
+    </div>
+
+    <div class="section context"> iOS用Mobile SDKに慣れるための最善の方法は、サンプルアプリケーションの1つを実行することです。 </div>
+
+    <ol class="ol steps"><li class="li step stepexpand">
+        <span class="ph cmd">ダウンロードしたファイルを解凍する <samp class="ph codeph">OoyalaSDK-iOS.zip</samp> ファイル。 </span>
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">ファイルをオープンする
+            <samp class="ph codeph">OoyalaSDK-iOS / SampleApps / GettingStartedSampleApp / GettingStartedSampleApp.xcodeproj</samp></span>
+         ソースコードはXcodeで表示されています。 左上で、階層表示に切り替えて展開します <samp class="ph codeph">ViewControllerを</samp>を選択し、 <samp class="ph codeph">〜viewDidLoad</samp>
+          メンバー。 
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">適切な行の各定数または変数の引用符の間に、プロバイダコード（pcode）と埋め込みコードを貼り付けます。</span>
+         
+           適切な行は次のようになります。 <pre class="pre codeblock">NSString * const PLAYERDOMAIN =<strong class="ph b"> @ &quot;http // www.ooyala.com&quot;; </strong>
+NSString * const EMBED_CODE = @ &quot;<var class="keyword varname">ここにあなたの埋め込みコード</var>&quot;; NSString * const PCODE = @&quot;<var class="keyword varname">あなたのpcodeはこちら</var>&quot;; ... [ooyalaPlayerViewController.player setEmbedCode：@&quot; EMBED_CODE &quot;]; </pre>
+<ul class="ul">
+            <li class="li"><samp class="ph codeph">埋め込みコード</samp>：あなたのビデオアセットの一つの識別子。</li>
+
+            <li class="li"><samp class="ph codeph">PCODE</samp>：あなたのOoyala提供のプロバイダコード</li>
+
+            <li class="li"><samp class="ph codeph">プレイヤードメイン</samp>：変更せずに
+                <samp class="ph codeph">http://www.ooyala.com</samp>。 この定数は以下と組み合わせて機能します。
+                <strong class="ph b">シンジケーション制御</strong> （公開ルール） <span class="ph">バックスロット</span>。 ビデオにインターネットドメイン制限を設定している場合 <span class="ph">バックスロット</span> （参照 <em class="ph i"><span class="ph">バックスロット</span>
+                ユーザーガイド</em>）、ここでの定数はそれらの許可されたドメインの1つに設定することができます。 設定していない場合 <strong class="ph b">シンジケーション制御</strong>定数は効果がありません。</li>
+
+            <li class="li"><samp class="ph codeph">setEmbedCode（）</samp> function：引数として再生したいビデオの埋め込みコード。 この機能は、SDKの主要な「主役」です。 </li>
+
+          </ul>
+
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">変更を保存します。</span>
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">左上で、 <span class="ph uicontrol">iPhone 6.0シミュレータ</span>.</span>
+         
+          <div class="fig fignone">
+            <img class="image" src="http://help-ooyala.brightcove.com/../image/mobile_sdk_ios_iphonesimulator.png" height="36" width="272" alt="iPhoneシミュレータ"/>
+          </div>
+
+        
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">左上のをクリックします <span class="ph uicontrol">ラン</span>.</span>
+      </li>
+</ol>
+
+    <div class="section postreq"> iPhoneシミュレータが表示され、ビデオがロードされます。 再生ボタンをクリックしてビデオを表示します。 <div class="note note"><span class="notetitle">注意：</span> 
+        <p class="gt-block p">ビデオの表示に問題がある場合は、シンジケーション設定がiPhoneおよびiPadデバイスを許可するように設定されていることを確認してください。 詳細については、Ooyalaの「Publishing Rules」セクションを参照してください。 <em class="ph i"><span class="ph">バックスロット</span> ユーザーガイド</em>.</p>
+
+        <p class="p">ビデオがドロップアウトしてもオーディオが再生され続ける場合は、低帯域幅の接続がある可能性があります。 これにより、視聴者はコンテンツを引き続き体験でき、Appleによって設計された期待される動作となります。</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/mobile_sdk_ios_getstarted.html">iOS用Ooyala Mobile SDKを使い始める</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></di

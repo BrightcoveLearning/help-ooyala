@@ -1,0 +1,130 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Variable Speed and Skip Controls"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_components.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_customize.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_components"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>可変速およびスキップ制御</title>
+</head>
+<body id="pbv4_components">
+
+
+  <h1 class="title topictitle1">可変速およびスキップ制御</h1>
+
+  <div class="body conbody">
+    <div class="section"><h2 class="title sectiontitle">概要</h2>
+      <p class="gt-block p">Ooyalaプレーヤーは、デフォルトでは有効にされていないさまざまなコントロールを提供します。 プレーヤーを設定するときにBacklotにいくつかのコントロールを追加することができます。 見てください <a class="xref" href="chapter_players.xml">管 理</a> Backlotでプレイヤーをセットアップするためのセクション。</p>
+
+      <p class="gt-block p">プレーヤをローカルに設定する場合は、ページレベルのパラメータと/または <span class="ph filepath">skin.json</span>
+        上書きすると、これらのローカル設定が常に優先されます（Backlotの設定よりも優先されます）。 また、すべてのプレーヤーコントロールをBacklotに設定できるわけではありません。 このドキュメントは様々なOoyala Player UIコントロールを有効にして設定する方法についての情報を提供します。</p>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">可変速再生</h2>
+      
+      <img class="image" src="http://help-ooyala.brightcove.com/../image/Variable_Speed.png"/><div class="note note"><span class="notetitle">注意：</span> 再生レートメニューでは、VR 360タイプのビデオはサポートされていません。 そのため、VR 360ビデオを直接再生したり、FlatプレイリストとVR 360プレイリストを混在させたりする場合は、再生レートメニューを有効にしないでください。 </div>
+<p class="gt-block p"><strong class="ph b">初速再生</strong></p>
+<p class="p">プレーヤーのパラメータと設定を使用して、ビデオの開始時に希望の再生速度を設定できます。
+          <samp class="ph codeph">initialPlaybackSpeed</samp> 0.5（初期速度の半分）と2（初期速度の2倍）の間の数値 次のビデオの再生速度を設定することもできます。 <samp class="ph codeph">setEmbedCode</samp> プレーヤーのパラメータを設定します。</p>
+<pre class="pre codeblock">{“ initialPlaybackSpeed”：2}</pre>
+<p class="gt-block p"><strong class="ph b">再生速度を手動で設定する</strong></p>
+<p class="p">Ooyala UIを使用せずに再生速度を設定したい場合は、次のAPIを使用してください。</p>
+<pre class="pre codeblock">[playerName] .setPlaybackSpeed（speed）;</pre>
+<p class="gt-block p"><strong class="ph b">可変再生速度メニュー</strong></p>
+<p class="p">Playback Speedメニューは、内部の「playbackSpeed」ボタンを宣言することで有効にできます。 <samp class="ph codeph">buttons.desktopContent</samp> スキン設定のプロパティ。 ボタンはコントロールバー内に表示される順番で追加する必要があります。</p>
+<p class="p">このリストから省略されたボタンは無効と見なされるため、必要な他のボタンもすべて指定する必要があります。 以下は、スキンのデフォルト設定の例です。「再生」ボタンは「共有」ボタンの後に表示されるように設定されています。</p>
+
+      <span class="ph filepath">skin.json</span>
+      <pre class="pre codeblock">{&quot;ボタン&quot;：{&quot;desktopContent&quot;：[{&quot;名前&quot;： &quot;playPause&quot;、 &quot;位置&quot;： &quot;controlBar&quot;、 &quot;whenDoesNotFit&quot;： &quot;維持&quot;、 &quot;minWidth&quot;：45}、{&quot;名前&quot;： &quot;音量&quot;、&quot; location &quot;：&quot; controlBar &quot;、&quot; whenDoesNotFit &quot;：&quot; keep &quot;、&quot; minWidth &quot;：240}、{&quot; name &quot;：&quot; live &quot;、&quot; location &quot;：&quot; controlBar &quot;、&quot; whenDoesNotFit &quot;：&quot; keep &quot;、 &quot;minWidth&quot;：45}、{&quot;名前&quot;： &quot;timeDuration&quot;、 &quot;場所&quot;： &quot;controlBar&quot;、 &quot;whenDoesNotFit&quot;： &quot;ドロップ&quot;、 &quot;minWidth&quot;：145}、{&quot;名前&quot;： &quot;flexibleSpace&quot;、 &quot;場所&quot;：&quot; controlBar &quot;、&quot; whenDoesNotFit &quot;：&quot; keep &quot;、&quot; minWidth &quot;：1}、{&quot; name &quot;：&quot; share &quot;、&quot; location &quot;：&quot; controlBar &quot;、&quot; whenDoesNotFit &quot;：&quot; moveToMoreOptions &quot;、&quot; minWidth &quot;： 45}、{&quot;name&quot;： &quot;playbackSpeed&quot;、 &quot;location&quot;： &quot;controlBar&quot;、 &quot;whenDoesNotFit&quot;： &quot;moveToMoreOptions&quot;、 &quot;minWidth&quot;：45}、{&quot;name&quot;： &quot;discovery&quot;、 &quot;location&quot;： &quot;controlBar&quot; &quot;、&quot; whenDoesNotFit &quot;：&quot; moveToMoreOptions &quot;、&quot; minWidth &quot;：45}、{&quot; name &quot;：&quot; closedCaption &quot;、&quot; location &quot;：&quot; controlBar &quot;、&quot; whenDoesNotFit &quot;：&quot; moveToMoreOptions &quot;、&quot; minWidth &quot;：45}、{ &quot;名前&quot;： &quot;品質&quot;、 &quot;場所&quot;： &quot;コントロールバー&quot;、 &quot;whenDoesNotFit&quot;： &quot;moveToMoreOptions&quot;、 &quot;minWidth&quot;：45}、{&quot;名前&quot;： &quot;ロゴ&quot;、 &quot;場所&quot;： &quot;controlBar&quot;、 &quot;whenDoesNotFit&quot;： &quot;維持&quot;、 &quot;minWidth&quot;：125}、{&quot;名前&quot;：&quot;ステレオスコピック &quot;、&quot;位置 &quot;：&quot; controlBar &quot;、&quot; whenDoesNotFit &quot;：&quot;キープ &quot;、&quot; minWidth &quot;：45}、{&quot;名前 &quot;：&quot; audioAndCC &quot;、&quot;位置 &quot;：&quot; controlBar &quot;、&quot; whenDoesNotFit &quot;： &quot;moveToMoreOptions&quot;、 &quot;minWidth&quot;：45}、{&quot;name&quot;： &quot;フルスクリーン&quot;、 &quot;location&quot;： &quot;controlBar&quot;、 &quot;whenDoesNotFit&quot;： &quot;keep&quot;、 &quot;minWidth&quot;：45}、{&quot;name&quot;： &quot;moreOptions &quot;、&quot; location &quot;：&quot; controlBar &quot;、&quot; whenDoesNotFit &quot;：&quot; keep &quot;、&quot; minWidth &quot;：45}、{&quot; name &quot;：&quot; arrowsBlack &quot;、&quot; location &quot;：&quot; mainView &quot;、&quot; whenDoesNotFit &quot;：&quot; keep &quot;、 &quot;minWidth&quot;：45}]}}      </pre>
+
+      <span class="ph filepath">skin.inlineのオーバーライド</span>
+      <pre class="pre codeblock">var playerParams = {&quot;skin&quot;：{&quot;インライン&quot;：{&quot;ボタン&quot;：{&quot;desktopContent&quot;：[{&quot;name&quot;： &quot;playPause&quot;、 &quot;location&quot;： &quot;controlBar&quot;、 &quot;whenDoesNotFit&quot;： &quot;keep&quot;、 &quot; minWidth &quot;：45}、{&quot;名前 &quot;：&quot;ボリューム &quot;、&quot;場所 &quot;：&quot; controlBar &quot;、&quot; whenDoesNotFit &quot;：&quot;維持 &quot;、&quot; minWidth &quot;：240}、{&quot;名前 &quot;：&quot;ライブ &quot;、&quot;場所 &quot; ： &quot;controlBar&quot;、 &quot;whenDoesNotFit&quot;： &quot;キープ&quot;、 &quot;minWidth&quot;：45}、{&quot;name&quot;： &quot;timeDuration&quot;、 &quot;location&quot;： &quot;controlBar&quot;、 &quot;whenDoesNotFit&quot;： &quot;drop&quot;、 &quot;minWidth&quot;：145 }、{&quot;name&quot;： &quot;flexibleSpace&quot;、 &quot;location&quot;： &quot;controlBar&quot;、 &quot;whenDoesNotFit&quot;： &quot;keep&quot;、 &quot;minWidth&quot;：1}、{&quot;name&quot;： &quot;share&quot;、 &quot;location&quot;： &quot;controlBar&quot; 、 &quot;whenDoesNotFit&quot;： &quot;moveToMoreOptions&quot;、 &quot;minWidth&quot;：45}、{&quot;name&quot;： &quot;playbackSpeed&quot;、 &quot;location&quot;： &quot;controlBar&quot;、 &quot;whenDoesNotFit&quot;： &quot;moveToMoreOptions&quot;、 &quot;minWidth&quot;：45}、{&quot;名前 &quot;：&quot;ディスカバリー &quot;、&quot;場所 &quot;：&quot; controlBar &quot;、&quot; whenDoesNotFit &quot;：&quot; moveToMoreOptions &quot;、&quot; minWidth &quot;：45}、{&quot;名前 &quot;：&quot; closedCaption &quot;、&quot;場所 &quot;：&quot; controlBar &quot;、&quot; whenDoesNotFit &quot; ： &quot;moveToMoreOptions&quot;、 &quot;minWidth&quot;：45}、{&quot;nam e &quot;：&quot;品質 &quot;、&quot;場所 &quot;：&quot; controlBar &quot;、&quot; whenDoesNotFit &quot;：&quot; moveToMoreOptions &quot;、&quot; minWidth &quot;：45}、{&quot;名前 &quot;：&quot;ロゴ &quot;、&quot;場所 &quot;：&quot; controlBar &quot;、&quot; whenDoesNotFit &quot; ： &quot;keep&quot;、 &quot;minWidth&quot;：125}、{&quot;name&quot;： &quot;stereoscopic&quot;、 &quot;location&quot;： &quot;controlBar&quot;、 &quot;whenDoesNotFit&quot;： &quot;keep&quot;、 &quot;minWidth&quot;：45}、{&quot;name&quot;： &quot; audioAndCC &quot;、&quot; location &quot;：&quot; controlBar &quot;、&quot; whenDoesNotFit &quot;：&quot; moveToMoreOptions &quot;、&quot; minWidth &quot;：45}、{&quot; name &quot;：&quot; fullscreen &quot;、&quot; location &quot;：&quot; controlBar &quot;、&quot; whenDoesNotFit &quot;：&quot; keep &quot; 、 &quot;minWidth&quot;：45}、{&quot;name&quot;： &quot;moreOptions&quot;、 &quot;location&quot;： &quot;controlBar&quot;、 &quot;whenDoesNotFit&quot;： &quot;keep&quot;、 &quot;minWidth&quot;：45}、{&quot;name&quot;： &quot;arrowsBlack&quot;、 &quot; location &quot;：&quot; mainView &quot;、&quot; whenDoesNotFit &quot;：&quot; keep &quot;、&quot; minWidth &quot;：45}]}}}};</pre>
+
+      <strong class="ph b">再生速度オプションの設定</strong>
+      <p class="p">再生速度メニューに表示される速度は、次のボタンを使って設定できます。
+          <samp class="ph codeph">playbackSpeed.options</samp> スキン設定のプロパティ。 値はからの数であるはずです <samp class="ph codeph">0.5</samp> 〜へ <samp class="ph codeph">2</samp> せいぜい2つの小数を持っています。 プレーヤーは無効な値を除外し、オプションを降順に自動的に並べ替えます。 以下の値がデフォルトで使用されます。 <samp class="ph codeph">0.5</samp>,
+          
+          <samp class="ph codeph">0.75</samp>,  <samp class="ph codeph">1</samp>,  <samp class="ph codeph">1.25</samp>,  <samp class="ph codeph">1.5</samp>,
+          
+          <samp class="ph codeph">2</samp>。 オーバーライドの例を以下に示します。</p>
+
+      <span class="ph filepath">skin.json</span>
+      <pre class="pre codeblock">{&quot;playbackSpeed&quot;：{&quot;オプション&quot;：[0.5、1、1.5、2]}}     </pre>
+
+      <span class="ph filepath">skin.inline</span> オーバーライド
+      <pre class="pre codeblock">var playerParams = {&quot;スキン&quot;：{&quot;インライン&quot;：{&quot;playbackSpeed&quot;：{&quot;オプション&quot;：[0.5、1、1.5、2]}}};</pre>
+
+    </div>
+
+    
+    <div class="section"><h2 class="title sectiontitle">オプションの早送り/巻き戻しと前/次のビデオボタン</h2>
+      
+    <p class="p">この表示にはスキップボタンがあり、現在のビデオで早送りまたは巻き戻しをする秒数を指定するようにカスタマイズできます。 現在のビデオの先頭に戻るボタン、または次の動画の先頭に進むボタンも表示されます。 </p>
+
+      <p class="p"><img class="image" src="http://help-ooyala.brightcove.com/../image/skip.png"/></p>
+
+      <p class="gt-block p">これらの新しいボタンは現在デフォルトで無効になっており、すべての設定は <span class="ph filepath">skin.json</span>.  </p>
+
+      <p class="p">ボタンを有効にするために必要な設定例を以下に示します。 </p>
+
+      <pre class="pre codeblock"><strong class="ph b">skin.json</strong>
+{&quot;skipControls&quot;：{&quot;有効&quot;：true}}</pre>
+
+      <p class="p">インラインスキンオーバーライドあり</p>
+
+      <pre class="pre codeblock">{&quot;skin&quot;：{&quot;インライン&quot;：{&quot;skipControls&quot;：{&quot;有効&quot;：true}}}}</pre>
+
+      <p class="p">例：スキップボタンの時間をカスタマイズする</p>
+
+      <pre class="pre codeblock">skin.json {&quot;skipControls&quot;：{&quot;有効&quot;：true、 &quot;skipBackwardTime&quot;：5、 &quot;skipForwardTime&quot;：30}}</pre>
+
+      <p class="p">インラインスキンオーバーライドの使用</p>
+
+      <pre class="pre codeblock">{&quot;skin&quot;：{&quot;インライン&quot;：{&quot;skipControls&quot;：{&quot;有効&quot;：true、 &quot;skipBackwardTime&quot;：5、 &quot;skipForwardTime&quot;：30}}}}</pre>
+
+      <p class="p">例：ボタンを個別に無効にする</p>
+
+      <p class="p">次の例では、[前のビデオ]ボタンと[次のビデオ]ボタンが削除され、[進む/戻るをスキップ]のみが表示されます。 コントロール全体が有効になっている場合、各ボタンはデフォルトで有効になっています。</p>
+
+      <pre class="pre codeblock">skin.json {&quot;skipControls&quot;：{&quot;有効&quot;：true、 &quot;ボタン&quot;：{&quot;previousVideo&quot;：{&quot;有効&quot;：false}、 &quot;nextVideo&quot;：{&quot;有効&quot;：false}}}</pre>
+
+      <p class="p">インラインスキンオーバーライドの使用</p>
+
+      <pre class="pre codeblock">{&quot;skin&quot;：{&quot;インライン&quot;：{&quot;skipControls&quot;：{&quot;有効&quot;：true、 &quot;ボタン&quot;：{&quot;previousVideo&quot;：{&quot;有効&quot;：false}、 &quot;nextVideo&quot;：{&quot;有効&quot;：false} }}}}}</pre>
+
+      <p class="p">例：ボタン順のカスタマイズ</p>
+
+      <p class="p">以下の設定は、次のボタン順になります：後方へスキップ、前のビデオ、次のビデオ、前方へスキップ。</p>
+
+      <pre class="pre codeblock">skin.json {&quot;skipControls&quot;：{&quot;有効&quot;：true、 &quot;ボタン&quot;：{&quot;previousVideo&quot;：{&quot;インデックス&quot;：2}、 &quot;skipBackward&quot;：{&quot;インデックス&quot;：1}、 &quot;skipForward&quot;：{&quot; index &quot;：4}、&quot; nextVideo &quot;：{&quot; index &quot;：3}}}}</pre>
+
+      <p class="p">インラインスキンオーバーライドの使用</p>
+
+      <pre class="pre codeblock">{&quot;skin&quot;：{&quot;インライン&quot;：{&quot;skipControls&quot;：{&quot;有効&quot;：true、 &quot;ボタン&quot;：{&quot;previousVideo&quot;：{&quot;index&quot;：2}、 &quot;skipBackward&quot;：{&quot;index&quot;：1} 、 &quot;skipForward&quot;：{&quot;インデックス&quot;：4}、 &quot;nextVideo&quot;：{&quot;インデックス&quot;：3}}}}}}</pre>
+
+    </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/pbv4_components.html">プレーヤV4スキンのユーザインタフェース</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/pbv4_customize.html">プレーヤV4外観のカスタマイズ</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:abso

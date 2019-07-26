@@ -1,0 +1,112 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Thumbnail Query API (Deprecated)"/>
+<meta name="abstract" content="For every video uploaded into your Backlot account, the Ooyala Transcoding system produces a thumbnail image roughly every 15-30 seconds."/>
+<meta name="description" content="Backlotアカウントにアップロードされたすべてのビデオについて、Ooyalaトランスコーディングシステムはおよそ15-30秒ごとにサムネイル画像を作成します。"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/api_v1.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="v1_thumbnail_query"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>サムネイルクエリAPI（廃止予定）</title>
+</head>
+<body id="v1_thumbnail_query">
+
+
+ <h1 class="title topictitle1">サムネイルクエリAPI（廃止予定）</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">Backlotアカウントにアップロードされたすべてのビデオについて、Ooyalaトランスコーディングシステムはおよそ15-30秒ごとにサムネイル画像を作成します。</p>
+
+  <div class="section">
+   <div class="note note"><span class="notetitle">注意：</span> このソフトウェアは非推奨です。 最新版を使用してください。</div>
+
+   <p class="p">処理プロファイルのエンコード幅は、作成される画像のサイズを決定します。 具体的には、処理プロファイル内のすべてのエンコード幅Xに対して、サムネイル画像はサイズXとサイズX / X NUMXで作成されます。 サムネイルAPIに対して特定のサイズの画像を問い合わせると、結果としてこれらのサイズに対して検索されます。 完全に一致しない場合は、次に近いサイズのサムネイル画像が返されます。 作成されたサムネイル画像がBacklotにアップロードされたオリジナルファイルのアスペクト比を維持することに注意することは重要です。</p>
+
+   <div class="note note"><span class="notetitle">注意：</span> BacklotまたはAPIを介してアップロードされたカスタムプロモーション画像はサムネイルクエリによって返され、処理されず、複数のサイズが利用可能になります。 サムネイル画像はプロモ画像とは異なります。 元のプロモーション画像は、Query APIインタフェースを介してアクセスできます。</div>
+
+    <p class="p">Query APIの例と同様に、サムネイル照会はhttp://api.ooyala.com/partner/thumbnailsへの署名付きRESTスタイルのGET要求を使用して生成されます。</p>
+
+   
+   <p class="p">必須パラメータ：</p>
+
+   <ul class="ul">
+    <li class="li">pcode  - アカウント識別子</li>
+
+    <li class="li">expires  - エポックからの経過秒数での照会有効期限（00：00：00 1 / 1 / 1970 GMT）</li>
+
+    <li class="li">embedCode  - コンテンツ識別子</li>
+
+    <li class="li">range  - 返されるサムネイルインデックスを指定します。 フォーマット：&lt;from index&gt;  -  &lt;to-index&gt;。 たとえば、最初の5サムネイル（インデックス0からインデックス4まで）を取得するには、次の値を使用します。range = 0-4。 要求された範囲が生成されたサムネイルの数よりも大きい場合は、利用可能なものすべてを返します。</li>
+
+    <li class="li">解像度 - サムネイルの表示に使用する画像のサイズを指定します。 パラメータの形式は&lt;width&gt; x &lt;height&gt;です。たとえば、resolution = 320x240です。 要求されたよりも大きいJPEGを返す可能性がありますが、より高い圧縮率で返されます。 この結果を目的のサイズにサイズ変更できます。</li>
+
+    <li class="li">signature  - リクエストのデジタル署名 署名は、署名生成規則とともにSHA-256を使用して計算する必要があります。</li>
+
+   </ul>
+
+   <p class="p">リクエストの例</p>
+
+<pre class="pre codeblock">http://api.ooyala.com/partner/thumbnails?pcode=&lt;pcode&gt;&amp;embedCode=&lt;embedCode&gt;
+ &amp;range=0-25&amp;resolution=600x400&amp;expires=&lt;expiration&gt;&amp;signature=&lt;signature&gt;
+ </pre>
+      
+     <p class="p">サムネイルクエリ結果</p>
+
+   <p class="p">クエリの結果は、レスポンスボディとして機能するXMLドキュメントです。 ルートタグは&lt;thumbnails&gt;で、一致するすべてのサムネイルがそのリストの&lt;thumbnail&gt;タグとして含まれています。</p>
+
+    <p class="p">ルートの&lt;thumbnails&gt;タグには2属性があります。</p>
+
+   <ul class="ul">
+    <li class="li">embedCode  - 要求されたコンテンツID</li>
+
+    <li class="li">aspectRatio  - 縮小不可能な部分としての画像のアスペクト比。 例えば、4 / 3または16 / 9です。 この属性は画像の縦横比を含み、常に実際の映画の縦横比を反映していることに注意してください。</li>
+
+   </ul>
+
+   <p class="p">各&lt;thumbnail&gt;タグには以下が含まれます。</p>
+
+   <ul class="ul">
+    <li class="li">index属性 - サムネイルの0から始まるインデックス。</li>
+
+    <li class="li">timestamp属性 - サムネイルが作成されたビデオの時間（ミリ秒）。</li>
+
+    <li class="li">タグ本文としてのサムネイルのURL。</li>
+
+   </ul>
+
+   <p class="p">サムネイルクエリ結果の例</p>
+
+   <pre class="pre codeblock">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;thumbnails aspectRatio="4/3" estimatedWidth="240" embedCode="kxYm06gFKXEleIHdyXNKeefx-QAu2yVp" requestedWidth="340"&gt;
+  &lt;thumbnail timestamp="0" index="0"&gt;http://ak.c.ooyala.com/kxYm06gFKXEleIHdyXNKeefx-QAu2yVp/Ut_HKthATH4eww8X5hMDoxOmc3O2T4mP&lt;/thumbnail&gt;
+  &lt;thumbnail timestamp="9933" index="1"&gt;http://ak.c.ooyala.com/kxYm06gFKXEleIHdyXNKeefx-QAu2yVp/67AQECG82s3QgdEn5hMToxOmc3OwZ8Ex&lt;/thumbnail&gt;
+  &lt;promoThumbnail&gt;http://ak.c.ooyala.com/kxYm06gFKXEleIHdyXNKeefx-QAu2yVp/Ut_HKthATH4eww8X5hMDoxOmc3O2T4mP&lt;/promoThumbnail&gt;
+&lt;/thumbnails&gt;
+   </pre>
+
+  </div>
+
+  
+  
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../archive/api_v1.html" title="このバージョンのBacklot APIは非推奨です。 APIのバージョン2で新しい開発作業を行うことを強くお勧めします。 V2 APIの使用方法については、Ooyalaサポートセンターの開発者ドキュメントセクションを参照してください。">Ooyala Backlot APIリファレンスV1（非推奨）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

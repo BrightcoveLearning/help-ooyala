@@ -1,0 +1,804 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Metrics"/>
+<meta name="abstract" content=""/>
+<meta name="description" content=""/>
+<meta name="DC.Relation" scheme="URI" content="../api/analytics_v3_api_reference.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/analytics_v3_api_reference.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="analytics_v3_metrics"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>メトリック</title>
+</head>
+<body id="analytics_v3_metrics">
+
+
+  <h1 class="title topictitle1">メトリック</h1>
+
+  
+  <div class="body refbody"><p class="shortdesc"/>
+
+    <div class="section">
+      <p class="gt-block p">これはのためのすべての測定基準に関する完全な参照詳細です。 <span class="ph">v3アナリティクス</span>
+        <a class="xref" href="analytics_v3_api_reporting_overview.html#analytics_reporting">レポートAPI</a>.</p>
+
+      <div class="note note"><span class="notetitle">注意：</span> を除くすべての指標 <span class="ph">player_loads</span>、資産に関連付けられている <span class="ph">pcode</span>。 ザ <span class="ph">player_loads</span> 測定基準はプレーヤーに関連付けられています <span class="ph">pcode</span>.</div>
+
+      <p class="gt-block p">メトリクスは <a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__metrics"><samp class="ph codeph">メトリックス=</samp></a> クエリ文字列パラメータ。 複数の値は、スペースを入れずにコンマで区切る必要があります。</p>
+
+      <div class="note note"><span class="notetitle">注意：</span> 含めないことで、メトリックのセット全体を取得できます。 <samp class="ph codeph">メトリクス</samp> あなたのクエリで。  </div>
+
+      <div class="note warning"><span class="warningtitle">警告：</span> 測定基準を指定しない場合 <samp class="ph codeph">URL</samp> 次元、エラーメッセージが返されます。 サポートされている指標 <samp class="ph codeph">URL</samp> 寸法が含まれます： <ul class="ul">
+          <li class="li"><samp class="ph codeph">ディスプレイ</samp></li>
+
+          <li class="li"><samp class="ph codeph">plays_requested</samp></li>
+
+          <li class="li"><samp class="ph codeph">video_starts</samp></li>
+
+          <li class="li"><samp class="ph codeph">time_watched</samp></li>
+
+          <li class="li"><samp class="ph codeph">player_loads</samp></li>
+
+          <li class="li"><samp class="ph codeph">リプレイ</samp></li>
+
+          <li class="li"><samp class="ph codeph">uniq_plays_requested</samp></li>
+
+          <li class="li"><samp class="ph codeph">uniq_displays</samp></li>
+
+          <li class="li"><samp class="ph codeph">uniq_video_starts</samp></li>
+
+          <li class="li"><samp class="ph codeph">playthrough_25</samp></li>
+
+          <li class="li"><samp class="ph codeph">playthrough_50</samp></li>
+
+          <li class="li"><samp class="ph codeph">playthrough_75</samp></li>
+
+          <li class="li"><samp class="ph codeph">playthrough_100</samp></li>
+
+        </ul>
+</div>
+
+      <p class="p">特定のメトリックを取得するには、次の例のように指定します。</p>
+
+      <ul class="ul" id="analytics_v3_metrics__ul_hh2_ps2_fm">
+        <li class="li"><samp class="ph codeph">metrics = plays_requested</samp></li>
+
+        <li class="li"><samp class="ph codeph">metrics = uniq_plays_requested</samp></li>
+
+        <li class="li"><samp class="ph codeph">metrics = Displays、uniq_displays</samp></li>
+
+      </ul>
+
+    </div>
+
+      <div class="section"><h2 class="title sectiontitle">レポートGETの一般的な構文</h2>
+            
+            <p class="p">ルートとクエリ文字列の基本的な構文は次のとおりです。 読みやすくするために、単一行の要求は複数の行に分割されています。 </p>
+
+            <pre class="pre codeblock" id="analytics_v3_metrics__d1794e40">
+<strong class="ph b">[GET] / v3 / analytics / reports /？</strong>
+            <a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__report_type"><strong class="ph b">report_type</strong></a>=<a class="xref" href="analytics_v3_api_reporting_reports.html#analytics_reporting_preprogrammed_reports"><var class="keyword varname">type</var></a>
+            ＆<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__dimensions">大きさ</a>=<a class="xref" href="analytics_v3_api_reporting_dimensions.html#analytics_v3_dimensions"><var class="keyword varname">大きさ</var></a>
+            ＆<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__metrics">メトリクス</a>=<a class="xref" href="analytics_v3_api_reporting_metrics.html#analytics_v3_metrics"><var class="keyword varname">メトリクス</var></a>
+            ＆<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__filters">フィルター</a>=<a class="xref" href="analytics_v3_api_reporting_filters.html#analytics_v3_filters"><var class="keyword varname">filter_type == &#39;filter_value&#39;</var></a>
+            ＆<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__start_date"><strong class="ph b">START_DATE</strong></a>=<var class="keyword varname">date</var>
+            ＆<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__end_date">終了日</a>=日付＆<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms"><var class="keyword varname">other_parms</var></a>
+            <strong class="ph b">＆api_key = your_api_key</strong>
+         </pre>
+
+            <ul class="ul">
+               <li class="li">  <strong class="ph b">必須</strong> クエリ文字列パラメータ（太字で表示）は <a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__report_type"><samp class="ph codeph">report_type</samp></a>,  <samp class="ph codeph">START_DATE</samp>、そしてapi_key。 </li>
+
+               <li class="li">次元が指定されていない場合は、すべての次元にわたる合計値が返されます。 </li>
+
+               <li class="li">最大1月の時間範囲では、無制限のデータ行を使用して、一度に最大3ディメンションで照会できます。 1か月を超える時間範囲では、最大2行のデータを使用して、一度に最大10,000ディメンションで照会できます。 </li>
+
+               <li class="li">メトリックが指定されていない場合は、すべてのメトリックが返されます。 </li>
+
+            </ul>
+
+            <div class="note note"><span class="notetitle">注意：</span> APIキーはクエリパラメータとして、またはヘッダX-API-KEYを介して渡すことができます。</div>
+
+            <div class="note note"><span class="notetitle">注意：</span> 現時点では、 <var class="keyword varname">report_type</var>  is
+                  
+                  <samp class="ph codeph">パフォーマンス</samp>.</div>
+
+            <div class="note note"><span class="notetitle">注意：</span> 1ディメンションのみを使用できます（<samp class="ph codeph">URL</samp>）のための <samp class="ph codeph">URL</samp>
+               クエリ</div>
+
+         </div>
+
+      <div class="section"><h2 class="title sectiontitle">ロングクエリのレポートの一般的な構文POST</h2>
+            
+            <p class="p">HTTP GET仕様の230文字の制限を超えるクエリパラメータを持つクエリの場合は、POSTリクエストを使用してください。 一部のブラウザおよびhttpクライアントは、230文字を超える文字をサポートしている場合がありますが、HTTP GET仕様に違反するクエリについては正式なサポートは提供されません。 POSTリクエストの場合は、クエリ文字列パラメータの代わりにリクエストボディにJSONオブジェクトを渡します。 </p>
+
+            <pre class="pre codeblock">
+<strong class="ph b">[POST] / v3 / analytics / reports {</strong>
+    
+    "<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__report_type"><strong class="ph b">report_type</strong></a>「」<a class="xref" href="analytics_v3_api_reporting_reports.html#analytics_reporting_preprogrammed_reports"><var class="keyword varname">type</var></a>「」<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__dimensions">大きさ</a>「」<a class="xref" href="analytics_v3_api_reporting_dimensions.html#analytics_v3_dimensions"><var class="keyword varname">大きさ</var></a>「」<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__metrics">メトリクス</a>「」<a class="xref" href="analytics_v3_api_reporting_metrics.html#analytics_v3_metrics"><var class="keyword varname">メトリクス</var></a>「」<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__filters">フィルター</a>&quot;：&quot;（<a class="xref" href="analytics_v3_api_reporting_filters.html#analytics_v3_filters"><var class="keyword varname">filter_type == \ &quot;filter_value \&quot;）</var></a>「」<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__start_date"><strong class="ph b">START_DATE</strong></a>「」<var class="keyword varname">date</var>「」<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__end_date">終了日</a>&quot;：&quot;日付 &quot;、&quot;<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms"><var class="keyword varname">other_parms</var></a>&quot;：&quot; other_param_value &quot;、
+   <strong class="ph b"> &quot;api_key&quot;： &quot;your_api_key&quot;}</strong>
+         </pre>
+
+         </div>
+
+    <div class="section"><h2 class="title sectiontitle">一意のユーザー</h2>
+     <p class="gt-block p">あなたはユニークなユーザーの数を測定したいかもしれません。 一意のユーザーを測定するには、 <samp class="ph codeph">uniq_plays_requested</samp> 下記のメトリック の <span class="ph">Ooyala</span> モバイルSDKは、アプリケーション固有のランダムな一意のIDを生成して保存します。 他の環境では、一意のユーザーはローカルストレージまたはCookieによって識別されます。 ユーザーがブラウザのキャッシュをクリアすると、そのユーザー/デバイスのIDは次回ビデオを見るときに再生成されます。 生成されたIDは完全にランダムであり、ユーザーを識別できる情報は含まれていません。 そのような情報がユーザに利用可能でないとき、新しいユニークな識別子はそのユーザのために作成されます。 時間の経過とともにユニークユーザーの数を計算するときに重複排除を行います。 たとえば、1日にはユーザーA、B、Cがいます。 2日にユーザーB、Eがいます。次に、日付範囲= XXUMX日と1日を選択すると、合計一意ユーザー数= 2（A、B、C、E）、Daily Avgとなります。 Unique Users =（4 + X NUMX）/ X NUMX = X NUM X（X NUM Xは閉整数に変換されます）。 </p>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">ビデオとエンゲージメント関連の指標</h2>
+      
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="analytics_v3_metrics__analytics_v3_metrics_video" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="37.5%" id="d18313e380">メトリック名 </th>
+
+              <th class="entry" valign="top" width="37.5%" id="d18313e383">意味 </th>
+
+              <th class="entry" valign="top" width="25%" id="d18313e386">関連イベント、UIラベル</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            
+            
+            
+            <tr class="row">
+              <td class="entry" valign="top" width="37.5%" headers="d18313e380 "><samp class="ph codeph" id="analytics_v3_metrics__plays">plays_requested</samp></td>
+
+              <td class="entry" valign="top" width="37.5%" headers="d18313e383 ">任意のコンテンツ（動画および広告コンテンツを含む）に対して[再生]ボタンが手動または自動でトリガーされた回数。 このメトリックには再生イベントは含まれません。
+                <div class="note note"><span class="notetitle">注意：</span> このメトリックの計算が改善されました。 この実装により、5 / 11 / 11の後に、HTML2014プレーヤーおよびSDKプレーヤーから要求された再生数が増加することがあります。</div>
+
+                
+              </td>
+
+              <td class="entry" valign="top" width="25%" headers="d18313e386 "><a class="xref" href="../concepts/analytics_v3_user_workspace_content.html" title="ビジネスインテリジェンスページを使用して、さまざまな方法でフィルタ処理されたデータの詳細を表示し、特定の関心点を特定します。"><span class="ph uicontrol">リクエストされた遊び</span></a> ビジネスインテリジェンスページ</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="37.5%" headers="d18313e380 "><samp class="ph codeph" id="analytics_v3_metrics__displays">ディスプレイ</samp></td>
+
+              <td class="entry" valign="top" width="37.5%" headers="d18313e383 ">特定のビデオコンテンツが再生されるまでにプレーヤにロードされ表示される回数（表示は個々のアセットに関連しています）。 埋め込みコードが変更されるたびに、このイベントが発生します。 </td>
+
+              <td class="entry" valign="top" width="25%" headers="d18313e386 "><a class="xref" href="../concepts/analytics_v3_user_workspace_content.html" title="ビジネスインテリジェンスページを使用して、さまざまな方法でフィルタ処理されたデータの詳細を表示し、特定の関心点を特定します。"><span class="ph uicontrol">表示</span></a> ビジネスインテリジェンスページ</td>
+
+            </tr>
+
+            
+            
+           
+            <tr class="row">
+              <td class="entry" valign="top" width="37.5%" headers="d18313e380 "><samp class="ph codeph" id="analytics_v3_metrics__replays">リプレイ</samp></td>
+
+              <td class="entry" valign="top" width="37.5%" headers="d18313e383 ">再生ボタンがクリックされた回数。 </td>
+
+              <td class="entry" valign="top" width="25%" headers="d18313e386 "> </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="37.5%" headers="d18313e380 "><samp class="ph codeph" id="analytics_v3_metrics__video_starts">video_starts</samp></td>
+
+              <td class="entry" valign="top" width="37.5%" headers="d18313e383 ">実際の広告以外の動画コンテンツが再生を開始した回数。 したがって、プレロール広告の完成と実際のアセットの再生が始まるまでは実行されません。 ユーザーが[再生]ボタンをクリックすると、プレロール広告の再生が開始され、実際のビデオコンテンツの再生が開始される前にユーザーがドロップしても、このイベントは発生しません。
+                  <div class="note note"><span class="notetitle">注意：</span> このメトリックの計算が改善されました。 この実装により、5 / 11 / 11の後、HTML2014およびSDKプレーヤーからのビデオ開始数が減少することがあります。</div>
+</td>
+
+              <td class="entry" valign="top" width="25%" headers="d18313e386 "><a class="xref" href="../concepts/analytics_v3_user_workspace_content.html" title="ビジネスインテリジェンスページを使用して、さまざまな方法でフィルタ処理されたデータの詳細を表示し、特定の関心点を特定します。"><span class="ph uicontrol">ビデオ開始</span></a> ビジネスインテリジェンスページ</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="37.5%" headers="d18313e380 "><samp class="ph codeph" id="analytics_v3_metrics__time_watched">time_watched</samp></td>
+
+              <td class="entry" valign="top" width="37.5%" headers="d18313e383 ">ユーザーがビデオアセットの再生に費やした時間（ミリ秒）。 （UIでは、この値はHH：MM：SS形式に変換されます。）
+              </td>
+
+              <td class="entry" valign="top" width="25%" headers="d18313e386 "> </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="37.5%" headers="d18313e380 "><samp class="ph codeph" id="analytics_v3_metrics__playthrough_25">playthrough_25</samp></td>
+
+              <td class="entry" valign="top" width="37.5%" headers="d18313e383 ">選択したアセットの、ビデオアセットの完成度が25％に達したビデオの再生回数。 ユーザーが同じビュー/再生セッション内で何回巻き戻したとしても、「状態」に達すると再びマーク/カウントされることはありません。 たとえば、同じビデオ表示セッション内（つまり、ユーザーがページを更新したりプレーヤーをリロードしたりしなかった場合）、ユーザーが25％の四分位数を巻き戻して見ると、Playthrough 25％は一度だけカウントされます。<p class="p">ライブストリームではなく、ビデオオンデマンド（VOD）にのみ適用されます。</p>
+</td>
+
+              <td class="entry" valign="top" width="25%" headers="d18313e386 "> </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="37.5%" headers="d18313e380 "><samp class="ph codeph" id="analytics_v3_metrics__playthrough_50">playthrough_50</samp></td>
+
+              <td class="entry" valign="top" width="37.5%" headers="d18313e383 ">選択したアセットの、ビデオアセットの完成度が50％に達したビデオの再生回数。 ユーザーが同じビュー/再生セッション内で何回巻き戻したとしても、「状態」に達すると再びマーク/カウントされることはありません。 たとえば、同じビデオ表示セッション内（つまり、ユーザーがページを更新したりプレーヤーをリロードしたりしなかった場合）、ユーザーが50％の四分位数を巻き戻して見ると、Playthrough 50％は一度だけカウントされます。<p class="p">ライブストリームではなく、ビデオオンデマンド（VOD）にのみ適用されます。</p>
+</td>
+
+              <td class="entry" valign="top" width="25%" headers="d18313e386 "> </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="37.5%" headers="d18313e380 "><samp class="ph codeph" id="analytics_v3_metrics__playthrough_75">playthrough_75</samp></td>
+
+              <td class="entry" valign="top" width="37.5%" headers="d18313e383 ">選択したアセットの、ビデオアセットの完成度が75％に達したビデオの再生回数。 ユーザーが同じビュー/再生セッション内で何回巻き戻したとしても、「状態」に達すると再びマーク/カウントされることはありません。 たとえば、同じビデオ表示セッション内（つまり、ユーザーがページを更新したりプレーヤーをリロードしたりしなかった場合）、ユーザーが75％の四分位数を巻き戻して見ると、Playthrough 75％は一度だけカウントされます。<p class="p">ライブストリームではなく、ビデオオンデマンド（VOD）にのみ適用されます。</p>
+</td>
+
+              <td class="entry" valign="top" width="25%" headers="d18313e386 "> </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="37.5%" headers="d18313e380 "><samp class="ph codeph" id="analytics_v3_metrics__playthrough_100">playthrough_100</samp></td>
+
+              <td class="entry" valign="top" width="37.5%" headers="d18313e383 ">選択したアセットの、ビデオアセットの完成度が100％に達したビデオの再生回数。 ユーザーが同じビュー/再生セッション内で何回巻き戻したとしても、「状態」に達すると再びマーク/カウントされることはありません。 たとえば、同じビデオ表示セッション内（つまり、ユーザーがページを更新したりプレーヤーをリロードしたりしなかった場合）、ユーザーが100％の四分位数を巻き戻して見ると、Playthrough 100％は一度だけカウントされます。<p class="p">ライブストリームではなく、ビデオオンデマンド（VOD）にのみ適用されます。</p>
+</td>
+
+              <td class="entry" valign="top" width="25%" headers="d18313e386 "> </td>
+
+            </tr>
+
+            
+            
+            <tr class="row">
+              <td class="entry" valign="top" width="37.5%" headers="d18313e380 "><samp class="ph codeph" id="analytics_v3_metrics__play_conversion">play_conversion_rate</samp></td>
+
+              <td class="entry" valign="top" width="37.5%" headers="d18313e383 ">表示イベントに対する再生要求の比率。 <div class="note note"><span class="notetitle">注意：</span> 要求された戯曲の計算が改善されました。 この実装により、5 / 11 / 11の後に、HTML2014プレーヤーとSDKプレーヤーのplay_conversion_rateメトリックが増加することがあります。</div>
+
+                
+              </td>
+
+              <td class="entry" valign="top" width="25%" headers="d18313e386 "> </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="37.5%" headers="d18313e380 "><samp class="ph codeph" id="analytics_v3_metrics__start_conversion">video_conversion_rate</samp></td>
+
+              <td class="entry" valign="top" width="37.5%" headers="d18313e383 ">要求されたイベントを再生するビデオに対するビデオの比率。 <div class="note note"><span class="notetitle">注意：</span> 動画の開始数と再生回数の計算が改善されました。 この実装により、5 / 11 / 11の後にHTML2014およびSDKプレーヤーからのビデオの開始数が変わることがあります。</div>
+
+                
+              </td>
+
+              <td class="entry" valign="top" width="25%" headers="d18313e386 "> </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="37.5%" headers="d18313e380 "><samp class="ph codeph" id="analytics_v3_metrics__player_loads">player_loads</samp></td>
+
+              <td class="entry" valign="top" width="37.5%" headers="d18313e383 ">プレーヤーがページにロードするたびに発生します。 の <samp class="ph codeph">player_loads</samp> メトリックはに関連付けられています <span class="ph">pcode</span> プレーヤーのために。</td>
+
+              <td class="entry" valign="top" width="25%" headers="d18313e386 "> </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">ディスカバリーインサイトメトリクス</h2>
+      
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="analytics_v3_metrics__analytics_v3_metrics_discovery" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="42.10526315789473%" id="d18313e612">メトリック名 </th>
+
+              <th class="entry" valign="top" width="42.10526315789473%" id="d18313e615">意味 </th>
+
+              <th class="entry" valign="top" width="15.789473684210526%" id="d18313e618">レポートタイプで使用</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e612 "><samp class="ph codeph">end_screen_ctr</samp></td>
+
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e615 "> <span class="ph">のクリック率 <span class="ph">Discovery</span> 自動再生を含む終了画面。</span>
+                
+                <div class="note note"><span class="notetitle">注意：</span> クエリに次のものが含まれている場合、このメトリックは返されません。
+                    <samp class="ph codeph">time_segment =時</samp>  or
+                  
+                  <samp class="ph codeph">time_segment = 15min</samp>.</div>
+
+              </td>
+
+              <td class="entry" valign="top" width="15.789473684210526%" headers="d18313e618 ">洗浄力</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e612 "><samp class="ph codeph">end_screen_ctr_excluding_autoplays</samp></td>
+
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e615 "><span class="ph">のクリック率 <span class="ph">Discovery</span> 自動再生を除く終了画面。</span>
+                 
+                <div class="note note"><span class="notetitle">注意：</span> クエリに次のものが含まれている場合、このメトリックは返されません。
+                    <samp class="ph codeph">time_segment =時</samp>  or
+                  
+                  <samp class="ph codeph">time_segment = 15min</samp>.</div>
+
+              </td>
+
+              <td class="entry" valign="top" width="15.789473684210526%" headers="d18313e618 ">洗浄力</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e612 "><samp class="ph codeph">end_screen_impressions</samp></td>
+
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e615 "><span class="ph">のインプレッション数 <span class="ph">Discovery</span> 画面を終了します。 </span>
+                
+                <div class="note note"><span class="notetitle">注意：</span> クエリに次のものが含まれている場合、このメトリックは返されません。
+                    <samp class="ph codeph">time_segment =時</samp>  or
+                  
+                  <samp class="ph codeph">time_segment = 15min</samp>.</div>
+
+              </td>
+
+              <td class="entry" valign="top" width="15.789473684210526%" headers="d18313e618 ">洗浄力</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e612 "><samp class="ph codeph">pause_screen_ctr</samp></td>
+
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e615 "><span class="ph">のクリック率 <span class="ph">Discovery</span> 画面を一時停止します。 </span>
+                 
+                <div class="note note"><span class="notetitle">注意：</span> クエリに次のものが含まれている場合、このメトリックは返されません。
+                    <samp class="ph codeph">time_segment =時</samp>  or
+                  
+                  <samp class="ph codeph">time_segment = 15min</samp>.</div>
+
+              </td>
+
+              <td class="entry" valign="top" width="15.789473684210526%" headers="d18313e618 ">洗浄力</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e612 "><samp class="ph codeph">pause_screen_impressions</samp></td>
+
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e615 "><span class="ph">のインプレッション数 <span class="ph">Discovery</span> 画面を一時停止します。 </span>
+                 
+                <div class="note note"><span class="notetitle">注意：</span> クエリに次のものが含まれている場合、このメトリックは返されません。
+                    <samp class="ph codeph">time_segment =時</samp>  or
+                  
+                  <samp class="ph codeph">time_segment = 15min</samp>.</div>
+
+              </td>
+
+              <td class="entry" valign="top" width="15.789473684210526%" headers="d18313e618 ">洗浄力</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e612 "><samp class="ph codeph">aggregate_ctr</samp></td>
+
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e615 "><span class="ph">両方のインプレッションとクリックをカバーするCTR <span class="ph">Discovery</span> 画面を終了して画面を一時停止します。</span>
+                 
+                <div class="note note"><span class="notetitle">注意：</span> クエリに次のものが含まれている場合、このメトリックは返されません。
+                    <samp class="ph codeph">time_segment =時</samp>  or
+                  
+                  <samp class="ph codeph">time_segment = 15min</samp>.</div>
+
+              </td>
+
+              <td class="entry" valign="top" width="15.789473684210526%" headers="d18313e618 ">洗浄力</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e612 "><samp class="ph codeph">lift_percent_end_screen</samp></td>
+
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e615 "><span class="ph">からのリフト <span class="ph">Discovery</span> 自動再生を含む、画面のみを終了します。</span>
+                  
+                <div class="note note"><span class="notetitle">注意：</span> クエリに次のものが含まれている場合、このメトリックは返されません。
+                    <samp class="ph codeph">time_segment =時</samp>  or
+                  
+                  <samp class="ph codeph">time_segment = 15min</samp>.</div>
+
+              </td>
+
+              <td class="entry" valign="top" width="15.789473684210526%" headers="d18313e618 ">洗浄力</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e612 "><samp class="ph codeph">lift_percent_end_screen_excluding_autoplays</samp></td>
+
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e615 "><span class="ph">からのリフト <span class="ph">Discovery</span> 自動再生を除く、画面のみを終了します。</span>
+                
+                 
+                
+                <div class="note note"><span class="notetitle">注意：</span> クエリに次のものが含まれている場合、このメトリックは返されません。
+                    <samp class="ph codeph">time_segment =時</samp>  or
+                  
+                  <samp class="ph codeph">time_segment = 15min</samp>.</div>
+
+              </td>
+
+              <td class="entry" valign="top" width="15.789473684210526%" headers="d18313e618 ">洗浄力</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e612 "><samp class="ph codeph">lift_percent_pause_screen</samp></td>
+
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e615 "><span class="ph">からのリフト <span class="ph">Discovery</span> 画面を一時停止します。</span>
+                 
+                <div class="note note"><span class="notetitle">注意：</span> クエリに次のものが含まれている場合、このメトリックは返されません。
+                    <samp class="ph codeph">time_segment =時</samp>  or
+                  
+                  <samp class="ph codeph">time_segment = 15min</samp>.</div>
+
+              </td>
+
+              <td class="entry" valign="top" width="15.789473684210526%" headers="d18313e618 ">洗浄力</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e612 "><samp class="ph codeph">aggregate_lift_percent</samp></td>
+
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e615 "><span class="ph">からの演劇をカバーする総リフト <span class="ph">Discovery</span> 画面を終了して画面を一時停止します。</span>
+                 
+                <div class="note note"><span class="notetitle">注意：</span> クエリに次のものが含まれている場合、このメトリックは返されません。
+                    <samp class="ph codeph">time_segment =時</samp>  or
+                  
+                  <samp class="ph codeph">time_segment = 15min</samp>.</div>
+
+              </td>
+
+              <td class="entry" valign="top" width="15.789473684210526%" headers="d18313e618 ">洗浄力</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e612 "><samp class="ph codeph">added_view_time_hours</samp></td>
+
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e615 "><span class="ph">追加された合計表示時間（時間） <span class="ph">Discovery</span> 演劇。</span>
+                 
+                <div class="note note"><span class="notetitle">注意：</span> クエリに次のものが含まれている場合、このメトリックは返されません。
+                    <samp class="ph codeph">time_segment =時</samp>  or
+                  
+                  <samp class="ph codeph">time_segment = 15min</samp>.</div>
+
+              </td>
+
+              <td class="entry" valign="top" width="15.789473684210526%" headers="d18313e618 ">洗浄力</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e612 "><samp class="ph codeph">time_lift_percent_end_screen</samp></td>
+
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e615 "><span class="ph">からのタイムリフト <span class="ph">Discovery</span> 自動再生を含む、画面のみを終了します。</span>
+                 
+                <div class="note note"><span class="notetitle">注意：</span> クエリに次のものが含まれている場合、このメトリックは返されません。
+                    <samp class="ph codeph">time_segment =時</samp>  or
+                  
+                  <samp class="ph codeph">time_segment = 15min</samp>.</div>
+
+              </td>
+
+              <td class="entry" valign="top" width="15.789473684210526%" headers="d18313e618 ">洗浄力</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e612 "><samp class="ph codeph">time_lift_percent_end_screen_excluding_autoplays</samp></td>
+
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e615 "><span class="ph">からのタイムリフト
+                    <span class="ph">Discovery</span> 自動再生を除く、画面のみを終了します。</span>
+                 
+                <div class="note note"><span class="notetitle">注意：</span> クエリに次のものが含まれている場合、このメトリックは返されません。
+                    <samp class="ph codeph">time_segment =時</samp>  or
+                  
+                  <samp class="ph codeph">time_segment = 15min</samp>.</div>
+
+              </td>
+
+              <td class="entry" valign="top" width="15.789473684210526%" headers="d18313e618 ">洗浄力</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e612 "><samp class="ph codeph">time_lift_percent_pause_screen</samp></td>
+
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e615 "><span class="ph">からのタイムリフト <span class="ph">Discovery</span> 画面を一時停止します。</span>
+                 
+                <div class="note note"><span class="notetitle">注意：</span> クエリに次のものが含まれている場合、このメトリックは返されません。
+                    <samp class="ph codeph">time_segment =時</samp>  or
+                  
+                  <samp class="ph codeph">time_segment = 15min</samp>.</div>
+
+              </td>
+
+              <td class="entry" valign="top" width="15.789473684210526%" headers="d18313e618 ">洗浄力</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e612 "><samp class="ph codeph">aggregate_time_lift_percent</samp></td>
+
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e615 "><span class="ph">からの演劇をカバーする合計時間リフト <span class="ph">Discovery</span>
+                    画面を終了して画面を一時停止します。</span>
+                 
+                <div class="note note"><span class="notetitle">注意：</span> クエリに次のものが含まれている場合、このメトリックは返されません。
+                    <samp class="ph codeph">time_segment =時</samp>  or
+                  
+                  <samp class="ph codeph">time_segment = 15min</samp>.</div>
+
+              </td>
+
+              <td class="entry" valign="top" width="15.789473684210526%" headers="d18313e618 ">洗浄力</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e612 "><samp class="ph codeph">discovery_plays</samp></td>
+
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e615 "><p class="gt-block p"><strong class="ph b"><span class="ph">Discovery</span> プレイズ</strong> によって推奨後に動画が再生された回数を測定します。 <span class="ph">Discovery</span>.</p>
+
+                 
+                <div class="note note"><span class="notetitle">注意：</span> クエリに次のものが含まれている場合、このメトリックは返されません。
+                    <samp class="ph codeph">time_segment =時</samp>  or
+                  
+                  <samp class="ph codeph">time_segment = 15min</samp>.</div>
+
+              </td>
+
+              <td class="entry" valign="top" width="15.789473684210526%" headers="d18313e618 ">洗浄力</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e612 "><samp class="ph codeph">discovery_leads</samp></td>
+
+              <td class="entry" valign="top" width="42.10526315789473%" headers="d18313e615 "><p class="gt-block p"><strong class="ph b"><span class="ph">Discovery</span> リード</strong> 異なる回数を測定する <span class="ph">Discovery</span> - 元の動画を見た結果、おすすめの動画が再生された。 たとえば、「The Big Game」というビデオアセットには、 <span class="ph">Discovery</span> ビデオの最後で画面を終了します。 <span class="ph">Discovery</span>
+                Leadsは、ビデオがに表示された回数を測定します。 <span class="ph">Discovery</span> 「The Big Game」の終了画面が表示されます。 どのような値から導き出せるかの詳細について
+                <span class="ph">Discovery</span> データを再生して導きます。 <a class="xref" href="../concepts/discovery_insight_report_value.html" title="Ooyala IQのDiscovery Insights情報は、ユーザーとコンテンツに関する貴重な情報を提供します。 以下のコンテンツは、さまざまなDiscoveryメトリックから値を導き出す方法を説明しています。">発見の洞察から価値を引き出す</a>.</p>
+
+                 
+                <div class="note note"><span class="notetitle">注意：</span> クエリに次のものが含まれている場合、このメトリックは返されません。
+                    <samp class="ph codeph">time_segment =時</samp>  or
+                  
+                  <samp class="ph codeph">time_segment = 15min</samp>.</div>
+
+              </td>
+
+              <td class="entry" valign="top" width="15.789473684210526%" headers="d18313e618 ">洗浄力</td>
+
+            </tr>
+
+            
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">その他のメトリクスとその関連レポート</h2>
+      
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="analytics_v3_metrics__analytics_v3_metrics_unique" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="31.818181818181817%" id="d18313e1144">メトリック名 </th>
+
+              <th class="entry" valign="top" width="50%" id="d18313e1147">意味 </th>
+
+              <th class="entry" valign="top" width="18.181818181818183%" id="d18313e1150">レポートタイプで使用</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            
+            
+            
+            <tr class="row">
+              <td class="entry" valign="top" width="31.818181818181817%" headers="d18313e1144 "><samp class="ph codeph" id="analytics_v3_metrics__unique_plays">uniq_plays_requested</samp></td>
+
+              <td class="entry" valign="top" width="50%" headers="d18313e1147 ">任意のコンテンツに対して「手動で」または「自動的に」「再生」ボタンをトリガーするユニークユーザーの数（ <a class="xref" href="analytics_v3_api_reporting_metrics.html#analytics_v3_metrics__plays"><span class="ph uicontrol">plays_requested</span></a>).
+                
+                <div class="p">
+                    <div class="note note"><span class="notetitle">注意：</span> このメトリックの計算が改善されました。 この実装により、5 / 11 / 11の後に、HTML2014プレーヤーおよびSDKプレーヤーから要求された再生数が増加することがあります。</div>
+
+                    <div class="note note"><span class="notetitle">注意：</span> クエリに次のものが含まれている場合、このメトリックは返されません。
+                    <samp class="ph codeph">time_segment =時</samp>  or
+                  
+                  <samp class="ph codeph">time_segment = 15min</samp>.</div>
+
+                  </div>
+</td>
+
+              <td class="entry" valign="top" width="18.181818181818183%" headers="d18313e1150 ">洗浄力</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="31.818181818181817%" headers="d18313e1144 "><samp class="ph codeph" id="analytics_v3_metrics__unique_displays">uniq_displays</samp></td>
+
+              <td class="entry" valign="top" width="50%" headers="d18313e1147 ">ビデオが再生される前にプレーヤー内にロードされ表示されていることを確認したユニークユーザーの数（表示は個々のアセットに関連しています）。 埋め込みコードが変更されるたびに、表示イベントが発生します（ <a class="xref" href="analytics_v3_api_reporting_metrics.html#analytics_v3_metrics__displays"><span class="ph uicontrol">ディスプレイ</span></a>).
+              
+              <div class="note note"><span class="notetitle">注意：</span> クエリに次のものが含まれている場合、このメトリックは返されません。
+                    <samp class="ph codeph">time_segment =時</samp>  or
+                  
+                  <samp class="ph codeph">time_segment = 15min</samp>.</div>
+
+              </td>
+
+              <td class="entry" valign="top" width="18.181818181818183%" headers="d18313e1150 ">洗浄力</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="31.818181818181817%" headers="d18313e1144 "><samp class="ph codeph" id="analytics_v3_metrics__unique_video_starts">uniq_video_starts</samp></td>
+
+              <td class="entry" valign="top" width="50%" headers="d18313e1147 ">実際の非広告ビデオコンテンツの再生を見ているユニークユーザーの数（
+                <a class="xref" href="analytics_v3_api_reporting_metrics.html#analytics_v3_metrics__video_starts"><span class="ph uicontrol">video_starts</span></a>).  <div class="note note"><span class="notetitle">注意：</span> このメトリックの計算が改善されました。 この実装により、5 / 11 / 11の後、HTML2014およびSDKプレーヤーからのビデオ開始数が減少することがあります。</div>
+
+                <div class="note note"><span class="notetitle">注意：</span> クエリに次のものが含まれている場合、このメトリックは返されません。
+                    <samp class="ph codeph">time_segment =時</samp>  or
+                  
+                  <samp class="ph codeph">time_segment = 15min</samp>.</div>
+
+              </td>
+
+              <td class="entry" valign="top" width="18.181818181818183%" headers="d18313e1150 ">洗浄力</td>
+
+            </tr>
+
+            
+            <tr class="row">
+              <td class="entry" valign="top" width="31.818181818181817%" headers="d18313e1144 "><samp class="ph codeph">embeds_copied</samp></td>
+
+              <td class="entry" valign="top" width="50%" headers="d18313e1147 ">埋め込みコードがコピーされた回数
+                 
+              </td>
+
+              <td class="entry" valign="top" width="18.181818181818183%" headers="d18313e1150 ">洗浄力</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="31.818181818181817%" headers="d18313e1144 "><samp class="ph codeph">ブックマーク</samp></td>
+
+              <td class="entry" valign="top" width="50%" headers="d18313e1147 ">回数 <span class="ph">「Digg」</span> ボタンが押されました。
+                 
+              </td>
+
+              <td class="entry" valign="top" width="18.181818181818183%" headers="d18313e1150 ">洗浄力</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="31.818181818181817%" headers="d18313e1144 "><samp class="ph codeph">emails_sent</samp></td>
+
+              <td class="entry" valign="top" width="50%" headers="d18313e1147 ">回数 <span class="ph">「メールで共有」</span> ボタンを押す
+                 
+              </td>
+
+              <td class="entry" valign="top" width="18.181818181818183%" headers="d18313e1150 ">洗浄力</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="31.818181818181817%" headers="d18313e1144 "><samp class="ph codeph">フェイスブック</samp></td>
+
+              <td class="entry" valign="top" width="50%" headers="d18313e1147 ">Facebookの回数 <span class="ph">「好き」</span> ボタンが押されました。
+                 
+              </td>
+
+              <td class="entry" valign="top" width="18.181818181818183%" headers="d18313e1150 ">洗浄力</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="31.818181818181817%" headers="d18313e1144 "><samp class="ph codeph" id="analytics_v3_metrics__twitter">さえずり</samp></td>
+
+              <td class="entry" valign="top" width="50%" headers="d18313e1147 ">Twitterの数倍 <span class="ph">「つぶやき」</span> ボタンを押す
+                 
+              </td>
+
+              <td class="entry" valign="top" width="18.181818181818183%" headers="d18313e1150 ">洗浄力</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="31.818181818181817%" headers="d18313e1144 "><samp class="ph codeph">urls_copied</samp></td>
+
+              <td class="entry" valign="top" width="50%" headers="d18313e1147 ">回数 <span class="ph">「URLをコピー」</span> ボタンが押されました。
+                 
+              </td>
+
+              <td class="entry" valign="top" width="18.181818181818183%" headers="d18313e1150 ">洗浄力</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="31.818181818181817%" headers="d18313e1144 "><samp class="ph codeph">segment_watched</samp></td>
+
+              <td class="entry" valign="top" width="50%" headers="d18313e1147 ">ビデオコンテンツの各セグメントが視聴された回数。 1セグメントは、ビデオの長さの2.5％として定義されています。 ユーザーが同じセグメントをN回巻き戻して視聴した場合、そのセグメントに対して監視されたセグメントはN回としてカウントされます。 
+   
+                <p class="p">ライブストリームではなく、ビデオオンデマンド（VOD）にのみ適用されます。</p>
+
+                
+                   
+                <div class="note note" id="analytics_v3_metrics__time_segment"><span class="notetitle">注意：</span> クエリに次のものが含まれている場合、このメトリックは返されません。
+                    <samp class="ph codeph">time_segment =時</samp>  or
+                  
+                  <samp class="ph codeph">time_segment = 15min</samp>.</div>
+
+              </td>
+
+              <td class="entry" valign="top" width="18.181818181818183%" headers="d18313e1150 ">洗浄力</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="31.818181818181817%" headers="d18313e1144 "><samp class="ph codeph">percentage_watched</samp>
+              </td>
+
+              <td class="entry" valign="top" width="50%" headers="d18313e1147 ">これまでに視聴されたことがあるビデオの割合（全体）を2.5％の単位で測定します。 ユーザーが同じビデオセッションでセグメントを巻き戻して再視聴しても、このメトリックは増加しません。
+                 
+                <div class="note note"><span class="notetitle">注意：</span> クエリに次のものが含まれている場合、このメトリックは返されません。
+                    <samp class="ph codeph">time_segment =時</samp>  or
+                  
+                  <samp class="ph codeph">time_segment = 15min</samp>.</div>
+
+              </td>
+
+              <td class="entry" valign="top" width="18.181818181818183%" headers="d18313e1150 ">洗浄力</td>
+
+            </tr>
+
+            
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+      
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/analytics_v3_api_reference.html">パラメータ参照</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- de

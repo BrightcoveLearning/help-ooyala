@@ -1,0 +1,122 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Express Processing Assets"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/transcode.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/transcode.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_components"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>エクスプレス処理資産</title>
+</head>
+<body id="pbv4_components">
+
+
+  <h1 class="title topictitle1">エクスプレス処理資産</h1>
+
+  <div class="body conbody">
+    <div class="section"><h2 class="title sectiontitle">標準処理キュー</h2>VODコンテンツの標準処理キューは、FIFO（先入れ先出し）ロジックに従います。 すべての顧客は10ジョブを並行して処理できます（追加コストがあるため、契約でより高い金額が示されている場合を除く）。 そのため、10を超える資産が同時に取り込まれると、残りの資産はキューに残り、FIFOに基づいて処理されます。 多くの場合、後でアップロードされるアセットの1つは、コンテンツの時間に敏感な性質のために最初に処理される必要があるかもしれません。 このユースケースをサポートするために、OoyalaADAPTには「Express processing queue」があります。</div>
+
+    <div class="section"><h2 class="title sectiontitle">エクスプレス処理キュー</h2>
+      
+      <p class="p">すべての顧客に対して、標準の処理キューに加えて、エクスプレス処理キューが用意されています。 高速処理キューは、5つのジョブを並行して処理できます（追加コストがあるため、契約でより高い金額が示されている場合を除く）。 高速処理待ち行列を高速道路内のカープールまたは大容量レーンとして検討してください。 ジョブが高速処理キューに投入されると、標準処理のジョブよりも優先順位が高くなり、標準処理キューのジョブより先に選択されます。 ただし、高速処理キューもFIFOロジックを使用し、このキューに送信された5つを超えるアセットは、空きスロットが利用可能になるまでキューに入れられたままになります。
+      </p>
+<div class="note note"><span class="notetitle">注意：</span> すべてのジョブを高速処理キューに投入しても、標準キューと高速キューに違いはありません。</div>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Express Processing Queueの使い方</h2>
+      
+      <div class="note note"><span class="notetitle">注意：</span> すでに設定されているエクスプレストランスコーディングを編集または削除することはできません。 何らかの理由でこれを削除する必要がある場合は、Ooyalaサポートに連絡してください。
+      </div>
+
+      <div class="p">現在、ジョブを高速処理キューに投入する方法は3つあります。<ul class="ul">
+        <li class="li">間に <a class="xref" href="../../../../../../../../ja/video-platform/tasks/ingestion_ftp_xml.html" target="_blank">マニフェストベースのコンテンツの取り込み</a>高速処理を示すために、次の新しいメタデータタグを追加します。
+            <pre class="pre codeblock">&lt;ooyala：metadata name = &quot;express_asset&quot;&gt; true &lt;/ ooyala：metadata&gt;</pre>
+</li>
+
+        <li class="li">アセットがすでに標準の処理キューに取り込まれている場合は、APIを使用してアセットをエクスプレス処理キューに移動できます。
+        <ul class="ul">
+          <li class="li"><strong class="ph b">作成済みの資産に優先順位を設定する</strong>
+                <p class="p">埋め込みが作成された後、またはコンテンツの置換のためにエクスプレストランスコーディングを設定します。</p>
+<pre class="pre codeblock">PATCH / v2 / assets /：embed {&quot;transcoding_priority&quot;： &quot;express&quot;}</pre>
+</li>
+
+        </ul>
+</li>
+
+        <li class="li">バックスロットAPIを介してコンテンツをアップロードするときに、エクスプレス処理を指定することもできます。
+        <ul class="ul">
+          <li class="li"><strong class="ph b">新しいアセットを作成する</strong>
+            <p class="p">という名前の属性を追加します。 <samp class="ph codeph">&quot;transcoding_priority&quot;： &quot;急行&quot;</samp> 新しい資産を作成しながら。</p>
+
+            <pre class="pre codeblock">POST / v2 / assets / {&quot;name&quot;： &quot;2分間の長さの動画&quot;、 &quot;file_name&quot;： &quot;my_source_file.avi&quot;、 &quot;asset_type&quot;： &quot;video&quot;、 &quot;file_size&quot;：412895、 &quot;chunk_size&quot;：100000、 &quot;transcoding_priority&quot;： &quot;急行&quot;}</pre>
+</li>
+
+          <li class="li"><strong class="ph b">新しい属性を含める</strong>
+            <p class="p">  <samp class="ph codeph">GET / v2 / assets /：id</samp> エクスプレストランスコーディングが選択されている場合、APIには新しい属性が含まれます。</p>
+
+            <pre class="pre codeblock">GET / assets /：id {&quot;transcoding_priority&quot;： &quot;express&quot;}
+            </pre>
+</li>
+
+          <li class="li"><strong class="ph b">検証</strong>
+          <ul class="ul">
+            <li class="li">新しい属性は、アセットタイプ &quot;video&quot;、 &quot;audio&quot;、および &quot;ad&quot;に使用できます。 他のアセットタイプの場合、APIはHTTP 400メッセージで応答します。
+              <pre class="pre codeblock">属性transcoding_priorityは、アセットタイプvideo、audio、adに許可されています</pre>
+</li>
+
+            <li class="li">新しい属性の場合、値は &quot;express&quot;になります。 それ以外の値の場合、APIはHTTP 400メッセージで応答します。
+                    <pre class="pre codeblock">transcoding_priorityは &#39;express&#39;であるべきです</pre>
+</li>
+
+          </ul>
+</li>
+
+        </ul>
+</li>
+
+      </ul>
+</div>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">よくある質問</h2>
+      
+      <p class="p">Q：標準処理キューのデフォルトの同時実行制限は何ですか？</p>
+
+      <p class="p">A：標準処理キューのデフォルトの同時実行制限は10ジョブです。 ジョブは、処理プロファイルに関連したすべての出力（HLS、DASH、MP4など）を含みます。 </p>
+
+    <p class="p"/>
+
+      <p class="p">Q：高速処理キューのデフォルトの同時実行制限は何ですか？</p>
+
+      <p class="p">A：高速処理キューのデフォルトの同時実行制限は5ジョブです。 ジョブは、処理プロファイルに関連したすべての出力（HLS、DASH、MP4など）を含みます。</p>
+
+    <p class="p"/>
+
+      <p class="p">Q：標準/高速処理キューに対してより高い同時実行制限を設定できますか？</p>
+
+      <p class="p">A：契約に明記されていない限り、同時並行性の上限を高くするには追加費用がかかります。 詳細については、アカウントマネージャに連絡してください。</p>
+
+    </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/transcode.html">ウーヤラトランスコーディングサービス（OTS）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- delivered b

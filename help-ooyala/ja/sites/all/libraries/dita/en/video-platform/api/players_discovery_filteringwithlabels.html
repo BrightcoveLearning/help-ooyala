@@ -1,0 +1,53 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Filtering with Labels"/>
+<meta name="DC.Relation" scheme="URI" content="../api/players_discovery_examples.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="players_discovery_filteringwithlabels"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>ラベルを使ったフィルタリング</title>
+</head>
+<body id="players_discovery_filteringwithlabels">
+
+
+  <h1 class="title topictitle1">ラベルを使ったフィルタリング</h1>
+
+  <div class="body refbody">
+    <div class="section refsyn">
+      <p class="p">次の要求と応答の例は、プロファイルの推奨事項に関連付けられているラベルを変更する方法を示しています。 次の例では、 <samp class="ph codeph">PATCH</samp> メソッド <samp class="ph codeph">from_labels</samp> ラベルセットのIDを使用して、そのラベルに基づいて推奨事項を提供します。 </p>
+
+      <div class="note note"><span class="notetitle">注意：</span> ラベルは、サブアカウントからマスターアカウントのプレイヤーに割り当てることができます。</div>
+
+      <div class="note note"><span class="notetitle">注意：</span> すべてのラベルIDのリストを取得するには、次の要求を使用します。</div>
+
+      <pre class="pre codeblock">[GET] / v2 / labels</pre>
+
+      <p class="gt-block p"><strong class="ph b">要求：</strong></p>
+
+      <pre class="pre codeblock">[PATCH] / v2 / players / {player_id} / discovery / profile {&quot;discovery_scope&quot;：{&quot;from_labels&quot;：[&quot;a77e7871246c4d20b923b4559822d5be&quot;]}}}}</pre>
+
+      <p class="gt-block p"><strong class="ph b">応答：</strong></p>
+
+      <pre class="pre codeblock">{&quot;id&quot;： &quot;se5c&quot;、 &quot;名前&quot;： &quot;ForProfiles&quot;、 &quot;ウォーターマーク&quot;：{&quot;アルファ&quot;： &quot;1.0&quot;、 &quot;image_url&quot;：null、 &quot;scaling_percentage&quot;：null、 &quot;click_url&quot;：null、 &quot;位置&quot;：&quot;右下 &quot;、&quot; scaling_option &quot;：&quot; no_scale &quot;...}、&quot; provider_homepage_url &quot;：&quot; &quot;、&quot; default_closed_caption_language &quot;：&quot; &quot;、&quot; related_videos &quot;：{&quot; source &quot;：&quot; discovery &quot;、&quot; sort &quot; ： &quot;upload_time&quot;、 &quot;order&quot;： &quot;desc&quot;、 &quot;click_behavior&quot;： &quot;new_page&quot;、 &quot;labels&quot;： &quot;a77e7871246c4d20b923b4559822d5be&quot;}、 &quot;provider_name&quot;： &quot;&quot;、 &quot;false&quot;： &quot;false&quot; }</pre>
+
+    </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/players_discovery_examples.html" title="以下の要求および応答の例は、Discovery Profiles APIの使用方法を示しています。">ディスカバリプロファイルAPIの例</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

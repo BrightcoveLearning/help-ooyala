@@ -1,0 +1,228 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="YOUBORA Analytics Plugin"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_analytics_youbora"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>YOUBORA Analyticsプラグイン</title>
+</head>
+<body id="pbv4_analytics_youbora">
+
+
+    <h1 class="title topictitle1">YOUBORA Analyticsプラグイン</h1>
+
+    <div class="body conbody">
+        <div class="section">プレーヤV4を使う <a class="xref" href="http://nicepeopleatwork.com/" target="_blank">ニースの人々の仕事</a> （NPAW）YOUBORAプラグイン（youbora.min.js）で、Ooyala Player V4のNPAW YOUBORAサービス品質（QoS）分析を追跡します。 YOUBORA統合に関する一般的な情報については、 
+            <a class="xref" href="qos_solution_npaw_youbora.html" title="Ooyalaは現在、NICE PEOPLE AT WORK（NPAW）YOUBORA Analyticsプラットフォームを搭載したサービス品質（QoS）ソリューションを提供しています。 これは、すべてのOoyalaのお客様にご利用いただけるアドオンサービスです。">NPAWのYOUBORAを搭載したOoyala QoSソリューション</a>.
+        
+        </div>
+ 
+        <div class="section"><h2 class="title sectiontitle">再生中の実行時の流れ</h2>再生中、再生イベントはYOUBORA Analyticsへのイベントに関する通知をトリガーします。 <div class="fig fignone">
+                <img class="image" src="http://help-ooyala.brightcove.com/../image/pbv4_analytics_youbora.png"/>
+            </div>
+</div>
+
+        <div class="section"><h2 class="title sectiontitle">対応プレイヤー</h2>
+            <p class="p">Player V4 YOUBORA Analyticsプラグインは、YOUBORA AnalyticsとOoyala HTML5 Webプレーヤーのバージョン4.6.9以上の統合をサポートします。</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">必須条件</h2>YOUBORAを搭載したOoyala QoS Solutionを有効にする前に、以下との顧客関係が必要です。 <a class="xref" href="http://nicepeopleatwork.com/" target="_blank">NPAW</a> YOUBORAのアカウントで。 </div>
+
+        <div class="section"><h2 class="title sectiontitle">要件</h2>
+  分析目的でビットレート情報を追跡する場合は、次のいずれかのビデオプラグインを使用する必要があります。
+   <ul class="ul">
+    <li class="li">DASHおよびHLS用のBitmovinプラグイン（<a class="xref" href="pbv4_resources.html#pbv4_resources__bitmovin_plugin">bit_wrapper.min.js</a>（SafariのHLS HTML5を除く）</li>
+
+    <li class="li">AkamaiパッケージHDS用のAkamai HDビデオプラグイン（<a class="xref" href="pbv4_resources.html#pbv4_resources__akamai_hd_plugin">akamaiHD_flash.min.js</a>)<div class="note note"><span class="notetitle">注意：</span>  プレーヤーV4用のAkamai Packaged HDS用Akamai HDビデオプラグインは推奨されておらず、無効にする予定です。 詳細と代替案については、
+     <a class="xref" href="../relnotes/2017-06-04.html">OVPリリースノート</a>.</div>
+</li>
+
+    <li class="li">HDS用OSMF Flashプラグイン（<a class="xref" href="pbv4_resources.html#pbv4_resources__flash_hds">osmf_flash.min.js</a>)<div class="note note"><span class="notetitle">注意：</span>  Player V4用HDS用OSMF Flash Videoプラグインは推奨されておらず、無効にする予定です。 詳細と代替案については、 <a class="xref" href="../relnotes/2017-06-04.html">OVPリリースノート</a>.  </div>
+</li>
+
+   </ul>
+ 
+   HLSとMP4メインビデオプラグイン（<a class="xref" href="pbv4_resources.html#pbv4_resources__hls_mp4">main_html5.min.js</a>）ビットレート情報は報告されません。
+   </div>
+
+        <div class="section" id="pbv4_analytics_youbora__load_url"><h2 class="title sectiontitle">ステップ1：YOUBORAプラグインをロードする</h2>プレーヤーにYOUBORAプラグインを追加するには、（プレーヤーファイルに加えて）次のいずれかのURLを使用してプラグインをロードします。 <ul class="ul">
+                <li class="li"><samp class="ph codeph">http://smartplugin.youbora.com/v5/javascript/ooyalav4/stable/sp.min.js</samp></li>
+
+                <li class="li"><samp class="ph codeph">https://smartplugin.youbora.com/v5/javascript/ooyalav4/stable/sp.min.js</samp></li>
+
+            </ul>
+ NPAWはPlayer V4用のYOUBORA Analyticsプラグインを維持しているので、最新バージョンをロードするためにこれらのリンクの1つを使用してください。 <div class="note note"><span class="notetitle">注意：</span> 他のPlayer V4プラグインとは異なり、このプラグインを自分でホストしようとすることはお勧めできません。</div>
+ これをロードする方法のいくつかの例はここにあります <samp class="ph codeph">&lt;HEAD&gt;</samp> あなたのWebページのセクション： 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                    
+                    
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" width="25%" id="d440203e138">ロード方法</th>
+
+                            <th class="entry" valign="top" width="75%" id="d440203e141">例</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d440203e138 ">ハードコードされたHTTP</td>
+
+                            <td class="entry" valign="top" width="75%" headers="d440203e141 ">
+                                <pre class="pre codeblock">&lt;script src = &quot;http://smartplugin.youbora.com/v6/js/adapters/ooyala/6.2.3/sp.min.js&quot;&gt; &lt;/script&gt;</pre>
+
+                            </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d440203e138 ">ハードコードされたHTTPS</td>
+
+                            <td class="entry" valign="top" width="75%" headers="d440203e141 ">
+                                <pre class="pre codeblock">&lt;script src = &quot;https://smartplugin.youbora.com/v6/js/adapters/ooyala/6.2.3/sp.min.js&quot;&gt; &lt;/script&gt;</pre>
+
+                            </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d440203e138 ">呼び出し元のページのプロトコル</td>
+
+                            <td class="entry" valign="top" width="75%" headers="d440203e141 ">
+                                <pre class="pre codeblock">&lt;script src = &quot;// smartplugin.youbora.com/v6/js/adapters/ooyala/6.2.3/sp.min.js&quot;&gt; &lt;/script&gt;</pre>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+</div>
+ 
+        <div class="section"><h2 class="title sectiontitle">ステップ2：ページレベルパラメータの指定</h2>他のPlayer V4プラグインと同様に、YOUBORAパラメータを指定する必要があります。
+                <span class="keyword parmname">playerparams</span> プレーヤーの作成中に渡される変数（を参照） <a class="xref" href="../api/pbv4_api_embedparams.html">プレーヤV4のページレベルパラメータ</a>):<pre class="pre codeblock">var playerParams = {&quot;youbora&quot;：{//アカウントコードは必須です &quot;accountCode&quot;： &quot;myCode&quot;、//その他のオプションYOUBORA params}} OO.ready（function（）{window.pp = OO.Player.create（ &#39;playerDiv） &#39;、&#39; myVideoEmbedCode &#39;、playerParams）;}</pre>
+
+            以下のパラメーターを指定できます。 を参照してください <a class="xref" href="http://developer.nicepeopleatwork.com/plugins/general/setting-youbora-options/" target="_blank"><span class="ph">ユブラ</span></a> 各パラメーターに関する追加情報については、製品資料を参照してください。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                    
+                    
+                    
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" width="12.5%" id="d440203e220">パラメーター</th>
+
+                            <th class="entry" valign="top" width="12.5%" id="d440203e223">データ型</th>
+
+                            <th class="entry" valign="top" width="75%" id="d440203e226">説明</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top" width="12.5%" headers="d440203e220 "><samp class="ph codeph">口座番号</samp></td>
+
+                            <td class="entry" valign="top" width="12.5%" headers="d440203e223 ">{文字列}</td>
+
+                            <td class="entry" valign="top" width="75%" headers="d440203e226 ">必須。 NicePeopleAtWorkによって提供されています。 データの送信先の顧客アカウントをYOUBORA Analyticsに指定します。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="12.5%" headers="d440203e220 "><samp class="ph codeph">ユーザ名</samp></td>
+
+                            <td class="entry" valign="top" width="12.5%" headers="d440203e223 ">{文字列}</td>
+
+                            <td class="entry" valign="top" width="75%" headers="d440203e226 ">システムに関連付けられているユーザーアカウント。 YOUBORA Analytics内でユーザーを識別するために使用されます。 詳しくは、 <a class="xref" href="http://developer.nicepeopleatwork.com/plugins/general/setting-youbora-options-view-configuration/" target="_blank"><span class="ph">ユブラ</span></a> 製品ドキュメント</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="12.5%" headers="d440203e220 "><samp class="ph codeph">content.transactionCode</samp></td>
+
+                            <td class="entry" valign="top" width="12.5%" headers="d440203e223 ">{文字列}</td>
+
+                            <td class="entry" valign="top" width="75%" headers="d440203e226 ">YOUBORA Analyticsにトランザクションコードを指定します。 これは、YOUBORA Analyticsプラットフォームで収集されたデータをソートするときにユーザーをフィルタリングするために使用できる汎用文字列です。 通常、NPAWは、顧客がそのコンテンツ管理システム（CMS）または有料取引と相関できるパラメーターを使用することをお勧めします。 例：purchaseCode、sessionCodeなど。 詳しくは、 <a class="xref" href="http://developer.nicepeopleatwork.com/plugins/general/setting-youbora-options-view-configuration/" target="_blank"><span class="ph">ユブラ</span></a> 製品ドキュメント</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="12.5%" headers="d440203e220 "><samp class="ph codeph">parse.HLS</samp></td>
+
+                            <td class="entry" valign="top" width="12.5%" headers="d440203e223 ">{ブール}</td>
+
+                            <td class="entry" valign="top" width="75%" headers="d440203e226 ">YOUBORAの解析HLSアルゴリズムを設定します。 以下のいずれかの値 <ul class="ul">
+                                    <li class="li"><samp class="ph codeph">parse.HLS = true</samp> 解析HLSアルゴリズムを有効にします。</li>
+
+                                    <li class="li"><samp class="ph codeph">parse.HLS = false</samp> 解析HLSアルゴリズムを無効にします。</li>
+
+                                </ul>
+ 詳細については、 <a class="xref" href="http://developer.nicepeopleatwork.com/plugins/general/parse-hls/" target="_blank"><span class="ph">ユブラ</span></a> 製品ドキュメント</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="12.5%" headers="d440203e220 "><samp class="ph codeph">parse.cdnNode</samp></td>
+
+                            <td class="entry" valign="top" width="12.5%" headers="d440203e223 ">{ブール}</td>
+
+                            <td class="entry" valign="top" width="75%" headers="d440203e226 ">YOUBORAのCDNノード検出を設定します。 以下のいずれかの値 <ul class="ul">
+                                    <li class="li"><samp class="ph codeph">parse.cdnNode = true</samp> CDNノード検出を有効にします。</li>
+
+                                    <li class="li"><samp class="ph codeph">parse.cdnNode = false</samp> CDNノード検出を無効にします</li>
+
+                                </ul>
+ 詳細については、 <a class="xref" href="http://developer.nicepeopleatwork.com/plugins/general/cdn-node-detection/'" target="_blank"><span class="ph">ユブラ</span></a> 製品ドキュメント</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="12.5%" headers="d440203e220 "><samp class="ph codeph">余計</samp></td>
+
+                            <td class="entry" valign="top" width="12.5%" headers="d440203e223 ">{オブジェクト}</td>
+
+                            <td class="entry" valign="top" width="75%" headers="d440203e226 ">YOUBORA Analyticsで収集されたデータをフィルタリングするのに役立つ、プラグインに渡す追加のカスタムパラメータ。 キー名パターンparamNを使用して、最大10個のパラメーターを指定できます。ここで、Nは数字1  -  20です。 値は、あなたがYOUBORAに送信したいデータを表します。 YOUBORAのサイトでは、各キーの意味をマッピングします（たとえば、extraparam1は1つのことを意味し、extraparam2は他のものを意味する、など）。
+                                <pre class="pre codeblock">extraparam.1:'param1',
+extraparam.2:'param2',
+extraparam.3:'param3',
+//Up to 20</pre>
+
+                                詳細については、 <a class="xref" href="http://developer.nicepeopleatwork.com/plugins/general/setting-youbora-options-extra-parameters/" target="_blank"><span class="ph">ユブラ</span></a> 製品ドキュメント</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+</div>
+
+        <div class="section"><h2 class="title sectiontitle">例</h2>
+            <pre class="pre codeblock">&lt;html&gt; &lt;head&gt; &lt;title&gt; NPAW YOUBORAの例&lt;/title&gt; &lt;！ -  V4 JSコアが必要です。 スキン、ディスカバリー、広告などのプラグインは個別にロードする必要があります - &gt; &lt;script src = &quot;url_where_hosted / core.min.js&quot;&gt; &lt;/script&gt; &lt;script src = &quot;url_where_hosted / html5-skin.min.js&quot;&gt; &lt;/script&gt; &lt;link rel = &quot;スタイルシート&quot; href = &quot;url_where_hosted / html5-skin.min.css&quot; /&gt; &lt;！ - ビデオプラグインが必要です。 この例は、Bitmovinプラグイン - &gt; &lt;script src = &quot;url_where_hosted / bit_wrapper.min.js&quot;&gt; &lt;/script&gt;を示しています。
+  <strong class="ph b">&lt;！ -  YOUBORAプラグイン - &gt;</strong>
+  <strong class="ph b">&lt;script src = &quot;// smartplugin.youbora.com/v6/js/adapters/ooyala/6.2.0/sp.min.js&quot;&gt; &lt;/script&gt;</strong>
+&lt;/head&gt; &lt;body&gt; &lt;div id = &quot;コンテナ&quot; style = &quot;幅：640px;高さ：360px;&quot;&gt; &lt;/div&gt; &lt;script&gt; var playerParam = {デバッグ：true、 &quot;pcode&quot;： &quot;YOUR_PCODE&quot;、 &quot;playerBrandingId&quot;： &quot;YOUR_PLAYER_ID&quot;、 &quot;skin&quot;：{// Configにはプレーヤースキンの設定が含まれています。 必要に応じてローカル設定に変更してください。 &quot;config&quot;： &quot;//player.ooyala.com/static/v4/candidate/latest/skin-plugin/skin.json&quot;、}、
+<strong class="ph b">                &quot;youbora&quot; &quot;accountCode&quot;： &quot;YOUR_ACCOUNT_CODE&quot;、 &quot;ユーザー名&quot;： &quot;user1&quot;、 &quot;content.transactionCode&quot;： &quot;payingCustomer&quot;、 &quot;parse.HLS&quot; false、 &quot;parse.cdnNode&quot; false、 &quot;extraparam.1&quot;： &quot; myData1 &quot;、&quot; extraparam.2 &quot;：&quot; myData2 &quot;
+ </strong>           ;}}; OO.ready（function（）{window.pp = OO.Player.create（ &quot;container&quot;、 &quot;YOUR_ASSET_ID&quot;、playerParam）;}）; &lt;/script&gt; &lt;/body&gt; &lt;/html&gt;</pre>
+
+        </div>
+
+    </div>
+
+    
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></di

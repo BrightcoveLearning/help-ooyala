@@ -1,0 +1,219 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Customizing the Player V4 Appearance"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_about.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_precedence.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/pbv4_skin_schema_docs.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_components_skip.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_css.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/pbv4_customize_controls_graphics.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/android_ios_web_v4_localization.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_react.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_closed_caption_settings.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_vr360.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_custom_watermark.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/android_v4_gettingthesdk.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_react.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/pbv4_skin_schema_docs.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/android_ios_web_v4_localization.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ios_v4_gettingthesdk.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_react.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/pbv4_skin_schema_docs.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/android_ios_web_v4_localization.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_customize"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>プレーヤV4外観のカスタマイズ</title>
+</head>
+<body id="pbv4_customize">
+
+
+    <h1 class="title topictitle1">カスタマイズ <span class="ph">プレイヤーV4</span>
+        外観</h1>
+
+
+    <div class="body conbody">
+        <div class="section" id="pbv4_customize__customizable_components"><h2 class="title sectiontitle">カスタマイズ可能なコンポーネント</h2> 
+            
+        <p class="p">次のWeb、モバイルWeb、およびモバイルSDKプレーヤーのUXコンポーネントはカスタマイズ可能です。</p>
+
+            <div class="fig fignone"><img class="image" src="http://help-ooyala.brightcove.com/../image/pbv4_customizable_components.jpeg" height="228" width="344"/></div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">カスタマイズする方法</h2>
+            
+        <p class="p">次の方法でプレーヤーのUXをカスタマイズできます。</p>
+
+       <ul class="ul">
+           <li class="li"><strong class="ph b">バックスロット</strong>。 Backlot GUIを使用してPlayer V4を構成します。 詳しくは、 <a class="xref" href="../tasks/player_configure.html">バックスロットでのプレイヤーの設定</a>.</li>
+
+           <li class="li"><strong class="ph b">JSON構成ファイル（HTML5、iOS SDK、およびAndroid SDK）を変更します。</strong>修正する
+                        <a class="xref" href="https://github.com/ooyala/skin-config/blob/master/skin.json" target="_blank"><samp class="ph codeph">skin.json</samp></a>
+                    プレーヤコントロール、状態画面、ブランドなどの基本的なUXのカスタマイズを行うための設定ファイル。
+                        <samp class="ph codeph">skin.json</samp> プレーヤーをロードするときに参照してください。 HTML5、Android SDK、およびiOS SDKの各プレーヤーで同じskin.jsonファイルを使用できます。 このファイルのデフォルトの場所については、 <a class="xref" href="pbv4_resources.html#pbv4_resources">OoyalaがホストするプレイヤーV4リソース</a>。 に行く <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_v4_skin_config/skin-schema.html" target="_blank">スキンスキーマ</a> をクリックし
+                        <span class="ph uicontrol">プロパティ</span> のJSONスキーマリファレンスドキュメントを表示する <samp class="ph codeph">skin.json</samp>。 見る <a class="xref" href="../reference/pbv4_skin_schema_docs.html">skin.jsonを使用したPlayer V4スキンのカスタマイズ</a> カスタマイズしたい各プレーヤコンポーネントのAPIドキュメントのどこを参照するかの詳細については。 <p class="p">あなたがを通してプレーヤーをカスタマイズしているならば
+                            <samp class="ph codeph">skin.json</samp> 設定ファイル、あなたが理解する必要があるのはHTMLとCSSだけです。</p>
+</li>
+
+           <li class="li"><strong class="ph b">CSS設定を変更する（HTML5）</strong>：CSSを変更して高度なインターフェースのカスタマイズをする <samp class="ph codeph">html5-skin.min.css</samp> ファイル）。 詳しくは、 <a class="xref" href="pbv4_css.html">CSSを使用したプレーヤV4外観のカスタマイズ</a>.</li>
+
+           <li class="li"><strong class="ph b">ページに埋め込みパラメータを使用する（HTML5のみ）</strong>：ページレベルで埋め込みパラメータを使用してプレーヤーを作成するときにスキン設定をオーバーライドします。 たとえば、HTML5プレーヤーの開始画面で説明テキストを非表示にして再生ボタンを青にレンダリングする場合は、ページに次のパラメータを追加します。
+                            <pre class="pre codeblock">var playerParam = {&quot;skin&quot;：{&quot;config&quot;： &quot;//<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/skin.json &quot;、&quot;インライン &quot;：{&quot; startScreen &quot;：{&quot; showDescription &quot;：false、&quot; playIconStyle &quot;：{&quot;色 &quot;：&quot;青 &quot;}}}};                   </pre>
+<div class="note note"><span class="notetitle">注意：</span> <span class="ph">どこにいても <samp class="ph codeph"><span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span></samp> サンプルコードでは、（コード内の）これを、リソースがホストされている場所を指すURLに置き換えます。 Ooyalaがホストするパスのリストについては、を参照してください。 <a class="xref" href="pbv4_resources.html">OoyalaがホストするプレイヤーV4リソース</a>。 URLは、同じホスト上の場所（内部リンク）または別のホスト上（前に次の文字列が付いた場所）を指すことができます。 <samp class="ph codeph">http://</samp>  or  <samp class="ph codeph">https://</samp>） 自分でリソースをホストしている場合（ <a class="xref" href="pbv4_host.html">ホスティングプレイヤーV4リソース</a>）、ファイル内のパスの依存関係を必ず確認してください。</span></div>
+
+                    <p class="gt-block p">の「インラインプレーヤースキンの変更を含む単純なプレーヤーを作成する」のセクションを参照してください。 <a class="xref" href="../reference/pbv4_web_examples.html">Player V4 Webページ埋め込みの例</a> インラインカスタマイズの詳細については、を参照してください。</p>
+
+                </li>
+
+           
+           <li class="li"><strong class="ph b">ソースコードをフォークして修正する。 （HTML5、iOS SDK、およびAndroid SDK）</strong>：カスタムフォントや画像の追加などの高度なカスタマイズを行うために、ソースコードを分岐して修正します。 <div class="p">
+                        <div class="note warning"><span class="warningtitle">警告：</span> Ooyalaはskin.jsonファイルに対する定義済みの有効な変更をサポートします。 skin-configリポジトリをフォークして無効な変更を行った場合、またはios-skinまたはhtml5-skinリポジトリをフォークして変更を加えた場合は、これらの変更に対する技術サポートは提供されません。 </div>
+
+                    </div>
+
+                    <ul class="ul">
+                        <li class="li">HTML5の場合、JSファイルを変更することで高度なカスタマイズがすぐに利用できます。 セクションに従ってください <a class="xref" href="https://github.com/ooyala/html5-skin" target="_blank">開発者セットアップ</a> GitHubのREADMEファイルを使ってローカルリポジトリを作成し、ビルドスクリプトを実行します。 内蔵ファイルは <samp class="ph codeph">ビルド</samp> フォルダ。 あなたはあなたのプレーヤーで走らせるためにあなたの内蔵スキンJavaScriptをホストすることを歓迎します。</li>
+
+                        <li class="li">iOSの場合は、次のセクションに従ってください。 <a class="xref" href="https://github.com/ooyala/ios-skin/blob/stable/dev_docs/README-ios.md" target="_blank">サンプルアプリケーションに複雑な変更を加える方法</a> GitHubのREADMEファイル </li>
+
+                        <li class="li">Androidの場合は、セクションに従ってください <a class="xref" href="https://github.com/ooyala/native-skin/blob/stable/dev_docs/README-android.md" target="_blank">サンプルアプリケーションに複雑な変更を加える方法</a> GitHubのREADMEファイル</li>
+
+                    </ul>
+
+                    <p class="gt-block p">スキンコードをわざわざ複雑にカスタマイズしている場合は、HTML、CSS、JavaScript、およびOoyalaの使い方を理解する必要があります。
+                            <a class="xref" href="http://facebook.github.io/react/" target="_blank">ネイティブに反応する</a>。 Webプレイヤーには標準のReact Native実装を使います。 iOSとAndroidのプレーヤーのために、我々はカスタムOoyala Reactコンポーネントを実装しました。 </p>
+<p class="gt-block p">OoyalaとReactの詳細については、 <a class="xref" href="pbv4_react.html">Player V4スキンとReact Application Framework</a>.</p>
+</li>
+
+       </ul>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">優先順位</h2>同じ設定（たとえば、プレーヤーの背景色）が異なるメカニズムによって制御されている場合は、再生中に1つのメカニズムが優先され、視聴者に表示されます。 見る <a class="xref" href="pbv4_precedence.html">プレーヤーのV4設定の優先順位</a> 詳細については。 </div>
+
+        <div class="section"><h2 class="title sectiontitle">エンドユーザーのパーソナライズ</h2>
+            
+            <div class="p">エンドユーザーは、次の機能の設定を選択してプレーヤーをパーソナライズできます。<ul class="ul">
+                    <li class="li">クローズドキャプションをオンまたはオフに設定します。</li>
+
+                    <li class="li">自動再生をオンまたはオフに設定します。</li>
+
+                    <li class="li">ビットレートを選択してください。</li>
+
+                </ul>
+</div>
+
+            <p class="p">これらの設定は、ユーザーが初めて選択した後もユーザーには残ります。 ユーザー情報は、Cookieまたはデバイスストレージ（あるいはその両方）を介して追跡されます。 </p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">ベストプラクティス</h2>
+            
+            <p class="gt-block p">ブランドのエンドユーザーエクスペリエンスを最適化するために、最低限、デフォルトプレーヤーの以下のコンポーネントを更新することをお勧めします。 プレーヤーをカスタマイズするときに従うべきベストプラクティスについては、をご覧ください。 <a class="xref" href="http://community.ooyala.com/t5/Ooyala-Player-V3-Knowledge-Base/Best-Practices-for-Customizing-Player-V4/ta-p/8440" target="_blank">http://community.ooyala.com/t5/Ooyala-Player-V3-Knowledge-Base/Best-Practices-for-Customizing-Player-V4/ta-p/8440</a>.</p>
+
+            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" id="d455707e241">プレーヤコンポーネント</th>
+
+                            <th class="entry" valign="top" id="d455707e244">デフォルト値</th>
+
+                            <th class="entry" valign="top" id="d455707e247">カスタマイズ方法</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                  
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d455707e241 d455707e244 d455707e247 ">ブランドカラー</td>
+
+                            <td class="entry" valign="top" headers="d455707e241 d455707e244 d455707e247 ">白
+                            <div class="fig fignone"><img class="image" src="http://help-ooyala.brightcove.com/../image/player_v4_default_icon.png"/></div>
+
+                            </td>
+
+                            <td class="entry" valign="top" headers="d455707e241 d455707e244 d455707e247 ">
+                                <p class="p">skin.jsonのtitleFont&gt; color要素で色の値を変更することで、さまざまなプレーヤ画面のタイトルフォントの色を変更できます。</p>
+
+                                <p class="p">skin.jsonのcontrolBar&gt; iconStyle要素の色の値を更新することで、コントロールバーのアイコンの色を変更できます。</p>
+<p class="p">startScreenの再生ボタンの色を変更するには、skin.jsonのstartScreen&gt; playIconStyle要素の色の値を更新します。</p>
+
+                            </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d455707e241 d455707e244 d455707e247 ">ロゴ</td>
+
+                            <td class="entry" valign="top" headers="d455707e241 d455707e244 d455707e247 ">Ooyalaのロゴ
+                                <div class="fig fignone"><img class="image" src="http://help-ooyala.brightcove.com/../image/player_v4_default_logo.png" height="47" width="161"/></div>
+
+                            
+                            </td>
+
+                            <td class="entry" valign="top" headers="d455707e241 d455707e244 d455707e247 ">画像リソースはhtml5-skin / assets / imagesにあります。 <p class="p">skin.jsonのwatermark要素で指定されているimageResourceパスを更新することで、プレーヤ上でどのイメージを透かし画像として使用するかを指定できます。 </p>
+</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+                        
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">カスタマイズ方法</h2></div>
+
+    </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../concepts/pbv4_precedence.html">プレーヤーのV4設定の優先順位</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../reference/pbv4_skin_schema_docs.html">skin.jsonを使用したPlayer V4スキンのカスタマイズ</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/pbv4_components_skip.html">可変速およびスキップ制御</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/pbv4_css.html">CSSを使用したプレーヤV4外観のカスタマイズ</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../tasks/pbv4_customize_controls_graphics.html">グラフィックスを使用したプレーヤV4コントロールのカスタマイズ</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/android_ios_web_v4_localization.html">Ooyalaプレーヤーの言語設定</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/pbv4_react.html">Player V4スキンとReact Application Framework</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/pbv4_closed_caption_settings.html">Player V4のクローズドキャプション</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/pbv4_vr360.html">VR 360プレーヤーコントロールのカスタマイズ</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/pbv4_custom_watermark.html">プレーヤV4にカスタムブランディングオーバーレイを追加する</a></strong><br/>
+</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/pbv4_about.html">プレイヤーV4</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/android_v4_gettingthesdk.html">Android用プレイヤースキン</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/ios_v4_gettingthesdk.html">iOS用プレイヤースキン</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/3661864

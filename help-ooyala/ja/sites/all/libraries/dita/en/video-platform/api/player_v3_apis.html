@@ -1,0 +1,347 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Player V3 JavaScript API Functions"/>
+<meta name="abstract" content="Player V3 JavaScript functions can be used to customize the player behavior and appearance."/>
+<meta name="description" content="プレーヤV3 JavaScript関数を使用してプレーヤの動作と外観をカスタマイズできます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_api_player.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/player_v3_dev_intro.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/player_v3_dev_adset_embed.html#player_v3_dev_assignadset"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/dfxp_format.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/closed_caption_language.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_v3_apis"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>プレーヤV3 JavaScript API関数</title>
+</head>
+<body id="player_v3_apis">
+
+
+ <h1 class="title topictitle1">プレーヤV3 JavaScript API関数</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">プレーヤV3 JavaScript関数を使用してプレーヤの動作と外観をカスタマイズできます。</p>
+
+    <div class="section"><div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V3は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V3はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V3を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="../concepts/pbv4_migration_v3.html">Player V3からの移行</a> そして <a class="xref" href="../concepts/pbv4_migration_faq.html">プレイヤー移行に関するFAQ</a>).</div>
+
+   <p class="gt-block p"> すべてのOoyala APIは、 <a class="xref" href="http://docs.brightcove.com/apidocs-ooyala/" target="_blank">Ooyala APIドキュメント</a>.</p>
+
+     <p class="gt-block p"> Player JavaScript APIについては、次のURLで詳しく説明されています。 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_v4_js/index.html" target="_blank">プレーヤJavaScript APIリファレンス</a>.</p>
+
+   <div class="p">次の表は、PlayerのJavaScript API関数について簡単に説明しています。また、に含まれる完全な説明へのリンクも含まれています。 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_v4_js/index.html" target="_blank">プレーヤJavaScript APIリファレンス</a>.
+    
+
+    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="player_v3_apis__table_xvs_yy5_4s" class="table" frame="border" border="1" rules="all">
+                  
+                  
+                  <thead class="thead" align="left">
+                     <tr class="row">
+                        <th class="entry" valign="top" width="35.3356890459364%" id="d93320e61">関数</th>
+
+                        <th class="entry" valign="top" width="64.66431095406361%" id="d93320e64">説明</th>
+
+                     </tr>
+
+                  </thead>
+
+                  <tbody class="tbody">
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#create" target="_blank">作ります</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">プレーヤオブジェクトを作成し、それを指定された要素に添付します。
+                        </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#destroy" target="_blank">破壊する</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">アイテムを破棄します。 </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#getBitrateInfo" target="_blank">getBitrateInfo</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">ビットレート、ビットレート品質、ターゲットビットレート、ターゲットビットレート品質など、すべてのビットレート情報を取得します。</td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#getBitrateQualitiesAvailable" target="_blank">getBitrateQualitiesAvailable</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">利用可能なビットレート品質のエンコーディングを取得します。</td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#getBitratesAvailable" target="_blank">getBitratesAvailable</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">ビットレートの合計数（kbps）を持つ配列を取得するか、エンコード数が利用できない場合は空の配列を取得します。</td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#getBufferLength" target="_blank">getBufferLength</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">バッファの現在のサイズを秒単位で取得します。</td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#getCurrentItem" target="_blank">getCurrentItem</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">(<em class="ph i">非推奨の</em>現在の動画を記述するオブジェクトを取得します。
+                        </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#getCurrentItemClosedCaptionsLanguages" target="_blank">getCurrentItemClosedCaptionsLanguages</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">現在再生中のアイテムでサポートされているクローズドキャプションの言語のリストを取得します。 </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#getCurrentItemDescription" target="_blank">getCurrentItemDescription</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">(<em class="ph i">非推奨の</em>現在の動画の説明を取得します。</td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#getCurrentItemEmbedCode" target="_blank">getCurrentItemEmbedCode</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">現在のプレーヤーの埋め込みコードを取得します。</td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#getCurrentItemTitle" target="_blank">getCurrentItemTitle</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">(<em class="ph i">非推奨の</em>現在の動画のタイトルを取得します。
+                        </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#getErrorCode" target="_blank">getErrorCode</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">現在のエラーコードが存在する場合はそれを取得します。 </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#getErrorText" target="_blank">getErrorText</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">(<em class="ph i">非推奨の</em>現在のエラーコードに対応する文字列を取得します。 </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#getFullscreen" target="_blank">getFullscreen</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">(<em class="ph i">非推奨の</em>プレーヤーがフルスクリーンモードになっているかどうかを確認します。 </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#getPlayheadTime" target="_blank">getPlayheadTime</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">再生ヘッドの位置を秒単位で取得します。 </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#getState" target="_blank">getState</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">現在のプレイヤーの状態を取得します。 </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#getTargetBitrate" target="_blank">getTargetBitrate</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">ターゲットビットレートが以前に設定されている場合は、kpbsで取得します。</td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#getTargetBitrateQuality" target="_blank">getTargetBitrateQuality</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">目標ビットレート品質を取得します。</td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#getTotalTime" target="_blank">getTotalTime</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">(<em class="ph i">非推奨の</em>）動画の合計時間をミリ秒単位で取得します。</td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#getVolume" target="_blank">getVolume</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">根本的なデバイスの制限に従って、ベストエフォートベースで現在のボリュームを取得します。 </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#isolate" target="_blank">隔離する</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">指定されたプレーヤーをデバッグ用に切り離します。</td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#pause" target="_blank">一時停止</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">現在のビデオ再生を一時停止します。</td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#pauseMovie" target="_blank">pauseMovie</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">(<em class="ph i">非推奨の</em>）現在のビデオ再生を一時停止します。</td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#play" target="_blank">遊びます</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">現在の動画と広告を含むアセット全体を再生します。動画の準備ができていない場合は再生用にキューに入れます。</td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#playMovie" target="_blank">映画を再生</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">(<em class="ph i">非推奨の</em>）現在の動画と広告を含むアセット全体を再生するか、動画の準備ができていない場合は再生用にキューに入れます。</td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#seek" target="_blank">求める</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">最初から指定された秒数までシークします。 </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#setClosedCaptionsLanguage" target="_blank">setClosedCaptionsLanguage</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">プレーヤに表示されるクローズドキャプション（CC）の言語を設定します。</td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#setCurrentItemEmbedCode" target="_blank">setCurrentItemEmbedCode</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">(<em class="ph i">非推奨の</em>現在のプレーヤーの埋め込みコードを設定します。
+                        </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#setEmbedCode" target="_blank">setEmbedCode</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">現在のプレーヤーの埋め込みコードを設定します。 </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#setPlayheadTime" target="_blank">setPlayheadTime</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">(<em class="ph i">非推奨の</em>）最初から指定された秒数までシークします。 </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#setTargetBitrate" target="_blank">setTargetBitrate</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">ターゲットビットレートをkbps単位で設定します。 </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#setTargetBitrateQuality" target="_blank">setTargetBitrateQuality</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">目標ビットレート品質を設定します。</td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#setVolume" target="_blank">setVolume</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">根本的なデバイスの制限に従ってベストエフォート方式で現在の音量を設定します。 </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#shouldDisplayCuePointMarkers" target="_blank">shouldDisplayCuePointMarkers</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">(<em class="ph i">非推奨の</em>）プレーヤーの再生中にこのブール関数を呼び出すと、広告の再生中にスクラバーバーにキューポイントマーカーを表示または非表示にすることができます。</td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#subscribe" target="_blank">申し込む</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">指定されたイベントを購読します。 </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#toggleInfoPanel" target="_blank">toggleInfoPanel</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">(<em class="ph i">非推奨の</em>情報画面の表示/非表示を切り替えます。
+                        </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="35.3356890459364%" headers="d93320e61 "><samp class="ph codeph"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#toggleSharePanel" target="_blank">toggleSharePanel</a></samp></td>
+
+                        <td class="entry" valign="top" width="64.66431095406361%" headers="d93320e64 ">(<em class="ph i">非推奨の</em>プレーヤーの共有画面の表示/非表示を切り替えます。 </td>
+
+                     </tr>
+
+                  </tbody>
+
+               </table>
+</div>
+</div>
+
+  </div>
+
+ </div>
+
+ <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_api_player.html" title="Player V3 APIは、Player v3機能とメッセージバスイベント処理も提供するUI要素をカスタマイズするためのJavaScript APIです。">プレーヤV3 JavaScript APIリファレンス（非推奨）</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="../concepts/player_v3_dev_intro.html" title="Ooyalaプレーヤーはカスタマイズ可能で機能豊富なプレーヤーを提供して、業界を超えてそして複数のデバイスを超えて最高のビデオ体験を提供します。">HTML5プレーヤープログラミング</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong><br/>
+<div><a class="link" href="../reference/player_v3_dev_adset_embed.html#player_v3_dev_assignadset" title="setEmbedCode関数を使用して広告セットを割り当てることもできます。">プレーヤV3でsetEmbedCodeを使用して広告セットを割り当てる（廃止予定）</a></div>
+<div><a class="link" href="../reference/dfxp_format.html" title="Backlotにアップロードするクローズドキャプションファイルは、サポートされている形式でなければなりません。 DFXP形式（現在はTTML）は、広く使用されている形式です。">サポートされているクローズドキャプションDFXP（現在はTTML）形式</a></div>
+<div><a class="link" href="../reference/closed_caption_language.html" title="クローズドキャプションファイルをBacklotにアップロードする前に、サポートされている言語とファイル形式を使用していることを確認してください。">サポートされているクローズドキャプション</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

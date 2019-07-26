@@ -1,0 +1,148 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Summary of Ooyala Discovery REST API Requests"/>
+<meta name="abstract" content="Use the Discovery REST API to configure various aspects of the service, obtain recommendations, and obtain other user-related data."/>
+<meta name="description" content="Discovery REST APIを使用して、サービスのさまざまな側面を構成し、推奨事項を入手し、その他のユーザー関連のデータを入手します。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/cd_api_overview.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="content_discovery_summary_of_routes"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Ooyala Discovery REST APIリクエストの概要</title>
+</head>
+<body id="content_discovery_summary_of_routes">
+
+
+ <h1 class="title topictitle1">Ooyala Discovery REST APIリクエストの概要</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">Discovery REST APIを使用して、サービスのさまざまな側面を構成し、推奨事項を入手し、その他のユーザー関連のデータを入手します。 </p>
+
+  <p class="p">以下の表は、要求を要約し、それらを読み取り/書き込み機能別に分類したものです。 わかりやすくするために、ルートの正確な構文は表示されていません。リンクをクリックして詳細な説明を参照してください。 </p>
+
+  <div class="p">
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="content_discovery_summary_of_routes__table_kyf_2yz_tl" class="table" frame="border" border="1" rules="all">
+     
+     
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="3.3738191632928474%" id="d279481e35"> </th>
+
+       <th class="entry" valign="top" width="50.607287449392715%" id="d279481e37">登録リクエスト</th>
+
+       <th class="entry" valign="top" width="30.668016194331983%" id="d279481e40">目的</th>
+
+       <th class="entry" valign="top" width="15.350877192982454%" id="d279481e43">読み書き</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" align="center" valign="top" width="3.3738191632928474%" headers="d279481e35 ">1</td>
+
+       <td class="entry" valign="top" width="50.607287449392715%" headers="d279481e37 "><a class="xref" href="../api/content_discovery_trending.html" title="傾向付けにより、視聴者は、指定した期間中に人気のある、または大きな勢いを得たビデオを見つけることができます。"><samp class="ph codeph">/ v2 / discover / trending？discovery_profile = profile_id</samp></a></td>
+
+       <td class="entry" valign="top" width="30.668016194331983%" headers="d279481e40 ">最も人気のあるコンテンツを入手してください。</td>
+
+       <td class="entry" valign="top" width="15.350877192982454%" headers="d279481e43 ">詳細</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" align="center" valign="top" width="3.3738191632928474%" headers="d279481e35 ">2</td>
+
+       <td class="entry" valign="top" width="50.607287449392715%" headers="d279481e37 "><a class="xref" href="../api/content_discovery_trending.html" title="傾向付けにより、視聴者は、指定した期間中に人気のある、または大きな勢いを得たビデオを見つけることができます。"><samp class="ph codeph">/ v2 /発見/トレンド/運動量</samp></a></td>
+
+       <td class="entry" valign="top" width="30.668016194331983%" headers="d279481e40 ">最新のコンテンツ（最も勢いのある動画）を入手してください。</td>
+
+       <td class="entry" valign="top" width="15.350877192982454%" headers="d279481e43 ">詳細</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" align="center" valign="top" width="3.3738191632928474%" headers="d279481e35 ">3</td>
+
+       <td class="entry" valign="top" width="50.607287449392715%" headers="d279481e37 "><a class="xref" href="../api/cd_api_similar.html" title="Ooyala Discoveryの類似動画APIは、指定した動画に似た動画を返します。 たとえば、視聴者がスカイダイビングビデオを視聴している場合、Ooyala Discoveryアルゴリズムは他のスカイダイビングビデオまたはエクストリームスポーツビデオを返す可能性があります。"><samp class="ph codeph">/ v2 / discover / similar / assets</samp>,  <samp class="ph codeph">/ v2 / discover / similar / externalassets</samp>,  <samp class="ph codeph">/ v2 / discover / similar / live_assets</samp></a></td>
+
+       <td class="entry" valign="top" width="30.668016194331983%" headers="d279481e40 ">関連コンテンツを入手</td>
+
+       <td class="entry" valign="top" width="15.350877192982454%" headers="d279481e43 ">詳細</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" align="center" valign="top" width="3.3738191632928474%" headers="d279481e35 ">4</td>
+
+       <td class="entry" valign="top" width="50.607287449392715%" headers="d279481e37 "><a class="xref" href="../api/players_discovery_profile.html"><samp class="ph codeph">/ v2 / player /<var class="keyword varname">player_id</var>/ discovery / profile</samp></a></td>
+
+       <td class="entry" valign="top" width="30.668016194331983%" headers="d279481e40 ">推奨事項を取得するための構成プロファイルを作成します。</td>
+
+       <td class="entry" valign="top" width="15.350877192982454%" headers="d279481e43 ">書きます</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" align="center" valign="top" width="3.3738191632928474%" headers="d279481e35 ">5</td>
+
+       <td class="entry" valign="top" width="50.607287449392715%" headers="d279481e37 "><a class="xref" href="../api/content_discovery_feedback.html" title="推薦を調整するのを助けるために、ディスプレイと演劇を記録するようにしてください。"><samp class="ph codeph">/ v2 /発見/フィードバック/印象</samp>,
+          
+          <samp class="ph codeph">/ v2 /発見/フィードバック/再生</samp></a></td>
+
+       <td class="entry" valign="top" width="30.668016194331983%" headers="d279481e40 ">ビデオの表示を記録します。 ビデオの再生を録画します。</td>
+
+       <td class="entry" valign="top" width="15.350877192982454%" headers="d279481e43 ">書きます</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" align="center" valign="top" width="3.3738191632928474%" headers="d279481e35 ">6</td>
+
+       <td class="entry" valign="top" width="50.607287449392715%" headers="d279481e37 "><a class="xref" href="../tasks/cd_api_editorial_promo.html" title="一定期間宣伝したいコンテンツがある場合は、それをOoyala Discoveryの結果に挿入できます。"><samp class="ph codeph">/ v2 /ディスカバー/編集</samp></a></td>
+
+       <td class="entry" valign="top" width="30.668016194331983%" headers="d279481e40 ">プロモーション用のコンテンツのバンドルを作成します。</td>
+
+       <td class="entry" valign="top" width="15.350877192982454%" headers="d279481e43 ">書きます</td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+  </div>
+
+  <div class="p">読み取り要求（#1、＃2、および#3）は、Ooyala Discoveryの「主力」です。 これらはすべて、発見の機械学習アルゴリズムからの基本的な推奨事項のセットを返します。 この基本セットは、相互に排他的な2つの方法で作成できます。
+   <ul class="ul">
+    <li class="li">希望する動作に従って結果を設定する定義済みのディスカバリプロファイルを使用します（ <a class="xref" href="../api/players_discovery_profile.html">ディスカバリープロファイル</a>） これは推奨されるメカニズムであり、上記の要求#1に示されている使用法です。 ここに示されている要求の例は「人気のある」コンテンツ推奨のためのものですが、プロファイルは任意の読み取り要求で使用できます。</li>
+
+    <li class="li">APIリクエスト自体に &quot;編集上の&quot;クエリ文字列パラメータを使用する（「 <a class="xref" href="../concepts/cd_api_editorial.html" title="Ooyala Discoveryの推奨事項の結果を調整できるように、OoyalaはベースラインAPIにクエリ文字列パラメータを提供しています。">ディスカバリー編集用照会ストリングのパラメーター</a>).</li>
+    
+   </ul>
+   
+   書き込み要求（#4、＃5、および#6）は、1回限りの構成設定であることが多いため、使用頻度は少なくなります。 </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/cd_api_overview.html" title="これらのディスカバリーAPIを使用するには、ディスカバリー要求を出し、ユーザーのアクション情報を戻してアルゴリズムをトレーニングします。">ディスカバリーREST API</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- de

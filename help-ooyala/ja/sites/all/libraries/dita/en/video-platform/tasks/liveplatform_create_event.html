@@ -1,0 +1,222 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Add an Event"/>
+<meta name="abstract" content="Use the Events page to schedule the recording of segments from a channel's live stream for archiving and playback at a later time and date as a video on demand (VOD) asset."/>
+<meta name="description" content="イベントページを使用して、チャンネルのライブストリームからのセグメントの録画をスケジュールし、後でビデオオンデマンド（VOD）アセットとしてアーカイブおよび再生することができます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/liveplatform_deliver_live_content.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/live_trim_event.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/liveplatform_create_ha_event.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="liveplatform_create_event"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>イベントを追加する</title>
+</head>
+<body id="liveplatform_create_event">
+
+
+    <h1 class="title topictitle1">イベントを追加する</h1>
+
+    
+    <div class="body taskbody"><p class="gt-block shortdesc"><span class="ph" id="add_event_shordesc">使用 <span class="ph uicontrol">イベント</span> ビデオオンデマンド（VOD）アセットとして、後で再生およびアーカイブするために、チャンネルのライブストリームからのセグメントの録画をスケジュールするページ。</span></p>
+
+        <div class="section context">
+            <p class="p">イベントはスケジュール内に作成されます。</p>
+
+            <div class="note tip"><span class="tiptitle">ヒント：</span> 
+                <ul class="ul" id="liveplatform_create_event__ul_eyp_css_w1b">
+                    <li class="li"><strong class="ph b">アドホック自動開始チャンネル</strong>- チャネルが停止している場合は、スケジュールされたイベントのX分前にアドホックチャネルを自動的に開始します。</li>
+
+                    <li class="li"><strong class="ph b">将来のイベントを伴うアドホックチャネル</strong>-  Ooyala Liveは、スケジュールされたイベントのX分前に、停止したアドホックチャンネルを自動的に開始しようとします。</li>
+
+                    <li class="li"><strong class="ph b">将来のイベントのないアドホックチャネル</strong>- アドホックチャネルは、イベント状態が停止した後に自動的に停止し、次の30分以内にイベントスケジュールがない場合。</li>
+
+                    <li class="li"><strong class="ph b">イベント終了時間を延長する</strong>- 編集できます <span class="ph uicontrol">終了時間</span> イベントを拡張するために実行中のイベントの</li>
+
+                    <li class="li"><strong class="ph b">自動トリムの前に時間を追加</strong> - イベントをスケジュールするときに、自動トリミングが開始されるまでにさらに時間を追加できます。 これにより、トリミングおよびアーカイブしたいものを手動で選択するための追加の時間が与えられます。 </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd">Ooyala Liveにログインして、 <span class="ph uicontrol">イベント
+</span> をクリックします。</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">ナビゲーションヘッダーの <span class="ph uicontrol">イベントを追加</span>.</span>
+                 
+                    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="liveplatform_create_event__table_add_event" class="table" frame="void" border="0" rules="none">
+                            
+                            
+                            <thead class="thead" align="left">
+                                <tr class="row">
+                                    <th class="entry" align="left" valign="top" width="60%" id="d1053428e91">イベント追加ダイアログ</th>
+
+                                    <th class="entry" align="left" valign="top" width="40%" id="d1053428e94">考慮事項</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody class="tbody">
+                                <tr class="row">
+                                    <td class="entry" align="left" valign="top" width="60%" headers="d1053428e91 "><img class="image" id="liveplatform_create_event__image_zsm_t5c_p1b" src="http://help-ooyala.brightcove.com/../image/live_event_add.png" height="385" width="304" alt="イベント追加ダイアログ"/></td>
+
+                                    <td class="entry" align="left" valign="top" width="40%" headers="d1053428e94 ">
+                                        <div class="p"><strong class="ph b">追加イベントについて</strong><ul class="ul" id="liveplatform_create_event__ul_wgm_ywc_p1b">
+                                                <li class="li"><span class="ph uicontrol">イベント名を入力します。</span>- 固有のイベントをすばやく識別または検索できるように、命名規則を使用することをお勧めします。</li>
+
+                                                <li class="li"><span class="ph uicontrol">イベント説明</span>- このイベントを一意に識別するのに役立つ詳細を含みます。</li>
+
+                                                <li class="li"><span class="ph uicontrol">で始まる</span> そして
+                                                  <span class="ph uicontrol">停止します</span> - イベントに埋め込みコードを使用するすべてのプレーヤーが実際のリニアストリームを利用できるようになる日付。 イベントが開始されると、エンドユーザーが実際に再生を見るためにストリームが実際に利用可能になるまでに少し時間がかかることがあります。 開始日と終了日は、イベントの期限によって制限されます。</li>
+
+                                                <li class="li"><span class="ph uicontrol">XNUMXサーバ当たり年間</span> そして
+                                                  <span class="ph uicontrol">に</span> - 必要に応じて開始時間と終了時間を調整します。 イベントの最大長は8時間です。 <div class="note tip"><span class="tiptitle">ヒント：</span> イベントをキャプチャするのに必要な時間がわからない場合は、キャプチャしたい時間の最初と最後に数分を追加してください。 イベントが早く終了した場合は、からイベントを停止できます。
+                                                  <span class="ph uicontrol">イベント
+</span> 要約ページ
+                                                  </div>
+</li>
+
+                                                <li class="li"><span class="ph uicontrol">スケジュール</span>- リストされたスケジュールのいずれかにあなたのイベントを追加します。</li>
+
+                                                <li class="li"><span class="ph uicontrol">チャネル</span>- イベントに関連付けられているスケジュールのデフォルトのチャンネルが表示されますが、使用可能なチャンネルを選択できます。<div class="note important"><span class="importanttitle">重要：</span> 停止したチャンネルでイベントをスケジュールできます。 ただし、スケジュールされたイベントの前にチャンネルが開始されないと、イベントは失敗します。</div>
+</li>
+
+                                                <li class="li"><span class="ph uicontrol">見せる</span>- クリックして表示する <span class="ph uicontrol">高度なオプション</span> ダイアログ。</li>
+
+                                                <li class="li"><span class="ph uicontrol">追加</span>- クリックして、選択したスケジュールにイベントを追加します。</li>
+
+                                                <li class="li"><span class="ph uicontrol">今すぐ追加して開始</span>- クリックして選択したスケジュールにイベントを追加し、すぐにイベントを開始します。</li>
+
+                                            </ul>
+</div>
+
+                                        <div class="p"><strong class="ph b">HAチャンネルにイベントを追加する</strong><ul class="ul" id="liveplatform_create_event__ul_tdq_qr5_r1b">
+                                                <li class="li">埋め込みコードを使用して、イベントをリモートアセットとしてブロードキャストします。</li>
+
+                                            </ul>
+</div>
+
+                                        <div class="note important"><span class="importanttitle">重要：</span> 
+                                            <ul class="ul" id="liveplatform_create_event__ul_rmt_4zy_w1b">
+                                                <li class="li">アドホックチャネルの自動起動は、HAチャネルではサポートされていません。</li>
+
+                                            </ul>
+
+                                        </div>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr class="row">
+                                    <td class="entry" align="left" valign="top" width="60%" headers="d1053428e91 ">
+                                        <p class="p"><img class="image" id="liveplatform_create_event__image_p4v_t5c_p1b" src="http://help-ooyala.brightcove.com/../image/live_event_add_advanced.png" height="466" width="312" alt="イベント詳細オプションダイアログ"/></p>
+</td>
+
+                                    <td class="entry" id="liveplatform_create_event__arch_and_trim_event" align="left" valign="top" width="40%" headers="d1053428e94 ">
+                                        <div class="p"><strong class="ph b">イベントのアーカイブとトリム</strong><ul class="ul" id="liveplatform_create_event__ul_w5v_twc_p1b">
+                                                <li class="li"><span class="ph uicontrol">アーカイブを有効にする</span> - チェックボックスはデフォルトで選択されています（オンになっています）。 これはあなたがVODアセットを作成していることを意味します。 アーカイブを利用可能にしたくない場合は、このオプションの選択を解除してください。 アーカイブされていないイベントは、限られた期間の放送に利用できます。</li>
+
+                                                <li class="li"><span class="ph uicontrol">トリム</span>- 選択
+                                                  <span class="ph uicontrol">トリム</span> アーカイブがトリミングされるまで再生できないことを示す。 利用可能なバッファのサイズに自動的にトリミングすることも、イベントのモニタタブに移動してビデオセグメントを自分でトリミングすることもできます。 トリミングは、ビデオセグメントの最初と最後からコンテンツを削除します。 イベントは、イベント終了後すぐにトリミングすることができます。 ビデオセグメントがトランスコードまたはアーカイブされる前にトリミングが行われます。 トリミングはアーカイブ対応のイベントでのみ利用可能です。<ul class="ul" id="liveplatform_create_event__ul_sss_53x_vcb">
+                                                  <li class="li"><span class="ph uicontrol">自動トリムの前に時間を追加する：</span><p class="p">イベントが自動的にトリミングされるまでにさらに時間を追加します。 追加できる追加の時間は、イベントの長さによって制限されます。 デフォルトの自動トリム時間は、イベント期間に1時間を加えたものです。</p>
+<p class="p">追加できる最大時間は、11時間以下のイベントの場合は1時間です。 8時間イベントの場合は、自動トリミングが開始されるまでに最大4時間を追加できます。 </p>
+</li>
+
+                                                  <li class="li">
+                                                  <div class="note important"><span class="importanttitle">重要：</span> 自動トリムの開始時間を延長できる最大時間は、イベントの期間によって制限されます。
+                                                  <p class="gt-block p"><samp class="ph codeph"><em class="ph i">（イベント期間）+（自動トリムまでの時間）+（自動トリムまでのデフォルト時間）=（自動トリムまでの時間）</em></samp></p>
+<pre class="pre codeblock">
+       （4：00：00）+（4：00：00）+（1：00：00）= 9：00：00 </pre>
+<p class="p">最大期間が8時間のイベントの場合は、自動トリムまでの時間を最大4時間で延長できます。</p>
+</div>
+
+                                                  </li>
+
+                                                  </ul>
+</li>
+
+                                                <li class="li"><span class="ph uicontrol">サムネイルのURL</span>- アーカイブを作成することを選択した場合は、プレビューを表示することでプレビュー用のサムネイルを追加できます。
+                                                  <span class="ph uicontrol">サムネイルのURL</span>.  </li>
+
+                                            </ul>
+<strong class="ph b">ビデオプレーヤー</strong><ul class="ul" id="liveplatform_create_event__ul_lns_dxw_jdb">
+                                                <li class="li"><span class="ph uicontrol">VR360イベント</span>-  VODアセットを作成するためにイベントをアーカイブしたい場合は、選択する必要があります。 <span class="ph uicontrol">VR360イベント</span>.
+                                                  
+                                                  <div class="note important"><span class="importanttitle">重要：</span> VR360イベントをアーカイブするには、BacklotアカウントにVR360トランスコーディングプロファイルが必要です。</div>
+
+                                                </li>
+
+                                                <li class="li"><span class="ph uicontrol">キャプションの抽出</span> - アーカイブ対応イベントでのみ利用可能。 VODアセットがBacklot状態になると、キャプションがアップロードされてイベントのイベントに関連付けられます <span class="ph uicontrol">埋め込みコード</span> これはVOD資産のものと同じです。 <span class="ph uicontrol">コンテンツID</span>.</li>
+
+                                            </ul>
+</div>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr class="row">
+                                    <td class="entry" align="left" valign="top" width="60%" headers="d1053428e91 ">
+                                        <p class="p" id="liveplatform_create_event__live_event_advanced_opt_nonarchived"><img class="image" id="liveplatform_create_event__image_zzc_xwk_kcb" src="http://help-ooyala.brightcove.com/../image/live_event_add_to_ha_channel_advanced_nonarchived.png" height="465" width="311" alt="詳細オプション非アーカイブイベント"/></p>
+
+                                    </td>
+
+                                    <td class="entry" align="left" valign="top" width="40%" headers="d1053428e94 ">
+                                        <div class="p"><strong class="ph b">未アーカイブイベント</strong><ul class="ul" id="liveplatform_create_event__ul_afg_pkt_gcb">
+                                                <li class="li">を更新して、イベントを再生できる期間を指定できます。
+                                                  <span class="ph uicontrol">時間</span> そして
+                                                  <span class="ph uicontrol">分</span> [詳細オプション]ダイアログで アーカイブされていないイベントの最大許容持続時間は24時間（1440分）です。 <div class="note tip"><span class="tiptitle">ヒント：</span> <span class="ph uicontrol">アーカイブを有効にする</span> イベントを再生可能にする時間と分を設定できるようにするには、これを選択しないでください。 </div>
+</li>
+
+                                                <li class="li"><span class="ph uicontrol">VR360</span>- アーカイブされていないイベントに対してVR360を有効にする必要はありません。</li>
+
+                                            </ul>
+</div>
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+</div>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">ナビゲーションヘッダーの <span class="ph uicontrol">追加</span>.</span>
+            </li>
+</ol>
+
+    </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../tasks/live_trim_event.html">ライブイベントをトリミング</a></strong><br/>
+イベントのトリミングは、次のイベントでのみ利用可能です。 <span class="ph uicontrol">アーカイブを有効にする</span> 選択しました。 イベントをトリミングすると、イベントのどの部分をアーカイブしたいかを表示および選択できます。 </li>
+<li class="link ulchildlink"><strong><a href="../tasks/liveplatform_create_ha_event.html">高可用性（HA）チャネルにイベントを追加する</a></strong><br/>
+イベントは、限られた時間内はリモートアセットと見なすことも、再ブロードキャスト用のVODアセットとして保存することもできます。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/liveplatform_deliver_live_content.html" title="単一のセルフサービスインターフェイスから、チャンネル、スケジュール、イベント、プレイリストを作成および更新し、チャンネル出力を監視します。">ライブコンテンツを配信する</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?
