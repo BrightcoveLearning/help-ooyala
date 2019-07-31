@@ -1,0 +1,62 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="How the Ooyala Player Selects HEVC Streams"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/hevc.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="hevc"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>OoyalaプレーヤーによるHEVCストリームの選択方法</title>
+</head>
+<body id="hevc">
+
+
+    <h1 class="title topictitle1">OoyalaプレーヤーによるHEVCストリームの選択方法</h1>
+
+    
+    <div class="body conbody">
+<div class="section">
+    
+    <p class="p">Ooyala Player（WebとSDKの両方）は、実行時にHEVC再生をサポートできるかどうかを決定します。 これはさまざまな方法で行われます。</p>
+
+    </div>
+<div class="section"><h2 class="title sectiontitle">ウーヤラウェブプレーヤー</h2>
+        
+        
+    <p class="p">このパラメータは、HEVC再生がサポートされているかどうかを判断するためにテストを実行する、プレーヤ初期化中の実行時プロセスを有効にします。 これを行うために、2つの非常に小さなHEV1とHVC1ファイルを再生しようとします。 どちらかが成功した場合、プレイヤーはSAS APIに以下のレスポンスを追加します。 <samp class="ph codeph">codecPriority = hev | hvc</samp>。 これらの両方が失敗した場合、それはSASに投稿します <samp class="ph codeph">codecPriority = avc</samp>.  </p>
+
+    </div>
+<div class="section"><h2 class="title sectiontitle">iOS SDK</h2>
+        
+        
+    <p class="p">A10チップセットを搭載したiOSデバイスは、ネイティブのHEVCをサポートしています。 iOS 11も必要です。 したがって、Ooyala iOS SDKプレーヤーは初期化時にデバイスのOSとハードウェアをチェックして、HEVCが正常に再生できるかどうかを判断します。
+    </p>
+
+    </div>
+<div class="section"><h2 class="title sectiontitle">AndroidのSDK</h2>
+        
+        
+    <p class="p">Android 5 +より上のデバイスはHEVCデコードをサポートします。 しかし、彼らは同じデコーダを持っていないかもしれません。 一部の携帯電話には、Googleが提供するソフトウェアデコーダがあります。 OEMがハードウェアエンコーダも追加した場合、デバイスには両方のデコーダがあります。 デバイスにハードウェアデコーダがある場合は、通常、それがソフトウェアデコーダよりも優先されます。 そのため、SAS呼び出しを行う前に、ハードウェアまたはソフトウェアのどちらかのHEVCデコーダが使用可能かどうかを確認するためにデバイスをチェックします。 </p>
+
+</div>
+
+    </div>
+
+    
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/hevc.html">OoyalaによるHEVCストリームの紹介</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

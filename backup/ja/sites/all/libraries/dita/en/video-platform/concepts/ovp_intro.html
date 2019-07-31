@@ -1,0 +1,330 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Introducing the Online Video Platform"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_user_map.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_host"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>オンラインビデオプラットフォームの紹介</title>
+</head>
+<body id="pbv4_host">
+
+
+    <h1 class="title topictitle1">オンラインビデオプラットフォームの紹介</h1>
+
+    <div class="body conbody">
+        <div class="section" id="pbv4_host__summary">Ooyalaのオンラインビデオプラットフォーム（OVP）は、モバイルデバイスとデスクトップデバイス間でライブストリームやオンデマンドビデオコンテンツをパブリッシュおよび収益化するためのスケーラブルでエンドツーエンドのソリューションを提供します。 Ooyalaは、エンドユーザーアクセス用の包括的なGUIツールセットと、プログラムアクセス用のAPIを提供します。</div>
+
+        <div class="section" id="pbv4_host__vod"><h2 class="title sectiontitle">ビデオオンデマンド（VOD）</h2>OoyalaのOnline Video Platformは、ビデオオンデマンド（VOD）のエンドツーエンドのサポートを提供します。 <div class="fig fignone">
+                <img class="image" src="http://help-ooyala.brightcove.com/../image/ovp_vod_workflow.png" height="187" width="830"/>
+            </div>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+
+
+
+
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" width="9.910802775024777%" id="d408538e42">手順</th>
+
+                            <th class="entry" valign="top" width="29.73240832507433%" id="d408538e45">説明</th>
+
+                            <th class="entry" valign="top" width="29.633300297324084%" id="d408538e48">詳しくは</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top" width="9.910802775024777%" headers="d408538e42 "><strong class="ph b">撮影時、</strong></td>
+
+                            <td class="entry" valign="top" width="29.73240832507433%" headers="d408538e45 ">ウーヤラの外部。 誰かがビデオをキャプチャして、生のフォーマットでエンコードされたビデオファイルとして保存します。 </td>
+
+                            <td class="entry" valign="top" width="29.633300297324084%" headers="d408538e48 ">
+                                <ul class="ul">
+                                    <li class="li"><a class="xref" href="../reference/content_types.html" title="Ooyalaはこれらの一般的なコンテンツタイプをサポートしています。">サポートされているコンテンツタイプ</a></li>
+
+                                </ul>
+
+                            </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="9.910802775024777%" headers="d408538e42 "><strong class="ph b">インジェスト</strong></td>
+
+                            <td class="entry" valign="top" width="29.73240832507433%" headers="d408538e45 ">次のコマンドを使用して、自分のアカウントでOoyala Backlotにビデオファイルをロードします。 <ul class="ul">
+                                    <li class="li">ビデオをアップロードするためのBacklot GUIまたはBacklot API</li>
+
+                                    <li class="li">FTP、Aspera、およびMRSSを介してビデオをBacklotにロードするOoyala Ingest Services（OIS）</li>
+
+                                </ul>
+</td>
+
+                            <td class="entry" valign="top" width="29.633300297324084%" headers="d408538e48 ">
+                                <ul class="ul">
+                                    <li class="li"><a class="xref" href="book_ingest.html" title="このドキュメントでは、Ooyalaにコンテンツを取り込む（アップロードする）方法について説明します。">摂取</a></li>
+
+                                    <li class="li"><a class="xref" href="../reference/input_formats.html" title="コンテンツをBacklotにアップロードする前に、サポートされているファイル形式を使用し、ソースファイルのベストプラクティスに従っていることを確認してください。">サポートされている取り込みフォーマット</a></li>
+
+                                </ul>
+
+                            </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="9.910802775024777%" headers="d408538e42 "><strong class="ph b">トランスコード＆ストア</strong></td>
+
+                            <td class="entry" valign="top" width="29.73240832507433%" headers="d408538e45 ">その顧客に関連付けられた処理プロファイルを使用して、Ooyala Transcoding Services（OTS）は、ファイルを取り込み済み（raw /エンコード）形式からストリーミング用に最適化された別の形式に変換します。 トランスコードされたファイルは配信元に格納され、配信にCDNを使用します。</td>
+
+                            <td class="entry" valign="top" width="29.633300297324084%" headers="d408538e48 ">
+                                <ul class="ul">
+                                    <li class="li"><a class="xref" href="transcode.html">ウーヤラトランスコーディングサービス（OTS）</a></li>
+
+                                    <li class="li"><a class="xref" href="chapter_encoding.html" title="マスタービデオをインターネットで直接ストリーミングすることはできません。 それらはまずストリーミング形式に変換またはトランスコードする必要があります。 Ooyalaトランスコーディングサービス（OTS）を使用して、ファイルをソース形式から出力形式に変換します。">トランスコーディング設定</a></li>
+
+                                    <li class="li"><a class="xref" href="../reference/output_formats.html" title="Backlotは多数の一般的な出力フォーマットをサポートしています。">サポートされている出力形式</a></li>
+
+                                </ul>
+
+                            </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="9.910802775024777%" headers="d408538e42 "><strong class="ph b">管 理</strong></td>
+
+                            <td class="entry" valign="top" width="29.73240832507433%" headers="d408538e45 "> Backlotでは、次のように設定することでビデオアセットを整理し、再生エクスペリエンスを向上させることができます。 <ul class="ul">
+                                    <li class="li"><a class="xref" href="book_user.html" title="このトピックでは、Backlotユーザーインターフェースの使用方法について説明します。">動画メタデータ（プロパティ）</a></li>
+
+                                    <li class="li"><a class="xref" href="monetization_integrations.html" title="あなたのコンテンツを収益化するために、広告マネージャやサードパーティのペイウォールとのOoyalaの統合を使用してください。">広告とペイウォールによる収益化</a></li>
+
+                                    <li class="li"><a class="xref" href="book_discovery_dg.html" title="Ooyalaのコンテンツ検出機能を使用して、コンテンツの推奨事項、詳細なプログラミングガイド、およびパーソナライズされたコンテンツキューを提供することで、顧客エンゲージメントを高めます。">パーソナライズされたコンテンツの推奨事項（発見）</a></li>
+
+                                    <li class="li"><a class="xref" href="book_themebuilder.html" title="このドキュメントではテーマビルダーのユーザーインターフェースでプレーヤーをカスタマイズする方法を説明します。">プレイリスト</a></li>
+
+                                    <li class="li"><a class="xref" href="pbv4_closed_caption_settings.html">クローズドキャプション</a></li>
+
+                                    <li class="li"><a class="xref" href="book_social_media_integration.html" title="OoyalaはあなたのビデオコンテンツをFacebookやTwitterと共有する機能を提供します。">ソーシャルメディア統合</a></li>
+
+                                    <li class="li"><a class="xref" href="ooyala_iq_user_guide.html">分析論</a></li>
+
+                                </ul>
+</td>
+
+                            <td class="entry" valign="top" width="29.633300297324084%" headers="d408538e48 ">
+                                <ul class="ul">
+                                    <li class="li"><a class="xref" href="book_user.html" title="このトピックでは、Backlotユーザーインターフェースの使用方法について説明します。">Backlotユーザーガイド</a></li>
+
+                                </ul>
+
+                            </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="9.910802775024777%" headers="d408538e42 "><strong class="ph b">パブリッシュ</strong></td>
+
+                            <td class="entry" valign="top" width="29.73240832507433%" headers="d408538e45 ">ビデオを公開するには、次の作業が必要です。 <ul class="ul">
+                                    <li class="li">Backlotで、Ooyalaプレーヤーを作成して構成します。</li>
+
+                                    <li class="li">Backlotで、プレーヤーをビデオアセットに関連付けます。</li>
+
+                                    <li class="li">Webページに、動画を埋め込むためのコードを（関連付けられているプレーヤとプロバイダコードとともに）追加します。</li>
+
+                                    <li class="li">コンテンツ保護（DRM、OTP、シンジケーションコントロール、またはその他のコントロール）を設定します。</li>
+
+                                </ul>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="29.633300297324084%" headers="d408538e48 ">
+                                <ul class="ul">
+                                    <li class="li"><a class="xref" href="chapter_players.html" title="Backlot UIを使用してOoyalaプレーヤーを作成および構成する方法を説明します。">Backlotでプレイヤーを管理する</a></li>
+
+                                    <li class="li"><a class="xref" href="pbv4_embed.html">WebページへのプレーヤーV4の埋め込み</a></li>
+
+                                    <li class="li"><a class="xref" href="book_content_protection_dg.html" title="Ooyala Content Protection開発者向けドキュメントへようこそ。">コンテンツ保護とエンタイトルメント</a></li>
+
+                                </ul>
+
+                            </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="9.910802775024777%" headers="d408538e42 "><strong class="ph b">収益化</strong></td>
+
+                            <td class="entry" valign="top" width="29.73240832507433%" headers="d408538e45 ">オプションです。 Ooyalaでは、次の方法でビデオアセットを収益化できます。 <ul class="ul">
+                                    <li class="li">購読（再生前に発生）</li>
+
+                                    <li class="li">トランザクション（再生前に発生）</li>
+
+                                    <li class="li">広告（再生中または再生後に発生）</li>
+
+                                </ul>
+
+                            </td>
+
+                            <td class="entry" valign="top" width="29.633300297324084%" headers="d408538e48 ">
+                                <ul class="ul">
+                                    <li class="li"><a class="xref" href="pbv4_ads.html">プレーヤーV4の広告</a></li>
+
+                                    <li class="li"><a class="xref" href="ads_integration_overview.html">クライアントサイド広告統合</a></li>
+
+                                    <li class="li"><a class="xref" href="paywall_third_party_integrations.html">ペイウォール統合</a></li>
+
+                                </ul>
+
+                            </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="9.910802775024777%" headers="d408538e42 "><strong class="ph b">Playback</strong></td>
+
+                            <td class="entry" valign="top" width="29.73240832507433%" headers="d408538e45 ">モバイルまたはデスクトップデバイスを使用して、Webユーザーはページに埋め込んだビデオを起動します。 Backlotは、設定されたプレーヤを介して、関連コンテンツ（広告、クローズドキャプション、画像、発見に関する推奨事項など）と共にビデオをユーザーにストリーミングします。 アダプティブビットレート（ABR）はスムーズな再生体験を提供します。</td>
+
+                            <td class="entry" valign="top" width="29.633300297324084%" headers="d408538e48 ">
+                                <ul class="ul">
+                                    <li class="li"><a class="xref" href="player_home.html" title="これは、Ooyala Playerのドキュメントです。">プレーヤー</a></li>
+
+                                    <li class="li"><a class="xref" href="pbv4_stream_support.html">Player V4でサポートされているストリーム</a></li>
+
+                                </ul>
+
+                            </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="9.910802775024777%" headers="d408538e42 "><strong class="ph b">分析する</strong></td>
+
+                            <td class="entry" valign="top" width="29.73240832507433%" headers="d408538e45 ">再生中、Ooyala IQはイベントメトリックスをキャプチャして報告するので、ビデオのパフォーマンスから学ぶことができます。 また、サードパーティの分析をプレーヤに統合することもできます。 </td>
+
+                            <td class="entry" valign="top" width="29.633300297324084%" headers="d408538e48 ">
+                                <ul class="ul">
+                                    <li class="li"><a class="xref" href="ooyala_iq_developer_guide.html">ウーヤラIQアナリティクス</a></li>
+
+                                    <li class="li"><a class="xref" href="qos_solution_npaw_youbora.html" title="Ooyalaは現在、NICE PEOPLE AT WORK（NPAW）YOUBORA Analyticsプラットフォームを搭載したサービス品質（QoS）ソリューションを提供しています。 これは、すべてのOoyalaのお客様にご利用いただけるアドオンサービスです。">NPAWのYOUBORAを搭載したOoyala QoSソリューション</a></li>
+
+                                    <li class="li"><a class="xref" href="pbv4_analytics.html">Player V4での分析</a></li>
+
+                                </ul>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+</div>
+
+        <div class="section" id="pbv4_host__live"><h2 class="title sectiontitle">ウーヤラライブ</h2> OoyalaのOnline Video Platformは、ライブストリーミングをエンドツーエンドでサポートしています。 <div class="fig fignone">
+                <img class="image" src="http://help-ooyala.brightcove.com/../image/ovp_live_workflow.png" height="209" width="763"/>
+            </div>
+
+            詳細については、以下を参照してください <a class="xref" href="ooyala_live_user_guide.html" title="このドキュメントでは、Ooyala Liveを使用してビッグデータの力を活用し、放送事業者、通信事業者、メディア企業がデータ駆動型プログラミングとインタラクティブ再生を通じてLinear TVとLive Eventの体験をパーソナライズする方法について説明します。">Ooyala Liveユーザーガイド</a>.
+            
+            <div class="note note"><span class="notetitle">注意：</span> ライブストリームを録画してVOD用に保存することができます。</div>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+
+
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" width="25%" id="d408538e443">手順</th>
+
+                            <th class="entry" valign="top" width="75%" id="d408538e446">説明</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d408538e443 "><strong class="ph b">source</strong></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d408538e446 ">顧客は1つのソースフィードをエンコーダに取り込みます。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d408538e443 "><strong class="ph b">エンコード</strong></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d408538e446 ">エンコーダは、ソースをOoyala Live用に許容されるストリーム形式の1つに変換し、ABRストリームを生成します。 </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d408538e443 "><strong class="ph b">パッケージ</strong></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d408538e446 ">Packagerは、配信に間に合うように複数のストリームフォーマット（HLS / Dash / Smooth）を生成します。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d408538e443 "><strong class="ph b">シンジケート</strong></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d408538e446 ">ライブビデオをサードパーティのサービス（Facebook、Twitter / Periscope、およびTwitch）にストリーミングします。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d408538e443 "><strong class="ph b">サーバーサイド広告挿入</strong></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d408538e446 ">オプションです。 あなたはライブストリームに広告を挿入するためにOoyala Pulseを使うことができます。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d408538e443 "><strong class="ph b">CDN</strong></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d408538e446 ">一度複数のストリームが生成されると、それらは配信／プレーヤ消費のためにＣＤＮに複製される。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d408538e443 "><strong class="ph b">再生</strong></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d408538e446 ">Ooyala PlayerとモバイルSDKを使用したライブストリーム再生。
+                            </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d408538e443 "><strong class="ph b">分析します</strong></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d408538e446 ">ライブストリーミング中に、Ooyala IQはイベントメトリックス（ユーザーの操作/動作）を取得して報告します。</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_user_map.html" title="このトピックでは、Ooyala Video Platformの使用方法について説明します。">ユーザーガイド</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:abso

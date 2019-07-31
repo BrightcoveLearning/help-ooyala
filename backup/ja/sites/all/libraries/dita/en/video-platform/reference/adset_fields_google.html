@@ -1,0 +1,118 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Ad Set Fields for Google IMA V3"/>
+<meta name="abstract" content="The fields described here are for Backlot ad sets with ad source set to Google IMA V3."/>
+<meta name="description" content="ここで説明しているフィールドは、広告ソースがGoogle IMA V3に設定されているBacklot広告セット用です。"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/monetization_ads_adsets_integratingadnetworks.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/monetization_ads_adsets_adnetworks_wrapper.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="adsetfields_google"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Google IMA V3の広告セットフィールド</title>
+</head>
+<body id="adsetfields_google">
+
+
+ <h1 class="title topictitle1">Google IMA V3の広告セットフィールド</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">ここで説明しているフィールドは、広告ソースがGoogle IMA V3に設定されているBacklot広告セット用です。</p>
+  
+ <div class="section">
+   <div class="note note"><span class="notetitle">注意：</span> Googleでは、IMA3より前のバージョンのGoogle IMA SDKを非推奨および非アクティブ化しています。 DoubleClick、DoubleClick Overlay、Google AdSenseビデオ、Google AdSenseオーバーレイ、およびGoogle AdSense Endcapは、Backlot UIおよびAPIの広告ソースとしてサポートされなくなります。 ただし、DoubleClick広告とAdSense広告は、広告タグURLを使用したGoogle IMA V3広告ソースから引き続きサポートされます。 移行手順については、カスタマーサクセスマネージャおよびブライトコーブテクニカルサポートにお問い合わせください。 再生に関する問題が推奨されないバージョンまたはサポートされていないバージョンのGoogle IMAを使用しないようにするには、最新の正しい広告ソースであるGoogle IMA V3を使用するようにすべての広告セットを移行する必要があります。 HTML3用Ooyala Player V5およびOoyala Player V4上のGoogle IMAはサポートしていません
+     <span class="ph uicontrol">広告の頻度</span> 設定を行います。</div>
+
+   <p class="p">以下のフィールドは、Backlot UIの広告セットとGoogle IMA V3広告ソースの統合に関するものです。</p>
+
+   <div class="note note"><span class="notetitle">注意：</span> フィールドの正確な意味については、常に広告ソースのドキュメントを確認してください。 </div>
+
+  
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" id="d826769e36">フィールド名</th>
+
+       <th class="entry" valign="top" id="d826769e39">説明</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" headers="d826769e36 d826769e39 ">トラッキングピクセルURL</td>
+
+       <td class="entry" valign="top" headers="d826769e36 d826769e39 ">広告資産の配信を監視するためにピクセルを追跡するためのURL </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d826769e36 d826769e39 ">この広告はいつ再生されますか。</td>
+
+       <td class="entry" valign="top" headers="d826769e36 d826769e39 ">広告開始の時間設定（秒またはパーセント）</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d826769e36 d826769e39 ">広告掲載順位</td>
+
+       <td class="entry" valign="top" headers="d826769e36 d826769e39 ">広告を再生する場所：プレロール、インストリーム（ミッドロール）、ポストロール、または広告ルール。<div class="p">広告タグがDFPで広告ルールを使用している場合は、広告ルールを使用する必要があります。 動画ごとに1つの広告ルール広告タグを適用できます。 広告ルールには複数の広告位置と動画を含めることができますが、これはすべて1つの広告タグに含める必要があります。 Googleではどちらか一方しかサポートされていないため、広告ルールと広告ルール以外の掲載順位を同時に使用しないでください。  <div class="note note"><span class="notetitle">注意：</span> 広告ルールを使用する広告の場合、Backlot設定を使用する広告は、Backlotで決定された広告掲載順位の前に動的に読み込まれます。 Google IMAは、事前取得のために広告をキューに入れることを可能にするIMA v3の機能を提供していません。</div>
+</div>
+</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d826769e36 d826769e39 ">後に最初の広告を表示 <em class="ph i">x</em> ビデオ</td>
+
+       <td class="entry" valign="top" headers="d826769e36 d826769e39 ">広告の頻度設定</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d826769e36 d826769e39 ">毎回広告を出す <em class="ph i">x</em> ビデオ</td>
+
+       <td class="entry" valign="top" headers="d826769e36 d826769e39 ">広告の頻度設定</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d826769e36 d826769e39 ">adTagUrl</td>
+
+       <td class="entry" valign="top" headers="d826769e36 d826769e39 ">Google IMAまたはDFPによって生成された広告URL</td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+  </div>
+
+ </div>
+
+ 
+ <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../tasks/monetization_ads_adsets_integratingadnetworks.html" title="自分のアセットを使用する代わりに、他の広告ソースを使用することができます。">広告ソースと統合するための広告セットの作成</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong><br/>
+<div><a class="link" href="../tasks/monetization_ads_adsets_adnetworks_wrapper.html" title="この資料には、Backlotで広告セットを作成する方法、および広告ソースと統合する方法が含まれています。">独自の広告資産、広告セット、および広告ソースを操作する</a></div>
+</div>
+</div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

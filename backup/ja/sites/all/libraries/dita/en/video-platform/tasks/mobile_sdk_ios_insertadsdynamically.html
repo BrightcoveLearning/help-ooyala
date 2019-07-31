@@ -1,0 +1,101 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Inserting Ads Dynamically"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_ios_freewheel.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="mobile_sdk_ios_insertadsdynamically"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>動的に広告を挿入する</title>
+</head>
+<body id="mobile_sdk_ios_insertadsdynamically">
+
+
+  <h1 class="title topictitle1">動的に広告を挿入する</h1>
+
+  <div class="body taskbody">
+    <div class="section context">再生中に動画に広告を動的に挿入するようにアプリを設定するには、次の手順を使用します。</div>
+
+    <ol class="ol steps"><li class="li step stepexpand">
+        <span class="ph cmd">で概説されている手順を使用する <a class="xref" href="mobile_sdk_ios_gettingstarted.html" title="iOSおよびXcode用のOoyala Mobile SDKを使用して基本プロジェクトを設定する方法を学びます。">はじめに：Xcodeで環境を設定する</a> プロジェクトフレームワークを作成します。</span>
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">Video Cloud Studioで <samp class="ph codeph">ViewController.m</samp> Xcodeで編集するためのファイル。</span>
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">次のインポート文を追加します。</span>
+         
+          <ul class="ul">
+            <li class="li"><samp class="ph codeph">#import &lt;OoyalaSDK / OOVASTAdSpot.h&gt;</samp>
+            </li>
+
+            <li class="li"><samp class="ph codeph">#import &lt;OoyalaSDK / OOManagedAdSpot.h&gt;</samp></li>
+
+            <li class="li"><samp class="ph codeph">#import &lt;OoyalaSDK / OOManagedAdsPlugin.h&gt;</samp></li>
+
+            <li class="li"><samp class="ph codeph">#import &lt;OoyalaSDK / OOOoyalaAdSpot.h&gt;</samp></li>
+
+          </ul>
+
+          <div class="note note"><span class="notetitle">注意：</span> <samp class="ph codeph">&lt;OoyalaSDK / OOVASTAdSpot.h&gt;</samp> このチュートリアルのVAST実装のみが必要です。 <samp class="ph codeph">&lt;OoyalaSDK / OOOyalaAdSpot.h&gt;</samp> このチュートリアルのOoyala Ad実装にのみ必要です。</div>
+
+        
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">加えます <samp class="ph codeph">insertAd</samp> に機能性
+            <samp class="ph codeph">notificationHandler</samp>.  </span>
+         
+          <div class="note attention"><span class="attentiontitle">注意：</span> <samp class="ph codeph">insertAd</samp> 後に呼ばれなければならない
+              <samp class="ph codeph">OOOoyalaPlayerStateReady</samp>それ以外の場合、挿入された広告は実行時に削除されます。</div>
+
+        
+        <ul class="ul choices">
+          <li class="li choice">
+            <p class="p">VAST広告の場合、この手順は次のコード例で説明されています。</p>
+
+            <div class="note important"><span class="importanttitle">重要：</span> 次の例では、
+                <kbd class="ph userinput">VastAdURL</kbd> あなたのコンテンツに適したURLを入力してください。</div>
+
+            <pre class="pre codeblock"> - （void）notificationHandler：（NSNotification *）通知{NSString * name = notification.name; if（_ooyalaPlayerViewController.player.state == OOOoyalaPlayerStateReady）{
+ <strong class="ph b">       [_ooyalaPlayerViewController.player.managedAdsPlugin insertAd：[[OOVASTAdSpot割り当て] initWithTime：@0 clickURL：nilトラッキングURL：nil vastURL：[NSURL URLWithString：@ &quot;<kbd class="ph userinput">VastAdUrl</kbd>&quot;]]];}
+</strong></pre>
+
+          </li>
+
+          <li class="li choice">
+            <p class="p">Ooyala広告の場合、この手順は次のコード例で説明されています。</p>
+
+            <div class="note important"><span class="importanttitle">重要：</span> 次の例では、
+                <kbd class="ph userinput">OoyalaEmbedCode</kbd> あなたのコンテンツに適した埋め込みコードを使って。</div>
+
+            <pre class="pre codeblock"> - （void）notificationHandler：（NSNotification *）通知{NSString * name = notification.name; if（_ooyalaPlayerViewController.player.state == OOOoyalaPlayerStateReady）{   
+<strong class="ph b">        [_ooyalaPlayerViewController.player.managedAdsPlugin insertAd：[[OOOoyalaAdSpot]] initWithTime：@0 clickURL：nil trackingURL：nil embedCode：@ &quot;<kbd class="ph userinput">OoyalaEmbedCode</kbd>"
+
+</strong><strong class="ph b">          api：_ooyalaPlayerViewController.player.api]];}</strong></pre>
+
+          </li>
+
+        </ul>
+
+      </li>
+</ol>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/mobile_sdk_ios_freewheel.html">iOS上のFreeWheelとの統合</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

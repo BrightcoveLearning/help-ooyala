@@ -1,0 +1,108 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Send Discovery Click Notifications for Android Native"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/android_aboutdiscovery.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept_pn4_jmr_ps"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Android Nativeのディスカバリークリック通知を送信する</title>
+</head>
+<body id="concept_pn4_jmr_ps">
+
+
+ <h1 class="title topictitle1">Android Nativeのディスカバリークリック通知を送信する</h1>
+
+ <div class="body conbody">
+   <p class="p">コー​​ル <samp class="ph codeph">sendClick</samp> ディスカバリーの提案がクリックされたときのメソッド。 これにより、通知を送信するようにアプリが構成されます。</p>
+
+   <div class="p">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="concept_pn4_jmr_ps__table_azl_rlr_ps" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">表1 sendClick</span></caption>
+         
+         
+         <thead class="thead" align="left">
+           <tr class="row">
+             <th class="entry" valign="top" width="1.0" id="d223019e34">パラメーター</th>
+
+             <th class="entry" valign="top" width="NaN%" id="d223019e37">説明</th>
+
+           </tr>
+
+         </thead>
+
+         <tbody class="tbody">
+           <tr class="row">
+             <td class="entry" valign="top" width="1.0" headers="d223019e34 "><samp class="ph codeph">オプション</samp></td>
+
+             <td class="entry" valign="top" width="NaN%" headers="d223019e37 ">タイプの入力パラメータ <strong class="ph b">DiscoveryOptions</strong>。 のインスタンス
+                  <strong class="ph b">DiscoveryOptions</strong> カプセル化 <strong class="ph b">タイプ</strong>、 <em class="ph i">制限</em> ディスカバリー結果の数が望ましい整数 <em class="ph i">タイムアウト</em> （ミリ秒）の長整数 <samp class="ph codeph">HTTP</samp> 接続 の <strong class="ph b">タイプ</strong> どちらかに設定できるenumです。 <strong class="ph b">SimilarAssets</strong>,  <strong class="ph b">人気のあります</strong>に電子メールを送るか、もしくは <strong class="ph b">弾み</strong>。 デフォルトでは、 <strong class="ph b">DiscoveryOptions</strong> でインスタンス化されている <em class="ph i">SimilarAssets</em>.</td>
+
+           </tr>
+
+           <tr class="row">
+             <td class="entry" valign="top" width="1.0" headers="d223019e34 "><samp class="ph codeph">bucketInfo</samp></td>
+
+             <td class="entry" valign="top" width="NaN%" headers="d223019e37 ">タイプの入力パラメータ <strong class="ph b">文字列</strong>。 バケット情報ID。</td>
+
+           </tr>
+
+           <tr class="row">
+             <td class="entry" valign="top" width="1.0" headers="d223019e34 "><samp class="ph codeph">pcode</samp>
+             </td>
+
+             <td class="entry" valign="top" width="NaN%" headers="d223019e37 ">タイプの入力パラメータ <strong class="ph b">文字列</strong>。 pcode</td>
+
+           </tr>
+
+           <tr class="row">
+             <td class="entry" valign="top" width="1.0" headers="d223019e34 "><samp class="ph codeph">デバイスID</samp>
+             </td>
+
+             <td class="entry" valign="top" width="NaN%" headers="d223019e37 ">タイプの入力パラメータ <strong class="ph b">文字列</strong>。 デバイスID</td>
+
+           </tr>
+
+           <tr class="row">
+             <td class="entry" valign="top" width="1.0" headers="d223019e34 "><samp class="ph codeph">パラメータ</samp>
+             </td>
+
+             <td class="entry" valign="top" width="NaN%" headers="d223019e37 ">タイプの入力パラメータ <strong class="ph b">マップ&lt;文字列、文字列&gt;</strong>。 連想配列内のキーと値のペアとしてのパラメーター。キーは文字列、値は文字列です。 パラメータの詳細なリストと例については、を参照してください。 <a class="xref" href="../concepts/content_discovery_summary_of_routes.html" title="Discovery REST APIを使用して、サービスのさまざまな側面を構成し、推奨事項を入手し、その他のユーザー関連のデータを入手します。">Ooyala Discovery REST APIリクエストの概要</a>.</td>
+
+           </tr>
+
+           <tr class="row">
+             <td class="entry" valign="top" width="1.0" headers="d223019e34 "><samp class="ph codeph">折り返し電話</samp>
+             </td>
+
+             <td class="entry" valign="top" width="NaN%" headers="d223019e37 ">タイプの入力パラメータ <strong class="ph b">コー​​ルバック</strong>。 ザ <strong class="ph b">コー​​ルバック</strong> インタフェースは出力パラメータを取るメソッドを含みます <em class="ph i">結果</em> そして <em class="ph i">エラー</em>。 このコールバックメソッドはディスカバリ結果を処理します。 メインスレッドでコールバックが呼び出されない可能性があります。</td>
+
+           </tr>
+
+         </tbody>
+
+       </table>
+</div>
+
+   </div>
+
+   <p class="p">このメソッドは静的です。</p>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/android_aboutdiscovery.html">Androidネイティブアプリの検出について</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

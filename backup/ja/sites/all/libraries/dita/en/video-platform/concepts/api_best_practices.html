@@ -1,0 +1,74 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Best Practices"/>
+<meta name="abstract" content="Ooyala provides a set of APIs that enable you to create rich and unique experiences on your web sites. Here are some best practices to follow."/>
+<meta name="description" content="Ooyalaは、Webサイト上で豊富でユニークなエクスペリエンスを作成できるようにする一連のAPIを提供します。 従うべきベストプラクティスはここにあります。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_api_setup.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="api_best_practices"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>ベストプラクティス</title>
+</head>
+<body id="api_best_practices">
+
+
+ <h1 class="title topictitle1">ベストプラクティス</h1>
+
+  
+ <div class="body conbody"><p class="shortdesc">Ooyalaは、Webサイト上で豊富でユニークなエクスペリエンスを作成できるようにする一連のAPIを提供します。 従うべきベストプラクティスはここにあります。 </p>
+
+    <div class="section"><h2 class="title sectiontitle">APIキーのセキュリティ</h2>
+<p class="p"> あなたのOoyala APIキー、シークレット、そしてプロバイダーコードを安全かつ安全に保ってください。 アプリケーションにキーやコードを直接埋め込むことは避けてください。 安全なプロセスだけがあなたの秘密と鍵を読むことを許可しなさい。</p>
+
+            <p class="p">Brightcoveテクニカルサポートまたは他の担当者はセキュリティキーを要求しません。</p>
+ 
+         </div>
+
+
+ <div class="section"><h2 class="title sectiontitle">フロントエンドサーバーのキャッシュまたはデータベース</h2>
+    
+    <ul class="ul">
+       <li class="li">顧客に迅速な対応を提供するには、サイトとのユーザーの対話中にBacklot APIを何度も呼び出さないように、Webサイトにキャッシュまたはデータベースを設定します。 詳細については、 <a class="xref" href="api_advice_for_programmers.html#adviceforwebprogramming" title="これは、Ooyala APIを使用し、Webのプログラミングに関する推奨事項から利益を得ることができる開発者向けの推奨事項です。">Webプログラミングのためのアドバイス</a>.</li>
+
+         <li class="li">
+            <p class="gt-block p">さらに、Ooyalaの高性能APIエンドポイント（cdn-api.ooyala.com）を利用してください。 大量のWebサイトからの繰り返し要求をキャッシュします。 コンテンツの種類に応じて、リクエストの有効期限を次の1時間、4時間、8時間、または1日に丸めます。 たとえば、データが頻繁に変わる場合は、次の時間に切り上げます。 データが頻繁に変更されない場合は、次の日に切り上げてください。 詳細については、 <a class="xref" href="api_high_performance.html#api_high_performance" title="高性能APIエンドポイントは、大容量Webサイトからの繰り返し要求をキャッシュします。">高性能APIエンドポイント</a></p>
+
+         </li>
+
+    </ul>
+
+ </div>
+
+<div class="section"><h2 class="title sectiontitle">エラー処理</h2>
+   
+       <p class="p">コードでエラーを処理し、問題が発生した場合にWebサイトでコンテンツを適切に表示できることを確認してください。</p>
+
+</div>
+
+  <div class="section"><h2 class="title sectiontitle"> レート制限管理 </h2>
+     
+   <p class="gt-block p">レート制限要求は、レート制限がリセットされるまでの秒数を返します。 指定した秒数だけ待機してから再試行するようにコードを構成してください。 詳細については、
+               <a class="xref" href="api_rate_limiting.html#api_rate_limiting" title="Ooyala APIを通して、あなたは毎分300リクエストを許可されます。 毎分、カウンターはリセットされます。">APIレート制限</a>.</p>
+
+</div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_api_setup.html" title="Ooyalaは、Backlotプラットフォームへのリクエストを可能にするRESTベースのインターフェースを提供します。">Backlot REST APIを使用する</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- de

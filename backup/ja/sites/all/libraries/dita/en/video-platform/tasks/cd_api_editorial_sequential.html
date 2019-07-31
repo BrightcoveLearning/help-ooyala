@@ -1,0 +1,89 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Specifying Sequential Relationships: union"/>
+<meta name="abstract" content="Establish sequential relationships to recommend series content in the correct order."/>
+<meta name="description" content="シリーズコンテンツを正しい順序で推奨するために、順次関係を確立します。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/cd_api_editorial.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="cd_api_editorial_filter"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>順序関係の指定：ユニオン</title>
+</head>
+<body id="cd_api_editorial_filter">
+
+
+    <h1 class="title topictitle1">順序関係の指定：ユニオン</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">シリーズコンテンツを正しい順序で推奨するために、順次関係を確立します。 </p>
+
+        <div class="section context">
+            <div class="note note"><span class="notetitle">注意：</span> （要求ごとに個別のパラメーターを使用して）アドホック要求を作成するのではなく、ディスカバリー・プロファイルを使用して設定と推奨動作を一元管理することを検討してください。 検出プロファイルは、ユーザーが作成した設定の定義済み構成です。 <samp class="ph codeph">のGET</samp> ルート 詳細については、 <a class="xref" href="../concepts/../concepts/content_discovery_profile.html" title="プレーヤーに表示されるコンテンツの推奨事項に対してOoyala Discoveryの設定を構成する再利用可能な検出プロファイルを作成できます。">ディスカバリープロファイル</a>.</div>
+
+            <p class="p">連続的な関係を確立するには、カスタムメタデータエントリをアセットに追加し、Ooyala Discoveryリクエストを作成するときに情報をリクエストします。 </p>
+
+        </div>
+
+        <ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd">PATCHを使用して現在のメタデータを置き換えずにメタデータを追加します。 <samp class="ph codeph">/ v2 / assets</samp> ルート。 </span>
+                 次の例では <samp class="ph codeph">JxbzdkMjqBEsO</samp> シリーズの次のコンテンツとしてのアセット <samp class="ph codeph">RTffTGterfdc</samp> ハイライトリールとしてのアセット。
+                 
+                    <pre class="pre codeblock">[パッチ] / v2 / assets /<kbd class="ph userinput">asset_id</kbd>/ metadata {&quot;next_item&quot;： &quot;<kbd class="ph userinput">asset_id</kbd>&quot;、&quot; next_highlight &quot;：&quot;<kbd class="ph userinput">asset_id</kbd>&quot;}</pre>
+
+                
+                 
+                    <p class="gt-block p"><span class="ph">バックスロット</span> 次のような応答を返します。</p>
+
+                    <pre class="pre codeblock">{&quot;next_item&quot;： &quot;<kbd class="ph userinput">asset_id</kbd>&quot;、&quot; next_highlight &quot;：&quot;<kbd class="ph userinput">asset_id</kbd>&quot;、&quot;監督 &quot;：&quot;監督 &quot;、&quot;著作権 &quot;：&quot; 2010 &quot;、&quot;カテゴリ &quot;：&quot;冒険 &quot;、&quot; external_id &quot;：&quot;<kbd class="ph userinput">external_id</kbd>&quot;}</pre>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">次の項目を推奨事項に追加したい場合は、 <span class="keyword parmname">組合</span> 文字列パラメータを照会し、位置を指定します。 </span>
+                 次の例では、その日の最も人気のある4つのビデオを返します。 ただし、シリーズの次のアイテムを位置0に挿入し、ハイライトリールを位置2に挿入します。
+                 
+                    <pre class="pre codeblock">[GET] / v2 / discover / trending / top？country = all＆time = now＆window = day＆limit = 4＆union = next | next_item | 0、union = next | next_highlight | 2     </pre>
+
+                
+                 
+                    <p class="gt-block p"><span class="ph">バックスロット</span> 次のような応答を返します。</p>
+
+                    <pre class="pre codeblock">{&quot;結果&quot;：[{&quot;名前&quot;： &quot;極端なペンキ乾燥、エピソード243&quot;、 &quot;説明&quot;： &quot;日曜日！日曜日！日曜日！あなたは1から242までのエピソードを見ています。 「」<kbd class="ph userinput">埋め込みコード</kbd>&quot;、&quot; external_id &quot;：&quot;<kbd class="ph userinput">external_id</kbd>&quot;、&quot; preview_image_url &quot;：&quot;<kbd class="ph userinput">image_url</kbd>&quot;、&quot;期間 &quot;：&quot; 91000 &quot;、&quot;ostedAtURL&quot;：null、 &quot;bucket_info&quot;： &quot;<kbd class="ph userinput">bucket_info_id</kbd>&quot;、&quot; reason &quot;：&quot; next_item &quot;}、{&quot; name &quot;：&quot;ピアノを弾く猫がもっといます！ &quot;、&quot; description &quot;：&quot;ピアノを弾く猫がたくさんいます！ &quot;、&quot; embed_code &quot;：&quot;<kbd class="ph userinput">埋め込みコード</kbd>&quot;、&quot; external_id &quot;：&quot;<kbd class="ph userinput">external_id</kbd>&quot;、&quot; preview_image_url &quot;：&quot;<kbd class="ph userinput">image_url</kbd>&quot;、&quot;期間 &quot;：&quot; 91000 &quot;、&quot;ostedAtURL&quot;：null、 &quot;bucket_info&quot;： &quot;<kbd class="ph userinput">bucket_info_id</kbd>&quot;、&quot; reason &quot;：&quot; top &quot;}、{&quot; name &quot;：&quot;極度のペンキ乾燥のハイライト &quot;、&quot;説明 &quot;：&quot;極度のペンキ乾燥シリーズからの最高の瞬間、Chartreuseエピソードの23分を含む。 &quot;、&quot; embed_code &quot;：&quot;<kbd class="ph userinput">埋め込みコード</kbd>&quot;、&quot; external_id &quot;：&quot;<kbd class="ph userinput">external_id</kbd>&quot;、&quot; preview_image_url &quot;：&quot;<kbd class="ph userinput">image_url</kbd>&quot;、&quot;期間 &quot;：&quot; 91000 &quot;、&quot;ostedAtURL&quot;：null、 &quot;bucket_info&quot;： &quot;&quot;<kbd class="ph userinput">bucket_info_id</kbd>&quot;、&quot;理由 &quot;：&quot; next_item &quot;}、{&quot;名前 &quot;：&quot;猫のビデオ#1457 &quot;、&quot;説明 &quot;：&quot;さらにピアノを弾く猫！ &quot;、&quot; embed_code &quot;：&quot;<kbd class="ph userinput">埋め込みコード</kbd>&quot;、&quot; external_id &quot;：&quot;<kbd class="ph userinput">external_id</kbd>&quot;、&quot; preview_image_url &quot;：&quot; &quot;<kbd class="ph userinput">image_url</kbd>&quot;、&quot;期間 &quot;：&quot; 91000 &quot;、&quot;ostedAtURL&quot;：null、 &quot;bucket_info&quot;： &quot;<kbd class="ph userinput">bucket_info_id</kbd>&quot;、&quot; reason &quot;：&quot; top &quot;}]}</pre>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">各結果から情報を取得してWebページコンテンツを生成します。 </span>
+                 次の例には単純なHTMLコンテンツが含まれています。
+                 
+                    <pre class="pre codeblock">&lt;div class = &quot;sidebar&quot;&gt; &lt;h4 class = &quot;sidebar-head&quot;&gt;今すぐ人気&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href=&quot;/video/JxbzdkMjqBEsO&quot;&gt;極端なペンキ乾燥、エピソード243 &lt;/a&gt; &lt;/p&gt; &lt;p&gt;日曜日 日曜日！ 日曜日！ 1から242までのエピソードを見てきました。今すぐ243の準備ができました。 / p&gt; &lt;p&gt;猫がピアノを弾いています！&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href=&quot;/video/RTffTGterfdc&quot;&gt;極端な塗料乾燥のハイライト&lt;/a&gt; &lt;/p&gt; &lt;p &gt;シャルトルーズエピソードの8分を含む、エクストリームペイント乾燥シリーズの最高の瞬間。&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href=&quot;/video/3csNDrcK-ZaRTYhuTlPoDZ_tyrD&quot;&gt;キャットビデオ#1456 &lt;/a&gt; &lt;/p&gt; &lt;p&gt;さらに多くの猫がピアノを弾いています！&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;/div&gt;    </pre>
+
+                
+            </li>
+</ol>
+
+        <div class="section postreq">
+            <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/cd_api_editorial.html" title="Ooyala Discoveryの推奨事項の結果を調整できるように、OoyalaはベースラインAPIにクエリ文字列パラメータを提供しています。">ディスカバリー編集用照会ストリングのパラメーター</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

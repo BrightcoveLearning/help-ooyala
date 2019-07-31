@@ -1,0 +1,104 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Using the Feedback Loop Routes"/>
+<meta name="abstract" content="Learn how to use the Feedback Loop routes."/>
+<meta name="description" content="フィードバックループルートの使用方法を学びます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/content_discovery_about_feedback_loop.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="discovery_usingfeedbacklooproutes"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>フィードバックループルートの使用</title>
+</head>
+<body id="discovery_usingfeedbacklooproutes">
+
+
+    <h1 class="title topictitle1">フィードバックループルートの使用</h1>
+
+    
+    <div class="body conbody"><p class="shortdesc">フィードバックループルートの使用方法を学びます。</p>
+
+        <div class="p">Discovery APIリクエストを使用してビデオが表示され、ユーザーに推奨されている各インスタンスを追跡するには、 <samp class="ph codeph">/ v2 /発見/フィードバック/印象</samp> 次の例に示すように、route。<pre class="pre codeblock">[POST] / v2 / discover / feedback /インプレッション{&quot;device_id&quot;： &quot;device_id&quot;、 &quot;bucket_info&quot;： &quot;bucket_info&quot;、 &quot;ui_tag&quot;： &quot;tag1&quot;}</pre>
+</div>
+
+        <p class="p">ユーザーがDiscoveryの推奨動画を視聴し始めた各インスタンスを追跡するには、 <samp class="ph codeph">/ v2 /発見/フィードバック/再生</samp> 次のコード例に示すように、ルート。</p>
+
+        <div class="note note"><span class="notetitle">注意：</span> インプレッションは、バッチごとに1回だけではなく、ユーザーに表示されるビデオごとに記録する必要があります。</div>
+
+        <pre class="pre codeblock">[POST] / v2 / discover / feedback / play {&quot;device_id&quot;： &quot;device_id&quot;、 &quot;bucket_info&quot;： &quot;bucket_info&quot;、 &quot;ui_tag&quot;： &quot;tag1&quot;}</pre>
+
+        <div class="p">次の表に、フィードバックループルートで使用するパラメータを示します。
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="discovery_usingfeedbacklooproutes__table_lrh_cxk_3s" class="table" frame="border" border="1" rules="all">
+                    
+                    
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" width="22.522522522522525%" id="d294388e48">パラメーター</th>
+
+                            <th class="entry" valign="top" width="77.47747747747749%" id="d294388e51">説明</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top" width="22.522522522522525%" headers="d294388e48 "><samp class="ph codeph">デバイスID</samp></td>
+
+                            <td class="entry" valign="top" width="77.47747747747749%" headers="d294388e51 ">Ooyalaが生成したデバイスID。これはユーザー、ブラウザ、またはデバイスに固有です。 </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="22.522522522522525%" headers="d294388e48 "><samp class="ph codeph">bucket_info</samp></td>
+
+                            <td class="entry" valign="top" width="77.47747747747749%" headers="d294388e51 ">おすすめのバッチの生成方法、動画の位置、その他の便利なユーザーセンターの測定基準に関する情報を含むエンコードされた文字列。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="22.522522522522525%" headers="d294388e48 "><samp class="ph codeph">ui_tag</samp></td>
+
+                            <td class="entry" valign="top" width="77.47747747747749%" headers="d294388e51 ">推奨事項がデバイス画面のどこに表示されるかを説明するオプションのパラメータ。 値は最大80文字の英数字ストリングにすることができ、ストリングを使用することはできません
+                                    <samp class="ph codeph">デフォルト</samp>。 このパラメータの使用例は、推奨事項を含む要素のID値を追加することです。</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+</div>
+
+        <p class="p">Discoveryからのコンテンツに対するすべてのリクエストに対するJSONレスポンスには、で推奨されているblob（おすすめのリストに含まれる各ビデオに対する）が含まれます。 <samp class="ph codeph">bucket_info</samp>。 たとえば、電話をかけたとき <samp class="ph codeph">/ v2 /ディスカバー/トレンド</samp>、応答の
+                <samp class="ph codeph">bucket_info</samp> blobは次の例のようになります（改行が追加されています）。</p>
+
+        <pre class="pre codeblock">&quot;bucket_info&quot;： &quot;1 {\&quot; \符号化された &quot;：\&quot; eNpNjtsKhCAQht9lrmNR1 + zwMiElrVAqOhtE27vv2Abr3fynjzkg6GgcDlsY \\ N 7tyRdfIlHNJw9oQKz5RT3YKDnFQQTRzL0TJI9WF2BXmYfLb7WgUh6TdAf \\ N MEft3osmeydkxqBdaQF0pdFHcwMBfSCLhmjRepdy5SyZTl87pB + nRNVoxmGx \\ N Ca9Pn13N1e / TPislxF + 1jZRFJmTRbEVTZG3HbgXnF + k0UNc = \」\ &quot;位置\&quot;：2} &quot;、</pre>
+
+        <p class="p">関連付けられたをコピーします <samp class="ph codeph">bucket_info</samp> 次のいずれかの方法で、フィードバックとしてOoyalaに返送してください。 </p>
+
+        <ul class="ul">
+            <li class="li">  <samp class="ph codeph">/ v2 /発見/フィードバック/印象</samp> ビデオの表示を記録するために使用されるルート。 見る <a class="xref" href="../tasks/cd_api_setup_impression_events.html#cd_api_setup_impression_events" title="APIを介してOoyala Discoveryの推奨事項をユーザーに表示するには、表示される結果を報告するためにOoyalaを呼び出す必要があります。 報告された情報はDiscoveryの実装に供給され、推奨アルゴリズムが強化され、サイトと視聴者の結果が最適化されます。">インプレッションイベントを返す</a>.</li>
+
+            <li class="li">  <samp class="ph codeph">/ v2 /発見/フィードバック/再生</samp> ビデオを再生するためのクリックを記録するために使用されるルート。 見る <a class="xref" href="../tasks/cd_api_setup_click_events.html#cd_api_setup_click_events" title="リコメンデーションフィードバックループのクリックインプレッションを記録するように実装を設定する方法を学びます。">クリックイベントを返す</a>.</li>
+
+        </ul>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/content_discovery_about_feedback_loop.html" title="ユーザーからOoyala Discoveryに行動活動をフィードすることで、顧客に対する推奨を向上させます。">発見フィードバックループ</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- de

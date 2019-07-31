@@ -1,0 +1,54 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Ingesting with the Backlot API"/>
+<meta name="abstract" content="Use the Backlot API to programmatically upload content into Backlot. This approach enables you to integrate your content management system (CMS) or workflows directly with the Backlot platform."/>
+<meta name="description" content="プログラムでBacklotにコンテンツをアップロードするには、Backlot APIを使用します。 このアプローチにより、コンテンツ管理システム（CMS）またはワークフローをBacklotプラットフォームと直接統合することができます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ingestion_backlot.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ingestion_backlot.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="chapter_ingestion"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Backlot APIを使った取り込み</title>
+</head>
+<body id="chapter_ingestion">
+
+
+ <h1 class="title topictitle1">Backlot APIを使った取り込み</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">プログラムでBacklotにコンテンツをアップロードするには、Backlot APIを使用します。 このアプローチにより、コンテンツ管理システム（CMS）またはワークフローをBacklotプラットフォームと直接統合することができます。</p>
+
+  <div class="section"> Backlot APIを使用して、ビデオ、サムネイル、およびクローズドキャプションファイルをプログラムでアップロードおよび管理することができます。 <div class="fig fignone">
+    <img class="image" src="http://help-ooyala.brightcove.com/../image/ingest_backlot_api.png" height="181" width="624"/>
+   </div>
+Backlot APIは、高レベルの統合とカスタマイズを提供します。 開発期間とリソースが必要です。 Backlot APIを使用してコンテンツを取り込む場合は、 <ul class="ul">
+    <li class="li"><a class="xref" href="../api/asset_video.html" title="Ooyalaに動画をアップロードすると、Ooyalaはアカウントに指定されている設定を使用して自動的に動画をトランスコードし、動画をプレーヤーで再生できるようにします。">ビデオとオーディオの資産</a> （動画とサムネイル用）</li>
+
+    <li class="li"><a class="xref" href="../api/asset_closed_caption.html" title="動画、広告、リモートアセット、またはYouTube動画にクローズドキャプションを追加できます。">クローズドキャプションの使用</a></li>
+
+   </ul>
+<p class="p">ファイルをアップロードするために使用される主な呼び出し（「資産」と呼ばれる）は、
+     <samp class="ph codeph">/ v2 / assets</samp> ルート。</p>
+<div class="note note"><span class="notetitle">注意：</span> nullの動画を追加しないでください
+     <samp class="ph codeph">external_id</samp>つまり、 <samp class="ph codeph">external_id</samp> 値なし（（<samp class="ph codeph">""</samp>）またはの値 <samp class="ph codeph">&quot;ヌル&quot;</samp>。 このようなNULL外部IDは後で検索することはできません。</div>
+
+  </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/ingestion_backlot.html">Backlotにアップロードする</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></d

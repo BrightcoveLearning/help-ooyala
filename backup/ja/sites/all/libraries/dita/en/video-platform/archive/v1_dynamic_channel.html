@@ -1,0 +1,243 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Dynamic Channel API (Deprecated)"/>
+<meta name="abstract" content="Dynamic channels are similar to standard Ooyala channels in that they display a series of videos, but different in that you are giving the player directions on what videos to play as opposed to an explicit list."/>
+<meta name="description" content="動的チャンネルは、一連のビデオを表示するという点で標準のOoyalaチャンネルと似ていますが、明示的なリストではなく、どのビデオを再生するかをプレイヤーに指示しているという点で異なります。"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/api_v1.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="v1_dynamic_channel"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>動的チャネルAPI（廃止予定）</title>
+</head>
+<body id="v1_dynamic_channel">
+
+
+ <h1 class="title topictitle1">動的チャネルAPI（廃止予定）</h1>
+
+ 
+ 
+ <div class="body refbody"><p class="shortdesc">動的チャンネルは、一連のビデオを表示するという点で標準のOoyalaチャンネルと似ていますが、明示的なリストではなく、どのビデオを再生するかをプレイヤーに指示しているという点で異なります。</p>
+
+  <div class="section">
+   <div class="note note"><span class="notetitle">注意：</span> このソフトウェアは非推奨です。 最新版を使用してください。</div>
+
+   <p class="p">これらの指示には、ラベル、注文情報、埋め込みコード、および/またはプロバイダコードを含めることができます。 すべての例は、埋め込みコードに対するクエリ文字列パラメータとして与えられています。
+   </p>
+
+   
+   <p class="p">動的チャンネルの作成</p>
+
+   
+   <p class="p">
+    基本的なチャネル作成には、埋め込みコード、プロバイダコード、またはその両方が必要です。 とき <samp class="ph codeph">埋め込みコード</samp> が指定された場合、embedCodeが優先され、最初に表示されるビデオになり、その後に並べ替えと順序付けの情報が与えられたアカウントの他のビデオが続きます。 動的チャンネルの最も簡単な形式は、指定された動画から始まり、そのアカウントから利用可能な他のすべての動画を含み、最新のアップロード時刻のデフォルトの順序です。
+   </p>
+
+   
+   例：
+   <p class="p">
+    <samp class="ph codeph">
+     embedCode = SAMPLE_VIDEO＆labels = *
+    </samp>
+   </p>
+
+   <p class="p">
+    必須およびオプションのパラメータの完全なリストは、より詳細な例とともに以下にリストされています。
+   </p>
+
+   
+   
+   <p class="p">動的チャネルの署名と有効期限（必須）</p>
+
+   
+   <p class="p">動的チャネル要求では、クエリ文字列に署名と有効期限を追加する必要があります。 署名は、日付を除いて他のAPIリクエストと同じ方法で行うことができます。 エポック以来の秒の有効期限を使用する代わりに、動的チャネルはYYYYMMDDhhmmの有効期限フォーマットを使用します。</p>
+
+    <p class="p">
+     たとえば、有効期限 <samp class="ph codeph">201012191844</samp>2010 12月19、18：44を表します。 </p>
+
+    <p class="p">
+     署名生成の詳細については、署名セクションをご覧ください。
+    </p>
+
+    <p class="p">動的チャネルとしての埋め込みの指定（必須）</p>
+
+    
+    <p class="p">埋め込みが動的チャネルであることを指定するために、追加のクエリ文字列パラメータ <samp class="ph codeph">dynamicChannel = true</samp> 埋め込みに追加する必要があります。
+    </p>
+
+    <p class="p">ラベルを使用する（必須）</p>
+
+    
+    <p class="p">
+     ビデオの選択はラベルに基づいて行うこともできます。
+    </p>
+
+    
+    <ul class="ul">
+     <li class="li"><samp class="ph codeph">labels = *</samp>  - アカウント内のすべてのライブビデオを含みます。 （チャンネル、チャンネルセット、広告を除く）</li>
+
+     <li class="li"><samp class="ph codeph">labels =。 </samp> -  embedCodeと同じラベルを持つすべてのアカウントコンテンツを含みます。</li>
+
+     <li class="li"><samp class="ph codeph">labels = &#39;URIエスケープラベルのカンマ区切りリスト&#39; </samp> - ラベルリストに一致するすべてのアカウントコンテンツを含みます。</li>
+
+    </ul>
+
+    
+    <p class="p">動的チャネル順序</p>
+
+    
+    <p class="p">
+     チャンネルでビデオを並べるにはいくつかのオプションがあります。
+    </p>
+
+    
+    <ul class="ul">
+     <li class="li"><samp class="ph codeph">orderBy = uploadTime</samp>  - 最近アップロードされた商品の注文ラインナップ。 （デフォルト）</li>
+
+     <li class="li"><samp class="ph codeph">orderBy = title</samp> - タイトル順にアルファベット順に並べる。</li>
+
+     <li class="li"><samp class="ph codeph">orderBy =ランダム</samp> - プレイするたびにランダムにラインナップを注文する。</li>
+
+    </ul>
+
+    
+    <p class="p">動的チャネル方向</p>
+
+    
+    <p class="p">
+     チャンネルでビデオを並べるにはいくつかのオプションがあります。
+    </p>
+
+     <ul class="ul">
+      <li class="li"><samp class="ph codeph">orderDirection = asc</samp>  - 動画を昇順に並べます。 （デフォルト）</li>
+
+      <li class="li"><samp class="ph codeph">orderDirection = desc</samp> - 動画を降順で一覧表示します。</li>
+
+     </ul>
+
+     
+     
+     <p class="p">
+      動的チャネル内のビデオ数の制限
+     </p>
+
+     
+     <div class="p">
+      <ul class="ul">
+       <li class="li"><samp class="ph codeph">制限</samp>  - チャンネルに含めるビデオの最大数を指定します。 これはデフォルトの32で、最大値は100です。</li>
+
+      </ul>
+
+     </div>
+
+     
+     <p class="p">利用可能なチャンネルとプレイヤーのパラメータ</p>
+
+     
+     <p class="p">
+      プレーヤーパラメータは、標準チャンネルと同様にダイナミックチャンネルに適用されます。
+     </p>
+
+     
+     <ul class="ul">
+      <li class="li"><samp class="ph codeph">遷移</samp> - 指定する <samp class="ph codeph">遊びます</samp> 次の映画を表示する、または指定する <samp class="ph codeph">セレクタ</samp> チャンネル内の各ビデオの後にチャンネルブラウザを表示します。 デフォルトは <samp class="ph codeph">遊びます</samp>.  </li>
+
+      <li class="li"><samp class="ph codeph">ビュー</samp> - プレーヤーの初期状態がであるかどうかを指定します <samp class="ph codeph">通常の</samp> （ビデオを表示）または <samp class="ph codeph">チャンネル</samp>。 デフォルトは <samp class="ph codeph">通常の</samp>.</li>
+
+      <li class="li"><samp class="ph codeph">browserPlacement</samp>  - チャンネルの場合は、外部コントロールを配置する場所を左右どちらかに指定します。 以下のようにコントロールが占める割合または幅をピクセル単位で含めることができます。 <samp class="ph codeph">left40</samp> 左と幅の40％の場合、または <samp class="ph codeph">left200px</samp> 左と200ピクセルを指定します。 デフォルトの左または右の値は50％です。</li>
+
+     </ul>
+
+     <p class="p">
+      利用可能なプレーヤーパラメータの完全なリストはhttp://www.ooyala.com/support/docs/player_api#parametersのプレーヤーAPIで確認できます。
+     </p>
+
+     
+     <p class="p">
+      動的チャネルに関する注意事項
+     </p>
+
+     
+     <p class="p">パーミッション</p>
+
+     
+     <p class="p">動的チャンネルの埋め込みコードを悪用されないようにするには、動的チャンネルに含まれる動画は、そのチャンネルが埋め込まれているドメイン（またはすべてのドメイン）に対して認証される必要があります。そうしないと表示されません。</p>
+
+     
+     <p class="p">アナリティクス</p>
+
+     
+     <p class="p">このタイプのチャンネルは非常に動的であるため、統計はチャンネルごとではなくビデオごとに含まれています。</p>
+
+     
+     <p class="p">動的チャネルの例</p>
+
+     
+     <p class="p">これらの例は、動的チャネルに必要なクエリ文字列パラメータと値を表示します。 高さ、幅、署名などのすべてのパラメータが含まれているわけではないことに注意してください。</p>
+
+     
+     <p class="p">たとえば、アカウントのすべての動画をpcodeが <samp class="ph codeph">6Fna8C1JRtT8lupf86FFuoIgAD</samp> あなたが使用します：</p>
+
+     
+     <div class="p">
+      <pre class="pre codeblock">
+pcode=6Fna8C1JRtT8lupf86FFuoIgAD&amp;labels=*&amp;dynamicChannel=true
+</pre>
+
+     </div>
+
+     
+     <p class="p">20が最近アップロードしたビデオ：</p>
+
+     <div class="p">
+      <pre class="pre codeblock">
+pcode=6Fna8C1JRtT8lupf86FFuoIgAD&amp;labels=*&amp;orderBy=UploadTime&amp;orderDirection=desc&amp;limit=20
+</pre>
+
+     </div>
+
+     
+      <p class="p">特定のラベルごとに最近アップロードされたビデオ：</p>
+
+      <pre class="pre codeblock">
+pcode=6Fna8C1JRtT8lupf86FFuoIgAD&amp;labels=/music/pop&amp;orderBy=uploadTime&amp;orderDirection=desc&amp;dynamicChannel=true&amp;expires=201104200906&amp;signature=34vfYD56fnmJMoGEgnzlb%2BxDoqFy3%2FyQ%2FN6poHYCoI7
+</pre>
+
+     
+     
+     <p class="p">最初に特定のビデオを再生し、次に特定のラベルを持つすべてのビデオをランダムな順序で再生します。</p>
+
+     <div class="p">
+      <pre class="pre codeblock">
+embedCode=E390DSJKn802r2jnksn290&amp;labels=/sports/football&amp;orderBy=random&amp;dynamicChannel=true&amp;expires=201104202222&amp;signature=anytYDyyfnmJMoGEg65poHYlb%2BxDoqCoI7Fy3%2FyQ%2FN6
+</pre>
+
+     </div>
+
+     
+     
+   
+  </div>
+
+  
+  
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../archive/api_v1.html" title="このバージョンのBacklot APIは非推奨です。 APIのバージョン2で新しい開発作業を行うことを強くお勧めします。 V2 APIの使用方法については、Ooyalaサポートセンターの開発者ドキュメントセクションを参照してください。">Ooyala Backlot APIリファレンスV1（非推奨）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

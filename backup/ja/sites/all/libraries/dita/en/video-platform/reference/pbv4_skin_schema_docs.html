@@ -1,0 +1,291 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Customizing the Player V4 Skin with skin.json"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_customize.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_customize.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_customize.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_skin_schema_docs"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>skin.jsonを使用したPlayer V4スキンのカスタマイズ</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="pbv4_skin_schema_docs">
+
+
+    <h1 class="title topictitle1">カスタマイズ <span class="ph">プレイヤーV4</span>
+        Skin with skin.json</h1>
+
+
+    <div class="body refbody">
+        <div class="section">In addition to using the Backlot UI, you can make customizations to the Player V4
+      and the Android and iOS skin UX by modifying the key/value pairs in the JSON config file
+        (<samp class="ph codeph">skin.json</samp>). You can use the same skin.json file for your HTML5, Android
+      SDK, and iOS SDK players. To learn more about customization approaches, see <a class="xref" href="../concepts/pbv4_precedence.html">プレーヤーのV4設定の優先順位</a>.  <div class="note note"><span class="notetitle">注意：</span> For Player V4 Web, rather the customize
+          <samp class="ph codeph">skin.json</samp> directly, you can simply override skin settings on the web page
+        using the <a class="xref" href="../api/pbv4_api_embedparams.html#pbv4_api_embedparams__skin.inline">skin.inline</a> page-level parameter. For details, see <a class="xref" href="../api/pbv4_api_embedparams.html">プレーヤV4のページレベルパラメータ</a> そして <a class="xref" href="pbv4_web_examples.html#pbv4_web_examples__inline_customization">Embed a Simple Player with Inline Player Skin Modifications</a>.</div>
+
+    </div>
+
+        <div class="section"><h2 class="title sectiontitle">Customization Steps</h2>
+            <p class="p">使用するには <samp class="ph codeph">skin.json</samp> to customize the player look and feel:</p>
+
+            <div class="p">
+                <ol class="ol" id="pbv4_skin_schema_docs__skin_steps">
+                    <li class="li">最新バージョンの <samp class="ph codeph">skin.json</samp> 設定ファイル：
+                            <ul class="ul" id="pbv4_skin_schema_docs__ul_crr_fd4_b1b">
+                            <li class="li">desktop and mobile web: <a class="xref" href="https://github.com/ooyala/html5-skin/releases" target="_blank">https://github.com/ooyala/html5-skin/releases</a></li>
+
+                            <li class="li">iOS and Android mobile SDKs: <a class="xref" href="https://github.com/ooyala/native-skin/releases" target="_blank">https://github.com/ooyala/native-skin/releases</a></li>
+
+                        </ul>
+</li>
+
+                    <li class="li"><a class="xref" href="../concepts/pbv4_host.html">ホスト</a> インクルード
+                            <samp class="ph codeph">skin.json</samp> config file on your server.</li>
+
+                    <li class="li"><a class="xref" href="pbv4_skin_schema_docs.html">Make
+                            modifications</a> to the JSON attributes to apply look and feel
+                        changes to your player.</li>
+
+                    <li class="li">Reference the absolute path to your <samp class="ph codeph">skin.json</samp> ときあなたはファイル
+                            <a class="xref" href="pbv4_web_tutorial.html">load your
+                            player</a>.</li>
+
+                </ol>
+</div>
+</div>
+
+        <div class="section"><div class="note note"><span class="notetitle">注意：</span> カスタマイズ <samp class="ph codeph">skin.json</samp> only if you want to change configuration settings in the
+                file. Alternatively, you can simply use the default settings. Alternatively, if you
+                want to override some skin settings, you can use the
+                    <span class="keyword parmname">skin.inline</span> parameter when you embed <span class="ph">プレイヤーV4</span> on a web
+                page. See <a class="xref" href="../api/pbv4_api_embedparams.html">プレーヤV4のページレベルパラメータ</a> 詳細については。</div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Settings to Customize in the skin.json File</h2>
+            <p class="gt-block p">To view the reference documentation for the <samp class="ph codeph">skin.json</samp> file, go
+                to <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_v4_skin_config/index.html" target="_blank">プレーヤV4 JSONスキーマ</a>. The
+                following table shows the path to the documentation for each customizable player
+                component. See <a class="xref" href="../concepts/pbv4_components.html">プレーヤV4スキンのユーザインタフェース</a> for a
+                description of the player components.</p>
+
+        </div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                <thead class="thead" align="left">
+                    <tr class="row">
+                        <th class="entry" valign="top" id="d893303e147">プレーヤコンポーネント</th>
+
+                        <th class="entry" valign="top" id="d893303e150">Path to Documentation</th>
+
+                        <th class="entry" valign="top" id="d893303e153">ノート</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody class="tbody">
+                    <tr class="row">
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">全般</td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 "><span class="ph menucascade"><span class="ph uicontrol">プロパティ</span> &gt; <span class="ph uicontrol">全般</span></span></td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">Watermark, loading image, and accent color.</td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">応答デザイン</td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 "><span class="ph menucascade"><span class="ph uicontrol">プロパティ</span> &gt; <span class="ph uicontrol">反応する</span></span></td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">For videos with an aspect ratio where the height of the video is
+                            greater than the width or the width is much greater than the height, we
+                            recommend that you use our default responsive design setting
+                            (aspectRatio:auto).</td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">起動画面</td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 "><span class="ph menucascade"><span class="ph uicontrol">プロパティ</span> &gt; <span class="ph uicontrol">startScreen</span></span></td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">Start screen settings.</td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">画面を一時停止</td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 "><span class="ph menucascade"><span class="ph uicontrol">プロパティ</span> &gt; <span class="ph uicontrol">pauseScreen</span></span></td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">Pause screen settings.</td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">終了画面</td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 "><span class="ph menucascade"><span class="ph uicontrol">プロパティ</span> &gt; <span class="ph uicontrol">endScreen</span></span></td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">End screen settings.</td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">次の画面へ</td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 "><span class="ph menucascade"><span class="ph uicontrol">プロパティ</span> &gt; <span class="ph uicontrol">upNext</span></span></td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">Up Next screen settings.</td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">広告画面</td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 "><span class="ph menucascade"><span class="ph uicontrol">プロパティ</span> &gt; <span class="ph uicontrol">adScreen</span></span></td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">You can also use the ads embedded parameters described in <a class="xref" href="../concepts/pbv4_configure_ads_embedded_params.html">広告パラメータを設定する</a> to further customize the ad screen.</td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">Social Sharing Options</td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 "><span class="ph menucascade"><span class="ph uicontrol">プロパティ</span> &gt; <span class="ph uicontrol">shareScreen</span></span></td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">Share screen settings.</td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">Player Watermark</td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 "><span class="ph menucascade"><span class="ph uicontrol">プロパティ</span> &gt; <span class="ph uicontrol">一般的な</span> &gt; <span class="ph uicontrol">透かし</span></span></td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">Used to specify the watermark image.</td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">More Options Screen</td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 "><span class="ph menucascade"><span class="ph uicontrol">プロパティ</span> &gt; <span class="ph uicontrol">moreOptionsScreen</span></span></td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">More Options screen settings.</td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">ディスカバリー画面</td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 "><span class="ph menucascade"><span class="ph uicontrol">プロパティ</span> &gt; <span class="ph uicontrol">discoveryScreen</span></span></td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">Any Discovery settings you make in Backlot will be overwritten by the
+                            settings specified in skin.json. <div class="note note"><span class="notetitle">注意：</span>  You must have Discovery <a class="xref" href="../concepts/pbv4_discovery.html">enabled in
+                                    Backlot</a> for Discovery recommendations to appear. If
+                                Discovery is not enabled, the Discovery icon will not appear in the
+                                control bar or more options menu.</div>
+ Depending on the type of
+                            embed code you use (see <a class="xref" href="../tasks/publishing_manual_embed.html">バックスロットでのプレーヤー埋め込み設定</a>):  <ul class="ul">
+                                <li class="li">あなたが <strong class="ph b">V4 HTML5 Player Embed Code
+                                        (Advanced)</strong> , you must load the Discovery module
+                                        (<samp class="ph codeph">&lt;script src = &quot;<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/discovery_api.min.js"&gt;&lt;/script&gt;</samp>） の中に
+                                        <samp class="ph codeph">&lt;HEAD&gt;</samp> of the page where you load your
+                                    player.</li>
+
+                                <li class="li">あなたが <strong class="ph b">V4 HTML5 Standard Player Embed Code</strong>,
+                                    the plugin is automatically loaded by default.</li>
+
+                            </ul>
+</td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">クローズドキャプションオプション</td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 "><span class="ph menucascade"><span class="ph uicontrol">プロパティ</span> &gt; <span class="ph uicontrol">closedCaptionOptions</span></span></td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">You can configure closed captions for VOD (all streams) and Live (HLS
+                            on Safari) content. By default, the player will show a closed caption
+                            button for all assets with closed captions. To enable closed captions
+                            for a video, simply upload your closed caption file for your asset. See
+                            <a class="xref" href="../tasks/closed_captions_upload.html" title="クローズドキャプションファイルを準備したら、それをBacklotにアップロードできます。">Backlotでクローズドキャプションファイルをアップロードする</a> そして 
+                            <a class="xref" href="../concepts/closed_captions_ingest.html" title="BacklotまたはOoyala Ingestion Service（OIS）を介して字幕ファイルを取り込むことができます。">クローズドキャプションファイルの取り込み</a>.</td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">Player Buttons</td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 "><span class="ph menucascade"><span class="ph uicontrol">プロパティ</span> &gt; <span class="ph uicontrol">ボタン</span></span></td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">ナビゲーションヘッダーの <span class="ph menucascade"><span class="ph uicontrol">定義</span> &gt; <span class="ph uicontrol">buttonNames</span></span> to view the button names. Click <span class="ph menucascade"><span class="ph uicontrol">定義</span> &gt; <span class="ph uicontrol">moreOptionsButton</span></span> to see an example button. </td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">Player Icons</td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 "><span class="ph menucascade"><span class="ph uicontrol">プロパティ</span> &gt; <span class="ph uicontrol">アイコン</span></span></td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">Icon settings.</td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">Player Control Bar</td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 "><span class="ph menucascade"><span class="ph uicontrol">プロパティ</span> &gt; <span class="ph uicontrol">コントロールバー</span></span></td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">Control bar settings.</td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">Player Localizable Strings</td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 "><span class="ph menucascade"><span class="ph uicontrol">プロパティ</span> &gt; <span class="ph uicontrol">ローカリゼーション</span></span></td>
+
+                        <td class="entry" valign="top" headers="d893303e147 d893303e150 d893303e153 ">For this release, Ooyala offers localized player controls and error
+                            messages into Spanish and Simplified Chinese. </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+</div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/pbv4_customize.html">プレーヤV4外観のカスタマイズ</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

@@ -1,0 +1,256 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Basic Tutorial for Player V4"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_web_tutorial"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Player V4の基本チュートリアル</title>
+</head>
+<body id="pbv4_web_tutorial">
+
+
+  <h1 class="title topictitle1">Player V4の基本チュートリアル</h1>
+
+  <div class="body refbody">
+      <div class="section">このチュートリアルでは、Ooyalaプレーヤーを使ってWebページにビデオを追加する手順について説明します。 プレーヤーとビデオをBacklotで設定し、プレーヤーをWebページに埋め込み、ビデオを再生して設定を確認してから、追加のBacklot設定を設定/テストすることから始めます。 
+          <div class="note note"><span class="notetitle">注意：</span> このチュートリアルでは、純粋なSAAS（Software as a Service）モデルのデフォルトのOoyala設定を使用します。Ooyalaでは、すべてのリソース（ソフトウェアパス、プラグイン、およびスキンリソース）をホストして管理します。 これは、Ooyalaプレーヤーを埋め込んで配置する最も簡単な方法を提供します。 この方法が使用されている場合、Ooyalaはすべてのプレーヤーリソースを束ね、最小化し、そしてバグ修正とアップデートを自動的に提供します。</div>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">始める前に/前提条件</h2> このチュートリアルを始める前に、次のことを行ってください。 <ul class="ul">
+                <li class="li">Webページ上のHTMLコードを編集する方法を知っています。</li>
+
+                <li class="li">Backlotユーザーアカウントを持っています。</li>
+
+                <li class="li">使用したいビデオをBacklotにアップロードします。</li>
+
+                <li class="li">ビデオアセットを実行するためのプレーヤーを追加するWebページを用意します。 </li>
+
+            </ul>
+ 背景情報については、 <a class="xref" href="../concepts/pbv4_about.html">プレイヤーV4</a> そして <a class="xref" href="../concepts/pbv4_gs.html">Player V4を始めよう</a>.  </div>
+
+      <div class="section"><h2 class="title sectiontitle">ステップ1：バックスロットにログインする</h2>
+          Backlotにログインします。 <a class="xref" href="https://backlot.ooyala.com/" target="_blank">https://backlot.ooyala.com/</a>
+    </div>
+
+      <div class="section"><h2 class="title sectiontitle">ステップ2：新しいプレイヤーを作成する</h2>
+            <div class="note note"><span class="notetitle">注意：</span> プレーヤーのAPIは <samp class="ph codeph">OO.ready</samp> プレーヤコアが完全にロードされると実行されるコールバック関数を登録することを可能にするメソッド。 プレーヤの作成（つまり呼び出し）は、APIの要件です。
+                    <samp class="ph codeph">OO.Player.create（）</samp>）前には起こらないはず
+                    <samp class="ph codeph">OO.ready</samp> と呼ばれています。 例えば：
+                <pre class="pre codeblock">OO.ready（function（）{player = OO.Player.create（ &quot;<em class="ph i">コンテナ</em>&quot;&quot;<em class="ph i">YOUR_ASSET_ID</em>&quot;、playerParam）;}）;</pre>
+</div>
+
+            <ol class="ol">
+                <li class="li">[プレーヤーのブランド]タブに移動します（[公開]&gt; [プレーヤーのブランド]の順にクリックします）。</li>
+
+                <li class="li">プレイヤー選択サイドバーに行きます。</li>
+
+                <li class="li">それを確認する <strong class="ph b">プレイヤー -  V4</strong> 選択したプレーヤーの種類です。 <div class="note note"><span class="notetitle">注意：</span> 5月以降にアカウントを作成した場合1st 2017、Player V4のみがオプションです。 何らかの理由でPlayer V3にアクセスする必要がある場合は、Ooyalaテクニカルサポートに連絡してください。</div>
+</li>
+
+                <li class="li">ストリーミングを停止する場合は上部の <span class="ph uicontrol">+新しいボタン</span>。 Backlotは新しいプレイヤーをリストに追加します。</li>
+
+                <li class="li">[プレーヤ]タブで、[プレーヤ名]を[新しいプレーヤ]からわかりやすいものに変更します（例： <samp class="ph codeph">myPlayer</samp>).</li>
+
+            </ol>
+ 一般情報については、 <a class="xref" href="../tasks/player_create.html" title="Backlotには、好きなだけプレーヤーを作成して構成することができます。 プレーヤーを好きなだけビデオに関連付けることができます。 Player V3の場合、プレーヤーをオーディオアセット、チャンネル、またはチャンネルセットに関連付けることもできます。">Backlotでプレイヤーを作成する</a>.  </div>
+
+    <div class="section"><h2 class="title sectiontitle">ステップ：3：プレーヤーをビデオアセットに割り当てる</h2>
+    <ol class="ol">
+        <li class="li">[管理]タブに移動します。</li>
+
+        <li class="li">リストからビデオを選択してください。</li>
+
+        <li class="li">埋め込みサブタブに移動します。</li>
+
+        <li class="li">[カスタムプレーヤー]の下の下向き矢印をクリックし、作成したばかりのプレーヤーを選択します。
+        <div class="note note"><span class="notetitle">注意：</span> 
+            <ul class="ul">
+                <li class="li">コンテンツIDは、選択した動画にOoyalaが割り当てたIDです。</li>
+
+                <li class="li">プレイヤーIDは、選択したプレイヤーにOoyalaが割り当てたIDです。</li>
+               
+            </ul>
+</div>
+</li>
+
+        <li class="li">詳細サブタブに行き、プレビューウィンドウの再生ボタンをクリックして、ビデオが正しく動作することを確認します。</li>
+
+    </ol>
+    
+    </div>
+
+      <div class="section"><h2 class="title sectiontitle">ステップ4：プレーヤーの埋め込みコードを取得する</h2>
+          <ol class="ol">
+              <li class="li">埋め込みサブタブに移動します。</li>
+
+              <li class="li">[埋め込みコードの生成]で、次の埋め込みコードタイプを選択します。 <p class="gt-block p"><strong class="ph b">V4 HTML5標準プレーヤー埋め込みコード（推奨）</strong></p>
+</li>
+
+              <li class="li">埋め込みコードの種類の下にあるテキストボックスをスクロールして、埋め込みコードを表示します。
+                        <div class="note note"><span class="notetitle">注意：</span> 代わりに <samp class="ph codeph"><em class="ph i">YOUR_PLAYER_ID</em></samp> そして
+                                <samp class="ph codeph"><em class="ph i">YOUR_CONTENT_ID</em></samp> 以下に、あなたのプレイヤーIDとコンテンツIDがそれぞれ表示されます。
+                    </div>
+<pre class="pre codeblock">   &lt;！ - この埋め込みコードには、標準のPlayer V4プラグインが自動的に含まれてパッケージ化されます。 異なるプラグインの組み合わせが必要な場合は、高度な埋め込みオプションを使用してください。 含まれているプラ​​グインを見るには、こちらのドキュメントを参照してください。 &quot;//player.ooyala.com/core/YOUR_PLAYER_ID&quot;&gt; &lt;/script&gt; &lt;div id = &#39;container&#39;&gt; &lt;/div&gt; &lt;script&gt; var playerParam = {&#39;autoplay&#39;：false、 &#39;loop&#39;：false}; OO.ready（function（）{window.pp = OO.Player.create（ &#39;container&#39;、 &#39;YOUR_CONTENT_ID&#39;、playerParam）;}）; &lt;/script&gt;</pre>
+
+                </li>
+
+              <li class="li">ナビゲーションヘッダーの <strong class="ph b">コピー</strong> 埋め込みコードをクリップボードにコピーします。</li>
+
+          </ol>
+
+          一般情報については、 <a class="xref" href="../tasks/publishing_manual_embed.html">バックスロットでのプレーヤー埋め込み設定</a>.
+    
+    </div>
+
+      <div class="section"><h2 class="title sectiontitle">ステップ5：Webページにプレーヤーを埋め込む</h2>
+          <ol class="ol">
+              <li class="li">ビデオを追加するHTMLページを開きます。</li>
+
+              <li class="li">既存のページがない場合は、次のコードのようなものを使用して空白のページを作成します。
+                    <pre class="pre codeblock">  &lt;！DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;title&gt; My Test Player V4 Webページ&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;/body&gt; &lt;/html&gt;            </pre>
+
+                </li>
+
+              <li class="li">コピーした埋め込みコードを次のページの間に貼り付けます。
+                        <samp class="ph codeph">&lt;body&gt; ... &lt;/body&gt;</samp> タグ 例：
+                    <pre class="pre codeblock">  &lt;！DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;title&gt; My Test Player V4 Webページ&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;！ - この埋め込みコードには、標準のPlayer V4プラグインが自動的に含まれ、パッケージ化されます。 異なるプラグインの組み合わせが必要な場合は、高度な埋め込みオプションを使用してください。 含まれているプラ​​グインを確認するには、次のドキュメントを参照してください。https://docs.brightcove.com/apidocs-ooyala/concepts/pbv4_release_notes.html  - &gt; &lt;！ - プレーヤーに必要なプラグインを含めます - &gt; &lt;script src = &quot;//player.ooyala.com/core/YOUR_PLAYER_ID&quot;&gt; &lt;/script&gt; &lt;div id = &#39;container&#39;&gt; &lt;/div&gt; &lt;script&gt; var playerParam = {&#39;autoplay&#39;：false、 &#39;loop&#39;：false}; OO.ready（function（）{window.pp = OO.Player.create（ &#39;container&#39;、 &#39;YOUR_CONTENT_ID&#39;、playerParam）;}）; &lt;/script&gt; &lt;/body&gt; &lt;/html&gt;</pre>
+</li>
+
+              <li class="li">変更をページに保存します。</li>
+
+          </ol>
+
+          一般情報については、 <a class="xref" href="../concepts/pbv4_embed.html">WebページへのプレーヤーV4の埋め込み</a>.
+      
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">ステップ5：再生テスト</h2>
+        <ol class="ol">
+            <li class="li">ブラウザでページをロードしてください。</li>
+
+            <li class="li">ビデオをクリックして実行します。</li>
+
+        </ol>
+        
+          あなたのビデオはページ内で再生されるはずです。 そうでない場合は、私たちのを確認してください <a class="xref" href="faq_pbv4.html">プレイヤーV4に関するよくある質問</a>.
+    
+    </div>
+
+      
+      <div class="section"><h2 class="title sectiontitle">ステップ6：Backlotの他の設定を構成しテストする</h2>
+        <ol class="ol">
+            <li class="li">Backlotで、PUBLISH&gt; Player Branding&gt; Playerに移動します。</li>
+
+            <li class="li">[プレーヤー]タブで、再生中に現在のビットレートを表示するには、[ビットレート]オプションを有効（チェック）にします。</li>
+
+            <li class="li">[プレーヤー]タブで、[常にスクラバーバーを表示する]オプションを有効（チェック）にして、スクラバーバーが常に表示されるようにします（自動的に非表示にはなりません）。</li>
+
+            <li class="li">ブラウザでページをロードしてください。</li>
+
+            <li class="li">ビデオをクリックして実行します。</li>
+
+            <li class="li">再生中に、ビットレートコントロールが見えるようになったことを確認します。</li>
+
+            <li class="li">他の設定を確認して、どのプレーヤーのUIコントロールがWebサイトに最適かを判断します。</li>
+
+        </ol>
+
+          <div class="note note"><span class="notetitle">注意：</span> プレーヤーの設定はGoogleのCDNを介して配布されるため、埋め込みプレーヤーに適用された変更はすぐにはわかりません。 すべての地域に適用するには最大で1時間かかります。 </div>
+
+            <p class="gt-block p">一般情報については、 <a class="xref" href="../tasks/player_configure.html">バックスロットでのプレイヤーの設定</a>。 あなたがあなたがあなたのBacklot設定で見るものよりあなたのプレーヤーのユーザーインターフェース上でより多くのコントロールを必要とするならば、他のオプションを見てください。 <a class="xref" href="../concepts/pbv4_customize.html">プレーヤV4外観のカスタマイズ</a>.</p>
+
+    </div>
+
+      
+      <div class="section"><h2 class="title sectiontitle">ステップ7：再生終了時の動作を設定してテストする（オプション）</h2>
+            再生がビデオで終了したときの動作を設定できます。 Ooyalaアカウントの設定方法に応じて、検出設定または画面終了設定のいずれかを設定できます。
+                <p class="p">どのオプションを使用するべきかを決定するために：</p>
+<ol class="ol">
+                <li class="li">Backlotで、PUBLISH&gt; Player Brandingに進みます。</li>
+
+                <li class="li">一番右側のサブタブを見てください。 <ul class="ul">
+                        <li class="li"><strong class="ph b">Discovery</strong> アカウントに対して検出が有効になっていることを意味します。</li>
+
+                        <li class="li"><strong class="ph b">終了画面</strong> アカウントで検出が有効になっていないことを意味します。
+                        </li>
+
+                    </ul>
+</li>
+
+                <li class="li">アカウントに適用される説明（下記）を完了してください。</li>
+
+            </ol>
+<p class="gt-block p"><strong class="ph b">ステップ7.1  - 終了画面設定の構成（オプション）</strong></p>
+<ol class="ol">
+                <li class="li">PUBLISH&gt;プレーヤーのブランド設定&gt;画面の終了に進みます。</li>
+
+                <li class="li">[画面の終了]タブで、[タイトル]と[説明]を有効にします。</li>
+
+                <li class="li">[管理]&gt; [詳細]に移動して、ビデオのタイトルと説明を確認または指定します。</li>
+
+                <li class="li">再生が終了したら、ビデオのタイトルと説明が表示されることを確認します。
+                </li>
+
+            </ol>
+<div class="note important"><span class="importanttitle">重要：</span> 画面上のテキスト（タイトル/説明）を使用すると、プレーヤーはプレーヤーの「一時停止」イベントでビデオ画像をぼかします。 これはテキストが読みやすくなるようにするためです。 一時停止中にプレーヤーがビデオ画像をぼかしたくない場合は、Title要素とDescription要素をオフにします。</div>
+ 一般情報については、 <a class="xref" href="../tasks/player_configure.html">バックスロットでのプレイヤーの設定</a>.  <p class="gt-block p"><strong class="ph b">ステップ7.2：検出設定の設定（オプション）</strong></p>
+ アカウントで検出が有効になっている場合は、[検出]タブでプレーヤー設定を構成できます。 <ol class="ol">
+                <li class="li">PUBLISH&gt; Player Branding&gt; Discoveryに移動します。</li>
+
+                <li class="li">まだ選択されていない場合は、プレーヤー選択リストからプレーヤーを選択します。</li>
+
+                <li class="li">[探索]タブで、[このプレーヤーの探索を有効にする]を選択します。</li>
+
+                <li class="li">ブラウザでページをロードしてください。</li>
+
+                <li class="li">ビデオをクリックして実行します。</li>
+
+                <li class="li">再生が終了したら、ビデオのおすすめが表示されることを確認します。 </li>
+
+            </ol>
+ 一般情報については、 <a class="xref" href="../concepts/pbv4_discovery.html">Player V4でコンテンツを発見する</a>.  </div>
+
+      
+      <div class="section"><h2 class="title sectiontitle">ステップ8：Ooyala IQ Analyticsでアクティビティを表示する</h2>
+          <ol class="ol">
+              <li class="li">分析&gt;ダッシュボードに移動します。</li>
+
+              <li class="li">動画が再生されたことを示す統計を探します（ <strong class="ph b">過去の時間の傾向</strong>,  <strong class="ph b">今人気の</strong>、および <strong class="ph b">トップ10の国</strong>).</li>
+
+          </ol>
+
+          一般情報については、 <a class="xref" href="../concepts/ooyala_iq_user_guide.html">Ooyala IQアナリティクスユーザーガイド</a>.
+      
+      </div>
+
+      
+    <div class="section"><h2 class="title sectiontitle">ここからどこへ行くか</h2>
+        <ul class="ul">
+            <li class="li"><a class="xref" href="../concepts/pbv4_embed.html">WebページへのプレーヤーV4の埋め込み</a></li>
+
+            <li class="li"><a class="xref" href="../concepts/pbv4_customize.html">プレーヤV4外観のカスタマイズ</a></li>
+
+            <li class="li"><a class="xref" href="../concepts/pbv4_ads.html">プレーヤーV4の広告</a></li>
+
+            <li class="li"><a class="xref" href="../concepts/pbv4_analytics.html">Player V4での分析</a></li>
+
+        </ul>
+
+    </div>
+
+  </div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

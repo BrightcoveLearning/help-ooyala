@@ -1,0 +1,41 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Your Users, Your Accounts: Security"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_rightslocker.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept_m2n_5td_v3"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>あなたのユーザ、あなたのアカウント：セキュリティ</title>
+</head>
+<body id="concept_m2n_5td_v3">
+
+
+ <h1 class="title topictitle1">あなたのユーザ、あなたのアカウント：セキュリティ</h1>
+
+ 
+ <div class="body conbody">
+    <p class="gt-block p">ユーザーアカウントIDはプロバイダごとに異なります。 2人の異なるプロバイダーが同じ名前のユーザーを持つことができますが、これらは別々のユーザーとして扱われます。 の
+          <samp class="ph codeph">アカウントID</samp> あなたがOoyala APIと一緒に使用するのはあなた自身のシステムでユニークでなければなりません。 プライバシーの観点から、Ooyalaは、 <samp class="ph codeph">アカウントID</samp> プレーンテキストのユーザー名や電子メールアドレスではなく、ある種のGUID（グローバル一意識別子）を使用します。 たとえば、 <samp class="ph codeph">アカウントID</samp> ユーザー名またはEメールアドレスのbase64、URlエンコード、Secure-hash-algorithm-（SHA）-256ダイジェストを使用することです。 この塩は、Ooyala以外のベンダーに再利用してはいけません。 これにより、Ooyalaも「man-in-the-middle」ハッカーによるネットワークトラフィックの盗聴も、GUIDから実際のユーザー名やパスワードに変換することはできません。 の
+          <samp class="ph codeph">アカウントID</samp> 255文字未満でなければならず、[/、＆、|、]などの予約済みURL文字を含んではいけません。 ほとんどの場合、あなたは <em class="ph i">Studio上ではサポートされていません。</em> Ooyala APIを使ってアカウントを明示的に作成する必要があります。 APIリクエストで必要とされる場合は、単にアカウントを参照するだけです。</p>
+
+  </div>
+
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_rightslocker.html">権利ロッカー</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

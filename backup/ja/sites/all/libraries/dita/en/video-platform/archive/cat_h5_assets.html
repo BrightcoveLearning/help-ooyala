@@ -1,0 +1,108 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Assets HTML5 APIs (Player V2 Deprecated)"/>
+<meta name="abstract" content="Assets HTML5 APIs can be used to handle ratings, videos (play/pause, describe), and channels."/>
+<meta name="description" content="アセットHTML5 APIを使用して、評価、ビデオ（再生/一時停止、説明）、およびチャンネルを処理できます。"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/player_api_h5_intro.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="cat_h5_assets.xml"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>HTML5 APIをアセットします（Player V2は廃止予定）</title>
+</head>
+<body id="cat_h5_assets.xml">
+
+
+ <h1 class="title topictitle1">HTML5 APIをアセットします（Player V2は廃止予定）</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">アセットHTML5 APIを使用して、評価、ビデオ（再生/一時停止、説明）、およびチャンネルを処理できます。</p>
+
+  <div class="section"><h2 class="title sectiontitle">資産機能</h2>
+   <div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V2は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V2はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V2を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="../concepts/pbv4_about.html">プレイヤーV4</a>.</div>
+
+   
+   <p class="gt-block p">次の表は、アセットに関連付けられているすべてのHTML5関数について説明しています。 これらすべてのHTML5 APIを使用した例については、トピックを参照してください。 <a class="xref" href="player_examples_h5.html" title="HTML5の例は、iOSベースのデバイス用のHTML5プレーヤーをテストする方法を示しています。">クエリ文字列とパススルーパラメータの例</a>.</p>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="cat_h5_assets.xml__table_assets_jsfunc" class="table" frame="border" border="1" rules="all">
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="16.778523489932887%" id="d142017e51">関数</th>
+
+       <th class="entry" valign="top" width="83.22147651006712%" id="d142017e54">説明</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      
+      
+     <tr class="row">
+       <td class="entry" valign="top" width="16.778523489932887%" headers="d142017e51 "><span class="keyword apiname">pauseMovie（）</span>&gt;
+       </td>
+
+       <td class="entry" valign="top" width="83.22147651006712%" headers="d142017e54 ">現在のビデオを一時停止します。
+        <p class="p">例： </p>
+<pre class="pre codeblock">  関数pause（）{get_player（）。pauseMovie（）;} }</pre>
+</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="16.778523489932887%" headers="d142017e51 "><span class="keyword apiname">映画を再生（）</span>&gt;
+       </td>
+
+       <td class="entry" valign="top" width="83.22147651006712%" headers="d142017e54 ">
+        <p class="p">現在のビデオを再生します。 </p>
+
+        <p class="p">例：</p>
+
+        <pre class="pre codeblock">   関数play（）{get_player（）。playMovie（）;} }</pre>
+
+       </td>
+
+      </tr>
+</tbody>
+
+    </table>
+</div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">関連情報 </h2>
+   
+   <p class="p">以下のリストは、資産に関する一般的な情報を提供するBacklotの資料へのリンクを示しています。</p>
+
+   <ul class="ul">
+    <li class="li"><a class="xref" href="../api/assets.html" title="/ v2 / assetsルートはすべての種類の資産を扱います。">資産</a></li>
+
+    <li class="li"><a class="xref" href="../api/asset_associations.html" title="定義したら、広告セット、公開ルール、ラベルをアセットに関連付けることができます。">アセットアソシエーション</a></li>
+
+    <li class="li"><a class="xref" href="../concepts/chapter_publishing.html" title="公開を使用すると、動画や動画のメタデータを複数のWebプロパティやコンテンツネットワークと共有できます。">コンテンツ発行</a></li>
+
+   </ul>
+
+  </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../archive/player_api_h5_intro.html" title="OoyalaプレーヤーHTML5 APIを使用すると、iOS、Android、およびその他のHTML5をサポートするプラットフォーム用に、Ooyalaプレーヤーとビデオエクスペリエンスの側面をカスタマイズできます。">HTML5 API（プレーヤV2は廃止予定）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

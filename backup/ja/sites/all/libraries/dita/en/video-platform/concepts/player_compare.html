@@ -1,0 +1,129 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Player V3 - Comparison Between HTML5 and Flash Players (Deprecated)"/>
+<meta name="abstract" content="Helps you decide which Player V3 to implement: the HTML5 Player or Flash Player."/>
+<meta name="description" content="どのプレーヤV3を実装するかを決めるのに役立ちます：HTML5プレーヤまたはFlashプレーヤ。"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_compare"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Player V3  -  HTML5とFlash Playerの比較（廃止予定）</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="player_compare">
+
+
+ <h1 class="title topictitle1">Player V3  -  HTML5とFlash Playerの比較（廃止予定）</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">Helps you decide which Player V3 to implement: the HTML5 Player or Flash
+  Player.</p>
+
+  <div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V3は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V3はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V3を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="pbv4_migration_v3.html">Player V3からの移行</a> そして <a class="xref" href="pbv4_migration_faq.html">プレイヤー移行に関するFAQ</a>).</div>
+
+  <div class="section">
+   <div class="p">Player V3 provides the ability to let the player automatically switch between HTML5 and Flash
+    to optimize itself to its environment. <ul class="ul">
+     <li class="li">You can embed a player on your web page that supports Flash with a fallback to HTML5 for
+      devices that do not support Flash.</li>
+
+     <li class="li">You can also set HTML5 as the default player with Flash as a fallback for cases where HTML5
+      is not supported.</li>
+
+     <li class="li">If you want to provide a completely consistent, though possibly less powerful playback
+      experience, you can set HTML5 as your default player.</li>
+
+    </ul>
+ When deciding how best to approach using the player, consider the following examples. </div>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" id="d595987e53"><strong class="ph b">If</strong></th>
+
+       <th class="entry" valign="top" id="d595987e57"><strong class="ph b">... then consider using</strong></th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" headers="d595987e53 d595987e57 ">Your viewers are all restricted to HTML5-only devices (for example, iOS devices do not support Flash)</td>
+
+       <td class="entry" valign="top" headers="d595987e53 d595987e57 ">HTML5 exclusively.</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d595987e53 d595987e57 ">Your viewers want HTML5 for an optimal desktop experience</td>
+
+       <td class="entry" valign="top" headers="d595987e53 d595987e57 ">HTML5 with Flash fallback.</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d595987e53 d595987e57 ">You want the ability to customize the player, take advantage of the quick load times of HTML5, or use some of the other HTML5 features not readily available in Flash</td>
+
+       <td class="entry" valign="top" headers="d595987e53 d595987e57 ">HTML5 only across all devices, with the understanding that your content will not work on Flash-only devices (e.g. a desktop with IE6 browser).</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d595987e53 d595987e57 ">You want greater device coverage but also want to make your content available for devices that support Flash</td>
+
+       <td class="entry" valign="top" headers="d595987e53 d595987e57 ">HTML5 with Flash fallback.</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d595987e53 d595987e57 ">You have viewers who want the features available in Flash or Flash is optimal for a large segment of your audience</td>
+
+       <td class="entry" valign="top" headers="d595987e53 d595987e57 ">Flash with HTML5 fallback.</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d595987e53 d595987e57 ">Your users are all restricted to Flash supported devices and want the features available in Flash</td>
+
+       <td class="entry" valign="top" headers="d595987e53 d595987e57 ">Flash exclusively. </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d595987e53 d595987e57 ">You want to use ActionScript to control the player</td>
+
+       <td class="entry" valign="top" headers="d595987e53 d595987e57 ">Use Player (V2) for Flash (see <a class="xref" href="../archive/player_v2_api_overview.html" title="Ooyala V2プレーヤーAPIリファレンスへようこそ。 このガイドには、Ooyala V2 Player APIを使用して実行できる操作に関する従来の情報が含まれています。">V2プレーヤAPI（プレーヤV2は廃止予定）</a>)</td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+   <p class="gt-block p">For more information about the devices and players we support, see <a class="xref" href="../concepts/player_reqs_overview.html" title="Supported technologies, devices, and platforms for Player V3, along with other requirements.">Player V3 System Requirements and Compatibility (Deprecated)</a></p>
+
+  </div>
+
+ </div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

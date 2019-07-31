@@ -1,0 +1,139 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="General Algorithm for Signing Requests"/>
+<meta name="abstract" content="Every request made to Backlot requires three query string parameters for authentication: API key, request expiration, and signature. This topic tells how to generate the signature."/>
+<meta name="description" content="Backlotに対して行われるすべてのリクエストは、認証のために3つのクエリ文字列パラメータを必要とします：APIキー、リクエストの有効期限、そして署名です。 このトピックでは、署名を生成する方法について説明します。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_api_setup.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/analytics_v3_api_reporting_setup.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="api_signing_requests"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>要求に署名するための一般的なアルゴリズム</title>
+</head>
+<body id="api_signing_requests">
+
+
+ <h1 class="title topictitle1">要求に署名するための一般的なアルゴリズム</h1>
+
+ 
+ <div class="body taskbody"><p class="gt-block shortdesc">へのすべての要求 <span class="ph">バックスロット</span> 認証には、APIキー、リクエストの有効期限、および署名という3つのクエリ文字列パラメータが必要です。 このトピックでは、署名を生成する方法について説明します。</p>
+
+  <div class="section context">
+   <p class="p">リクエストに署名するには：</p>
+
+  </div>
+
+  <ol class="ol steps"><li class="li step stepexpand">
+    <span class="ph cmd">あなたの40文字の秘密鍵から始めてください。 でそれを見つける <span class="ph uicontrol">開発者</span> のタブ <span class="ph">バックスロットUI</span>） 秘密鍵は各ユーザーに固有のものであり、常に安全で秘密にしておく必要があります。 詳しくは、 <a class="xref" href="../concepts/api_keys.html" title="Ooyala APIの認証情報には、APIキーとシークレットが含まれています。これらは、HTTPリクエストに署名するため、およびスクラッチパッドを使用するときに提供するものです。">あなたのAPIクレデンシャル</a>.</span>
+     この例では、次の架空の秘密鍵を使用しています。
+     <pre class="pre codeblock">
+329b5b204d0f11xxxxxxxxxxxxxxxxxxxx18xqh5
+    </pre>
+
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">HTTPメソッドを追加します（例： &quot;GET&quot;、 &quot;POST&quot;、 &quot;PUT&quot;）。</span>
+     
+     <pre class="pre codeblock">
+     329b5b204d0f11xxxxxxxxxxxxxxxxxxxx18xqh5<strong class="ph b">のGET</strong>
+    </pre>
+
+    
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">リクエストパスまたはルートを追加します。</span>
+     
+     <pre class="pre codeblock"> 
+      329b5b204d0f11xxxxxxxxxxxxxxxxxxxx18xqh5GET<strong class="ph b">/ v2 / players / HbxJK</strong>      
+     </pre>
+
+    
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">アルファベット順にソートされたクエリ文字列パラメータを追加します。 これには、必要なAPIキーが含まれています。 <span class="ph uicontrol">開発者</span> のタブ <span class="ph">バックスロットUI</span>、 そしてその
+      <samp class="ph codeph">有効期限が切れます</samp> パラメータ ＆や？などのパラメーター接頭部文字を省略します。</span>
+     この例では、次の架空のAPIキーを使用しています。
+     <pre class="pre codeblock">
+     7xxxX
+    </pre>
+
+     
+     <p class="gt-block p"><strong class="ph b">注意： </strong>これらのパラメータをURLエンコードしないでください。 これは後のステップで行われます。</p>
+
+     <pre class="pre codeblock">
+      329b5b204d0f11xxxxxxxxxxxxxxxxxxxx18xqh5GET/v2/players/HbxJK<strong class="ph b">api_key = 7xxx X Expires = X NUM X</strong>
+    </pre>
+
+    
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd"> リクエストにボディがある場合は、リクエストボディ全体を文字列に追加します。 </span>        
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">この文字列から、base256にSHA-64ダイジェストを生成します。 あなたが使うかもしれません <strong class="ph b">bash</strong>  or  <strong class="ph b">Node.jsの</strong> このため。 エンコードは必ずしも一意である必要はありません。</span>
+      
+      In  <samp class="ph codeph">bash</samp>あなたは以下のパイプコマンドを使うかもしれません：
+     <pre class="pre codeblock">echo -n &quot;329b5b204d0f11xxxxxxxxxxxxxxxxxxxx18xqh5GET / v2 / players / HbxJKapi_key = 7xxxXexpires = 1299991855&quot; | echo -n &quot; shasum -a 256 | awk &#39;{print $ 1}&#39; | xxd -r -p | base64</pre>
+
+     （このコマンドはMac OS Xで機能します。他のバージョンのLinuxを使用している場合は、使用することをお勧めします。 <samp class="ph codeph">sha256sum</samp> の代わりに <samp class="ph codeph">shasum -a 256</samp>.)
+     
+     
+     
+     <p class="p">出力は次の例のような文字列です。</p>
+
+     <pre class="pre codeblock">ZWU3NGYzM2RkZDMxZTJmMjgxOTY0OThhOWM3YjcyOTg4OTA5OTYzNzIxN2FmN2YxYzVjYWQ2YjVjZDIyYjY4ZSAgLQo=</pre>
+
+    
+    </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">文字列を43文字に切り捨て、末尾の文字を削除します。 <samp class="ph codeph">=</samp> 兆候。 例えば：</span>
+     
+     <pre class="pre codeblock">
+ZWU3NGYzM2RkZDMxZTJmMjgxOTY0OThhOWM3YjcyOTg
+    </pre>
+
+    
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">署名をURLエンコードします。 例えば、 <samp class="ph codeph">/</samp> になる <samp class="ph codeph">％2F</samp>
+     そして <samp class="ph codeph">+</samp> になる <samp class="ph codeph">％2B</samp>。 この例では、文字列は変わりません。 </span>
+     
+     <pre class="pre codeblock">
+ZWU3NGYzM2RkZDMxZTJmMjgxOTY0OThhOWM3YjcyOTg
+    </pre>
+
+    
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">このシグネチャをクエリ文字列パラメータとしてリクエストURLに追加します。 ASCII文字以外の文字を含むクエリ文字列パラメータを使用する場合 <samp class="ph codeph">'</samp> 文字は、それらがエスケープされていることを確認してください。 あなたは今このURLにアクセスしてあなたの要求をすることができます。 次の例は、最終的な署名付きURLです。 </span>
+     <pre class="pre codeblock">
+https://api.ooyala.com/v2/players/HbxJKM?api_key=7xxxX&amp;expires=1299991855<strong class="ph b">＆signature = ZWU3NGYzM2RkZDMxZTJmMjgxOTY0OThhOWM3YjcyOTg</strong>
+    </pre>
+         
+   </li>
+</ol>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_api_setup.html" title="Ooyalaは、Backlotプラットフォームへのリクエストを可能にするRESTベースのインターフェースを提供します。">Backlot REST APIを使用する</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/analytics_v3_api_reporting_setup.html">v3 Analytics Reporting APIのセットアップ/メカニズム</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

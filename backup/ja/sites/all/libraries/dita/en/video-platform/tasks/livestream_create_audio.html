@@ -1,0 +1,119 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Creating a Live Audio Stream (Deprecated)"/>
+<meta name="abstract" content="Ooyala live streaming acts as a controller and skin over your existing live streaming URL."/>
+<meta name="description" content="Ooyalaライブストリーミングは、既存のライブストリーミングURLの上のコントローラーおよびスキンとして機能します。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/content_livestreams_audio.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_encoding.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="livestream_upload_audio"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>ライブオーディオストリームの作成（廃止予定）</title>
+</head>
+<body id="livestream_upload_audio">
+
+
+<h1 class="title topictitle1">ライブオーディオストリームの作成（廃止予定）</h1>
+
+
+<div class="body taskbody"><p class="shortdesc">Ooyalaライブストリーミングは、既存のライブストリーミングURLの上のコントローラーおよびスキンとして機能します。</p>
+
+ <div class="section context"><div class="note note"><span class="notetitle">注意：</span> Backlot Liveストリーミングは推奨されておらず、無効にされる予定です。 詳細と代替案については、 <a class="xref" href="../relnotes/2017-06-04.html">OVPリリースノート</a>.  </div>
+
+  <p class="p">ライブオーディオストリームをBacklotに追加するには、ブロードキャスト元の場所にHTTPエンコーダのURLが必要です。 現在、Ooyalaは着信ストリームからオーディオを取得しないため、URLを生成するオーディオエンコーダを介してライブイベントキャプチャを実行する必要があります。 </p>
+
+  <p class="p">始める前に、次のものが揃っていることを確認してください。</p>
+
+  <ul class="ul">
+   <li class="li">HTTPを介してストリーミングできるエンコーディングソフトウェア（Windows Mediaエンコーダ、Ogg Vorbis、Speex、Adobe Flash Media Liveエンコーダ（FMLE）など）。</li>
+
+   <li class="li">ストリーミングサーバ（例：Akamai Media Delivery、Flash Media Server、Wowza Media Server、Linux用のFlumotion、Unix / Linux用のIcecast、Red5）。</li>
+
+   <li class="li">配布ソフトウェア（Ooyala BacklotおよびOoyala Player）</li>
+
+   <li class="li">Ooyalaの埋め込みコードを埋め込むWebページ。</li>
+
+  </ul>
+
+  <div class="note note"><span class="notetitle">注意：</span> FMLEなどのオーディオエンコーディングソフトウェアをインストールすると、HTTP接続を通じてAkamaiなどのコンテンツ配信ネットワーク（CDN）にライブストリームをプッシュできます。 CDNでライブストリーミングが有効になっている必要があります。</div>
+
+  
+  <p class="p">HTTP用のオーディオライブストリームを作成するには：</p>
+
+  <ol class="ol">
+   <li class="li">コンピューターに接続（または再生）するオーディオソースを設定します。</li>
+
+   <li class="li"><p class="p">専用のオーディオストリームを作成するには、ソフトウェアエンコーダ（Adobe FMLE、Windows Mediaエンコーダ、Ogg Vorbisなど）を介してライブストリーミングイベントを実行します。</p>
+
+    <div class="note note"><span class="notetitle">注意：</span> FMLE 3.2を使用している場合は、フォーマットをmp3からoggに変更する必要があります。 さらに、HTTPを使ってストリーミングできることを確認してください。
+    </div>
+
+   </li>
+
+   <li class="li">
+    <p class="p">
+   URLをホストするストリーミングサーバーまたはCDN（Akamaiなど）にオーディオストリームをプッシュするようにソフトウェアエンコーダーを設定します。 ソフトウェアエンコーダコンピュータから次の情報が必要です。
+    </p>
+
+    <ul class="ul">
+     <li class="li">エンコーダのホスト名またはIPアドレスとポート番号。 
+     </li>
+
+     <li class="li">ユーザー名とパスワード（ユーザー名は必要ないかもしれません）
+     </li>
+
+     <li class="li">マウントポイント（Flumotion HTTP Audio Streaming）。
+     </li>
+
+     <li class="li">ライブストリームの名前（ソフトウェアエンコーダで指定）。
+     </li>
+
+    </ul>
+
+   </li>
+
+   <li class="li"><p class="gt-block p">オーディオストリームをメディアサーバーまたはCDNにプッシュするには、メディアサーバーまたはCDNのURLを取得し、それをソフトウェアオーディオエンコーダーで指定します。 たとえば、Adobe FMLEエンコーダーでは、ストリーミングサーバーまたはCDN情報を <span class="ph uicontrol">FMSのURL</span> フィールド。</p>
+
+    <div class="note note"><span class="notetitle">注意：</span> ストリーミングサーバーまたはCDNのURL情報は、利用可能な管理ツールに応じてさまざまな場所にあります。 例えば、Flomotionメディアサーバーはこの情報を <span class="ph uicontrol">統計</span> Flomotionの管理ツールのタブをクリックしてください。 <span class="ph uicontrol">出力</span> タブまたはダイアログボックス この情報を見つけるには、ソフトウェアソフトウェアに付属のマニュアルを参照してください。
+    </div>
+
+   </li>
+
+   <li class="li">
+   エンコード処理中に、エンコーダは個々のライブオーディオセグメントファイルのURLを含む1つ以上のインデックスファイルまたはマニフェストファイルを作成します。 インデックスは、生のオーディオ放送に対応するために定期的にリフレッシュすることができます。
+   </li>
+
+   <li class="li">これらのファイルのライブストリーミングURLをBacklotに提供するには、ストリーミングサーバーまたはCDN管理ツールからURLを取得します。 ソフトウェアエンコーダのIPアドレス、ポート番号、およびライブストリーム名を指定して、ソフトウェアエンコーダからBacklotを直接プロビジョニングすることもできます。 この情報はすべてエンコーダソフトウェアで利用できます。</li>
+
+</ol>
+
+  <p class="p">オーディオは圧縮され、Ooyalaの埋め込みプレーヤーリンクを介してストリームに接続するすべてのデバイスにHTTP経由で配信されます。 当社のオーディオプレーヤーはこのリンクを拾い上げ、ストリームを識別するURLに基​​づいてライブストリームをブロードキャストします。</p>
+
+  
+ </div>
+
+</div>
+
+ 
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/content_livestreams_audio.html" title="ライブオーディオストリーミングは、リアルタイムでのオーディオコンテンツの配信です。">ライブオーディオストリーム（廃止予定）</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="../concepts/chapter_encoding.html" title="マスタービデオをインターネットで直接ストリーミングすることはできません。 それらはまずストリーミング形式に変換またはトランスコードする必要があります。 Ooyalaトランスコーディングサービス（OTS）を使用して、ファイルをソース形式から出力形式に変換します。">トランスコーディング設定</a></div>
+</div>
+</div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

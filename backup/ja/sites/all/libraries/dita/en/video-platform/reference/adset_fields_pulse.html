@@ -1,0 +1,236 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Ad Set Fields for Ooyala Pulse Ad Manager"/>
+<meta name="abstract" content="The fields described here are for Backlot ad sets with ad source set to Ooyala Pulse (Videoplaza) ad manager in the Backlot UI."/>
+<meta name="description" content="The fields described here are for Backlot ad sets with ad source set to Ooyala Pulse (Videoplaza) ad manager in the Backlot UI."/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/monetization_ads_adsets_integratingadnetworks.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_ads_dev_chapter_pulse.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/monetization_ads_adsets_adnetworks_wrapper.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="adsetfields_pulse"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Ooyala Pulse Ad Managerの広告セットフィールド</title>
+</head>
+<body id="adsetfields_pulse">
+
+
+ <h1 class="title topictitle1">Ooyala Pulse Ad Managerの広告セットフィールド</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">ここで説明するフィールドは、Backlot UIで広告ソースがOoyala Pulse（Videoplaza）広告マネージャに設定されているBacklot広告セットのものです。</p>
+  
+ <div class="section">
+   <p class="p">広告セットのフィールドは、広告配信用にプレーヤーとOoyala Pulseの統合を作成するときに設定したフィールドに直接対応しています。 次の表は、広告セットのフィールドをSDKパラメータにマップし、必要に応じてさらに説明しています。</p>
+
+  
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" width="100%" frame="border" border="1" rules="all">
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="20%" id="d827740e31">広告セットのフィールド名</th>
+
+       <th class="entry" valign="top" width="80%" id="d827740e34">対応するOoyala Ad Products SDKのパラメータと詳細説明</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" width="20%" headers="d827740e31 ">
+        <p class="p" id="adsetfields_pulse__insertionPoints">広告掲載順位</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="80%" headers="d827740e34 ">
+        <div class="p">このフィールドには以下のオプションがあります。<ul class="ul">
+         <li class="li">プリロール： <p class="gt-block p"><strong class="ph b">内容の前に：</strong> メインコンテンツが始まる前に再生されるリニア広告（プリロール）。</p>
+</li>
+
+          <li class="li">インストリーム：<p class="gt-block p"><strong class="ph b">再生位置で：</strong> メインコンテンツのタイムライン上の特定の時点に表示されるリニア広告（ミッドロール）。 この値では、再生位置も設定する必要があります（ <a class="xref" href="../../../../../../../../ja/video-advertising/oadtech/ad_serving/dg/pulse_sdks_parameter.html" target="_blank">再生位置</a>).</p>
+</li>
+
+          <li class="li">ポストロール：<p class="gt-block p"><strong class="ph b">コンテンツ終了時：</strong> メインコンテンツが終了した後に再生されるリニア広告（ポストロール）。</p>
+</li>
+
+         </ul>
+</div>
+
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="20%" headers="d827740e31 ">
+        <p class="p" id="adsetfields_pulse__vpDomain">vpDomain</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="80%" headers="d827740e34 ">
+        <div class="p"><strong class="ph b">ホストURL</strong> SDKの初期化時に、Ooyala Pulseアカウントのホストを提供する必要があります。 これは、どのPulseアカウントから広告をリクエストするかを識別するために使用されます。 ホストは、Pulse UIにある「サブドメイン」から派生し、次のように定式化されています。 <pre class="pre codeblock">http://[sub-domain].videoplaza.tv</pre>
+</div>
+
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="20%" headers="d827740e31 ">
+        <p class="p" id="adsetfields_pulse__playbackPosition">プレーヤレベルのミッドロール広告の中断</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="80%" headers="d827740e34 ">
+        <p class="gt-block p"><strong class="ph b">再生位置：</strong> これは、メインコンテンツのタイムライン上で、「再生位置にある」（ミッドロール）広告スロットが表示されるべきポイントです。 この値がメインコンテンツの期間よりも大きい場合、警告が発せられることがあります。</p>
+
+        <p class="p">プレーヤレベルのミッドロール広告を中断するには、すべての掲載順位をカンマで区切って秒単位で指定します。 例えば、10,20です。</p>
+
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="20%" headers="d827740e31 ">
+        <p class="p" id="adsetfields_pulse__tags">プレイヤーレベルのタグ</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="80%" headers="d827740e34 ">
+        <p class="gt-block p"><strong class="ph b">タグ</strong>：タグは、ターゲット設定やレポート作成の目的で使用できる自由形式のキーワードです。 tagsキーワードではUTF-8文字を処理できますが、引用符（ &#39;および &quot;）、アンパサンド（＆）、カンマ（、）、セミコロン（;）などの特殊文字の使用は控えることをお勧めします。</p>
+
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="20%" headers="d827740e31 ">
+        <p class="p" id="adsetfields_pulse__flags">プレイヤーレベルのVideoplazaのフラグ</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="80%" headers="d827740e34 ">
+        <p class="gt-block p"><strong class="ph b">フラグ</strong>：フラグは広告リクエストに特別な規則と条件を適用するために使用されます。 たとえば、プレミアムコンテンツがスポンサーされており、プレロールは表示されません。 フラグ &quot;noprerolls&quot;を追加すると、プリロールは返されなくなりますが、ミッドロールとポストロールは通常どおり使用できます。</p>
+<div class="p">サポートされているフラグは次のとおりです。<ul class="ul">
+                <li class="li">nocom：広告がまったく返されない</li>
+
+                <li class="li">noprerolls：プレロールは返されません</li>
+
+                <li class="li">nomidrolls：ミッドロールは返されません</li>
+
+                <li class="li">nopostrolls：ポストロールは返されません</li>
+
+                <li class="li">nooverlays：オーバーレイは返されません</li>
+
+              </ul>
+</div>
+
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="20%" headers="d827740e31 ">
+        <p class="p" id="adsetfields_pulse__shares">プレイヤーレベルのシェア</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="80%" headers="d827740e34 ">
+        <p class="p">このフィールドはカテゴリとコンテンツパートナーのパラメータを組み合わせたもので、やはりカンマで区切られています。</p>
+
+        <ul class="ul">
+         <li class="li">
+          <p class="gt-block p"><strong class="ph b">カテゴリ</strong>：カテゴリは、Ooyala Pulse UIでクライアントのアカウント用に定義されているカテゴリとコンテンツを関連付けるために使用される文字列です。 カテゴリの値は、Pulse UIで見つかったカテゴリのPulseネイティブID、またはPulse UIでそのカテゴリに関連付けられている人間が読める「エイリアス」にすることができます。各カテゴリに個別の広告ポリシーを適用して、返される広告の数と種類を制御することもできます。</p>
+
+         </li>
+
+         <li class="li">
+          <p class="gt-block p"><strong class="ph b">コンテンツパートナー</strong>：コンテンツパートナーは、表示される広告に追加のレポートディメンションを追加するために使用されます。 コンテンツパートナーの値には、Pulse UIで見つかったコンテンツパートナーのPulseネイティブID、またはPulse UIでコンテンツパートナーに関連付けられている人間が読める「エイリアス」を使用できます。</p>
+
+         </li>
+
+        </ul>
+
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="20%" headers="d827740e31 ">
+        <p class="p" id="adsetfields_pulse__maxLength">ショートフォームの内容 長さ（秒）</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="80%" headers="d827740e34 ">
+        <p class="p">広告が依然としてショートフォーム広告と見なされる最大長を秒単位で入力します。 </p>
+
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="20%" headers="d827740e31 ">
+        <p class="p" id="adsetfields_pulse__playbackTime">ノンリニア広告ブレイク</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="80%" headers="d827740e34 ">
+        <p class="gt-block p"><strong class="ph b">再生時：</strong> これは、ユーザーがメインコンテンツをX秒間表示した後に表示されるノンリニア広告用です（オーバーレイ）。</p>
+
+        <p class="p">ノンリニア広告の中断には、すべての掲載順位をカンマで区切って秒単位で指定します。 例えば、30,60,120です。</p>
+
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="20%" headers="d827740e31 ">
+        <p class="p" id="adsetfields_pulse__trackingPixel">トラッキングピクセルURL</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="80%" headers="d827740e34 ">
+        <p class="p">広告資産の配信を監視するためのトラッキングピクセルのためのURL。</p>
+
+        <div class="note note"><span class="notetitle">注意：</span> トラッキングは、ビデオプレーヤーとの統合を通じてOoyala Pulseによっても提供されます。</div>
+
+       </td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+  
+ </div>
+
+ </div>
+
+ 
+ <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../tasks/monetization_ads_adsets_integratingadnetworks.html" title="自分のアセットを使用する代わりに、他の広告ソースを使用することができます。">広告ソースと統合するための広告セットの作成</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="../concepts/pbv4_ads_dev_chapter_pulse.html">Ooyala Pulse広告プラグイン</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong><br/>
+<div><a class="link" href="../tasks/monetization_ads_adsets_adnetworks_wrapper.html" title="この資料には、Backlotで広告セットを作成する方法、および広告ソースと統合する方法が含まれています。">独自の広告資産、広告セット、および広告ソースを操作する</a></div>
+</div>
+</div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- delivered by GTranslate v4.8.8 in 14ms visit http

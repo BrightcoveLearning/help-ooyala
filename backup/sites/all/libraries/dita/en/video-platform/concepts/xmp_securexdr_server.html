@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="PHP Server Framework (Deprecated)"/>
+<meta name="abstract" content="We use PHP for the Server-side code. This PHP server is built on CodeIgniter framework and provides an initial template to help you get started working with player features."/>
+<meta name="description" content="We use PHP for the Server-side code. This PHP server is built on CodeIgniter framework and provides an initial template to help you get started working with player features."/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/xmp_securexdr_install.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_v3_dev_intro"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../css/ooyala.css"/>
+<title>PHP Server Framework (Deprecated)</title>
+</head>
+<body id="player_v3_dev_intro">
+
+
+  <h1 class="title topictitle1">PHP Server Framework (Deprecated)</h1>
+
+  
+  <div class="body conbody"><p class="shortdesc">We use PHP for the Server-side code. This PHP server is built on CodeIgniter framework
+    and provides an initial template to help you get started working with player
+    features.</p>
+
+    <div class="section"><div class="note note"><span class="notetitle">Note:</span> Ooyala Player V3 has been deprecated and is scheduled to be
+    disabled. For details and alternatives, see the <a class="xref" href="../relnotes/2017-06-04.html">OVP
+     Release Notes</a>.</div>
+We provide all the necessary elements for this startup sample to serve as a template.
+      This includes the code for the server-side components. We run the server in an CodeIgniter
+      framework, which is provided as part of the code sample in our GitHub repository. You can use
+      other server side frameworks. CodeIgniter is just used as a sample framework to help you get
+      started learning how to build a multi-feature Player experience. </div>
+
+    <div class="section"><h2 class="title sectiontitle">Review the Server-Side Code</h2> The GitHub repository contains the PHP-based
+      server-side code (CodeIgniter app) that you can use to run the samples. Designed to help you
+      get up and running in very little time, the sample CodeIgniter app is already integrated with
+      the Ooyala PHP SDK (<samp class="ph codeph">/application/third_party/php-v2-sdk</samp>) so there is no need to add anything
+      else. If you already have a server setup, you can adapt the code to your use. Or if you just
+      want to run the code sample, you can clone the repository and copy it to your server. If you
+      clone the repository to your server, you don’t need to implement the PHP framework, as we
+      provide it as part of the code sample. </div>
+
+    <div class="section"><h2 class="title sectiontitle">Where to Find the Code</h2>
+      <p class="p">All of the server PHP framework sample code is located
+        in the application directory. To get to this code in our GitHub repository, use the URL:
+          <a class="xref" href="https://github.com/ooyala/code-samples/blob/master/application" target="_blank">https://github.com/ooyala/code-samples/blob/master/application</a>.</p>
+The server-side files are structured as
+      follows with the relevant server-side code highlighted:
+      <pre class="pre codeblock">├── application (Main folder where the CodeIgniter application lives)
+...
+│   ├── cache   (CodeIgniter cache, you don't need to worry about this)
+│   ├── <a class="xref" href="https://github.com/ooyala/code-samples/blob/master/application/config" target="_blank"><strong class="ph b">config</strong></a>  (Here we have all the configuration files, both for CodeIgniter and ooyala. You only need to peek at ooyala_config)
+│   ├── <a class="xref" href="https://github.com/ooyala/code-samples/blob/master/application/controllers" target="_blank"><strong class="ph b">controllers</strong></a> (This is where the main logic lives. Here we handle routing and passing all the server data to the views)
+│   ├── core    (CodeIgniter core. Don't touch this)
+│   ├── errors  (CodeIgniter specific)
+│   ├── helpers (CodeIgniter specific)
+│   ├── hooks   (CodeIgniter specific)
+│   ├── language    (CodeIgniter specific)
+│   │   └── english (CodeIgniter specific)
+│   ├── <a class="xref" href="https://github.com/ooyala/code-samples/blob/master/application/libraries" target="_blank"><strong class="ph b">libraries</strong></a>   (Here you can define your own libraries, and here lives our ooyala.php library )
+│   ├── logs        (CodeIgniter specific)
+│   ├── models      (CodeIgniter specific)
+│   ├── <a class="xref" href="https://github.com/ooyala/code-samples/blob/master/application/third_party" target="_blank"><strong class="ph b">third_party</strong></a> (This folder holds all third-party libraries, helpers, and so forth that you bring to the application)
+│   │   └── php-v2-sdk  (This is the Ooyala SDK for php)
+│   │       └── test    (This is the test suite for the SDK)
+...
+├── system    (CodeIgniter system. You don't need to review or modify this code)</pre>
+</div>
+
+    <div class="section"><h2 class="title sectiontitle">About the Sample CodeIgniter Framework</h2><p class="p">As you would expect, the main logic for this sample is in the controller directory.
+        For specific interaction with the Ooyala API you should check the
+          <samp class="ph codeph">ooyala.php</samp> file inside the libraries directory. Since we don't use models
+        in this sample, the models folder only has what comes with default CodeIgniter
+        installation.</p>
+ CodeIgniter is a
+      framework in PHP designed to have as low overhead as possible. It follows an
+      Model-View-Controller (MVC) pattern, where you pass information to the view in the following
+          way:<p class="p"><samp class="ph codeph">$this-&gt;view-&gt;load("name_of_the_view",
+        $data)</samp></p>
+<p class="p">CodeIgniter follows a URL path such as the
+        following:</p>
+<samp class="ph codeph">"base/controller/view/args"</samp><p class="p">CodeIgniter urls follow a
+        structure like the
+        following:</p>
+<pre class="pre">http://insert_your_server_name.com/index.php/[controller-class]/[controller-method]/[arguments] </pre>
+<p class="p">Currently,
+        this example has the following routes:</p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="player_v3_dev_intro__table_n2g_4ft_vm" class="table" frame="border" border="1" rules="all">
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" id="d524949e99">Route</th>
+
+              <th class="entry" valign="top" id="d524949e102">Info</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" headers="d524949e99 ">Secure_XDR_GoogleIMA/cross_resume</td>
+
+              <td class="entry" valign="top" headers="d524949e102 ">Cross device resume</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d524949e99 ">Secure_XDR_GoogleIMA/simple</td>
+
+              <td class="entry" valign="top" headers="d524949e102 ">Barebones player</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d524949e99 ">Secure_XDR_GoogleIMA/message_bus</td>
+
+              <td class="entry" valign="top" headers="d524949e102 ">Simple message bus handling</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d524949e99 ">Secure_XDR_GoogleIMA/message_bus_advanced</td>
+
+              <td class="entry" valign="top" headers="d524949e102 ">Milestones with message bus</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d524949e99 ">Secure_XDR_GoogleIMA/token</td>
+
+              <td class="entry" valign="top" headers="d524949e102 ">An example with playerToken</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d524949e99 ">Secure_XDR_GoogleIMA/google_ima</td>
+
+              <td class="entry" valign="top" headers="d524949e102 ">Player with Google IMA enabled</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d524949e99 ">Secure_XDR_GoogleIMA/multi_feature</td>
+
+              <td class="entry" valign="top" headers="d524949e102 ">An example that has all of the above</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d524949e99 ">Web_example/</td>
+
+              <td class="entry" valign="top" headers="d524949e102 ">A simple client page that shows a video with trending and related
+                videos</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d524949e99 ">Web_example/mobile</td>
+
+              <td class="entry" valign="top" headers="d524949e102 ">The same as Web_example root but with page resizing</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+</div>
+
+    <div class="section"><h2 class="title sectiontitle">About the Ooyala PHP SDK</h2>The SDK is a client class to interact with <a class="xref" href="book_api.html" title="Use the Backlot REST API to customize the chrome (design elements) of your player. This includes UI elements such as fonts, colors, scrubber bar and so forth.">Backlot REST API</a>. This sample already has a copy of it at
+      /application/third_party/php-v2-sdk but if you have any doubts or want to check out the source
+      you can find it at: <a class="xref" href="https://github.com/ooyala/code-samples/blob/master/%28/application/third_party/php-v2-sdk" target="_blank">https://github.com/ooyala/code-samples/blob/master/%28/application/third_party/php-v2-sdk</a>)</div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../concepts/xmp_securexdr_install.html" title="Secure XDR code sample can help you get started in creating a multi-feature playback experience with Ooyala Cross-Device Resume, Google IMA ads integration, and Ooyala Player Token authentication.">Secure XDR Player V3 Sample (Deprecated)</a></div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2016-04-12 Release"/>
+<meta name="abstract" content="Notable contents of this release include a new release of Player V4 and Player V4 documentation updates."/>
+<meta name="description" content="Notable contents of this release include a new release of Player V4 and Player V4 documentation updates."/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2016.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release20160412"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2016-04-12リリース</title>
+</head>
+<body id="release20160412">
+
+
+    <h1 class="title topictitle1">2016-04-12リリース</h1>
+
+    
+    <div class="body conbody"><p class="shortdesc">このリリースの注目すべき内容には、Player V4の新しいリリースとPlayer V4ドキュメントの更新が含まれます。</p>
+ 
+        <div class="section"><h2 class="title sectiontitle">プレーヤーV4リリース - バージョン4.2.14</h2>
+            
+            <div class="sectiondiv">
+                <p class="p">Player V4のこのリリースには、以下のバグに対する修正が含まれています。</p>
+
+                <ul class="ul">
+                    <li class="li">Safariを使用しているMacデバイスでは、ディスカバリートレイの位置がずれていました。 この問題は解決されました。</li>
+
+                    <li class="li">Safariブラウザを使用しているとき、[次へ]のタイトルテキストが説明と重なっていました。 この問題は解決されました。 </li>
+
+                    <li class="li">検出が有効になっているプレーヤーでGoogle IMA広告を使用しているiOSデバイスでは、検出ビデオを開始した後、Google IMA広告は音声のみで再生されます（ビデオは再生されません）。 この問題はiPadデバイスでは解決されています。 検出はiPhoneデバイスではサポートされていません。</li>
+
+                    <li class="li">iPadデバイスでは、同じページに複数のV4プレーヤーが埋め込まれている場合、1人のプレーヤーのみが正常に再生されます（最初のビデオを一時停止した後も追加のプレーヤーは再生されません）。 この問題は解決され、iPadデバイスで複数のプレーヤーを使用し、最初のビデオを再生し、最初のビデオを一時停止（または最後まで視聴）し、その後別のプレーヤーからビデオを正常に再生できるようになりました。 iOSには、一度に1つのメディアしか再生できないという既知の制限があります（複数のビデオを同時に再生することはできません）。</li>
+
+                </ul>
+
+            </div>
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">デフォルトのプレイヤーリンク</strong></p>
+
+                <ul class="ul">
+                    <li class="li">Core Player（必須）：http://player.ooyala.com/static/v4/stable / 4.2.14 / core.min.js</li>
+
+                    <li class="li">プレイヤーのスキン： <ul class="ul">
+                            <li class="li">http://player.ooyala.com/static/v4/stable/4.2.14/skin-plugin/html5-skin.min.js</li>
+
+                            <li class="li">http://player.ooyala.com/static/v4/stable/4.2.14/skin-plugin/skin.json</li>
+
+                            <li class="li">http://player.ooyala.com/static/v4/stable/4.2.14/skin-plugin/html5-skin.min.css</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="li">ビデオプラグイン（少なくとも1つは必須） <ul class="ul">
+                            <li class="li">HLSおよびMP4用のメインビデオプラグイン：http://player.ooyala.com/static/v4/stable / 4.2.14 / video-plugin / main_html5.min.js</li>
+
+                            <li class="li">HDS用のOSMF Flashプラグイン：http://player.ooyala.com/static/v4/stable / 4.2.14 / video-plugin / osmf_flash.min.js</li>
+
+                            <li class="li">HLSおよびDASH用のBitmovinプラグイン：http://player.ooyala.com/static/v4/stable / 4.2.14 / video-plugin / bit_wrapper.min.js
+                            </li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="li">広告プラグイン <ul class="ul">
+                            <li class="li">VASTおよびVPAID広告プラグイン：https://player.ooyala.com/static/v4/stable / 4.2.14 / ad-plugin / ad_manager_vast.min.js</li>
+
+                            <li class="li">Google IMA広告プラグイン：https://player.ooyala.com/static/v4/stable / 4.2.14 / ad-plugin / google_ima.min.js</li>
+
+                            <li class="li">FreeWheel広告プラグイン：https://player.ooyala.com/static/v4/stable / 4.2.14 / ad-plugin / freewheel.min.js</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="li">ディスカバリー：http://player.ooyala.com/static/v4/stable / 4.2.14 /other-plugin/discovery_api.min.js</li>
+
+                </ul>
+
+            </div>
+            <div class="sectiondiv">見る <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/concepts/pbv4_release_notes.html#pbv4_release_notes__20160412_known_issues">Player V4リリースノート</a> このリリースの既知の問題の完全なリストについては。</div>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">ドキュメントリリース</h2>
+            
+            <ul class="ul">
+                <li class="li"><strong class="ph b"><span class="ph">プレイヤーV4</span> ドキュメンテーション：</strong> 追加されました <span class="ph">プレイヤーV4</span> システム要求 （<a class="xref" href="../concepts/pbv4_requirements.html">プレーヤV4のプラットフォーム別システム要件</a>).</li>
+
+                <li class="li"><strong class="ph b"><span class="ph">プレイヤーV3</span> ドキュメンテーション：</strong> 更新しました <span class="ph">プレイヤーV3</span> システム要求 （<a class="xref" href="../concepts/player_v3_dev_reqs.html" title="Player V3は、Flash再生、HTML5再生、およびFlash再生（HTML5フォールバックを使用）のサポートを多数のプラットフォームで提供しています。">Player V3プラットフォームとブラウザのサポート（廃止予定）</a> そして <a class="xref" href="../reference/player_requirements.html" title="Player V3は、ライブビデオとオンデマンドビデオに最高品質のエクスペリエンスを提供するように設計されています。">プラットフォーム別のPlayer V3システム要件（旧式）</a>).</li>
+
+                <li class="li"><strong class="ph b">ディスカバリー文書</strong>：Backlot UIの設定の影響を受けるOoyalaプレーヤーのバージョンを明確にしました。 <a class="xref" href="../concepts/discovery_config.html" title="パーソナライズされたおすすめを設定する方法と、ビデオの再生が終了または一時停止したときにOoyalaプレーヤーがおすすめを表示する方法を学びます。">バックスロットUIでの検出の設定</a>） にカスタマイズの詳細を追加しました <a class="xref" href="../concepts/pbv4_discovery.html">Player V4でコンテンツを発見する</a>.</li>
+
+           </ul>
+
+            
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Ooyalaリリースノートを購読する</h2>
+             見る <a class="xref" href="../concepts/release_notes_subscribe.html">Ooyalaリリースノートを購読する</a> Ooyalaリリースノートの自動通知を購読する方法については、こちらをご覧ください。 </div>
+
+    </div>
+
+    
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2016.html" title="2016からのリリースノート。">2016ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

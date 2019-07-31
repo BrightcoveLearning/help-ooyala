@@ -1,0 +1,52 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Setting an Expiration Time on Requests"/>
+<meta name="abstract" content="You must set the expires parameter on your HTTP requests."/>
+<meta name="description" content="You must set the expires parameter on your HTTP requests."/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_api_setup.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/analytics_v3_api_reporting_setup.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="api_high_performance"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>要求の有効期限を設定する</title>
+</head>
+<body id="api_high_performance">
+
+
+ <h1 class="title topictitle1">要求の有効期限を設定する</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc"> あなたが設定する必要があります <samp class="ph codeph">有効期限が切れます</samp> HTTPリクエストのパラメータ。 </p>
+
+  <p class="p">HTTPリクエストには <samp class="ph codeph">有効期限が切れます</samp> リクエストが無効になるタイミングを示すパラメータ。</p>
+
+  <p class="p">の値 <samp class="ph codeph">有効期限が切れます</samp> 次の例に示すように、parameterは1月からの秒数で、1、1970（ &quot;the epoch&quot;）の後、要求は無効になります。</p>
+
+  <pre class="pre codeblock">[GET] https://api.ooyala.com/v2/players/somePlayerId?api_key=someKey&amp;signature=someSignature&amp;expires=1930294539</pre>
+
+  <div class="note note"><span class="notetitle">注意：</span> <span class="ph">ASCII以外の文字と <strong class="ph b">'</strong> 文字はエスケープされます。</span></div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_api_setup.html" title="Ooyalaは、Backlotプラットフォームへのリクエストを可能にするRESTベースのインターフェースを提供します。">Backlot REST APIを使用する</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/analytics_v3_api_reporting_setup.html">v3 Analytics Reporting APIのセットアップ/メカニズム</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

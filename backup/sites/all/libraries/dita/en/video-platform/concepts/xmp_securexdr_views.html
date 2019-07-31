@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Client Views (Deprecated)"/>
+<meta name="abstract" content="The client views provide sample code to implement a feature or features on a web page."/>
+<meta name="description" content="The client views provide sample code to implement a feature or features on a web page."/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/xmp_securexdr_install.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/xmp_securexdr_view_simple.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/xmp_securexdr_view_gima.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/xmp_securexdr_view_mbus.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/xmp_securexdr_view_opt.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/xmp_securexdr_view_xdr.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/xmp_securexdr_view_muf.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_v3_dev_intro"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../css/ooyala.css"/>
+<title>Client Views (Deprecated)</title>
+</head>
+<body id="player_v3_dev_intro">
+
+
+  <h1 class="title topictitle1">Client Views (Deprecated)</h1>
+
+  
+  <div class="body conbody"><p class="shortdesc">The client views provide sample code to implement a feature or features on a web
+    page.</p>
+
+    <div class="section"><h2 class="title sectiontitle">Where to Find the Code</h2><div class="note note"><span class="notetitle">Note:</span> Ooyala Player V3 has been deprecated and is scheduled to be
+    disabled. For details and alternatives, see the <a class="xref" href="../relnotes/2017-06-04.html">OVP
+     Release Notes</a>.</div>
+<p class="p">The code sample includes multiple client web pages or views illustrating each
+        feature and a seventh code sample that shows all the features working in combination. To
+        implement this client page, you will need all the standard elements that you normally use to
+        embed a player, such as your API Key, pcode, and so forth. For information about how to do
+        this, you can check the <a class="xref" href="api_keys.html" title="Your Ooyala API credentials include your API key and secret, which you provide to sign HTTP requests and when using the scratchpad.">API Keys and Partner
+          Code</a> documentation.</p>
+ To explore these code sample views in GitHub, go to: <a class="xref" href="https://github.com/ooyala/code-samples/blob/master/application/views" target="_blank">https://github.com/ooyala/code-samples/blob/master/application/views</a>.<p class="p">The
+        following diagram shows the organization of all the views
+      directory.</p>
+<pre class="pre codeblock">├── application (Main folder where the CodeIgniter application lives)
+...
+│   └── views   (Here we define all the views for the application.)
+│   │   ├── <strong class="ph b">cross_resume.php</strong>
+│   │   └── <strong class="ph b">google_ima.php</strong>
+│   │   ├── index.html
+│   │   └── <strong class="ph b">message-bus-advanced.php</strong>
+│   │   ├── <strong class="ph b">message-bus.php</strong>
+│   │   └── <strong class="ph b">multi-feature.php</strong>
+│   │   └── <strong class="ph b">simple.php</strong>
+│   │   ├── <strong class="ph b">test.php</strong>
+│   │   └── <strong class="ph b">token.php</strong></pre>
+</div>
+
+    <div class="section"><h2 class="title sectiontitle">Client-Side Views</h2><p class="p">You can review the corresponding server-side logic implemented in the controllers at
+          <a class="xref" href="https://github.com/ooyala/code-samples/blob/master/application/controllers" target="_blank">https://github.com/ooyala/code-samples/blob/master/application/controllers</a>
+      </p>
+ The client-side views or web pages are described in the
+      following table:<table cellpadding="4" cellspacing="0" summary="" id="player_v3_dev_intro__simpletable_app_snm_vm" border="1" class="simpletable"><tr class="sthead">
+          <th valign="bottom" align="left" id="d527275e80" class="stentry" width="24.813895781637722%">Client file</th>
+
+          <th valign="bottom" align="left" id="d527275e83" class="stentry" width="75.18610421836229%">Description</th>
+
+        </tr>
+<tr class="strow">
+          <td valign="top" headers="d527275e80" class="stentry"><strong class="ph b">cross_resume.php</strong></td>
+
+          <td valign="top" headers="d527275e83" class="stentry">Contains the code with player_tokenauth - This file contains the code to
+            implement the Ooyala Player. </td>
+
+        </tr>
+<tr class="strow">
+          <td valign="top" headers="d527275e80" class="stentry"><strong class="ph b">google_ima.php</strong></td>
+
+          <td valign="top" headers="d527275e83" class="stentry">Contains the code to implement the Google IMA ad manager.</td>
+
+        </tr>
+<tr class="strow">
+          <td valign="top" headers="d527275e80" class="stentry"><strong class="ph b">message-bus.php</strong> and </td>
+
+          <td valign="top" headers="d527275e83" class="stentry">Illustrates the use of our message bus for event handling.</td>
+
+        </tr>
+<tr class="strow">
+          <td valign="top" headers="d527275e80" class="stentry"><strong class="ph b">message-bus-advanced.php</strong></td>
+
+          <td valign="top" headers="d527275e83" class="stentry">Illustrates the use of our message bus for event handling.</td>
+
+        </tr>
+<tr class="strow">
+          <td valign="top" headers="d527275e80" class="stentry"><strong class="ph b">multi-feature-sample.php</strong></td>
+
+          <td valign="top" headers="d527275e83" class="stentry">Contains the code that combines all of the features.</td>
+
+        </tr>
+<tr class="strow">
+          <td valign="top" headers="d527275e80" class="stentry"><strong class="ph b">simple.php</strong></td>
+
+          <td valign="top" headers="d527275e83" class="stentry">Contains the simplest building block for using the Player. It contains the embed
+            code for a running a single player on a web page.</td>
+
+        </tr>
+<tr class="strow">
+          <td valign="top" headers="d527275e80" class="stentry"><strong class="ph b">token.php</strong></td>
+
+          <td valign="top" headers="d527275e83" class="stentry">Contains the code to implement Token Authentication for a single player on a web
+            page.</td>
+
+        </tr>
+</table>
+</div>
+
+    <div class="section">
+      <p class="p">The following sections describe the implementation of each of these client-side views.</p>
+
+    </div>
+
+  </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../concepts/xmp_securexdr_view_simple.html">Simple Player Embed (Deprecated)</a></strong><br/>
+You can use the following code sample to understand how embed a simple player on a web     page.</li>
+<li class="link ulchildlink"><strong><a href="../concepts/xmp_securexdr_view_gima.html">Google IMA View (Deprecated)</a></strong><br/>
+You can use the following code sample to work with Google IMA ad manager.</li>
+<li class="link ulchildlink"><strong><a href="../concepts/xmp_securexdr_view_mbus.html">Message Bus Views (Deprecated)</a></strong><br/>
+You can use the following code sample to work with the player message bus and message     bus events.</li>
+<li class="link ulchildlink"><strong><a href="../concepts/xmp_securexdr_view_opt.html">Ooyala Player Token View (Deprecated)</a></strong><br/>
+You can use the following code sample to understand how to add token authentication to     a player experience.</li>
+<li class="link ulchildlink"><strong><a href="../concepts/xmp_securexdr_view_xdr.html">Cross Device Resume View (Deprecated)</a></strong><br/>
+You can use the following code sample to work with Cross Device Resume.</li>
+<li class="link ulchildlink"><strong><a href="../concepts/xmp_securexdr_view_muf.html">Multi-Feature Views (Deprecated)</a></strong><br/>
+You can use the following code sample to help you get started start creating your     playback experience with Ooyala Cross-Device Resume and Google IMA ads integration and adding     Player Token authentication.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../concepts/xmp_securexdr_install.html" title="Secure XDR code sample can help you get started in creating a multi-feature playback experience with Ooyala Cross-Device Resume, Google IMA ads integration, and Ooyala Player Token authentication.">Secure XDR Player V3 Sample (Deprecated)</a></div>
+</div>
+</div>
+
+</body>
+</html>

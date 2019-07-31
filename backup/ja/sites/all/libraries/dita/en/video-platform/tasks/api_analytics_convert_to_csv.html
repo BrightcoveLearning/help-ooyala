@@ -1,0 +1,68 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Converting Analytics JSON to CSV (Deprecated)"/>
+<meta name="abstract" content="With the Backlot UI you can download data in comma-separated value (CSV) format. Here is a general approach for doing this programmatically."/>
+<meta name="description" content="Backlot UIでは、データをコンマ区切り値（CSV）形式でダウンロードできます。 これはプログラム的にこれを行うための一般的なアプローチです。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_analytics.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="api_custom_analytics"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Analytics JSONからCSVへの変換（廃止予定）</title>
+</head>
+<body id="api_custom_analytics">
+
+
+ <h1 class="title topictitle1">Analytics JSONからCSVへの変換（廃止予定） </h1>
+
+ 
+ <div class="body taskbody"><p class="gt-block shortdesc">とともに <span class="ph">バックスロットUI</span> データはカンマ区切り値（CSV）形式でダウンロードできます。 これはプログラム的にこれを行うための一般的なアプローチです。</p>
+
+  <div class="section context">
+   <div class="p">
+    <div class="note warning"><span class="warningtitle">警告：</span> v2 Analytics APIは非推奨になりました。 見る <a class="xref" href="../concepts/ooyala_iq_developer_guide.html">ウーヤラIQアナリティクス</a> 新しいv3 Analytics APIの詳細については、</div>
+
+   </div>
+
+   <p class="p">Analytics APIによるすべての応答は、JavaScript Object Notation（JSON）の形式です。 スプレッドシートプログラムを使用すると、一般的にCSVデータを読み取ることができるので、非常に便利な分析を実行できます。 </p>
+
+   <p class="gt-block p">から <span class="ph">バックスロットAPI</span> 言語に依存しないため、JavaScriptを使用して変換を説明しています。 インターネットには、さまざまな言語用の無料の変換ツールが多数あります。</p>
+
+   <div class="p">下記はJSONを配列に変換するJavaScriptプログラムのサンプルです（json.orgのアイデアに多少基づいています）。 <samp class="ph codeph">json3</samp>）からCSVへ。 実際には、配列を定義する代わりに、JSONレスポンスをファイルに保存してファイルを読み込むか、または以下のスクリプトを変更して他のデータソースから読み込むことをお勧めします。 同様に、このスクリプトはCSVデータのダウンロードを促す新しいウィンドウを開きます。 あなたはこの振る舞いを変えたいと思うかもしれません。<pre class="pre codeblock">
+&lt;script src = &quot;scripts / json.js&quot; type = &quot;text / javascript&quot;&gt; &lt;/script&gt; &lt;script type = &quot;text / javascript&quot;&gt; var json3 = {&quot;d&quot;： &quot;[{\&quot; Id \ &quot;： 1、\ &quot;UserName \&quot;：\ &quot;Sam Smith \&quot;}、{\ &quot;Id \&quot;：2、\ &quot;UserName \&quot;：\ &quot;Fred Frankly \&quot;}、{\ &quot;Id \&quot;：1、\ &quot; UserName \ &quot;：\&quot; Zachary Zupers \ &quot;}]&quot;}ダウンロードJSON2CSV（json3.d）; function DownloadJSON2CSV（objArray）{var配列= typeof objArray！= &#39;オブジェクト&#39; JSON.parse（objArray）：objArray; var str = &#39;&#39;; （var i = 0; i &lt;array.length; i ++）{var line = &#39;&#39;; for（var index in配列[i]）{line + = array [i] [index] + &#39;、&#39;; //（var index in array [i]）{// line + = &#39;&quot;&#39; + array [i] [index] + &#39;&quot;、&#39;次の例は、二重引用符で値を囲む例です。 ; line.slice（0、line.Length-1）; str + = line + &#39;\ r \ n&#39;; //この出力ウィンドウを変更したい場合があります。open（ &quot;data：text / csv; charset = utf-8、&quot; + escape（str））} &lt;/script&gt;
+    </pre>
+
+            </div>
+
+  </div>
+
+  <ol class="ol steps"><li class="li step stepexpand">
+    <span class="ph cmd">必要なデータを取得するために必要なAPIリクエストを作成します。</span>
+     型に関係なく、変換に適したデータを扱っていること、およびデータに同様のディメンションを含めていることを確認してください。
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">上記のJavaScriptの変種またはご希望の言語用の変換プログラムを使用して、データをCSVに変換します。</span>
+   </li>
+</ol>
+
+ </div>
+
+
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_analytics.html" title="Ooyalaには、v2 Analytics APIを使用してデータを取得するという基本的な分析機能がありました。">v2 Analytics（非推奨）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

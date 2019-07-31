@@ -1,0 +1,90 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Swap High Availability (HA) Channels"/>
+<meta name="abstract" content="Swap sub-channels of an HA channel without stopping any of the channels"/>
+<meta name="description" content="チャネルを停止せずにHAチャネルのサブチャネルを交換する"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/liveplatform_setup_hachannel.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="live_swap_ha_channel"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>高可用性（HA）チャネルの交換</title>
+</head>
+<body id="live_swap_ha_channel">
+
+
+    <h1 class="title topictitle1">高可用性（HA）チャネルの交換</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">チャネルを停止せずにHAチャネルのサブチャネルを交換する </p>
+
+        <div class="section prereq p">少なくとも2チャンネル（24x7またはAdhoc）が構成されている必要があります。</div>
+
+        <div class="section context">HAチャネル内でチャネルを交換するには、すべてのチャネルが同じ状態になければなりません。 チャネルをホットスワップするには、すべてのチャネルが実行状態になっている必要があります。<div class="p"><strong class="ph b">サブチャネルを交換するときの考慮事項</strong><ul class="ul" id="live_swap_ha_channel__ul_qwr_mfx_vcb">
+                    <li class="li">DRM対応チャンネルを使用している場合は、両方のサブチャンネルで同じDRMパッケージ出力プロファイルを使用する必要があります。 </li>
+
+                    <li class="li">サブチャネルをスワップアウトするときにスケジュールされたHAイベントを保持するために、HAチャネルにスワップしているチャネル上に将来スケジュールされたイベントは存在できません。 </li>
+
+                </ul>
+</div>
+</div>
+
+        <ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd">に行った <span class="ph uicontrol">チャンネル詳細</span> HAチャネルのページ</span>
+                 
+                    <p class="p"><img class="image" id="live_swap_ha_channel__image_dxg_xz5_r1b" src="http://help-ooyala.brightcove.com/../image/live_haswap_details.png" height="674" width="762"/></p>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">サブチャンネルの横にある編集アイコンをクリックします。 <img class="image" id="live_swap_ha_channel__image_ahw_31v_r1b" src="http://help-ooyala.brightcove.com/../image/live_edit_icon.png"/>
+                </span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">交換したいチャンネルのドロップダウンリストをクリックします。</span>
+                 <div class="note important"><span class="importanttitle">重要：</span> 一番上のドロップダウンリストはPriority 1チャンネルで、2番目のドロップダウンリストはPriority 2チャンネルです。 </div>
+<img class="image" id="live_swap_ha_channel__image_ary_r1v_r1b" src="http://help-ooyala.brightcove.com/../image/live_haswap_dlist_select.png" height="341" width="362"/><p class="p">交換に使用できるすべてのチャンネルは、Priority 1とPriority 2チャンネルの両方に対して一覧表示されます。</p>
+<img class="image" id="live_swap_ha_channel__image_ikb_2bv_r1b" src="http://help-ooyala.brightcove.com/../image/live_haswap_dl_select.png" height="343" width="399"/>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">ナビゲーションヘッダーの <span class="ph uicontrol">セーブ</span>.</span>
+            </li>
+</ol>
+
+        <div class="section result"><div class="p">HAチャネルのモニタタブに行き、チャネルが交換され、正しいものが再生されていることを確認して下さい。<div class="note tip"><span class="tiptitle">ヒント：</span> 新しいサブチャンネルがで再生されていない場合
+                        <span class="ph uicontrol">HAチャンネル</span> モニタウィンドウ、クリック
+                        <span class="ph uicontrol">REFRESH</span>.</div>
+</div>
+<img class="image" id="live_swap_ha_channel__image_xl3_5bv_r1b" src="http://help-ooyala.brightcove.com/../image/live_haswap_verify.png" height="720" width="696"/><div class="p">
+                <div class="note note"><span class="notetitle">注意：</span> 
+                    <ul class="ul" id="live_swap_ha_channel__ul_jqm_f41_s1b">
+                        <li class="li">  <span class="ph uicontrol">優先1</span> サブチャネルは、HAチャネルのコンテンツをストリーミングします。</li>
+
+                        <li class="li">  <span class="ph uicontrol">優先2</span> サブチャネルはウォームスタンバイモードになります。 <span class="ph uicontrol">優先1 </span>サブチャネルは失敗します。</li>
+
+                    </ul>
+
+                </div>
+
+                <div class="note important"><span class="importanttitle">重要：</span> サブチャンネルを交換してもチャンネルは停止しません。 トランスコーディング料金を回避するには、必要なHAサブチャネルの1つではなくなったチャネルをすべて停止します。</div>
+
+            </div>
+</div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/liveplatform_setup_hachannel.html" title="ライブコンテンツが常に利用可能であることを確認するために高可用性（HA）チャンネルを設定します。">高可用性チャネルの設定</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </s

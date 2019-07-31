@@ -1,0 +1,96 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Viewing Reach Metrics"/>
+<meta name="abstract" content="The Reach tab highlights how widely your videos are getting watched, regardless of plays."/>
+<meta name="description" content="[リーチ]タブでは、再生に関係なく、動画がどの程度幅広く視聴されているかがわかります。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/analytics_v3_user_workspace_content.html"/>
+<meta name="DC.Relation" scheme="URI" content="analytics_v3_common_metrics.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="analytics_user_content_assets"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>リーチメトリクスの表示</title>
+</head>
+<body id="analytics_user_content_assets">
+
+
+   <h1 class="title topictitle1">リーチメトリクスの表示</h1>
+
+   
+   <div class="body conbody"><p class="shortdesc">[リーチ]タブでは、再生に関係なく、動画がどの程度幅広く視聴されているかがわかります。 </p>
+
+      <div class="section" id="analytics_user_content_assets__content_engagement"> <p class="p">コンテンツの到達範囲に関連する指標を表示するには、[到達範囲]タブをクリックします。 </p>
+<p class="p"> チャートからメトリックを非表示にするには、凡例で、メトリックの名前の左側にあるチェックボックスをオフにします。 </p>
+
+      <div class="p">[リーチ]タブに表示されるメトリックには、次のものがあります。
+      <ul class="ul">
+         <li class="li"><strong class="ph b">一意のユーザー</strong>：選択したビデオアセットの再生を要求したユニークユーザーの数。 </li>
+
+         <li class="li"><strong class="ph b">ユーザーあたりの平均再生要求数</strong>：の総数 <a class="xref" href="analytics_v3_common_metrics.html#common_metric_defs_and_examples__plays_requested">再生要求</a> 選択した日付範囲における、選択したアセットのユニークユーザーの合計数（Total Plays Requested / Total Unique Users）。 
+                  <div class="note note"><span class="notetitle">注意：</span> 要求された戯曲の計算が改善されました。 この実装により、5 / 11 / 11の後に、HTML2014プレーヤーおよびSDKプレーヤーから要求された再生数が増加することがあります。</div>
+</li>
+
+      </ul>
+</div>
+
+      
+         <p class="gt-block p"><strong class="ph b">例：</strong> 日付範囲として2日を選択します。 1日には、ユーザーA（3再生要求あり）、ユーザーB（4再生要求あり）、およびユーザーC（2再生要求あり）があります。 2日には、ユーザーB（2再生要求あり）、ユーザーC（8再生要求あり）、ユーザーD（1再生要求あり）があります。 この2日間の合計ユニークユーザー数は4（A、B、C、D）です。 この2日間に要求された合計プレイ回数は、3 + 4 + 2 + 2 + 8 + 1 = 22平均= 22 / 4 = 5.5です。</p>
+
+         <p class="gt-block p">ビジネスインテリジェンスページのレポートをCSVファイルとしてエクスポートする方法の詳細については、 <a class="xref" href="../tasks/analytics_v3_user_workspace_export.html">ビジネスインテリジェンスレポートのエクスポート</a>.  </p>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">タイムセグメント</h2>
+          チャートの右上には、表示されているデータの粒度（詳細レベル）を変更するために使用できる一連のボタンがあります。 <div class="fig fignone">
+            <img class="image" id="analytics_user_content_assets__d15594e88" src="http://help-ooyala.brightcove.com/../image/analytics_v3_user_content_timesegments.png"/>
+         </div>
+
+         <p class="p">以下の時間区分が利用可能です。</p>
+
+         <ul class="ul">
+            <li class="li">15ミン</li>
+
+            <li class="li">時間</li>
+
+            <li class="li">日 </li>
+
+            <li class="li">週間 </li>
+
+            <li class="li">月</li>
+
+         </ul>
+
+         <p class="p">デフォルトの時間セグメントはDayです。</p>
+
+         
+         <div class="note note" id="analytics_user_content_assets__d15594e116"><span class="notetitle">注意：</span> <p class="p">日時セグメントのデフォルトの日付範囲は、15分および時セグメントのデフォルトの日付範囲とは異なります。</p>
+
+            <p class="p">日時セグメントの場合、デフォルトの日付範囲は、週の最初の日の12：00amから最後の日の11：59pm（8 24時間セグメント）です。 15の分と時の時間セグメントの場合、デフォルトの日付範囲は、週の最初の日の12：00pmから最後の日の12：00pm（7 24時間セグメント）です。</p>
+
+            <p class="p">デフォルトの日付範囲の違いは、日の時間セグメントと15の分または時間のセグメントを切り替えると、メトリックデータが変わることを意味します。 今後のリリースでは、15の分と時間の時間セグメントの日付範囲の制限を日の時間範囲（8 24の時間セグメント）と一致するように変更します。</p>
+
+         </div>
+
+         
+      </div>
+
+   </div>
+
+   <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/analytics_v3_user_workspace_content.html" title="ビジネスインテリジェンスページを使用して、さまざまな方法でフィルタ処理されたデータの詳細を表示し、特定の関心点を特定します。">ビジネスインテリジェンスレポート</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="analytics_v3_common_metrics.html">メトリック定義</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></di

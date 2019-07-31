@@ -1,0 +1,168 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Sharing Video on Facebook"/>
+<meta name="abstract" content="There are several ways you can post Ooyala-based videos to Facebook timelines."/>
+<meta name="description" content="OoyalaベースのビデオをFacebookのタイムラインに投稿する方法はいくつかあります。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_social_media_integration.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/facebook_requirements.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/facebook_active_sharing.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/facebook_passive_sharing.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="chapter_facebook"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Facebookでビデオを共有する</title>
+</head>
+<body id="chapter_facebook">
+
+
+ <h1 class="title topictitle1">Facebookでビデオを共有する</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">OoyalaベースのビデオをFacebookのタイムラインに投稿する方法はいくつかあります。</p>
+
+  <div class="section">
+   <div class="p">Ooyalaベースのビデオは、次の方法でFacebookに投稿できます。 <ul class="ul">
+     <li class="li">アクティブまたはパッシブ共有によるプレイヤー共有ボタンを介して。 </li>
+
+     <li class="li">アクティブまたはパッシブ共有によるビデオのホストWebページからの共有による。 </li>
+
+    </ul>
+</div>
+
+   <div class="note note"><span class="notetitle">注意：</span> Facebookでは、Facebookフィード内のサードパーティのプレーヤーによる動画の自動再生は許可されていません。 そのため、プレーヤーがFacebookに埋め込まれている場合、自動再生設定は無視されます。</div>
+
+   <div class="note note"><span class="notetitle">注意：</span> ホストWebページからの共有は、Ooyala固有のものではありません。 WebページからFacebookにビデオを共有する方法の詳細については、にアクセスしてください。 <a class="xref" href="https://developers.facebook.com/docs/web/share" target="_blank">Web上での共有に関するFacebookのドキュメント</a>.</div>
+
+  </div>
+
+  <div class="section">
+   <p class="gt-block p">次のセクションでは、Ooyalaを使い始める方法について説明します。 <span class="ph">Facebookのコード例（で入手可能） <a class="xref" href="https://ooyala.app.box.com/s/848a8775de91da90405c" target="_blank">zipダウンロード</a>)</span>。 ここには、共有ボタンを埋め込む方法と、視聴者のタイムラインに動画を表示するFacebookアプリケーションを作成する方法の例が含まれています。</p>
+
+  <div class="p">Ooyala Facebookサンプルコードサンプルは、2種類のFacebook共有を提供します。アクティブ共有とパッシブ共有です。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="chapter_facebook__table_agn_fsh_dn" class="table" frame="border" border="1" rules="all">
+     
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="15.384615384615385%" id="d249761e66">共有の種類</th>
+
+       <th class="entry" valign="top" width="46.15384615384615%" id="d249761e69">説明</th>
+
+       <th class="entry" valign="top" width="38.46153846153847%" id="d249761e72">Facebookアプリが必要ですか？</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" width="15.384615384615385%" headers="d249761e66 ">現在行われているキャンペーン</td>
+
+       <td class="entry" valign="top" width="46.15384615384615%" headers="d249761e69 ">アクティブ共有では、視聴者がをクリックすると、視聴者のFacebookタイムラインにビデオが投稿されます。 <span class="ph uicontrol">シェア</span> あなたがプログラムするボタン。 これはFacebookでの最も一般的な通常の共有方法で、Ooyalaのプレーヤーのブランド設定オプションでFacebookの共有を有効にするのと同じ効果があります（で説明しています）。 <a class="xref" href="../tasks/player_end_screen.html" title="Backlot UIを使用して、プレイヤーの終了画面の外観を設定します。">Flash Player V3の終了画面の設定（廃止予定）</a>).</td>
+
+       <td class="entry" valign="top" width="38.46153846153847%" headers="d249761e72 ">いいえ。Webページに埋め込まれたメタタグを使用して簡単に実行できます。 </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="15.384615384615385%" headers="d249761e66 ">パッシブ</td>
+
+       <td class="entry" valign="top" width="46.15384615384615%" headers="d249761e69 ">パッシブ共有は、クリックすることを必要とせずに、視聴者のタイムラインにビデオ視聴情報を自動的に投稿します。 <span class="ph uicontrol">シェア</span>.</td>
+
+       <td class="entry" valign="top" width="38.46153846153847%" headers="d249761e72 ">はい。 Webページまたはアプリに埋め込まれたメタタグを使用できます。</td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+ </div>
+
+  </div>
+
+<div class="section" id="chapter_facebook__fb_meta_tags"><h2 class="title sectiontitle">共通のHTML HEADタグとMETAタグ</h2>
+    アクティブ共有とパッシブ共有の両方が依存しています <a class="xref" href="http://ogp.me" target="_blank">オープングラフ（OG）</a> Webページやアプリに埋め込む必要があるheadタグとmetaタグ。 これらのタグを以下に示します。 <div class="p">
+    <ul class="ul" id="chapter_facebook__ul_bdh_wvh_dn">
+     <li class="li">
+      <p class="p">最初の行はHTMLの修正です <samp class="ph codeph">head</samp> タグ。 これはあなたのページでアクティブまたはパッシブ共有のために必要です。</p>
+
+     </li>
+
+     <li class="li">
+      <p class="gt-block p">最初の <samp class="ph codeph">メタ</samp> に示すタグ <strong class="ph b">大胆な</strong>に説明されているように、パッシブ共有にはFacebookアプリが必要です。 <a class="xref" href="../tasks/facebook_passive_app_setup.html#facebook_passive_app_setup" title="このセクションでは、Facebookアプリケーションをプログラミング言語で設定するための基本的な手順について説明します。">パッシブアプリの設定</a>.</p>
+
+     </li>
+
+     <li class="li">
+      <p class="gt-block p">で強調表示されている <em class="ph i">イタリック</em> あなたが価値である <strong class="ph b">しなければなりません</strong> このテンプレートに供給してください。</p>
+
+     </li>
+
+     <li class="li">
+      <p class="p">docUrlが追加されました <samp class="ph codeph">og：ビデオ</samp> 動画の分析イベントが、プレーヤが配置されているURLではなく、指定されたURLの下にグループ化されるようにします。</p>
+
+     </li>
+
+     <li class="li">
+      <p class="p">クエリパラメータの値は、URLエンコードする必要があります。</p>
+
+     </li>
+
+     <li class="li">
+      <p class="gt-block p">開いているグラフタグを使用して動画を共有している間、Backlotのアセットに関連付けられているプレーヤーは、Webページで使用されているプレーヤーに関係なく、Facebookに埋め込まれます。 アセットの関連プレーヤーを変更するには、 <a class="xref" href="../tasks/video_manage_details.html" title="詳細を使用すると、メタデータを構成してプレーヤーを指定できます。">ビデオの詳細を管理する</a>.  </p>
+
+     </li>
+
+     <li class="li"> クエリパラメータ <samp class="ph codeph">自動再生= 1</samp> に追加 <samp class="ph codeph">og：ビデオ</samp>
+      動画をFacebookの共有で自動再生させます。 </li>
+
+     <li class="li">クエリパラメータ <samp class="ph codeph">自動再生= 1</samp> に追加 <samp class="ph codeph">og：ビデオ</samp>
+      ユーザーがウォールポストのプレビュー画像をクリックした後にロードされるとすぐにOoyalaプレーヤーにビデオ再生を開始させます。 パラメータを指定しないと、プレーヤーがロードされた後にユーザーがもう一度クリックしてビデオを再生する必要があります（1回のビデオを再生するには2回クリックします）。</li>
+
+    </ul>
+
+   </div>
+<pre class="pre codeblock">&lt;head prefix = &quot;og：http://ogp.me/ns# fb：http://ogp.me/ns/fb# video：http://ogp.me/ns/video#&quot;&gt; &lt;！ -  - パッシブ共有には以下のタグが必要です - &gt;
+<strong class="ph b">&lt;meta property = &quot;fb：app_id&quot; content = &quot;<em class="ph i">yourFacebookAppIdこちら</em>&quot;/&gt;</strong>
+&lt;meta property = &quot;og：type&quot; content = &quot;video.other&quot; /&gt; &lt;meta property = &quot;og：title&quot; content = &quot;<em class="ph i">yourTitleこちら</em>&quot;/&gt; &lt;<em class="ph i">meta property = &quot;og：説明&quot; content = &quot;yourDescriptionHere&quot; /&gt; &lt;meta property = &quot;og：url&quot; content = &quot;yourURLwithTheEmbeddedVideo&quot;&gt;</em>
+&lt;meta property = &quot;og：image&quot; content = &quot;<em class="ph i">yourImageUrlこちら</em>&quot;/&gt; &lt;meta property =&quot; og：video &quot;content =&quot; yourUrlHere？embedCode =<em class="ph i">YourOoyalaEmbedCodeこちら</em>＆keepEmbedCode = true＆docUrl =<em class="ph i">http％3A％2F％2Fexample.com</em>&quot;/&gt; &lt;meta property =&quot; og：video：secure_url &quot;content =&quot; yourSecureUrlHere？embedCode =<em class="ph i">YourOoyalaEmbedCodeこちら</em>&amp;keepEmbedCode=true" /&gt;
+&lt;meta property="og:video:type" content="application/x-shockwave-flash" /&gt;
+&#8232;&lt;meta property="og:video:height" content="480" /&gt;
+&lt;meta property="og:video:width" content="640" /&gt;	     
+        </pre>
+
+   実際の値を持つこれらのタグの例は他のセクションにあります。
+   </div>
+
+  
+ </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../concepts/facebook_requirements.html">開発要件</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/facebook_active_sharing.html">アクティブ共有</a></strong><br/>
+  <span class="ph">Facebookのコード例（で入手可能） <a class="xref" href="https://ooyala.app.box.com/s/848a8775de91da90405c" target="_blank">zipダウンロード</a>)</span> 視聴者がクリックしてタイムラインにビデオを追加できる共有ボタンを埋め込むことができます。 [共有]ボタンをクリックすると、視聴者は何らかの行動を取る必要があります。</li>
+<li class="link ulchildlink"><strong><a href="../concepts/facebook_passive_sharing.html">パッシブ共有</a></strong><br/>
+  <span class="ph">Facebookのコード例（で入手可能） <a class="xref" href="https://ooyala.app.box.com/s/848a8775de91da90405c" target="_blank">zipダウンロード</a>)</span> 視聴者がビデオを視聴するたびに、ビデオ視聴情報を各視聴者のタイムラインに投稿するFacebookアプリケーションを作成できます。 共有は自動的に行われ、視聴者は何もする必要はありません。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_social_media_integration.html" title="OoyalaはあなたのビデオコンテンツをFacebookやTwitterと共有する機能を提供します。">ソーシャルメディア統合</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

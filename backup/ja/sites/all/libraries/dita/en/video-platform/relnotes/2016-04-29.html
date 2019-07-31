@@ -1,0 +1,129 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2016-04-29 Release"/>
+<meta name="abstract" content="Notable contents of this release include a new JSON API for integrating Ooyala IQ with third-party players and Roku devices."/>
+<meta name="description" content="このリリースの注目すべき内容には、Ooyala IQをサードパーティのプレイヤーやRokuデバイスと統合するための新しいJSON APIが含まれています。"/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2016.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release20160429"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2016-04-29リリース</title>
+</head>
+<body id="release20160429">
+
+
+    <h1 class="title topictitle1">2016-04-29リリース</h1>
+
+    
+    <div class="body conbody"><p class="shortdesc">このリリースの注目すべき内容には、Ooyala IQをサードパーティのプレイヤーやRokuデバイスと統合するための新しいJSON APIが含まれています。</p>
+ 
+        <div class="section"><h2 class="title sectiontitle">ソフトウェア機能リリース</h2>
+            
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">サードパーティプレーヤー用の新しいOoyala IQ JSON API</strong></p>
+
+                <p class="p">JSON APIエンドポイントをサポートするようにOoyala IQバックエンドを更新しました。 JSONは、言語に依存しない軽量のオープンスタンダードデータ交換フォーマットで、読み書きが容易です。</p>
+
+                <p class="p">このJSON APIエンドポイントは、既存のIQでのサードパーティ製プレーヤサポートを強化して、JavaScriptベースではないサードパーティ製プレーヤを含む、任意のデバイスまたはプレーヤからOoyala IQへのプレーヤイベントおよびデータの送信を可能にします。</p>
+
+                <p class="gt-block p">新しいを使う <span class="ph">ウーヤラIQ</span> サードパーティ製プレイヤーのイベントをOoyala IQに伝達するためのJSON API。 このエンドポイントを使用してJSONデータをOoyala IQに送信することも、すぐに使用可能なSDKのいずれかを使用することもできます。 このリリースでは、Roku用のすぐに使えるSDKを提供しています。 </p>
+
+                <p class="gt-block p">Ooyala IQ JSON APIの詳細については、 <a class="xref" href="../tasks/analytics_v3_json_api.html">JSON APIを使用したサードパーティ製プレイヤーとIQの統合</a>.</p>
+
+                <p class="gt-block p"><strong class="ph b">Roku統合用の新しいOoyala IQ SDK</strong>
+                </p>
+
+                <p class="p">Roku用のOoyala IQ SDKを使用して、RokuチャンネルとOoyala IQを統合できるようになりました。 Roku用Ooyala IQ SDKは、JSONデータをOoyala IQ JSON APIエンドポイントに送信し、どのイベントをいつ送信するかについてのベストプラクティスに自動的に従い、すべての必須フィールドが存在することを確認する、すぐに使えるSDKです。 。</p>
+
+                <p class="p">Roku用Ooyala IQ SDKは、Roku OS v7 +をサポートしています。</p>
+
+                <p class="gt-block p">Ooyala IQ SDK for Rokuを使用している場合は、Rokuの[デバイス]パネルにRokuがOSとして表示されます。 <a class="xref" href="https://analytics.ooyala.com/iq/bi" target="_blank">Ooyala IQビジネスインテリジェンス</a> インタフェース。</p>
+
+                <div class="fig fignone">
+                    <img class="image" src="http://help-ooyala.brightcove.com/../image/analytics_v3_roku_device_device.png"/>
+                </div>
+
+                <p class="p">Rokuプレーヤーもプレーヤーパネルに表示されます。</p>
+
+                <div class="fig fignone">
+                    <img class="image" src="http://help-ooyala.brightcove.com/../image/analytics_v3_roku_player_panel.png"/>
+                </div>
+
+                <p class="gt-block p">Roku用Ooyala IQ SDKの詳細については、 <a class="xref" href="../concepts/analytics_v3_roku_sdk.html">Roku統合のためのOoyala IQ SDK</a>。 Roku APIドキュメントのOoyala IQ SDKについては、を参照してください。 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/iq_roku/index.html" target="_blank">Ooyala IQ RokuライブラリAPIドキュメント</a>.  </p>
+
+                
+            </div>
+            <div class="sectiondiv"><p class="gt-block p"><strong class="ph b">Ooyala Ingestion Service（OIS）の機能強化</strong></p>
+
+                Ooyala Ingestion Service（OIS）v2.5は、ビデオとメタデータをBacklotにアップロードするための大きな前進です。 OIS v2.5を使用すると、ユーザーはFTP、Aspera、またはMRSSを使用してファイルをBacklotに取り込むことが容易になります。 <p class="gt-block p"><strong class="ph b">OIS v2.5の新機能</strong></p>
+<ul class="ul">
+                    <li class="li"><strong class="ph b">さまざまなグローバル取り込みエンドポイント。</strong> OIS v2.5は次の取り込みエンドポイントを使用します。<a class="xref" href="http://transfer.ooyala.com" target="_blank">transfer.ooyala.com</a>）、米国（<a class="xref" href="http://transfer-us.ooyala.com" target="_blank">transfer-us.ooyala.com</a>）、 EU （<a class="xref" href="http://transfer.ooyala-eu.com" target="_blank">transfer.ooyala-eu.com</a>）、およびAPAC（<a class="xref" href="http://transfer-apac.ooyala.com" target="_blank">transfer-apac.ooyala.com</a>） メインエンドポイントは、ユーザーを最も近い地域に自動的にリダイレクトします。 地域固有のエンドポイントに直接アクセスすることもできます。</li>
+
+                    <li class="li"><strong class="ph b">アップロード専用のユーザーアカウント。</strong> Backlot GUI（[アカウント]&gt; [ユーザー管理]）で、[アップロードのみ]権限を持つユーザーを自分のアカウントに追加できるようになりました（を参照）。 <a class="xref" href="../concepts/chapter_usermanagement.html" title="[アカウント]タブの[ユーザー管理]サブタブを使用して、Backlotアカウントに関連付けられているユーザーを管理し、そのユーザーができることを制御します。">ユーザーの管理</a>） FTPまたはAsperaクライアントを使用している場合は、このユーザーに関連付けられている電子メールとパスワードを使用して、transfer.ooyala.comで新しい取り込みエンドポイントにログインできます。</li>
+
+                    <li class="li"><strong class="ph b">マニフェスト摂取の促進</strong> マニフェストベースの取り込みを有効にするプロセスが合理化され、その結果、有効化要求のターンアラウンドが速くなりました。 あなたの要求は自動的にXMLとCSV両方のマニフェストのサポートを含みます（あなたはもうどちらか一方だけを要求することはありません）。 </li>
+
+                    <li class="li"><strong class="ph b">FTPまたはAsperaを介した取り込み</strong> アップロード専用ユーザーを作成することで、FTPまたはAsperaの特別な資格情報を取得するためにOoyalaに連絡する必要がなくなりました。 ファイルは処理後すぐに削除されるようになりました。 取り込みワークフロー全体を通過しなかった（たとえば、マニフェストのアップロードを待っている）送信済みファイルは、7日後にサーバーから削除されます。</li>
+
+                    <li class="li"><strong class="ph b">MRSSを使用したリモート資産の更新</strong> MRSSフィードに新しいメタデータ、サムネイル、クローズドキャプションファイルを追加して、Backlotのリモートアセットを更新できるようになりました。</li>
+
+                    <li class="li"><strong class="ph b">CSVを使用してリモートアセットを作成する</strong> CSV取り込みを使用してリモート資産を作成できるようになりました。 これにより、XMLとMRSSの取り込みを使用したリモートアセット作成に対する既存のサポートに3番目のオプションが追加されます。</li>
+
+                </ul>
+
+                <strong class="ph b">OIS v2.5の確認済みの制限事項</strong>
+                <ul class="ul">
+                    <li class="li"><strong class="ph b">不適合ワークフロー</strong> OIS 2.5の場合、マニフェストベースの取り込みワークフローは、OoyalaのDTD標準に準拠する必要があります。 Backlotは不適合ワークフローを拒否しますが、検証エラーをまだユーザーに通知しません。</li>
+
+                    <li class="li"><strong class="ph b">検証を取り込みます。</strong> 取り込まれたファイルを検証するためのmd1ハッシュアルゴリズムのOIS v5使用は、OIS v2.5ではまだ利用できません。 </li>
+
+                </ul>
+</div>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">ドキュメントリリース</h2>
+            
+            <ul class="ul">
+                <li class="li"><a class="xref" href="../tasks/analytics_v3_json_api.html">JSON APIを使用したサードパーティ製プレイヤーとIQの統合</a>：Ooyala IQ JSON APIに関する新しいドキュメントを追加しました。</li>
+
+                <li class="li"><a class="xref" href="../concepts/analytics_v3_roku_sdk.html">Roku統合のためのOoyala IQ SDK</a>：Rokuとの統合用にOoyala IQ SDKを実装する方法に関する新しいドキュメントを追加しました。</li>
+
+                <li class="li"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/iq_roku/index.html" target="_blank">Ooyala IQ RokuライブラリAPIドキュメント</a>：Ooyala IQ Roku Library用の新しいAPIドキュメント（チュートリアルを含む）を追加しました。</li>
+
+                <li class="li"><a class="xref" href="../tasks/analytics_v3_jssdk_jwplayer_adapter.html">JS SDKを使用したJW PlayerとIQの統合</a>：Ooyala IQ JavaScript SDK用のJW Playerアダプタに関する新しいドキュメントを追加しました。</li>
+
+                <li class="li"><a class="xref" href="../tasks/analytics_v3_jssdk_brightcove_adapter.html">JS SDKを使用したBrightcove PlayerとIQの統合</a>：Ooyala IQ JavaScript SDK用のBrightcoveプレーヤアダプタに関する新しいドキュメントを追加しました。</li>
+
+                <li class="li"><a class="xref" href="../tasks/analytics_v3_jssdk_flowplayer_adapter.html">JS SDKを使用したFlowPlayerとIQの統合</a>：Ooyala IQ JavaScript SDK用のFlowPlayerアダプタに関する新しいドキュメントを追加しました。</li>
+
+                <li class="li"><a class="xref" href="../tasks/analytics_v3_jssdk_kaltura_adapter.html">JS SDKを使用したKalturaプレーヤーとIQの統合</a>：Ooyala IQ JavaScript SDK用のKalturaプレーヤアダプタに関する新しいドキュメントを追加しました。</li>
+
+                <li class="li"><a class="xref" href="../tasks/analytics_v3_jssdk_html5_tag_adapter.html">JS SDKを使用したHTML5ビデオタグとIQの統合</a>：Ooyala IQ JavaScript SDKのHTML5ビデオタグアダプタに関する新しいドキュメントを追加しました。</li>
+
+                <li class="li"><a class="xref" href="../tasks/analytics_v3_jssdk_youtube_adapter.html">JS SDKを使用したYouTubeプレーヤーとIQの統合</a>：Ooyala IQ JavaScript SDK用のYouTubeプレーヤーアダプタに関する新しいドキュメントを追加しました。</li>
+
+            </ul>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Ooyalaリリースノートを購読する</h2>
+             見る <a class="xref" href="../concepts/release_notes_subscribe.html">Ooyalaリリースノートを購読する</a> Ooyalaリリースノートの自動通知を購読する方法については、こちらをご覧ください。 </div>
+
+    </div>
+
+    
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2016.html" title="2016からのリリースノート。">2016ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:abso

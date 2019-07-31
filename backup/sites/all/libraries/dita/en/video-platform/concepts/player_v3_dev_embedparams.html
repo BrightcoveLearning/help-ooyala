@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Embedded Parameters in Player V3 (Deprecated)"/>
+<meta name="abstract" content="Embedded parameters are contained in the body of the DIV container."/>
+<meta name="description" content="Embedded parameters are contained in the body of the DIV container."/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/player_v3_dev_params.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/player_v3_dev_autoplay.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/player_v3_hide_controller.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/player_v3_show_ad_marquee.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/player_v3_fcc_tv_rating.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/player_v3_dev_cuepoint_markers.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/player_v3_dev_adsparams.html"/>
+<meta name="DC.Relation" scheme="URI" content="player_v3_dev_locale.html#player_v3_dev_locale"/>
+<meta name="DC.Relation" scheme="URI" content="../api/player_v3_api_qparams.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/player_v3_apis.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_v3_dev_embedparams"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../css/ooyala.css"/>
+<title>Embedded Parameters in Player V3 (Deprecated)</title>
+</head>
+<body id="player_v3_dev_embedparams">
+
+
+ <h1 class="title topictitle1">Embedded Parameters in Player V3 (Deprecated)</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">Embedded parameters are contained in the body of the <samp class="ph codeph">DIV</samp>
+  container.</p>
+
+  <div class="section"><div class="note note"><span class="notetitle">Note:</span> Ooyala Player V3 has been deprecated and is scheduled to be
+    disabled. For details and alternatives, see the <a class="xref" href="../relnotes/2017-06-04.html">OVP
+     Release Notes</a>.</div>
+ You add these parameters to the player embed code within the <samp class="ph codeph">DIV</samp>
+   container. These parameters include CSS styling such as width and height and ad service tags as
+   passthrough parameters to the Ooyala Player for advanced ad tracking and targeting. The embedded
+   parameters include the following. This is only a partial list. For a complete list, see <a class="xref" href="../api/player_v3_api_qparams.html">Player V3 Query String Parameters (Deprecated)</a>.
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="player_v3_dev_embedparams__table_ybc_jf4_n3" class="table" frame="border" border="1" rules="all">
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="28.57142857142857%" id="d491765e44">Parameter</th>
+
+       <th class="entry" valign="top" width="71.42857142857143%" id="d491765e47">Description</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" width="28.57142857142857%" headers="d491765e44 "><span class="keyword parmname">enableChannels</span>
+       </td>
+
+       <td class="entry" valign="top" width="71.42857142857143%" headers="d491765e47 ">Enable loading Flash videos in Channels mode. This parameter provides backwards
+        compatibility for channels. Default is false.</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="28.57142857142857%" headers="d491765e44 "><span class="keyword parmname">initialTime</span></td>
+
+       <td class="entry" valign="top" width="71.42857142857143%" headers="d491765e47 ">Set an initial time in seconds to start playing content at a specific point. This
+        parameter can be used to enable seeking for iOS-based devices. </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="28.57142857142857%" headers="d491765e44 "><span class="keyword parmname">locale</span></td>
+
+       <td class="entry" valign="top" width="71.42857142857143%" headers="d491765e47 ">Set or override the language and closed caption options.</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="28.57142857142857%" headers="d491765e44 "><span class="keyword parmname">encodingPriority</span></td>
+
+       <td class="entry" valign="top" width="71.42857142857143%" headers="d491765e47 ">Configuration parameter used to determine which of the supported plugins and encodings
+        to use. Valid values are:
+        <ul class="ul">
+         <li class="li"><samp class="ph codeph">hls</samp></li>
+
+         <li class="li"><samp class="ph codeph">mp4</samp></li>
+
+         <li class="li"><samp class="ph codeph">webm</samp></li>
+
+         <li class="li"><samp class="ph codeph">rtmp</samp></li>
+
+         <li class="li"><samp class="ph codeph">audio</samp></li>
+
+         <li class="li"><samp class="ph codeph">smooth</samp></li>
+
+         <li class="li"><samp class="ph codeph">faxs_hls</samp></li>
+
+         <li class="li"><samp class="ph codeph">wv_hls</samp></li>
+
+         <li class="li"><samp class="ph codeph">wv_wvm</samp></li>
+
+         <li class="li"><samp class="ph codeph">wv_mp4</samp></li>
+
+         <li class="li"><samp class="ph codeph">hds</samp></li>
+
+         <li class="li"><samp class="ph codeph">akamai_hd_vod</samp></li>
+
+         <li class="li"><samp class="ph codeph">akamai_hd2_vod_hls</samp></li>
+
+         <li class="li"><samp class="ph codeph">akamai_hd2_vod_hds</samp></li>
+
+         <li class="li"><samp class="ph codeph">dash</samp></li>
+
+        </ul>
+        
+       </td>
+
+       
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="28.57142857142857%" headers="d491765e44 "><a class="xref" href="../reference/player_v3_dev_adsparams.html#player_v3_dev_adsparams" title="Customize ads using embedded parameters.">Player V3 Embedded Parameters for Ads (Deprecated)</a></td>
+
+       <td class="entry" valign="top" width="71.42857142857143%" headers="d491765e47 ">Pass ad server tags to the Ooyala player.</td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+  </div>
+
+ </div>
+
+ <div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../reference/player_v3_dev_autoplay.html">Setting Autoplay in a Parameter Hash Tag in Player V3 (Deprecated)</a></strong><br/>
+Enable autoplay through an option hash tag.</li>
+<li class="link ulchildlink"><strong><a href="../reference/player_v3_hide_controller.html">Hiding the Control Bar for Ad Playback in a Parameter Hash Tag in Player V3 (Deprecated)</a></strong><br/>
+Hide the control bar during ad playback through an option hash tag.</li>
+<li class="link ulchildlink"><strong><a href="../reference/player_v3_show_ad_marquee.html">Show or Hide Ad Marquee During Ad Playback in Player V3 (Deprecated)</a></strong><br/>
+Show or hide the ad marquee during ad playback.</li>
+<li class="link ulchildlink"><strong><a href="../reference/player_v3_fcc_tv_rating.html">Adding a TV Rating Watermark to a Flash Player V3 (Deprecated)</a></strong><br/>
+Add a TV rating watermark to assets using player parameters and custom metadata in         Backlot.</li>
+<li class="link ulchildlink"><strong><a href="../reference/player_v3_dev_cuepoint_markers.html">Toggling the Display of Cue Point Markers in Player V3 (Deprecated)</a></strong><br/>
+Show or hide cue point markers.</li>
+<li class="link ulchildlink"><strong><a href="../reference/player_v3_dev_adsparams.html">Player V3 Embedded Parameters for Ads (Deprecated)</a></strong><br/>
+Customize ads using embedded parameters.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../concepts/player_v3_dev_params.html" title="You can use query string parameters and embedded parameters to modify the player experience.">Programming Parameters for Player V3 Using JavaScript (Deprecated)</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>Related concepts</strong><br/>
+<div><a class="link" href="player_v3_dev_locale.html#player_v3_dev_locale" title="Closed Captioning (CC) APIs enable you to get/set supported closed captions and localize the Player UI language.">Closed Captioning and Localization</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong><br/>
+<div><a class="link" href="../api/player_v3_api_qparams.html">Player V3 Query String Parameters (Deprecated)</a></div>
+<div><a class="link" href="../api/player_v3_apis.html" title="Player V3 JavaScript functions can be used to customize the player behavior and appearance.">Player V3 JavaScript API Functions</a></div>
+</div>
+</div>
+
+</body>
+</html>

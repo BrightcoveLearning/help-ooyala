@@ -1,0 +1,190 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="DRM Attributes for Remote Assets"/>
+<meta name="abstract" content="If you package content using Digital Rights Management (DRM) and want Ooyala to serve licenses for that content, you will need to set some attributes per asset."/>
+<meta name="description" content="Digital Rights Management（DRM）を使用してコンテンツをパッケージ化し、そのコンテンツのライセンスをOoyalaに提供させたい場合は、アセットごとにいくつかの属性を設定する必要があります。"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="asset_drm_attributes_api"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>リモートアセットのDRM属性</title>
+</head>
+<body id="asset_drm_attributes_api">
+
+
+ <h1 class="title topictitle1">リモートアセットのDRM属性</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">If  you package content using Digital Rights Management (DRM) and want Ooyala to serve licenses for that content, you will need to set some attributes per asset.</p>
+
+<div class="section">
+    <p class="p">These attributes need to be applied only to remote assets. </p>
+
+</div>
+
+      <div class="section refsyn"><h2 class="title sectiontitle">Fetch Attributes for an Asset and Given DRM Type</h2>
+      
+      <div class="p"><pre class="pre codeblock">[GET]/v2/assets/<a class="xref" href="asset_common_routes.html#assets_common_routes__asset_id"><span class="keyword parmname">asset_id</span></a>/drm_attributes/<a class="xref" href="../shared/../api/asset_drm_attributes.html#asset_drm_attributes_api__drm_type"><span class="keyword parmname">drm_type</span></a></pre>
+</div>
+
+  </div>
+<div class="section refsyn"><h2 class="title sectiontitle">Adding or Updating an Attribute</h2>
+      
+      <div class="p"><pre class="pre codeblock">[パッチ] / v2 / assets /<a class="xref" href="asset_common_routes.html#assets_common_routes__asset_id"><span class="keyword parmname">asset_id</span></a>/drm_attributes/<a class="xref" href="../shared/../api/asset_drm_attributes.html#asset_drm_attributes_api__drm_type"><span class="keyword parmname">drm_type</span></a>{
+   
+   <a class="xref" href="../shared/../api/asset_drm_attributes.html#asset_drm_attributes_api__drm_properties"><span class="keyword parmname">プロパティ</span></a>
+
+}</pre>
+</div>
+
+  </div>
+
+  
+     <div class="section"><h2 class="title sectiontitle">ルート属性</h2>
+         
+         <p class="p">次の表は、ルートを通じて表現できるすべての属性を示しています。</p>
+
+         
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                 <thead class="thead" align="left">
+                     <tr class="row">
+                         <th class="entry" valign="top" id="d38536e79">ルート属性</th>
+
+                         <th class="entry" valign="top" id="d38536e82">説明</th>
+
+                     </tr>
+
+                 </thead>
+
+                 <tbody class="tbody">
+                     
+                     
+                 <tr class="row">
+                         <td class="entry" valign="top" headers="d38536e79 d38536e82 "><var class="keyword varname">asset_id</var></td>
+
+                         <td class="entry" valign="top" headers="d38536e79 d38536e82 ">見る <a class="xref" href="asset_common_routes.html" title="Backlot REST APIでは、すべてのアセットに共通の基本ルートは、それらのタイプに関係なく同じ構文を持ちます。">すべてのアセットタイプに共通のルートと属性</a> for a description of this attribute.</td>
+
+                     
+                     </tr>
+<tr class="row">
+                         <td class="entry" valign="top" headers="d38536e79 d38536e82 "><var class="keyword varname" id="asset_drm_attributes_api__drm_type">drm_type</var></td>
+
+                         <td class="entry" valign="top" headers="d38536e79 d38536e82 ">
+                             <p class="p">The type of DRM the asset is associated with.</p>
+
+                             <p class="p">タイプ：文字列</p>
+
+                             <p class="p">Valid Values: playready | fps </p>
+
+                             <p class="p">デフォルト：なし</p>
+
+                             <p class="p">Example: playready</p>
+
+                         </td>
+
+                     </tr>
+</tbody>
+
+             </table>
+</div>
+
+     </div>
+
+     <div class="section"><h2 class="title sectiontitle">プロパティ</h2>
+
+   <p class="p">次の表に、各DRMタイプに設定する必要があるプロパティを示します。</p>
+
+   
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     
+     
+     
+        
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="33.33333333333333%" id="d38536e157">drm_type</th>
+
+       <th class="entry" valign="top" width="33.33333333333333%" id="d38536e160">プロパティ</th>
+
+       <th class="entry" valign="top" width="33.33333333333333%" id="d38536e163">説明</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+         
+      
+      
+     <tr class="row">
+             <td class="entry" valign="top" width="33.33333333333333%" headers="d38536e157 ">FPS</td>
+
+             <td class="entry" valign="top" width="33.33333333333333%" headers="d38536e160 "><span class="keyword parmname">fps_content_key</span><var class="keyword varname">_バージョン</var></td>
+
+             <td class="entry" valign="top" width="33.33333333333333%" headers="d38536e163 ">アセットのFairPlayストリーミング識別子。</td>
+
+         </tr>
+<tr class="row">
+          <td class="entry" valign="top" width="33.33333333333333%" headers="d38536e157 ">playready</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d38536e160 "><span class="keyword parmname" id="asset_drm_attributes_api__key_id">key_id</span></td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d38536e163 ">The PlayReady identifier.<p class="p">タイプ：文字列 </p>
+
+                                <p class="p">デフォルト：なし</p>
+<p class="p">例： &quot;1234&quot;</p>
+</td>
+
+
+      </tr>
+<tr class="row">
+          <td class="entry" valign="top" width="33.33333333333333%" headers="d38536e157 ">playready</td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d38536e160 "><span class="keyword parmname">content_key_</span><var class="keyword varname">バージョン</var></td>
+
+       <td class="entry" valign="top" width="33.33333333333333%" headers="d38536e163 ">PlayReadyコンテンツキー。 の <var class="keyword varname">バージョン</var> of the parameter name is an
+                                integer that matches the version in the license acquisition URL for
+                                the specific asset. <p class="p">For example, if the license acquisition URL
+                                    is:
+                                </p>
+<pre class="pre codeblock">http://player.ooyala.com/sas/drm2/jqbkH9m/UPHGNsr/playready/ooyala/version/3</pre>
+Then
+                                the corresponding parameter name is
+                                    <samp class="ph codeph">content_key_3</samp>.<p class="p">タイプ：文字列</p>
+<p class="p">Default:
+                                    None</p>
+<p class="p">Example: "content_key_2"</p>
+<p class="p"> </p>
+</td>
+
+      </tr>
+</tbody>
+
+    </table>
+</div>
+
+</div>
+
+
+ </div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

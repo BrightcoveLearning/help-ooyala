@@ -1,0 +1,63 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Deleting Custom Metadata"/>
+<meta name="abstract" content="You can delete metadata entries at any time."/>
+<meta name="description" content="メタデータエントリはいつでも削除できます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_custom_metadata.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="api_metadata_delete"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>カスタムメタデータの削除</title>
+</head>
+<body id="api_metadata_delete">
+
+
+ <h1 class="title topictitle1">カスタムメタデータの削除</h1>
+
+ 
+ <div class="body taskbody"><p class="shortdesc">メタデータエントリはいつでも削除できます。 </p>
+
+  <div class="section context">
+   <div class="note note"><span class="notetitle">注意：</span> Backlot REST APIコマンドについて詳しくは、以下を参照してください。
+     <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/backlot_api/index.html" target="_blank">バックスロットAPIリファレンス</a>.</div>
+
+   <p class="p">カスタムメタデータを削除するには：</p>
+
+  </div>
+
+  <div class="li step p">
+    <span class="ph cmd"> アセットのメタデータを削除するには、 <samp class="ph codeph">DELETE</samp> とともに
+      <samp class="ph codeph">/ v2 / assets</samp> ルート、アセットID、および <samp class="ph codeph">/メタデータ</samp> 修飾子 </span>
+     次の例では、からカスタムメタデータを削除します。 <samp class="ph codeph">JxbzdkMjqBEsO</samp>
+     資産。
+     <pre class="pre codeblock">[削除] / v2 / assets / JxbzdkMjqBEsO / metadata</pre>
+
+     <p class="gt-block p"><span class="ph">バックスロット</span> 200応答を返します。</p>
+
+     <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+    
+   </div>
+
+  <div class="section postreq">メタデータが削除されます。</div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_custom_metadata.html" title="カスタムメタデータを使用すると、資産に役立つ情報を追加できます。 カスタムメタデータを任意の種類のアセットに関連付けることができます。">カスタムメタデータの管理</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

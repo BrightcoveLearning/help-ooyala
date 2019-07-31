@@ -1,0 +1,229 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2017-01-30 Release"/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2017.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release20170130"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2017-01-30リリース</title>
+</head>
+<body id="release20170130">
+
+
+    <h1 class="title topictitle1">2017-01-30リリース</h1>
+
+    <div class="body conbody">
+        <div class="section"><span class="ph" id="release20170130__release_summary">Player V4 Webリリースv4.11.13では、パルスのプラグイン、プレイリスト、および共有画面の追加設定オプションと共に、Backlot内のビデオに関連付けられたMy Adsの配信のサポートが追加されました。
+        </span>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">ソフトウェア機能リリース</h2></div>
+
+        <div class="section">
+            <div class="sectiondiv">
+                <p class="gt-block p" id="release20170130__d43355e24028"><strong class="ph b">プレイヤーV4ウェブリリースv4.11.13（2017-01-30）</strong></p>
+
+                <div class="note note"><span class="notetitle">注意：</span> このプレーヤーは、Flashストリームを含む、Webブラウザによる複合コンテンツの施行を受けます。 HTTPS経由で実行しているサイトにOoyala V4プレーヤーを埋め込む場合は、HTTPストリームがないことを確認してください（<em class="ph i">すなわち混合コンテンツ</em>このプレーヤーのバージョンを使用する前に）。 HTTPサイトがある場合、これは当てはまりません。 一部の顧客のコンテンツ条件が混在しているため、Player V4リリース4.11.13をサイトに影響を与えずに... / stable / latestパスに配置することはできません。 その結果、このリリースは、コアプレーヤーとプラグインのデフォルトプレーヤーリンク（下記）に示すように、/ 4.11.13パスを直接ポイントすることによってのみ利用可能です。 </div>
+
+                <ul class="ul">
+                    <li class="li"><strong class="ph b">私の広告のサポート</strong>：Player V4は、Backlotでアップロードおよび設定したMy Ads用のプリロール広告を配信するようになりました（MP4のみ）。 見る <a class="xref" href="../concepts/pbv4_ads_my_ads.html">広告を配信する</a>.</li>
+
+                    <li class="li"><strong class="ph b">Ooyala Pulseプラグインでのオーバーレイおよび時間ベースのブレークサポート</strong>。 Player V4とPulseを広告配信用に統合する際に、2つの新機能がサポートされるようになりました。 を使用してオーバーレイをリクエストする
+                            <span class="keyword parmname">pulse_non_linear_cuepoints</span> パラメータを設定し、時間を秒単位で設定します。 <span class="keyword parmname">pulse_max_linear_break_duration</span>
+                        Pulseのリニア広告ブレークの挿入ポリシーを作成または上書きするためのパラメータ。 見る <a class="xref" href="../concepts/pbv4_ads_dev_pulse_parameters.html">Ooyala Pulseの広告パラメータ</a>.</li>
+
+                    <li class="li"><strong class="ph b">プレイリストから最初のビデオを指定します。 </strong>新しい
+                            <samp class="ph codeph">useFirstVideoFromPlaylist</samp> パラメータを使用すると、ページに配置されている実際のembedCodeではなく、プレイリストの最初のビデオセットをページの初期embedCodeとして指定できます。 見る <a class="xref" href="../concepts/pbv4_playlist.html">プレーヤV4でのプレイリストの使用</a>.</li>
+
+                    <li class="li"><strong class="ph b">skin.jsonを使用して共有画面を制御する</strong> 共有画面で、skin.jsonを使うことができます（<samp class="ph codeph">shareScreen.socialContent</samp> どのボタンを表示するか（Twitter、Facebook、Google +、およびEmail）を設定する順序と、その順序を設定します。 何も指定しないと、[共有]タブは非表示になります。 見る <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_v4_skin_config/index.html">Ooyala Player SkinドキュメントとJSONスキーマ</a>.</li>
+
+                    <li class="li"><strong class="ph b">Bitmovinプラグインセルフホスティング</strong>：DASHおよびHLS用のBitmovinビデオプラグインのセルフホスティングを使用している場合は、Bitmovinプラグインに関連する追加フ​​ァイルをホストする必要があります（「 <a class="xref" href="../concepts/pbv4_host.html">ホスティングプレイヤーV4リソース</a>).</li>
+
+                    <li class="li"><strong class="ph b">V4プレーヤー用のBacklotプレーヤーUIパラメーターのマッピング。</strong> 一部のパラメータ（色合いなど）は、Player V4によって認識されるようになりました。 ただし、すべてのBacklotパラメータがPlayer V4でサポートされているわけではありません。 さらに、Backlot PlayerのUI設定は、skin.jsonパラメータと比較して優先順位が低くなります。 ページにskin.jsonを含めると、このファイルの設定がBacklotの設定を上書きします。 デプロイにskin.jsonを含めないと、Backlotプレーヤーの設定が使用されます。 Backlotの次期リリースでは、Player V4でサポートされていないパラメータは削除され、どの特定のBacklotプレーヤーUI設定が完全​​にサポートされているかが明確になります。 </li>
+
+                </ul>
+
+                <div class="note important"><span class="importanttitle">重要：</span> ブラウザは、Flashのデフォルトサポートを廃止し始めています。 準備はできたか？ を参照してください <a class="xref" href="http://www.ooyala.com/resources/video-player">Player V4リソースページ</a> と <a class="xref" href="../concepts/pbv4_migration_faq.html">プレイヤー移行に関するFAQ</a> 詳細については。</div>
+
+            </div>
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">デフォルトのプレイヤーリンク</strong></p>
+
+                <div class="p" id="release20170130__d43355e24104">以前のバージョンのPlayer V4から最新のPlayer V4バージョンに更新するには、次の手順を実行します。 <ol class="ol">
+                        <li class="li">すべての新しいプレーヤーリソースをダウンロードしてホストします（コアプラグイン、 <a class="xref" href="https://github.com/ooyala/html5-skin/releases" target="_blank">スキンプラグイン、CSS、フォント、および画像リソース</a>,  <a class="xref" href="https://github.com/ooyala/html5-video-plugins/releases" target="_blank">ビデオプラグイン</a>,  <a class="xref" href="https://github.com/ooyala/html5-ad-plugins/releases" target="_blank">広告プラグイン</a>,  <a class="xref" href="https://github.com/ooyala/html5-analytics-plugins/releases" target="_blank">分析プラグイン</a>など）を追加して、これらの新しいファイルを指すようにリソースを更新します。</li>
+
+                        <li class="li">独自のバージョンのskin.jsonを使用して独自のPlayerスキンをカスタマイズした場合は、最新のskin.jsonファイルをダウンロードし、このファイルの変更内容をカスタマイズしたskin.jsonファイルとマージします。 </li>
+
+                    </ol>
+</div>
+
+                <ul class="ul">
+                    <li class="li"><strong class="ph b">コアプレーヤー（必須）</strong><ul class="ul">
+                            <li class="li"> http://player.ooyala.com/static/v4/stable/4.11.13/core.min.js</li>
+
+                        </ul>
+</li>
+
+                    <li class="li"><strong class="ph b">プレイヤースキン</strong><ul class="ul">
+                            <li class="li">http://player.ooyala.com/static/v4/stable/4.11.13/skin-plugin/html5-skin.min.js</li>
+
+                            <li class="li">http://player.ooyala.com/static/v4/stable/4.11.13/skin-plugin/skin.json</li>
+
+                            <li class="li">http://player.ooyala.com/static/v4/stable/4.11.13/skin-plugin/html5-skin.min.css</li>
+
+                        </ul>
+</li>
+
+                    <li class="li"><strong class="ph b">ビデオプラグイン（少なくとも1つは必須） </strong><ul class="ul">
+                            <li class="li">HLSおよびDASH用のBitmovinプラグイン：http://player.ooyala.com/static/v4/stable / 4.11.13 / video-plugin / bit_wrapper.min.js </li>
+
+                            <li class="li">HLSおよびMP4用のメインビデオプラグイン：http://player.ooyala.com/static/v4/stable / 4.11.13 / video-plugin / main_html5.min.js</li>
+
+                            <li class="li">HDS用のOSMF Flashプラグイン：http://player.ooyala.com/static/v4/stable / 4.11.13 / video-plugin / osmf_flash.min.js</li>
+
+                            <li class="li">Akamai HDビデオプラグイン：http://player.ooyala.com/static/v4/stable / 4.11.13 / video-plugin / akamaiHD_flash.min.js</li>
+
+                            <li class="li">YouTube iFrame用プラグイン（廃止予定）：http://player.ooyala.com/static/v4/stable / 4.11.13 / video-plugin / youtube.min.js</li>
+
+                        </ul>
+</li>
+
+                    <li class="li"><strong class="ph b">広告プラグイン </strong><ul class="ul">
+                            <li class="li">Ooyala Pulse広告プラグイン：https://player.ooyala.com/static/v4/stable / 4.11.13 / ad-plugin / pulse.min.js</li>
+
+                            <li class="li">VASTおよびVPAID広告プラグイン：https://player.ooyala.com/static/v4/stable / 4.11.13 / ad-plugin / ad_manager_vast.min.js</li>
+
+                            <li class="li">Google IMA広告プラグイン：https://player.ooyala.com/static/v4/stable / 4.11.13 / ad-plugin / google_ima.min.js</li>
+
+                            <li class="li">FreeWheel広告プラグイン：https://player.ooyala.com/static/v4/stable / 4.11.13 / ad-plugin / freewheel.min.js</li>
+
+                        </ul>
+</li>
+
+                    <li class="li"><strong class="ph b">分析プラグイン </strong><ul class="ul">
+                            <li class="li">Adobe Analytics（Omniture）プラグイン：https://player.ooyala.com/static/v4/stable / 4.11.13 /analytics-plugin/omniture.js </li>
+
+                            <li class="li">Google Analyticsプラグイン：https://player.ooyala.com/static/v4/stable / 4.11.13 /analytics-plugin/googleAnalytics.min.js</li>
+
+                            <li class="li">Nielsen Analyticsプラグイン：https://player.ooyala.com/static/v4/stable/4.11.13/analytics-plugin/Nielsen.min.js</li>
+
+                            <li class="li">プレイヤーV4 YOUBORAプラグイン：https：//smartplugin.youbora.com/v5/javascript/ooyalav4 / stable / sp.min.js</li>
+
+                            <li class="li">comScore Analyticsプラグイン：このプラグインへのアクセスについては、アカウントマネージャにお問い合わせください。</li>
+
+                        </ul>
+</li>
+
+                    <li class="li"><strong class="ph b">ディスカバリープラグイン</strong><ul class="ul">
+                            <li class="li">http://player.ooyala.com/static/v4/stable/4.11.13/other-plugin/discovery_api.min.js</li>
+
+                        </ul>
+</li>
+
+                    <li class="li"><strong class="ph b">プレイリストプラグイン</strong><ul class="ul">
+                            <li class="li">http://player.ooyala.com/static/v4/stable/4.11.13/other-plugin/playlists.js</li>
+
+                        </ul>
+</li>
+
+                    <li class="li"><strong class="ph b">ライブSSAIパルスプラグイン</strong><ul class="ul">
+                            <li class="li">http://player.ooyala.com/static/v4/stable/4.11.13/ad-plugin/ssai_pulse.js</li>
+
+                        </ul>
+</li>
+
+                </ul>
+
+            </div>
+            <div class="sectiondiv"><p class="gt-block p"><strong class="ph b">修正された問題</strong></p>
+ このリリースでの修正点は次のとおりです。 <ul class="ul">
+                    <li class="li">ユーザーが選択した検出ビデオに加えて、自動再生された検出ビデオがOoyala Analyticsに含まれるようになりました。</li>
+
+                    <li class="li">プレイヤーV4は、モバイルブラウザでDiscoveryビデオを自動再生します。</li>
+
+                    <li class="li">iOSデバイスでは、ビデオが一時停止したときに、デフォルトのプレーヤーがネイティブプレーヤーの再生ボタンをオーバーレイしたため、ボタンの外観がぼやけました。</li>
+
+                </ul>
+</div>
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">このリリースに関する重要事項</strong>
+                </p>
+
+                <ul class="ul">
+                    <li class="li">skin.jsonを自己ホスティングしている場合、このリリース（4.11.13）をデプロイする場合は、最新バージョンのskin.jsonファイルをプルする（そしてカスタマイズを適用する）必要があります。</li>
+
+                    <li class="li">Dash DRMのデバイス登録は現在サポートされていません。</li>
+
+                </ul>
+
+            </div>
+            <div class="sectiondiv">
+                <p class="gt-block p" id="release20170130__d43355e24279"><strong class="ph b">変更に関連するこのリリースの既知の問題</strong></p>
+
+                <p class="p">このリリースの既知の問題は次のとおりです。</p>
+
+                <ul class="ul">
+                    <li class="li">マイ広告はモバイルブラウザでは機能しません。</li>
+
+                    <li class="li">一部のWindowsおよびMac OSバージョンの一部のブラウザでは、FreewheelおよびVastミッドロール広告が再生されない場合があります。</li>
+
+                    <li class="li">Bitmovinプラグインの場合、Google IMAミッドロール広告が一部のMac OS環境ではすぐに再生されない場合があります。</li>
+
+                    <li class="li">Windows 10およびMicrosoft Edgeブラウザ上のHLSストリームでは、Flash中に「Playback Stream Error」が発生する可能性があります。</li>
+
+                </ul>
+
+            </div>
+            <div class="sectiondiv"><strong class="ph b">プレイヤーV4リソース </strong><ul class="ul">
+                    <li class="li"><a class="xref" href="../concepts/pbv4_about.html">Player V4のドキュメント</a></li>
+
+                    <li class="li"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_v4_js/index.html">プレーヤV4 JavaScript APIリファレンス</a></li>
+
+                    <li class="li"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_v4_skin_config/index.html">Ooyala Player SkinドキュメントとJSONスキーマ</a></li>
+
+                </ul>
+</div>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">ビデオプラットフォーム - 製品リリースノート</h2>
+            
+            <ul class="ul">
+                <li class="li"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/concepts/pbv4_release_notes.html">Ooyala Player V4リリースノート</a></li>
+
+                <li class="li"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/concepts/mobile_sdk_android_release_notes.html">Android用Mobile SDKのリリースノート</a></li>
+
+                <li class="li"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/concepts/mobile_sdk_ios_release_notes.html">iOS用Mobile SDKリリースノート</a></li>
+
+                <li class="li"><a class="xref" href="../live_release_notes.html#live_release_notes" title="Ooyala Liveの機能に関する最新情報をお読みください。">Ooyala Liveリリースノート</a></li>
+
+                <li class="li"><a class="xref" href="../concepts/analytics_v3_release_notes.html">Ooyala IQリリースノート</a></li>
+
+            </ul>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Ooyalaリリースノートを購読する</h2>
+             見る <a class="xref" href="../concepts/release_notes_subscribe.html">Ooyalaリリースノートを購読する</a> Ooyalaリリースノートの自動通知を購読する方法については、こちらをご覧ください。 </div>
+
+        <div class="section">このコンテンツは、30：2017 PM UTCのJan 11、00に掲載されました。</div>
+
+        
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2017.html" title="2017からのリリースノート。">2017ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

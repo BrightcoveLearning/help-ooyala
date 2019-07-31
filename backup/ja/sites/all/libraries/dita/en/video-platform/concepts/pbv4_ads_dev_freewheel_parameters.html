@@ -1,0 +1,199 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="FreeWheel Ad Parameters"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_ads_dev_freewheel_parameters"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>フリーホイール広告パラメータ</title>
+</head>
+<body id="pbv4_ads_dev_freewheel_parameters">
+
+
+  <h1 class="title topictitle1">フリーホイール広告パラメータ</h1>
+
+  <div class="body conbody">
+    <div class="section">次のパラメータを使用して、Player V4でFreeWheel広告を設定します。 <a class="xref" href="pbv4_ads_dev_chapter_freewheel.html">フリーホイール広告プラグイン</a>。 見る <a class="xref" href="pbv4_ads_dev_freewheel.html">フリーホイール広告の統合</a> 詳細については。 <div class="note note"><span class="notetitle">注意：</span> これらのパラメータはFreeWheel広告に固有のものです。 FreeWheel広告にグローバルパラメータを設定することもできます。 見る <a class="xref" href="pbv4_configure_ads_embedded_params.html">広告パラメータを設定する</a> 詳細については。</div>
+</div>
+
+    <div class="section">
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="pbv4_ads_dev_freewheel_parameters__freewheel_parameters" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="1" id="d416224e46"><strong class="ph b">名前</strong></th>
+
+              <th class="entry" valign="top" width="NaN%" id="d416224e50"><strong class="ph b">説明</strong></th>
+
+              <th class="entry" valign="top" width="1" id="d416224e54"><strong class="ph b">タイプ</strong></th>
+
+              <th class="entry" valign="top" width="1" id="d416224e58"><strong class="ph b">必須？</strong></th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr id="pbv4_ads_dev_freewheel_parameters__freewheel-ads-manager" class="row">
+              <td class="entry" valign="top" width="1" headers="d416224e46 "><span class="keyword parmname">freewheel-ads-manager</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d416224e50 ">FreeWheel adsの埋め込みパラメータの親パラメータ。</td>
+
+              <td class="entry" valign="top" width="1" headers="d416224e54 "> </td>
+
+              <td class="entry" valign="top" width="1" headers="d416224e58 ">はい</td>
+
+            </tr>
+
+
+              <tr id="pbv4_ads_dev_freewheel_parameters__bitrateOverride" class="row">
+                <td class="entry" valign="top" width="1" headers="d416224e46 "><span class="keyword parmname">bitrateOverride</span></td>
+
+                <td class="entry" valign="top" width="NaN%" headers="d416224e50 ">フリーホイール広告の初期ビットレート（ユーザー帯域幅、kbps）を指定します。 フリーホイール広告が低品質で再生されている場合は、これを設定して、広告をレンダリングするためにフリーホイールで選択された初期ビットレートを上書きします。 Freewheelのを参照してください <a class="xref" href="https://hub.freewheel.tv/api_docs/html5/files/AdManager-js.html#PARAMETER_DESIRED_BITRATE" target="_blank">PARAMETER_DESIRED_BITRATE</a>
+                設定。<pre class="pre codeblock">
+&quot;freewheel-ads-manager&quot;：{&quot;bitrateOverride&quot;：20000}
+                </pre>
+</td>
+
+                <td class="entry" valign="top" width="1" headers="d416224e54 ">数（Kbps）</td>
+
+                <td class="entry" valign="top" width="1" headers="d416224e58 ">いいえ</td>
+
+              </tr>
+            
+            <tr id="pbv4_ads_dev_freewheel_parameters__html5_ad_server" class="row">
+              <td class="entry" valign="top" width="1" headers="d416224e46 "><span class="keyword parmname">html5_ad_server</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d416224e50 ">プレイヤーが広告をリクエストする場所。 このキーに割り当てられる値はHTTPでなければなりません。 これは、サイトがHTTP経由でロードされるときに使用される、HTML5プレーヤー固有のオーバーライドです。 </td>
+
+              <td class="entry" valign="top" width="1" headers="d416224e54 ">文字列</td>
+
+              <td class="entry" valign="top" width="1" headers="d416224e58 ">はい</td>
+
+            </tr>
+
+            <tr id="pbv4_ads_dev_freewheel_parameters__html5_ssl_ad_server" class="row">
+              <td class="entry" valign="top" width="1" headers="d416224e46 "><span class="keyword parmname">html5_ssl_ad_server</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d416224e50 ">プレイヤーが広告をリクエストする場所。 このキーに割り当てられる値はHTTPSである必要があります。 これは、サイトがHTTPS経由でロードされるときに使用される、HTML5プレーヤー固有のオーバーライドです。</td>
+
+              <td class="entry" valign="top" width="1" headers="d416224e54 ">文字列</td>
+
+              <td class="entry" valign="top" width="1" headers="d416224e58 ">はい</td>
+
+            </tr>
+
+            
+            <tr id="pbv4_ads_dev_freewheel_parameters__fw_ad_module_js" class="row">
+              <td class="entry" valign="top" width="1" headers="d416224e46 "><span class="keyword parmname">fw_ad_module_js</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d416224e50 ">プレーヤーがFreeWheel AdManager.jsをロードする場所。 このキーに割り当てられる値はHTTPでなければなりません。 これは、サイトがHTTP経由でロードされるときに使用される、HTML5プレーヤー固有のオーバーライドです。</td>
+
+              <td class="entry" valign="top" width="1" headers="d416224e54 ">文字列</td>
+
+              <td class="entry" valign="top" width="1" headers="d416224e58 ">はい</td>
+
+            </tr>
+
+            <tr id="pbv4_ads_dev_freewheel_parameters__fw_mrm_network_id" class="row">
+              <td class="entry" valign="top" width="1" headers="d416224e46 "><span class="keyword parmname">fw_mrm_network_id</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d416224e50 ">FreeWheelによって割り当てられ、会社を識別する一意の識別子。 統合時にクライアントには独自のネットワークIDが割り当てられ、プレーヤは広告要求を行う前にこの値をAdManagerに渡します。</td>
+
+              <td class="entry" valign="top" width="1" headers="d416224e54 ">文字列</td>
+
+              <td class="entry" valign="top" width="1" headers="d416224e58 ">はい</td>
+
+            </tr>
+
+            <tr id="pbv4_ads_dev_freewheel_parameters__fw_player_profile" class="row">
+              <td class="entry" valign="top" width="1" headers="d416224e46 "><span class="keyword parmname">fw_player_profile</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d416224e50 ">プレーヤの環境とフレームワークを考慮して、どの広告を再生可能にするかを定義する一連の設定。 たとえば、プロファイルを使用すると、広告サーバーはFlashプレーヤーにSilverlight広告を返さないようにできます。 これは統合中にバックエンドで設定され、設定するプレーヤーの正しいプロファイルはFreeWheelによって提供されます。</td>
+
+              <td class="entry" valign="top" width="1" headers="d416224e54 ">文字列</td>
+
+              <td class="entry" valign="top" width="1" headers="d416224e58 ">はい</td>
+
+            </tr>
+
+            <tr id="pbv4_ads_dev_freewheel_parameters__fw_site_section_id" class="row">
+              <td class="entry" valign="top" width="1" headers="d416224e46 "><span class="keyword parmname">fw_site_section_id</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d416224e50 ">サイトセクションタグは、ビデオアセットのカスタムビデオIDと同様に、サイトセクションを識別する文字列です。 これは、ネットワークモジュールであなたが指定したサイトセクションタグです。 プレイヤーがBVIと直接対話することはありませんが、これは、提供するカスタムアセットIDをFreeWheelシステムに入力するためのシステムです。 その結果、プレーヤーは、このIDを提供できるように、同じCMS情報の少なくともいくつかにアクセスする必要があります。</td>
+
+              <td class="entry" valign="top" width="1" headers="d416224e54 ">文字列</td>
+
+              <td class="entry" valign="top" width="1" headers="d416224e58 ">はい</td>
+
+            </tr>
+
+            <tr id="pbv4_ads_dev_freewheel_parameters__fw_site_section_id_type" class="row">
+              <td class="entry" valign="top" width="1" headers="d416224e46 "><span class="keyword parmname">fw_site_section_id_type</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d416224e50 ">サイトセクションIDの種類。</td>
+
+              <td class="entry" valign="top" width="1" headers="d416224e54 ">文字列</td>
+
+              <td class="entry" valign="top" width="1" headers="d416224e58 ">はい</td>
+
+            </tr>
+
+            <tr id="pbv4_ads_dev_freewheel_parameters__fw_site_section_network_id" class="row">
+              <td class="entry" valign="top" width="1" headers="d416224e46 "><span class="keyword parmname">fw_site_section_network_id</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d416224e50 ">セグメント広告を取得するためのサイトセクションネットワークの一意の識別子。</td>
+
+              <td class="entry" valign="top" width="1" headers="d416224e54 ">文字列</td>
+
+              <td class="entry" valign="top" width="1" headers="d416224e58 ">はい</td>
+
+            </tr>
+
+            <tr id="pbv4_ads_dev_freewheel_parameters__fw_tracking_pixel_url" class="row">
+              <td class="entry" valign="top" width="1" headers="d416224e46 "><span class="keyword parmname">fw_tracking_pixel_url</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d416224e50 ">広告資産の配信を監視するためのトラッキングピクセルのためのURL。</td>
+
+              <td class="entry" valign="top" width="1" headers="d416224e54 ">文字列</td>
+
+              <td class="entry" valign="top" width="1" headers="d416224e58 ">はい</td>
+
+            </tr>
+
+            <tr id="pbv4_ads_dev_freewheel_parameters__fw_video_asset_id" class="row">
+              <td class="entry" valign="top" width="1" headers="d416224e46 "><span class="keyword parmname">fw_video_asset_id</span></td>
+
+              <td class="entry" valign="top" width="NaN%" headers="d416224e50 ">ユーザーが表示しているコンテンツ プレーヤは、FreeWheelの一括ビデオ取り込み（BVI）で提供されるカスタムアセットIDを使用して、ターゲティング目的でAdManagerにアセットを識別する必要があります。 このフィールドは、ページレベルで設定することも、映画のメタデータ（Backlot UIまたはBacklot APIを介して設定する）によって設定することもできます。 どちらも設定されていない場合、このフィールドの値は外部IDまたは埋め込みコード（プレーヤーの埋め込みに使用されている方）のいずれかにフォールバックします。</td>
+
+              <td class="entry" valign="top" width="1" headers="d416224e54 ">文字列</td>
+
+              <td class="entry" valign="top" width="1" headers="d416224e58 ">はい</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+  </div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- de

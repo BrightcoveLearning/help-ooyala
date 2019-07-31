@@ -1,0 +1,134 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Signature Generation (Deprecated)"/>
+<meta name="abstract" content="To securely organize your user-uploaded videos, you can declare a static label and or a regular expression dynamic parameter."/>
+<meta name="description" content="To securely organize your user-uploaded videos, you can declare a static label and or a regular expression dynamic parameter."/>
+<meta name="DC.Relation" scheme="URI" content="../archive/api_upload_widget.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="widget_signature_generation"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>署名生成（廃止予定）</title>
+</head>
+<body id="widget_signature_generation">
+
+
+  <h1 class="title topictitle1">署名生成（廃止予定）</h1>
+
+  
+  
+ <div class="body refbody"><p class="shortdesc">ユーザーがアップロードした動画を安全に整理するために、静的動画を宣言できます。 <samp class="ph codeph">ラベル</samp> または正規表現 <samp class="ph codeph">ダイナミック</samp> パラメータ。 </p>
+
+  <div class="section">
+    
+    <p class="p">アカウントのセキュリティを確保するために、APIクエリに署名する必要があります。 署名付きAPIリクエストを生成する例として、これらの手順を紹介します。 この例で作成された照会は有効であり、修飾された要求を作成して署名する方法を示しています。 詳細な署名例があります。</p>
+
+    
+    <p class="gt-block p">プロバイダIDのアカウント固有のコード（<samp class="ph codeph">pcode</samp>）と秘密（<samp class="ph codeph">秘密</samp>）開発者の下のBacklot ACCOUNTタブにあります。 <a class="xref" href="../concepts/api_keys.html" title="Ooyala APIの認証情報には、APIキーとシークレットが含まれています。これらは、HTTPリクエストに署名するため、およびスクラッチパッドを使用するときに提供するものです。">あなたのAPIクレデンシャル</a>）。 ザ
+          <samp class="ph codeph">pcode</samp> APIキーのピリオドの前にある28文字の英数字ストリングです。 秘密コードは40文字です。 どちらも大文字と小文字が区別され、英数字、ダッシュ（ - ）、およびアンダースコア（_）が含まれます。 これらのコードは、Ooyalaサーバーとの間でやり取りされるリクエストごとに署名を生成するために必要です。</p>
+
+    
+    <p class="p">例：</p>
+
+    <pre class="pre codeblock">
+パートナーコード：lsNTrbQBqCQbH-VA6ALCshAHLWrVシークレットコード：hn-Rw2ZH-YwllUYkklL5Zo_7lWJVkrbShZPb5CD1
+
+      </pre>
+
+    
+    <div class="note note"><span class="notetitle">注意：</span> これらのパラメータは、予備テストのためにBacklotパートナーにAPI経由でアクセス可能な共有アカウントを指します。 このアカウントにアップロードされたコンテンツとメタデータは、すべてのユーザーに表示されます。</div>
+
+    
+    <p class="p">pcode、シークレットコード、すべての必須パラメータ、およびすべての含まれているオプションのパラメータを使用して、コールのSHA-256署名を生成します。 署名を生成し、呼び出しのパラメータをURIエンコードする方法についてこの例を示します。</p>
+
+    
+    <ol class="ol">
+      <li class="li">40文字のシークレットコードから始めます（を参照） <a class="xref" href="../concepts/api_keys.html" title="Ooyala APIの認証情報には、APIキーとシークレットが含まれています。これらは、HTTPリクエストに署名するため、およびスクラッチパッドを使用するときに提供するものです。">あなたのAPIクレデンシャル</a>).
+            
+            <samp class="ph codeph">hn-Rw2ZH-YwllUYkklL5Zo_7lWJVkrbShZPb5CD1</samp></li>
+
+      
+      <li class="li">パラメータ名をアルファベット順にソートして追加 <samp class="ph codeph">&lt;名前&gt; = &lt;値&gt;</samp> 文字列とペアになります。 SHA-256署名が結果とともに生成されますが、これには含まれません。 <samp class="ph codeph">pcode</samp>この使用例 <samp class="ph codeph">expires = 1893013926、動的[any] = ^ / any / ano、動的[some] = ^ / any / some $、ラベル[0] = / bysmthng / qqq、ラベル[a] = / byuser / u1、</samp> そして <samp class="ph codeph">ステータス=保留中</samp>.
+        
+        
+        
+        <samp class="ph codeph">hn-Rw2ZH-YwllUYkklL5Zo_7lWJVkrbShZPb5CD1dynamic[any]=^/any/anodynamic[some]=^/any/some$expires=1893013926label[0]=/bysmthng/qqqlabel[a]=/byuser/u1status=pending</samp></li>
+
+      
+      <li class="li">この文字列に基づいて基本256形式のSHA-64ダイジェストを生成し、文字列を43文字に切り捨てて末尾の「=」記号を削除します。 URIは、シグネチャを具体的に &#39;+&#39;、 &#39;=&#39;、および &#39;/&#39;でエンコードします。 この例では、
+        
+        <samp class="ph codeph">mNkdZprvtjKtve5EGLop3ZFszwrquOyBcxQrR + x38u8</samp></li>
+
+      
+      
+      
+      
+      <li class="li"><p class="p">上記の生成された署名を、URIエンコード方式でsetParameters（）に渡す文字列に含めます。 この例では、これにより次のようになります。</p>
+
+        <pre class="pre codeblock">var paramStr = 'pcode=lsNTrbQBqCQbH-VA6ALCshAHLWrV&amp;status=pending&amp;expires=1893013926&amp;label[a]=/byuser/u1&amp;
+label[0]=/bysmthng/qqq&amp;dynamic[some]=^/any/some$&amp;dynamic[any]=^/any/ano&amp;
+signature=mNkdZprvtjKtve5EGLop3ZFszwrquOyBcxQrR+x38u8';
+</pre>
+
+        
+        <p class="p">&#39;などの特殊文字<samp class="ph codeph">+</samp>&#39;と&#39;<samp class="ph codeph">/</samp>&#39;この文字列ではURIエスケープされています。 パラメータ文字列のURIエスケープを簡単に実現する方法は2つあります。</p>
+
+        
+        <pre class="pre codeblock">//最初に、JavaScriptオブジェクトのプロパティを使用します。 u6 &#39;、&#39;ラベル[1893013926] &#39;：&#39; / bysmthng / qqq &#39;、&#39;動的[some] &#39;：&#39; ^ / any / some $ &#39;、&#39;動的[any] &#39;：&#39; ^ / any / ano &#39;、&#39;署名&#39;：&#39; mNkdZprvtjKtve1EGLop0ZFszwrquOyBcxQrR + x5u3 &#39;};
+</pre>
+
+        
+        <p class="p">OR</p>
+
+        
+       <pre class="pre codeblock">// 2番目に、 &#39;name&#39;と &#39;value&#39;を持つオブジェクトの配列を使用// //プロパティ：var paramStr = [{name： &#39;pcode&#39;、value： &#39;lsNTrbQBqCQbH-VA6ALCshAHLWrV&#39;}、{name： &#39;status&#39;、value： &#39;保留中の &#39;}、{名前：&#39;有効期限 &#39;、値：&#39; 1893013926 &#39;}、{名前：&#39;ラベル[a] &#39;、値：&#39; / byuser / u1 &#39;}、{名前：&#39;ラベル[0] &#39;、値： &#39;/ bysmthng / qqq&#39;}、{名前： &#39;動的[一部]&#39;、値： &#39;^ /任意/一部$&#39;}、{名前： &#39;動的[任意]&#39;、値： &#39;^ /任意/ ano&#39;} 、{名前： &#39;署名&#39;、値： &#39;mNkdZprvtjKtve5EGLop3ZFszwrquOyBcxQrR + x38u8&#39;}];
+</pre>
+
+      </li>
+
+      
+      <li class="li">アップロードを開始するには、電話してください <samp class="ph codeph">ooyalaUploader.setParameters（String）</samp>文字列は＆で区切られたペアで構成されます。 <samp class="ph codeph">&lt;URI-エンコード名&gt; = &lt;URI-エンコード値&gt;</samp>.
+        
+        <samp class="ph codeph">setParameters（paramStr）
+</samp>
+      </li>
+
+    </ol>
+
+    
+    <p class="p">に渡されることになる私たちの例からの文字列 <samp class="ph codeph">setParameters（）</samp> 次のとおりです。</p>
+
+    
+   <pre class="pre codeblock">pcode=lsNTrbQBqCQbH-VA6ALCshAHLWrV&amp;status=pending&amp;expires=1893013926&amp;label[a]=/byuser/u1&amp;label[0]=/bysmthng/qqq&amp;
+dynamic[some]=^/any/some$&amp;dynamic[any]=^/any/ano&amp;signature=mNkdZprvtjKtve5EGLop3ZFszwrquOyBcxQrR+x38u8');
+</pre>
+
+    
+    <p class="p">パートナーはこの署名付き文字列をサーバー上で生成し、生成中にその文字列をHTMLページに埋め込むことを好む場合があります。 この場合、ユーザーセッションの有効期限に等しい有効期限を使用するか、ユーザーセッションを維持しない場合は制限された分数に等しい有効期限を使用します。 ただし、パートナーは、呼び出しの直前に、AJAX、JSONなどを使用して署名付き文字列を生成するサーバーへの要求を開始するなど、高度なテクニックを使用することを好む場合もあります。 <samp class="ph codeph">ooyalaUploader.upload（）</samp> そして <samp class="ph codeph">setParameters（）</samp>
+      AJAX / JSON呼び出しの結果と共に。 この高度な技術では、数秒以内に有効期間を使用でき、アップロード要求を開始する前にアップロードパラメータを検証します。</p>
+
+    
+  </div>
+
+  
+  
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../archive/api_upload_widget.html" title="v1アップロードウィジェットはv1 APIに基づいているため、非推奨です。 代わりに、Uploader JavaScript Libararyを使用してください。">非推奨：アップロードウィジェットAPI v1リファレンス（非推奨）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

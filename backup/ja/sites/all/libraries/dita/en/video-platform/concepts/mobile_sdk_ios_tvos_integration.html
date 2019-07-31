@@ -1,0 +1,184 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Mobile SDK for tvOS"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/sdk_overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_tvos_pulse.html"/>
+<meta name="DC.Relation" scheme="URI" content="https://docs.brightcove.com/apidocs-ooyala/tvos_mobilesdk/annotated.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="mobile_sdk_ios_tvos_integration"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>tvOS用モバイルSDK</title>
+</head>
+<body id="mobile_sdk_ios_tvos_integration">
+
+
+    
+    <h1 class="title topictitle1">tvOS用モバイルSDK</h1>
+
+    <div class="body conbody">
+        <p class="p">Ooyala tvOS SDKはHLSとMP4アセットの基本的な再生を提供し、FairPlay DRMとOoyala分析をサポートします。</p>
+
+        <div class="note note"><span class="notetitle">注意：</span> React NativeはtvOSではサポートされていません。 </div>
+
+        <div class="section" xml:lang="en-us" lang="en-us" id="mobile_sdk_ios_tvos_integration__p_x2r_llg_hw"><h2 class="title sectiontitle">必須条件</h2><div class="p">
+                <ul class="ul" id="mobile_sdk_ios_tvos_integration__ul_mwn_pxq_3x">
+                    <li class="li">OoyalaのtvOS SDKを使用する前に、iOS用のOoyalaモバイルSDKをダウンロードしてセットアップしてください。 <span class="ph">Ooyala <a class="xref" href="../../../../../../../../ja/downloads/index.html" target="_blank">ダウンロード</a></span>ここに記述されているように）： <a class="xref" href="chapter_sdk_ios.html">iOS用モバイルSDK</a>.</li>
+
+                    <li class="li">アプリを実行するtvOSは、バージョン9以上でなければなりません。</li>
+
+                </ul>
+
+            </div>
+
+            <strong class="ph b">あなたが必要なもの</strong>
+            <p class="gt-block p">OoyalaのtvOS SDKを使い始めるには、をダウンロードして開きます。 <a class="xref" href="http://static.ooyala.com.s3.amazonaws.com/sdk/tvos/release/OoyalaSDK-tvOS.zip" target="_blank">OoyalaSDK-tvOS.zip</a> そして <a class="xref" href="http://static.ooyala.com.s3.amazonaws.com/sdk/tvos/release/OoyalaSkinSDK-tvOS.zip" target="_blank">OoyalaSkinSDK-tvOS.zip</a>
+                ファイル。</p>
+
+            <p class="gt-block p">これら二つのファイルは <span class="ph filepath">OoyalaTVSDK.framework</span> そして
+                    <span class="ph filepath">OoyalaTVSkinSDK.framework</span> ライブラリ。</p>
+
+        </div>
+
+        <div class="section" xml:lang="en-us" lang="en-us" id="mobile_sdk_ios_tvos_integration__section_tvos_integrate"><h2 class="title sectiontitle">Ooyala tvOS SDKを統合する</h2>
+            
+            <div class="p">Xcodeを起動し、Xcodeプロジェクトフォルダを開き、ターゲットをクリックします。 <ol class="ol" id="mobile_sdk_ios_tvos_integration__ol_dsx_31t_3x">
+                    <li class="li">コピー <span class="ph filepath">OoyalaTVSDK.framework</span> そして
+                            <span class="ph filepath">OoyalaTVSkinSDK.framework</span> あなたのライブラリフォルダに。</li>
+
+                    <li class="li">ナビゲーションヘッダーの <span class="ph uicontrol">ビルド設定</span>：選択 <span class="ph menucascade"><span class="ph uicontrol">サポートされているプラ​​ットフォーム</span> &gt; <span class="ph uicontrol">tvOS</span></span> そして <span class="ph menucascade"><span class="ph uicontrol">ベースSDK</span> &gt; <span class="ph uicontrol">最新のtvOS</span></span>.</li>
+
+                    <li class="li">ナビゲーションヘッダーの <span class="ph uicontrol">構築フェーズ</span> 展開する <span class="ph uicontrol">バイナリとライブラリのリンク</span>。 その
+                            <span class="ph filepath">OoyalaTVSDK.framework</span> そして
+                            <span class="ph filepath">OoyalaTVSkinSDK.framework</span> ここにあなたのアプリケーションとリンクしています。</li>
+
+                    <li class="li">プロジェクトをtvOSシミュレータまたはApple TVデバイスでビルドして実行します。</li>
+
+                    <li class="li">(<em class="ph i">任意</em>Ooyala tvOS SDKが正しく統合されていることを確認するには、Ooyala tvOSサンプルアプリをビルドして実行します。</li>
+
+                </ol>
+</div>
+
+            <p class="gt-block p">Ooyala TVOSSampleAppは、AppleのtvOSを統合してApple TVデバイス上でアプリケーションを実行する方法を示しています。 サンプルアプリを試すには、にアクセスしてください。 <a class="xref" href="https://github.com/ooyala/ios-sample-apps/tree/stable/PlaybackLab/TVOSSampleApp" target="_blank">https://github.com/ooyala/ios-sample-apps/tree/stable/PlaybackLab/TVOSSampleApp</a>.</p>
+
+        </div>
+
+        <div class="section" xml:lang="en-us" lang="en-us" id="mobile_sdk_ios_tvos_integration__section_tvos_customize_ui"><h2 class="title sectiontitle">Ooyala tvOSプレーヤーのUIをカスタマイズする</h2>
+            
+            <div class="p">Ooyala tvOSプレーヤーのUIはユニークで、カスタマイズ可能なオープンソースのプラグインが含まれています。 UIをカスタマイズするには<ol class="ol" id="mobile_sdk_ios_tvos_integration__ol_usx_31t_3x">
+                    <li class="li">フォーク <a class="xref" href="https://github.com/ooyala/native-skin/tree/stable/sdk/tvOS" target="_blank">https://github.com/ooyala/native-skin/tree/stable/sdk/tvOS</a>.</li>
+
+                    <li class="li">削除する <span class="ph filepath">OoyalaTVSkinSDK.framework</span> あなたのプロジェクトから。</li>
+
+                    <li class="li">加えます <span class="ph uicontrol">OoyalaTVSkinSDK</span> あなたがマスタープロジェクトに分岐したプロジェクト。</li>
+
+                    <li class="li">カスタムUI機能を実装するようにOoyalaTVPlayerViewControllerを変更します。</li>
+
+                    <li class="li">(<em class="ph i">任意</em>プルリクエストを送信します。</li>
+
+                </ol>
+</div>
+
+        </div>
+
+        <div class="section" xml:lang="en-us" lang="en-us" id="mobile_sdk_ios_tvos_integration__section_k3l_lvs_3x"><h2 class="title sectiontitle">tvOSコアSDK使用上の注意</h2>
+            
+            <p class="gt-block p">ウーヤラ <em class="ph i">tvOSコアSDK</em> の直接ポートです。 <em class="ph i">iOSコアSDK</em>。 両方のSDKのコードベースはほぼ同じです。</p>
+
+            <p class="p">tvOS Skin SDKは、特にtvOSプラットフォーム用にゼロから構築されたUIを提供します。 tvOSはリアクトネイティブをサポートしていないため、iOS React-Native Skin SDKはtvOSに移植できません。</p>
+
+            <p class="gt-block p">Skin SDKは、ネイティブスキンレポジトリで完全にオープンソースです。 <a class="xref" href="https://github.com/ooyala/native-skin/tree/stable/sdk/tvOS" target="_blank">https://github.com/ooyala/native-skin/tree/stable/sdk/tvOS</a>。 独自のUIを作成するには、リポジトリをフォークし、Ooyalaコントロールをベースラインとして使用し、必要に応じてコードを拡張します。</p>
+
+            <p class="gt-block p">tvOS Core SDKでは、 <span class="keyword apiname">ViewControllerを</span> 他のSDKで行われる方法とは大きく異なります。 インスタンス化しないでください
+                    <span class="keyword apiname">OoyalaPlayer</span> を作成し、
+                    <span class="keyword apiname">OoyalaPlayerViewController</span> 小学校の子供の頃
+                    <span class="keyword apiname">ViewControllerを</span>。 代わりに、
+                    <span class="keyword apiname">OOOoyalaTVPlayerViewController</span> そしてその新しいものに分節する
+                    <span class="keyword apiname">ViewControllerを</span>.  </p>
+
+            <p class="p">たとえば、ヘッダーファイルには次のコードが含まれています。</p>
+
+            <div class="p">
+                <pre class="pre codeblock">#import &lt;UIKit / UIKit.h&gt; #import &lt;OoyalaTVSkinSDK / OOOoyalaTVPlayerViewController.h&gt; @interface FullscreenPlayerViewController：OOOoyalaTVPlayerViewController @end</pre>
+
+            </div>
+
+            <div class="p">実装ファイルには次のコードが含まれています。<pre class="pre codeblock">self.pcode = self.option.pcode; self.playerDomain = self.option.domain; self.player = [[OOOoyalaPlayer alloc] initWithPcode：self.pcodeドメイン：[[OOPlayerDomain alloc] initWithString：self.playerDomain]]; [[NSNotificationCenter defaultCenter] addObserver：self selector：@selector（notificationHandler :) name：nil object：self.player]; [self.player setEmbedCode：self.option.embedCode]; [セルフプレイ]</pre>
+</div>
+
+            <p class="p">より多くのコードを見るために、githubでこれらのサンプルアプリリファレンスを見ることができます：</p>
+
+            <p class="gt-block p"><a class="xref" href="https://github.com/ooyala/ios-sample-apps/blob/stable/PlaybackLab/TVOSSampleApp/TVOSSampleApp/Players/FullscreenPlayerViewController.h" target="_blank">FullscreenPlayerViewController.h</a></p>
+
+            <p class="gt-block p"><a class="xref" href="https://github.com/ooyala/ios-sample-apps/blob/stable/PlaybackLab/TVOSSampleApp/TVOSSampleApp/Players/FullscreenPlayerViewController.m" target="_blank">FullscreenPlayerViewController.m</a></p>
+
+            <p class="gt-block p"><strong class="ph b">サンプルアプリとのやり取り</strong>：Apple TVと対話するには、Apple TV Remoteを使用する必要があります。 Xcodeで、Xcodeでアプリをビルドして実行したとき、Apple TVでアプリを実行したとき <em class="ph i">シミュレータ</em> Macのデスクトップでは、 <span class="ph menucascade"><span class="ph uicontrol">ハードウェア</span> &gt; <span class="ph uicontrol">Apple TV Remoteを表示する</span></span>.</p>
+
+            <p class="p">アプリを制御するには、次のようにApple TV Remoteを使用します。</p>
+
+            <ul class="ul" id="mobile_sdk_ios_tvos_integration__ul_n3l_lvs_3x">
+                <li class="li">
+                    <p class="gt-block p">ビデオを再生または一時停止するには、 <span class="ph uicontrol">再生/一時停止</span>
+                        ボタン、または <em class="ph i">ハードクリック</em> タッチパッドを押してクリックするまで（押し）ます。</p>
+
+                </li>
+
+                <li class="li">
+                    <p class="gt-block p">前方または後方にシークするには： <em class="ph i">ソフトクリック</em> リモコンの両側にあるタッチパッド。</p>
+
+                </li>
+
+                <li class="li">
+                    <p class="p">一時停止中にビデオを前後にスクラブするには、タッチパッドを左または右にスワイプします。</p>
+
+                </li>
+
+            </ul>
+
+            <p class="gt-block p"><strong class="ph b">インラインプレーヤーの使用を避ける</strong>：tvOS用のサンプルアプリには1つ含まれていますが、以下の理由から「インラインプレーヤー」を完全にはサポートしていません。</p>
+
+            <div class="p">
+                <ul class="ul" id="mobile_sdk_ios_tvos_integration__ul_qqr_2zs_3x">
+                    <li class="li">インラインプレーヤーは、プレーヤーとやり取りするユーザーエクスペリエンスの問題を引き起こします。</li>
+
+                </ul>
+
+            </div>
+
+            <div class="p">
+                <ul class="ul" id="mobile_sdk_ios_tvos_integration__ul_rqr_2zs_3x">
+                    <li class="li">常にフルスクリーンでビデオを表示することをお勧めします。</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../concepts/mobile_sdk_tvos_pulse.html">tvOSでOoyala Pulseと統合する</a></strong><br/>
+</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/sdk_overview.html" title="Ooyalaはあなたのコンテンツを他の環境やサービスと統合することを可能にするためにAndroidとiOSのためのモバイルSDKを提供します。">モバイルプラットフォーム開発</a></div>
+</div>
+<div class="relinfo"><strong>関連情報</strong><br/>
+<div><a class="link" href="https://docs.brightcove.com/apidocs-ooyala/tvos_mobilesdk/annotated.html" target="_blank">tvOS SDK APIドキュメント</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

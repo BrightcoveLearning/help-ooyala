@@ -1,0 +1,87 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2014-05-19 Release"/>
+<meta name="abstract" content="Updates include software updates to Google IMA, Player Debugging, and documentation updates for Mobile SDK Integration with FreeWheel, Google IMA macro support, Player Debugging and Player Message Bus events."/>
+<meta name="description" content="Updates include software updates to Google IMA, Player Debugging, and documentation updates for Mobile SDK Integration with FreeWheel, Google IMA macro support, Player Debugging and Player Message Bus events."/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2014.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2014-05-19リリース</title>
+</head>
+<body id="release">
+
+
+ <h1 class="title topictitle1">2014-05-19リリース</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">アップデートには、Google IMAへのソフトウェアアップデート、Player Debugging、およびMobile SDKとFreeWheelとの統合、Google IMAマクロサポート、Player Debugging、およびPlayer Message Busイベントに関するドキュメントのアップデートが含まれます。</p>
+
+  <div class="section"><h2 class="title sectiontitle">ソフトウェア機能リリース</h2><p class="p">以下は新しいソフトウェアリリース項目です。</p>
+<strong class="ph b">Google IMA</strong><p class="p"> Ooyalaは、Google IMA SDK v.3.0.120をサポートしています。 Google IMA for Flashとの統合が更新されました。  </p>
+<p class="gt-block p"><strong class="ph b">主要な利点</strong></p>
+<div class="p">
+    <ul class="ul" id="release__docs-internal-guid-3f3ceb5f-cefe-8127-9d57-087de199440b">
+     <li class="li">IMA広告ルールを追加しました。 </li>
+
+     <li class="li">
+      <p class="p">VPAID = trueのときにプレーヤーコントロールを非表示にします。 これにより、広告再生中にVPAID UI要素を表示できます。 </p>
+
+     </li>
+
+     <li class="li"> これで使用することができます <a class="xref" href="../concepts/ads_dev_google_ima.html">Google IMA AdsとPlayer V3を統合する</a> メッセージがプレーヤーのUI要素に重ならないように、広告再生中にカウントダウンメッセージを非表示にします。 </li>
+
+     <li class="li"><p class="gt-block p"> Ooyalaは現在、Google IMAに対しても同じパススルーパラメータをサポートしています。 <a class="xref" href="../reference/ads_ref_vpaid.html">プレーヤV3のVPAID Ads埋め込みパラメータ（廃止予定）</a> OPFモジュール </p>
+ドキュメントは近い将来更新されます。 </li>
+
+    </ul>
+
+   </div>
+</div>
+
+  <div class="section"><h2 class="title sectiontitle"> プレイヤーのデバッグ </h2>
+   </div>
+
+  
+  <div class="section"> OoyalaのPlayer V3コードを使用するWebサイトには、OO.Player.isolate（）メソッドが追加されました。これは、プレーヤのデバッグに使用できます。 ブラウザのJavaScriptコンソールでこのメソッドを使用して、Ooyala Playerで「debug.ooyala.com」というURLを生成できます。 次に、Ooyalaプレーヤーに問題がある場合は、isolate（）を使用して、問題がWebサイト環境に起因するのか、それともOoyalaプレーヤー自体に起因するのかを判断できます。 <p class="gt-block p"> 詳細は、 <a class="xref" href="../concepts/player_v3_dev_debugtool.html" title="Ooyalaがあなたが遭遇するかもしれないビデオの問題をデバッグするのを助けるのに私達のクロム拡張を使用しなさい。">Player V3でのChromeのデバッグ/トラブルシューティング拡張機能（廃止予定）</a>  .  </p>
+</div>
+<div class="section"><h2 class="title sectiontitle">ドキュメントリリース項目</h2>
+   <p class="p">以下は、新しいドキュメントのリリース項目です。 </p>
+<ul class="ul">
+     <li class="li"><p class="gt-block p"><strong class="ph b"> Mobile SDKとFreeWheelの統合 </strong></p>
+
+     <a class="xref" href="../concepts/mobile_sdk_ios_freewheel.html">iOS上のFreeWheelとの統合</a> そして <a class="xref" href="../concepts/mobile_sdk_android_freewheel.html">Android上のFreeWheelとの統合</a> -  AndroidおよびiOSとFreeWheel AdManagerとの統合に関する「必要なもの」セクションを更新しました。 </li>
+
+     <li class="li"><p class="gt-block p"><strong class="ph b"> Google IMA</strong></p>
+
+     <a class="xref" href="../concepts/ads_dev_google_ima.html">Google IMA AdsとPlayer V3を統合する</a> -  [oo_embedcode]や[timestamp]など、Google IMA統合でサポートされているマクロに関するコンテンツを追加しました。 </li>
+
+     <li class="li"><p class="gt-block p"><strong class="ph b"> プレイヤーのデバッグ：isolate（）メソッド </strong></p>
+
+     <a class="xref" href="../concepts/player_v3_dev_debugtool.html" title="Ooyalaがあなたが遭遇するかもしれないビデオの問題をデバッグするのを助けるのに私達のクロム拡張を使用しなさい。">Player V3でのChromeのデバッグ/トラブルシューティング拡張機能（廃止予定）</a> - プレーヤのデバッグドキュメントに新しいisolate（）メソッドに関する内容を追加しました。 <p class="gt-block p"><strong class="ph b"> プレイヤーメッセージバスイベント</strong></p>
+
+      <a class="xref" href="../api/player_v3_api_events.html" title="メッセージバスイベントを使用して、動画から広告の再生までのプレーヤイベントを購読または発行します。">プレーヤV3メッセージバスイベント（非推奨）</a> -  SEEKEDイベントにコンテンツを追加しました。 </li>
+
+    </ul>
+</div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2014.html" title="2014からのリリースノート。">2014ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

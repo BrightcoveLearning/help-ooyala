@@ -1,0 +1,97 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Channel Sets: Assign (Deprecated)"/>
+<meta name="abstract" content=""/>
+<meta name="description" content=""/>
+<meta name="DC.Relation" scheme="URI" content="../archive/v1_v2_channel_sets.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="v1_v2_channel_sets_assign"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>チャネルセット：割り当て（非推奨）</title>
+</head>
+<body id="v1_v2_channel_sets_assign">
+
+
+    <h1 class="title topictitle1">チャネルセット：割り当て（非推奨）</h1>
+
+    
+    <div class="body refbody"><p class="shortdesc"/>
+
+        <div class="section"><h2 class="title sectiontitle">バックスロットAPI v1</h2>
+            
+            <pre class="pre codeblock">
+http://www.ooyala.com/partner/channel_sets
+?pcode=&lt;pcode&gt;
+&amp;channelSetEmbedCode=&lt;channelSetEmbedCode&gt;
+&amp;expires=&lt;expiration&gt;
+&amp;mode=assign
+&amp;embedCodes=&lt;embedCode1&gt;,&lt;embedCode2&gt;
+&amp;signature=&lt;signature&gt;              
+    
+   </pre>
+
+        </div>
+
+        
+        <div class="section"><h2 class="title sectiontitle">バックスロットAPI v2</h2>
+          
+            <pre class="pre codeblock">
+[PUT] https://api.ooyala.com/v2/assets/&lt;channelSetId&gt;/lineup [&lt;embedCodes&gt;]
+
+   </pre>
+
+        </div>
+
+        
+        <div class="section"><h2 class="title sectiontitle">例</h2>
+            
+          <p class="p">次の例では、現在のチャンネルセットのラインナップを置き換えます。</p>
+
+            <pre class="pre codeblock">
+[GET] https://api.ooyala.com/v2/assets/dvNTVxMjrRktSlb5v
+    </pre>
+
+            <p class="gt-block p"><span class="ph">バックスロット</span> 次のような応答を返します。</p>
+
+            <pre class="pre codeblock">
+[&quot;IzNnllMjphu2XF3&quot;、 &quot;Y1dTdvMjq9QtOMG&quot;]
+</pre>
+
+          
+          <p class="p">次の例では、現在のチャンネルセットのラインナップにアセットを追加します。</p>
+
+          <pre class="pre codeblock">
+[PATCH] https://api.ooyala.com/v2/assets/dvNTVxMjrRktSlb5v / lineup / rtsfds23xFTrejrtUe
+          </pre>
+
+          <p class="gt-block p"><span class="ph">バックスロット</span> 次のような応答を返します。</p>
+
+          <pre class="pre codeblock">
+[&quot;IzNnllMjphu2XF3&quot;、 &quot;Y1dTdvMjq9QtOMG&quot; &quot;rtsfds23xFTrejrtUe&quot;]
+</pre>
+
+          
+        </div>
+
+        
+        
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../archive/v1_v2_channel_sets.html" title="古いチャンネルセットAPIには、チャンネルセットの内容の一覧表示、チャンネルセットへのチャンネルの割り当て、または新しいチャンネルセットの作成を可能にする3つのモードがありました。 チャンネルセットAPIがアセットAPIの一部になりました。これにより、チャンネルセットの作成、編集、削除、およびチャンネルセットのラインナップの作成、編集、削除が可能になります。">チャネルセットAPI（廃止予定）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

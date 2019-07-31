@@ -1,0 +1,85 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Implementing an iOS OOEmbedTokenGenerator"/>
+<meta name="abstract" content="To use the Ooyala Player Token for user authorization your iOS app must implement OOEmbedTokenGenerator."/>
+<meta name="description" content="ユーザー認証にOoyalaプレーヤートークンを使用するには、iOSアプリにOOEmbedTokenGeneratorを実装する必要があります。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_ios_cc.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/player_v3dev_tokensdks.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="mobile_sdk_ios_usingembedtokengen"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>iOS OOEmbedTokenGeneratorを実装する</title>
+</head>
+<body id="mobile_sdk_ios_usingembedtokengen">
+
+
+    <h1 class="title topictitle1">iOS OOEmbedTokenGeneratorを実装する </h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc"> ユーザー認証にOoyala Player Tokenを使用するには、iOSアプリに実装する必要があります。
+            <samp class="ph codeph">OOEmbedTokenGenerator</samp>.  </p>
+
+        <div class="section context">
+            <p class="gt-block p">ナビゲーションヘッダーの <a class="xref" href="https://github.com/ooyala/ios-sample-apps/blob/stable/ContentProtectionSampleApp/ContentProtectionSampleApp/Players/OoyalaPlayerTokenPlayerViewController.m" target="_blank">詳細はこちら</a> このチュートリアルで使用されている例を表示するには、次の手順を実行して
+                    <samp class="ph codeph">OOEmbedTokenGenerator</samp> あなたのプロジェクトで。</p>
+
+        </div>
+
+        <ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd">プロジェクトを開く <samp class="ph codeph">ViewController.h</samp> 次のimport文をファイルに追加します。</span>
+                 
+                    <pre class="pre codeblock">#import &quot;OOEmbedTokenGenerator.h&quot; </pre>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">実装する <samp class="ph codeph">OOEmbedTokenGenerator</samp> の中に
+                        <samp class="ph codeph">UIViewController</samp>。 次の例に構文が示されています。</span>
+                 
+                    <pre class="pre codeblock">@interface ViewController：UIViewController &lt;OOEmbedTokenGenerator&gt;  </pre>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">プロジェクトを開く <samp class="ph codeph">ViewController.m</samp> ファイルを作成して
+                        <samp class="ph codeph">ooyalaPlayerViewController</samp> かかるメソッドオーバーロードを呼び出す <samp class="ph codeph">embedTokenGenerator</samp>。 次の例に構文が示されています。</span>
+                 <pre class="pre codeblock">/ selfを埋め込みトークンジェネレータとして使用して、Ooyala ViewControllerを作成します。OOOoyalaPlayer * player = [[OOOoyalaPlayer alloc] initWithPcode：self.pcode domain：[[OOPlayerDomain alloc] initWithString：self.playerDomain] embedTokenGenerator：self]; self.ooyalaPlayerViewController = [[OOOoyalaPlayerViewController alloc] initWithPlayer：player];</pre>
+
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">サーバーサイドで生成されたトークンは顧客によってのみ作成されることができるので、コンテンツは許可されたサイトでの再生が許可されます。 クライアントはそれを受け取り、それをに送信します。 <samp class="ph codeph">embedTokenGenerator（）</samp>。 これらのトークンはクライアント上に作成しないでください。 APIシークレットはサーバー上にのみ存在し、一般に公開されるべきではありません。 この例はデバッグにのみ役立ちますが、本番環境では使用しないでください。 実装する <samp class="ph codeph">tokenForEmbedCodes</samp> の中に
+                        <samp class="ph codeph">ViewController.m</samp> ファイル。 次の例に構文が示されています。</span>
+                 <pre class="pre codeblock">
+ / * * Ooyalaプレーヤートークンを取得して埋め込みコードを再生します。 *これはあなたのサーバにOPTサーバサイドを生成するために連絡するべきです。 *デバッグのために、OoyalaのEmbeddedSecureURLGeneratorを使ってローカルの埋め込みトークンを作成することができます。* /  - （void）tokenForEmbedCodes：（NSArray *）embedCodesコールバック：（OOEmbedTokenCallback）コールバック params [@ &quot;account_id&quot;] = self.accountId; NSString * uri = [NSString stringWithFormat：@ &quot;/ sas / embed_token /％@ /％@&quot;、self.pcode、[embedCodes componentsJoinedByString：@ &quot;、&quot;]]; OOEmbeddedSecureURLGenerator * urlGen = [[OOEmbeddedSecureURLGenerator割り当て] initWithAPIKey：self.apiKey secret：self.secret]; NSURL * embedTokenUrl = [urlGen secureURL：self.authorizeHost uri：uri params：params]; callback（[[embedTokenUrl absoluteString]）; }} </pre>
+
+            </li>
+</ol>
+
+        <div class="section postreq"><p class="p">iOS Mobile SDKのSample Appsフォルダには、次のものが含まれる完全に機能するサンプルアプリが含まれています。 <samp class="ph codeph">OOEmbedTokenGenerator</samp> 実装されています。 SDKアーカイブから、次の場所に移動します。</p>
+
+            <span class="ph filepath">OoyalaSDK-iOS / SampleApps / DeviceManagementSampleApp</span>
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/mobile_sdk_ios_cc.html" title="Mobile SDKを使用すると、プログラミングを必要としない最も基本的な機能から、より高度なプログラミング機能まで、クローズドキャプションを使用して作業することができます。">iOSのクローズドキャプションを使用する</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/player_v3dev_tokensdks.html" title="Ooyala iOSおよびAndroid SDKでのユーザー認証には、Ooyalaプレーヤートークンを使用できます。 （Ooyalaアカウントにこの機能が含まれている場合にのみ使用できます。Ooyalaプレーヤートークンを有効にするには、アカウントマネージャーにお問い合わせください。）">Ooyala iOSおよびAndroid SDKでのOoyalaプレーヤートークンの使用</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

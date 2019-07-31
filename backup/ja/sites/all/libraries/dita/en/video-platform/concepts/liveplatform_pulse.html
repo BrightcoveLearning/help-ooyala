@@ -1,0 +1,247 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Ooyala Live Stream Integration (SSAI)"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ooyala_live_user_guide.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="liveplatform_pulse_integeration"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Ooyalaライブストリーム統合（SSAI）</title>
+</head>
+<body id="liveplatform_pulse_integeration">
+
+
+    <h1 class="title topictitle1">Ooyalaライブストリーム統合（SSAI）</h1>
+
+    <div class="body conbody">
+    <div class="section"><p class="gt-block p">このドキュメントでは、SSAIをOoyala Liveストリームと統合する方法について説明します。 VOD資産にSSAIを使用する方法については、を参照してください。 <a class="xref" href="../../../../../../../../ja/video-platform/concepts/ssai_guide_vod.html" target="_blank">詳細はこちら</a>。 SSAIのエンドツーエンドのガイドについては、をご覧ください。 <a class="xref" href="ssai_guide.html">詳細はこちら</a>.</p>
+</div>
+
+        <div class="section"><h2 class="title sectiontitle">SSAIでサポートされていない形式</h2>
+            
+            <div class="p">SSAI LiveまたはVODでは、現在次の機能はサポートされていません。<ul class="ul">
+                    <li class="li">マルチオーディオトラックを含むストリーム（シングルオーディオトラックストリームのみがサポートされています）。</li>
+
+                    <li class="li">HEVCコーデック</li>
+
+                    <li class="li">DASH、スムーズな出力ストリーム</li>
+
+                </ul>
+</div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">ライブSSAIでの広告の処理プロファイル</h2>
+            
+            <p class="p">Live SSAIの場合、広告は各Liveチャンネルプロファイルに従ってダウンロードされ、トランスコードされます。</p>
+</div>
+
+        <div class="section"><h2 class="title sectiontitle">ステップバイステップガイド：
+            </h2>
+            
+            <p class="p">これは、SSAIチャンネルの設定、およびSSAI機能を使用してストリームに広告を挿入する方法のウォークスルーです。</p>
+
+            <p class="gt-block p"><strong class="ph b">SSAIとのOoyalaライブストリーム統合</strong></p>
+
+            <p class="p">シームレスなサーバーサイド広告挿入（SSAI）のためにDFPまたはOoyala PulseをOoyala liveと統合します。</p>
+
+        
+        <p class="gt-block p"><span class="ph" id="liveplatform_pulse_integeration__live_ssai_intro_paragraph">Ooyala Liveは、SSAIを有効にするためにGoogleのDFPおよびOoyala Pulseとの統合を提供します。 あなたのOoyala担当者はあなたのPulseアカウントに登録し、あなたのLiveアカウントと統合します。あなたのLiveアカウントはAdサーバーアカウントへの排他的アクセス権を持ちます。 広告は自動的にダウンロードされてトランスコードされます。 </span></p>
+
+        <div class="note note" id="liveplatform_pulse_integeration__live_ssai_intro_note"><span class="notetitle">注意：</span> この機能はHTTP Live Streaming（HLS）のみをサポートします。 そのため、チャンネルを作成するときは、HLS出力テンプレートを使用してください。 </div>
+
+        <p class="p">ライブストリームイベント開始時間 <dfn class="term">パーソナライズドSSAI</dfn>広告サーバーは、各ユーザーに表示する広告をカスタマイズします。 ユーザーが異なれば、同じ順序で同じ広告セットが表示される可能性がありますが、決定は各ユーザーに対して個別に行われます。</p>
+
+        <p class="gt-block p">パーソナライズド広告（ユーザー用にパーソナライズ）のチャネルを作成するときは、BacklotアカウントにSSAIという公開ルールを作成する必要があります（ <a class="xref" href="../tasks/publishing_rules_create.html#publishing_rules_create" title="好きなだけ公開ルールを作成し、それらをビデオ、チャンネル、またはチャンネルセットに割り当てることができます。 再生中は、最も制限の厳しい規則が適用されます。">公開ルールを作成する</a>).</p>
+
+        <div class="note note"><span class="notetitle">注意：</span> HLSでの再生をサポートするOoyala Player V4を使用してください。 Ooyala Player V3はWeb上のHLSをサポートしていません。 </div>
+
+            <div class="note note"><span class="notetitle">注意：</span> <p class="p">チャンネルを作成する前に、少なくとも1つの広告スレートがLiveアカウントに追加されていることを確認してください。</p>
+<ul class="ul">
+                    <li class="li">Liveで「スレート」をクリックしてください。 Liveアプリの右上近くにあります。</li>
+
+                    <li class="li">スレートがない場合 <span class="ph uicontrol">広告スレート</span> フィールドをチェックして、広告スレートを追加します。広告スレートは少なくとも4秒の長さのMP5ビデオである必要があります。</li>
+
+                </ul>
+</div>
+
+        <p class="p">Pulse広告をライブストリームに統合するには、Ooyala Live UIで次の手順に従います。</p>
+
+        <div class="p">
+            <ol class="ol" id="liveplatform_pulse_integeration__ol_xpb_vcw_zv">
+                <li class="li">In  <span class="ph uicontrol">一般的な設定</span>選択 <span class="ph uicontrol">ウーヤラパッケージ</span> そして <span class="ph uicontrol">Ooyalaエンコード</span> をクリックし
+                        <span class="ph uicontrol">次のステップ</span>.  </li>
+
+                <li class="li">チャンネルを作成する - チャンネルに移動し、チャンネルの追加をクリックして、以下の手順に従ってHLSチャンネルを作成します。<ol class="ol" type="a">
+                            <li class="li">現在地に最も近い <span class="ph uicontrol">エンコード設定</span> あなたのプロフィールに従ってクリックしてください <span class="ph uicontrol">次のステップ</span>.  </li>
+
+                            <li class="li">In  <span class="ph menucascade"><span class="ph uicontrol">梱包セットアップ</span> &gt; <span class="ph uicontrol">パッケージャ出力フィルタテンプレート</span></span>準拠している出力パッケージを選択します。 たとえば、 <span class="ph uicontrol">HLS_オンリー</span>、あなたの <span class="ph uicontrol">出力タイプ</span> なります <span class="ph filepath">hls</span>に設定します。 OK をクリックします。
+                                    <span class="ph uicontrol">次のステップ</span>.  <div class="note note"><span class="notetitle">注意：</span> 非準拠出力パッケージの詳細もリストされています。 ただし、準拠していない出力パッケージを選択した場合、広告をクリックすることはできません。 <span class="ph uicontrol">使用可能</span> 次の手順でチェックボックスをオンにします。</div>
+チャンネル作成プロセスを実行中に、少なくとも1つの広告プロバイダに参加している場合は、[広告設定]ページが表示されます。 広告プロバイダを選択できない場合は、互換性のない要素ライブエンコーディングの出力プロファイルが原因である可能性があります。 この場合、検出された問題の一覧が画面に表示されます。 続行する前に、互換性のあるプロファイルを選択するか、現在のプロファイルを修正する必要があります。 </li>
+
+                        </ol>
+</li>
+
+                <li class="li">上の <span class="ph uicontrol">広告設定</span> 画面で、をクリックします。
+                            <span class="ph uicontrol">使用可能</span> をクリックし <span class="ph uicontrol">次の一歩</span>.  </li>
+
+                <li class="li">広告サーバーとして「Adtech」広告プロバイダ、つまりPulseを使用してSSAIチャンネルを作成する場合は、 <span class="ph uicontrol">Adtech</span>。 以下が表示されます。 <p class="p"><img class="image" src="http://help-ooyala.brightcove.com/../image/adtech.png"/></p>
+<ol class="ol" type="a">
+                        <li class="li">  <span class="ph uicontrol">スレート</span> fieldには、チャネルで使用する目的の広告スレートが含まれています。 広告が挿入できない場合、広告スレートは広告の切れ目を埋めるために使用されます。</li>
+
+                        <li class="li">チェック <span class="ph uicontrol">広告をカスタマイズする</span> 各ユーザーが自分の広告リストを取得する。 チェックを外すと、SSAIサーバーはSSAIサーバー上のすべてのユーザーが使用する1セットの広告を取得します。</li>
+
+                        <li class="li"><span class="ph uicontrol">広告プリフェッチモード</span> 3オプションがあります。 <span class="ph uicontrol">オート</span>,
+                                    
+                                    <span class="ph uicontrol">ON</span>、および <span class="ph uicontrol">オフ</span>。 プリフェッチモードは、広告の中断の前にモードをプリフェッチするために使用され、非常に大きなイベントの間に役立ちます。 自動モードは良いデフォルトのオプションです。 このオプションを使用すると、SSAIは必要に応じて自動的にプリフェッチモードをオンにします。</li>
+
+                        <li class="li">  <span class="ph uicontrol">タグ</span> このフィールドはAdTech（Pulse）に固有のもので、広告のターゲティングを支援するために使用できます。</li>
+
+                        <li class="li">  <span class="ph uicontrol">カテゴリー</span> このフィールドはAdTech（Pulse）に固有のもので、広告のターゲティングを支援するために使用できます。</li>
+
+                            </ol>
+</li>
+
+                <li class="li">&#39;Dfp&#39;広告プロバイダでSSAIチャンネルを作成したい場合は、
+                            <span class="ph uicontrol">DFP</span>。 以下が表示されます。 <img class="image" src="http://help-ooyala.brightcove.com/../image/dfp.png"/><ol class="ol" type="a">
+                                <li class="li">ドロップダウンリストから <span class="ph uicontrol">スレート</span> これにより、広告の切れ目がすべて埋められます。 スレートフィールドには、チャネルで使用する目的の広告スレートが含まれています。 広告が挿入できない場合、広告スレートは広告の切れ目を埋めるために使用されます。 </li>
+
+                                <li class="li">チェック <span class="ph uicontrol">広告をカスタマイズする</span> 各ユーザーが自分の広告リストを取得する。 チェックを外すと、SSAIサーバーはSSAIサーバー上のすべてのユーザーが使用する1セットの広告を取得します。</li>
+
+                                <li class="li"><span class="ph uicontrol">広告プリフェッチモード</span> 3オプションがあります。 <span class="ph uicontrol">オート</span>,  <span class="ph uicontrol">ON</span>、および <span class="ph uicontrol">オフ</span>。 プリフェッチモードは、広告の中断の前にモードをプリフェッチするために使用され、非常に大きなイベントの間に役立ちます。 <span class="ph uicontrol">オート</span> modeは良いデフォルトのオプションです。 このオプションを使用すると、SSAIは必要に応じて自動的にプリフェッチモードをオンにします。</li>
+
+                                <li class="li">  <span class="ph uicontrol">タグのURL</span> このフィールドはDFPに固有のもので、DFPから広告を取得するためにSSAIによって使用されます。<ul class="ul">
+                                    <li class="li">顧客のDFPアカウントはSSAIに対してホワイトリストに登録されている必要があります。 顧客はDFPに連絡して承認を依頼する必要があります。 顧客がホワイトリストに登録されておらず、機能をテストするだけの場合は、タグのURLに次のものを含める必要があります。 <samp class="ph codeph">＆ss_req = 0</samp> クエリ文字列の末尾に。 ただし、この設定では、インプレッション数とジオターゲティングは正しく機能しません。 </li>
+
+                                    <li class="li">この呼び出しはVASTを返すはずです。 このタグを手動で作成する方法に関する情報が見つかります。 <a class="xref" href="https://support.google.com/dfp_premium/answer/1068325?hl=en" target="_blank">詳細はこちら</a>。 さらに、DFPにはこのタグの作成に役立つツールがあります。</li>
+
+                                    <li class="li">URLには、広告を発信するときにSSAIが解決する次のマクロを含めることができます。<ul class="ul">
+                                            <li class="li"><samp class="ph codeph">[タイムスタンプ]</samp></li>
+
+                                            <li class="li"><samp class="ph codeph">[referrer_url]</samp></li>
+
+                                            <li class="li"><samp class="ph codeph">[ランダム]</samp></li>
+
+                                            <li class="li"><samp class="ph codeph">[cache_buster]</samp></li>
+
+                                        </ul>
+</li>
+
+                                </ul>
+</li>
+
+                        </ol>
+</li>
+
+                <li class="li"><strong class="ph b">検査</strong><ol class="ol" type="a">
+                            <li class="li">チャンネルを作成して起動した後、それをテストするには、その詳細を表示してをクリックします。 <span class="ph uicontrol">モニター</span> をクリックします。</li>
+
+                    <li class="li">ナビゲーションヘッダーの <span class="ph uicontrol">広告挿入</span> 広告の停止期間のフィールドと開始/停止ボタンを表示するには<img class="image" src="http://help-ooyala.brightcove.com/../image/ad_insert.png"/>
+                        <p class="gt-block p">希望の広告停止期間を入力して[]をクリックします。 <span class="ph uicontrol">開始</span> 広告の区切りを挿入します。 エンコーダ出力を示す左側のプレーヤーは、広告の中断中は黒い画面を表示するはずです。 右側のプレーヤーは、挿入された広告や広告スレートを表示します。
+                                </p>
+</li>
+
+                        </ol>
+</li>
+
+                <li class="li">Ooyala Playerトークンが有効になっているスタンドアロン広告テストページが提供されます。このテストページでは、ユーザーが広告の中断中に表示する広告を表示できます。 そのテストページで、をクリックします <span class="ph uicontrol">任意</span>
+                        パーソナライズド広告に使用するタグを指定します。 指定したタグごとに、そのタグに関連付けられた固有のパーソナライズ広告が表示されます。</li>
+
+            </ol>
+
+        </div>
+
+        <p class="p">第三者配信による広告をLiveストリームに途中で挿入するには、まずPulseを使用してキャンペーンの目標に第三者配信による広告を追加します。 次に、第三者広告が掲載されているPulseキャンペーンのSSAIチャンネルを作成します。 </p>
+
+        <div class="p">
+            <ol class="ol" id="liveplatform_pulse_integeration__ol_s14_x4l_gx">
+                <li class="li">Pulseで、キャンペーンの目標に第三者広告を追加します。 <ol class="ol" type="a" id="liveplatform_pulse_integeration__ol_mkd_2ql_gx">
+                        <li class="li"> の中に <span class="ph uicontrol">目標に新しい広告を追加する</span> ダイアログが表示されたら、タブをクリックします。 </li>
+
+                        <li class="li"> の中に <span class="ph uicontrol">3rdパーティの広告URL（VAST）</span> フィールドに広告のVASTファイルのURLを入力します。 テストするには、あなたが使用することができます <a class="xref" href="https://developer.amazon.com/public/solutions/devices/fire-tv/docs/fire-tv-media-players#exoplayer" target="_blank">http://aptest.adtech-union.tv/proxy/distributor/v2?rt=vast_3.0&amp;t=midroll2</a>.  </li>
+
+                        <li class="li">ナビゲーションヘッダーの <span class="ph uicontrol">保存</span>.  </li>
+
+                        <li class="li">変更が有効になるまで5から10分待ってください。 </li>
+
+                    </ol>
+</li>
+
+                <li class="li">第三者広告をOoyala Liveストリームに挿入します。<ol class="ol" type="a" id="liveplatform_pulse_integeration__ol_ejb_qql_gx">
+                            <li class="li">Ooyala Liveで、第三者広告を含むPulseキャンペーンのSSAIチャンネルを作成します。</li>
+
+                            <li class="li">広告分割を挿入します。 </li>
+
+                            <li class="li">SSAIチャンネルを起動し、いくつかの広告を再生し、再生されたスレートを確認して、チャンネルを停止します。 </li>
+
+                        </ol>
+</li>
+
+            </ol>
+
+        </div>
+
+        <div class="note note"><span class="notetitle">注意：</span> 特定の第三者広告が最初に発生したとき。 トランスコードされていないため再生されません。 代わりに、トランスコーディングのために送信されます。 トランスコード後、第三者広告が表示されると再生されます。 </div>
+
+        <p class="p">SSAIチャンネルの広告スレートを変更するには：</p>
+
+        <div class="p">
+            <ol class="ol" id="liveplatform_pulse_integeration__ol_xqz_dxl_gx">
+                <li class="li">Liveで、1つの広告スレートしか存在しない場合は、新しい広告スレートをアップロードします。 </li>
+
+                <li class="li">広告がトランスコードされるまで10分待ちます。 </li>
+
+                <li class="li">新しい広告の状態を確認します。 </li>
+
+                <li class="li">Liveでクリックします <span class="ph uicontrol">チャンネルの詳細を見る</span>.  </li>
+
+                <li class="li">ナビゲーションヘッダーの <span class="ph uicontrol">広告の設定</span>.  </li>
+
+                <li class="li">変更 <span class="ph uicontrol">広告スレート</span> 新しい広告スレートへのパラメータ。 </li>
+
+                <li class="li">チャネルを起動し、広告の区切りを挿入して、新しい広告スレートが再生されたことを確認します。</li>
+
+            </ol>
+
+        </div>
+</div>
+
+        <div class="section"><h2 class="title sectiontitle">ライブ広告挿入API呼び出し</h2>
+            
+            <p class="p">UI上のボタンまたはAPI呼び出しを介して広告セグメントを挿入できます。 </p>
+
+            <p class="p">次の例は、広告マーカーをストリームに挿入するためのAPI呼び出しの詳細を示しています。これにより、広告セグメントを挿入する場所が決まります。</p>
+
+            <pre class="pre codeblock">方法：POST URL：https://live.ooyala.com/v2/channels/&lt;channel_id&gt;/insertAdMarkers本文：{&quot;期間&quot;：60000、 &quot;遅延&quot;：0}</pre>
+
+            <div class="note note"><span class="notetitle">注意：</span> 
+                <ul class="ul">
+                    <li class="li"><samp class="ph codeph">デュレーション</samp> 1000以上にする必要があります。</li>
+
+                    <li class="li">60000は60秒と同じです。</li>
+
+                    <li class="li">遅延はミリ秒単位です。</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/ooyala_live_user_guide.html" title="このドキュメントでは、Ooyala Liveを使用してビッグデータの力を活用し、放送事業者、通信事業者、メディア企業がデータ駆動型プログラミングとインタラクティブ再生を通じてLinear TVとLive Eventの体験をパーソナライズする方法について説明します。">Ooyala Liveユーザーガイド</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex

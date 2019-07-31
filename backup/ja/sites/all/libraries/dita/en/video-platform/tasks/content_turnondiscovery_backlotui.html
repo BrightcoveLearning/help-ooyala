@@ -1,0 +1,186 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Creating Discovery Profiles Using the Backlot UI"/>
+<meta name="abstract" content="You can use the Backlot UI to create discovery profiles to use with defined players or on Discovery API requests."/>
+<meta name="description" content="Backlot UIを使用して、定義済みのプレーヤーまたはDiscovery API要求で使用する検出プロファイルを作成できます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/content_discovery_profile.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="content_turnondiscovery_backlotui"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Backlot UIを使用した検出プロファイルの作成</title>
+</head>
+<body id="content_turnondiscovery_backlotui">
+
+
+    <h1 class="title topictitle1">Backlot UIを使用した検出プロファイルの作成</h1>
+
+    
+    
+    
+    <div class="body taskbody"><p class="shortdesc">Backlot UIを使用して、定義済みのプレーヤーまたはDiscovery API要求で使用する検出プロファイルを作成できます。</p>
+
+         <div class="section prereq p">次の手順を実行するには、管理者権限があり、アカウントでディスカバリが有効になっている必要があります。 </div>
+
+        <div class="section context">
+            <div class="note note"><span class="notetitle">注意：</span> ユーザーインターフェースに[検出]タブを表示するには、アカウントで検出が有効になっている必要があります。 検出を有効にする方法の詳細については、Ooyalaの担当者にお問い合わせください。</div>
+
+            <p class="gt-block p">あなたが作成したプロファイルは <span class="ph">バックスロットUI</span> 個々のプレーヤーと本質的にリンクされているように見えます。ページ下部のプレーヤーIDは、プログラムのものと同じです。 <samp class="ph codeph">profile_id</samp> 次に示すように、個々のおすすめAPIリクエストで使用します。 <a class="xref" href="../concepts/content_discovery_profile_api.html" title="ディスカバリープロファイルを管理するためのディスカバリーAPI要求の使用について学びます。">検出APIを使用した検出プロファイルの管理</a>.</p>
+
+            <p class="p">以下の手順を使用して、Backlotでディスカバリープロファイルをプレーヤーに関連付けます。</p>
+
+        </div>
+
+
+        <ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd">管理者の資格情報を使用してBacklotアプリケーションにサインオンします。</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">選択します <span class="ph uicontrol">パブリッシュ</span> &gt; <span class="ph uicontrol">プレイヤーのブランディング</span>
+                    &gt; <span class="ph uicontrol">Discovery</span>.</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">以下の検出オプションを設定します。</span>
+                 
+                    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                            
+                            
+                            <thead class="thead" align="left">
+                                <tr class="row">
+                                    <th class="entry" valign="top" width="14.492753623188406%" id="d1035080e84">オプション</th>
+
+                                    <th class="entry" valign="top" width="85.5072463768116%" id="d1035080e87">説明</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody class="tbody">
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="14.492753623188406%" headers="d1035080e84 "><span class="ph uicontrol">このプレイヤーの発見をオンにする</span></td>
+
+                                    <td class="entry" valign="top" width="85.5072463768116%" headers="d1035080e87 ">このチェックボックスをオンにして検出を有効にします。<div class="note note"><span class="notetitle">注意：</span>  プレーヤに対してこのプロファイルをオンにしなくても、API要求でプロファイルを使用できます。</div>
+</td>
+
+                                </tr>
+
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="14.492753623188406%" headers="d1035080e84 "><span class="ph uicontrol">ディスカバリーインターフェース</span></td>
+
+                                    <td class="entry" valign="top" width="85.5072463768116%" headers="d1035080e87 ">ビデオが再生された後、検出の推奨事項が表示されます。 メッセージ <span class="ph uicontrol">次に</span> 次のビデオのタイトルと共にプレーヤーに表示されます。 ラジオボタンを使用して、以下の推奨設定オプションから選択します。<ul class="ul">
+                                            <li class="li"><p class="gt-block p"><span class="ph uicontrol">次のビデオ再生</span> - セレクタに最大99秒を入力します。</p>
+</li>
+
+                                            <li class="li"><span class="ph uicontrol">現在の動画が終了した直後</span>- おすすめはすぐに表示されます。<div class="note note"><span class="notetitle">注意：</span> <span class="ph uicontrol">次に</span> 広告再生中は表示されません。</div>
+</li>
+
+                                        </ul>
+</td>
+
+                                </tr>
+
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="14.492753623188406%" headers="d1035080e84 "><span class="ph uicontrol">ディスカバリーを表示</span></td>
+
+                                    <td class="entry" valign="top" width="85.5072463768116%" headers="d1035080e87 ">このチェックボックスをオンにすると、プレーヤーの一時停止操作中に検出の推奨事項が有効になります。 このオプションを有効にすると、プレーヤーが一時停止したときにDiscoveryの「トレイ」（オプションとアクションのセット）が表示されます。</td>
+
+                                </tr>
+
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="14.492753623188406%" headers="d1035080e84 "><span class="ph uicontrol">トレイクリック動作の検出</span></td>
+
+                                    <td class="entry" valign="top" width="85.5072463768116%" headers="d1035080e87 ">このオプションを使用して、ディスカバリートレイが選択されたときに呼び出されるアクションをカスタマイズします。 ドロップダウンメニューから次のいずれかのオプションを選択します。 
+                                        <div class="note note"><span class="notetitle">注意：</span> カスタムトレイクリック動作は現在、当社のHTMLプレーヤーには実装されていません。 HTML5の場合、あなたのディスカバリー推奨ビデオはオリジナルビデオと同じページで開きます。 </div>
+<ul class="ul">
+                                            <li class="li"><span class="ph uicontrol">新しいページで開く</span> （デフォルト）</li>
+
+                                            <li class="li"><span class="ph uicontrol">同じページで開く</span></li>
+
+                                            <li class="li"><span class="ph uicontrol">同じプレーヤーで開く</span></li>
+
+                                        </ul>
+<div class="p">ディスカバートレイには次のセクションがあります <span class="ph uicontrol">もっと動画</span>。 [同じプレーヤーで開く]以外のすべての設定では、ビデオリストは <span class="ph uicontrol">もっと動画</span> リモートアセット（プロパティに値を持つアセット）として定義する必要があります <samp class="ph codeph">osted_at</samp> ユーザーインターフェイスまたはAPIのいずれかを介して。 <ol class="ol" type="a">
+                                                <li class="li">ために <span class="ph uicontrol">特定のラベルのコンテンツを掲載位置に宣伝する</span>希望の位置を選択し（1が最初、10が最後）、クリックします。 <span class="ph uicontrol">ラベルを選択</span> それを選ぶために。</li>
+
+                                                <li class="li">ために <span class="ph uicontrol">カスタムメタデータキーを使用して順次コンテンツを宣伝する</span>メタデータキーの名前を入力します。 <span class="ph uicontrol">位置へ</span>希望の位置を選択します（1が最初、10が最後）。 <p class="gt-block p">すべてのアセット（動画）には、あなた自身の特別な目的のためにそれらに関連付けられたメタデータキーを持つことができます。 詳しくは、 <a class="xref" href="../concepts/chapter_custom_metadata.html" title="カスタムメタデータを使用すると、資産に役立つ情報を追加できます。 カスタムメタデータを任意の種類のアセットに関連付けることができます。">カスタムメタデータ</a>.</p>
+</li>
+
+                                                <li class="li">サブアカウントがあり、それらが管理するアセットをこのプロファイルに含める場合は、のチェックボックスをオンにします。 <span class="ph uicontrol">サブアカウントを含める</span>.</li>
+
+                                            </ol>
+</div>
+</td>
+
+                                </tr>
+
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="14.492753623188406%" headers="d1035080e84 "><span class="ph uicontrol">発見編集コントロール</span></td>
+
+                                    <td class="entry" valign="top" width="85.5072463768116%" headers="d1035080e87 ">ディスカバリー推奨事項の生成方法をカスタマイズするには、以下を構成します。<ul class="ul">
+                                            <li class="li">ドロップダウンメニューを使用して、以下から推奨コンテンツ生成を選択します。<ul class="ul">
+                                                  <li class="li"><strong class="ph b">ウーヤラディスカバリー</strong> （デフォルト） - 以下のオプションから選択します。<ul class="ul">
+                                                  <li class="li">すべてのラベル（デフォルト） </li>
+
+                                                  <li class="li">特定のラベルからのみ</li>
+
+                                                  <li class="li">特定のラベルから来ない<p class="gt-block p">デフォルト以外のオプションについては、をクリックしてください。 <span class="ph uicontrol">ラベルを追加</span> 含めるラベルと除外するラベルを選択します。</p>
+</li>
+
+                                                  </ul>
+</li>
+
+                                                  <li class="li"><strong class="ph b">指定ラベル</strong></li>
+
+                                                  <li class="li"><strong class="ph b">共有ラベル</strong></li>
+
+                                                </ul>
+</li>
+
+                                            <li class="li"><span class="ph uicontrol">並び替え</span> - ドロップダウンを使用して、以下の特定のラベルオプションのいずれかを選択します。<ul class="ul">
+                                                  <li class="li"><span class="ph uicontrol">アップロード時間（最新から最新）</span></li>
+
+                                                  <li class="li"><span class="ph uicontrol">アップロード時間（古いものから新しいものへ）</span></li>
+
+                                                </ul>
+</li>
+
+                                        </ul>
+</td>
+
+                                </tr>
+
+                                <tr class="row">
+                                    <td class="entry" valign="top" width="14.492753623188406%" headers="d1035080e84 "><span class="ph uicontrol">プレーヤーID</span></td>
+
+                                    <td class="entry" valign="top" width="85.5072463768116%" headers="d1035080e87 ">推奨API要求でディスカバリー・プロファイルを提供するためのプロファイルID。 終了画面コントロールについては、を参照してください。 <a class="xref" href="player_end_screen.html" title="Backlot UIを使用して、プレイヤーの終了画面の外観を設定します。">終了画面コントロール</a>.</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+</div>
+
+                
+            </li>
+</ol>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/content_discovery_profile.html" title="プレーヤーに表示されるコンテンツの推奨事項に対してOoyala Discoveryの設定を構成する再利用可能な検出プロファイルを作成できます。">ディスカバリープロファイル</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- de

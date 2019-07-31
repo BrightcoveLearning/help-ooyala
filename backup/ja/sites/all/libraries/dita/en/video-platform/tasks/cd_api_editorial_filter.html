@@ -1,0 +1,94 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Filtering Results: filter_by"/>
+<meta name="abstract" content="Use filter_by to constrain results to specific filters."/>
+<meta name="description" content="Use filter_by to constrain results to specific filters."/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/cd_api_editorial.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/content_discovery_feedback.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/cd_api_similar.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/content_discovery_trending.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="cd_api_editorial_filter"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>フィルタリング結果：filter_by</title>
+</head>
+<body id="cd_api_editorial_filter">
+
+
+    <h1 class="title topictitle1">フィルタリング結果：filter_by</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">用途 <samp class="ph codeph">filter_by</samp> 結果を特定のフィルタに制限する。 </p>
+
+        <div class="section context">
+            <div class="note note"><span class="notetitle">注意：</span> （要求ごとに個別のパラメーターを使用して）アドホック要求を作成するのではなく、ディスカバリー・プロファイルを使用して設定と推奨動作を一元管理することを検討してください。 検出プロファイルは、ユーザーが作成した設定の定義済み構成です。 <samp class="ph codeph">のGET</samp> ルート 詳細については、 <a class="xref" href="../concepts/../concepts/content_discovery_profile.html" title="プレーヤーに表示されるコンテンツの推奨事項に対してOoyala Discoveryの設定を構成する再利用可能な検出プロファイルを作成できます。">ディスカバリープロファイル</a>.</div>
+
+            <p class="p">Ooyala Discoveryは、特定のラベルまたは共有ラベルに基づいて結果をフィルタリングできます。 特定のラベルを使用して、結果内のコンテンツに割り当てる必要がある1つ以上のラベルを指定します。 共有ラベルを使用する場合は、視聴中のビデオとおすすめの間で共有する必要がある値を持つラベルを指定します。 </p>
+
+            <p class="p">おすすめを絞り込むには：</p>
+
+        </div>
+
+        <ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd">ラベルを指定したい場合は、 <span class="keyword parmname">filter_by</span> 文字列パラメータを照会し、カンマ区切りのラベルリストを入力します。 </span>
+                 次の例では、その日に最も人気のある2つのビデオを返します。 <samp class="ph codeph">cat</samp>  or  <samp class="ph codeph">ピアノ</samp> ラベル<div class="note note"><span class="notetitle">注意：</span> 中のコンマ（、） <span class="keyword parmname">filter_by</span> 値は論理和を示します。</div>
+
+                 <pre class="pre codeblock">[GET] / v2 /発見/トレンド/ top？国= all＆time = now＆window =日＆limit = 2＆filter_by = cat、piano    </pre>
+
+                 <span class="ph">バックスロット</span> 次のような応答を返します。
+                    <pre class="pre codeblock">		{&quot;結果&quot;：[{&quot;名前&quot;： &quot;猫ピアノのビデオ#1456&quot;、 &quot;説明&quot;： &quot;猫がピアノを弾いています！&quot;、 &quot;embed_code&quot;： &quot;<var class="keyword varname">埋め込みコード</var>&quot;、&quot; external_id &quot;：&quot;<var class="keyword varname">external_id</var>&quot;、&quot; preview_image_url &quot;：&quot;<var class="keyword varname">image_urls</var>&quot;、&quot;期間 &quot;：&quot; 91000 &quot;、&quot;ostedAtURL&quot;：null、 &quot;bucket_info&quot;： &quot;<var class="keyword varname">bucket_info_id</var>&quot;、&quot;理由 &quot;：&quot; top &quot;}、{&quot;名前 &quot;：&quot;猫のビデオ#1457 &quot;、&quot;説明 &quot;：&quot;ピアノを弾く猫がもっといます！ &quot;、&quot; embed_code &quot;：&quot;<var class="keyword varname">埋め込みコード</var>&quot;、&quot; external_id &quot;：&quot;<var class="keyword varname">external_id</var>&quot;、&quot; preview_image_url &quot;：&quot;<var class="keyword varname">image_urls</var>&quot;、&quot;期間 &quot;：&quot; 91000 &quot;、&quot;ostedAtURL&quot;：null、 &quot;bucket_info&quot;： &quot;<var class="keyword varname">bucket_info_id</var>&quot;、&quot; reason &quot;：&quot; top &quot;}]}</pre>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd"> サブラベルを共有するソースビデオと推奨ビデオが必要な場合は、 <span class="keyword parmname">filter_by</span> 文字列パラメータを照会し、共有するサブラベルを入力します。 </span>
+                 次の例では、現在のビデオ（動物/猫、楽器/ピアノ、言語/英語）とサブラベルを共有する、その日に最も人気のある2つのビデオを返します。<div class="note note"><span class="notetitle">注意：</span> 中のコンマ（、） <span class="keyword parmname">filter_by</span> 値は論理和を示します。</div>
+
+                 <pre class="pre codeblock">[GET] / v2 / discover / trending / top？国= all＆time = now＆window =日＆limit = 2＆filter_by =共有：動物、共有：楽器、共有：言語    </pre>
+
+                 <p class="gt-block p"><span class="ph">バックスロット</span> 次のような応答を返します。</p>
+
+                    <pre class="pre codeblock">		{&quot;結果&quot;：[{&quot;名前&quot;： &quot;猫ピアノのビデオ#1456&quot;、 &quot;説明&quot;： &quot;猫がピアノを弾いています！&quot;、 &quot;embed_code&quot;： &quot;<var class="keyword varname">埋め込みコード</var>&quot;、&quot; external_id &quot;：&quot;<var class="keyword varname">external_id</var>&quot;、&quot; preview_image_url &quot;：&quot;<var class="keyword varname">image_urls</var>&quot;、&quot;期間 &quot;：&quot; 91000 &quot;、&quot;ostedAtURL&quot;：null、 &quot;bucket_info&quot;： &quot;<var class="keyword varname">bucket_info_id</var>&quot;、&quot;理由 &quot;：&quot; top &quot;}、{&quot;名前 &quot;：&quot;猫のビデオ#1457 &quot;、&quot;説明 &quot;：&quot;ピアノを弾く猫がもっといます！ &quot;、&quot; embed_code &quot;：&quot;<var class="keyword varname">埋め込みコード</var>&quot;、&quot; external_id &quot;：&quot;<var class="keyword varname">external_id</var>&quot;、&quot; preview_image_url &quot;：&quot;<var class="keyword varname">image_urls</var>&quot;、&quot;期間 &quot;：&quot; 91000 &quot;、&quot;ostedAtURL&quot;：null、 &quot;bucket_info&quot;： &quot;<var class="keyword varname">bucket_info_id</var>&quot;、&quot; reason &quot;：&quot; top &quot;}]}</pre>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">各結果から情報を取得してWebページコンテンツを生成します。 </span>
+                 次の例には単純なHTMLコンテンツが含まれています。
+                 <pre class="pre codeblock">&lt;div class = &quot;sidebar&quot;&gt; &lt;h4 class = &quot;sidebar-head&quot;&gt;今すぐ人気&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a href=&quot;/video/Jr8fdsNDrcK-TYHGlFIZuTlPoDZ_QkW3&quot;&gt;キャットビデオ#1456&quot;&gt; &lt;/a&gt; &lt;/p&gt; &lt;p&gt;ピアノを弾く猫が増えました！&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a href=&quot;/video/3556csNDrcK-ZaRTYhuTlPoDZ_tyrD&quot;&gt;キャットビデオ#1457 &lt;/ a &gt; &lt;/p&gt; &lt;p&gt;さらに多くの猫がピアノを弾いています！&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;/div&gt;   </pre>
+
+            </li>
+</ol>
+
+        <div class="section postreq">
+            <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/cd_api_editorial.html" title="Ooyala Discoveryの推奨事項の結果を調整できるように、OoyalaはベースラインAPIにクエリ文字列パラメータを提供しています。">ディスカバリー編集用照会ストリングのパラメーター</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong><br/>
+<div><a class="link" href="../api/content_discovery_feedback.html" title="推薦を調整するのを助けるために、ディスプレイと演劇を記録するようにしてください。">フィードバックの提供</a></div>
+<div><a class="link" href="../api/cd_api_similar.html" title="Ooyala Discoveryの類似動画APIは、指定した動画に似た動画を返します。 たとえば、視聴者がスカイダイビングビデオを視聴している場合、Ooyala Discoveryアルゴリズムは他のスカイダイビングビデオまたはエクストリームスポーツビデオを返す可能性があります。">同様の動画</a></div>
+<div><a class="link" href="../api/content_discovery_trending.html" title="傾向付けにより、視聴者は、指定した期間中に人気のある、または大きな勢いを得たビデオを見つけることができます。">トレンドと人気コンテンツ</a></div>
+</div>
+</div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

@@ -1,0 +1,140 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Google IMA Ads Embedded Parameters in Player V3 (Deprecated)"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/player_v3_dev_adsparams.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="ads_ref_googleima"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>プレーヤV3のGoogle IMA Ads埋め込みパラメータ（廃止予定）</title>
+</head>
+<body id="ads_ref_googleima">
+
+
+ <h1 class="title topictitle1">プレーヤV3のGoogle IMA Ads埋め込みパラメータ（廃止予定）</h1>
+
+ <div class="body refbody">
+   <div class="section"><div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V3は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V3はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V3を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="../concepts/pbv4_migration_v3.html">Player V3からの移行</a> そして <a class="xref" href="../concepts/pbv4_migration_faq.html">プレイヤー移行に関するFAQ</a>).</div>
+ 埋め込みパラメータを使用してGoogle IMA広告サービス関連のタグをプレーヤに渡すことができます。 <div class="note note"><span class="notetitle">注意：</span> OoyalaのGoogle IMA広告マネージャを使用するには、サポートセンターにログインして、この広告ソースをアカウントに追加するように要求するチケットを送信してください。 有効にすると、プレーヤー用の広告セットを作成できるようになります。</div>
+広告の掲載順位は、デスクトップデバイスとモバイルデバイスでは多少異なります。 見る <a class="xref" href="../concepts/ads_integration_overview.html">クライアントサイド広告統合</a> プラットフォーム別の広告掲載サポートの包括的なリストについては。</div>
+<div class="section"><h2 class="title sectiontitle">Google IMAパラメータ</h2>
+       使用 <span class="keyword parmname">google-ima-ads-manager</span>
+      Google IMA広告サーバーまたはネットワークタグをOoyalaプレーヤーに渡すためのパラメータ。 このパラメータは、広告サーバーまたはネットワークのURLを表すキーと値のペアを、次に説明する他のパラメータと共に受け取るコンテナです。 <p class="gt-block p"><strong class="ph b">adTagUrlパラメータをBacklot URLを上書きするように設定します。</strong></p>
+ のパラメータの1つ <samp class="ph codeph">google-ima-ads-manager</samp> 次の形式のキーと値のペアです。 <samp class="ph codeph"><em class="ph i">adTagUrl： &quot;いくつかのURL&quot;</em></samp>.  <p class="gt-block p"><em class="ph i">有効な値：
+        </em>任意のURL</p>
+例えば：
+      <pre class="pre codeblock">var videoPlayer = OO.Player.create（ &quot;playerwrapper&quot;、 &quot;embed_code&quot;、{高さ： &quot;100％&quot;、幅： &quot;100％&quot;、 &quot;google-ima-ads-manager&quot;：{adTagUrl： &quot;some url&quot;、 ...}、}）;</pre>
+
+      キー値 &quot;some url&quot;をレスポンスを含む実際のgoogle-ima広告タグに変更する必要があります。 adTagキーと値のペアのこのURL値は、広告サーバーまたはネットワークのURLを表します。 このadTag URLはBacklotのものを上書きします。 例えば：<div class="p">
+        <pre class="pre codeblock">adTagUrl： &quot;http://myAdServer.com/myGoogle-ima-ads-manager&quot;</pre>
+
+      </div>
+ Backlotから取得したURLの末尾に追加のadTagパラメータを追加できます。 <p class="gt-block p"><strong class="ph b">Flashプレーヤーでノンリニア広告の[閉じる]ボタンを非表示にするには、useStyledNonLinearAdsパラメータを設定します。</strong></p>
+<div class="note note"><span class="notetitle">注意：</span> このパラメータはFlash専用です。</div>
+ あなたが設定できるもう一つのパラメータは <samp class="ph codeph">useStyledNonLinearAds</samp>trueに設定すると、ノンリニア広告の閉じるボタンが表示されます。 このパラメータはオプションです。デフォルトでは、広告を閉じるボタンはノンリニア広告の場合に表示されます。 <p class="gt-block p"><em class="ph i">有効な値： </em> はい| 本当| いいえ| 偽</p>
+<p class="gt-block p"><em class="ph i">デフォルト： </em> true</p>
+ 次の例に示すように、このパラメータをfalseに設定して広告を閉じるボタンを非表示にします。 <pre class="pre codeblock">var videoPlayer = OO.Player.create（ &quot;playerwrapper&quot;、 &quot;embed_code&quot;、{高さ： &quot;100％&quot;、幅： &quot;100％&quot;、 &quot;google-ima-ads-manager&quot;：{adTagUrl： &quot;some url&quot;、 useStyledNonLinearAds：false、...}、}）;</pre>
+
+      <p class="gt-block p"><strong class="ph b">showInAdControlBarを使用して広告再生中にプレーヤーコントロールバーを表示または非表示にする</strong></p>
+ あなたが使用することができます <samp class="ph codeph">showInAdControlBar</samp> 広告再生中にプレーヤーコントロールバーを表示/非表示にします。 <p class="gt-block p"><em class="ph i">有効な値： </em> はい| 本当| いいえ| 偽</p>
+<p class="gt-block p"><em class="ph i">デフォルト： </em> いいえ</p>
+
+      <div class="note note"><span class="notetitle">注意：</span> あり <a class="xref" href="../reference/player_v3_hide_controller.html" title="オプションハッシュタグを使用して、広告再生中にコントロールバーを非表示にします。">&#39;showInAdControlBar&#39;とも呼ばれる一般的なプレーヤーパラメータ</a>。 両方のshowInAdControlBarパラメータを同時に使用しないでください。 推奨される方法は、「google-ima-ads-manager」ハッシュの外側で一般プレーヤーのshowInAdControlBarパラメータを使用することです。 </div>
+
+      例えば： <pre class="pre codeblock">var videoPlayer = OO.Player.create（ &quot;playerwrapper&quot;、 &quot;embed_code&quot;、{高さ： &quot;100％&quot;、幅： &quot;100％&quot;、 &quot;google-ima-ads-manager&quot;：{showInAdControlBar：true、... ;}}）;
+              </pre>
+
+      <p class="gt-block p"><strong class="ph b">showAdMarqueeを使用して広告再生中に広告マーキーを表示または非表示にする</strong></p>
+ 用途
+        <samp class="ph codeph">showAdMarquee</samp> 広告再生中に広告マーキーを表示または非表示にします。 falseまたはnoに設定すると、追加のadMarqueeは非表示になります。 true、yes、または省略に設定した場合、広告の再生中にadMarqueeが表示されます。<p class="gt-block p"><em class="ph i">有効な値： </em> 本当| 偽</p>
+<p class="gt-block p"><em class="ph i">デフォルト： </em> true</p>
+ 例えば： <pre class="pre codeblock">var videoPlayer = OO.Player.create（ &quot;playerwrapper&quot;、 &quot;embed_code&quot;、{高さ： &quot;100％&quot;、幅： &quot;100％&quot;、 &quot;google-ima-ads-manager&quot;：{showAdMarquee：true、... ;}}）;
+              </pre>
+
+      <p class="gt-block p"><strong class="ph b">playWhenAdClickを使用して広告がクリックされた後の広告再生動作を設定する</strong></p>
+ 
+ If
+        
+        <samp class="ph codeph">playWhenAdClick</samp> [はい]に設定すると、クリックに関係なく広告の再生が続行されます。 <p class="gt-block p"><em class="ph i">有効な値： </em> はい| 本当| いいえ| 偽</p>
+<p class="gt-block p"><em class="ph i">デフォルト： </em> いいえ</p>
+<div class="note note"><span class="notetitle">注意：</span> Flashの場合、広告コントロールなしでplayWhenAdClickがfalseに設定されている場合、ユーザーが広告をクリックしてリダイレクトされた後、ユーザーが2回目に広告をクリックしたときに広告の再生が続行されます。 これにより、広告の一時停止イベントと広告再生イベントの両方に対して広告URLが開くという望ましくない動作が発生することがわかります。 Google IMAチームと協力してこの問題を解決しています。 それ以外の場合、広告の再生は一時停止します。</div>
+ 例えば：
+          <pre class="pre codeblock">var videoPlayer = OO.Player.create（ &quot;playerwrapper&quot;、 &quot;embed_code&quot;、{高さ： &quot;100％&quot;、幅： &quot;100％&quot;、 &quot;google-ima-ads-manager&quot;：{playWhenAdClick：true、... ;}}）;
+              </pre>
+<p class="gt-block p"><strong class="ph b">additionalAdTagParametersをAppend More Parametersに設定します。</strong></p>
+あなたが使用することができます
+        <samp class="ph codeph">additionalAdTagParameters</samp> 人口統計ターゲティングを広告に追加するなど、広告処理に機能を追加する。 これらの追加された広告タグパラメータは、Backlotで広告タグがどのように設定されるかに依存します。 また、追加のadTagUrlパラメータのキーと値のペアはadTagUrlパラメータの一部であり、キーと値のペアを含む辞書の形式である必要があります。 google-imaがサポートしている任意の内部キー/値ペアを使用できます。 Google IMAのドキュメントには、このサイトのこれらのパラメータが記載されています。 <a class="xref" href="https://support.google.com/dfp_premium/answer/1068325?hl=en" target="_blank">https://support.google.com/dfp_premium/answer/1068325?hl=en</a>。 これらのパラメータを使用すると、広告タグの最後に追加されます。
+        <strong class="ph b">追加されたパラメータ</strong> BacklotからのURLの内容を上書きしないでください。<div class="note note"><span class="notetitle">注意：</span>  広告タグ <strong class="ph b">URL</strong> BacklotのURLを上書きします。 </div>
+これらのパラメータの使用を開始するには、次のように指定します。
+        <pre class="pre codeblock">additionalAdTagParameters：{&quot;parameter1&quot;： &quot;value1&quot;、 &quot;parameter2&quot;： &quot;value2&quot;}       </pre>
+<p class="gt-block p">Backlotで、広告タグのURLを次のように指定した場合、<samp class="ph codeph">http://www.example.com/example?param1=test</samp>結果として得られる要求は、次のようになります。<samp class="ph codeph">  "<a class="xref" href="http://www.example.com/example?param1=test&cust_params=env%3Dmobilevcmshost%26siteview%3D1%26pth%3Djsbin.com&vid=code&pod=2" target="_blank">www.example.com/example?param1=test&amp;cust_params=env%3Dmobilevcmshost%26siteview%3D1%26pth%3Djsbin.com&amp;vid=code&amp;pod=2</a>"</samp>
+      </p>
+<p class="p">このリクエストは次の例のようになります。</p>
+<pre class="pre codeblock">&quot;google-ima-ads-manager&quot;：{additionalAdTagParameters：{cust_params： &quot;env％3Dmobilevcmshost％26siteview％3D1％26pth％3Djsbin.com&quot;、vid： &quot;2&quot;}</pre>
+<p class="gt-block p">
+        <strong class="ph b">Google IMAドキュメントのadTagUrlパラメータ</strong></p>
+<p class="gt-block p">からのキーと値のペアを使用します。 <span class="keyword parmname">google-ima-ads-manager</span> adTagUrlパラメータに追加します。 あなたはこれらのパラメータのリストを見つけることができます。 <a class="xref" href="https://support.google.com/dfp_premium/answer/1068325?hl=en" target="_blank">Google IMA </a>ドキュメンテーション。 次の例は、これらのパラメータの一部をgoogle-ima-ads-managerパラメータのキーと値のペアとして使用する方法を示しています。 </p>
+
+      <samp class="ph codeph"><em class="ph i">cust_params</em></samp>
+      <p class="p">この値ペアを使用すると、カスタムターゲティングパラメータをOoyalaプレーヤーに渡すことができます。 cust_paramsには任意の種類のキー値を設定できます。 例えば： </p>
+<pre class="pre codeblock">cust_params: "partner%3Dpartner_1%26gender%3Dfemale%26anotherKey%3Dvalue1%2Cvalue2"</pre>
+
+      <samp class="ph codeph"><em class="ph i">VID</em></samp>
+      <div class="p">このパラメータはビデオアセットの一意の識別子であり、OoyalaビデオアセットIDの値（埋め込みコード）を使用する必要があります。 あなたはBacklotからあなたのビデオ埋め込みコードを得ることができます。
+          <div class="note note"><span class="notetitle">注意：</span> この値は、DFPを使用してコンテンツメタデータをターゲティングするために必要です。</div>
+例えば：</div>
+<pre class="pre codeblock">vid: "1234Fakeoi5Xv3Dav6uuEIeVJto9Ju7R"</pre>
+
+      <samp class="ph codeph"><em class="ph i">VPOS</em></samp>
+      <p class="p">この値を使用して、ビデオストリーム内の広告の位置を指定できます。
+        </p>
+<pre class="pre codeblock">vpos： &quot;プリロール&quot;</pre>
+<p class="p">次の例は、クライアントサイドWebページでのgoogle-ima adTagUrlパラメータの使用方法を示しています。</p>
+<pre class="pre codeblock">&lt;！doctype html&gt; &lt;html&gt; &lt;head&gt; &lt;style rel = &quot;stylesheet&quot; type = &quot;text / css&quot;&gt; html、本文{margin：0;} パディング：0。 #container {width：800px;} 高さ：500px; マージン：0 auto。 &lt;/style&gt; &lt;script src = &quot;http://player.ooyala.com/v3/123fake9ddb1446ea9bb7cad08711d36?platform=html5-priority&quot;&gt; &lt;/script&gt;  - &gt; &lt;script&gt; OO.ready（）function（） .Player.create（ &quot;container&quot;、 &quot;123fakeZpXSpOwupKby1s74Q8FQbRwPn&quot;、{&quot;google-ima-ads-manager&quot;：{&quot;showInAdControlBar&quot;：true、 &quot;adTagUrl&quot;： &quot;http://1fakeXNg.dg.dg.d/ad.d&quot;広告SZ = 4x640＆IU =％480F2％6376Fbr College_Football％2Fvideo＆ciu_szs = 2x300％250C2x728＆IMPL = S＆gdfp_req = 90＆ENV = VP＆出力= xml_vast1＆unviewed_position_start = 2＆URL = [REFERRER_URL]＆相関= [タイムスタンプ]」、 &quot;additionalAdTagParameters？&quot;：{ &quot;cust_params&quot;： &quot;env％1Dmobilevcmshost％3サイトビュー％26D3％1pth％26Djsbin.com&quot;、 &quot;vid&quot;： &quot;code&quot;、 &quot;vpos&quot;： &quot;preroll&quot;}}}）;}）; &lt;/script&gt; &lt;/head&gt; &lt;body&gt; &lt;div id = &quot;container&quot;&gt; &lt;/div&gt; &lt;/body&gt; &lt;/html&gt;</pre>
+<p class="p">この例では、adTagUrlに次のようないくつかのキーと値のペアを設定します。
+          <var class="keyword varname">ciu_szs</var>,  <var class="keyword varname">unviewed_position</var>,  <var class="keyword varname">URL</var>,
+          
+          <var class="keyword varname">相関器</var> などがあります。 </p>
+</div>
+
+        <div class="section"><h2 class="title sectiontitle">adRequestTimeoutパラメータ</h2>
+      <p class="p">動画の再生を続ける前に、adRequestTimeoutを設定してタイムアウトを設定します。 このパラメータはFlashおよびHTML5用です。 </p>
+次の形式でキーと値のペアを使用します
+          <samp class="ph codeph"><em class="ph i">adRequestTimeout： &quot;何らかの整数&quot;</em></samp> 広告リクエストのタイムアウトを設定してビデオの再生を継続するのにかかる時間をミリ秒単位でカスタマイズします。 ミリ秒全体を使用することをお勧めします（例：2001ミリ秒の代わりに2000.5ミリ秒）。<p class="gt-block p"><em class="ph i">有効な値： </em> 1000以上の任意の整数</p>
+<p class="gt-block p"><em class="ph i">デフォルト： </em> 3000</p>
+例えば：
+      <pre class="pre codeblock">var videoPlayer = OO.Player.create（ &quot;playerwrapper&quot;、 &quot;embed_code&quot;、{高さ： &quot;100％&quot;、幅： &quot;100％&quot;、adRequestTimeout：1000 &quot;google-ima-ads-manager&quot;：{adTagUrl： &quot;some url &quot;、...}、}）;
+              </pre>
+
+    </div>
+
+        <div class="section"><h2 class="title sectiontitle">モバイルデバイス向けGoogle IMA</h2>
+        <div class="p">Ooyalaはデスクトップとモバイルの両方でGoogle IMAをサポートしています。 モバイルデバイス用のGoogle IMAの使用方法については、次のモバイルSDKのAndroidおよびiOSのトピックを参照してください。<ul class="ul" id="ads_ref_googleima__ul_xrz_4w4_dm">
+          <li class="li">アンドロイド -  <a class="xref" href="../concepts/mobile_sdk_android_googleima.html#mobile_sdk_android_googleima">Android上のGoogle IMAとの統合</a> そして <a class="xref" href="../concepts/mobile_sdk_android_googleima_tutorial.html#mobilesdk_android_googleima_tutorial">AndroidでのIMA Sample Appの実例を見る</a></li>
+
+          <li class="li">iOS  -  <a class="xref" href="../concepts/mobile_sdk_ios_googleima.html#mobilesdk_ios_googleima">iOS上のGoogle IMAとの統合</a> そして <a class="xref" href="../concepts/mobile_sdk_ios_googleima_tutorial.html#mobilesdk_ios_googleima_tutorial">iOSで動作中のIMAサンプルアプリを見る</a></li>
+
+        </ul>
+</div>
+
+    </div>
+
+ </div>
+
+ <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../reference/player_v3_dev_adsparams.html" title="埋め込みパラメータを使用して広告をカスタマイズします。">広告用のPlayer V3埋め込みパラメータ（廃止予定）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- delivered by

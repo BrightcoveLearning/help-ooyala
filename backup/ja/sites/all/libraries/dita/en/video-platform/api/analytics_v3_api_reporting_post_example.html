@@ -1,0 +1,54 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="How Can I Make a Long and Detailed Query?"/>
+<meta name="DC.Relation" scheme="URI" content="../api/analytics_v3_api_reporting_examples.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="example_performance"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>長くて詳細なクエリを作成する方法はありますか</title>
+</head>
+<body id="example_performance">
+
+
+    <h1 class="title topictitle1">長くて詳細なクエリを作成する方法はありますか</h1>
+
+    
+    <div class="body refbody">
+        <div class="section">
+            <p class="gt-block p"><strong class="ph b">コンテキスト：</strong> あなたは多くのテキスト文字を使う長い問い合わせをするためにAPIを使いたいです。</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">v3 Analyticsの使い方 </h2>
+            HTTP GET仕様の230文字の制限を超えるクエリパラメータを持つクエリの場合は、POSTリクエストを使用してリクエスト本文にJSONオブジェクトを渡します。<pre class="pre codeblock">
+[POST] / v3 / analytics / reports {&quot;report_type&quot;： &quot;パフォーマンス&quot;、 &quot;開始日&quot;： &quot;2014-11-26&quot;、 &quot;終了日&quot;： &quot;2014-12-04&quot;、 &quot;フィルタ&quot;： &quot;（（device_type == \ &quot;desktop \&quot;））AND（（country == \ &quot;us \&quot;）） &quot;、&quot;測定基準 &quot;：&quot; plays_requested、表示、video_starts &quot;、&quot;並べ替え &quot;：&quot; plays_requested &quot;、&quot;ディメンション &quot;：&quot; device_type &quot;、&quot;制限 &quot;：12、&quot; api_key &quot;：&quot;（yourApiKey） &quot;}               
+</pre>
+
+            <samp class="ph codeph">〜$：curl -H &quot;コンテントタイプ：application / json&quot; -d &#39;{&quot;report_type&quot;： &quot;パフォーマンス&quot;、 &quot;開始日&quot;： &quot;2014-11-26&quot;、 &quot;終了日&quot;： &quot;2014-12-04&quot; 、 &quot;フィルタ&quot;： &quot;（（（device_type == \&quot;デスクトップ\ &quot;）））AND（（国== \&quot; us \ &quot;））&quot;、 &quot;メトリクス&quot;： &quot;plays_requested、表示、video_starts&quot;、 &quot;sort&quot;： &quot; plays_requested &quot;、&quot;ディメンション &quot;：&quot; device_type &quot;、&quot; limit &quot;：12、&quot; api_key &quot;：&quot;（あなたのAPIキーはこちら） &quot;} &#39;http://api.ooyala.com/v3/analytics/reports</samp>
+            <p class="gt-block p"><strong class="ph b">応答：</strong></p>
+
+            <pre class="pre codeblock">                     
+{&quot;status&quot;： &quot;OK&quot;、 &quot;results&quot;：[{&quot;data&quot;：[{&quot;metrics&quot;：{&quot;表示&quot;：11、 &quot;plays_requested&quot;：7、 &quot;video_starts&quot;：7}、 &quot;group&quot;：{ &quot;device_type&quot;： &quot;デスクトップ&quot;}}]、 &quot;start_date&quot;： &quot;2014-11-26T00：&quot; 00Z &quot;、&quot; 2014-12-4-00-00-200-1-1TXNUMX：XNUMXZ &quot;}、&quot; status_code &quot;：&quot; XNUMX &quot; total_count &quot;：&quot; XNUMX &quot;、&quot; result_count &quot;：&quot; XNUMX &quot;}
+</pre>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/analytics_v3_api_reporting_examples.html">v3 Analytics Reporting APIリクエストの例</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

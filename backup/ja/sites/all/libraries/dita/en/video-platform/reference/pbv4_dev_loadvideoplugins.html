@@ -1,0 +1,474 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Loading Video Plugins"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_embed.html"/>
+<meta name="DC.Relation" scheme="URI" content="pbv4_web_tutorial.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_dev_loadvideoplugins"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>ビデオプラグインのロード</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="pbv4_dev_loadvideoplugins">
+
+
+  
+  <h1 class="title topictitle1">ビデオプラグインのロード</h1>
+
+
+  <div class="body refbody">
+    <div class="section">
+      <p class="p" id="pbv4_dev_loadvideoplugins__video_plugin_overview">Video plugins create video elements and video wrappers, and decode video encodings. They
+        provide the Ooyala Player information about the encoding and encryption types they support,
+        and the player uses that information, along with a priority order for encodings, to select
+        which plugin to use when playing a stream. You can load any number of video plugins on your
+        page. </p>
+
+      <div class="note note"><span class="notetitle">注意：</span> プラグインはすべて同じものでなければなりません <span class="ph">プレイヤーV4</span> バージョン。 バージョンを混在させることはお勧めできません。</div>
+
+      <div class="note important"><span class="importanttitle">重要：</span> If you use Backlot to generate your HTML embed code, and you choose
+        the <strong class="ph b">V4 HTML5標準プレーヤー埋め込みコード（推奨）</strong> option, certain video plugins are
+        automatically included and should not be explicitly added to the web page where you
+        launch the player. For details, see <a class="xref" href="../tasks/publishing_manual_embed.html">バックスロットでのプレーヤー埋め込み設定</a>.  </div>
+       
+      <div class="p">Follow these steps to load video plugins for your web page:<ul class="ul">
+          <li class="li"><a class="xref" href="#pbv4_dev_loadvideoplugins__section_vdc_fkl_zt/index.html">Step 1: Load Supported Video Plugins</a></li>
+
+          <li class="li"><a class="xref" href="#pbv4_dev_loadvideoplugins__section_ysk_cml_zt/index.html">Step 2: (Optional) Specify Video Encoding Priority</a></li>
+
+        </ul>
+</div>
+
+      <p class="gt-block p">見る <a class="xref" href="#pbv4_dev_loadvideoplugins__section_o2w_dnl_zt/index.html">完全な例</a> Webページ全体のコードを表示します。</p>
+
+      <div class="note note"><span class="notetitle">注意：</span> <span class="ph">どこにいても <samp class="ph codeph"><span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span></samp> サンプルコードでは、（コード内の）これを、リソースがホストされている場所を指すURLに置き換えます。 Ooyalaがホストするパスのリストについては、を参照してください。 <a class="xref" href="../concepts/pbv4_resources.html">OoyalaがホストするプレイヤーV4リソース</a>。 URLは、同じホスト上の場所（内部リンク）または別のホスト上（前に次の文字列が付いた場所）を指すことができます。 <samp class="ph codeph">http://</samp>  or  <samp class="ph codeph">https://</samp>） 自分でリソースをホストしている場合（ <a class="xref" href="../concepts/pbv4_host.html">ホスティングプレイヤーV4リソース</a>）、ファイル内のパスの依存関係を必ず確認してください。</span></div>
+
+    </div>
+
+    <div class="section" id="pbv4_dev_loadvideoplugins__stream_support"><h2 class="title sectiontitle">ブラウザごとのストリームサポート</h2>
+      
+      <div class="note note"><span class="notetitle">注意：</span> OSMFとAkamaiのプラグイン（廃止予定）は、既存のHTTP Dynamic Streaming（HDS）とAkamai HDS（またはHD2）アセットとの下位互換性を可能にします。 ただし、HDSとHDS2はFlashコンポーネントを使用しているため、ブラウザは間もなくFlashプラグインを無効にします。 今後、Ooyalaは、顧客が代わりにHLSとDashをエンコードして使用することを強くお勧めします。 可能であれば、これには既存の資産の再エンコードが含まれる場合があります。 業界の変化とモバイル再生の重要性の高まりを考えると、Flashベースのフォーマット（HDSやHD2など）のサポートは近いうちに廃止される予定です。 顧客はこれらを時間の経過とともに段階的に廃止されていくレガシーフォーマットと見なすべきです。</div>
+
+      <p class="gt-block p"><strong class="ph b">デスクトップWebストリームとブラウザのサポート</strong></p>
+
+      <div class="p">次の表は、デスクトップWebプレーヤーの各ストリームタイプとブラウザにロードするOoyalaビデオプラグインを示しています。 <div class="note note"><span class="notetitle">注意：</span>  Player V4用HDS用OSMF Flash Videoプラグインは推奨されておらず、無効にする予定です。 詳細と代替案については、 <a class="xref" href="../relnotes/2017-06-04.html">OVPリリースノート</a>.  </div>
+
+        <div class="note note"><span class="notetitle">注意：</span>  プレーヤーV4用のAkamai Packaged HDS用Akamai HDビデオプラグインは推奨されておらず、無効にする予定です。 詳細と代替案については、
+     <a class="xref" href="../relnotes/2017-06-04.html">OVPリリースノート</a>.</div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" id="d887530e116">ブラウザ</th>
+
+                <th class="entry" valign="top" id="d887530e119">HLSとeHLS</th>
+
+                <th class="entry" valign="top" id="d887530e122">ダッシュ</th>
+
+                <th class="entry" valign="top" id="d887530e125">MP4</th>
+
+                <th class="entry" valign="top" id="d887530e128">HDS（廃止予定）</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" headers="d887530e116 d887530e119 d887530e122 d887530e125 d887530e128 ">Chrome v47 +</td>
+
+                <td class="entry" valign="top" headers="d887530e116 d887530e119 d887530e122 d887530e125 d887530e128 "><a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__bitmovin_plugin">bit_wrapper.min.js</a></td>
+
+                <td class="entry" valign="top" headers="d887530e116 d887530e119 d887530e122 d887530e125 d887530e128 "><a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__bitmovin_plugin">bit_wrapper.min.js</a></td>
+
+                <td class="entry" valign="top" headers="d887530e116 d887530e119 d887530e122 d887530e125 d887530e128 "><a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__bitmovin_plugin">bit_wrapper.min.js</a>  or  <a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__hls_mp4">main_html5.min.js</a></td>
+
+                <td class="entry" valign="top" headers="d887530e116 d887530e119 d887530e122 d887530e125 d887530e128 "><a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__flash_hds">osmf_flash.min.js</a> （廃止予定）または <a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__akamai_hd_plugin">akamaiHD_flash.min.js</a> アカマイパッケージHDS用（非推奨） </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" headers="d887530e116 d887530e119 d887530e122 d887530e125 d887530e128 ">Safari v8 +</td>
+
+                <td class="entry" valign="top" headers="d887530e116 d887530e119 d887530e122 d887530e125 d887530e128 "><a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__bitmovin_plugin">bit_wrapper.min.js</a>  or  <a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__hls_mp4">main_html5.min.js</a></td>
+
+                <td class="entry" valign="top" headers="d887530e116 d887530e119 d887530e122 d887530e125 d887530e128 "><a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__bitmovin_plugin">bit_wrapper.min.js</a> （Player v4.3.3 +でサポートされているリモートおよびローカルアセット）</td>
+
+                <td class="entry" valign="top" headers="d887530e116 d887530e119 d887530e122 d887530e125 d887530e128 "><a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__bitmovin_plugin">bit_wrapper.min.js</a>  or  <a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__hls_mp4">main_html5.min.js</a></td>
+
+                <td class="entry" valign="top" headers="d887530e116 d887530e119 d887530e122 d887530e125 d887530e128 "><a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__flash_hds">osmf_flash.min.js</a> （廃止予定）または <a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__akamai_hd_plugin">akamaiHD_flash.min.js</a> アカマイパッケージHDS用（非推奨） </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" headers="d887530e116 d887530e119 d887530e122 d887530e125 d887530e128 ">Firefox v48 +</td>
+
+                <td class="entry" valign="top" headers="d887530e116 d887530e119 d887530e122 d887530e125 d887530e128 "><a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__bitmovin_plugin">bit_wrapper.min.js</a></td>
+
+                <td class="entry" valign="top" headers="d887530e116 d887530e119 d887530e122 d887530e125 d887530e128 "><a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__bitmovin_plugin">bit_wrapper.min.js</a></td>
+
+                <td class="entry" valign="top" headers="d887530e116 d887530e119 d887530e122 d887530e125 d887530e128 "><a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__bitmovin_plugin">bit_wrapper.min.js</a>  or  <a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__hls_mp4">main_html5.min.js</a>
+                </td>
+
+                <td class="entry" valign="top" headers="d887530e116 d887530e119 d887530e122 d887530e125 d887530e128 "><a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__flash_hds">osmf_flash.min.js</a> （廃止予定）または <a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__akamai_hd_plugin">akamaiHD_flash.min.js</a> アカマイパッケージHDS用（非推奨） </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" headers="d887530e116 d887530e119 d887530e122 d887530e125 d887530e128 ">インターネットエクスプローラv11<sup class="ph sup">（1）</sup></td>
+
+                <td class="entry" valign="top" headers="d887530e116 d887530e119 d887530e122 d887530e125 d887530e128 "><a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__bitmovin_plugin">bit_wrapper.min.js</a></td>
+
+                <td class="entry" valign="top" headers="d887530e116 d887530e119 d887530e122 d887530e125 d887530e128 "><a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__bitmovin_plugin">bit_wrapper.min.js</a></td>
+
+                <td class="entry" valign="top" headers="d887530e116 d887530e119 d887530e122 d887530e125 d887530e128 "><a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__bitmovin_plugin">bit_wrapper.min.js</a>  or  <a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__hls_mp4">main_html5.min.js</a>
+                </td>
+
+                <td class="entry" valign="top" headers="d887530e116 d887530e119 d887530e122 d887530e125 d887530e128 "><a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__flash_hds">osmf_flash.min.js</a> （廃止予定）または <a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__akamai_hd_plugin">akamaiHD_flash.min.js</a> アカマイパッケージHDS用（非推奨） </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" headers="d887530e116 d887530e119 d887530e122 d887530e125 d887530e128 ">マイクロソフトエッジ</td>
+
+                <td class="entry" valign="top" headers="d887530e116 d887530e119 d887530e122 d887530e125 d887530e128 "><a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__bitmovin_plugin">bit_wrapper.min.js</a>  or  <a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__hls_mp4">main_html5.min.js</a></td>
+
+                <td class="entry" valign="top" headers="d887530e116 d887530e119 d887530e122 d887530e125 d887530e128 "><a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__bitmovin_plugin">bit_wrapper.min.js</a></td>
+
+                <td class="entry" valign="top" headers="d887530e116 d887530e119 d887530e122 d887530e125 d887530e128 "><a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__bitmovin_plugin">bit_wrapper.min.js</a>  or  <a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__hls_mp4">main_html5.min.js</a>
+                </td>
+
+                <td class="entry" valign="top" headers="d887530e116 d887530e119 d887530e122 d887530e125 d887530e128 "><a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__flash_hds">osmf_flash.min.js</a> （廃止予定）または <a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__akamai_hd_plugin">akamaiHD_flash.min.js</a> アカマイパッケージHDS用（非推奨） </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+        <div class="note note"><span class="notetitle">注意：</span> <sup class="ph sup">（1）</sup>HLSとeHLSはWindows 8 +でのみサポートされています。</div>
+
+      </div>
+
+      <p class="gt-block p"><strong class="ph b">モバイルWebストリームとブラウザのサポート</strong></p>
+
+        <div class="p">次の表は、モバイルWebプレーヤーの各ストリームタイプとブラウザにロードするOoyalaビデオプラグインを示しています。
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" id="d887530e348">ブラウザ</th>
+
+                <th class="entry" valign="top" id="d887530e351">HLSとeHLS</th>
+
+                <th class="entry" valign="top" id="d887530e354">ダッシュ</th>
+
+                <th class="entry" valign="top" id="d887530e357">MP4</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" headers="d887530e348 d887530e351 d887530e354 d887530e357 ">Android v4.4 + Chrome</td>
+
+                <td class="entry" valign="top" headers="d887530e348 d887530e351 d887530e354 d887530e357 ">
+                  <ul class="ul">
+                    <li class="li"><a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__hls_mp4">main_html5.min.js</a></li>
+
+                  </ul>
+
+                </td>
+
+                <td class="entry" valign="top" headers="d887530e348 d887530e351 d887530e354 d887530e357 ">
+                  <ul class="ul"><li class="li"><a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__bitmovin_plugin">bit_wrapper.min.js</a></li>
+</ul>
+
+                </td>
+
+                <td class="entry" valign="top" headers="d887530e348 d887530e351 d887530e354 d887530e357 ">
+                  <ul class="ul">
+                    <li class="li"><a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__bitmovin_plugin">bit_wrapper.min.js</a>  or</li>
+
+                    <li class="li"><a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__hls_mp4">main_html5.min.js</a></li>
+
+                  </ul>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" headers="d887530e348 d887530e351 d887530e354 d887530e357 ">iOS v9 + Safari</td>
+
+                <td class="entry" valign="top" headers="d887530e348 d887530e351 d887530e354 d887530e357 ">
+                  <ul class="ul">
+                    <li class="li"><a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__hls_mp4">main_html5.min.js</a></li>
+
+                  </ul>
+
+                  </td>
+
+                <td class="entry" valign="top" headers="d887530e348 d887530e351 d887530e354 d887530e357 ">サポートされていません</td>
+
+                <td class="entry" valign="top" headers="d887530e348 d887530e351 d887530e354 d887530e357 ">
+                  <ul class="ul">
+                    
+                    <li class="li"><a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__hls_mp4">main_html5.min.js</a></li>
+
+                  </ul>
+
+                  </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+      </div>
+</div>
+
+    <div class="section"><h2 class="title sectiontitle">ベストプラクティス</h2>
+      
+      <div class="p" id="pbv4_dev_loadvideoplugins__video_plugin_best_practices">以下は、ビデオプラグインを使用するためのベストプラクティスです。 <ul class="ul">
+          <li class="li">Player V4を正しく機能させるには、Core Playerと少なくとも1つのビデオプラグインをロードする必要があります。</li>
+
+          <li class="li">一般的には、 <a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__bitmovin_plugin">bit_wrapper.min.js</a> プラグイン、他のビデオプラグインの前に、必ず最初にそれをロードするべきです。</li>
+
+          <li class="li">あなたは使えません <a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__bitmovin_plugin">bit_wrapper.min.js</a> iOSのプラグイン。 あなたはまだページにこのプラグインを含めることができることに注意してください（それはただ何もしません）。 つまり、デバイスに基づいてどのプラグインをロードするかを変更する必要はありません。</li>
+
+          <li class="li">フリーホイール広告の再生をサポートするには、 <a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__hls_mp4">main_html5.min.js</a> プラグイン。</li>
+
+          <li class="li">VPAID広告の再生をサポートするには、 <a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__hls_mp4">main_html5.min.js</a> ビデオプラグインの中で最初のプラグイン。</li>
+
+          <li class="li">  <a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__flash_hds">osmf_flash.min.js</a> プラグインは現在Google IMA Ad Rulesをサポートしていません。</li>
+
+          <li class="li">デスクトップWeb上のDASHストリームの場合は、 <a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__bitmovin_plugin">bit_wrapper.min.js</a> Chromeとプラグイン。</li>
+
+          <li class="li">MP4ストリームの場合は、 <a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__hls_mp4">main_html5.min.js</a> プラグイン。</li>
+
+          <li class="li">デスクトップでHLSストリームを使用したい場合は、当社のWebサイトを使用することをお勧めします。 <a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__bitmovin_plugin">bit_wrapper.min.js</a> Chrome、FirefoxおよびInternet Explorerのプラグイン。 SafariとEdgeの場合は、 <a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__hls_mp4">main_html5.min.js</a> 代わりにプラグイン。</li>
+
+          <li class="li">  <a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__hls_mp4">main_html5.min.js</a> プラグインはビットレート情報を報告しません。 ビットレート情報を追跡したい場合（ <a class="xref" href="../concepts/pbv4_analytics.html">Player V4での分析</a>DASHとHLSにはBitmovinプラグイン、HDSにはOSMF Flashプラグイン（非推奨）、またはAkamaiパッケージHDSにはAkamai HDビデオプラグイン（非推奨）を使用する必要があります。</li>
+
+        </ul>
+</div>
+
+      
+    </div>
+
+    <div class="section" id="pbv4_dev_loadvideoplugins__section_vdc_fkl_zt"><h2 class="title sectiontitle">Step 1: Load Supported Video Plugins</h2>
+      <div class="note note"><span class="notetitle">注意：</span> 
+      <ul class="ul">
+        <li class="li">If you use Backlot to generate your HTML embed code, and you choose the <strong class="ph b">V4 HTML5
+              Standard Player Embed Code (recommended)</strong> option, the Bitmovin plugin for HLS and
+            DASH (<samp class="ph codeph">bit_wrapper.min.js</samp>) and Main video plugin for HLS and MP4
+              (<samp class="ph codeph">main_html5.min.js</samp>) are automatically included and should not be
+            explicitly added to the web page where you launch the player. For details, see <a class="xref" href="../tasks/publishing_manual_embed.html">バックスロットでのプレーヤー埋め込み設定</a>. You can also override the
+            default plugins by specifying only the plugins you want to load (see <a class="xref" href="../concepts/pbv4_plugins_embed.html">標準埋め込みコード用のプラグインの指定</a>).</li>
+ 
+        <li class="li">あなたが <strong class="ph b">V4 HTML5プレーヤー埋め込みコード（詳細）</strong> option in Backlot, or if
+            you manually create the HTML embed code yourself, you need to add these plugins your web
+            page so that they load before the player is created. </li>
+
+      </ul>
+</div>
+
+      To load
+      supported video plugins, create a <samp class="ph codeph">&lt;script&gt;</samp> tag for each video plugin
+      within the <samp class="ph codeph">head</samp> element for your page. The order in which you load the video
+      plugins helps determine which plugin will be used to decode video encodings. <p class="gt-block p">見る <a class="xref" href="../concepts/pbv4_resources.html">OoyalaがホストするプレイヤーV4リソース</a> for a list of currently supported
+        video plugins. The video plugins support HLS and MP4, Flash HDS, and HLS and DASH (with DASH
+        you can only use audio codec formats AAC or mp4a.40.2 audio codecs for this release).
+        </p>
+<div class="note warning"><span class="warningtitle">警告：</span> You must load the Core Player and at least one video plugin for
+        Player V4 to function properly. If you do not load at least one video plugin, your player
+        will not play videos.</div>
+Each tag must specify a <samp class="ph codeph">SRC</samp> attribute that
+      makes the request to load the plugin. The plugins are loaded immediately, so be sure to load
+      the core player first. <div class="note note"><span class="notetitle">注意：</span> The order of the video plugins represents the order of priority
+    for the plugin usage. For HTML5 video, we recommend loading the bit_wrapper.min.js first,
+    followed by main_html5.js.</div>
+
+      <div class="p">Here is the portion of the web page code that loads a plugin
+          (<samp class="ph codeph">main_html5.min.js</samp> in this example).
+        <pre class="pre codeblock">  &lt;head&gt;
+      &lt;!-- V4 JS core is required. Plugins such as skin, discovery and Advertising need to be loaded separately --&gt;
+      &lt;script src="<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/core.min.js"&gt;&lt;/script&gt;
+      <strong class="ph b">&lt;!-- A Video Plugin is required. This example shows the Main Video Plugin --&gt;
+      &lt;script src="<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/main_html5.min.js &quot;&gt; &lt;/script&gt;</strong>
+      &lt;!-- Change these html5-skin.min.css and html5-skin.js to your local build if necessary --&gt;
+      &lt;script src="<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/html5-skin.min.js"&gt;&lt;/script&gt;
+      &lt;link rel="stylesheet" href="<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/html5-skin.min.css"/&gt;
+  &lt;/head&gt;              </pre>
+</div>
+</div>
+
+    <div class="section" id="pbv4_dev_loadvideoplugins__section_ysk_cml_zt"><h2 class="title sectiontitle">Step 2: (Optional) Specify Video Encoding
+        Priority</h2>Having loaded the supported video plugins, you may optionally specify the
+      encoding priority. As you learned in <a class="xref" href="pbv4_web_tutorial.html">Player V4の基本チュートリアル</a>, you can include embedded parameters. The <samp class="ph codeph"><a class="xref" href="../api/pbv4_api_embedparams.html#pbv4_api_embedparams__encodingPriority">encodingPriority</a></samp> embedded parameter may be used to specify the priority
+      for video encoding. <div class="p" id="pbv4_dev_loadvideoplugins__best_practices_encoding">The following are best practices for
+        setting encoding priority and using video streams: 
+        <ul class="ul">
+          <li class="li">The default encoding priority is <samp class="ph codeph">["dash_drm", "hls_drm", "dash", "hls", "mp4", "hds"]</samp>. We strongly recommend that you use the default encoding
+            unless you have other streaming needs. </li>
+
+          <li class="li">With DASH, you should always prioritize an alternate stream (do not set the encoding
+            priority to only DASH). </li>
+
+          <li class="li">For DASH video, you must use the AAC or mp4a.40.2 audio codecs.</li>
+
+        </ul>
+
+      </div>
+ See an example of setting the encoding priority
+      below:<pre class="pre codeblock">&lt;body&gt;
+        &lt;div id="container" style="width:640px; height:360px;"&gt;&lt;/div&gt;
+        &lt;script&gt;
+            var playerParam = {
+              "pcode": "YOUR_PCODE",
+              "playerBrandingId": "YOUR_PLAYER_ID",
+              <strong class="ph b">"encodingPriority": ["hls", "dash", "mp4", "hds"],</strong>
+              "skin": {
+                // Config contains the configuration setting for player skin. Change to your local config when necessary.
+                "config": "<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/skin.json"
+              }
+            };
+            OO.ready(function() {
+              window.pp = OO.Player.create("container", "YOUR_ASSET_ID", playerParam);
+            });
+        &lt;/script&gt;
+&lt;/body&gt;</pre>
+</div>
+
+    
+    <div class="section" id="pbv4_dev_loadvideoplugins__section_o2w_dnl_zt"><h2 class="title sectiontitle">完全な例</h2>You now have a complete working
+      example of a web page that loads a supported Ooyala V4 plugin, specifies the encoding
+      priority, and creates the player. In the example below, items in bold must be modified for the
+      example to play a video. <p class="gt-block p">
+        <span class="ph">どこにいても <samp class="ph codeph"><span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span></samp> サンプルコードでは、（コード内の）これを、リソースがホストされている場所を指すURLに置き換えます。 Ooyalaがホストするパスのリストについては、を参照してください。 <a class="xref" href="../concepts/pbv4_resources.html">OoyalaがホストするプレイヤーV4リソース</a>。 URLは、同じホスト上の場所（内部リンク）または別のホスト上（前に次の文字列が付いた場所）を指すことができます。 <samp class="ph codeph">http://</samp>  or  <samp class="ph codeph">https://</samp>） 自分でリソースをホストしている場合（ <a class="xref" href="../concepts/pbv4_host.html">ホスティングプレイヤーV4リソース</a>）、ファイル内のパスの依存関係を必ず確認してください。</span></p>
+</div>
+
+    <div class="section">
+      <pre class="pre codeblock">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+      
+      &lt;script src="<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/core.min.js"&gt;&lt;/script&gt;
+      
+      &lt;script src="<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/main_html5.min.js"&gt;&lt;/script&gt;
+      
+      &lt;script src="<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/html5-skin.min.js"&gt;&lt;/script&gt;
+      &lt;link rel="stylesheet" href="<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/html5-skin.min.css"/&gt;
+  &lt;/head&gt;       
+&lt;body&gt;
+        &lt;div id="container" style="width:640px; height:360px;"&gt;&lt;/div&gt;
+        &lt;script&gt;
+            var playerParam = {
+              <strong class="ph b">&quot;pcode&quot;： &quot;YOUR_PCODE&quot;</strong>,
+              
+              <strong class="ph b">&quot;playerBrandingId&quot;： &quot;YOUR_PLAYER_ID&quot;</strong>,
+              "encodingPriority": ["hls", "dash", "mp4", "hds"],
+              "skin": {
+                // Config contains the configuration setting for player skin. Change to your local config when necessary.
+                "config": "<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/skin.json"
+              }
+            };
+            OO.ready(function() {
+              window.pp = OO.Player.create("container", <strong class="ph b">&quot;YOUR_ASSET_ID&quot;</strong>, playerParam);
+            });
+        &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+
+    </div>
+
+    <div class="section" id="pbv4_dev_loadvideoplugins__flash"><h2 class="title sectiontitle">フラッシュビデオレンダリング</h2>
+      
+      <p class="gt-block p">The Bitmovin plugin (<a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__bitmovin_plugin">bit_wrapper.min.js</a>), OSMF Flash plugin (<a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__flash_hds">osmf_flash.min.js</a>, Deprecated), and Akamai HD plugin (<a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__akamai_hd_plugin">akamaiHD_flash.min.js</a>, Deprecated) can decode and render video in a Flash-based
+        element. </p>
+
+      <p class="gt-block p"><strong class="ph b">考慮事項</strong></p>
+
+      <div class="note important"><span class="importanttitle">重要：</span> ブラウザは、Flashのデフォルトサポートを廃止し始めています。 準備はできたか？ を参照してください <a class="xref" href="http://www.ooyala.com/resources/video-player">Player V4リソースページ</a> と <a class="xref" href="../concepts/pbv4_migration_faq.html">プレイヤー移行に関するFAQ</a> 詳細については。</div>
+
+      <div class="note note"><span class="notetitle">注意：</span> All of the plugins, ad logic, UI, Player APIs, etc. of the player are always in HTML5.
+        The only Flash component is video decoding and rendering if the selected encoding is not
+        supported in HTML5 on a certain browser where Flash is supported. The encoding is selected
+        irrespective of the technology used to render it (the encoding is selected first, then the
+        plugins check to see which renderer to use).</div>
+
+      <div class="note note" id="pbv4_dev_loadvideoplugins__adobe_cross_domain"><span class="notetitle">注意：</span> For cross-domain compatibility, in your Flash cross-domain
+        policy file, be sure to grant access to both <samp class="ph codeph">http://</samp> そして
+          <samp class="ph codeph">https://</samp> URLs. For more information, see <a class="xref" href="http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html">Adobe's
+          Cross-domain Policy documentation</a>.</div>
+
+      <div class="note note"><span class="notetitle">注意：</span> For this release, the only way you can render ads with Flash is using VPAID 1.0 Google
+        IMA ads and the google_ima.min.js plugin or VAST HLS ads on Chrome, FF, and IE or VAST DASH
+        ads on Safari.</div>
+
+      <p class="gt-block p"><strong class="ph b">Bitmovin Plugin for DASH and HLS</strong></p>
+You can use the Bitmovin plugin to decode and
+      render DASH and HLS videos. This plugin will render in HTML5, if possible. If HTML5 rendering
+      is not available on the given browser, the video will be rendered using Flash. Safari and Edge
+      will play HLS natively. There are also some restrictions with the Bitmovin plugin, which are
+      noted in <a class="xref" href="../concepts/pbv4_resources.html">OoyalaがホストするプレイヤーV4リソース</a>.  <p class="gt-block p"><strong class="ph b">OSMF Flash Plugin
+          for HDS (Deprecated)</strong></p>
+<p class="p">You can use the OSMF Flash plugin to decode and render HDS
+        videos. To enable Flash decoding and rendering of HDS videos with the OSMF plugin, you must
+        do the following:</p>
+<ol class="ol">
+        <li class="li">ロード <a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__flash">OSMF Flash plugin</a> on your page.</li>
+
+        <li class="li">をセットする <samp class="ph codeph">encodingPriority</samp> そのため、 <samp class="ph codeph">HDS</samp> is the highest
+          available priority. If the encoding priority is not set, lower priority video encodings
+          will be rendered.</li>
+
+      </ol>
+<p class="gt-block p"><strong class="ph b">Akamai HD Plugin for HDS (Deprecated)</strong></p>
+<p class="p">You can use the Akamai HD plugin to
+        decode and render Akamai packaged HDS videos. To enable Flash decoding and rendering of
+        Akamai HDS videos with the Akamai HD plugin, you must do the following:</p>
+<ol class="ol" id="pbv4_dev_loadvideoplugins__ol_o4g_1nz_nw">
+        <li class="li">Load the (<a class="xref" href="../concepts/pbv4_resources.html#pbv4_resources__akamai_hd_plugin">Akamai HD plugin</a>) on your page.</li>
+
+        <li class="li">For live streams, set the <samp class="ph codeph">encodingPriority</samp> そのため、
+            <samp class="ph codeph">akamai_hd2_hds</samp> is the highest available priority. For VOD streams, set
+          the <samp class="ph codeph">encodingPriority</samp> そのため、 <samp class="ph codeph">akamai_hd2_vod_hds</samp> is the
+          highest available priority. If the encoding priority is not set, lower priority video
+          encodings will be rendered.</li>
+
+      </ol>
+
+    </div>
+
+  </div>
+
+  <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/pbv4_embed.html">WebページへのプレーヤーV4の埋め込み</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong><br/>
+<div><a class="link" href="pbv4_web_tutorial.html">Player V4の基本チュートリアル</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div>

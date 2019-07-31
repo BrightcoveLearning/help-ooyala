@@ -1,0 +1,152 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2015-09-30 Release"/>
+<meta name="abstract" content="Notable changes for this release include iOS9 certification for the HTML5 Player V3 and mobile SDK for iOS and an update about CORS enablement."/>
+<meta name="description" content="Notable changes for this release include iOS9 certification for the HTML5 Player V3 and mobile SDK for iOS and an update about CORS enablement."/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2015.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release20150930"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2015-09-30リリース</title>
+</head>
+<body id="release20150930">
+
+
+    <h1 class="title topictitle1">2015-09-30リリース</h1>
+
+    
+    <div class="body conbody"><p class="shortdesc">このリリースでの注目すべき変更には、HTML9 Player V5およびiOS用モバイルSDKのiOS3認定、およびCORSの有効化に関する更新が含まれます。</p>
+
+        <div class="section"><h2 class="title sectiontitle">ソフトウェア機能リリース</h2>
+            <p class="gt-block p"><strong class="ph b">iOS 9認定</strong></p>
+<p class="p">iOS用のOoyala HTML5プレーヤーV3およびOoyalaモバイルSDKは、iOS 9用に認定されました。</p>
+
+            <p class="p">以下は、iOS用OoyalaモバイルSDKの既知の問題です。</p>
+<ul class="ul">
+                <li class="li" id="release20150930__pba2512">App Transport Securityを無効にしない限り、iOS 9再生は機能しません。 iOS 9デバイスで再生を維持するには、App Transport Securityを無効にします。</li>
+
+                <li class="li" id="release20150930__pba2513">「ビットコードを有効にする」フラグを無効にしない限り、iOS 9再生は機能しません。 iOS 9デバイスで再生を維持するには、 <a class="xref" href="http://stackoverflow.com/questions/31205133/how-to-enable-bitcode-in-xcode-7" target="_blank">&quot;Enable Bitcode&quot;フラグを無効にする</a>.</li>
+
+                <li class="li" id="release20150930__pba2414">iPad用のピクチャインピクチャ（PiP）再生は、現在iOS 9を使用したiOS用モバイルSDKではサポートされていません。 この機能のサポートは今後のリリースで利用可能になる予定です。</li>
+
+                
+            </ul>
+
+            <p class="gt-block p"><strong class="ph b">V3プレーヤーでCORSを有効にする</strong></p>
+
+            <div class="p" id="release20150930__cors">Player V3の一部であるか、またはPlayer V3で使用できるすべてのリソース（ビデオ、オーディオ、画像、クローズドキャプション、CSS、JavaScriptなど）は、クロスオリジンリソース共有（CORS）対応である必要があります。 コンテンツ配信に使用するCDNでCORSの有効化を設定します。 CORSを有効にする方法については、を参照してください。 <a class="xref" href="http://enable-cors.org/" target="_blank">http://enable-cors.org/</a>.  <div class="note note"><span class="notetitle">注意：</span> CORSはすべてのOoyalaがホストするドメインに対して有効になっているため、Ooyalaがホストするコンテンツを使用している場合、これらのCORSの前提条件は適用されません。 この要件は、遠隔地の資産などに適用されます。</div>
+
+            </div>
+
+            <p class="gt-block p"><strong class="ph b">Android用モバイルSDK v.4.5.0</strong></p>
+
+            <div class="p" id="release20150930__new_features">
+                <ul class="ul">
+                    <li class="li">  <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/android_mobilesdk/index.html" target="_blank">Android用モバイルSDK</a>、で利用可能 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/" target="_blank">Ooyala APIドキュメントポータル</a>これには、Cast、Freewheel、およびIMA SDKが含まれています。</li>
+
+                    <li class="li">  <samp class="ph codeph">OoyalaPlayer.getMetadata（）</samp> メソッドは削除されました。 見る
+                        <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/android_mobilesdk/index.html" target="_blank">Android用モバイルSDK</a> 詳細については。</li>
+
+                    <li class="li">Google IMAライブラリはで更新されました
+                            <span class="ph filepath">ima-android-v3-3.b13.3.jar</span>.</li>
+
+                    <li class="li">SecurePlayerライブラリは、バージョン03_04_05_0001で更新されました。</li>
+
+                    <li class="li">SecurePlayerライブラリを使用している間のVisualOn上の暗号化されたHLSのサポートが追加されました。</li>
+
+                </ul>
+
+            </div>
+
+            <div class="p" id="release20150930__fixes">このリリースには、以下の修正が含まれています。 <ul class="ul">
+                    <li class="li">ユーザーがビデオを見てホームボタンをクリックするという問題がありました。 ビデオの再生を再開すると、ユーザーがビデオを再開しなければならないという断続的なエラーが発生します。 この問題は解決されました。</li>
+
+                </ul>
+</div>
+
+               <p class="gt-block p"><strong class="ph b">iOS用モバイルSDK v.4.5.0</strong></p>
+
+            <div class="p" id="release20150930__new_features_ios">
+                <ul class="ul">
+                    <li class="li">  <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/ios_mobilesdk/index.html" target="_blank">iOS用モバイルSDK</a>、で利用可能 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/" target="_blank">Ooyala APIドキュメントポータル</a>これには、Cast、Freewheel、およびIMA SDKが含まれています。</li>
+
+                    <li class="li">A  <samp class="ph codeph">ostedAtURL</samp> プロパティがに追加されました
+                            <samp class="ph codeph">OOContentItem</samp> クラス。 見る <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/ios_mobilesdk/index.html" target="_blank">iOS用モバイルSDK</a> 詳細については。</li>
+
+                    <li class="li">A  <samp class="ph codeph">vttCaptions</samp> プロパティがに追加されました
+                            <samp class="ph codeph">OOClosedCaptions</samp> サポートされているキャプション言語の完全修飾ロケール名をサポートするクラスです。 見る <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/ios_mobilesdk/index.html" target="_blank">iOS用モバイルSDK</a> 詳細については。</li>
+
+                    <li class="li">App Transport Securityを無効にしない限り、iOS 9再生は機能しません。 iOS 9デバイスで再生を維持するには、App Transport Securityを無効にします。</li>
+
+                    <li class="li">iOS9はAdmobとGoogle IMAをサポートするようになりました。</li>
+
+                </ul>
+
+            </div>
+
+            <div class="p" id="release20150930__fixes_ios">このリリースには、以下の修正が含まれています。 <ul class="ul">
+                    <li class="li">ユーザーがビデオを見てホームボタンをクリックするという問題がありました。 ビデオの再生を再開すると、ユーザーがビデオを再開しなければならないという断続的なエラーが発生します。 この問題は解決されました。</li>
+
+                    <li class="li">Ooyala SDKがopenSSLツールと互換性がないという問題がありました。 この問題は解決されました。</li>
+
+                    <li class="li">1回のVAST広告レスポンスで複数の広告を表示する固定広告インプレッショントラッキングに問題があり、実際に表示されるよりも多くのインプレッションがトラッキングされる可能性があります。 この問題は解決されました。</li>
+
+                    <li class="li">クローズドキャプション付きのビデオは、特定のアプリケーションセッション内で最初に再生されるビデオである場合にのみ正しく再生されるという問題がありました。 この問題は解決されました。</li>
+
+                </ul>
+</div>
+
+            <p class="gt-block p"><strong class="ph b">新しいディスカバリーインサイトレポート</strong></p>
+ 
+            
+            <p class="p">Discovery UI CTR Reportは、Discovery APIから要求され、サイトのコンテンツカルーセルまたはパネルに表示されているDiscovery推奨事項の有効性を測定します。 ディスカバリUI CTRは、ディスカバリAPIリクエストからコンテンツを調達するカルーセルのインプレッション数に対するクリック数の比率として定義されます。</p>
+ </div>
+
+        <div class="section"><h2 class="title sectiontitle">ドキュメントリリース</h2>
+            
+            <ul class="ul">
+                <li class="li"><a class="xref" href="../concepts/discovery_report_ctr_api.html">API使用状況のディスカバリUI CTRレポート（廃止予定）</a>：新しいディスカバリUI CTRレポートのトピックを追加しました。</li>
+
+                <li class="li"><a class="xref" href="../concepts/backlot_integrate_with_tinypass.html">Piano Go Paywallと統合する</a>：TinypassはPiano Mediaと合併しました。 Tinypassペイウォール製品は現在呼ばれています <strong class="ph b">ピアノ囲碁</strong>。 このトピックは、このブランド変更を反映するように更新されました。</li>
+
+                <li class="li"><a class="xref" href="../tasks/mobile_sdk_android_qos_npaw.html" title="The mobile implementation of the Ooyala QoS Solution powered by the NicePeopleAtWork (NPAW) YOUBORA platform provides analytics for events on Ooyala's Android players.">Android用NPAWを搭載したQoSソリューションの使用</a> そして <a class="xref" href="../tasks/mobile_sdk_ios_qos_npaw.html" title="The mobile implementation of the Ooyala QoS Solution powered by the NICE PEOPLE AT WORK (NPAW) YOUBORA platform provides analytics for the player events with Ooyala's iOS players.">iOS用NPAWを搭載したQoSソリューションの使用</a>：AndroidおよびiOS用のNPAW統合へのリンクを追加しました。  </li>
+
+                <li class="li">  <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/android_mobilesdk/index.html" target="_blank">Android用モバイルSDK</a> そして <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/ios_mobilesdk/index.html" target="_blank">iOS用モバイルSDK</a>、どちらも利用可能 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/ios_mobilesdk/index.html" target="_blank">https://docs.brightcove.com/apidocs-ooyala/ios_mobilesdk/index.html</a>これには、Cast、FreeWheel、およびIMA SDKが含まれています。</li>
+
+                <li class="li">最新のAndroidおよびiOS Mobile SDKリリースについては、を参照してください。 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/concepts/mobile_sdk_android_release_notes.html#mobile_sdk_android_release_notes">Android用Mobile SDKのリリースノート</a> そして <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/concepts/mobile_sdk_ios_release_notes.html#mobile_sdk_ios_release_notes">iOS用Mobile SDKリリースノート</a>.</li>
+
+                
+            </ul>
+
+        </div>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </div>
+
+    
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2015.html" title="2015からのリリースノート。">2015ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

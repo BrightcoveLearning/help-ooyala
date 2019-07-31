@@ -1,0 +1,185 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Advanced: Destroying an HTML5 Player V3 (Deprecated)"/>
+<meta name="abstract" content="Use advanced event handling and player management to destroy a player once the video has finished playing."/>
+<meta name="description" content="Use advanced event handling and player management to destroy a player once the video has finished playing."/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_v3_dev_destroyplayer"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Advanced: Destroying an HTML5 Player V3 (Deprecated)</title>
+</head>
+<body id="player_v3_dev_destroyplayer">
+
+
+ <h1 class="title topictitle1">Advanced: Destroying an HTML5 Player V3 (Deprecated)</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">Use advanced event handling and player management to destroy a player once the video has
+    finished playing.</p>
+
+    <div class="section" id="player_v3_dev_destroyplayer__section_i5r_5ww_rr">
+      <div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V3は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V3はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V3を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="../concepts/pbv4_migration_v3.html">Player V3からの移行</a> そして <a class="xref" href="../concepts/pbv4_migration_faq.html">プレイヤー移行に関するFAQ</a>).</div>
+
+      この例では、使い方を学びます。
+        <samp class="ph codeph">onCreate（）</samp> function to handle events related to the playing of a video. In
+      this advanced application, the user plays a video, and the event handlers determine when the
+      video has finished playing. At that point, the event handler destroys the player and displays
+      a message to the user. <div class="p">The purpose of this web page is to monitor and respond to
+        downloading, playhead time changes, and played events, so the design will include: <ul class="ul" id="player_v3_dev_destroyplayer__ul_omg_t13_pr">
+          <li class="li">A  <samp class="ph codeph">head</samp> を含む要素 <samp class="ph codeph">スクリプト</samp> ロードおよび初期化要求を指定するタグ。</li>
+
+          <li class="li">A  <samp class="ph codeph">ボディ</samp> 以下を含む要素<ul class="ul" id="player_v3_dev_destroyplayer__ul_pjc_xgf_qr">
+              <li class="li">PlayerコンテナのUI表示とレイアウト。</li>
+
+              <li class="li">Event listeners that monitor and respond to downloading, playhead time changes,
+                and played events.</li>
+
+              <li class="li">A  <samp class="ph codeph">スクリプト</samp> プレーヤを作成するタグ。</li>
+
+            </ul>
+</li>
+
+        </ul>
+</div>
+</div>
+<div class="section"><div class="p">Webページを作成するには、次の手順に従ってください。<ul class="ul" id="player_v3_dev_destroyplayer__ul_cpq_5s5_qr">
+          <li class="li"><a class="xref" href="#player_v3_dev_destroyplayer__section_fjw_qt5_qr/index.html">ステップ1：複数のイベントを聴く</a></li>
+
+          <li class="li"><a class="xref" href="#player_v3_dev_destroyplayer__section_smp_rt5_qr/index.html">ステップ2：プレイヤーを破壊する</a></li>
+
+        </ul>
+</div>
+<p class="gt-block p">見る <a class="xref" href="#player_v3_dev_destroyplayer__section_jvq_st5_qr/index.html">完全な例</a>
+        Webページ全体のコードを表示します。</p>
+<p class="gt-block p">を開発する <samp class="ph codeph">head</samp> element
+        and the logic for presenting and creating the Player, see <a class="xref" href="../reference/player_v3_dev_tutorial.html#player_v3_dev_tutorial" title="このチュートリアルを使用して、HTML5 Player V3の使用を開始してください。">HTML5プレーヤーV3の基本チュートリアル（非推奨）</a>.  </p>
+<p class="gt-block p">イベント処理については、をご覧ください。 <a class="xref" href="../concepts/player_v3_dev_eventmodel.html#player_v3_dev__eventmodel" title="HTML5プレーヤーV3は、イベントを処理するためのメッセージバスの使用を組み込んでいます。">HTML5 Player V3のイベントモデル（非推奨）</a>。 すべてのイベントのリストについては、 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/index.html" target="_blank">プレーヤJavaScript APIリファレンス</a>.</p>
+</div>
+
+  <div class="section" id="player_v3_dev_destroyplayer__section_fjw_qt5_qr"><h2 class="title sectiontitle">ステップ1：複数のイベントを聴く</h2>
+      
+      <div class="p">時には、一度に複数のイベントを監視して応答すると便利です。 これを行う1つの方法は、すべてのイベントを購読することです。 の <a class="xref" href="../concepts/player_v3_dev_eventmodel.html#player_v3_dev__eventmodel" title="HTML5プレーヤーV3は、イベントを処理するためのメッセージバスの使用を組み込んでいます。">HTML5 Player V3のイベントモデル（非推奨）</a> 作成したPlayerオブジェクトのを介してアクセスするメッセージバスを提供します。 <span class="keyword apiname">mb</span> オブジェクト この場合、メッセージバスを使います。 <span class="keyword apiname">申し込む（）</span> ワイルドカードを指定する関数（<samp class="ph codeph">&quot;*&quot;</samp>）イベント名の場合<pre class="pre codeblock">          function onCreate（player）{/ *すべてのイベントを購読する：*これにより、複数のイベントに基づいてロジックを作成することができます。 * / player.mb.subscribe（ &quot;*&quot;、 &#39;example&#39;、function（eventName）{}）; }</pre>
+</div>
+
+      <div class="p">考えられるすべてのイベントをリスニングしているので、コールバック関数内に複数のイベントに基づくロジックを含めることができます。 <span class="keyword parmname">イベント名</span> パラメータ この例では、ダウンロードと再生ヘッドの時間変更イベントを除くすべてのイベントを書き込みます（<span class="keyword apiname">OO.EVENTS.DOWNLOADING</span> そして
+          <span class="keyword apiname">OO.EVENTS.PLAYHEAD_TIME_CHANGED</span> JavaScriptコンソールログに）：<pre class="pre codeblock">          function onCreate（player）{/ * *すべてのイベントを購読する：*これにより、複数のイベントに基づいてロジックを作成できます*。 * / player.mb.subscribe（ &quot;*&quot;、 &#39;example&#39;、function（eventName）{/ *ダウンロードおよび再生ヘッドの時間変更イベントを除くすべてのイベントを* JavaScriptコンソールに書き込みます。* / if（eventName！= OO .EVENTS.DOWNLOADING &amp;&amp; eventName！= OO.EVENTS.PLAYHEAD_TIME_CHANGED）console.log（eventName）;}）; }</pre>
+</div>
+
+    </div>
+
+    <div class="section" id="player_v3_dev_destroyplayer__section_smp_rt5_qr"><h2 class="title sectiontitle">ステップ2：プレイヤーを破壊する</h2>
+      
+      <div class="p">動画の再生が終了したら、プレーヤーを適切に破棄してそのリソースを破棄します。 これをするために私達はのために聞きます <span class="keyword apiname">OO.EVENTS.PLAYED</span>
+        イベント：<pre class="pre codeblock">            / * PLAYEDイベントを購読します。*動画の再生が終了したときにのみ発生します。* / player.mb.subscribe（OO.EVENTS.PLAYED、 &#39;example&#39;、function（eventName）{}）;</pre>
+</div>
+
+      <div class="p">プレーヤーを破壊してその関連リソースを破棄するには、Ooyala V3 Playerオブジェクトのを呼び出します。 <span class="keyword apiname">破壊する（）</span>
+        方法：<pre class="pre codeblock">            / * PLAYEDイベントを購読します。*ビデオの再生が終了したときにのみ発生します。* / player.mb.subscribe（OO.EVENTS.PLAYED、 &#39;example&#39;、function（eventName）{/ *プレーヤーを破棄して適切に破棄します。 * / player.destroy（）; / *ユーザーに通知する：* / alert（ &#39;プレーヤーは破壊されました！&#39;）;}）;
+</pre>
+</div>
+
+      <div class="note note"><span class="notetitle">注意：</span> iOSでは、Webページ上で一度に実行できるHTML5プレーヤーは1つだけです。 あなたはOoyala V3 Playerオブジェクトのを呼び出すことができます <span class="keyword apiname">破壊する（）</span> プレーヤーがページ上の別のプレーヤーで別のビデオの再生を妨げないようにする方法。</div>
+
+      <div class="p">これが完成です <samp class="ph codeph">onCreate（）</samp>
+        関数：<pre class="pre codeblock">          function onCreate（player）{/ * *すべてのイベントを購読する：*これにより、複数のイベントに基づいてロジックを作成できます*。 * / player.mb.subscribe（ &quot;*&quot;、 &#39;example&#39;、function（eventName）{/ *ダウンロードおよび再生ヘッドの時間変更イベントを除くすべてのイベントを* JavaScriptコンソールに書き込みます。* / if（eventName！= OO .EVENTS.DOWNLOADING &amp;&amp; eventName！= OO.EVENTS.PLAYHEAD_TIME_CHANGED）console.log（eventName）;}）; / * PLAYEDイベントを購読します。*ビデオの再生が終了したときにのみ発生します。* / player.mb.subscribe（OO.EVENTS.PLAYED、 &#39;example&#39;、function（eventName）{/ *プレーヤーを破棄して適切に破棄します。 * / player.destroy（）; / *ユーザーに通知する：* / alert（ &#39;プレーヤーは破壊されました！&#39;）;}）; }
+</pre>
+</div>
+
+    </div>
+
+ <div class="section" id="player_v3_dev_destroyplayer__section_jvq_st5_qr"><h2 class="title sectiontitle">完全な例</h2>
+      
+      <p class="p">これで、ユーザーが動画を再生したときに複数のイベントに応答するWebページの実用的な例が完成しました。 イベントハンドラは、ビデオの再生が終了した時点を判断します。その時点でプレーヤーは破棄され、確認メッセージがユーザーに表示されます。</p>
+
+      <pre class="pre codeblock">
+&lt;!DOCTYPE html&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+    &lt;head&gt;
+        &lt;title&gt;My Test Player V3 Web Page&lt;/title&gt;
+
+        &lt;!-- Load the Ooyala V3 Player --&gt;
+        &lt;script src="http://player.ooyala.com/v3/b2ac6ad82ee54ce4970c996a97868fd5"&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;b&gt;Destroy Player Example&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+        &lt;div id="ooyalaplayer" style="width:640px;height:360px"&gt;&lt;/div&gt;
+
+        &lt;script&gt;
+          function onCreate(player) {
+          
+            /* Subscribe to all events: 
+             * this allows you to create logic based on multiple events. */
+            player.mb.subscribe("*" , 'example', function(eventName) { 
+            
+              /* Write all events, except for downloading and playhead time changed events, 
+               * to the JavaScript console: */ 
+              if (eventName != OO.EVENTS.DOWNLOADING &amp;&amp; 
+                  eventName != OO.EVENTS.PLAYHEAD_TIME_CHANGED)
+                console.log(eventName);
+            });
+
+            /* Subscribe to the PLAYED event, 
+             * which only occurs when the video has finished playing: */
+            player.mb.subscribe(OO.EVENTS.PLAYED , 'example', function(eventName) { 
+
+              /* Destroy the player and properly dispose of its resources: */
+              player.destroy();
+              
+              /* Notify the user: */
+              alert('The player has been destroyed!');
+            });
+          }
+            
+          OO.ready(function() { 
+            videoPlayer = OO.Player.create(
+              'ooyalaplayer', 
+              'U3NjZscjp3vm3tcRKUd2TVZIgHgecIRB', {
+
+                /* Include the onCreate() function in these embedded parameters. */
+                onCreate : window.onCreate
+              }
+            );
+          });
+        &lt;/script&gt;
+        
+    &lt;/body&gt;
+&lt;/html&gt;   
+   </pre>
+
+    </div>
+
+ <div class="section"><h2 class="title sectiontitle">関連情報 </h2>
+    For more information about destroying a player, see: 
+  <ul class="ul" id="player_v3_dev_destroyplayer__ul_ng2_xwf_mh">
+    <li class="li"><a class="xref" href="player_v3_dev_errors.html" title="エラー処理機能とイベントを使用すると、Player V3に関する情報を取得できます。">Errors and Error
+     Handling</a></li>
+
+     
+    <li class="li"> <a class="xref" href="../reference/player_v3_dev_mbapi.html" title="パブリッシュ、サブスクライブ、およびその他の機能を使用してメッセージバスと通信します。">プレーヤーイベント</a></li>
+
+     
+    <li class="li"><a class="xref" href="../api/player_v3_apis.html" title="プレーヤV3 JavaScript関数を使用してプレーヤの動作と外観をカスタマイズできます。">プレイヤー機能</a></li>
+
+   </ul>
+</div>
+
+ </div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div>

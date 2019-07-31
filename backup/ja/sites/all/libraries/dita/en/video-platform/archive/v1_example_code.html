@@ -1,0 +1,67 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Backlot API Example Code (Deprecated)"/>
+<meta name="abstract" content="We provide example code in PHP and Ruby."/>
+<meta name="description" content="私たちはPHPとRubyでサンプルコードを提供します。"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/api_v1.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="v1_example_code"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>バックスロットAPIのサンプルコード（非推奨）</title>
+</head>
+<body id="v1_example_code">
+
+
+  <h1 class="title topictitle1">バックスロットAPIのサンプルコード（非推奨）</h1>
+
+  
+  
+ <div class="body refbody"><p class="shortdesc">私たちはPHPとRubyでサンプルコードを提供します。  </p>
+
+   <div class="section">
+     <div class="note note"><span class="notetitle">注意：</span> このソフトウェアは非推奨です。 最新版を使用してください。</div>
+
+     
+     
+     <p class="p">PHP</p>
+
+     
+     <pre class="pre codeblock">
+&lt;？php // [Backlotアカウント]タブの[開発者]領域に、パートナーコードとシークレットコードが定義されています（ &#39;OOYALA_PARTNER_CODE&#39;、 &#39;&lt;あなたのパートナーコード&gt;&#39;）。 define（ &#39;OOYALA_SECRET_CODE&#39;、 &#39;&lt;あなたの秘密のコード&gt;&#39;）; クラスOoyalaBacklotAPI {static function query（$ params）{return OoyalaBacklotAPI :: send_request（ &#39;query&#39;、$ params）;} static function query_thumbnails（$ params）{return OoyalaBacklotAPI :: send_request（ &#39;thumbnails&#39;、$ params）;} } static function update（$ params）{return OoyalaBacklotAPI :: send_request（ &#39;edit&#39;、$ params）;} } static function labels（$ params）{return OoyalaBacklotAPI :: send_request（ &#39;labels&#39;、$ params）;} } static function metadata（$ params）{return OoyalaBacklotAPI :: send_request（ &#39;metadata&#39;、$ params）;} プライベート静的関数send_request（$ request_type、$ params）{//（！array_key_exists（ &#39;expires&#39;、$ params））{$ params [&#39;expires&#39;] = time（）の場合を除き、15分の有効期限を追加します。 + 900; $ string_to_sign = OOYALA_SECRET_CODE; $ url = &#39;http://api.ooyala.com/partner/&#39;.$request_type.&#39;?pcode=&#39;.OOYALA_PARTNER_CODE; $ keys = array_keys（$ params）; 並べ替え（$キー）; foreach（$ keyを$ keyとして）{$ string_to_sign。= $ key。 &#39;=&#39;。$ params [$ key]; $ url。= &#39;＆&#39;。rawurlencode（$ key）。 &#39;=&#39;。rawurlencode（$ params [$ key]）; $ digest = hash（ &#39;sha256&#39;、$ string_to_sign、true）;} $ signature = ereg_replace（ &#39;= + $&#39;、 &#39;&#39;、trim（base64_encode（$ digest）））;; $ url。= &#39;＆signature =&#39; rawurlencode（$ signature）; &quot;$ urlを印刷\ n&quot;; file_get_contents（$ url）を返します。 //いくつかの例$ liveContent = OoyalaBacklotAPI :: query（array（ &#39;status&#39; =&gt; &#39;live&#39;））; $ lifetimeStats = OoyalaBacklotAPI :: query（array（ &#39;統計&#39; =&gt; &#39;1d、2d、7d、28d、30d、有効期間&#39;、 &#39;ステータス&#39; =&gt; &#39;ライブ&#39;））; $ allTrailers = OoyalaBacklotAPI :: query（array（ &#39;label [31]&#39; =&gt; &#39;トレイラー&#39;））; $ specificVideo = OoyalaBacklotAPI :: query（array（ &#39;embedCode&#39; =&gt; &#39;plajrfuW0PS5rgc-kuc5ZWtFtdnYpfiK&#39;））; $ thumbnails = OoyalaBacklotAPI :: query_thumbnails（配列（ &#39;embedCode&#39; =&gt; &#39;plajrfuW9PS5rgc-kuc5ZWtFtdnYpfiK&#39;、 &#39;範囲&#39; =&gt; &#39;9-0&#39;、 &#39;解像度&#39; =&gt; &#39;XNXXX）） $ titleAndPause = OoyalaBacklotAPI :: update（配列（ &#39;タイトル&#39; =&gt; &#39;更新タイトル&#39;、 &#39;ステータス&#39; =&gt; &#39;一時停止&#39;、 &#39;embedCode&#39; =&gt; &#39;dhbjM99U-320s240YkieEwJRepTrYiPed6dPe&#39;）;） $ostedAt = OoyalaBacklotAPI :: update（ &#39;（&#39;ostedAt&#39; =&gt; &#39;http://www.ooyala.com/backlot&#39;、 &#39;embedCode&#39; =&gt; &#39;dhbjM1U-7s8YkieEwJRepTrYiPed6dPe&#39;）;）; $ metaAssign = OoyalaBacklotAPI :: metadata（array（ &#39;metaMode&#39; =&gt; &#39;add&#39;、 &#39;embedCode&#39; =&gt; &#39;dhbjM1U-7s8YkieEwJRepTrYiPed6dPe&#39;、 &#39;type&#39; =&gt; &#39;ドラマ&#39;）; $ metaSearch = OoyalaBacklotAPI :: metadata（array（ &#39;metaMode&#39; =&gt; &#39;query&#39;、 &#39;embedCode&#39; =&gt; &#39;dhbjM1U-7s8YkieEwJRepTrYiPed6dPe&#39;））; $ labelClear = OoyalaBacklotAPI :: labels（array（ &#39;mode&#39; =&gt; &#39;clearLabels&#39;、 &#39;embedCodes&#39; =&gt; &#39;A1bjM7ugPkLWOxmmXxgk8fjJ5Kn6dw））; ？&gt;
+</pre>
+
+     
+     <p class="p">ルビー</p>
+
+     <pre class="pre codeblock">
+require &quot;rubygems&quot; require &quot;base64&quot; require &quot;cgi&quot; require &quot;digest / sha2&quot; require &quot;open-uri&quot;モジュールOoyalaモジュールBacklotモジュールAPI＃[Backlotアカウント]タブの[Developers＃]領域で、パートナーコードとシークレットコードを見つけることができます。OOYALA_PARTNER_CODE = &quot;&lt;あなたのパートナーコード&gt;&quot; OOYALA_SECRET_CODE = &quot;&lt;あなたの秘密コード&gt;&quot; def self.query（params）return send_request（ &quot;query&quot;、params）end def self.query_thumbnails（params）return send_request（ &quot;thumbnails&quot;、params） self_update（params）return send_request（ &quot;edit&quot;、params）end self_labels（params）return send_request（ &quot;labels&quot;、params）end def self.metadata（params）return send_request（ &quot;metadata&quot;、params）他に指定されていない限り、15分の有効期限を追加します。params [&quot;expires&quot;] || =（Time.now.to_i + 10）.to_s string_to_sign = OOYALA_SECRET_CODE url = &quot;http ：//api.ooyala.com/partner/# {request_type}？pcode =＃{OOYALA_PARTNER_CODE} &quot;params.keys.sort.each do | key | string_to_sign + = &quot;＃{key} =＃{params [key]}&quot; url + = &quot;＆＃{CGI.escape（key）} =＃{CGI.escape（params [key]）}&quot; end digest = Digest： ：SHA256.digest（string_to_sign）signature = Base64 :: encode64（digest）.chomp.gsub（/ = + $ /、 &#39;&#39;）url + = &quot;＆signature =＃{CGI.escape（signature）}&quot; return open（url） liveContent = Ooyala :: Backlot :: API :: query（ &quot;status&quot; =&gt; &quot;live&quot;）lifetimeStats = Ooyala :: Backlot :: API :: query（ &quot;statistics&quot;） =&gt; &quot;1d、2d、7d、28d、30d、有効期間&quot;、 &quot;ステータス&quot; =&gt; &quot;ライブ&quot; allTrailers = Ooyala :: Backlot :: API :: query（ &quot;label [31]&quot; =&gt; &quot;トレーラー&quot;）specificVideo = Ooyala :: Backlot :: API :: query（&quot; embedCode &quot;=&gt;&quot; plajrfuW0PS5rgc-kuc5ZWtFtdnYpfiK &quot;）thumbnails = Ooyala :: Backlot :: API :: query_thumbnails（&quot; embedCode &quot;=&gt;&quot; plaXrfXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXWWDNPXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXあるあるあるファイル種類」欄、およびビデオが表示されていません。 &quot;範囲&quot; =&gt; &quot;9-5&quot;、 &quot;解像度&quot; =&gt; &quot;5x9&quot;）titleAndPause = Ooyala :: Backlot :: API :: update（ &quot;title&quot; =&gt; &quot;更新タイトル&quot;、 &quot;status&quot; =&gt; &quot;一時停止中&quot; &quot;、&quot; embedCode &quot;=&gt;&quot; dhbjM0U-99 s320YkieEwJRepTrYiPed240dPe &quot;）; ostedAt = Ooyala :: Backlot :: API :: update（&quot;ostedAt &quot;=&gt;&quot; http://www.ooyala.com/backlot &quot;、&quot; embedCode &quot;=&gt;&quot; dhbjM6U-1s7YkieEwJRepTrYiPed8dPe &quot;）; metaAssign = Ooyala :: Backlot :: API :: metadata（ &quot;metaMode&quot; =&gt; &quot;add&quot;、 &quot;embedCode&quot; =&gt; &quot;dhbjM6U-1s7YkieEwJRepTrYiPed8dPe&quot;、 &quot;type&quot; =&gt; &quot;drama&quot;）; metaSearch = Ooyala :: Backlot :: API :: metadata（ &quot;metaMode&quot; =&gt; &quot;query&quot;、 &quot;embedCode&quot; =&gt; &quot;dhbjM6U-1s7YkieEwJRepTrYiPed8dPe&quot;）; labelClear = Ooyala :: Backlot :: API :: labels（ &quot;mode&quot; =&gt; &quot;clearLabels&quot;、 &quot;embedCodes&quot; =&gt; &quot;A6bjM1ugPkLWOxmmXxgk7fjJ8Kn5dw&quot;）;
+</pre>
+
+     
+     
+   
+  </div>
+
+  
+  
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../archive/api_v1.html" title="このバージョンのBacklot APIは非推奨です。 APIのバージョン2で新しい開発作業を行うことを強くお勧めします。 V2 APIの使用方法については、Ooyalaサポートセンターの開発者ドキュメントセクションを参照してください。">Ooyala Backlot APIリファレンスV1（非推奨）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

@@ -1,0 +1,95 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Ingesting from a Remotely Hosted MRSS Feed"/>
+<meta name="abstract" content="You can use Media RSS (MRSS) to have Ooyala pull your content from your own system from an MRSS feed that you publish. Backlot pulls the metadata from the MRSS feed and either creates a remote asset or downloads (from where they are hosted) and processes the videos and any associated files (thumbnails, closed caption files, etc.)."/>
+<meta name="description" content="メディアRSS（MRSS）を使用して、Ooyalaに自分が公開しているMRSSフィードから自分のシステムから自分のコンテンツを取り出させることができます。 BacklotはMRSSフィードからメタデータを取得し、リモートアセットを作成するか（ホストされている場所から）ダウンロードして、ビデオと関連ファイル（サムネイル、クローズドキャプションファイルなど）を処理します。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ingestion_ois.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ingestion_ois.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="ingestion_mrss"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>リモートでホストされているMRSSフィードからの取り込み</title>
+</head>
+<body id="ingestion_mrss">
+
+
+ <h1 class="title topictitle1">リモートでホストされているMRSSフィードからの取り込み</h1>
+
+   
+ <div class="body conbody"><p class="shortdesc"> メディアRSS（MRSS）を使用して、Ooyalaに自分が公開しているMRSSフィードから自分のシステムから自分のコンテンツを取り出させることができます。 BacklotはMRSSフィードからメタデータを取得し、リモートアセットを作成するか（ホストされている場所から）ダウンロードして、ビデオと関連ファイル（サムネイル、クローズドキャプションファイルなど）を処理します。</p>
+
+    <div class="section">
+       <div class="note note"><span class="notetitle">注意：</span> このトピックは、OIS v2.5とOIS v1の両方に適用されます。 指示がある場合、特定のセクションは1つのバージョンにのみ適用されます。 OIS v1は無効になっています。 OIS v1を使用しているお客様は、OIS v2.5に切り替える必要があります。</div>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">MRSSインジェストの概要</h2>
+       <div class="fig fignone">
+          <img class="image" src="http://help-ooyala.brightcove.com/../image/ingest_mrss.png" height="197" width="474"/>
+       </div>
+
+    </div>
+
+    <div class="section" id="ingestion_mrss__mrss_about"><h2 class="title sectiontitle">MRSSについて</h2>メディアRSS（MRSS）は、RSSフィードのマルチメディアファイルをシンジケートすることを可能にするRSSの拡張です。 技術的な詳細については、 <a class="xref" href="http://www.rssboard.org/media-rss" target="_blank">メディアRSSの仕様</a>.
+   
+   </div>
+
+
+   <div class="section" id="ingestion_mrss__mrss_setup"><h2 class="title sectiontitle">MRSSの設定</h2>
+      Ooyalaの担当者に連絡して、MRSSを使用したいことを伝えてください。 取り込むビデオごとに、Ooyalaに有効なコンテンツURLを提供する必要があります。 URLに含めることができます <samp class="ph codeph">http://</samp>  or  <samp class="ph codeph">https://</samp>.
+    
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">MRSSを使う</h2> MRSSを使用するには、Webサーバー上でメタデータやビデオ、その他のファイル（サムネイル、クローズドキャプション）をホストし、そのコンテンツを参照するXMLマニフェストファイルを作成します。 <p class="gt-block p"><strong class="ph b">MRSSを使用してメタデータのみを取得する</strong></p>
+<ol class="ol">
+            <li class="li">の説明に従ってXMLマニフェストファイルを作成します。 <a class="xref" href="../tasks/ingestion_ftp_xml.html" title="動画を取り込むときは、XMLマニフェストファイルを使用して、サムネイルおよびクローズドキャプションファイルだけでなく、追加のメタデータ（動画のタイトル、説明、掲載時間、ラベル、カスタムメタデータなど）を指定できます。 FTP、Aspera、またはMRSSでコンテンツを取り込むときにXMLマニフェストファイルを使用できます。">XMLマニフェストファイル</a>。 あなたが使用する必要があります <samp class="ph codeph">ooyala：remoteasset</samp> メタデータのみの取り込み用のタグ。 </li>
+
+            <li class="li">指定したいずれかのMRSSの場所でXMLマニフェストファイルをホストします。 ファイル名とパスが、Ooyalaに指定したパスの1つと正確に一致することを確認してください。</li>
+
+         </ol>
+<p class="gt-block p"><strong class="ph b">MRSSを使用してビデオ、サムネイル、およびクローズドキャプションファイルを取得する</strong></p>
+<ol class="ol">
+            <li class="li">Webサーバー上で1つ以上のファイル（ビデオ、サムネイル、およびクローズドキャプションファイル）をホストします。</li>
+
+            <li class="li">XMLマニフェストファイルを作成します（を参照）。 <a class="xref" href="../tasks/ingestion_ftp_xml.html" title="動画を取り込むときは、XMLマニフェストファイルを使用して、サムネイルおよびクローズドキャプションファイルだけでなく、追加のメタデータ（動画のタイトル、説明、掲載時間、ラベル、カスタムメタデータなど）を指定できます。 FTP、Aspera、またはMRSSでコンテンツを取り込むときにXMLマニフェストファイルを使用できます。">XMLマニフェストファイル</a>） ファイル内のエントリーがサーバー上のファイルを参照していることを確認してください。 特に、
+                  <samp class="ph codeph">&lt;メディア：コンテンツ&gt;</samp> 要素の <samp class="ph codeph">HREF</samp>
+               属性を使用する <em class="ph i">しなければなりません</em> 次の例のように、サーバー上のファイルへのHTTP URLになります。
+               <pre class="pre">&lt;media：content url = &quot;http://mysite.com/upload/lacrosse_70.mov&quot; /&gt;</pre>
+</li>
+
+            <li class="li">指定したいずれかのMRSSの場所でXMLマニフェストファイルをホストします。 ファイル名とパスが、Ooyalaに提供したパスの1つと正確に一致することを確認してください。 <div class="note note"><span class="notetitle">注意：</span> 
+                  残念ながら、「クライアントロギング」の概念はMRSSフィードベースの処理には適用されません。 フィードが正常に処理されていることを確認する最善の方法は、Backlot UIまたはBacklot APIを使用して、アセットの外観を確認することです。 <samp class="ph codeph">/ v2 / assets</samp> 要求。 </div>
+</li>
+
+         </ol>
+動画やその他の関連ファイルが処理された後、さらにファイルを取得するには、合意された場所で別のMRSSファイルをホストするだけです。 </div>
+
+    
+      <div class="section"><h2 class="title sectiontitle">MRSSフィードの検証</h2>
+         次のフィードバリデータを使用して、作成したMRSSフィードを検証できます。 <span class="ph">Ooyala <a class="xref" href="../../../../../../../../ja/feed_validator/index.html" target="_blank">MRSSフィードバリデータ</a></span>.
+        
+        </div>
+
+    <div class="section"><h2 class="title sectiontitle">クローズドキャプションの検証</h2>使用 <span class="ph">Ooyala <a class="xref" href="../../../../../../../../ja/ttml_validator/index.html" target="_blank">クローズドキャプションバリデータ</a></span> あなたの便利のためにあなたのDFXP / TTML文書をチェックするため。
+            <div class="note note"><span class="notetitle">注意：</span> 私たちはOoyala特有のDFXPサポートを提供します。 DFXP / TTMLのw3c文書定義に従っても、それはサポートされていない可能性があります。 DFXP / TTMLファイルで問題が発生した場合は、Ooyalaのサポート担当者に連絡してください。</div>
+
+      </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/ingestion_ois.html">ウーヤラ摂取サービス（OIS）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></

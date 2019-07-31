@@ -1,0 +1,351 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="DRM Attributes for Remote Assets (Including Live Streams) (Deprecated)"/>
+<meta name="abstract" content="For remote assets protected by Digital Rights Management (DRM) systems, you need to associate information about that system."/>
+<meta name="description" content="デジタル著作権管理（DRM）システムによって保護されているリモート資産の場合は、そのシステムに関する情報を関連付ける必要があります。"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/chapter_widevine_classic.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="drm_attributes_deprecated"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>リモートアセット（ライブストリームを含む）のDRM属性（廃止予定）</title>
+</head>
+<body id="drm_attributes_deprecated">
+
+
+  <h1 class="title topictitle1">リモートアセット（ライブストリームを含む）のDRM属性（廃止予定）</h1>
+
+  
+  <div class="body refbody"><p class="shortdesc">デジタル著作権管理（DRM）システムによって保護されているリモート資産の場合は、そのシステムに関する情報を関連付ける必要があります。</p>
+
+    <div class="section"><div class="note note"><span class="notetitle">注意：</span> Widevine Classic DRMとのOoyala統合は推奨されておらず、無効にされる予定です。 詳細と代替案については、 <a class="xref" href="../relnotes/2017-06-04.html">OVPリリースノート</a>.  </div>
+
+      <div class="note note"><span class="notetitle">注意：</span> これらのステップは、ライブ線形（Ooyalaによってパッケージ化されていない資産）に適用可能です。 </div>
+
+      <p class="p">Ooyalaシステムによってトランスコードされて保存されている資産には自動的にDRM属性が適用されますが、リモート資産はOoyalaトランスコードを通過しないため、ユーザーが更新する必要があります。 たとえば、ライブエンコーダの場合、これはエンコーダを設定している誰か（あなたやあなたのベンダのテクニカルサポートチームなど）によって更新されなければなりません。 </p>
+
+      <div class="p">Ooyalaが運営するDRMシステムから発行されたライセンスによって保護されているすべてのリモートアセットについて、使用中のDRMシステムのタイプに関連するいくつかの属性（FairPlay Streaming、WidevineまたはPlayReady）を設定する必要があります。 <ul class="ul">
+          <li class="li"><strong class="ph b">FairPlayストリーミング（FPS）</strong> コンテンツキーが必要です。 リース期間またはレンタル期間をオプションで設定できます。</li>
+
+          <li class="li"><strong class="ph b">ワイドヴァイン</strong> が必要です <var class="keyword varname">id</var> （後述） Widevineは、メディアのパッケージ化に必要なすべての必要なパラメータ（ID、IV、キー）を含むサービス情報を提供する必要があります。 現在Widevine Classicを使用している場合は、Widevine Modularへの移行を支援するためにテクニカルサポートまたはアカウントマネージャーに連絡してください。</li>
+
+          <li class="li"><strong class="ph b">PlayReady</strong> ライセンス取得URLが必要です。 <span class="keyword parmname">content_key</span>、そして <span class="keyword parmname">key_id</span> （後述）</li>
+
+          <li class="li">Adobe AccessでDRMを設定するには、ライブエンコーダ用にAdobe Access証明書を設定するようにCSMに連絡してください。</li>
+
+        </ul>
+</div>
+
+      <div class="p">
+        <div class="note note"><span class="notetitle">注意：</span> PlayReadyで保護されたリモートアセットの場合（ <span class="keyword parmname">drm_type</span>  is
+            
+            <samp class="ph codeph">playready</samp>  or  <samp class="ph codeph">playready_hls</samp> 要求に応じて、あなたはこれらの属性を設定する必要があります。 <em class="ph i">before</em> PlayReadyからライセンスを取得する。 そうでないと、DRMの保護下にあるリモートアセットを再生できません。 </div>
+
+        <div class="note note"><span class="notetitle">注意：</span> PlayReadyに使用されるDRM属性はkey_idとcontent_keyです。 キーIDは、コンテンツに関連付けられている識別子です。 base16または16進形式で表現された任意の64バイト値にすることができます。 コンテンツキーは、コンテンツを暗号化するためのAESキーとして使用されるランダムな16バイト値である必要があります。 これはbase64または16進数形式で格納することもできます。 エンコーダでキーIDとコンテンツキーがbase64形式または16進数形式である必要があるかどうかを確認する必要があります。 初めて鍵を作成するときは、バージョンを使用する必要はありません。 この場合、コンテンツキーフィールドはcontent_keyになり、ライセンスURLは次のようになります。<p class="p">http://player.ooyala.com/sas/drm2/jqbkH9m/UPHGNsr/playready/ooyala.</p>
+Ooyalaでは、複数のコンテンツキーを1つの資産に関連付けることができます。 これを行うには、コンテンツキーフィールドにcontent_key_versionという名前を付けます。ここで、versionは、ライセンスURLのバージョンと一致する必要がある番号です。 たとえば、コンテンツキーフィールドがcontent_key_2の場合、ライセンスURLは2：... / playready / ooyala / version / 2で終わる必要があります。 毎回異なるバージョン番号を使用することによって、アセットに複数のキーを関連付けることができます。 下記の例をご覧ください。 </div>
+
+      </div>
+
+    </div>
+
+    <div class="section refsyn"><h2 class="title sectiontitle">FPS暗号化キーの設定/置換</h2><p class="p">新しいFPS暗号化キーを作成します。</p>
+<pre class="pre codeblock">[POST] / v2 / assets /<span class="keyword parmname">asset_id</span>/ drm_attributes / fps</pre>
+<p class="p">応答：
+        </p>
+<pre class="pre codeblock">{&quot;drm_type&quot;： &quot;fps&quot;、 &quot;fps_content_key&quot;： &quot;base64エンコードされたコンテンツキー&quot;、 &quot;fps_content_key_iv&quot;： &quot;base64エンコードされたiv&quot;}</pre>
+
+      <p class="gt-block p">  <span class="keyword parmname">fps_content_key</span> fieldには、ビデオでAES暗号化を実行するために使用できるbase64エンコード、128ビットキーが含まれています。 の
+          <span class="keyword parmname">fps_content_key_iv</span> fieldは、コンテンツを暗号化するための初期化ベクトルとして使用するbase64エンコードの128ビット値です。</p>
+<p class="p">サンプルレスポンス：
+      </p>
+<pre class="pre codeblock">{&quot;drm_type&quot;： &quot;fps&quot;、 &quot;fps_content_key&quot;： &quot;5HdVooYGEROm + LX2NJBDZg ==&quot;、 &quot;fps_content_key_iv&quot;： &quot;rOw7gQauk7RCGVi1aeQ =&quot; QQ	</pre>
+<p class="p">初めてキーを作成するときには、その値はマスクされずに返されます。 後で別のキーを作成すると、既存のキーの値はマスクされて返されます。</p>
+
+      <p class="p">既存のFPS暗号化キーをアセットに関連付けるには：</p>
+<pre class="pre codeblock">[パッチ] / v2 / assets /<span class="keyword parmname">asset_id</span>/ drm_attributes / fps</pre>
+
+      <p class="p">アセットに関連付けられているキーが複数ある場合は、そのキーのバージョンを本文に含めます。 たとえば、これがこのアセットに使用される3番目のキーである場合、2QCEebexS0G8 + 3jP / pM7TA ==およびバージョン番号3を使用して、次のJSON本文を送信します。</p>
+<pre class="pre codeblock">{&quot;fps_content_key_3&quot;： &quot;2QCEebexS0G8 + 3jP / pM7TA ==&quot;}</pre>
+<p class="p"> 応答は、キー3が正常に保管され、キー値がマスクされた状態で保管されたことを示しています。 </p>
+<pre class="pre codeblock">{&quot;fps_content_key_3&quot;： &quot;*****&quot;、 &quot;drm_type&quot;： &quot;fps&quot;}</pre>
+<p class="p">バージョン対応キーを作成するには、POSTルートを使用します。</p>
+
+<pre class="pre codeblock">[POST] / v2 / assets /：asset_id / drm_attributes / fps？version = 1
+</pre>
+<p class="p">サンプルレスポンス：</p>
+
+      <pre class="pre codeblock">{&quot;fps_content_key&quot;： &quot;****&quot;、 &quot;fps_content_key_1&quot;： &quot;12s213&quot;、 &quot;fps_content_key_iv_1&quot;： &quot;daiosd&quot;}</pre>
+      
+      <p class="p">レンタルの期間をデフォルト（3,600秒）から変更する、またはリース期間を設定するには、次の手順を実行します。</p>
+<pre class="pre codeblock">[パッチ] / v2 / assets /<span class="keyword parmname">asset_id</span>/ drm_attributes / fps</pre>
+
+      <p class="p"> 体は：</p>
+
+<pre class="pre codeblock">{&quot;fps_lease_duration&quot;： <span class="keyword parmname">リース期間（秒数）</span>&quot;fps_rental_duration&quot;： <span class="keyword parmname">秒単位のレンタル期間</span> 
+ 
+}</pre>
+
+      <p class="p">たとえば、リース期間を18,0000秒（5時間）に設定し、レンタル期間を6,000秒に設定するには、次のように入力します。</p>
+
+      <pre class="pre codeblock">{&quot;fps_lease_duration&quot;：18000、 &quot;fps_rental_duration&quot;：6000}</pre>
+
+    </div>
+
+    
+    <div class="section refsyn"><h2 class="title sectiontitle">リモート資産のDRM保護のためのWidevine属性の設定/置換</h2>
+      <p class="gt-block p"><span class="keyword parmname">id</span> はエンコーダによって生成され、以下に示すAPIを介してOoyalaに渡す必要があります。 OoyalaはそのIDをOoyalaシステムに保管します。 Widevineと連携して自分の <span class="keyword parmname">id</span>。 あなたが取得できない場合 <span class="keyword parmname">id</span> Widevineから、あなたのCSMはあなたとエンコーダと協力してこれらの値をエンコーダで設定することができます。 </p>
+
+      <pre class="pre codeblock">[パッチ] / v2 / assets /<a class="xref" href="../api/asset_common_routes.html#assets_common_routes__asset_id"><span class="keyword parmname">asset_id</span></a>/ drm_attributes / widevine {&quot;id&quot;： &quot;<span class="keyword parmname">value1</span>&quot;}</pre>
+
+    </div>
+
+    <div class="section refsyn"><h2 class="title sectiontitle">リモートアセットのDRM保護のためのPlayReady属性の設定/置換</h2>
+      <p class="p">コンテンツキーを生成するためにOoyala以外のシステムを使用する必要がある場合は、PlayReady Smoothに次のルートを使用してキーとキーIDをOoyalaアセットに関連付けることができます。 </p>
+
+      <div class="note note"><span class="notetitle">注意：</span> PlayReady HLSとPlayReady Smoothの属性を管理するときに使用する必要があるAPIルートは異なります。 PlayReady Smoothの場合は、以下に示すように、エンドポイント/ v2 / assets / asset_id / drm_attributes / playreadyを使用します。 PlayReady HLSの場合は、エンドポイント/ v2 / assets / asset_id / drm_attributes / playready_hlsを使用します。 </div>
+
+      <pre class="pre codeblock">[パッチ] / v2 / assets /<a class="xref" href="../api/asset_common_routes.html#assets_common_routes__asset_id"><span class="keyword parmname">asset_id</span></a>/ drm_attributes / playready {&quot;key_id&quot;： &quot;<span class="keyword parmname">value1</span>&quot;&quot; content_key &quot;：&quot;<span class="keyword parmname">value2</span>&quot;}</pre>
+
+      <p class="p">アセットに関連付けられているキーが複数ある場合は、そのキーのバージョンを本文に含めます。 たとえば、これがこのアセットに使用される2番目のキーの場合は、次の本文を送信します。</p>
+
+      <pre class="pre codeblock">{&quot;key_id&quot;： &quot;<span class="keyword parmname">value1</span>&quot;&quot; content_key_1 &quot;：&quot;<span class="keyword parmname">value2</span>&quot;}</pre>
+
+    </div>
+
+    <div class="section refsyn"><h2 class="title sectiontitle">PlayReadyのkey_idとcontent_keyを生成する</h2>
+      
+      <div class="p">このルートはアセットのランダムキーIDとコンテンツキーを生成し、それらをビデオに関連付けます。 このルートを使用してキーIDとコンテンツキーを取得する場合、これらの属性をOoyalaのデータストアに格納するために上記のPATCHルートを呼び出す必要はありません。 JSONレスポンスには、base64およびguid / hex形式のキーIDが含まれています。 応答にはbase64エンコード形式のcontent_keyも含まれています。 drm_typeは、playreadyまたはplayready_hlsとして指定できます。<div class="note note"><span class="notetitle">注意：</span> この経路はhttps経由でのみ機能します。 暗号化キーは機密情報であるため、プレーンHTTP経由で行われたAPI呼び出しは拒否されます。</div>
+</div>
+
+      <div class="p">
+        <pre class="pre codeblock">[POST] / v2 / assets /<a class="xref" href="../api/asset_common_routes.html#assets_common_routes__asset_id"><span class="keyword parmname">asset_id</span></a>/ drm_attributes / drm_type</pre>
+
+      </div>
+
+      <p class="p">これは戻ります：</p>
+
+      <pre class="pre codeblock">{&quot;key_id&quot;： &quot;base64エンコードされたキーID&quot;、 &quot;key_id_guid&quot;： &quot;16進数のキーID&quot;、 &quot;drm_type&quot;： &quot;playready&quot;、 &quot;content_key&quot;： &quot;base64エンコードされたコンテンツキー&quot;}</pre>
+
+      <p class="p">同じアセットに対して別のキーを作成するには、バージョンを任意の番号に設定して同じルートを呼び出すことができます。</p>
+<pre class="pre codeblock">[POST] / v2 / assets /<a class="xref" href="../api/asset_common_routes.html#assets_common_routes__asset_id"><span class="keyword parmname">asset_id</span></a>/ drm_attributes / drm_type？version = 2</pre>
+
+      <p class="p">これは戻ります：</p>
+
+      <pre class="pre codeblock">{&quot;key_id&quot;： &quot;base64エンコードされたキーID&quot;、 &quot;key_id_guid&quot;： &quot;16進数のキーID&quot;、 &quot;drm_type&quot;： &quot;playready&quot;、 &quot;content_key_2&quot;： &quot;base64エンコードされたコンテンツキー&quot;、 &quot;content_key&quot;： &quot;* ** &quot;}</pre>
+
+      <p class="gt-block p">昔のことに気付く <span class="keyword parmname">content_key</span> 返されません。 その値は***でマスクされています。 これはセキュリティ上の理由からです。</p>
+
+    </div>
+
+    <div class="section refsyn"><h2 class="title sectiontitle">DRM属性を取得する</h2>
+      
+      <pre class="pre codeblock">[GET] / v2 / assets /<a class="xref" href="../api/asset_common_routes.html#assets_common_routes__asset_id"><span class="keyword parmname">asset_id</span></a>/ drm_attributes / drm_type</pre>
+
+    </div>
+
+    <div class="section refsyn"><h2 class="title sectiontitle">ライセンス取得URL</h2>
+      
+      <p class="p">ライセンス取得URLをエンコーダに入力する必要があります。 それができない場合は、CSMがお客様と協力して、この値をエンコーダーで構成することができます。 Ooyalaはライセンス取得URLをOoyalaシステムに保存します。 </p>
+
+      <pre class="pre codeblock">https://player.ooyala.com/sas/drm2/<span class="keyword parmname">pcode</span>/<span class="keyword parmname">asset_id</span>/ playready / ooyala https://player.ooyala.com/sas/drm2/<span class="keyword parmname">pcode</span>/<span class="keyword parmname">asset_id</span>/ playready_hls / ooyala</pre>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">例</h2>
+      
+      <div class="sectiondiv">
+        
+        <div class="p">この例では、 <samp class="ph codeph">IzNnoCi9B2rtWs</samp> ライブエンコーダ用のアセット。 この資産のライセンス取得URLは次のとおりです。<pre class="pre codeblock">https://player.ooyala.com/sas/drm2/IzNnoCi9B2rtWs/<span class="keyword parmname">asset_id</span>/ playready / ooyala</pre>
+
+          Backlotは次のような応答を返します。 </div>
+
+        <pre class="pre codeblock">{&quot;content_key&quot;： &quot;*****&quot;、 &quot;drm_type&quot;： &quot;playready&quot;、 &quot;key_id&quot;： &quot;1234&quot;}</pre>
+
+        <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+      </div>
+      
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">プロパティ</h2>
+      
+      <p class="p">次の表に、各DRMタイプに設定する必要があるプロパティを示します。</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="33.33333333333333%" id="d156626e388">drm_type</th>
+
+              <th class="entry" valign="top" width="33.33333333333333%" id="d156626e391">プロパティ</th>
+
+              <th class="entry" valign="top" width="33.33333333333333%" id="d156626e394">説明</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            
+            
+            
+            
+          <tr class="row">
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d156626e388 ">FPS</td>
+
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d156626e391 "><span class="keyword parmname">fps_content_key</span><var class="keyword varname">_バージョン</var></td>
+
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d156626e394 ">アセットのFairPlayストリーミング識別子。</td>
+
+            </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d156626e388 ">playready</td>
+
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d156626e391 "><span class="keyword parmname" id="drm_attributes_deprecated__key_id">key_id</span></td>
+
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d156626e394 ">key_idは、コンテンツに関連付けられている識別子です。 base16または16進形式で表現された任意の64バイト値にすることができます。 <p class="p">タイプ：文字列 </p>
+<p class="p">デフォルト：なし</p>
+<p class="p">base64の例 -  V / YqH723UV48kjRlUzyqww == </p>
+16進数での例 -  1f2af657b7bd5e513c923465533caac3</td>
+
+              
+            </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d156626e388 ">playready</td>
+
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d156626e391 "><span class="keyword parmname">content_key_</span><span class="keyword parmname">バージョン</span></td>
+
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d156626e394 ">PlayReadyコンテンツキー。 の <var class="keyword varname">バージョン</var> パラメータ名のは、特定のアセットのライセンス取得URLのバージョンと一致する整数です。 <p class="p">例えば、ライセンス取得URLが以下の場合
+                </p>
+<pre class="pre codeblock">https://player.ooyala.com/sas/drm2/jqbkH9m/UPHGNsr/playready/ooyala/version/3</pre>
+それから対応するパラメータ名は <samp class="ph codeph">content_key_3</samp>.<p class="p">タイプ：文字列</p>
+<p class="p">デフォルト：なし</p>
+<p class="p">base64の例 -  V / YqH723UV48kjRlUzyqww ==
+                  </p>
+<p class="p">16進数での例 -  1f2af657b7bd5e513c923465533caac3 </p>
+<p class="p"> </p>
+</td>
+
+            </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d156626e388 ">ワイドヴァイン</td>
+
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d156626e391 "><span class="keyword parmname" id="drm_attributes_deprecated__id">id</span></td>
+
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d156626e394 "><p class="p">資産のWidevine ID</p>
+
+                <p class="p">タイプ：文字列</p>
+
+                <p class="p">デフォルト：なし</p>
+
+                <p class="p">例： &quot;1234&quot;</p>
+</td>
+
+              
+            </tr>
+</tbody>
+
+        </table>
+</div>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle"> パラメーター </h2>
+      
+      <div class="p">次の表にルートのパラメータを示します。
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="drm_attributes_deprecated__table_xfj_glc_jj" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="33.33333333333333%" id="d156626e521">パラメーター</th>
+
+              <th class="entry" valign="top" width="33.33333333333333%" id="d156626e524">説明</th>
+
+              <th class="entry" valign="top" width="33.33333333333333%" id="d156626e527">必須？</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d156626e521 "><span class="keyword parmname">asset_id </span></td>
+
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d156626e524 ">資産の一意の識別子。<p class="p">タイプ：文字列</p>
+</td>
+
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d156626e527 ">はい</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d156626e521 "><span class="keyword parmname">pcode</span></td>
+
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d156626e524 ">プロバイダコード</td>
+
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d156626e527 ">はい</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d156626e521 "><span class="keyword parmname">バージョン</span></td>
+
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d156626e524 ">複数のバージョンが存在する場合に使用するバージョンを識別する番号。<p class="p">タイプ：Int</p>
+</td>
+
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d156626e527 ">いいえ</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d156626e521 "><span class="keyword parmname">fps_rental_duration</span></td>
+
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d156626e524 ">CKC内のコンテンツキーが有効である秒数。 これが設定されていない場合は、デフォルト値の3600（1時間）が使用されます。 コンテンツキーが期限切れになった場合、プレーヤーは復号化を開始しません。 ただし、再生中にコンテンツキーが期限切れになった場合、プレーヤーはユーザーエクスペリエンスを継続します。 期限切れのキーを使用して再開すると、プレーヤーは再生を拒否します。</td>
+
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d156626e527 ">いいえ</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d156626e521 "><span class="keyword parmname">fps_lease_duration</span></td>
+
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d156626e524 ">に似て <span class="keyword parmname">fps_rental_duration</span> ただし、再生中にキーが期限切れになると、再生はすぐに停止します。 これにデフォルト値がない、従って設定されなければ、リース期間は実施されません。 プレーヤは、リースを定期的に更新するために再生中にサーバにＣＫＣ要求を送信し続けることができる。 </td>
+
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d156626e527 ">いいえ</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+</div>
+
+    </div>
+
+
+  </div>
+
+  
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../archive/chapter_widevine_classic.html">Widevine Classic（廃止予定）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

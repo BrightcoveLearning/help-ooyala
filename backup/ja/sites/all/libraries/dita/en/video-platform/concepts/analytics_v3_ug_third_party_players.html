@@ -1,0 +1,169 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Using Ooyala IQ with Third-Party Players"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ooyala_iq_user_guide.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/analytics_v3_ug_ingest_third_party_player.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/analytics_v3_ug_account.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/analytics_v3_integrate_javascriptsdk.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/analytics_v3_json_api.html"/>
+<meta name="DC.Relation" scheme="URI" content="ooyala_iq_user_guide.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/faq_analytics.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="analytics_v3_ug_third_party_players"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>サードパーティ製のプレイヤーでOoyala IQを使用する</title>
+</head>
+<body id="analytics_v3_ug_third_party_players">
+
+
+    
+    <h1 class="title topictitle1">使い方 <span class="ph">ウーヤラIQ</span> with Third-Party Players</h1>
+
+    <div class="body conbody" id="ug">
+        <div class="section">
+            <p class="gt-block p" id="analytics_v3_ug_third_party_players__summary">あなたは今統合することができます <span class="ph">Ooyala</span> サードパーティ製システム（非<span class="ph">Ooyala</span> ビデオプレーヤー）。 </p>
+
+            <div class="p" id="analytics_v3_ug_third_party_players__iq_scenarios">Ooyala IQは以下の指標を提供できます。 <ul class="ul">
+                    <li class="li">Ooyalaアセット（Backlotでホストされている）をプレイしているOoyalaプレーヤー。</li>
+
+                    <li class="li"><strong class="ph b">（新）Ooyalaアセットをプレイしているサードパーティ製プレイヤー（Backlotで開催）</strong>.</li>
+
+                    <li class="li">サードパーティの資産（サードパーティのCMSでホストされている）をプレイしているサードパーティのプレイヤー。</li>
+
+                </ul>
+
+            </div>
+
+            <div class="p">このリリースでは統合することができます <span class="ph">ウーヤラIQ</span> サードパーティのプレイヤーと一緒に：<ul class="ul" id="analytics_v3_ug_third_party_players__ul_ohm_2nd_x5">
+                    <li class="li">Webベースのプラットフォームとオペレーティングシステム
+                            <a class="xref" href="../tasks/analytics_v3_integrate_javascriptsdk.html">Ooyala IQ JavaScript SDK</a>.</li>
+
+                    <li class="li">JavaScriptをサポートしていないデバイスは、 <a class="xref" href="../tasks/analytics_v3_json_api.html">Ooyala IQ JSON API</a>.</li>
+
+                    <li class="li">Rokuデバイスは、独自のBrightScriptを使用しています。 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/iq_roku/index.html" target="_blank">Roku用Ooyala IQ SDK</a>.</li>
+
+                </ul>
+</div>
+
+            <p class="p">このリリースでは、すぐに使用可能なSDKまたはアダプタを使用して、またはOoyala IQ JSON APIまたはJS SDKと直接統合することで、Ooyala IQをあらゆるプレーヤまたはデバイスと統合できます。 JavaScriptをサポートするすべてのプラットフォームにJavaScript SDKを使用し、ご使用のプラットフォームがJavaScriptをサポートしていない場合、またはRokuを使用している場合はJSON APIを使用することをお勧めします。</p>
+ 次の図は、上記の統合がOoyala IQとどのように統合されるかを示しています。 ライトブルーのアイテムはあなたが管理し、ダークブルーのアイテムはOoyalaが管理します。 <div class="fig fignone">
+                <img class="image" src="http://help-ooyala.brightcove.com/../image/analytics_v3_standalone_options.jpeg" height="499" width="665"/>
+            </div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">データフロー</h2>
+            
+            <p class="gt-block p">次の図は、サードパーティのビデオプラットフォームから <span class="ph">Ooyala</span>.</p>
+
+            <div class="fig fignone"><img class="image" src="http://help-ooyala.brightcove.com/../image/iq_standalone_data_flow.png" height="364" width="468"/></div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">新着情報</h2>
+            
+            <p class="p">サードパーティ（Ooyala以外）のプレーヤーで、OoyalaおよびOoyala以外のビデオアセットの統計情報を表示できます。</p>
+
+            <div class="p" id="analytics_v3_ug_third_party_players__whats_new">  <span class="ph">ウーヤラIQ</span> サードパーティのプレーヤー分析に合わせてUIが調整されました。 調整内容は次のとおりです。 <ul class="ul">
+                    <li class="li">  <em class="ph i">プレーヤー</em> サードパーティのプレイヤーからイベントが発生した場合、パネルにサードパーティのプレイヤーの名前が表示されます。 たとえば、JWプレーヤーからのイベントを分析すると、「JWプレーヤー」が表示されます。 <em class="ph i">プレーヤー</em> パネル。 </li>
+
+                    <li class="li">コンテンツのメタデータがBacklotに取り込まれない場合、Ooyala IQは適切なUIの低下をもたらします。 つまり、Ooyala IQは、サードパーティのCMSシステムからのメタデータの取り込みを必要とせずに、サードパーティのプレイヤーイベントに関する分析を提供できます。 たとえば、Ooyala IQがビデオアセットのタイトルメタデータを取得しない場合は、タイトルの代わりにビデオアセットの外部IDが使用されます（例については下の画像を参照）。 <div class="fig fignone">
+                            <img class="image" src="http://help-ooyala.brightcove.com/../image/iq_standalone_without_metadata.png" height="175" width="445"/>
+                        </div>
+
+                    </li>
+
+                    <li class="li"><span class="ph">Ooyalaプレーヤーとサードパーティプレーヤーを使用してOoyalaビデオアセット（Backlotでホストされている）を再生している場合は、1つのBacklotアカウントを使用してビデオをOoyalaプレーヤーとサードパーティプレーヤーにストリーミングできます。 両方のタイプのプレーヤーについて、1つのダッシュボードに（1つのユーザーアカウントを介して）統合されたIQ分析指標を表示できます。</span>プレーヤーパネルとデバイスパネルを見ることで、Ooyalaプレーヤーとサードパーティプレーヤーのさまざまな指標を見ることができます。 サードパーティのアセット（サードパーティのCMSでホストされている）の場合は、アセットメタデータを取り込むために別のBacklotプロバイダーアカウントを設定する必要があります。</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="section" id="analytics_v3_ug_third_party_players__third_party_player_ooyala_asset"><h2 class="title sectiontitle">サードパーティのプレイヤーとOoyala Assetsを使ってみる</h2>
+            
+           <p class="p">Ooyalaアセット（Ooyala主催）をサードパーティのプレイヤーでプレイしている場合は、以下の手順に従ってサードパーティのプレイヤーイベントをOoyala IQと統合してください。</p>
+
+            <ol class="ol">
+                <li class="li">Ooyala IQ JavaScript SDKまたはJSON APIを他社のプレーヤーと統合することで、サードパーティプレーヤーがプレーヤーイベントをOoyala IQに伝達できるようにします。<span class="ph">Ooyala</span> Ooyala独自のアダプタを使用するか、独自のアダプタを構築することで、ビデオプレーヤーを構築できます。 見る <a class="xref" href="../tasks/analytics_v3_integrate_javascriptsdk.html">JS SDKを使用したサードパーティ製プレイヤーとIQの統合</a> JavaScript SDKの詳細については <a class="xref" href="../tasks/analytics_v3_json_api.html">Ooyala IQ JSON API</a> JSON APIの詳細については。 </li>
+
+                <li class="li">あなたのOoyalaの資産がサードパーティのプレイヤーで再生可能であることを確認してください。 <ol class="ol" type="a">
+                        <li class="li">サードパーティのプレイヤーが再生できるストリームを作成するようにアカウント処理プロファイルが設定されていることを確認してください。 サポートしているストリームの種類については、サードパーティのプレーヤーに確認してください。 処理プロファイルの確認については、カスタマーサクセスマネージャーに問い合わせてください。 サードパーティのプレイヤーは、Ooyalaの再生認証APIを使用して、使用可能なストリームにアクセスできます（サードパーティのプレイヤーによって異なります）。 <div class="note note"><span class="notetitle">注意：</span> アセットライブラリをBacklotに取り込む前に、Ooyalaによってトランスコードされたさまざまなストリームをターゲットデバイスでテストして、ストリームが正しく再生されることを確認することをお勧めします。</div>
+
+                        </li>
+
+                        <li class="li"> エンコードタイプを有効にするために処理プロファイルを変更する必要がある場合は、新しく生成されたファイルを取得するために新しいビデオファイルをアップロードするか、ビデオファイルを再エンコードする必要があります。 コンテンツの置き換え（アセットの置き換え）はこのステップでは機能しません。 同じ埋め込みコードを維持するために手動でアップロードせずにビデオを再処理するには、新しいファイルをアップロードするか、Brightcoveテクニカルサポートでサポートチケットを開く必要があります。</li>
+
+                        <li class="li">Backlot APIを使用して/ assets / &lt;ASSET EMBED CODE&gt; / streamsをクエリし、目的のエンコーディングのURLをコピーします。</li>
+
+                    </ol>
+
+                </li>
+
+                <li class="li">動画へのファイルパスとして、ステップ2cから収集したエンコードURLを指定して、通常どおりにサードパーティプレーヤーを作成します。 </li>
+
+                <li class="li">使用 <a class="xref" href="https://chrome.google.com/webstore/detail/ooyala-analytics-plugin/kgkibeopmmkehaijmmfhldeclmgbmgnp" target="_blank">Ooyala Analytics Chromeプラグイン</a> アナリティクスpingがOoyalaバックエンドに正しく送信されていることを確認するか、または <span class="ph">Ooyala</span> Backlotおよびイベントpingで資産メタデータを検証するためのCustomer Success Manager。</li>
+
+            </ol>
+
+            <p class="p">サードパーティプレーヤーがOoyalaアセットを再生できるようにした後、Ooyalaアセットに対して分析イベントが発生すると、IQアカウントは自動的にサードパーティプレーヤーのメトリクスの表示を開始します。</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">サードパーティ製プレイヤーとサードパーティ製アセットを使ってみる</h2>
+            
+            <p class="p">サードパーティのプレイヤーを使用してサードパーティのアセット（Ooyalaがホストしていない）をプレイしている場合は、以下の手順に従ってサードパーティのプレイヤーイベントをOoyala IQと統合してください。</p>
+
+            <ol class="ol">
+                <li class="li">試用版のBacklotアカウントを作成して、そのアカウントを使用してBacklotでサードパーティの資産とメタデータを表示できるようにします。 無関係なBacklot機能を取り除いたBacklotの簡単なバージョンを見るでしょう。 </li>
+
+                <li class="li">アクセス <span class="ph">ウーヤラIQ</span>  at  <a class="xref" href="http://analytics.ooyala.com" target="_blank">http://analytics.ooyala.com</a> またはBacklot ANALYZEタブから。</li>
+
+                <li class="li">（オプション）コンテンツメタデータを他のコンテンツメタデータと同期します。<span class="ph">Ooyala</span>
+                    CMSと <span class="ph">Ooyala</span> あなたがIQスタンドアロンであなたのビデオを識別することができるようにBacklot CMS。 メタデータを同期しないと、IQスタンドアロンユーザインタフェースでビデオタイトルを表示できなくなるため、これを行うことを強くお勧めします。 見る <a class="xref" href="../tasks/analytics_v3_ug_ingest_third_party_player.html">Ooyala IQとサードパーティのメタデータを同期させる</a> コンテンツメタデータを取り込む方法の詳細については。 一緒に仕事をしたい場合は、カスタマーサクセスマネージャーに相談してください。 <span class="ph">Ooyala</span>
+                    このステップのプロフェッショナルサービス</li>
+
+                <li class="li">関連のあるSDKをあなた以外の人と一緒に実装してください。<span class="ph">Ooyala</span> ビデオプレーヤー 一緒に仕事をしたい場合は、カスタマーサクセスマネージャーに相談してください。
+                        <span class="ph">Ooyala</span> このステップのプロフェッショナルサービス</li>
+
+                <li class="li">使用 <a class="xref" href="https://chrome.google.com/webstore/detail/ooyala-analytics-plugin/kgkibeopmmkehaijmmfhldeclmgbmgnp" target="_blank">Ooyala Analytics Chromeプラグイン</a> アナリティクスpingがOoyalaバックエンドに正しく送信されていることを確認するか、または <span class="ph">Ooyala</span> Backlotおよびイベントpingで資産メタデータを検証するためのCustomer Success Manager。</li>
+
+            </ol>
+
+        </div>
+
+    </div>
+
+    <div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../tasks/analytics_v3_ug_ingest_third_party_player.html">Ooyala IQとサードパーティのメタデータを同期させる</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/analytics_v3_ug_account.html">Ooyala IQアカウント管理</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../tasks/analytics_v3_integrate_javascriptsdk.html">JS SDKを使用したサードパーティ製プレイヤーとIQの統合</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../tasks/analytics_v3_json_api.html">JSON APIを使用したサードパーティ製プレイヤーとIQの統合</a></strong><br/>
+</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/ooyala_iq_user_guide.html">Ooyala IQアナリティクスユーザーガイド</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="ooyala_iq_user_guide.html">Ooyala IQアナリティクスユーザーガイド</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong><br/>
+<div><a class="link" href="../reference/faq_analytics.html" title="Ooyala IQアナリティクスについてよく寄せられる質問">Ooyala IQ（アナリティクス）FAQ</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/3661864

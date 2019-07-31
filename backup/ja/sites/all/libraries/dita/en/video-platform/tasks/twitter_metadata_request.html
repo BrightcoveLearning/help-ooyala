@@ -1,0 +1,116 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Manually Getting Twitter &lt;meta&gt; Tags for Ooyala Player"/>
+<meta name="abstract" content="For Twitter to correctly set up your Twitter Card, you need to provide metadata about each video; this information is in the form of HTML &lt;meta&gt; tags. This section describes how to manually generate these &lt;meta&gt; tags for any specific video. You will want to automate this process. Note that Flash content is no longer supported by Twitter, which requires HTML5 content."/>
+<meta name="description" content="TwitterでTwitterカードを正しく設定するには、各ビデオに関するメタデータを提供する必要があります。 この情報はHTMLの&amp;lt;meta&amp;gt;タグの形式です。 このセクションでは、特定の動画に対してこれらの&amp;lt;meta&amp;gt;タグを手動で生成する方法について説明します。 あなたはこのプロセスを自動化したいでしょう。 FlashコンテンツはTwitterではサポートされていません。TwitterではHTML5コンテンツが必要です。"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/twitter_basics.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="twitter_metadata_request"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Ooyala Player用のTwitter &lt;meta&gt;タグの手動取得</title>
+</head>
+<body id="twitter_metadata_request">
+
+
+ <h1 class="title topictitle1">Ooyala Player用のTwitter &lt;meta&gt;タグの手動取得</h1>
+
+ 
+ <div class="body taskbody"><p class="shortdesc">TwitterでTwitterカードを正しく設定するには、各ビデオに関するメタデータを提供する必要があります。 この情報はHTMLの形式です <samp class="ph codeph">&lt;meta&gt;</samp> タグ このセクションでは、これらを手動で生成する方法について説明します。 <samp class="ph codeph">&lt;meta&gt;</samp> 特定の動画のタグ。 あなたはこのプロセスを自動化したいでしょう。 FlashコンテンツはTwitterではサポートされていません。TwitterではHTML5コンテンツが必要です。</p>
+
+  <div class="section context">
+   <p class="p">サンプルコードをWebページに追加するには</p>
+
+  </div>
+
+  <ol class="ol steps"><li class="li step stepexpand">
+    <span class="ph cmd">にログインします。 <a class="xref" href="https://backlot.ooyala.com/" target="_blank"><span class="ph">バックスロットUI</span></a>.</span>
+       <span class="ph">バックスロットUI</span> 開きます。 
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">Video Cloud Studioで <span class="ph uicontrol">管理</span> のページをご覧ください。 </span>
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">ビデオを選択します。</span>
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">ストリーミングを停止する場合は上部の <span class="ph uicontrol">埋め込む</span> のページをご覧ください。 </span>
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">コンテンツIDを書き留めます。</span>
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">In your web browser, make the following request:&#8232;</span>
+     
+     <pre class="pre codeblock">http://player.ooyala.com/twitter/meta/<em class="ph i">player_id</em>/<em class="ph i">content_id</em>
+    </pre>
+
+     <p class="gt-block p">where <var class="keyword varname">player_id</var> プレーヤID <var class="keyword varname">content_id</var> バックスロットのコンテンツID <span class="ph uicontrol">埋め込む</span> この動画のタブです。</p>
+
+    
+     
+     <p class="p">空白のページが表示されます。</p>
+&#8232; 
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">この空白ページのHTMLソースを表示します。 ほとんどのブラウザでは、ページを右クリックして
+     <span class="ph uicontrol">ページソースを表示する</span>.</span>
+      生成された <samp class="ph codeph">&lt;meta&gt;</samp> タグが表示されます。 例えば： <pre class="pre codeblock">
+&lt;meta name = &quot;twitter：カード&quot; content = &quot;player&quot;&gt; &lt;meta name = &quot;twitter：title&quot; content = &quot;123 MarvelのThe Avengers.mov&quot; /&gt; &lt;meta name = &quot;twitter：説明&quot; content = &quot;video&quot; &gt; &lt;meta name = &quot;twitter：image&quot; content = &quot;http://ak.c.ooyala.com/B5aDU0NjrcNyJKEEAPvqsFAKuJ-VLxLt/Ut_HKthath5eww8X4xMDoxOjBhOzV3Va&quot; tw&gt; &quot;meta =&quot; twitter：image<strong class="ph b">https://player.ooyala.com/tframe.html?ec=B5aDU0NjrcNyJKEEAPvqsFAKuJ-VLxLt&amp;pbid=MzZiMzc1ZDUzZGVlYmMxNzA3Y2MzNjBk</strong>&quot;&gt; &lt;meta name =&quot; twitter：player：width &quot;content =&quot; 435 &quot;&gt; &lt;meta name =&quot; twitter：player：height &quot;content =&quot; 251 &quot;&gt;
+    </pre>
+
+     <p class="gt-block p"><strong class="ph b">注意： </strong>広告タグなど、プレーヤ用の高度なオプションがある場合は、上記で強調表示されている基本URLを置き換える必要があります。 見る <a class="xref" href="../reference/player_v3_dev_tframe.html#player_v3_tframe" title="Using a special page from Ooyala, you can create a Player URL to embed a video in Twitter's Player Card, including all available Ooyala player options.">Twitterカードの高度なプレーヤーオプション</a>.</p>
+
+    
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">返品をコピー <samp class="ph codeph">&lt;meta&gt;</samp> テキストエディタにタグを付けます。 </span>
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">の最後に以下を追加してください <samp class="ph codeph">&lt;meta&gt;</samp> タグ：</span>
+     
+     <pre class="pre codeblock">
+&lt;meta name = &quot;twitter：site&quot; content = &quot;@ username&quot;&gt;
+    </pre>
+
+     <p class="p">where <var class="keyword varname">ユーザ名</var> あなたのTwitter IDです。</p>
+
+    
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">テストするには <samp class="ph codeph">&lt;meta&gt;</samp> タグは、次のURLを開きます。 <a class="xref" href="https://dev.twitter.com/docs/cards/validation/validator" target="_blank">https://dev.twitter.com/docs/cards/validation/validator</a>.</span>
+     [Twitterカードのプレビュー]ページが表示されます。
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd"> メタをTwitterに入力 <span class="ph uicontrol">標準タグ</span> フィールドとクリック
+     <span class="ph uicontrol">プレビューカード</span>.&#8232; </span>
+     
+     <p class="p">Twitterがプレビューを返します。</p>
+
+     <p class="p"><img class="image" src="http://help-ooyala.brightcove.com/../image/twitter_cards_03.png" height="262" width="293"/></p>
+
+    
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">次の手順に進んでください。</span>
+   </li>
+</ol>
+
+ </div>
+
+ 
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../tasks/twitter_basics.html" title="これらは、ビデオとOoyalaプレーヤーを使ってTwitterプレーヤーカードを作成するための基本的な手順です。">Ooyala PlayerのTwitterカードを作成する</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div

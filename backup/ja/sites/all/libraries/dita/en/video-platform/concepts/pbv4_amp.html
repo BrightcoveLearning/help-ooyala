@@ -1,0 +1,303 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Using Ooyala Player V4 with Accelerated Mobile Pages (AMP)"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_about.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_google_amp"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Accelerated Mobile Pages（AMP）でのOoyalaプレーヤーV4の使用</title>
+</head>
+<body id="pbv4_google_amp">
+
+
+    <h1 class="title topictitle1">Accelerated Mobile Pages（AMP）でのOoyalaプレーヤーV4の使用</h1>
+
+    <div class="body conbody">
+        <div class="section">
+            <p class="gt-block p">Ooyala Player V4をWebページに埋め込むことで、モバイルデバイスでの再生パフォーマンスを最適化できます。 <a class="xref" href="https://www.ampproject.org/" target="_blank">高速モバイルページ（AMP）</a>モバイルWebブラウザ用のオープンソースJavaScriptフレームワーク。 AMPは、リソースのロード方法を管理し、次のようなパフォーマンスを向上させるその他の機能を提供することによってWebページをより高速にレンダリングします。</p>
+
+            <ul class="ul">
+                <li class="li">最も重要なリソースを最初にダウンロードし、遅延ロードされたリソースを事前に取得します</li>
+
+                <li class="li">フォントのダウンロードとスタイルの使用を最適化する</li>
+
+                <li class="li">ロード時に時間のかかるページレイアウト計算を回避して、外部リソースをロードする前にすべてのページ要素のレイアウトを事前計算します</li>
+
+                <li class="li">焦点が合っていないときにメディアを一時停止する</li>
+
+                <li class="li">外部ライブラリを最小限に抑える</li>
+
+            </ul>
+
+            <p class="gt-block p">詳細については、を参照してください。 <a class="xref" href="https://www.ampproject.org/learn/about-how/" target="_blank">AMPのしくみ</a> そして <a class="xref" href="https://www.ampproject.org/docs/getting_started/create/basic_markup" target="_blank">AMP HTMLページを作成する</a> の中に <a class="xref" href="https://www.ampproject.org/docs/getting_started/quickstart" target="_blank">AMPのドキュメント</a>.</p>
+</div>
+
+        <div class="section"><h2 class="title sectiontitle">AMP WebサイトでOoyala Web Playerを使用するためのオプション</h2>
+            
+            
+        <div class="p">OoyalaプレーヤーV4では、現在OoyalaビデオプレーヤーをAMP準拠にするための2つのオプションがあります。<ul class="ul" id="pbv4_google_amp__ul_kj4_h5j_f2b">
+                    <li class="li">OoyalaプレーヤーをAMP iFrameに埋め込む（一般的に推奨）</li>
+
+                    <li class="li">AMP-Ooyalaプレーヤーを埋め込む</li>
+
+                </ul>
+</div>
+
+            <p class="p">AMP iFrameアプローチを使用して、Ooyalaプレーヤーの全機能を使用できるようにします。 これには、iFrameの使用に共通の固有の制限がいくつかあります（たとえば、ページ間でiFrame内のプレーヤーに変数を渡す）。 あるいは、Ooyala-AMPプレーヤーは、全体のOoyala V4プレーヤーの機能のサブセットのみをサポートします。 そのため、AMP iFrameはほとんどの状況に適したアプローチです。 </p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">AMP IFrame入門</h2>
+            
+            <p class="gt-block p">まず、AMP iframeは、全体的にAMP準拠のページ内にホストされる必要があります。 見る
+                    <a class="xref" href="https://www.ampproject.org/docs/getting_started/create/basic_markup" target="_blank">詳細はこちら</a> AMPのWebサイトの最小要件を満たす基本的なAMPボイラープレートの作成方法について。</p>
+
+            <p class="p"> 基本的なAMPセットアップに加えて、次のスクリプトを追加する必要があります。
+                    <samp class="ph codeph">head</samp> amp-iframe自体のサポートを追加するためのページのタグ： </p>
+
+            <pre class="pre codeblock">&lt;script async custom-element = &quot;amp-iframe&quot; src = &quot;https://cdn.ampproject.org/v0/amp-iframe-0.1.js&quot;&gt; &lt;/script&gt;</pre>
+
+            <p class="p">amp-iframeの設定方法に関する詳細は、次のリンクにあります。</p>
+
+            <p dir="ltr" class="gt-block p"><a class="xref" href="https://www.ampproject.org/docs/reference/components/amp-iframe" target="_blank">https://www.ampproject.org/docs/reference/components/amp-iframe</a></p>
+
+            <p dir="ltr" class="gt-block p"><a class="xref" href="https://ampbyexample.com/components/amp-iframe/#introduction" target="_blank">https://ampbyexample.com/components/amp-iframe/#introduction</a></p>
+
+            <p class="p">以下では、Ooyalaプレーヤーをamp-iframe内に埋め込む際に考慮する必要があるセットアップオプションについて説明します。 次のサンプルページは、Ooyala Web Playerを使った典型的なAMP Iframe設定の外観を示しています。</p>
+
+            <pre class="pre codeblock">&lt;！doctype html&gt; &lt;html amp lang = &quot;ja&quot;&gt; &lt;head&gt; &lt;meta charset = &quot;utf-8&quot;&gt; &lt;script async src = &quot;https://cdn.ampproject.org/v0.js&quot;&gt; &lt;/ script&gt; &lt;script async custom-element = &quot;amp-iframe&quot; src = &quot;https://cdn.ampproject.org/v0/amp-iframe-0.1.js&quot;&gt; &lt;/script&gt; &lt;title&gt; Ooyala AMP Iframeのサンプル&lt; / title&gt; &lt;link rel = &quot;標準的な&quot; href = &quot;http://example.ampproject.org/article-metadata.html&quot;&gt; &lt;meta name = &quot;viewport&quot; content = &quot;width =デバイスの幅、minimum-scale = 1、初期スケール= 1 &quot;&gt; &lt;スクリプトの種類=&quot; application / ld + json &quot;&gt; {&quot; @context &quot;：&quot; http://schema.org &quot;、&quot; @ type &quot;：&quot; NewsArticle &quot;、&quot; headline &quot;： &quot;コンテンツを公開するためのオープンソースフレームワーク&quot;、 &quot;datePublished&quot;： &quot;2015-10-07：12：02Z&quot;、 &quot;image&quot;：[&quot;logo.jpg&quot;]} &lt;/script&gt; &lt;style amp-boilerplate&gt; body { -webkit-animation：-amp-start 41ステップ（8、終了）1 0通常両方; -moz-animation：-amp-start 1ステップ（8、終了）1 0通常両方; -ms-animation：-amp- 1ステップの開始（8、end）1 0通常両方;アニメーション：-amp-start 1ステップ （8、end）1 0通常両方} @  -  webkit-keyframes -amp-start {from {visibility：hidden}から{visibility：visible}} @  -  moz-keyframes -amp-start {from {visibility：hidden}から{visibility：visible}} @  -  ms-keyframes -amp-start {から{visibility：hidden}から{visibility：visible}} @  -  o-keyframes -amp-start {from {visibility：hidden}から{visibility：visible} @keyframes -amp-start {から{visibility：hidden}から{visibility：visible}} &lt;/style&gt; &lt;noscript&gt; &lt;style amp-boilerplate&gt; body {-webkit-animation：none; -moz-animation：none ; -ms-animation：none; animation：none} &lt;/style&gt; &lt;/noscript&gt; &lt;/head&gt; &lt;body&gt; &lt;div style = &quot;マージン：1vh auto; width：10px &quot;&gt; &lt;amp-iframe title =&quot; Ooyalaビデオプレーヤー &quot;width =&quot; 360 &quot;height =&quot; 360 &quot;sandbox =&quot;許可スクリプトと許可起点許可ポップアップ &quot;layout =&quot;レスポンシブ &quot;frameborder =&quot; 203 &quot;allowfullscreenが許可=&quot; 暗号化されたメディア」SRC = &quot;https://player.ooyala.com/static/v0/production/latest/skin-plugin/iframe.html?ec=I4dXhnazoidu3V1G58iOorCCdDZwqlaZ&amp;pbid=dcb8e79c2098a94889b1f9af2b6280d&amp;pcode=Z45Mm5XeZlcDlfU_06R1v_L9KwYG2&quot;&gt; &lt;！ -  -  Iframesが最上部から6pxだけ離れているか、最上部にスクロールされたときにビューポートの最初の600％以内である必要があるという制約を削除するオプションのプレースホルダ - &gt; &lt;amp-img layout = &quot;fill&quot; src = &quot;https：// secure-cf-c.ooyala.com/I75dXhnazoidu3V1iOorCCdDZwqlaZ/PE58O8Z3ojHeNSk6H9yMDoxOjBzMTtyGk &quot;プレース&lt;/strong&gt; &lt;/ml&gt; &lt;/ml&gt;</pre>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">amp-iframe要素を設定する</h2>
+            
+            <div class="p">プレーヤーを設定するには、まずamp-iframeタグを追加してその属性を設定する必要があります。 以下の表は、サンプルページに示されているすべての属性の目的を示しています。<table cellpadding="4" cellspacing="0" summary="" id="pbv4_google_amp__simpletable_v3x_4wk_f2b" border="1" class="simpletable"><tr class="sthead">
+                        <th valign="bottom" align="left" id="d432933e126" class="stentry" width="14.492753623188404%">属性</th>
+
+                        <th valign="bottom" align="left" id="d432933e129" class="stentry" width="85.5072463768116%">説明</th>
+
+                    </tr>
+<tr class="strow">
+                        <td valign="top" headers="d432933e126" class="stentry">SRC</td>
+
+                        <td valign="top" headers="d432933e129" class="stentry">Ooyalaプレーヤーが埋め込まれているHTMLページのURL。 これは、Ooyalaがホストするテンプレート、またはカスタムの自己ホストページのいずれかです。 URLは必ず使用してください <samp class="ph codeph">HTTPS</samp> AMPページがホストされているものとは異なる起源。</td>
+
+                    </tr>
+<tr class="strow">
+                        <td valign="top" headers="d432933e126" class="stentry">タイトル</td>
+
+                        <td valign="top" headers="d432933e129" class="stentry">表示されるコンテンツの名前またはタイトル</td>
+
+                    </tr>
+<tr class="strow">
+                        <td valign="top" headers="d432933e126" class="stentry">幅</td>
+
+                        <td valign="top" headers="d432933e129" class="stentry">iframeの初期幅（ピクセル単位）</td>
+
+                    </tr>
+<tr class="strow">
+                        <td valign="top" headers="d432933e126" class="stentry">高さ</td>
+
+                        <td valign="top" headers="d432933e129" class="stentry">iframeの初期の高さ（ピクセル単位）</td>
+
+                    </tr>
+<tr class="strow">
+                        <td valign="top" headers="d432933e126" class="stentry">サンドボックス</td>
+
+                        <td valign="top" headers="d432933e129" class="stentry">AMPのiframeはデフォルトで「最大サンドボックス化」されています。つまり、JavaScriptの実行などの機能を有効にするには、親ページが明示的に特定の権限を付与する必要があります。
+                            <pre class="pre codeblock">allow-scripts allow-same-origin allow-popups</pre>
+見てください <a class="xref" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe" target="_blank">詳細はこちら</a> 詳細については。</td>
+
+                    </tr>
+<tr class="strow">
+                        <td valign="top" headers="d432933e126" class="stentry">レイアウト</td>
+
+                        <td valign="top" headers="d432933e129" class="stentry">iframeコンテナに使用するレイアウトの種類。 詳細と可能な値については、を参照してください。 <a class="xref" href="https://www.ampproject.org/docs/design/responsive/control_layout" target="_blank">詳細はこちら</a>.</td>
+
+                    </tr>
+<tr class="strow">
+                        <td valign="top" headers="d432933e126" class="stentry">枠線</td>
+
+                        <td valign="top" headers="d432933e129" class="stentry">（オプション）これをに設定します。 <samp class="ph codeph">0</samp> iframeコンテナの周囲の境界線を削除する</td>
+
+                    </tr>
+<tr class="strow">
+                        <td valign="top" headers="d432933e126" class="stentry">allowfullscreen</td>
+
+                        <td valign="top" headers="d432933e129" class="stentry">動画を全画面モードにするために必要です</td>
+
+                    </tr>
+<tr class="strow">
+                        <td valign="top" headers="d432933e126" class="stentry">許す</td>
+
+                        <td valign="top" headers="d432933e129" class="stentry">に設定され <samp class="ph codeph">暗号化メディア</samp> ChromeでDRMコンテンツを許可するには、それ以外の場合は省略できます。</td>
+
+                    </tr>
+</table>
+</div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">制限</h2>
+            
+            <div class="p">AMPプロジェクト <a class="xref" href="https://www.ampproject.org/docs/reference/components/amp-iframe" target="_blank">参照</a> amp-iframeコンポーネントに適用される以下の制限をリストします。 <ul class="ul">
+                    <li class="li">amp-iframeは、文書の上部近くに表示されない場合があります（後述のように、プレースホルダーを使用するiframeを除く）。 iframeは、最上部からスクロールしたときに、最上部から600 px離れているか、ビューポートの最初の75％以内でない方のいずれか小さい方でなければなりません。</li>
+
+                    <li class="li">デフォルトでは、amp-iframeはサンドボックス化されています（詳細は
+                            <samp class="ph codeph">サンドボックス</samp> 上記の属性）。</li>
+
+                    <li class="li">amp-iframeは以下を介してリソースを要求するだけです <samp class="ph codeph">HTTPS</samp>データURIから、または <samp class="ph codeph">srcdoc</samp> 属性。</li>
+
+                    <li class="li">許可されていない限り、amp-iframeはコンテナと同じ原点にあってはいけません。 <samp class="ph codeph">同一原点許可</samp> sandbox属性にあります。</li>
+
+                </ul>
+</div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">iFrame配置の回避策（オプション）</h2>
+            
+            <p class="p">amp-iframeがドキュメントの上部近くに表示されないという制限は、コンポーネントのプレースホルダ画像を設定することで回避できます。 プレースホルダーは次のものを含めることで設定できます。 <samp class="ph codeph">アンプ画像</samp> 内のタグ
+                    <samp class="ph codeph">アンプイフラメ</samp> 次のような要素と画像URLの設定</p>
+
+            <pre class="pre codeblock">&lt;アンプ-のiframeタイトル= &quot;プレースホルダとAMP&quot;&gt; &lt;アンプ-IMGレイアウト= &quot;埋める&quot; SRC = &quot;https://secure-cf-c.ooyala.com/I3dXhnazoidu1V58G8iOorCCdDZwqlaZ/PE3O6Z9ojHeNSk7H4yMDoxOjBzMTtyGk&quot; プレースホルダ&gt; &lt;/アンプ-IMG&gt; &lt;/amp-iframe&gt;</pre>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">DRM</h2>
+            
+            <p class="p">Ooyala AMPプレーヤーは現在モバイルデバイスでのDRM再生をサポートしていませんが、ChromeでDRMコンテンツを再生しようとすると、デスクトップブラウザにロードされたAMPページが問題になる可能性があります。 これは、Chromeを使用している場合、暗号化メディアエクステンションのアクセス許可がクロスオリジンiframeで推奨されなくなったためです。</p>
+
+            <p class="gt-block p">この制限は、次のように設定することで回避できます。 <samp class="ph codeph">許す</samp> amp-iframeの属性の値 <samp class="ph codeph">暗号化メディア</samp>。 見てください <a class="xref" href="https://sites.google.com/a/chromium.org/dev/Home/chromium-security/deprecating-permissions-in-cross-origin-iframes" target="_blank">詳細はこちら</a> 詳細については。</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">反応性</h2>
+            
+            <p class="p">AMP iframeは自動サイズ変更をサポートしていますが、この機能ではiframeテンプレートに特定のコードを追加する必要があります。 私たちの現在のOoyala iframeテンプレートは現在このコードを持っていません、そしてまた一般的に応答性に関するいくつかの問題を抱えています。 プレイリストはAMP iframe内では正しく機能するはずですが、プレーヤーの現在のCSSでは、iframe内ではサムネイルがビュー外にレンダリングされます。</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">AMP iFrameアプローチの既知の問題と制限</h2>
+            
+            <p class="gt-block p">通常のiframeに適用される制限は、amp-iframeを使用するときにも発生します。 説明されている制限に加えて <a class="xref" href="https://docs.google.com/document/d/1OeG8CQbbFshYMjpvxV3v7dMGSEOWBuZoUBMRuVbY4Yo" target="_blank">詳細はこちら</a>AMP XFrameを使用している場合は、Windows 7用のBitmovin Flashフォールバック、OSMF FlashプラグインなどのFlash関連機能は使用できなくなります。</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">AMP-Ooyalaプレーヤーを始めよう</h2>
+            
+            <p class="p">Ooyalaビデオを表示するには、以下が必要です。</p>
+
+            <p class="gt-block p"><strong class="ph b">必要なスクリプト</strong></p>
+
+            <pre class="pre codeblock">&lt;script async custom-element = &quot;amp-ooyala-player&quot; src = &quot;https://cdn.ampproject.org/v0/amp-ooyala-player-0.1.js&quot;&gt; &lt;/script&gt;</pre>
+
+            <p class="gt-block p"><strong class="ph b">例：</strong></p>
+
+            <pre class="pre codeblock">&lt;AMP-ウーヤラプレイヤデータembedcode = &quot;Vxc2k0MDE6Y_C7J5podo3UDxlFxGaZrQ&quot; データPCODE = &quot;5zb2wxOlZcNCe_HVT3a6cawW298X&quot; データplayerid = &quot;6440813504804d76ba35c8c787a4b33c&quot; 幅= &quot;640&quot; 高さ= &quot;360&quot;&gt; &lt;/ AMP-ウーヤラプレーヤー&gt;</pre>
+
+        </div>
+
+        
+        <div class="section">
+            <table cellpadding="4" cellspacing="0" summary="" id="pbv4_google_amp__simpletable_k2h_1zk_f2b" border="1" class="simpletable"><tr class="sthead">
+                    <th valign="bottom" align="left" id="d432933e369" class="stentry" width="33.333333333333336%">属性</th>
+
+                    <th valign="bottom" align="left" id="d432933e372" class="stentry" width="33.333333333333336%">説明</th>
+
+                    <th valign="bottom" align="left" id="d432933e375" class="stentry" width="33.333333333333336%">必須？</th>
+
+                </tr>
+<tr class="strow">
+                    <td valign="top" headers="d432933e369" class="stentry"><samp class="ph codeph">データ埋め込みコード</samp></td>
+
+                    <td valign="top" headers="d432933e372" class="stentry">
+                        <p class="gt-block p">からのビデオ埋め込みコード <a class="xref" href="https://backlot.ooyala.com/" target="_blank">バックスロット</a></p>
+
+                    </td>
+
+                    <td valign="top" headers="d432933e375" class="stentry">はい</td>
+
+                </tr>
+<tr class="strow">
+                    <td valign="top" headers="d432933e369" class="stentry"><samp class="ph codeph">データプレイヤーID</samp></td>
+
+                    <td valign="top" headers="d432933e372" class="stentry">
+                        <p class="gt-block p">ロード元のプレイヤーのID <a class="xref" href="https://backlot.ooyala.com/" target="_blank">バックスロット</a></p>
+
+                    </td>
+
+                    <td valign="top" headers="d432933e375" class="stentry">はい</td>
+
+                </tr>
+<tr class="strow">
+                    <td valign="top" headers="d432933e369" class="stentry"><samp class="ph codeph">データpcode</samp></td>
+
+                    <td valign="top" headers="d432933e372" class="stentry">
+                        <p class="p">埋め込みコードとプレーヤを所有するアカウントのプロバイダコード</p>
+
+                    </td>
+
+                    <td valign="top" headers="d432933e375" class="stentry">はい</td>
+
+                </tr>
+<tr class="strow">
+                    <td valign="top" headers="d432933e369" class="stentry"><samp class="ph codeph">データプレイヤーバージョン</samp></td>
+
+                    <td valign="top" headers="d432933e372" class="stentry">
+                        <p class="p">使用するOoyalaプレーヤーのバージョン、V3またはV4。 デフォルトはV3です。</p>
+
+                    </td>
+
+                    <td valign="top" headers="d432933e375" class="stentry">いいえ</td>
+
+                </tr>
+<tr class="strow">
+                    <td valign="top" headers="d432933e369" class="stentry"><samp class="ph codeph">データ設定</samp></td>
+
+                    <td valign="top" headers="d432933e372" class="stentry">
+                        <p class="p">を指定します <samp class="ph codeph">skin.json</samp> プレーヤーV4の設定ファイルのURL。</p>
+
+                    </td>
+
+                    <td valign="top" headers="d432933e375" class="stentry">いいえ</td>
+
+                </tr>
+<tr class="strow">
+                    <td valign="top" headers="d432933e369" class="stentry"><samp class="ph codeph">共通の属性</samp></td>
+
+                    <td valign="top" headers="d432933e372" class="stentry">
+                        <p class="gt-block p">この要素は <a class="xref" href="https://www.ampproject.org/docs/reference/common_attributes" target="_blank">共通の属性</a> AMPコンポーネントに拡張されました。</p>
+
+                    </td>
+
+                    <td valign="top" headers="d432933e375" class="stentry"> </td>
+
+                </tr>
+</table>
+
+            <p class="gt-block p"><strong class="ph b">検証</strong></p>
+
+            <p class="gt-block p">見る <a class="xref" href="https://github.com/ampproject/amphtml/blob/master/extensions/amp-ooyala-player/validator-amp-ooyala-player.protoascii" target="_blank">amp-ooyala-playerのルール</a> AMPバリデーター仕様にあります。</p>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/pbv4_about.html">プレイヤーV4</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

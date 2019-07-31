@@ -1,0 +1,55 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Using Top Titles"/>
+<meta name="abstract" content=""/>
+<meta name="description" content=""/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/discovery_abouttoptitles.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="discovery_usingtoptitles"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>トップタイトルを使う</title>
+</head>
+<body id="discovery_usingtoptitles">
+
+
+  <h1 class="title topictitle1">トップタイトルを使う</h1>
+
+  
+  <div class="body conbody"><p class="shortdesc"/>
+
+    <p class="p">次の例は、の基本呼び出しを示しています。 <samp class="ph codeph">top_titles</samp> マッピングルート：</p>
+
+    <pre class="pre codeblock">href = &quot;http://api.ooyala.com/v2/discover/trending?score_type=top_titles</pre>
+
+    <p class="p">次の例は、先週の最も人気のある7つのシリーズアセットを返す要求を示しています。</p>
+
+    <p class="gt-block p"><strong class="ph b">要求：</strong></p>
+
+    <pre class="pre codeblock">GET http://api.ooyala.com/v2/discover/trending?score_type=top_titles&amp;show_type =Series＆window = hour＆limit = 7＆signature = xxxxxxxxxxxxxxxxxxxxxxxxxx＆expires = 1408138735＆api_key = xxxxxxxxxxxxxxx</pre>
+
+    <p class="p">以下はレスポンススニペットの例です。</p>
+
+    <p class="gt-block p"><strong class="ph b">応答：</strong></p>
+
+    <pre class="pre codeblock">{&quot;結果&quot;：[{= &quot;id&quot;： &quot;ZpZXI5bjocHxChXG-8LKW8-5mYuxk4wm&quot;、 &quot;localized_name&quot;：[{&quot;名前&quot;： &quot;De Que Te Quiero Te Quiero&quot;、 &quot;言語&quot;： &quot;es&quot;}]、 &quot;スコア &quot;：3879.0、&quot; show_type &quot;：&quot;シリーズ &quot;}、{&quot; id &quot;：&quot; tpZ3U4bjrawWWoKlUyE5Cv2vsPpMrJ6z &quot;、&quot;ローカライズされた名前 &quot;、&quot;言語 &quot;、&quot;言語 &quot;、&quot; es &quot;&quot; &quot; ：642.0、 &quot;show_type&quot;： &quot;シリーズ&quot;}、...</pre>
+
+    
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/discovery_abouttoptitles.html" title="トップタイトルのルートを使用して、トップトレンドの動画に関する統計情報を返します。">トップタイトル</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

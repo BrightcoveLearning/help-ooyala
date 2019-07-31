@@ -1,0 +1,124 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Key Concepts"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_rightslocker.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept_m2n_5td_v3"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>主な概念</title>
+</head>
+<body id="concept_m2n_5td_v3">
+
+
+ <h1 class="title topictitle1">主な概念</h1>
+
+ <div class="body conbody">
+  <div class="p">Rights Lockerにとって重要な概念を定義するのに役立ついくつかの重要な用語が導入されています。
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="concept_m2n_5td_v3__table_bhy_nmd_v3" class="table" frame="border" border="1" rules="all">
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="20%" id="d628368e25">契約期間</th>
+
+       <th class="entry" valign="top" width="80%" id="d628368e28">定義/説明</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" width="20%" headers="d628368e25 ">資産</td>
+
+       <td class="entry" valign="top" width="80%" headers="d628368e28 ">In  <span class="ph">バックスロット</span>たとえば、あなたの素材（ビデオなど）は「アセット」と呼ばれ、アセット識別子またはasset_id（「埋め込みコード」とも呼ばれる）によって識別されます。 <div class="note note"><span class="notetitle">注意：</span> 君は <em class="ph i">削除されたデジタルマスターを復元することはできません</em> Rights Lockerでは外部識別子を使用します。 渡される値は、実際の埋め込みコード（資産ID）でなければなりません。 </div>
+</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="20%" headers="d628368e25 ">ラベル</td>
+
+       <td class="entry" valign="top" width="80%" headers="d628368e28 ">In  <span class="ph">バックスロット</span>あなたのアセットを分類するためにあなたが定義したラベルとあなたのアセットを関連付けることができます。 ラベルはlabel_idによって識別されます。</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="20%" headers="d628368e25 ">プロバイダー</td>
+
+       <td class="entry" valign="top" width="80%" headers="d628368e28 ">プロバイダは、資格を割り当てた資産を所有するエンティティです。 プロバイダはprovider_idによって識別されます。 <span class="ph">バックスロットUI</span>'s  <span class="ph uicontrol">アカウント</span> タブ、 <span class="ph uicontrol">開発者</span> サブタブで、「パートナーコード」と呼ばれます。 Rights Locker APIを呼び出すには、このプロバイダIDが必要です。</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="20%" headers="d628368e25 ">アカウント</td>
+
+       <td class="entry" valign="top" width="80%" headers="d628368e28 ">アカウントは、あなたがアセットの権利を付与するあなたのビデオコンシューマの1人を識別します。 アカウントはaccount_idによって識別されます。account_idは、で推奨されている方法で保護する必要があります。 <a class="xref" href="rightslocker_accountsecurity.html#concept_m2n_5td_v3">あなたのユーザ、あなたのアカウント：セキュリティ</a>。 Rights Lockerは、資格を作成する目的でのみお客様のアカウントIDを使用し、その他の理由はありません。 アカウントIDはプロバイダによって一意です。</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="20%" headers="d628368e25 ">公開ルール</td>
+
+       <td class="entry" valign="top" width="80%" headers="d628368e28 ">公開ルールは、地理的制限や時間制限など、コンテンツに対する一連の制限です。 に <span class="ph">バックスロット</span> Rights Lockerでは、2種類の公開ルールがあります。 <ol class="ol">
+         <li class="li">ライセンス自体、またはコンテンツに対するグローバルな制限など、資産自体に固有の資産公開ルール</li>
+
+         <li class="li">特定の取引またはユーザーに販売される製品に関するビジネス制限をモデル化するための、ユーザーごと、ラベルごと（コンテンツグループ）の資格発行ルール。</li>
+
+        </ol>
+</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="20%" headers="d628368e25 ">資格</td>
+
+       <td class="entry" valign="top" width="80%" headers="d628368e28 "><p class="p">資格とは、公開ルールに関連付けられているプロバイダ、アカウント、および単一のコンテンツ（資産またはラベル）の単一の組み合わせです。 それは次のような声明の反映です。</p>
+<p class="p">ユーザＸは、条件Ｚの下でコンテンツＹを見ることを許可されている。</p>
+<p class="p">label_id、user_id、external_product_idのすべてのタプルに対して、エンタイトルメントは1つしか存在できません。 同じ3つの値を持つ更新は、以前の資格を上書きします。 ユーザーは、異なるexternal_product_idsの下にある限り、同じラベルに対して複数の資格を持つことができます。</p>
+</td>
+
+      </tr>
+
+ 
+      <tr class="row">
+       <td class="entry" valign="top" width="20%" headers="d628368e25 ">製品</td>
+
+       <td class="entry" valign="top" width="80%" headers="d628368e28 ">
+        <p class="p">1つ以上のエンタイトルメントが一緒になって、プロバイダが提供する製品に対するユーザーの「所有権」（大まかに言って）を反映しています。 これらの製品はexternal_product_idによってグループ化されています。 </p>
+<p class="p">たとえば、ユーザーは &quot;silver&quot;パッケージを購読しているため、すべてのデバイスのバックカタログのsitcom（ラベルでグループ化されている）、デスクトップのスポーツチャンネル（ラベル）にアクセスできます。</p>
+
+        <p class="p">ユーザーはさまざまな商品を「所有」することができるため、さまざまなexternal_product_idsの下にグループ化されたさまざまな資格を持つことができます。 例えば、上記の例を続けると、ユーザはデスクトップ上のスポーツチャンネルへのアクセスを許可するシルバーパッケージと、携帯電話上のスポーツチャンネルへのアクセスを許可するモバイルパッケージの両方を所有することができる。</p>
+
+       </td>
+
+      </tr>
+
+
+     </tbody>
+
+    </table>
+</div>
+</div>
+
+ </div>
+
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_rightslocker.html">権利ロッカー</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

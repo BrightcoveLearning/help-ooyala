@@ -1,0 +1,224 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Working with Playlists in Theme Builder"/>
+<meta name="abstract" content="You can create and customize as many playlists as you like."/>
+<meta name="description" content="あなたは好きなだけプレイリストを作成しカスタマイズすることができます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_theme_builder.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_theme_builder.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_create"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>テーマビルダーでプレイリストを操作する</title>
+</head>
+<body id="player_create">
+
+
+ <h1 class="title topictitle1">テーマビルダーでプレイリストを操作する</h1>
+
+ 
+ <div class="body taskbody"><p class="shortdesc">あなたは好きなだけプレイリストを作成しカスタマイズすることができます。 </p>
+
+  <div class="section context">
+   <div class="p">プレイリストは、ビデオコンテンツの順序付けられたグループです。 再生リストに含めるビデオコンテンツは完全にトランスコードされている必要があります。 特定のビデオアセットまたはラベルごとにプレイリストを作成できます。
+     <div class="note note"><span class="notetitle">注意：</span> 
+    <ul class="ul">
+      
+     <li class="li">再生リストに追加できる動画の最大数は64です。</li>
+
+     <li class="li">プレイリストに関連付けることができるラベルの最大数は16です。</li>
+
+     <li class="li">作成したプレイリストがOoyalaシステムを介して伝播されるまでしばらく待ちます。 デモンストレーションをする場合は、以前に作成したプレイリストを使用するのが最善です。</li>
+
+    </ul>
+<p class="p"/>
+</div>
+
+   </div>
+
+   <p class="p">プレイリストを使用すると、視聴者がテーマ内でアクセスできるコンテンツを制御できます。 プレイリスト内のコンテンツを整理することもできます。 たとえば、西部のテーマを作成し、それを発売日順に並べた西部の映画のプレイリストで埋めることができます。</p>
+
+   <p class="p">プレイリストを作成、更新、削除するには：</p>
+
+  </div>
+
+  <ol class="ol steps"><li class="li step stepexpand">
+    <span class="ph cmd">テーマビルダーにログインします。</span>
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">ストリーミングを停止する場合は上部の <span class="ph uicontrol">プレイリスト</span> をクリックします。</span>
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">左下のをクリックします。 <span class="ph uicontrol">+</span> ボタン。</span>
+       <span class="ph uicontrol">新しいプレイリストを追加</span> ダイアログボックスが表示されます。
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">プレイリストのタイトルを入力し、動画を手動で選択するか、ラベルに基づいてプレイリストを作成するかを選択して、をクリックします。 <span class="ph uicontrol">Add をクリックします。</span>.</span>
+     新しいプレイリストが作成されます。
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">手動でビデオを選択してプレイリストを作成することを選択した場合は、ビデオの追加を開始できます。</span>
+     
+     <img class="image" src="http://help-ooyala.brightcove.com/../image/themebuilder_playlist_manual.png" height="52" width="318"/>
+    
+    <ol type="a" class="ol substeps">
+     <li class="li substep substepexpand">
+      <span class="ph cmd">ビデオを追加するには、 <span class="ph uicontrol">検索</span> ボックス。</span>
+       
+       <div class="p">の中に <span class="ph uicontrol">検索</span> テキストボックスに、動画のタイトル、説明、またはメタデータと照合する検索文字列を入力し、ヒットします。
+      <span class="ph uicontrol">入力します</span>。 以下の制限があります。
+      <ul class="ul">
+        <li class="li">検索では大文字と小文字が区別されません。</li>
+
+        <li class="li">検索ストリングは少なくとも3文字の長さでなければなりません。</li>
+
+        <li class="li">特殊キャラクター <samp class="ph codeph">$</samp> そして <samp class="ph codeph">^</samp> このようにバックスラッシュでエスケープする必要があります。 <samp class="ph codeph">\$</samp>  or  <samp class="ph codeph">\^</samp>.</li>
+
+        <li class="li">タイトルまたは説明のいずれかでメタデータではなく部分的な（正確ではなく）文字列を検索するには、次のようにします。 <samp class="ph codeph">*</samp> ワイルドカード文字 たとえば、文字列 <samp class="ph codeph">ジム*</samp> タイトルまたは説明を含む動画と一致する
+              <samp class="ph codeph">Jim1</samp>,  <samp class="ph codeph">JimJam</samp>に電子メールを送るか、もしくは <samp class="ph codeph">Jim99</samp>ただし、タイトルの付いた動画とは一致しません <samp class="ph codeph">ジャムジム</samp>。 合わせる
+              <samp class="ph codeph">ジャムジム</samp>は、使用することができます <samp class="ph codeph">ジャム*</samp>  or
+            
+            <samp class="ph codeph">*ジム</samp>.</li>
+
+       
+      </ul>
+
+      </div>
+
+      
+       一致する動画が一覧表示されます。
+     </li>
+
+     <li class="li substep substepexpand">
+      <span class="ph cmd">プレイリストにビデオを追加するには、ビデオプレビューの左側にあるプラス記号をクリックします。</span>
+     </li>
+
+     <li class="li substep substepexpand">
+      <span class="ph cmd">再生リストに必要なすべての動画を追加するまで、動画の検索とプラス記号のクリックを続けます。</span>
+     </li>
+
+     
+     <li class="li substep substepexpand">
+      <span class="ph cmd">から <span class="ph uicontrol">命令により</span> リストボックスで、プレイリスト内の動画の並び順を選択します。</span>
+     </li>
+
+     <li class="li substep substepexpand">
+      <span class="ph cmd">ビデオの表示順序をカスタマイズするには、目的の場所にドラッグします。</span>
+     </li>
+
+    </ol>
+
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">ラベルからプレイリストを作成することを選択した場合は、ラベルの指定を始めることができます。</span>
+     ラベルを使用する際のベストプラクティスについては、を参照してください。 <a class="xref" href="../api/labels.html#labels__bestPractices">ラベルのベストプラクティス</a>. 
+     
+    <ol type="a" class="ol substeps">
+     <li class="li substep substepexpand">
+      <span class="ph cmd">動画に含める必要があるかどうかを選択 <span class="ph uicontrol">を</span>  or  <span class="ph uicontrol">どれか</span>
+       指定したラベルのうち </span>
+     </li>
+
+     <li class="li substep substepexpand">
+      <span class="ph cmd">ナビゲーションヘッダーの <span class="ph uicontrol">選択します</span> 次に、使用したいラベルを選択してください。</span>
+       <p class="p">最上位の「親」ラベルの「子」ラベルを含め、必要なラベルをすべて選択する必要があります。 そのような「子」ラベルは自動的には選択されません。 たとえば、以下のスクリーンショットは3つのレベルのラベルを示しています。</p>
+
+       <p class="gt-block p">1段目と2段目のラベル（<span class="ph uicontrol">スポーツの</span> そして
+         <span class="ph uicontrol">野球</span>）が選択されているが、3番目のレベル（<span class="ph uicontrol">巨人</span>） 選択されていない。 そうなる <em class="ph i">Studio上ではサポートされていません。</em> ビデオの選択に使用されます。</p>
+<div class="fig fignone">
+        <img class="image" id="player_create__image_htt_msy_cm" src="http://help-ooyala.brightcove.com/../image/themebuilder_childlabels.png"/>
+       </div>
+
+       <p class="p">同様に、含めたくない子または親のラベルを手動で選択解除する必要があります。</p>
+
+      
+     </li>
+
+     <li class="li substep substepexpand">
+      <span class="ph cmd">再生リストでの動画の並べ替え方法をから選択します。 <span class="ph uicontrol">命令により</span>
+       リストボックス。 </span>
+     </li>
+
+     <li class="li substep substepexpand">
+      <span class="ph cmd">一致するすべての動画を表示するには、を選択します。 <span class="ph uicontrol">Show all</span>。 結果を制限するには、 <span class="ph uicontrol">最初のものだけを表示</span> 表示する動画の最大数を指定します。 </span>
+       一致する動画が一覧表示されます。
+     </li>
+
+    </ol>
+
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">終了したら、をクリックします <span class="ph uicontrol">パブリッシュ</span> 変更を公開する 変更を破棄するには、をクリックしてください。 <strong class="ph b">戻す</strong>.</span>
+     <div class="note note"><span class="notetitle">注意：</span> クリックすると <span class="ph uicontrol">パブリッシュ</span>変更が保存されました。 また、以前にこのプレイリストまたはプレーヤを埋め込んだことがある場合（つまり、以前にそれを公開したことがある場合）、保存された変更が表示されます。</div>
+<img class="image" src="http://help-ooyala.brightcove.com/../image/themebuilder_publish_button.png" height="21" width="80"/>
+
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">以前に作成した再生リストにビデオを追加するには：</span>
+    <ol type="a" class="ol substeps">
+     <li class="li substep">
+      <span class="ph cmd">左側のプレイリストのリストから、希望のプレイリストを選択します。</span>
+     </li>
+
+     <li class="li substep">
+      <span class="ph cmd">この再生リストに以前に動画を追加したことがある場合は、から再生リスト内の動画の並べ替え方法を選択します。 <span class="ph uicontrol">命令により</span> リストボックス。 </span>
+     </li>
+
+     <li class="li substep">
+      <span class="ph cmd">上部の領域で、をクリックします <span class="ph uicontrol">プレイリストに動画を追加する</span>.</span>
+     </li>
+
+     <li class="li substep">
+      <span class="ph cmd">必要な変更を加えます。</span>
+     </li>
+
+     <li class="li substep">
+      <span class="ph cmd">終了したら、をクリックします <span class="ph uicontrol">パブリッシュ</span> 変更を公開する 変更を破棄するには、をクリックしてください。 <span class="ph uicontrol">戻す</span>.</span>
+     </li>
+
+    </ol>
+
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">プレイリストを複製、名前変更、または削除するには：</span>
+    <ol type="a" class="ol substeps">
+     <li class="li substep substepexpand">
+      <span class="ph cmd">左側のプレイリストのリストから、希望のプレイリストを選択します。</span>
+     </li>
+
+     <li class="li substep substepexpand">
+      <span class="ph cmd">プレイリスト名の右側にある歯車の記号をクリックします。</span>
+       
+       <img class="image" src="http://help-ooyala.brightcove.com/../image/themebuilder_playlist_duperenamedelete.png" height="43" width="212"/>
+      
+     </li>
+
+     <li class="li substep substepexpand">
+      <span class="ph cmd">メニューから目的の操作を選択して確定します。</span>
+     </li>
+
+     
+    </ol>
+
+   </li>
+</ol>
+
+
+ </div>
+
+ 
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_theme_builder.html" title="テーマビルダーを使用すると、Ooyala Player V4またはPlayer V3のアセットベースまたはラベルベースのプレイリストを作成し、複雑なテンプレートを使用してカスタム再生エクスペリエンスを作成し、作成したプレイリストを含む埋め込みを作成できます。">プレイリストとテーマビルダーのユーザーインターフェイス</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="

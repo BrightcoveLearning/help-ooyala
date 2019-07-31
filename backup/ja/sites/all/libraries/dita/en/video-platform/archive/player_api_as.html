@@ -1,0 +1,604 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="ActionScript API Summary List (Player V2 Deprecated)"/>
+<meta name="abstract" content="Lists and describes all Player ActionScript APIs grouped by Functions/Methods, Objects, Properties and Events."/>
+<meta name="description" content="関数/メソッド、オブジェクト、プロパティ、およびイベントごとにグループ化されたすべてのPlayer ActionScript APIを一覧表示して説明します。"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/player_api_as_intro.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="api_as"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>ActionScript APIサマリーリスト（Player V2は廃止予定）</title>
+</head>
+<body id="api_as">
+
+
+ <h1 class="title topictitle1">ActionScript APIサマリーリスト（Player V2は廃止予定）</h1>
+
+ 
+<div class="body refbody"><p class="shortdesc">関数/メソッド、オブジェクト、プロパティ、およびイベントごとにグループ化されたすべてのPlayer ActionScript APIを一覧表示して説明します。</p>
+
+    
+<div class="section">
+    <div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V2は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V2はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V2を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="../concepts/pbv4_about.html">プレイヤーV4</a>.</div>
+
+    <p class="p"> このセクションでは、ActionScriptインターフェイスを介して利用できるさまざまなActionScript API関数、メソッド、プロパティ、およびイベントへのクラス参照を提供します。</p>
+
+    <p class="p"> パッケージcom.ooyala.api</p>
+
+    <p class="p"> パブリッククラスPlayerはUIComponentを拡張します </p>
+
+</div>
+   
+    
+<div class="section"><h2 class="title sectiontitle">ActionScriptのプロパティ</h2>
+    
+次の表はOoyalaプレーヤーのActionScriptプロパティの説明です。 プロパティ名は、より詳細な情報を含むトピックにリンクされています。<div class="p">
+    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="api_as__table_zyy_pvf_df" class="table" frame="border" border="1" rules="all">
+    <thead class="thead" align="left">
+    <tr class="row">
+    <th class="entry" valign="top" id="d158512e51">プロパティ</th>
+
+    <th class="entry" valign="top" id="d158512e54">説明</th>
+
+    </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  <tr class="row">
+        <td class="entry" valign="top" headers="d158512e51 d158512e54 "><a class="xref" href="cat_as_player.html" title="プレーヤー/プレーヤーUI ActionScript APIを使用して、フルスクリーンモード、プレーヤーの状態、音量、再生ヘッド、プレーヤーの音量、ビデオの再生時間とステータスなどのプレーヤーの側面を処理できます。"><samp class="ph codeph">アクティブパネル</samp></a>
+    </td>
+
+    <td class="entry" valign="top" headers="d158512e51 d158512e54 ">
+                                    <p class="p">それぞれのパネルが現在表示されている場合は、情報、チャンネル、埋め込み、またはシンジケーションを返します。 </p>
+
+                                </td>
+
+    </tr>
+<tr class="row">
+        <td class="entry" valign="top" headers="d158512e51 d158512e54 "><a class="xref" href="cat_as_assets.html" title="アセットActionScript APIを使用して、評価、ビデオ（再生/一時停止、説明）、およびチャンネルを処理できます。"><samp class="ph codeph">CanRateCurrentItem</samp></a>
+    </td>
+
+    <td class="entry" valign="top" headers="d158512e51 d158512e54 ">現在のコンピュータが現在のアイテムを評価できるかどうかを返します。 彼らが以前に現在のアイテムを評価したことがある場合、これは偽になります。</td>
+
+    </tr>
+<tr class="row">
+        <td class="entry" valign="top" headers="d158512e51 d158512e54 "><a class="xref" href="cat_as_assets.html" title="アセットActionScript APIを使用して、評価、ビデオ（再生/一時停止、説明）、およびチャンネルを処理できます。"><samp class="ph codeph">CurrentItemAverageRating</samp></a>
+    </td>
+
+    <td class="entry" valign="top" headers="d158512e51 d158512e54 ">商品に与えられた平均評価を返します。 </td>
+
+    </tr>
+<tr class="row">
+        <td class="entry" valign="top" headers="d158512e51 d158512e54 "><a class="xref" href="cat_as_closecap.html" title="クローズドキャプションActionScript APIを使用すると、サポートされているクローズドキャプションの取得、クローズドキャプション言語の設定、およびキャプションのタイミングの取得を行うことができます。"><samp class="ph codeph">CurrentItemClosedCaptionsLanguages</samp></a>
+    </td>
+
+    <td class="entry" valign="top" headers="d158512e51 d158512e54 ">現在再生中のアイテムでサポートされているクローズドキャプションの言語のリストを取得します。</td>
+
+    </tr>
+<tr class="row">
+    <td class="entry" valign="top" headers="d158512e51 d158512e54 "><a class="xref" href="cat_as_assets.html" title="アセットActionScript APIを使用して、評価、ビデオ（再生/一時停止、説明）、およびチャンネルを処理できます。"><samp class="ph codeph">CurrentItemRatings</samp></a>
+    </td>
+
+    <td class="entry" valign="top" headers="d158512e51 d158512e54 ">現在の商品の評価分布を返します。 </td>
+
+    </tr>
+<tr class="row">
+        <td class="entry" valign="top" headers="d158512e51 d158512e54 "><a class="xref" href="cat_as_closecap.html" title="クローズドキャプションActionScript APIを使用すると、サポートされているクローズドキャプションの取得、クローズドキャプション言語の設定、およびキャプションのタイミングの取得を行うことができます。"><samp class="ph codeph">closedCaptionsLanguage</samp></a>
+    </td>
+
+    <td class="entry" valign="top" headers="d158512e51 d158512e54 ">プレーヤーに表示されるクローズドキャプションの言語を設定します。</td>
+
+    </tr>
+<tr class="row">
+    <td class="entry" valign="top" headers="d158512e51 d158512e54 "><a class="xref" href="cat_as_embed.html" title="埋め込みコードActionScript APIを使用して、アセットのembedCodeの取得と設定、アセットの説明の取得、画像の取得、およびアセットメタデータの取得を処理できます。"><samp class="ph codeph">currentItemEmbedCode</samp></a></td>
+
+    <td class="entry" valign="top" headers="d158512e51 d158512e54 ">チャンネル内のアクティブビデオのembedCodeを返します。 </td>
+
+    </tr>
+<tr class="row">
+    <td class="entry" valign="top" headers="d158512e51 d158512e54 "><a class="xref" href="cat_as_assets.html" title="アセットActionScript APIを使用して、評価、ビデオ（再生/一時停止、説明）、およびチャンネルを処理できます。"><samp class="ph codeph">currentItemTitle</samp></a>
+    </td>
+
+    <td class="entry" valign="top" headers="d158512e51 d158512e54 ">アクティブなビデオのタイトルを返します。</td>
+
+    </tr>
+<tr class="row">
+    <td class="entry" valign="top" headers="d158512e51 d158512e54 "><a class="xref" href="cat_as_assets.html" title="アセットActionScript APIを使用して、評価、ビデオ（再生/一時停止、説明）、およびチャンネルを処理できます。"><samp class="ph codeph">説明</samp></a>
+    </td>
+
+    <td class="entry" valign="top" headers="d158512e51 d158512e54 ">プレーヤソースの説明を返します。</td>
+
+    </tr>
+<tr class="row">
+        <td class="entry" valign="top" headers="d158512e51 d158512e54 "><a class="xref" href="cat_as_embed.html" title="埋め込みコードActionScript APIを使用して、アセットのembedCodeの取得と設定、アセットの説明の取得、画像の取得、およびアセットメタデータの取得を処理できます。"><samp class="ph codeph">埋め込みコード</samp></a>
+    </td>
+
+    <td class="entry" valign="top" headers="d158512e51 d158512e54 ">プレーヤーのembedCodeを返します。</td>
+
+    </tr>
+<tr class="row">
+        <td class="entry" valign="top" headers="d158512e51 d158512e54 "><a class="xref" href="cat_as_errors.html" title="エラーActionScript APIを使用すると、エラーコード、関連するエラーメッセージ、およびプレーヤーの状態を取得できます。"><samp class="ph codeph">エラーコード</samp></a>
+    </td>
+
+    <td class="entry" valign="top" headers="d158512e51 d158512e54 ">現在の状態がエラーの場合、エラーコードを返します。</td>
+
+    </tr>
+<tr class="row">
+        <td class="entry" valign="top" headers="d158512e51 d158512e54 "><a class="xref" href="cat_as_errors.html" title="エラーActionScript APIを使用すると、エラーコード、関連するエラーメッセージ、およびプレーヤーの状態を取得できます。"><samp class="ph codeph">errorText</samp></a>
+    </td>
+
+    <td class="entry" valign="top" headers="d158512e51 d158512e54 ">現在の状態がエラーの場合、エラーテキストを返します。 </td>
+
+    </tr>
+<tr class="row">
+        <td class="entry" valign="top" headers="d158512e51 d158512e54 "><a class="xref" href="cat_as_player.html" title="プレーヤー/プレーヤーUI ActionScript APIを使用して、フルスクリーンモード、プレーヤーの状態、音量、再生ヘッド、プレーヤーの音量、ビデオの再生時間とステータスなどのプレーヤーの側面を処理できます。"><samp class="ph codeph">フルスクリーン</samp></a>
+    </td>
+
+    <td class="entry" valign="top" headers="d158512e51 d158512e54 ">プレーヤーがフルスクリーンモードの場合はtrueを返し、そうでない場合はfalseを返します。 </td>
+
+    </tr>
+<tr class="row">
+        <td class="entry" valign="top" headers="d158512e51 d158512e54 "><a class="xref" href="cat_as_assets.html" title="アセットActionScript APIを使用して、評価、ビデオ（再生/一時停止、説明）、およびチャンネルを処理できます。"><samp class="ph codeph">項目</samp></a>
+    </td>
+
+    <td class="entry" valign="top" headers="d158512e51 d158512e54 ">埋め込みアイテムを記述するオブジェクトを取得します。 このオブジェクトには、埋め込みコード、タイトル、説明、時間（再生時間（秒））、ラインナップ、プロモーション、およびhostnameAtURLが含まれます。</td>
+
+    </tr>
+<tr class="row">
+        <td class="entry" valign="top" headers="d158512e51 d158512e54 "><a class="xref" href="cat_as_assets.html" title="アセットActionScript APIを使用して、評価、ビデオ（再生/一時停止、説明）、およびチャンネルを処理できます。"><samp class="ph codeph">並びます</samp></a>
+    </td>
+
+    <td class="entry" valign="top" headers="d158512e51 d158512e54 ">現在のチャンネルを記述するオブジェクトの配列を返します。</td>
+
+    </tr>
+<tr class="row">
+        <td class="entry" valign="top" headers="d158512e51 d158512e54 "><a class="xref" href="cat_as_player.html" title="プレーヤー/プレーヤーUI ActionScript APIを使用して、フルスクリーンモード、プレーヤーの状態、音量、再生ヘッド、プレーヤーの音量、ビデオの再生時間とステータスなどのプレーヤーの側面を処理できます。"><samp class="ph codeph">playheadTime</samp></a>
+    </td>
+
+    <td class="entry" valign="top" headers="d158512e51 d158512e54 ">現在の再生ヘッド位置をミリ秒の精度で秒単位で返します。</td>
+
+    </tr>
+<tr class="row">
+        <td class="entry" valign="top" headers="d158512e51 d158512e54 "><a class="xref" href="cat_qstr_player.html" title="すべてのプレイヤークエリ文字列パラメータをリストして説明します"><samp class="ph codeph">queryStringParameters</samp></a>
+    </td>
+
+    <td class="entry" valign="top" headers="d158512e51 d158512e54 ">オブジェクトのパラメータを返します。</td>
+
+    </tr>
+<tr class="row">
+        <td class="entry" valign="top" headers="d158512e51 d158512e54 "><a class="xref" href="cat_as_player.html" title="プレーヤー/プレーヤーUI ActionScript APIを使用して、フルスクリーンモード、プレーヤーの状態、音量、再生ヘッド、プレーヤーの音量、ビデオの再生時間とステータスなどのプレーヤーの側面を処理できます。"><samp class="ph codeph">状態</samp></a>
+    </td>
+
+    <td class="entry" valign="top" headers="d158512e51 d158512e54 ">現在のプレイヤーの状態を取得します 再生中、一時停止中、バッファリング中、チャンネル中、またはエラー中のいずれかです。</td>
+
+    </tr>
+<tr class="row">
+        <td class="entry" valign="top" headers="d158512e51 d158512e54 "><a class="xref" href="cat_as_assets.html" title="アセットActionScript APIを使用して、評価、ビデオ（再生/一時停止、説明）、およびチャンネルを処理できます。"><samp class="ph codeph">タイトル</samp></a>
+    </td>
+
+    <td class="entry" valign="top" headers="d158512e51 d158512e54 ">チャンネルがある場合はチャンネルのタイトルを返し、それ以外の場合はビデオのタイトルを返します。</td>
+
+    </tr>
+<tr class="row">
+        <td class="entry" valign="top" headers="d158512e51 d158512e54 "><a class="xref" href="cat_as_assets.html" title="アセットActionScript APIを使用して、評価、ビデオ（再生/一時停止、説明）、およびチャンネルを処理できます。"><samp class="ph codeph">totalTime</samp></a>
+    </td>
+
+    <td class="entry" valign="top" headers="d158512e51 d158512e54 ">現在のビデオの全長をミリ秒単位の精度で秒単位で返します。 </td>
+
+    </tr>
+<tr class="row">
+        <td class="entry" valign="top" headers="d158512e51 d158512e54 "><a class="xref" href="cat_as_player.html" title="プレーヤー/プレーヤーUI ActionScript APIを使用して、フルスクリーンモード、プレーヤーの状態、音量、再生ヘッド、プレーヤーの音量、ビデオの再生時間とステータスなどのプレーヤーの側面を処理できます。"><samp class="ph codeph">ボリューム</samp></a>
+    </td>
+
+    <td class="entry" valign="top" headers="d158512e51 d158512e54 ">現在のボリュームを0と1の間の数値として返します。</td>
+
+    </tr>
+</tbody>
+
+  </table>
+</div>
+
+    </div>
+
+</div>
+
+    
+<div class="section"><h2 class="title sectiontitle">ActionScript関数</h2>
+    
+    <div class="p">次の表に、Ooyala Player ActionScriptの関数とメソッドを示します。<table cellpadding="4" cellspacing="0" summary="" id="api_as__simpletable_swt_txf_df" border="1" class="simpletable"><tr class="sthead">
+    <th valign="bottom" align="left" id="d158512e418" class="stentry" width="50%">機能/方法</th>
+
+    <th valign="bottom" align="left" id="d158512e421" class="stentry" width="50%">説明</th>
+
+    </tr>
+<tr class="strow">
+        <td valign="top" headers="d158512e418" class="stentry"><a class="xref" href="cat_as_embed.html" title="埋め込みコードActionScript APIを使用して、アセットのembedCodeの取得と設定、アセットの説明の取得、画像の取得、およびアセットメタデータの取得を処理できます。"><samp class="ph codeph">changeCurrentItem（embedCode）</samp></a>
+    </td>
+
+    <td valign="top" headers="d158512e421" class="stentry">ビデオが存在する場合は、現在のビデオをチャンネルに設定します。 受け入れられた場合はtrue、受け入れられなかった場合はfalseを返します。</td>
+
+    </tr>
+<tr class="strow">
+        <td valign="top" headers="d158512e418" class="stentry"><a class="xref" href="cat_as_embed.html" title="埋め込みコードActionScript APIを使用して、アセットのembedCodeの取得と設定、アセットの説明の取得、画像の取得、およびアセットメタデータの取得を処理できます。"><samp class="ph codeph">fetchMetadata（embedCode）</samp></a>
+    </td>
+
+    <td valign="top" headers="d158512e421" class="stentry">指定されたembedCodeのカスタムメタデータの取得を開始します。 </td>
+
+    </tr>
+<tr class="strow">
+         <td valign="top" headers="d158512e418" class="stentry"><a class="xref" href="cat_as_embed.html" title="埋め込みコードActionScript APIを使用して、アセットのembedCodeの取得と設定、アセットの説明の取得、画像の取得、およびアセットメタデータの取得を処理できます。"><samp class="ph codeph">fetchRelatedMedia（embedCode）</samp></a>
+     </td>
+
+     <td valign="top" headers="d158512e421" class="stentry">
+                            <p class="p">指定されたembedCodeの関連メディアの取得を開始します。 </p>
+
+                        </td>
+
+        </tr>
+<tr class="strow">
+       <td valign="top" headers="d158512e418" class="stentry"><a class="xref" href="cat_as_closecap.html" title="クローズドキャプションActionScript APIを使用すると、サポートされているクローズドキャプションの取得、クローズドキャプション言語の設定、およびキャプションのタイミングの取得を行うことができます。"><samp class="ph codeph">getTimedText（startTime、endTime）</samp></a>
+       </td>
+
+        <td valign="top" headers="d158512e421" class="stentry">startTimeとendTimeの間に表示される時限テキスト（キャプション）を返します。 </td>
+
+       </tr>
+<tr class="strow">
+       <td valign="top" headers="d158512e418" class="stentry"><a class="xref" href="cat_as_embed.html" title="埋め込みコードActionScript APIを使用して、アセットのembedCodeの取得と設定、アセットの説明の取得、画像の取得、およびアセットメタデータの取得を処理できます。"><samp class="ph codeph">getPromoFor（embedCode、width、height）</samp></a>
+       </td>
+
+       <td valign="top" headers="d158512e421" class="stentry">指定されたサイズ以上のチャネル内の指定された埋め込みコードのプロモーション画像のURLを返します。チャネルに存在しない埋め込みコードの場合はnullを返します。</td>
+
+       </tr>
+<tr class="strow">
+                <td valign="top" headers="d158512e418" class="stentry"><a class="xref" href="cat_as_assets.html" title="アセットActionScript APIを使用して、評価、ビデオ（再生/一時停止、説明）、およびチャンネルを処理できます。"><samp class="ph codeph">incrementCurrentItemRating（評価）</samp></a>
+       </td>
+
+       <td valign="top" headers="d158512e421" class="stentry">現在のアイテムの評価を上げます。 評価は、0から10までの整数です。 このコンピュータが以前にこのアイテムを評価したことがある場合は、この関数を呼び出しても効果はありません。</td>
+
+         </tr>
+<tr class="strow">
+             <td valign="top" headers="d158512e418" class="stentry"><a class="xref" href="cat_as_player.html" title="プレーヤー/プレーヤーUI ActionScript APIを使用して、フルスクリーンモード、プレーヤーの状態、音量、再生ヘッド、プレーヤーの音量、ビデオの再生時間とステータスなどのプレーヤーの側面を処理できます。"><samp class="ph codeph">負荷（）</samp>,</a>
+        </td>
+
+        <td valign="top" headers="d158512e421" class="stentry">Ooyalaプレーヤーをロードしてください。</td>
+
+        </tr>
+<tr class="strow">
+            <td valign="top" headers="d158512e418" class="stentry"><a class="xref" href="cat_as_assets.html" title="アセットActionScript APIを使用して、評価、ビデオ（再生/一時停止、説明）、およびチャンネルを処理できます。"><samp class="ph codeph">loadRatingsApi（）</samp></a>
+        </td>
+
+        <td valign="top" headers="d158512e421" class="stentry">Ratings APIをロードします。 Ratings API関数を呼び出す前にRatings APIをロードする必要があります。</td>
+
+       </tr>
+<tr class="strow">
+           <td valign="top" headers="d158512e418" class="stentry"> <a class="xref" href="cat_as_assets.html" title="アセットActionScript APIを使用して、評価、ビデオ（再生/一時停止、説明）、およびチャンネルを処理できます。"><samp class="ph codeph">pauseMovie（）</samp></a>
+       </td>
+
+       <td valign="top" headers="d158512e421" class="stentry">現在のビデオを一時停止します。</td>
+
+       </tr>
+<tr class="strow">
+       <td valign="top" headers="d158512e418" class="stentry">
+           <a class="xref" href="cat_as_assets.html" title="アセットActionScript APIを使用して、評価、ビデオ（再生/一時停止、説明）、およびチャンネルを処理できます。"><samp class="ph codeph">映画を再生（）</samp></a>
+       </td>
+
+       <td valign="top" headers="d158512e421" class="stentry">現在のビデオを再生します。</td>
+
+       </tr>
+</table>
+</div>
+
+       </div>
+
+    
+<div class="section"><h2 class="title sectiontitle">ActionScriptイベント</h2>
+    次の表に、コールバック関数に配信されるイベント通知の一覧と概要を示します。 ブラウザ間の互換性の問題により、標準のDHTMLイベントの使用が妨げられていることに注意してください。<div class="p">
+        <table cellpadding="4" cellspacing="0" summary="" id="api_as__simpletable_31f_w1g_df" border="1" class="simpletable"><tr class="sthead">
+        <th valign="bottom" align="left" id="d158512e605" class="stentry" width="50%">イベント名を入力します。</th>
+
+        <th valign="bottom" align="left" id="d158512e608" class="stentry" width="50%">説明</th>
+
+            </tr>
+<tr class="strow">
+        <td valign="top" headers="d158512e605" class="stentry">
+            <a class="xref" href="cat_as_player.html" title="プレーヤー/プレーヤーUI ActionScript APIを使用して、フルスクリーンモード、プレーヤーの状態、音量、再生ヘッド、プレーヤーの音量、ビデオの再生時間とステータスなどのプレーヤーの側面を処理できます。"><samp class="ph codeph">activePanelChanged</samp></a></td>
+
+        <td valign="top" headers="d158512e608" class="stentry">情報、埋め込み、共有、チャンネルのアクティブパネルが表示または非表示になりました。</td>
+
+        </tr>
+<tr class="strow">
+        <td valign="top" headers="d158512e605" class="stentry"><a class="xref" href="cat_as_ads.html" title="広告ActionScript APIは、広告の開始、クリック、完了、スキップなどのイベントに応答するために使用できます。"><samp class="ph codeph">adStarted</samp></a>
+        </td>
+
+        <td valign="top" headers="d158512e608" class="stentry">広告の再生が開始されました。</td>
+
+        </tr>
+<tr class="strow">
+        <td valign="top" headers="d158512e605" class="stentry"><a class="xref" href="cat_as_ads.html" title="広告ActionScript APIは、広告の開始、クリック、完了、スキップなどのイベントに応答するために使用できます。"><samp class="ph codeph">adCompleted</samp></a>
+        </td>
+
+        <td valign="top" headers="d158512e608" class="stentry">広告の再生が終了しました。</td>
+
+        </tr>
+<tr class="strow">
+        <td valign="top" headers="d158512e605" class="stentry"><a class="xref" href="cat_as_ads.html" title="広告ActionScript APIは、広告の開始、クリック、完了、スキップなどのイベントに応答するために使用できます。"><samp class="ph codeph">adClicked</samp></a>
+        </td>
+
+        <td valign="top" headers="d158512e608" class="stentry">広告がクリックされました。 このイベントは、VAST広告、Google AFV、DoubleClick、およびYuMeに対してのみ発生します。</td>
+
+            </tr>
+<tr class="strow">
+                <td valign="top" headers="d158512e605" class="stentry"><a class="xref" href="cat_as_player.html" title="プレーヤー/プレーヤーUI ActionScript APIを使用して、フルスクリーンモード、プレーヤーの状態、音量、再生ヘッド、プレーヤーの音量、ビデオの再生時間とステータスなどのプレーヤーの側面を処理できます。"><samp class="ph codeph">apiReady</samp></a>
+        </td>
+
+        <td valign="top" headers="d158512e608" class="stentry">プレーヤはplayMovie（）、getItem（）などのAPIリクエストを受け取る準備ができています。APIリクエストを行う前に、このイベントが送出されるのを待ってください。 </td>
+
+        </tr>
+<tr class="strow">
+        <td valign="top" headers="d158512e605" class="stentry"><a class="xref" href="cat_as_embed.html" title="埋め込みコードActionScript APIを使用して、アセットのembedCodeの取得と設定、アセットの説明の取得、画像の取得、およびアセットメタデータの取得を処理できます。"><samp class="ph codeph">currentItemEmbedCodeChanged</samp></a>
+        </td>
+
+        <td valign="top" headers="d158512e608" class="stentry">アクティブな動画のembedCodeが変更されました。</td>
+
+        </tr>
+<tr class="strow">
+            <td valign="top" headers="d158512e605" class="stentry"><a class="xref" href="cat_as_embed.html" title="埋め込みコードActionScript APIを使用して、アセットのembedCodeの取得と設定、アセットの説明の取得、画像の取得、およびアセットメタデータの取得を処理できます。"><samp class="ph codeph">embedCodeChanged</samp></a>
+        </td>
+
+        <td valign="top" headers="d158512e608" class="stentry">プレイヤーの埋め込みコードの変更</td>
+
+        </tr>
+<tr class="strow">
+        <td valign="top" headers="d158512e605" class="stentry"><a class="xref" href="cat_as_player.html" title="プレーヤー/プレーヤーUI ActionScript APIを使用して、フルスクリーンモード、プレーヤーの状態、音量、再生ヘッド、プレーヤーの音量、ビデオの再生時間とステータスなどのプレーヤーの側面を処理できます。"><samp class="ph codeph">fullscreenChanged</samp></a>
+        </td>
+
+        <td valign="top" headers="d158512e608" class="stentry">全画面表示状態が切り替えられました。</td>
+
+        </tr>
+<tr class="strow">
+            <td valign="top" headers="d158512e605" class="stentry"><a class="xref" href="cat_as_player.html" title="プレーヤー/プレーヤーUI ActionScript APIを使用して、フルスクリーンモード、プレーヤーの状態、音量、再生ヘッド、プレーヤーの音量、ビデオの再生時間とステータスなどのプレーヤーの側面を処理できます。"><samp class="ph codeph">loadComplete</samp></a>
+        </td>
+
+        <td valign="top" headers="d158512e608" class="stentry">
+            <p class="p">プレイヤーはロードを完了しました。 これは非推奨です。 を使ってください <samp class="ph codeph">apiReady</samp> 代わりにイベント。</p>
+
+        </td>
+
+            </tr>
+<tr class="strow">
+                <td valign="top" headers="d158512e605" class="stentry"><a class="xref" href="cat_as_embed.html" title="埋め込みコードActionScript APIを使用して、アセットのembedCodeの取得と設定、アセットの説明の取得、画像の取得、およびアセットメタデータの取得を処理できます。"><samp class="ph codeph"> metadataReady</samp></a>
+        </td>
+
+        <td valign="top" headers="d158512e608" class="stentry">によって要求されたメタデータ <samp class="ph codeph">fetchMetadata（）</samp> 通話の準備ができました。 </td>
+
+        </tr>
+<tr class="strow">
+        <td valign="top" headers="d158512e605" class="stentry">
+            <a class="xref" href="cat_as_player.html" title="プレーヤー/プレーヤーUI ActionScript APIを使用して、フルスクリーンモード、プレーヤーの状態、音量、再生ヘッド、プレーヤーの音量、ビデオの再生時間とステータスなどのプレーヤーの側面を処理できます。"><samp class="ph codeph"> playComplete</samp></a>
+        </td>
+
+        <td valign="top" headers="d158512e608" class="stentry">動画またはチャンネルの再生が完了しました。</td>
+
+        </tr>
+<tr class="strow">
+        <td valign="top" headers="d158512e605" class="stentry">
+        <a class="xref" href="cat_as_player.html" title="プレーヤー/プレーヤーUI ActionScript APIを使用して、フルスクリーンモード、プレーヤーの状態、音量、再生ヘッド、プレーヤーの音量、ビデオの再生時間とステータスなどのプレーヤーの側面を処理できます。"><samp class="ph codeph">playheadTimeChanged</samp></a>
+        </td>
+
+        <td valign="top" headers="d158512e608" class="stentry">アクティブビデオの再生時間の更新</td>
+
+        </tr>
+<tr class="strow">
+        <td valign="top" headers="d158512e605" class="stentry">
+        <a class="xref" href="cat_as_assets.html" title="アセットActionScript APIを使用して、評価、ビデオ（再生/一時停止、説明）、およびチャンネルを処理できます。"><samp class="ph codeph">RatingApiReady</samp></a></td>
+
+        <td valign="top" headers="d158512e608" class="stentry">
+        <p class="p">評価APIがロードされ、使用可能になりました。 </p>
+
+        </td>
+
+        </tr>
+<tr class="strow">
+        <td valign="top" headers="d158512e605" class="stentry">
+            <a class="xref" href="cat_as_player.html" title="プレーヤー/プレーヤーUI ActionScript APIを使用して、フルスクリーンモード、プレーヤーの状態、音量、再生ヘッド、プレーヤーの音量、ビデオの再生時間とステータスなどのプレーヤーの側面を処理できます。"><samp class="ph codeph">relatedMediaReady</samp></a>
+        </td>
+
+        <td valign="top" headers="d158512e608" class="stentry">  <samp class="ph codeph">relatedMedia</samp> によって要求された <samp class="ph codeph">fetchRelatedMedia（）</samp> 通話の準備ができました。 </td>
+
+        </tr>
+<tr class="strow">
+        <td valign="top" headers="d158512e605" class="stentry">
+        <a class="xref" href="cat_as_player.html" title="プレーヤー/プレーヤーUI ActionScript APIを使用して、フルスクリーンモード、プレーヤーの状態、音量、再生ヘッド、プレーヤーの音量、ビデオの再生時間とステータスなどのプレーヤーの側面を処理できます。"><samp class="ph codeph">求めた</samp></a>
+        </td>
+
+        <td valign="top" headers="d158512e608" class="stentry">プレイヤーでシークイベントが発生しました。 </td>
+
+        </tr>
+<tr class="strow">
+            <td valign="top" headers="d158512e605" class="stentry"><a class="xref" href="cat_as_player.html" title="プレーヤー/プレーヤーUI ActionScript APIを使用して、フルスクリーンモード、プレーヤーの状態、音量、再生ヘッド、プレーヤーの音量、ビデオの再生時間とステータスなどのプレーヤーの側面を処理できます。"><samp class="ph codeph">stateChanged</samp></a>
+        </td>
+
+        <td valign="top" headers="d158512e608" class="stentry">プレイヤーの状態が再生中、一時停止中、バッファリング中、またはエラー中に変化した。</td>
+
+        </tr>
+<tr class="strow">
+        <td valign="top" headers="d158512e605" class="stentry">
+            <a class="xref" href="cat_as_player.html" title="プレーヤー/プレーヤーUI ActionScript APIを使用して、フルスクリーンモード、プレーヤーの状態、音量、再生ヘッド、プレーヤーの音量、ビデオの再生時間とステータスなどのプレーヤーの側面を処理できます。"><samp class="ph codeph">totalTimeChanged</samp></a>
+        </td>
+
+        <td valign="top" headers="d158512e608" class="stentry">現在の動画の再生時間の変更</td>
+
+            </tr>
+<tr class="strow">
+        <td valign="top" headers="d158512e605" class="stentry">
+        <a class="xref" href="cat_as_player.html" title="プレーヤー/プレーヤーUI ActionScript APIを使用して、フルスクリーンモード、プレーヤーの状態、音量、再生ヘッド、プレーヤーの音量、ビデオの再生時間とステータスなどのプレーヤーの側面を処理できます。"><samp class="ph codeph">volumeChanged（）</samp></a>
+        </td>
+
+        <td valign="top" headers="d158512e608" class="stentry">プレーヤーの音量が変更されました。</td>
+
+            </tr>
+</table>
+
+        </div>
+
+       </div>
+
+    
+<div class="section"><h2 class="title sectiontitle">ActionScriptビットレート選択API</h2>
+    
+    <p class="p">ビットレート選択APIを使用すると、開発者はプログラム的に現在のバッファサイズを取得したり、ビットレートを取得および設定したりできます。 ビットレートを選択するために、2つの異なるワークフローを提供します。</p>
+ <ul class="ul">
+    <li class="li">その品質（自動、低、中、または高）に基づいてビットレートを選択します。 たとえば、ビットレート品質を高に設定した場合、プレーヤーはどちらが最高のエンコーディングかを決定します。</li>
+
+    <li class="li">kbps数（オーディオとビデオの両方のエンコーディングの合計）に基づいてビットレートを選択します。 たとえば、使用可能なビットレートが[600 kbps、1000 kbps、3000 kbps、4000 kbps]のビデオを考えます。 ビットレート品質をこれらの値のいずれかに設定できます。</li>
+
+   </ul>
+
+    </div>
+
+    
+<div class="section"><h2 class="title sectiontitle">ActionScriptのビットレート選択関数</h2>
+    次の表は、ビットレート選択機能/方法の一覧と説明です。<table cellpadding="4" cellspacing="0" summary="" id="api_as__simpletable_mqp_ldg_df" border="1" class="simpletable"><tr class="sthead">
+        <th valign="bottom" align="left" id="d158512e958" class="stentry" width="50%">ビットレート選択機能名</th>
+
+        <th valign="bottom" align="left" id="d158512e961" class="stentry" width="50%">説明</th>
+
+        </tr>
+<tr class="strow">
+            <td valign="top" headers="d158512e958" class="stentry"><a class="xref" href="cat_as_bitbuff.html" title="ビットレート選択APIを使用すると、開発者はプログラム的に現在のバッファサイズを取得したり、ビットレートを取得および設定したりできます。"><samp class="ph codeph">bufferLength（）</samp></a></td>
+
+        <td valign="top" headers="d158512e961" class="stentry">バッファ長がサポートされている場合はバッファの現在のサイズを秒単位で返し、それ以外の場合は0を返します。 </td>
+
+        </tr>
+<tr class="strow">
+            <td valign="top" headers="d158512e958" class="stentry"><a class="xref" href="cat_as_bitbuff.html" title="ビットレート選択APIを使用すると、開発者はプログラム的に現在のバッファサイズを取得したり、ビットレートを取得および設定したりできます。"><samp class="ph codeph">bitrateQualitiesAvailable（）</samp></a>
+        </td>
+
+        <td valign="top" headers="d158512e961" class="stentry">文字列の配列を返します。 </td>
+
+        </tr>
+<tr class="strow">
+            <td valign="top" headers="d158512e958" class="stentry"><a class="xref" href="cat_as_bitbuff.html" title="ビットレート選択APIを使用すると、開発者はプログラム的に現在のバッファサイズを取得したり、ビットレートを取得および設定したりできます。"><samp class="ph codeph">bitratesAvailable</samp></a>
+        </td>
+
+        <td valign="top" headers="d158512e961" class="stentry">ビットレートの合計数（kbps単位）を含む配列、またはエンコード数が利用できない場合は空の配列を返します。 </td>
+
+        </tr>
+<tr class="strow">
+            <td valign="top" headers="d158512e958" class="stentry"><a class="xref" href="cat_as_bitbuff.html" title="ビットレート選択APIを使用すると、開発者はプログラム的に現在のバッファサイズを取得したり、ビットレートを取得および設定したりできます。"><samp class="ph codeph">targetBitrateQuality（品質）</samp></a>
+        </td>
+
+        <td valign="top" headers="d158512e961" class="stentry">目標ビットレート品質を設定します。 </td>
+
+        </tr>
+<tr class="strow">
+            <td valign="top" headers="d158512e958" class="stentry">
+       <a class="xref" href="cat_as_bitbuff.html" title="ビットレート選択APIを使用すると、開発者はプログラム的に現在のバッファサイズを取得したり、ビットレートを取得および設定したりできます。"><samp class="ph codeph">targetBitrateQuality（）</samp></a>
+        </td>
+
+        <td valign="top" headers="d158512e961" class="stentry">目標ビットレート品質を取得します。 自動、低、中、高のいずれかです。</td>
+
+        </tr>
+<tr class="strow">
+        <td valign="top" headers="d158512e958" class="stentry">
+        <a class="xref" href="cat_as_bitbuff.html" title="ビットレート選択APIを使用すると、開発者はプログラム的に現在のバッファサイズを取得したり、ビットレートを取得および設定したりできます。"><samp class="ph codeph">targetBitrate（ビットレート）</samp></a>
+            </td>
+
+            <td valign="top" headers="d158512e961" class="stentry">ターゲットビットレートをkbps単位で設定します。 </td>
+
+        </tr>
+<tr class="strow">
+            <td valign="top" headers="d158512e958" class="stentry"><a class="xref" href="cat_as_bitbuff.html" title="ビットレート選択APIを使用すると、開発者はプログラム的に現在のバッファサイズを取得したり、ビットレートを取得および設定したりできます。"><samp class="ph codeph">targetBitrate（）</samp></a>
+            </td>
+
+            <td valign="top" headers="d158512e961" class="stentry">ターゲットビットレートが以前に設定されていた場合はターゲットビットレートをkbpsで、それ以外の場合は-1を取得します。</td>
+
+        </tr>
+</table>
+
+</div>
+
+    
+<div class="section"><h2 class="title sectiontitle">ActionScriptビットレート選択イベント </h2>
+     次の表はOoyala Playerのビットレート選択イベントの一覧と説明です。<table cellpadding="4" cellspacing="0" summary="" id="api_as__simpletable_3gf_zdg_df" border="1" class="simpletable"><tr class="sthead">
+            <th valign="bottom" align="left" id="d158512e1090" class="stentry" width="50%">ビットレート選択イベント</th>
+
+            <th valign="bottom" align="left" id="d158512e1093" class="stentry" width="50%">説明</th>
+
+        </tr>
+<tr class="strow">
+            <td valign="top" headers="d158512e1090" class="stentry"><a class="xref" href="cat_as_bitbuff.html" title="ビットレート選択APIを使用すると、開発者はプログラム的に現在のバッファサイズを取得したり、ビットレートを取得および設定したりできます。"><samp class="ph codeph">targetBitrateQualityChanged</samp></a>
+            </td>
+
+            <td valign="top" headers="d158512e1093" class="stentry">目標ビットレート品質が変更されました。</td>
+
+        </tr>
+<tr class="strow">
+            <td valign="top" headers="d158512e1090" class="stentry"><a class="xref" href="cat_as_bitbuff.html" title="ビットレート選択APIを使用すると、開発者はプログラム的に現在のバッファサイズを取得したり、ビットレートを取得および設定したりできます。"><samp class="ph codeph">targetBitrateChanged</samp></a>
+                    </td>
+
+            <td valign="top" headers="d158512e1093" class="stentry">目標ビットレートが変更されました。</td>
+
+        </tr>
+</table>
+
+</div>
+ 
+    <div class="section"><h2 class="title sectiontitle">ActionScriptの例 </h2>
+        
+        <p class="p">以下に、利用可能なクエリ文字列のパススルーパラメータの例を示します。 例を参照するには、リンクをクリックしてください。</p>
+
+        <ul class="ul">
+            <li class="li"><a class="xref" href="player_examples_as.html" title="ActionScriptの例では、Ooyalaプレーヤーの埋め込み機能と、プレーヤーAPIを使用してプレーヤーに機能を追加する機能を紹介します。">Flex ActionScript 3 APIインターフェイスの例</a></li>
+
+            <li class="li"><a class="xref" href="player_examples_as.html" title="ActionScriptの例では、Ooyalaプレーヤーの埋め込み機能と、プレーヤーAPIを使用してプレーヤーに機能を追加する機能を紹介します。">はじめに例</a></li>
+
+            <li class="li"><a class="xref" href="player_examples_as.html" title="ActionScriptの例では、Ooyalaプレーヤーの埋め込み機能と、プレーヤーAPIを使用してプレーヤーに機能を追加する機能を紹介します。">追加された機能の例</a></li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../archive/player_api_as_intro.html" title="Ooyala PlayerのActionScript APIを使用すると、Adobe Flashベースのプレーヤーおよびビデオエクスペリエンスをカスタマイズできます。">プレーヤActionScript API（プレーヤV2は廃止予定）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

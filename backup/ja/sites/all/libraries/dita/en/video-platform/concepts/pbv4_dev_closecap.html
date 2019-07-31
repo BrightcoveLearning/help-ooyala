@@ -1,0 +1,72 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Programming Closed Captioning Using Player V4 JavaScript"/>
+<meta name="abstract" content="Closed Captioning (CC) APIs enable you to get/set supported closed captions and localize the Player UI language."/>
+<meta name="description" content="クローズドキャプション（CC）APIを使用すると、サポートされているクローズドキャプションを取得/設定したり、プレーヤのUI言語をローカライズしたりできます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_api.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/dfxp_format.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/closed_caption_language.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_dev_locale"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Player V4 JavaScriptを使用したクローズドキャプションのプログラミング</title>
+</head>
+<body id="pbv4_dev_locale">
+
+
+ <h1 class="title topictitle1">Player V4 JavaScriptを使用したクローズドキャプションのプログラミング</h1>
+
+ 
+
+ <div class="body conbody"><p class="shortdesc">クローズドキャプション（CC）APIを使用すると、サポートされているクローズドキャプションを取得/設定したり、プレーヤのUI言語をローカライズしたりできます。</p>
+
+  <div class="section"><p class="p">Ooyala Player V4は、VODおよびライブストリーム用のクローズドキャプション（字幕とも呼ばれる）をサポートしています。 Ooyalaは、iOSおよびAndroid SDKのVOD、およびPlayer V4（HTML5）のクローズドキャプションをサポートしています。 SafariのLive HLSストリームでは、ライブストリームのクローズドキャプションがサポートされています。
+        </p>
+
+      <p class="p">JavaScript字幕APIを使用すると、サポートされている字幕を取得したり、字幕言語を設定したりできます。 ライブストリーミングモードでは、字幕言語はストリーム自体から派生します。 クローズドキャプション機能は次のとおりです。</p>
+</div>
+
+  <div class="section">
+   <ul class="ul">
+    <li class="li">
+     <p class="gt-block p"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_v4_js/OO.Player.html#getCurrentItemClosedCaptionsLanguages" target="_blank"><samp class="ph codeph">getCurrentItemClosedCaptionsLanguages（）</samp></a></p>
+
+    </li>
+
+    <li class="li">
+     <p class="gt-block p"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_v4_js/OO.Player.html#setClosedCaptionsLanguage" target="_blank"><samp class="ph codeph">setClosedCaptionsLanguage（）</samp></a></p>
+
+    </li>
+
+   </ul>
+<p class="gt-block p">トピックでサポートされているクローズドキャプトイン言語のリストを確認できます。 <a class="xref" href="../reference/closed_caption_language.html#closed_caption_language" title="クローズドキャプションファイルをBacklotにアップロードする前に、サポートされている言語とファイル形式を使用していることを確認してください。">サポートされているクローズドキャプション言語</a>.  </p>
+
+   <div class="note note"><span class="notetitle">注意：</span> クローズドキャプションファイルがアップロードされ、再生されない場合、Ooyalaはクローズドキャプションの処理に厳密なXMLパーサーを使用します。 あなたのクローズドキャプションファイルは最低でもあなたのブラウザのパーサで動作する必要があります。</div>
+
+  </div>
+
+   
+ </div>
+
+ <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/pbv4_api.html">プレーヤV4 JavaScript API</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong><br/>
+<div><a class="link" href="../reference/dfxp_format.html" title="Backlotにアップロードするクローズドキャプションファイルは、サポートされている形式でなければなりません。 DFXP形式（現在はTTML）は、広く使用されている形式です。">サポートされているクローズドキャプションDFXP（現在はTTML）形式</a></div>
+<div><a class="link" href="../reference/closed_caption_language.html" title="クローズドキャプションファイルをBacklotにアップロードする前に、サポートされている言語とファイル形式を使用していることを確認してください。">サポートされているクローズドキャプション</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

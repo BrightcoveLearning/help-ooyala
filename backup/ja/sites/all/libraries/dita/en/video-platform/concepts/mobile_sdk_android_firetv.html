@@ -1,0 +1,115 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Integration with Amazon Fire TV on Android"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_android_integrations.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="mobile_sdk_android_firetv"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Android上のAmazon Fire TVとの統合</title>
+</head>
+<body id="mobile_sdk_android_firetv">
+
+
+    
+    <h1 class="title topictitle1">Android上のAmazon Fire TVとの統合</h1>
+
+    <div class="body conbody">
+        <p class="p">The Ooyala Skin UI now works with Amazon Fire TV 2014 and 2015 using the Fire TV
+            Remote.</p>
+
+        <p class="gt-block p">Amazon Fire TV uses a forked version of ExoPlayer, and supports Ooyala Mobile SDK for
+            Android applications. For more information, see <a class="xref" href="https://developer.amazon.com/public/solutions/devices/fire-tv/docs/fire-tv-media-players#exoplayer" target="_blank">https://developer.amazon.com/public/solutions/devices/fire-tv/docs/fire-tv-media-players#exoplayer</a>.</p>
+
+        <p class="gt-block p">To run Ooyala Mobile SDK for Android applications on Fire TV, customize your
+                <span class="ph filepath">skin.json</span> file so that it only includes applicable
+            functionality and excludes any functionality that is not usable on Fire TV. See <a class="xref" href="https://github.com/ooyala/skin-config/blob/master/examples/tv-skin.json" target="_blank">https://github.com/ooyala/skin-config/blob/master/examples/tv-skin.json</a> for an example of how to customize the
+                <span class="ph filepath">skin.json</span> ファイル。</p>
+
+        <p class="p">The following features have been tested and are supported when using Ooyala Skin UI with
+            Amazon Fire TV on Android:</p>
+
+        <div class="p">
+            <ul class="ul" id="mobile_sdk_android_firetv__ul_gwm_vts_kx">
+                <li class="li">
+                    <p class="gt-block p"><strong class="ph b">Players の作成と管理</strong>: ExoPlayer</p>
+
+                </li>
+
+                <li class="li">
+                    <p class="gt-block p"><strong class="ph b">広告</strong>: Pulse, Freewheel, IMA</p>
+
+                </li>
+
+                <li class="li">
+                    <p class="gt-block p"><strong class="ph b">アナリティクス</strong>: Adobe Analytics, Nielsen, NPAW, and IQ</p>
+
+                </li>
+
+                <li class="li">
+                    <p class="gt-block p"><strong class="ph b">ストリーム</strong>: MP4, HLS, DASH</p>
+
+                </li>
+
+                <li class="li">
+                    <p class="gt-block p"><strong class="ph b">DRM</strong>: Widevine DASH</p>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <p class="p">制限事項：</p>
+
+        <ul class="ul" id="mobile_sdk_android_firetv__ul_sf4_2ws_kx">
+            <li class="li">
+                <p class="p">You cannot use earlier versions of the Ooyala Skin UI.</p>
+
+            </li>
+
+            <li class="li">
+                <div class="p">The following Ooyala Skin UI elements are not interactive:<ul class="ul">
+                        <li class="li"><span class="ph uicontrol">次に</span></li>
+
+                        <li class="li"><span class="ph uicontrol">Discovery</span></li>
+
+                        <li class="li"><span class="ph uicontrol">クローズドキャプション</span></li>
+
+                        <li class="li"><span class="ph uicontrol">詳細</span> (about Ads)</li>
+
+                        <li class="li"><span class="ph uicontrol">Skip Ads</span></li>
+
+                    </ul>
+</div>
+
+            </li>
+
+        </ul>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/mobile_android_integrations.html">Androidのサードパーティ統合</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- de

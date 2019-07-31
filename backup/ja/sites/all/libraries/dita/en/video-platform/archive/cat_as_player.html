@@ -1,0 +1,407 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Player ActionScript APIs (Player V2 Deprecated)"/>
+<meta name="abstract" content="Player/Player UI ActionScript APIs can be used to handle aspects of the player such as fullscreen mode, player state, volume, playhead, player volume and video play length and status."/>
+<meta name="description" content="プレーヤー/プレーヤーUI ActionScript APIを使用して、フルスクリーンモード、プレーヤーの状態、音量、再生ヘッド、プレーヤーの音量、ビデオの再生時間とステータスなどのプレーヤーの側面を処理できます。"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/player_api_as_intro.html"/>
+<meta name="DC.Relation" scheme="URI" content="cat_as_assets.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="cat_as_player"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>プレーヤActionScript API（プレーヤV2は廃止予定）</title>
+</head>
+<body id="cat_as_player">
+
+
+ <h1 class="title topictitle1">プレーヤActionScript API（プレーヤV2は廃止予定）</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">プレーヤー/プレーヤーUI ActionScript APIを使用して、フルスクリーンモード、プレーヤーの状態、音量、再生ヘッド、プレーヤーの音量、ビデオの再生時間とステータスなどのプレーヤーの側面を処理できます。</p>
+
+  <div class="section"><h2 class="title sectiontitle">プレイヤー/プレイヤーUIのプロパティ</h2>
+   <div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V2は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V2はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V2を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="../concepts/pbv4_about.html">プレイヤーV4</a>.</div>
+
+   
+   <div class="note note"><span class="notetitle">注意：</span> このソフトウェアは非推奨です。 最新版を使用してください。</div>
+
+   <p class="p">次の表は、プレーヤーに関連付けられているActionScriptプロパティを示しています。</p>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" id="d140091e43">プロパティ</th>
+
+       <th class="entry" valign="top" id="d140091e46">説明</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      
+      
+      
+      
+      
+      
+      
+      
+     <tr class="row">
+       <td class="entry" valign="top" headers="d140091e43 d140091e46 "><span class="keyword apiname" id="cat_as_player__as_actP1">activePanel</span></td>
+
+       <td class="entry" valign="top" headers="d140091e43 d140091e46 "><p class="p">それぞれのパネルが現在表示されている場合は、情報、チャンネル、埋め込み、またはシンジケーションを返します。</p>
+
+        <p class="p">バインド可能</p>
+
+        <p class="p">フォーマット：読み取り専用</p>
+</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d140091e43 d140091e46 "><span class="keyword apiname">説明</span>
+       </td>
+
+       <td class="entry" valign="top" headers="d140091e43 d140091e46 "><p class="p">プレイヤーソースの説明。</p>
+
+        <p class="p">バインド可能</p>
+
+        <p class="p">フォーマット：読み取り専用</p>
+
+       </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d140091e43 d140091e46 "><span class="keyword apiname">フルスクリーン</span>
+       </td>
+
+       <td class="entry" valign="top" headers="d140091e43 d140091e46 "><p class="p">プレーヤーがフルスクリーンモードの場合はtrueを返し、そうでない場合はfalseを返します。</p>
+
+        <p class="p">バインド可能</p>
+
+        <p class="p">フォーマット：読み取り専用。</p>
+
+<p class="p">タイプ：ブール</p>
+
+<p class="p">戻り値：true | 偽 </p>
+</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d140091e43 d140091e46 "><span class="keyword apiname">playheadTime</span>
+       </td>
+
+       <td class="entry" valign="top" headers="d140091e43 d140091e46 "><p class="p">現在の再生ヘッド位置をミリ秒の精度で秒単位で返します。</p>
+
+        <p class="p">バインド可能</p>
+
+        <p class="p">フォーマット：読み書き。 </p>
+
+<p class="p">タイプ：整数</p>
+
+<p class="p">戻り値：秒単位の時間</p>
+</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d140091e43 d140091e46 "><span class="keyword apiname">queryStringParameters</span>
+       </td>
+
+       <td class="entry" valign="top" headers="d140091e43 d140091e46 "><p class="p">オブジェクトのパラメータ </p>
+  
+              <p class="p">バインド不可 </p>
+
+              <p class="p">フォーマット：書き込み専用。 </p>
+
+              <p class="p">タイプ：文字列 </p>
+
+              <p class="p">戻り値</p>
+
+       </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d140091e43 d140091e46 "><span class="keyword apiname">状態</span>
+       </td>
+
+       <td class="entry" valign="top" headers="d140091e43 d140091e46 "><p class="p">現在のプレイヤーの状態を取得します </p>
+
+        <p class="p">戻り値：再生中、一時停止中、バッファリング中、チャンネル、またはエラーのいずれか。</p>
+</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d140091e43 d140091e46 "><span class="keyword apiname">totalTime</span>
+       </td>
+
+       <td class="entry" valign="top" headers="d140091e43 d140091e46 ">
+        <p class="p">アクティブなビデオの長さを取得します（ミリ秒の精度で秒単位）。</p>
+
+<p class="p">タイプ：整数</p>
+
+<p class="p">戻り値：秒単位の期間        </p>
+
+       </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d140091e43 d140091e46 "><span class="keyword apiname">ボリューム</span>
+       </td>
+
+       <td class="entry" valign="top" headers="d140091e43 d140091e46 ">
+        <p class="p">0と1の間の数値としての現在のボリューム。 </p>
+
+         <p class="p">バインド可能</p>
+
+        <p class="p">フォーマット：読み書き。</p>
+
+         <p class="p">タイプ：整数</p>
+
+          <p class="p">戻り値：0から1までの数値        </p>
+
+       </td>
+
+      </tr>
+</tbody>
+
+    </table>
+</div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">プレイヤー/プレイヤーUIイベント処理</h2>
+   
+   <p class="p">次の表は、プレーヤUIイベントに関連付けられているActionScriptイベントを説明しています。</p>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     
+     
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="14.963575506989566%" id="d140091e252">イベント</th>
+
+       <th class="entry" valign="top" width="42.872612719039175%" id="d140091e255">イベントトリガー</th>
+
+       <th class="entry" valign="top" width="41.17936601693247%" id="d140091e258">説明</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+     <tr class="row">
+       <td class="entry" valign="top" width="14.963575506989566%" headers="d140091e252 ">
+        <span class="keyword apiname">playheadTimeChanged（）</span>
+        <p class="p"> </p>
+</td>
+
+       <td class="entry" valign="top" width="42.872612719039175%" headers="d140091e255 ">アクティブビデオの再生時間の更新</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="14.963575506989566%" headers="d140091e252 "><span class="keyword apiname">activePanelChanged</span>
+       </td>
+
+       <td class="entry" valign="top" width="42.872612719039175%" headers="d140091e255 ">activePanel</td>
+
+       <td class="entry" valign="top" width="41.17936601693247%" headers="d140091e258 ">情報、埋め込み、共有、またはチャンネルパネルが表示または非表示になりました。</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="14.963575506989566%" headers="d140091e252 "><span class="keyword apiname">apiReady</span>
+       </td>
+
+       <td class="entry" valign="top" width="42.872612719039175%" headers="d140091e255 ">このイベントは、プレーヤーのembedCodeが変更されるたびに発生します。</td>
+
+       <td class="entry" valign="top" width="41.17936601693247%" headers="d140091e258 ">プレーヤーは次のようなAPIリクエストを受け取る準備ができています。 <samp class="ph codeph">映画を再生（）</samp>,
+         
+         <samp class="ph codeph">getItem（）</samp>API呼び出しを行う前に、このイベントが送出されるのを待ってください。 埋め込みコードは <samp class="ph codeph">setEmbedCode（）</samp>  or
+         
+         <samp class="ph codeph">setQueryStringParameters（）</samp>。 注：バージョン2以降に適用されます。</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="14.963575506989566%" headers="d140091e252 "><span class="keyword apiname">fullscreenChanged</span>
+       </td>
+
+       <td class="entry" valign="top" width="42.872612719039175%" headers="d140091e255 ">
+        <p class="p">キャンセル可能な例：フォーマット（動画）、ソース（doubleClick）、タイプ（adStarted）</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="41.17936601693247%" headers="d140091e258 ">全画面表示状態が切り替えられました。 </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="14.963575506989566%" headers="d140091e252 "><span class="keyword apiname">loadComplete</span>
+       </td>
+
+       <td class="entry" valign="top" width="42.872612719039175%" headers="d140091e255 ">プレイヤーは初期化されました。 これは非推奨です。 代わりにapiReadyイベントを使用してください。</td>
+
+       <td class="entry" valign="top" width="41.17936601693247%" headers="d140091e258 "> </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="14.963575506989566%" headers="d140091e252 "><span class="keyword apiname">metadataReady</span>
+        <p class="p"> </p>
+</td>
+
+       <td class="entry" valign="top" width="42.872612719039175%" headers="d140091e255 "><p class="p">メタデータ</p>
+ 
+        <p class="p">メタデータプロパティは、名前と値のペアの配列です。</p>
+
+        <p class="p">タイプ：配列</p>
+
+        <p class="p">戻り値：名前と値のペアには、名前と値の2つのプロパティがあります。</p>
+
+        <p class="p">例：{name： &quot;actor&quot;、value： &quot;Johnny Depp&quot;}</p>
+</td>
+
+       <td class="entry" valign="top" width="41.17936601693247%" headers="d140091e258 ">fetchMetadata（）呼び出しによって要求されたメタデータは準備ができています。 </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="14.963575506989566%" headers="d140091e252 "><span class="keyword apiname">playComplete</span>
+       </td>
+
+       <td class="entry" valign="top" width="42.872612719039175%" headers="d140091e255 ">動画またはチャンネルの再生が完了しました。</td>
+
+       <td class="entry" valign="top" width="41.17936601693247%" headers="d140091e258 "> </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="14.963575506989566%" headers="d140091e252 "><span class="keyword apiname">RatingApiReady</span>
+       </td>
+
+       <td class="entry" valign="top" width="42.872612719039175%" headers="d140091e255 ">評価APIがロードされ、使用可能になりました。 このイベントはloadRatingsApi（）が呼び出された後に送出されます。</td>
+
+       <td class="entry" valign="top" width="41.17936601693247%" headers="d140091e258 "> </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="14.963575506989566%" headers="d140091e252 "><span class="keyword apiname">relatedMediaReady</span>
+       </td>
+
+       <td class="entry" valign="top" width="42.872612719039175%" headers="d140091e255 "><p class="p">fetchRelatedMedia（）呼び出しによって要求されたrelatedMediaは準備ができています。 </p>
+
+        <p class="p">このイベントには、メディアアイテムの配列である &quot;relatedMedia&quot;プロパティがあります。</p>
+
+        <p class="p">タイプ：配列</p>
+
+        <p class="p">戻り値：各項目には、タイトル、説明、時間、プロモーション、およびembedCodeがあります。        </p>
+</td>
+
+       <td class="entry" valign="top" width="41.17936601693247%" headers="d140091e258 ">
+        <p class="p">fetchRelatedMedia（）呼び出しによって要求された関連メディアはこれで準備ができました。 </p>
+
+       </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="14.963575506989566%" headers="d140091e252 "><span class="keyword apiname" id="cat_as_player__seeked">求めた</span>
+       </td>
+
+       <td class="entry" valign="top" width="42.872612719039175%" headers="d140091e255 ">newPlayheadTime、oldPlayheadTime。</td>
+
+       <td class="entry" valign="top" width="41.17936601693247%" headers="d140091e258 ">プレイヤーでシークイベントが発生しました。 このイベントは、2つの方法でトリガーできます。ユーザーがスクラバーバーを移動すると（ユーザーがスクラバーバーを放すとイベントが登録されることに注意してください）、API要求setPlayheadTimeが行われます。</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="14.963575506989566%" headers="d140091e252 "><span class="keyword apiname">stateChanged</span></td>
+
+       <td class="entry" valign="top" width="42.872612719039175%" headers="d140091e255 ">
+        <p class="p">プレイヤーの状態が再生中、一時停止中、バッファリング中、またはエラー中に変化した。</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="41.17936601693247%" headers="d140091e258 ">状態が変わりました。</td>
+
+       <td class="entry" valign="top" width="0.9844457570387871%"> </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="14.963575506989566%" headers="d140091e252 "><span class="keyword apiname">totalTimeChanged</span>
+       </td>
+
+       <td class="entry" valign="top" width="42.872612719039175%" headers="d140091e255 ">
+        <p class="p">現在の動画の再生時間が変わりました。</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="41.17936601693247%" headers="d140091e258 "> </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="14.963575506989566%" headers="d140091e252 "><span class="keyword apiname">volumeChanged</span>
+       </td>
+
+       <td class="entry" valign="top" width="42.872612719039175%" headers="d140091e255 ">
+        <p class="p">プレーヤーの音量が変更されました。
+        </p>
+
+       </td>
+
+       <td class="entry" valign="top" width="41.17936601693247%" headers="d140091e258 "> </td>
+
+      </tr>
+</tbody>
+
+    </table>
+</div>
+
+  </div>
+
+ <div class="section"><h2 class="title sectiontitle">関連情報 </h2>
+  
+  <p class="p">以下のリストは、プレイヤーについての一般的な情報を提供するBacklotドキュメントへのリンクを提供します。</p>
+
+  <ul class="ul">
+   <li class="li"><a class="xref" href="../api/players_core.html" title="プレーヤーを作成してアカウント内の1つ以上のアセットに割り当てると、再生オプションとコンテンツの外観が決まります。">Backlot REST APIを使用したプレーヤーの管理</a></li>
+
+   <li class="li"><a class="xref" href="../api/players.html">プレイヤー（Backlot REST API）</a></li>
+
+   <li class="li"><a class="xref" href="../concepts/chapter_players.html" title="Backlot UIを使用してOoyalaプレーヤーを作成および構成する方法を説明します。">Backlotでプレイヤーを管理する</a></li>
+
+  </ul>
+
+ </div>
+
+ </div>
+
+ <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../archive/player_api_as_intro.html" title="Ooyala PlayerのActionScript APIを使用すると、Adobe Flashベースのプレーヤーおよびビデオエクスペリエンスをカスタマイズできます。">プレーヤActionScript API（プレーヤV2は廃止予定）</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong><br/>
+<div><a class="link" href="cat_as_assets.html" title="アセットActionScript APIを使用して、評価、ビデオ（再生/一時停止、説明）、およびチャンネルを処理できます。">ActionScript APIのアセット（Player V2は非推奨）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- de

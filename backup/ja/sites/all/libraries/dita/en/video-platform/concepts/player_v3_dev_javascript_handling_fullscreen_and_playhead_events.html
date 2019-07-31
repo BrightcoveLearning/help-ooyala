@@ -1,0 +1,306 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Advanced: Handling Fullscreen and Playhead Events in Player V3 (Deprecated)"/>
+<meta name="abstract" content="Use event handling and UI elements to control the use of fullscreen mode for the Ooyala Player V3."/>
+<meta name="description" content="OoyalaプレーヤーV3のフルスクリーンモードの使用を制御するには、イベント処理とUI要素を使用します。"/>
+<meta name="DC.Relation" scheme="URI" content="../api/player_v3_apis.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/player_v3_dev_tutorial.html#player_v3_dev_tutorial"/>
+<meta name="DC.Relation" scheme="URI" content="player_v3_dev_eventmodel.html#player_v3_dev__eventmodel"/>
+<meta name="DC.Relation" scheme="URI" content="analytics_plays-and-displays.html#concept_hyx_qlc_ck"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_v3_javascript_handling_fullscreen_and_playhead_events"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Advanced：Player V3でのフルスクリーンイベントと再生ヘッドイベントの処理（廃止予定）</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="player_v3_javascript_handling_fullscreen_and_playhead_events">
+
+
+ <h1 class="title topictitle1">Advanced：Player V3でのフルスクリーンイベントと再生ヘッドイベントの処理（廃止予定）</h1>
+
+ 
+  <div class="body refbody"><p class="shortdesc"> Use event handling and UI elements to control the use of fullscreen mode for the Ooyala
+    Player V3.</p>
+<div class="section" id="player_v3_javascript_handling_fullscreen_and_playhead_events__section_g5s_tgw_rr">
+    <div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V3は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V3はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V3を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="pbv4_migration_v3.html">Player V3からの移行</a> そして <a class="xref" href="pbv4_migration_faq.html">プレイヤー移行に関するFAQ</a>).</div>
+
+    この例では、使い方を学びます。
+        <samp class="ph codeph">onCreate（）</samp> フルスクリーンモードの使用に関連するイベントを処理する機能。 この高度なアプリケーションでは、ユーザーはボタンをクリックしてフルスクリーンモードに切り替えます。このモードは、再生ヘッドの時間（ビデオの長さ）を監視するイベントハンドラを介して5秒後に自動的に無効になります。 <div class="p">このWebページの目的は、フルスクリーンモードに切り替えるオプションをユーザーに提供することです。デザインには次のものが含まれます。 <ul class="ul" id="player_v3_javascript_handling_fullscreen_and_playhead_events__ul_omg_t13_pr">
+          <li class="li">A  <samp class="ph codeph">head</samp> を含む要素 <samp class="ph codeph">スクリプト</samp> ロードおよび初期化要求を指定するタグ。</li>
+
+          <li class="li">A  <samp class="ph codeph">ボディ</samp> 以下を含む要素<ul class="ul">
+              <li class="li">PlayerコンテナのUI表示とレイアウト。</li>
+
+              <li class="li">再生ヘッドの時間を監視するイベントリスナー。</li>
+
+              <li class="li">A  <samp class="ph codeph">スクリプト</samp> プレーヤを作成するタグ。</li>
+
+              <li class="li">HTML <samp class="ph codeph">ボタン</samp> 関連付けられたボタンクリックイベントハンドラとともに、フルスクリーンモードに切り替えるためのものです。</li>
+
+            </ul>
+</li>
+
+        </ul>
+</div>
+
+    <div class="note note"><span class="notetitle">注意：</span> You cannot force your webpage to display in fullscreen mode for security reasons. User interaction is
+      required to initiate the fullscreen mode.</div>
+
+  </div>
+<div class="section"><div class="p">Webページを作成するには、次の手順に従ってください。<ul class="ul" id="player_v3_javascript_handling_fullscreen_and_playhead_events__ul_cpq_5s5_qr">
+          <li class="li"><a class="xref" href="#player_v3_javascript_handling_fullscreen_and_playhead_events__section_eb4_xs5_qr/index.html">Step 1: Capturing a Button Click</a></li>
+
+          <li class="li"><a class="xref" href="#player_v3_javascript_handling_fullscreen_and_playhead_events__section_bpt_ys5_qr/index.html">Step 2: Monitoring the Play Duration</a></li>
+
+        </ul>
+</div>
+<p class="gt-block p">見る <a class="xref" href="#player_v3_javascript_handling_fullscreen_and_playhead_events__section_rxf_zs5_qr/index.html">完全な例</a> Webページ全体のコードを表示します。</p>
+<p class="gt-block p">を開発する
+          <samp class="ph codeph">head</samp> element and the logic for presenting and creating the Player, see
+          <a class="xref" href="../reference/player_v3_dev_tutorial.html#player_v3_dev_tutorial" title="このチュートリアルを使用して、HTML5 Player V3の使用を開始してください。">HTML5プレーヤーV3の基本チュートリアル（非推奨）</a>.  </p>
+<p class="gt-block p">To
+        learn about event handling, see <a class="xref" href="player_v3_dev_eventmodel.html#player_v3_dev__eventmodel" title="HTML5プレーヤーV3は、イベントを処理するためのメッセージバスの使用を組み込んでいます。">HTML5 Player V3のイベントモデル（非推奨）</a>.</p>
+</div>
+
+      <div class="section" id="player_v3_javascript_handling_fullscreen_and_playhead_events__section_eb4_xs5_qr"><h2 class="title sectiontitle">Step 1: Capturing a Button Click</h2>
+      
+      <p class="p">フルスクリーンモードに切り替えるためのボタンとそれに関連するイベントハンドラを作成します。 </p>
+
+      <p class="gt-block p">ラベル付きのボタンを作成しましょう <strong class="ph b">フルスクリーンに交換</strong>。 割り当てます
+          <samp class="ph codeph">id</samp> 呼び出された属性 <samp class="ph codeph">スワップボタン</samp> so we can associate the
+        button with an event handler:</p>
+
+      <div class="p">
+        <pre class="pre codeblock">&lt;button id = &quot;swapbutton&quot;&gt;全画面表示に切り替える&lt;/button&gt;</pre>
+
+      </div>
+
+      <div class="p">ボタンクリックイベントハンドラも定義し、そのボタンを使ってボタンを参照する必要があります。
+          <samp class="ph codeph">id</samp> の属性 <samp class="ph codeph">スワップボタン</samp>。 私達は利用します <a class="xref" href="https://jquery.com" target="_blank">jQueryの</a> Ooyala V3 Playerに含まれているライブラリ。このライブラリに含まれるjQuery機能を使用してボタンを参照します。 <span class="keyword apiname">OO</span>
+        名前空間：<pre class="pre codeblock">OO.$("#swapbutton").click(function() {
+            
+  // logic to handle fullscreen event
+});</pre>
+</div>
+
+      <p class="gt-block p">Now we can add the logic to handle the fullscreen event once the button is clicked. The
+          <a class="xref" href="player_v3_dev_eventmodel.html#player_v3_dev__eventmodel" title="HTML5プレーヤーV3は、イベントを処理するためのメッセージバスの使用を組み込んでいます。">HTML5 Player V3のイベントモデル（非推奨）</a> provides you with a
+        message bus, accessed via the created Player object's <span class="keyword apiname">mb</span> object. In this
+        case we will use the message bus <span class="keyword apiname">公開（）</span> function to notify the Player
+        that it is changing to fullscreen mode:</p>
+
+      <p class="p"><samp class="ph codeph">player.mb.publish（OO.EVENTS.WILL_CHANGE_FULLSCREEN、true）;</samp></p>
+
+      <p class="gt-block p">In this case we pass the <span class="keyword apiname">OO.EVENTS.WILL_CHANGE_FULLSCREEN</span> の値を持つイベント <samp class="ph codeph">true</samp>これは、プレーヤーがフルスクリーンモードに切り替えることを示しています。 すべてのイベントのリストについては、 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/index.html" target="_blank">プレーヤJavaScript APIリファレンス</a>。 これが私たちがこれまでに持っているウェブページのデザインです：</p>
+
+      <pre class="pre codeblock"> 
+&lt;!DOCTYPE html&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+    &lt;head&gt;
+        &lt;title&gt;My Test Player V3 Web Page&lt;/title&gt;
+        
+        &lt;!-- Load the Ooyala V3 Player --&gt;
+        &lt;script src="http://player.ooyala.com/v3/f6d2bba353f74b3db7683cf6b0a91f29?platform=html5-priority"&gt;&lt;/script&gt;
+        
+    &lt;/head&gt;
+    
+    &lt;body&gt;
+        &lt;b&gt;Full Screen Example&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+
+        &lt;div id="ooyalaplayer" style="width:640px;height:360px"&gt;&lt;/div&gt;
+
+        &lt;script&gt;
+            
+          OO.ready(function() { 
+            player = OO.Player.create(
+              'ooyalaplayer', 
+              'hkbTd2czrIYRs4-HnJ9nVcHSxtA07FUK', {
+              
+                // embedded parameters will go here
+              }
+            );
+        
+            // This function defines a button that enables fullscreen mode when clicked.
+            // The id, swapbutton, matches the id attribute of the &lt;button&gt; control defined below.
+            OO.$("#swapbutton").click(function() {
+            
+              // Use the message bus API to publish the WILL_CHANGE_FULLSCREEN event.
+              // This time the boolean argument (true) indicates 
+              // that the full screen setting is to be enabled. 
+              player.mb.publish(OO.EVENTS.WILL_CHANGE_FULLSCREEN,true);
+            });
+          });
+        &lt;/script&gt;
+        
+        &lt;br /&gt;        
+        &lt;!-- Place a button below the player container. 
+             Its id attribute, swapbutton, is referenced above in the click event. --&gt;
+        &lt;button id="swapbutton"&gt;Swap to Fullscreen&lt;/button&gt;
+        
+    &lt;/body&gt;
+&lt;/html&gt;
+      </pre>
+
+    </div>
+
+    
+  <div class="section" id="player_v3_javascript_handling_fullscreen_and_playhead_events__section_bpt_ys5_qr"><h2 class="title sectiontitle">Step 2: Monitoring the Play Duration</h2>Playerオブジェクトに関連するすべてのイベント、エラー、およびカスタマイズを管理できます。
+        <samp class="ph codeph">onCreate（）</samp> に含まれる関数 <samp class="ph codeph">ボディ</samp> ここに示すように： <div class="p"><pre class="pre codeblock">
+    &lt;body&gt;
+        &lt;b&gt;Full Screen Example&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+
+        &lt;div id="ooyalaplayer" style="width:640px;height:360px"&gt;&lt;/div&gt;
+
+        &lt;script&gt;
+          // Always add event listeners and error handling within the onCreate() function.
+          // Include this function in the embedded parameters in the Player.create() call.
+          function onCreate(player) {
+          }</pre>
+In this case we are monitoring the play duration. We would like to disable
+        fullscreen mode once the playhead reaches 5 seconds, so we will need to subscribe to the
+          <span class="keyword apiname">OO.EVENTS.PLAYHEAD_TIME_CHANGED</span> event. This event calls the handler
+        with several arguments: <samp class="ph codeph">引数[1]</samp> 秒単位の継続時間です。 <samp class="ph codeph">引数[1]</samp> 公開前に5秒を超えている
+          <span class="keyword apiname">OO.EVENTS.WILL_CHANGE_FULLSCREEN</span> の値を持つイベント
+          <samp class="ph codeph">false</samp> (to disable fullscreen
+        mode):</div>
+<pre class="pre codeblock">          // Always add event listeners and error handling within the onCreate() function.
+          // Include this function in the embedded parameters in the Player.create() call.
+          function onCreate(player) {
+          
+            // Listen for the playhead time change event,
+            // and disable fullscreen mode after 5 seconds of play: 
+            player.mb.subscribe(OO.EVENTS.PLAYHEAD_TIME_CHANGED, 'test', function(event) {
+            
+               // The PLAYHEAD_TIME_CHANGED event calls the handler with several arguments.
+               // argument[1] has the duration.
+               if(arguments[1] &gt; 5) {  
+               
+                  // Use the message bus API to publish the WILL_CHANGE_FULLSCREEN event.
+                  // The boolean argument (false) accompanies the event, 
+                  // indicating the full screen setting is to be disabled. 
+                  player.mb.publish(OO.EVENTS.WILL_CHANGE_FULLSCREEN,false);    
+               }
+            });
+          }
+          </pre>
+<p class="gt-block p">For
+        more information about play events, see <a class="xref" href="analytics_plays-and-displays.html#concept_hyx_qlc_ck" title="Ooyala Playerの使用は、表示、再生、および再生開始のイベントによって細分化されます。">表示、再生、および再生の開始（廃止予定）</a>.</p>
+<div class="p">Now that we have the
+        the <samp class="ph codeph">onCreate（）</samp> function, we must include it in the embedded parameters for
+        the <span class="keyword apiname">OO.Player.create（）</span> method
+        call:<pre class="pre codeblock">            player = OO.Player.create(
+              'ooyalaplayer', 
+              'hkbTd2czrIYRs4-HnJ9nVcHSxtA07FUK', {
+              
+                // Include the onCreate() function you defined above in these embedded parameters.
+                onCreate : window.onCreate
+              }
+            );
+</pre>
+</div>
+
+    </div>
+
+    <div class="section" id="player_v3_javascript_handling_fullscreen_and_playhead_events__section_rxf_zs5_qr"><h2 class="title sectiontitle">完全な例</h2>
+      You now have a complete working example of a web page that lets
+      the user click a button to switch to fullscreen mode, which is automatically disabled after 5
+      seconds via an event handler that monitors the playhead time: <pre class="pre codeblock">
+ 
+&lt;!DOCTYPE html&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+    &lt;head&gt;
+        &lt;title&gt;My Test Player V3 Web Page&lt;/title&gt;
+        
+        &lt;!-- Load the Ooyala V3 Player --&gt;
+        &lt;script src="http://player.ooyala.com/v3/f6d2bba353f74b3db7683cf6b0a91f29?platform=html5-priority"&gt;&lt;/script&gt;
+        
+    &lt;/head&gt;
+    
+    &lt;body&gt;
+        &lt;b&gt;Full Screen Example&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+
+        &lt;div id="ooyalaplayer" style="width:640px;height:360px"&gt;&lt;/div&gt;
+
+        &lt;script&gt;
+          // Always add event listeners and error handling within the onCreate() function.
+          // Include this function in the embedded parameters in the Player.create() call.
+          function onCreate(player) {
+          
+            // Listen for the playhead time change event,
+            // and disable fullscreen mode after 5 seconds of play: 
+            player.mb.subscribe(OO.EVENTS.PLAYHEAD_TIME_CHANGED, 'test', function(event) {
+            
+               // The PLAYHEAD_TIME_CHANGED event calls the handler with several arguments.
+               // argument[1] has the duration.
+               if(arguments[1] &gt; 5) {  
+               
+                  // Use the message bus API to publish the WILL_CHANGE_FULLSCREEN event.
+                  // The boolean argument (false) accompanies the event, 
+                  // indicating the full screen setting is to be disabled. 
+                  player.mb.publish(OO.EVENTS.WILL_CHANGE_FULLSCREEN,false);    
+               }
+            });
+          }
+            
+          OO.ready(function() { 
+            player = OO.Player.create(
+              'ooyalaplayer', 
+              'hkbTd2czrIYRs4-HnJ9nVcHSxtA07FUK', {
+              
+                // Include the onCreate() function you defined above in these embedded parameters.
+                onCreate : window.onCreate
+              }
+            );
+        
+            // This function defines a button that enables fullscreen mode when clicked.
+            // The id, swapbutton, matches the id attribute of the &lt;button&gt; control defined below.
+            OO.$("#swapbutton").click(function() {
+            
+              // Use the message bus API to publish the WILL_CHANGE_FULLSCREEN event.
+              // This time the boolean argument (true) indicates 
+              // that the full screen setting is to be enabled. 
+              player.mb.publish(OO.EVENTS.WILL_CHANGE_FULLSCREEN,true);
+            });
+          });
+        &lt;/script&gt;
+        
+        &lt;br /&gt;        
+        &lt;!-- Place a button below the player container. 
+             Its id attribute, swapbutton, is referenced above in the click event. --&gt;
+        &lt;button id="swapbutton"&gt;Swap to Fullscreen&lt;/button&gt;
+        
+    &lt;/body&gt;
+&lt;/html&gt;
+  </pre>
+
+    </div>
+
+ </div>
+
+ 
+  <div class="related-links"><div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="player_v3_dev_eventmodel.html#player_v3_dev__eventmodel" title="HTML5プレーヤーV3は、イベントを処理するためのメッセージバスの使用を組み込んでいます。">HTML5 Player V3のイベントモデル（非推奨）</a></div>
+<div><a class="link" href="analytics_plays-and-displays.html#concept_hyx_qlc_ck" title="Ooyala Playerの使用は、表示、再生、および再生開始のイベントによって細分化されます。">表示、再生、および再生の開始（廃止予定）</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong><br/>
+<div><a class="link" href="../api/player_v3_apis.html" title="プレーヤV3 JavaScript関数を使用してプレーヤの動作と外観をカスタマイズできます。">プレーヤV3 JavaScript API関数</a></div>
+<div><a class="link" href="../reference/player_v3_dev_tutorial.html#player_v3_dev_tutorial" title="このチュートリアルを使用して、HTML5 Player V3の使用を開始してください。">HTML5プレーヤーV3の基本チュートリアル（非推奨）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div><

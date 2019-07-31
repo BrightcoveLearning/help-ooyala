@@ -1,0 +1,395 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Discovery Player Properties"/>
+<meta name="abstract" content="The following table describes all properties that can be associated with a player."/>
+<meta name="description" content="次の表は、プレーヤーに関連付けることができるすべてのプロパティについて説明しています。"/>
+<meta name="DC.Relation" scheme="URI" content="../api/players_discovery_profile.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="players_discovery_properties"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Discovery Playerのプロパティ</title>
+</head>
+<body id="players_discovery_properties">
+
+
+  <h1 class="title topictitle1">Discovery Playerのプロパティ</h1>
+
+  
+  <div class="body refbody"><p class="shortdesc">次の表は、プレーヤーに関連付けることができるすべてのプロパティについて説明しています。</p>
+
+    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+        
+        
+        
+        <thead class="thead" align="left">
+          <tr class="row">
+            <th class="entry" valign="top" width="33.33333333333333%" id="d107134e28">プロパティ</th>
+
+            <th class="entry" valign="top" width="44.44444444444444%" id="d107134e31">説明</th>
+
+            <th class="entry" valign="top" width="22.22222222222222%" id="d107134e34">必須？</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody class="tbody">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        <tr class="row">
+            <td class="entry" valign="top" width="33.33333333333333%" headers="d107134e28 "><span class="keyword parmname">default_countdown</span></td>
+
+            <td class="entry" valign="top" width="44.44444444444444%" headers="d107134e31 ">
+              <p class="p">次のビデオが自動的に開始されるまでの時間を秒単位で指定します。 </p>
+
+              <p class="p">タイプ：整数 </p>
+
+              <p class="gt-block p">例：参照 <a class="xref" href="players_discovery_setdefaultcountdown.html#players_discovery_setdefaultcountdown">デフォルトのカウントダウンを設定する</a>.  </p>
+
+            </td>
+
+            <td class="entry" valign="top" width="22.22222222222222%" headers="d107134e34 ">いいえ</td>
+
+          </tr>
+<tr class="row">
+            <td class="entry" id="players_discovery_properties__discovery_controls" valign="top" width="33.33333333333333%" headers="d107134e28 "><span class="keyword parmname">discovery_controls</span></td>
+
+            <td class="entry" valign="top" width="44.44444444444444%" headers="d107134e31 ">
+              <p class="p">Ooyala Discoveryの制御設定を指定します。</p>
+
+              <p class="p">タイプ：コンテナ</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="22.22222222222222%" headers="d107134e34 ">いいえ</td>
+
+          </tr>
+<tr class="row">
+            <td class="entry" id="players_discovery_properties__discovery_enabled" valign="top" width="33.33333333333333%" headers="d107134e28 "><span class="keyword parmname">discovery_enabled</span></td>
+
+            <td class="entry" valign="top" width="44.44444444444444%" headers="d107134e31 ">特定の検出プロファイルを有効または無効にします。<p class="p">タイプ：ブール</p>
+<p class="p">有効な値は以下のとおりです。 偽</p>
+<p class="gt-block p">例：参照 <a class="xref" href="players_discovery_enabledisableprofile.html#players_discovery_enabledisableprofile">プレーヤーの検出プロファイルの有効化と無効化</a>.</p>
+</td>
+
+            <td class="entry" valign="top" width="22.22222222222222%" headers="d107134e34 ">いいえ</td>
+
+          </tr>
+<tr class="row">
+            <td class="entry" valign="top" width="33.33333333333333%" headers="d107134e28 "><span class="keyword parmname">discovery_interface</span></td>
+
+            <td class="entry" valign="top" width="44.44444444444444%" headers="d107134e31 ">
+              <p class="p">ユーザーインターフェイス設定を指定します。</p>
+
+              <p class="p">タイプ：コンテナ</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="22.22222222222222%" headers="d107134e34 ">いいえ</td>
+
+          </tr>
+<tr class="row">
+            <td class="entry" id="players_discovery_properties__exclude_content_types" valign="top" width="33.33333333333333%" headers="d107134e28 "><span class="keyword parmname">exclude_content_types</span></td>
+
+            <td class="entry" valign="top" width="44.44444444444444%" headers="d107134e31 ">
+              <p class="p">Ooyala Discoveryの推奨事項から除外されるコンテンツタイプのコンマ区切りリスト。 </p>
+
+              <p class="p">タイプ：文字列のリスト </p>
+
+              <p class="p">有効値：ビデオ| live_stream </p>
+
+              <p class="p">デフォルト：none </p>
+
+              <p class="p">例：「live_stream」、「video」 </p>
+
+            </td>
+
+            <td class="entry" valign="top" width="22.22222222222222%" headers="d107134e34 ">いいえ</td>
+
+          </tr>
+<tr class="row">
+            <td class="entry" id="players_discovery_properties__exclude_labels" valign="top" width="33.33333333333333%" headers="d107134e28 "><span class="keyword parmname">exclude_labels</span></td>
+
+            <td class="entry" valign="top" width="44.44444444444444%" headers="d107134e31 ">
+              <p class="gt-block p">Ooyala Discoveryの推奨事項から除外するラベルのコンマ区切りリスト。 このオプションを使うには <span class="keyword parmname">filter_by</span> 設定する必要があります
+                  <var class="keyword varname">exclude_labels</var>.</p>
+
+              <p class="p">タイプ：文字列のリスト </p>
+
+              <p class="p">デフォルト：none </p>
+
+              <p class="p">Example: "126ac19f053e424ab41bfbab5526ec30","d5751b77a0c24972888bf906734d8c34" </p>
+
+            </td>
+
+            <td class="entry" valign="top" width="22.22222222222222%" headers="d107134e34 ">いいえ</td>
+
+          </tr>
+<tr class="row">
+            <td class="entry" id="players_discovery_properties__exclude_videos" valign="top" width="33.33333333333333%" headers="d107134e28 "><span class="keyword parmname">exclude_videos</span></td>
+
+            <td class="entry" valign="top" width="44.44444444444444%" headers="d107134e31 ">
+              <p class="p">Ooyala Discoveryの推奨事項から除外するビデオ埋め込みコード（またはコンテンツID /アセットID）のコンマ区切りリスト。 </p>
+
+              <p class="p">タイプ：文字列のリスト </p>
+
+              <p class="p">デフォルト：none </p>
+
+              <p class="p">Example: "126ac19f0fbab5526ec30","d5751b772888bf906734d8c34" </p>
+
+            </td>
+
+            <td class="entry" valign="top" width="22.22222222222222%" headers="d107134e34 "> </td>
+
+          </tr>
+<tr class="row">
+            <td class="entry" id="players_discovery_properties__fallback_rules" valign="top" width="33.33333333333333%" headers="d107134e28 "><span class="keyword parmname">fallback_rules</span></td>
+
+            <td class="entry" valign="top" width="44.44444444444444%" headers="d107134e31 ">将来の使用のために予約済み</td>
+
+            <td class="entry" valign="top" width="22.22222222222222%" headers="d107134e34 ">いいえ</td>
+
+          </tr>
+<tr class="row">
+            <td class="entry" id="players_discovery_properties__filter_by" valign="top" width="33.33333333333333%" headers="d107134e28 "><span class="keyword parmname">filter_by</span></td>
+
+            <td class="entry" valign="top" width="44.44444444444444%" headers="d107134e31 ">
+              <p class="gt-block p">使用するラベルフィルタリングの種類を指定します。 ラベルを除外するには、次のように指定します。
+                  <var class="keyword varname">exclude_labels</var> ラベルのリストを
+                  <span class="keyword parmname">exclude_labels</span> パラメータ 特定のラベルを含めるには、次のように指定します。
+                  <var class="keyword varname">from_labels</var> ラベルのリストを
+                  <span class="keyword parmname">from_labels</span> パラメータ ソース動画と推奨動画で共有されているラベルのみを使用するには、次のように指定します。 <var class="keyword varname">shared_label</var>.  </p>
+
+              <p class="p">タイプ：文字列 </p>
+
+              <p class="p">デフォルト：none </p>
+
+              <p class="p">有効な値：exclude_labels | from_labels | shared_label </p>
+
+              <p class="p">例： &quot;exclude_labels&quot; </p>
+
+            </td>
+
+            <td class="entry" valign="top" width="22.22222222222222%" headers="d107134e34 ">いいえ</td>
+
+          </tr>
+<tr class="row">
+            <td class="entry" id="players_discovery_properties__from_content_types" valign="top" width="33.33333333333333%" headers="d107134e28 "><span class="keyword parmname">from_content_types</span></td>
+
+            <td class="entry" valign="top" width="44.44444444444444%" headers="d107134e31 ">
+              <p class="p">Ooyala Discoveryの推奨事項に含まれるコンテンツタイプのコンマ区切りリスト。 サポートされているコンテンツタイプがなく、除外されているタイプがない場合は、すべてのコンテンツタイプが返される可能性があります。</p>
+
+              <p class="p">タイプ：文字列のリスト </p>
+
+              <p class="p">有効値：ビデオ| live_stream </p>
+
+              <p class="p">デフォルト：none </p>
+
+              <p class="p">例：「video」、「live_stream」 </p>
+
+            </td>
+
+            <td class="entry" valign="top" width="22.22222222222222%" headers="d107134e34 ">いいえ</td>
+
+          </tr>
+<tr class="row">
+            <td class="entry" id="players_discovery_properties__from_labels" valign="top" width="33.33333333333333%" headers="d107134e28 "><span class="keyword parmname">from_labels</span></td>
+
+            <td class="entry" valign="top" width="44.44444444444444%" headers="d107134e31 ">
+              <p class="p">Ooyala Discoveryの推奨事項に使用されるラベルのコンマ区切りリスト。 ラベルを指定しないと、すべてのラベルが許可されます。</p>
+
+              <p class="p">タイプ：文字列のリスト </p>
+
+              <p class="p">デフォルト：none </p>
+
+              <p class="gt-block p">例：参照 <a class="xref" href="players_discovery_filteringwithlabels.html#players_discovery_filteringwithlabels">ラベルを使ったフィルタリング</a>.  </p>
+
+            </td>
+
+            <td class="entry" valign="top" width="22.22222222222222%" headers="d107134e34 ">いいえ</td>
+
+          </tr>
+<tr id="players_discovery_properties__hide_thumbnail_title" class="row">
+            <td class="entry" valign="top" width="33.33333333333333%" headers="d107134e28 "><span class="keyword parmname">hide_thumbnail_title</span></td>
+
+            <td class="entry" valign="top" width="44.44444444444444%" headers="d107134e31 "><p class="p">おすすめのビデオサムネイルのタイトルを非表示にします。 </p>
+<p class="p">タイプ：ブール
+                </p>
+<p class="p">有効な値は以下のとおりです。 偽 </p>
+<p class="p">デフォルト：false </p>
+例：参照 <a class="xref" href="players_discovery_hidethumbnails.html#players_discovery_hidethumbnails">サムネイルを隠す</a>.</td>
+
+            <td class="entry" valign="top" width="22.22222222222222%" headers="d107134e34 ">いいえ</td>
+
+          </tr>
+<tr class="row">
+            <td class="entry" id="players_discovery_properties__include_sub_account_assets" valign="top" width="33.33333333333333%" headers="d107134e28 "><span class="keyword parmname">include_sub_account_assets</span></td>
+
+            <td class="entry" valign="top" width="44.44444444444444%" headers="d107134e31 ">
+              <p class="p">Ooyala Discoveryの推奨事項にサブアカウントのコンテンツを含めるかどうかを指定します。 </p>
+
+              <p class="p">タイプ：ブール </p>
+
+              <p class="p">有効な値は以下のとおりです。 偽 </p>
+
+              <p class="p">デフォルト：false </p>
+
+              <p class="p">例：「true」 </p>
+
+            </td>
+
+            <td class="entry" valign="top" width="22.22222222222222%" headers="d107134e34 ">いいえ</td>
+
+          </tr>
+<tr class="row">
+            <td class="entry" id="players_discovery_properties__optimization_goal" valign="top" width="33.33333333333333%" headers="d107134e28 "><span class="keyword parmname">optimize_goal</span></td>
+
+            <td class="entry" valign="top" width="44.44444444444444%" headers="d107134e31 ">将来の使用のために予約済み</td>
+
+            <td class="entry" valign="top" width="22.22222222222222%" headers="d107134e34 "> </td>
+
+          </tr>
+<tr class="row">
+            <td class="entry" id="players_discovery_properties__overrides" valign="top" width="33.33333333333333%" headers="d107134e28 "><span class="keyword parmname">オーバーライド</span></td>
+
+            <td class="entry" valign="top" width="44.44444444444444%" headers="d107134e31 ">
+              <p class="p">結果の特定の場所にコンテンツを挿入できるようにするOoyala Discoveryへの上書きを指定します。 一時変更の位置、一時変更タイプ、および追加情報を指定します。</p>
+
+              <p class="p">宣伝コンテンツを挿入する場合は、「ラベル」を指定して宣伝ラベルのIDを入力します。</p>
+
+              <p class="p">各ビデオのメタデータから情報を取得したい場合は、 &quot;relation&quot;と使用するメタデータキーを指定します。 たとえば、あなたはシリーズの次のビデオを選びたいかもしれません。 これを行うには、next_series_videoというメタデータエントリを作成し、このメタデータをシリーズの各ビデオに追加します（次のビデオのコンテンツIDを指定します）。</p>
+
+              <p class="p">ライブコンテンツを注入したい場合は、追加情報なしで &quot;live&quot;を指定してください。</p>
+
+              <p class="p">タイプ：コンテナ</p>
+
+              <p class="p">有効な値：label | 関係| ライブ </p>
+
+              <p class="p">デフォルト：none </p>
+
+              <p class="p">例：</p>
+
+              <p class="p">“ 1”：{“ラベル”：“ 126ac19f053e424ab41bfbab5526ec30”}</p>
+
+              <p class="p">“ 3”：{“ relation”：“ next_series_video”}</p>
+
+              <p class="p">“ 5”：“ライブ” </p>
+
+            </td>
+
+            <td class="entry" valign="top" width="22.22222222222222%" headers="d107134e34 ">いいえ</td>
+
+          </tr>
+<tr class="row">
+            <td class="entry" id="players_discovery_properties__recency_threshold" valign="top" width="33.33333333333333%" headers="d107134e28 "><span class="keyword parmname">recency_threshold_in_days</span></td>
+
+            <td class="entry" valign="top" width="44.44444444444444%" headers="d107134e31 ">
+              <p class="p">表示するコンテンツの最大保存期間を日数で指定します。 たとえば、先週アップロードされたコンテンツのおすすめのみを表示するプレーヤーを作成するとします。 </p>
+
+              <p class="p">タイプ：整数 </p>
+
+              <p class="p">例： &quot;7&quot; </p>
+
+            </td>
+
+            <td class="entry" valign="top" width="22.22222222222222%" headers="d107134e34 ">いいえ</td>
+
+          </tr>
+<tr class="row">
+            <td class="entry" id="players_discovery_properties__recommendation_scope" valign="top" width="33.33333333333333%" headers="d107134e28 "><span class="keyword parmname">recommendation_scope</span></td>
+
+            <td class="entry" valign="top" width="44.44444444444444%" headers="d107134e31 ">
+              <p class="p">推奨の範囲を指定します。</p>
+
+              <p class="p">タイプ：コンテナ</p>
+
+            </td>
+
+            <td class="entry" valign="top" width="22.22222222222222%" headers="d107134e34 ">いいえ</td>
+
+          </tr>
+<tr class="row">
+            <td class="entry" id="players_discovery_properties__show_pause_screen" valign="top" width="33.33333333333333%" headers="d107134e28 "><span class="keyword parmname">show_pause_screen</span></td>
+
+            <td class="entry" valign="top" width="44.44444444444444%" headers="d107134e31 ">
+              <p class="p">ユーザーがビデオを一時停止するたびにOoyala Discoveryの推奨事項を表示する一時停止画面を有効にします。 </p>
+
+              <p class="p">タイプ：ブール </p>
+
+              <p class="p">有効な値は以下のとおりです。 偽 </p>
+
+              <p class="p">デフォルト：false </p>
+
+              <p class="gt-block p">例：参照 <a class="xref" href="players_discovery_turnonpausescreen.html#players_discovery_turnonpausescreen">一時停止画面をオンにする</a>.  </p>
+
+            </td>
+
+            <td class="entry" valign="top" width="22.22222222222222%" headers="d107134e34 ">いいえ</td>
+
+          </tr>
+<tr class="row">
+            <td class="entry" id="players_discovery_properties__when_done" valign="top" width="33.33333333333333%" headers="d107134e28 "><span class="keyword parmname">それが終わったら</span></td>
+
+            <td class="entry" valign="top" width="44.44444444444444%" headers="d107134e31 ">
+              <p class="p">ビデオの終了時に何が起こるかを指定します。 オプションには、[Ooyala Discovery]画面を表示し、[次へ]画面を表示して次のビデオを自動的に開始することと、[なし]（デフォルトの終了画面設定を使用）があります。 </p>
+
+              <p class="gt-block p"><strong class="ph b">注意：</strong> 広告の再生中は[次へ]は表示されません。</p>
+
+              <p class="p">タイプ：文字列 </p>
+
+              <p class="p">有効な値は次のとおりです。 up_next | 無し </p>
+
+              <p class="p">デフォルト：none </p>
+
+              <p class="p">例： &quot;up_next&quot; </p>
+
+            </td>
+
+            <td class="entry" valign="top" width="22.22222222222222%" headers="d107134e34 ">いいえ</td>
+
+          </tr>
+</tbody>
+
+      </table>
+</div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/players_discovery_profile.html">ディスカバリープロファイル</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

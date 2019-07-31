@@ -1,0 +1,49 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Information with Listeners and Method Calls"/>
+<meta name="abstract" content="Use event listeners and Player V4 API methods to retrieve the asset's information you want to work with."/>
+<meta name="description" content="Use event listeners and Player V4 API methods to retrieve the asset's information you want to work with."/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_dev_eventmodel.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_javascript_complete"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>リスナーとメソッド呼び出しに関する情報</title>
+</head>
+<body id="pbv4_javascript_complete">
+
+
+ <h1 class="title topictitle1">リスナーとメソッド呼び出しに関する情報</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc"> 処理したいアセットの情報を取得するには、イベントリスナーとPlayer V4 APIメソッドを使用します。</p>
+
+  <p class="p">ここでの単純化した例では、アセットの基本情報（タイトル、説明、および期間）とビットレートおよびバッファ関連の詳細を取得するためにgetterメソッドを使用しています。 他にもたくさんのイベントや方法があります。</p>
+
+    <p class="p">さらに、イベントリスナの基本構造をここに示します。
+        <samp class="ph codeph">mb.subscribe</samp>.  </p>
+
+  <pre class="pre codeblock"> 
+。 。 。 //バッファリスナ//バッファの長さを更新したい場合は、イベントをサブスクライブする必要があります。 //理想的にはBUFFERINGイベントを聴きます。 window.bufferLength = -100; player.subscribe（ &#39;playheadTimeChanged&#39;、 &#39;myPage&#39;、関数（eventName）{var newBufferLength = player.getBufferLength（）; if（bufferLength === newBufferLength）{return;} window.bufferElement.innerHTML + = &quot;バッファ長は&quot; + player.getBufferLength（）+ &quot;&lt;br/&gt;&quot; window.bufferLength = newBufferLength;}）; //ビットレートリスナ//リクエストするにはbitrateInfoAvailableをリッスンする必要があります。 player.subscribe（ &#39;bitrateInfoAvailable&#39;、 &#39;myPage&#39;、関数（eventName）{var rate = player.getBitratesAvailable（）; if（Rates.length&gt; 0）{（var i = 0; i &lt;rates.length; i ++） {window.bitrateElement.innerHTML + = &quot;レート：&quot; +レート[i] + &quot;&lt;br/&gt;&quot;}}}; //メタデータ//コンテンツ情報は、contentTreeFetchedの後に使用できますが、// playbackReadyまでの間待つのが最善です。 player.subscribe（ &#39;playbackReady&#39;、 &#39;myPage&#39;、function（eventName）{window.metadataElement.innerHTML + = &quot;タイトルは&quot; + player.getTitle（）+ &quot;&lt;br/&gt;&quot;; window.metadataElement.innerHTML + = &quot;説明：&quot; + player.getDescription（）+ &quot;&lt;br/&gt;&quot;; window.metadataElement.innerHTML + = &quot;所要時間：&quot; + player.getDuration（）+ &quot;&lt;br/&gt;&quot;;}）; window.bufferElement = getElement（ &#39;buffer&#39;）; window.bitrateElement = getElement（ &#39;bitrate&#39;）; window.metadataElement = getElement（ &#39;metadata&#39;）; 。 。 。
+ </pre>
+
+ </div>
+
+ 
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/pbv4_dev_eventmodel.html" title="プレーヤーV4はイベントを処理するためにメッセージバスの使用を取り入れています。">プレーヤV4のイベントモデル</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

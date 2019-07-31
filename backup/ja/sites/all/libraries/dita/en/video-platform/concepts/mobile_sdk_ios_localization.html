@@ -1,0 +1,70 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Localizing the User Interface"/>
+<meta name="abstract" content="You can set up custom localization strings for the UI text."/>
+<meta name="description" content="UIテキストにカスタムローカライズ文字列を設定できます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_ios_about.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="mobile_sdk_ios_localization"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>ユーザインタフェースのローカライズ</title>
+</head>
+<body id="mobile_sdk_ios_localization">
+
+
+  <h1 class="title topictitle1">ユーザインタフェースのローカライズ</h1>
+
+  
+  <div class="body conbody"><p class="shortdesc">UIテキストにカスタムローカライズ文字列を設定できます。</p>
+
+    <p class="p">The Mobile SDK uses the Apple-provided, default iOS Localization mechanism. You can add a
+      file named <samp class="ph codeph">Localizable.strings</samp> to the SDK package to translate all UI text to
+      whatever language you want.</p>
+
+    <p class="gt-block p">Follow the guidelines from Apple at <a class="xref" href="https://developer.apple.com/library/ios/#referencelibrary/GettingStarted/RoadMapiOS/chapters/InternationalizeYourApp/InternationalizeYourApp/InternationalizeYourApp.html" target="_blank">Internationalize Your App</a>. The information and steps
+      that you need are in the <strong class="ph b">設定する <samp class="ph codeph">Localizable.strings</samp> file</strong> section,
+      under the subheading <strong class="ph b">を追加する <samp class="ph codeph">Localizable.strings</samp> file for each
+        localization</strong>.</p>
+
+    <div class="p">Add the following key/value pairs to your <samp class="ph codeph">Localizable.strings</samp> file. You can
+      then customize each value as you like:
+      <pre class="pre codeblock">"OO_LIVE" = "LIVE";
+"OO_SUBTITLES_TITLE" = "Subtitles";
+"OO_CLOSED_CAPTIONS_TITLE" = "Closed Captions";
+"OO_SUBTITLES_NONE" = "None";
+"OO_SUBTITLES_CC" = "Use Closed Captions";
+"OO_SUBTITLES_EN" = "English";
+    </pre>
+</div>
+
+    <p class="p">For each desired language, specify the two-character ISO 639-1 language code in the
+        <samp class="ph codeph">OO_SUBTITLES_</samp> key string. For instance, the following is for Spanish:
+        <samp class="ph codeph">OO_SUBTITLES_ES</samp>.</p>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/mobile_sdk_ios_about.html">iOS用Ooyala Mobile SDKを使用する</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

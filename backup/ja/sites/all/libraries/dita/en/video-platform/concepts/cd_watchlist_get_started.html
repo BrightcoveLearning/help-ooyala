@@ -1,0 +1,64 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Getting Started with Watchlists"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_watchlist_api.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="cd_watchlist_get_started"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>ウォッチリストを使ってみる</title>
+</head>
+<body id="cd_watchlist_get_started">
+
+
+ <h1 class="title topictitle1">ウォッチリストを使ってみる</h1>
+
+ <div class="body conbody">
+  <div class="section"><h2 class="title sectiontitle">基本的な構文</h2>
+  <p class="p">ウォッチリストのREST APIルートを活用するには、リクエストの種類とベースURIから始めます。 この構文は、次の例に示されています。</p>
+
+  <pre class="pre codeblock">GET /ウォッチリスト/ v3</pre>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">RESTルート</h2>
+  <p class="p">ウォッチリストAPIでは、次のRESTルートを使用できます。</p>
+
+  <ul class="ul">
+    <li class="li"><samp class="ph codeph">のGET</samp></li>
+
+    <li class="li"><samp class="ph codeph">POST</samp></li>
+
+    <li class="li"><samp class="ph codeph">PUT</samp></li>
+
+    <li class="li"><samp class="ph codeph">DELETE</samp></li>
+
+   </ul>
+
+  </div>
+
+  <div class="section" id="cd_watchlist_get_started__watchlist_authentication"><h2 class="title sectiontitle">認証を要求する</h2>
+      <p class="gt-block p">ウォッチリストサービスは認証されたユーザーにのみ機能します。 ウォッチリストREST APIでは、次のものを含める必要があります。
+          <span class="keyword parmname">&lt;account_token&gt;</span> 次の例に示すように、各要求内のパラメータ。
+      </p>
+<pre class="pre codeblock">http://player.ooyala.com/watchlist/v3?account_token= &lt;account_token&gt;をGETします。</pre>
+ウォッチリストサービスは指定されたを使用します。 <span class="keyword parmname">&lt;account_token&gt;</span> 特定のエンドユーザーに関連付けられているウォッチリスト（自分のUUIDによって識別される）を参照する。 詳細については、 <a class="xref" href="../api/account_token_api.html" title="eコマースやウォッチリストなどの特定のOoyalaサービスへのアクセスは、Ooyalaアカウントトークンを使用して制御されます。 OoyalaアカウントトークンAPIは、ユーザーを認証するためのアカウントトークンを生成します。 これらのAPIを呼び出すとき、クライアントは認証用のアカウントトークンを提供する必要があります。 アプリケーションがユーザーにログインすると、OoyalaアカウントトークンAPIルートを呼び出してアカウントトークンを取得します。 アカウントトークンは特定の期間、デフォルトでは15分有効です。">OoyalaアカウントトークンAPI</a>.  </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_watchlist_api.html">ウォッチリストのREST API</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

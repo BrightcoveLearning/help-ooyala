@@ -1,0 +1,154 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Use Cases for Customizing Player V3 (Deprecated)"/>
+<meta name="abstract" content="Use cases for implementing Player V3."/>
+<meta name="description" content="Use cases for implementing Player V3."/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_use_cases"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Use Cases for Customizing Player V3 (Deprecated)</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="player_use_cases">
+
+
+ <h1 class="title topictitle1">Use Cases for Customizing Player V3 (Deprecated)</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">Use cases for implementing Player V3.</p>
+
+  <div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V3は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V3はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V3を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="pbv4_migration_v3.html">Player V3からの移行</a> そして <a class="xref" href="pbv4_migration_faq.html">プレイヤー移行に関するFAQ</a>).</div>
+
+  <div class="section"><h2 class="title sectiontitle">Before You Customize</h2>
+   
+   <div class="p">Deciding on how to customize a player depends on certain factors, such as:
+   <ul class="ul">
+    <li class="li">The target environment (web or mobile) where the player will run</li>
+
+    <li class="li">The specific player features that you want to customize</li>
+
+    <li class="li">Whether you want to customize the player programmatically, use a GUI tool, or both</li>
+
+   </ul>
+
+   </div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">カスタマイズオプション</h2>
+     
+   <p class="p">You can create and brand basic players using the Ooyala Backlot REST API or develop
+    highly customized Ooyala HTML5 players using JavaScript.</p>
+
+    <p class="p">Providing a player for your viewers is a fairly simple client-side based activity involving
+     embedding a code representing the player on a web page.  However, to provide your viewers with a
+     unique, branded experience, you need more than just a player. You need the capability to highly
+     customize the player experience. Ooyala gives you the capability to create, brand, and embed an
+     Ooyala video player at different levels of ease and customization using any one of the following
+     client-side mechanisms:</p>
+ 
+    
+    <div class="p">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="player_use_cases__table_mbd_krm_xq" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 1. Player V3 Customization Options</span></caption>
+       
+       
+       <thead class="thead" align="left">
+        <tr class="row">
+         <th class="entry" valign="top" width="18.484288354898336%" id="d602603e77">メカニズム</th>
+
+         <th class="entry" valign="top" width="81.51571164510166%" id="d602603e80">説明</th>
+
+        </tr>
+
+       </thead>
+
+       <tbody class="tbody">
+        <tr class="row">
+         <td class="entry" valign="top" width="18.484288354898336%" headers="d602603e77 "><strong class="ph b">Ooyala Backlot UI</strong>
+         </td>
+
+         <td class="entry" valign="top" width="81.51571164510166%" headers="d602603e80 ">This method of customization is only for <strong class="ph b">フラッシュ</strong> players. Backlot lets you create,
+         brand, modify, and remove a basic player and add or remove player functionality all within
+         the UI. The branding tools enable you to add or remove player functionality, add social
+         sharing features, brand it with your logos, and change color schemes. You can create as
+         many players as you like and make changes to your players at any time. If you want a simple
+         player and want to embed a video with little or no programming, your can use the Backlot UI
+         to meet your needs.</td>
+
+        </tr>
+
+        <tr class="row">
+         <td class="entry" valign="top" width="18.484288354898336%" headers="d602603e77 "><strong class="ph b">ウーヤラバックスロット</strong> also features a <a class="xref" href="book_api.html" title="プレーヤーのクロム（デザイン要素）をカスタマイズするには、Backlot REST APIを使用してください。 これには、フォント、色、スクラバーバーなどのUI要素が含まれます。">バックスロットREST API</a></td>
+
+         <td class="entry" valign="top" width="81.51571164510166%" headers="d602603e80 ">Enables you easily perform all the activities that you do within the UI such as
+         create, brand, modify, and remove a player and add or remove <strong class="ph b">フラッシュ</strong> player functionality.
+         The Backlot REST API provides straightforward and relatively easy access to Backlot
+         capabilities. If you want to add some programmatic customizations but want to use Backlot
+         conventions for your customization, use the Backlot REST API to get the job done. See <a class="xref" href="../concepts/player_backlot_intro.html" title="Backlot APIを使用して、Ooyalaプレーヤーに変更を加えることができます。">Setting up Players Using the Backlot REST API (Deprecated)</a> そして <a class="xref" href="../api/players.html">プレイヤー（Backlot REST API）</a>.</td>
+
+        </tr>
+
+        <tr class="row">
+         <td class="entry" valign="top" width="18.484288354898336%" headers="d602603e77 ">
+          <a class="xref" href="../concepts/player_api.html" title="Player V3 JavaScript APIドキュメント。">Player V3 JavaScript APIを使用した開発（非推奨）</a></td>
+
+         <td class="entry" valign="top" width="81.51571164510166%" headers="d602603e80 ">Enables you to create, brand, and extensively customize (re-skin) <strong class="ph b">HTML5-based</strong>
+         players through the use of JavaScript APIs and standard HTML5 styling. Player V3 extends
+         your control and player branding capabilities so that you can create a completely
+         customized player experience. In addition to giving you the ability to create and customize
+         players using JavaScript, Player V3 also allows you to "pass-through" your existing
+         ActionScript-based players so that your legacy players continue to work. The Ooyala Player
+         V3 is the solution for creating highly-customized HTML5-based players where you want
+         extensive control over the player, player behavior, and the ability to include your own
+         custom modules (OPF type customizations) with your player experience. See <a class="xref" href="../concepts/player_api.html" title="Player V3 JavaScript APIドキュメント。">Player V3 JavaScript APIを使用した開発（非推奨）</a>.</td>
+
+        </tr>
+
+       </tbody>
+
+      </table>
+</div>
+
+    </div>
+
+  </div>
+
+  <div class="section">
+ <p class="p">For additional customization resources:</p>
+
+   <ul class="ul">
+   <li class="li">For a basic Player V3 customization, see <a class="xref" href="chapter_players.html" title="Backlot UIを使用してOoyalaプレーヤーを作成および構成する方法を説明します。">Backlotでプレイヤーを管理する</a></li>
+
+   <li class="li">For JavaScript/CSS (HTML5 Player only) customization, see <a class="xref" href="../reference/player_v3_dev_tutorial.html" title="このチュートリアルを使用して、HTML5 Player V3の使用を開始してください。">HTML5プレーヤーV3の基本チュートリアル（非推奨）</a>.</li>
+
+   <li class="li">For ActionScript programming (deprecated Flash Player v2 only), see <a class="xref" href="../archive/player_api_as_intro.html" title="Ooyala PlayerのActionScript APIを使用すると、Adobe Flashベースのプレーヤーおよびビデオエクスペリエンスをカスタマイズできます。">プレーヤActionScript API（プレーヤV2は廃止予定）</a>.</li>
+   
+   <li class="li">あなたが使用することができます <a class="xref" href="../concepts/player_theme_builder.html" title="Build playlists and customize the playback experience for Player V3">Theme Builder Customization for Player V3</a>
+    to build playlists and customize the playback experience.</li>
+
+   </ul>
+
+  </div>
+
+ </div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

@@ -1,0 +1,93 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2016-08-26 Release"/>
+<meta name="abstract" content="Notable contents of this release include new documentation for the YOUBORA Analytics Plugin for Player V4 and the Discovery 1.5 API, and other documentation updates."/>
+<meta name="description" content="Notable contents of this release include new documentation for the YOUBORA Analytics Plugin for Player V4 and the Discovery 1.5 API, and other documentation updates."/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2016.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release20160826"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2016-08-26リリース</title>
+</head>
+<body id="release20160826">
+
+
+    <h1 class="title topictitle1">2016-08-26リリース</h1>
+
+    
+    <div class="body conbody"><p class="shortdesc">このリリースの注目すべき内容には、Player V4およびDiscovery 1.5 API用のYOUBORA Analyticsプラグインの新しいドキュメント、およびその他のドキュメントの更新があります。 </p>
+
+        <div class="section"><h2 class="title sectiontitle">ドキュメントリリース</h2>
+            
+            <ul class="ul">
+                <li class="li"><strong class="ph b">YOUBORAアナリティクスプラグインプレーヤーV4。 </strong> Player V4の使用方法を説明する新しいトピックを追加しました <a class="xref" href="http://nicepeopleatwork.com/" target="_blank">ニースの人々の仕事</a> （NPAW）YOUBORAプラグイン（youbora.min.js）で、Ooyala Player V4のNPAW YOUBORAサービス品質（QoS）分析を追跡します。 見る <a class="xref" href="../concepts/pbv4_analytics_youbora.html">YOUBORA Analyticsプラグイン</a>.  </li>
+
+                <li class="li"><strong class="ph b">Discovery 1.5 APIドキュメント</strong> Discovery 1.5 APIドキュメントは、現在入手可能です。 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/discovery_api/index.html">https://docs.brightcove.com/apidocs-ooyala/discovery_api/index.html</a>.  </li>
+
+                
+                <li class="li"><strong class="ph b">クローズドキャプションラベルの変更 </strong> ユーザーがCCボタンをクリックしたときに表示されるポップオーバーで、ラベルが <strong class="ph b">言語とキャプション</strong> 〜へ <strong class="ph b">キャプションオプション</strong>。 次のページが更新されました。
+                    <a class="xref" href="../concepts/pbv4_closed_caption_settings.html">Player V4のクローズドキャプション</a>.
+                
+                </li>
+
+                <li class="li"><strong class="ph b">Player V4 FAQにヒントを追加しました、</strong> ビデオ品質を改善するための提案（ <span class="keyword parmname">initialBitrate</span>アセットディレクトリ（html5-skin.cssファイルと同じ場所にあるアセットディレクトリ）を 
+                    <a class="xref" href="../reference/faq_pbv4.html">プレイヤーV4に関するよくある質問</a>.
+    
+                    
+    
+                    <a class="xref" href="../concepts/pbv4_components.html">プレーヤV4スキンのユーザインタフェースコンポーネント</a>.</li>
+
+                <li class="li"><strong class="ph b">スクラバーの挙動の説明 </strong> さまざまな再生コンテキストにおけるスクラバーの動作を明確にしました。 次のページが更新されました。
+                    <a class="xref" href="../concepts/pbv4_components.html">プレーヤV4スキンのユーザインタフェースコンポーネント</a>.</li>
+
+                <li class="li"><strong class="ph b">encodingPriorityのデフォルトを更新しました。 </strong> 追加されました <samp class="ph codeph">&quot;dash_drm&quot;</samp> そして <samp class="ph codeph">&quot;hls_drm&quot;</samp> encodingPriorityのデフォルト値 DRMストリームはデフォルトに含まれています。 見る <a class="xref" href="../api/pbv4_api_embedparams.html">プレーヤV4のページレベルパラメータ</a>.</li>
+
+                <li class="li"><strong class="ph b">ビットレート情報に関するPlayer V4ビデオプラグインの要件。</strong> 分析用のビットレート情報を追跡するには、HDS用のOSMF Flashプラグイン、DASHおよびHLS用のBitmovinプラグイン、またはAkamaiパッケージHDS用のAkamai HDビデオプラグインのいずれかを使用する必要があります。 以下のトピックにこの要件を追加しました。
+                <ul class="ul">
+                    <li class="li"><a class="xref" href="../concepts/pbv4_analytics_comscore.html">comScore Analyticsプラグイン</a></li>
+
+                    <li class="li"><a class="xref" href="../concepts/pbv4_analytics_omniture.html">Adobe Analytics（Omniture）プラグイン</a></li>
+
+                    <li class="li"><a class="xref" href="../concepts/pbv4_analytics_youbora.html">YOUBORA Analyticsプラグイン</a></li>
+
+                </ul>
+</li>
+
+                <li class="li"><strong class="ph b">クロスドメインポリシーとAdobe Flash </strong> OSMF Flash、Bitmovin、またはAkamai HDプラグインを使用している場合は、Flashクロスドメインポリシーファイルでクロスドメイン互換性を設定する必要があります。 以下のトピックが更新されました。 <ul class="ul">
+                        <li class="li"><a class="xref" href="../reference/pbv4_dev_loadvideoplugins.html#pbv4_dev_loadvideoplugins__flash">フラッシュビデオレンダリング</a>フラッシュビデオレンダリング</li>
+
+                        <li class="li"><a class="xref" href="../concepts/pbv4_resources.html">OoyalaがホストするプレイヤーV4リソース</a></li>
+
+                    </ul>
+
+                </li>
+
+                
+            </ul>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Ooyalaリリースノートを購読する</h2>
+             見る <a class="xref" href="../concepts/release_notes_subscribe.html">Ooyalaリリースノートを購読する</a> Ooyalaリリースノートの自動通知を購読する方法については、こちらをご覧ください。 </div>
+
+        <div class="section">このコンテンツは08 / 26 / 16の11：00 PM UTCに掲載されました。</div>
+ 
+    </div>
+    
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2016.html" title="2016からのリリースノート。">2016ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

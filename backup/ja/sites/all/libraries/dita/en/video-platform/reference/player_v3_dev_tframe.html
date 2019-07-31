@@ -1,0 +1,142 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Advanced Player Options in Twitter Cards"/>
+<meta name="abstract" content="Using a special page from Ooyala, you can create a Player URL to embed a video in Twitter's Player Card, including all available Ooyala player options."/>
+<meta name="description" content="Using a special page from Ooyala, you can create a Player URL to embed a video in Twitter's Player Card, including all available Ooyala player options."/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_twitter.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/player_v3_dev_tframe_example1.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_v3_tframe"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Twitterカードの高度なプレーヤーオプション</title>
+</head>
+<body id="player_v3_tframe">
+
+
+ <h1 class="title topictitle1">Twitterカードの高度なプレーヤーオプション</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">Ooyalaの特別ページを使用して、利用可能なすべてのOoyalaプレーヤーオプションを含む、ビデオをTwitterのプレーヤーカードに埋め込むためのプレーヤーURLを作成できます。</p>
+
+  <div class="section"> に示すように <a class="xref" href="../tasks/twitter_metadata_request.html#twitter_metadata_request" title="TwitterでTwitterカードを正しく設定するには、各ビデオに関するメタデータを提供する必要があります。 この情報はHTMLの&amp;lt;meta&amp;gt;タグの形式です。 このセクションでは、特定の動画に対してこれらの&amp;lt;meta&amp;gt;タグを手動で生成する方法について説明します。 あなたはこのプロセスを自動化したいでしょう。 FlashコンテンツはTwitterではサポートされていません。TwitterではHTML5コンテンツが必要です。">Ooyala Player用のTwitter &lt;meta&gt;タグの手動取得</a>、Twitterプレーヤーカードでは、基本的なHTML <samp class="ph codeph">&lt;meta&gt;</samp> Ooyalaビデオプレーヤーを定義するタグは次のようになります。 これがOoyalaプレーヤーの最も基本的な呼び出しです。<div class="p">
+    <pre class="pre codeblock">。 。 。 &lt;meta name = &quot;twitter：player&quot; content = &quot;<strong class="ph b">https://player.ooyala.com/tframe.html?embedCode=<em class="ph i">videoID</em>＆pbid =<em class="ph i">playerID</em></strong>&quot;/&gt;。</pre>
+
+   </div>
+より高度なプレーヤーオプションを含めるには、URLを作成してから、上で強調表示されている基本的な呼び出しを置き換えます。 基本URLをカスタマイズしたものに置き換えた後は、必ずTwitter Playerカードを本番に移行するための残りの手順に従ってください。</div>
+
+   <div class="section refsyn"><h2 class="title sectiontitle">高度なプレーヤーオプションの構文</h2>
+   次のURL構文を調べてください。 の値として使用するためにこのURLを構築できます。 <samp class="ph codeph">コンテンツ</samp> Twitterの属性
+    <samp class="ph codeph">twitter：player</samp>
+   <samp class="ph codeph">&lt;meta&gt;</samp> 上記のタグ <p class="gt-block p"><strong class="ph b">注意：</strong>以下の行は読みやすくするために壊れています。 実際の使用では、これをすべて1行にしてください。</p>
+<pre class="pre codeblock">https://player.ooyala.com/tframe.html?
+<strong class="ph b">ec</strong>=<em class="ph i">埋め込みコード</em>
+＆<strong class="ph b">pbid</strong>=<em class="ph i">player_branding_id</em>
+＆<strong class="ph b">プラットフォーム</strong>=<em class="ph i">プラットフォーム</em>
+＆<strong class="ph b">オプション</strong>[<em class="ph i">オプション名</em>]=<em class="ph i">値</em>＆オプション[<em class="ph i">オプション名</em>]=<em class="ph i">値</em>... &quot; 
+</pre>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="player_v3_tframe__iframe_or_tframe_parms" class="table" frame="border" border="1" rules="all">
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="36.36363636363637%" id="d912687e114">パラメーター</th>
+
+       <th class="entry" valign="top" width="63.63636363636363%" id="d912687e117">値の説明</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" width="36.36363636363637%" headers="d912687e114 "><samp class="ph codeph">ec</samp>  or  <samp class="ph codeph">埋め込みコード</samp></td>
+
+       <td class="entry" valign="top" width="63.63636363636363%" headers="d912687e117 ">Ooyalaは、目的の動画のコード（アセットまたはコンテンツID）を埋め込みます。</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="36.36363636363637%" headers="d912687e114 "><samp class="ph codeph">pbid</samp></td>
+
+       <td class="entry" valign="top" width="63.63636363636363%" headers="d912687e117 ">Ooyala Backlotで定義したプレーヤーの「プレーヤーブランドID」（または単に「プレーヤーID」）。</td>
+
+      </tr>
+
+      
+      <tr class="row">
+       <td class="entry" valign="top" width="36.36363636363637%" headers="d912687e114 "><samp class="ph codeph">プラットフォーム</samp></td>
+
+       <td class="entry" valign="top" width="63.63636363636363%" headers="d912687e117 ">の定義済み値 <samp class="ph codeph">プラットフォーム</samp> パラメータの詳細
+         <a class="xref" href="../api/player_v3_api_qparams.html">プレーヤV3クエリ文字列パラメータ（廃止予定）</a>、 といった <samp class="ph codeph">フラッシュ</samp>  or
+         
+         <samp class="ph codeph">html5フォールバック</samp></td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="36.36363636363637%" headers="d912687e114 "><samp class="ph codeph">オプション</samp></td>
+
+       <td class="entry" valign="top" width="63.63636363636363%" headers="d912687e117 ">次のセクションで説明する標準のOoyalaプレーヤーランタイムオプション。 の
+          <samp class="ph codeph"><em class="ph i">オプション名</em></samp>ネストされたパススルーパラメータ（たとえば、広告マネージャパラメータ）のsは、フォームのドット表記で表示されます。
+          <samp class="ph codeph"><em class="ph i">パラメーター</em>.<em class="ph i">サブパラメーター</em></samp>、のような
+         <samp class="ph codeph">ad-manager.url</samp>。 値はURLエンコードされている必要があります。</td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+</div>
+
+  <div class="section"><h2 class="title sectiontitle">tframeでPlayerに埋め込みパラメータを渡す</h2>
+   標準のOoyalaプレーヤー構文では、プレーヤー呼び出しの3番目の引数として特定のランタイム引数（ &quot;オプションハッシュ&quot;とも呼ばれる）を指定できます。 <samp class="ph codeph">自動再生：true</samp>,
+    
+    <samp class="ph codeph">initialTime：122</samp>その他のオプション <a class="xref" href="../api/player_v3_api_embedparams.html">埋め込みパラメータ</a> そして <a class="xref" href="player_v3_dev_adsparams.html" title="埋め込みパラメータを使用して広告をカスタマイズします。">埋め込みパラメータ</a>.  <p class="p">ウーヤラとは
+     <samp class="ph codeph">tframe.html</samp> 同じ埋め込みパラメータを
+     <samp class="ph codeph">オプション</samp> 属性。 あなたは繰り返すことができます <samp class="ph codeph">＆オプション</samp> 属性と値は何度でも好きなだけ。 唯一の制限は、URLの最大長です。</p>
+<p class="p">上記の構文に従って、 <samp class="ph codeph">オプション</samp> 属性は次のようになります。</p>
+<div class="p">
+    <pre class="pre codeblock">https://player.ooyala.com/tframe.html?
+ec=<em class="ph i">埋め込みコード</em>
+＆pbid =<em class="ph i">player_branding_id</em>
+＆platform =<em class="ph i">プラットフォーム</em>
+<strong class="ph b">＆options [autoplay] = true＆options [initialTime] = 122</strong>       </pre>
+
+   </div>
+ネストされたオプション（つまり、広告タグのようにそれ自体がハッシュであるハッシュキー）は、ドット表記で表されます。 見る <a class="xref" href="player_v3_dev_tframe_example1.html#player_v3_tframe_example1" title="このtframe.htmlの例には、いくつかの広告マネージャオプションが含まれています。">例：プリロール用の複数のIMA広告タグを渡す</a>.</div>
+
+<div class="section"><h2 class="title sectiontitle">&quot;Ooyala例外：無効なクエリパラメータ&quot;エラーの可能性</h2>
+    tframe.htmlのパラメータが正しくフォーマットまたは構成されていないと、次のエラーメッセージが表示され、プレーヤはロードされません。 <pre class="pre codeblock">Ooyala例外：無効なクエリパラメータ  </pre>
+
+   <p class="p">Twitter Player Cardを使って本番に入る前に、構文を慎重にチェックしてこの問題を取り除いてください。</p>
+
+  </div>
+
+ </div>
+
+ 
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../reference/player_v3_dev_tframe_example1.html">例：プリロール用の複数のIMA広告タグを渡す</a></strong><br/>
+このtframe.htmlの例には、いくつかの広告マネージャオプションが含まれています。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_twitter.html" title="Twitterプレーヤーカードを使用すると、ビデオコンテンツをTwitterサイトやモバイルアプリケーションに直接埋め込むことができます。">Twitterプレーヤーカードとの統合</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

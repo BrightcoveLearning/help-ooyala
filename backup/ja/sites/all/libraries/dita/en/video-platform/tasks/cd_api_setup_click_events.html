@@ -1,0 +1,74 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Returning Click Events"/>
+<meta name="abstract" content="Learn how to configure your implementation to record click impressions for the recommendation feedback loop."/>
+<meta name="description" content="リコメンデーションフィードバックループのクリックインプレッションを記録するように実装を設定する方法を学びます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/content_discovery_about_feedback_loop.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="cd_api_setup_click_events"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>クリックイベントを返す</title>
+</head>
+<body id="cd_api_setup_click_events">
+
+
+ <h1 class="title topictitle1">クリックイベントを返す</h1>
+
+ 
+ <div class="body taskbody"><p class="shortdesc">リコメンデーションフィードバックループのクリックインプレッションを記録するように実装を設定する方法を学びます。</p>
+
+  <div class="section context">
+   <p class="p">実装のクリック記録を設定するには、次の手順に従います。</p>
+
+  </div>
+
+  <ol class="ol steps"><li class="li step stepexpand">
+    <span class="ph cmd"> Ooyala Discoveryの推奨事項を表示するようにWebページやアプリを設定します。 </span>
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd"> 生成された <span class="keyword parmname">デバイスID</span>:</span>
+     Flashの場合、次の関数例はFlashを取得します。
+      <span class="keyword parmname">デバイスID</span>:<pre class="pre codeblock">public function get deviceId（）：String {var so：SharedObject = SharedObject.getLocal（ &quot;auth&quot;）; var deviceId：String = so.data.auth？ so.data.auth：null。 return（deviceId == null || deviceId == &quot;&quot;）？ &quot;不明&quot;：deviceId; }                                </pre>
+<div class="note note"><span class="notetitle">注意：</span> デバイスIDが利用できない場合、関数例は以下を返します。
+     <span class="keyword parmname">未知の</span>.</div>
+
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">ユーザーがおすすめ動画をクリックしたら、次の内容を含む投稿リクエストを行います。
+      <span class="keyword parmname">bucket_info</span> 次のコード例に示すように、クリックしたビデオのおすすめからのパラメータ。</span>
+     
+     <pre class="pre codeblock">[POST] / v2 / discover / feedback / play {&quot;device_id&quot;： &quot;<kbd class="ph userinput">デバイスID</kbd>&quot;、&quot; bucket_info &quot;：&quot;<kbd class="ph userinput">bucket_info</kbd>&quot;、&quot; ui_tag &quot;：&quot; tag1 &quot;}            </pre>
+
+    
+     
+     <p class="p">Ooyala Discoveryは200応答を返します。</p>
+
+    
+   </li>
+</ol>
+
+  <div class="section postreq">
+   <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+  </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/content_discovery_about_feedback_loop.html" title="ユーザーからOoyala Discoveryに行動活動をフィードすることで、顧客に対する推奨を向上させます。">発見フィードバックループ</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

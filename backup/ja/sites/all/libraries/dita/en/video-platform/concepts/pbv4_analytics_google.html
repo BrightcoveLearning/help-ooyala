@@ -1,0 +1,266 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Google Analytics Plugin"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_analytics_google"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Googleアナリティクスプラグイン</title>
+</head>
+<body id="pbv4_analytics_google">
+
+
+    <h1 class="title topictitle1">Googleアナリティクスプラグイン</h1>
+
+     <div class="body conbody">
+        <div class="section">GoogleアカウントのAnalyticsでOoyala Player V4の統計を追跡するには、Player V4 Google Analyticsプラグインを使用します。 Google Analyticsの一般的な情報については、 <a class="xref" href="https://analytics.google.com">Googleアナリティクス</a> サイト。
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">再生中の実行時の流れ</h2>再生中、再生イベントはGoogle Analyticsへのイベントに関する通知をトリガーします。 <div class="fig fignone">
+                <img class="image" src="http://help-ooyala.brightcove.com/../image/pbv4_analytics_google.png"/>
+            </div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">対応プレイヤー</h2>
+            Player V4 Google Analyticsプラグインは、Google AnalyticsとOoyala HTML5 Webプレーヤーのバージョン4.7.9以降の統合をサポートします。</div>
+
+         
+        <div class="section"><h2 class="title sectiontitle">必須条件</h2>Player V4 Google Analyticsプラグインを使用する前に、Google Analyticsアカウントを持っている必要があります。 そのアカウントには、データを収集するプロパティを少なくとも1つ追加し、各プロパティに関連付けられているトラッキングIDを知っている必要があります。 詳しくは、Googleの資料を参照してください。 <a class="xref" href="https://support.google.com/analytics/answer/1008015?hl=en">Analyticsをはじめよう。</a>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">ステップ1：最新のGoogle Analyticsプラグインを入手する</h2>
+            <div class="note note"><span class="notetitle">注意：</span> これは、で説明しているように、プレーヤーリソースをセルフホスティングしている場合にのみ適用されます <a class="xref" href="pbv4_host.html">ホスティングプレイヤーV4リソース</a>.</div>
+
+            <ol class="ol">
+                <li class="li">最新バージョンの <samp class="ph codeph">googleAnalytics.min.js</samp> プラグイン ダウンロードURLについては、 <a class="xref" href="pbv4_release_notes.html">Ooyala Player V4リリースノート</a>.</li>
+ 
+                <li class="li">他のPlayer V4プラグインと同じようにこのプラグインをホストします。</li>
+
+            </ol>
+
+        </div>
+
+        <div class="section" id="pbv4_analytics_google__load_url"><h2 class="title sectiontitle">ステップ2：あなたのWebページにGoogle Analyticsをロードする</h2>Player V4を実行しているWebページにGoogle Analyticsを読み込むことから始めます。 3つの選択肢があります。 <div class="note note"><span class="notetitle">注意：</span> ために <samp class="ph codeph">UA-XXXXX-Y</samp>データを収集するプロパティに関連付けられている適切な追跡IDを指定する必要があります。</div>
+
+            <p class="gt-block p"><strong class="ph b">オプションA：Google Analytics（analytics.js）を読み込む</strong></p>
+このオプションを使用すると、Analyticsインターフェースからスニペットを取得し（[管理]タブの[トラッキングコード]ページを参照）、このコードをページに挿入します。
+                <samp class="ph codeph">&lt;HEAD&gt;</samp> タグ。 このスニペットはあなたのユニークな「追跡ID」を含みます。 これがコードスニペットの例です。 <pre class="pre codeblock">&lt;！ -  Google Analytics  - &gt; &lt;script&gt;（関数（i、s、o、g、r、a、m）{i [&#39;GoogleAnalyticsObject&#39;] = r; i [r] = i [r] || function（）{（i [r] .q = i [r] .q || []）。push（arguments）}、i [r] .l = 1 * new Date（）; a = s.createElement（） o）、m = s.getElementsByTagName（o）[0]; a.async = 1; a.src = g; m.parentNode.insertBefore（a、m）}）（ウィンドウ、ドキュメント、 &#39;script&#39;、 &#39;https ：//www.google-analytics.com/analytics.js&#39;,&#39;ga &#39;）; ga（ &#39;作成&#39;、 &#39;UA-XXXXX-Y&#39;、 &#39;自動&#39;）; ga（ &#39;send&#39;、 &#39;pageview&#39;）; &lt;/script&gt; &lt;！ -  Google Analyticsを終了 - &gt;</pre>
+
+            <div class="note note"><span class="notetitle">注意：</span> アカウントの管理者ページからスニペットをコピーした場合、の値は
+                    <samp class="ph codeph">UA-XXXXX-Y</samp> すでに適切なトラッキングIDに設定されている必要があります。</div>
+ analytics.jsの詳細については、 <a class="xref" href="https://developers.google.com/analytics/devguides/collection/analyticsjs/">Google Analyticsのドキュメント</a>.  <p class="gt-block p"><strong class="ph b">オプションB：Google Analytics（レガシー）をロードする（ga.js）</strong></p>
+このオプションを使用すると、（https://developers.google.com/analytics/devguides/collection/analyticsjs/にある）Legacy Google Analytics（ga.js）コードスニペットを入手してから、このコードをページに挿入することができます。の <samp class="ph codeph">&lt;HEAD&gt;</samp> タグ。 これがコードスニペットの例です。
+            <pre class="pre codeblock">&lt;script type = &quot;text / javascript&quot;&gt; var _gaq = _gaq || []; _gaq.push（[&#39;_ setAccount&#39;、 &#39;UA-XXXXX-X&#39;]）; _gaq.push（[&#39;_ trackPageview&#39;]）; （function（）{var ga = document.createElement（ &#39;script&#39;）; ga.type = &#39;text / javascript&#39;; ga.async = true; ga.src =（ &#39;https：&#39; == document.location.protocol？） &#39;https：// ssl&#39;： &#39;http：// www&#39;）+ &#39;.google-analytics.com / ga.js&#39;; var s = document.getElementsByTagName（ &#39;script&#39;）[0]; s.parentNode.insertBefore （ga、s）;}）（）; &lt;/script&gt;</pre>
+
+            ga.jsの詳細については、 <a class="xref" href="https://developers.google.com/analytics/devguides/collection/gajs/">Google Analyticsの従来のドキュメント</a>.  <p class="gt-block p"><strong class="ph b">オプションC：Googleタグマネージャを使う</strong></p>
+ このオプションを使用すると、[管理]タブの下にある[GTMのインストール]リンクからGoogleタグマネージャのコードスニペットを取得できます。 これがコードスニペットの例です。
+            <pre class="pre codeblock">&lt;！ -  Googleタグマネージャ - &gt; &lt;noscript&gt; &lt;iframe src = &quot;// www.googletagmanager.com/ns.html?id=GTM-M8ML7S&quot; height = &quot;0&quot; width = &quot;0&quot; style = &quot;display ：なし;可視性：非表示 &quot;&gt; &lt;/iframe&gt; &lt;/noscript&gt; &lt;スクリプト&gt;（function（w、d、s、l、i）{w [l] = w [l] || []; w [l ] .push（{&#39;gtm.start&#39;：新しいDate（）。getTime（）、イベント： &#39;gtm.js&#39;}）; var f = d.getElementsByTagName（s）[0]、j = d.createElement（s） ）、dl = l！= &#39;dataLayer&#39;？ &#39;＆l =&#39; + l： &#39;&#39;; j.async = true; j.src = &#39;//www.googletagmanager.com/gtm.js?id=&#39;+i+ dl; f.parentNode.insertBefore（j、f）;}）（ウィンドウ、ドキュメント、 &#39;script&#39;、 &#39;dataLayer&#39;、 &#39;GTM-M8ML7S&#39;）; &lt;/script&gt; &lt;！ -  Googleタグマネージャの終了 - &gt;</pre>
+開封直後にこのコードを挿入してください <samp class="ph codeph">&lt;BODY&gt;</samp> あなたのページにタグを付けます。
+                <div class="note note"><span class="notetitle">注意：</span>  タグ設定に次のカスタム変数を追加する必要があります。 <ul class="ul">
+                    <li class="li">OOLabel（変数タイプ： <strong class="ph b">データ層変数</strong>、データ層変数名： <strong class="ph b">ラベル</strong>)</li>
+
+                    <li class="li">OOAction（変数タイプ： <strong class="ph b">データ層変数</strong>、データ層変数名： <strong class="ph b">アクション</strong>)</li>
+
+                    <li class="li">OOCategory（変数タイプ： <strong class="ph b">データ層変数</strong>、データ層変数名： <strong class="ph b">カテゴリ</strong>)</li>
+
+                </ul>
+ イベントに加えてオーディエンス統計（ページ訪問や現在のユーザーなど）を確認したい場合は、追加のタグを実装する必要があります。 </div>
+ 追加情報については、 <a class="xref" href="https://chrome.google.com/webstore/detail/tag-assistant-by-google/kejbdjndbnbjgmefkgdddjlbokphdefk?hl=en">Googleタグアシスタント</a>.  </div>
+
+    
+      <div class="section"><h2 class="title sectiontitle">ステップ3：あなたのWebページにOoyala Google Analyticsプラグインをロードする</h2>をロードする <samp class="ph codeph"><span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/googleAnalytics.min.js</samp> プレーヤーを起動したいページにスクリプトを作成します。 このプラグインを使用するには、Google Analyticsがページに既に設定されている必要があります（上記の3つの方法のいずれかを使用）。 </div>
+
+         
+         <div class="section"><h2 class="title sectiontitle">ステップ4：トラッカーの指定（オプション）</h2>他のPlayer V4プラグインと同様に、プレーヤーを実行したいページでは、ページ内でページレベルのパラメータを指定できます。 <span class="keyword parmname">playerparams</span> プレーヤーの作成中に渡される変数（を参照） <a class="xref" href="../api/pbv4_api_embedparams.html">プレーヤV4のページレベルパラメータ</a>） トラッカーは提供されたトラッカー名にプラグインによって送られたイベントをターゲットにします（<samp class="ph codeph">trackerName</samp>） このトラッカー名は、で定義されたトラッカー名と同じでなければなりません。 <samp class="ph codeph">ga（ &#39;create&#39;）</samp> トラッカーを設定するために使用される関数呼び出し。 Ooyalaデバッグページのトラッカー名が必要な場合は、このページレベルのパラメーターを設定し、urlパラメーターで指定したトラッカー名と同じにする必要があります。
+                <samp class="ph codeph">&quot;ga_tracker_name&quot;</samp>.  <p class="p">ページレベルパラメータの例：</p>
+<pre class="pre codeblock">&quot;googleAnalytics&quot;：{&quot;trackerName&quot;： &quot;myTrackerName&quot;}</pre>
+
+            詳しくは、次のGoogleのトピックを参照してください。 <ul class="ul">
+                <li class="li"><a class="xref" href="https://developers.google.com/analytics/devguides/collection/analyticsjs/creating-trackers" target="_blank">トラッカーを作成する</a></li>
+
+                <li class="li"><a class="xref" href="https://support.google.com/analytics/answer/1032400" target="_blank">Webページ上の複数のトラッキングコード</a></li>
+
+            </ul>
+</div>
+
+         <div class="section"><h2 class="title sectiontitle">Google AnalyticsプラグインのプレーヤV4イベント</h2> Player V4 Google Analyticsプラグインは、ランタイム再生イベントを報告します。 <p class="gt-block p"><strong class="ph b">イベントカテゴリ</strong></p>
+プラグインによって送信されたイベントのイベントカテゴリは「Ooyala」です。 <p class="gt-block p"><strong class="ph b">イベントアクション</strong></p>
+ プラグインによって送信されたイベントには、次のイベントアクションがあります。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                    
+                    
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" width="25%" id="d435862e240">イベント</th>
+
+                            <th class="entry" valign="top" width="75%" id="d435862e243">いつ送られた</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d435862e240 "><samp class="ph codeph">playbackStarted</samp></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d435862e243 ">
+                                <ul class="ul">
+                                    <li class="li">再生が始まりました。</li>
+
+                                    <li class="li">再生が再開されました。 一時停止やバッファから戻ったときに発生します。</li>
+
+                                </ul>
+
+                             </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d435862e240 "><samp class="ph codeph">playProgressStarted</samp></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d435862e243 ">再生が合計時間の0％に達しました。 このイベントは、Ooyala IQのVideo Startsメトリクスにマッピングされます（ <a class="xref" href="analytics_v3_common_metrics.html">一般的なメトリックの定義と例</a>).</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d435862e240 "><samp class="ph codeph">playProgressQuarter</samp></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d435862e243 ">再生が合計時間の25％に達しました。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d435862e240 "><samp class="ph codeph">playProgressHalf</samp></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d435862e243 ">再生が合計時間の50％に達しました。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d435862e240 "><samp class="ph codeph">playProgressThreeQuarters</samp></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d435862e243 ">再生が合計時間の75％に達しました。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d435862e240 "><samp class="ph codeph">playProgressEnd</samp></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d435862e243 ">再生が合計時間の100％に達しました。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d435862e240 "><samp class="ph codeph">contentReady</samp></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d435862e243 ">コンテンツを再生する準備が整いました。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d435862e240 "><samp class="ph codeph">adPlaybackStarted</samp></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d435862e243 ">広告の再生が始まります。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d435862e240 "><samp class="ph codeph">adPlaybackFinished</samp></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d435862e243 ">広告の再生が終了しました。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d435862e240 "><samp class="ph codeph">playbackPaused</samp></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d435862e243 ">再生が一時停止しています。</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+<p class="gt-block p"><strong class="ph b">イベントラベル</strong></p>
+ Google Analyticsプラグインによって送信されたイベントの場合、イベントラベルは再生されているコンテンツのタイトルです。 </div>
+
+         <div class="section"><h2 class="title sectiontitle">アナリティクスの表示</h2>Google AnalyticsのGUIで、[レポート]タブに移動して分析を表示します。 有用な指標は次のとおりです。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                    
+                    
+                    
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" width="12.5%" id="d435862e389">ノートへ移動</th>
+
+                            <th class="entry" valign="top" width="25%" id="d435862e392">へ行きます</th>
+
+                            <th class="entry" valign="top" width="62.5%" id="d435862e395">ノート</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top" width="12.5%" headers="d435862e389 ">ライブイベント</td>
+
+                            <td class="entry" valign="top" width="25%" headers="d435862e392 ">レポート - &gt;リアルタイム - &gt;イベント</td>
+
+                            <td class="entry" valign="top" width="62.5%" headers="d435862e395 ">アクティブユーザーからのリアルタイムイベント通知。 これらのイベントは、右側のライブアップデートグラフの一部として、またはグラフの下にあるリストとして表示できます。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="12.5%" headers="d435862e389 ">オーディエンスの概要</td>
+
+                            <td class="entry" valign="top" width="25%" headers="d435862e392 ">レポート - &gt;オーディエンス - &gt;概要</td>
+
+                            <td class="entry" valign="top" width="62.5%" headers="d435862e395 ">選択した期間におけるセッション関連の分析の概要。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="12.5%" headers="d435862e389 ">イベント</td>
+
+                            <td class="entry" valign="top" width="25%" headers="d435862e392 ">レポート - &gt;動作 - &gt;イベント</td>
+
+                            <td class="entry" valign="top" width="62.5%" headers="d435862e395 ">ユーザーから送信されたイベント配信を表示するためのさまざまな方法。</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+</div>
+
+         <div class="section"><h2 class="title sectiontitle">例</h2>
+             <pre class="pre codeblock">&lt;html&gt; &lt;head&gt; &lt;title&gt; Google Analyticsプラグインの例&lt;/title&gt;
+<strong class="ph b">    &lt;！ -  Google Analytics  - &gt; &lt;script&gt;（関数（i、s、o、g、r、a、m）{i [&#39;GoogleAnalyticsObject&#39;] = r; i [r] = i [r] || function（）{（i [r] .q = i [r] .q || []）。push（arguments）}、i [r] .l = 1 * new Date（）; a = s.createElement（） o）、m = s.getElementsByTagName（o）[0]; a.async = 1; a.src = g; m.parentNode.insertBefore（a、m）}）（ウィンドウ、ドキュメント、 &#39;script&#39;、 &#39;https ：//www.google-analytics.com/analytics.js&#39;,&#39;ga &#39;）; ga（ &#39;作成&#39;、 &#39;UA-XXXXX-Y&#39;、 &#39;自動&#39;）; ga（ &#39;send&#39;、 &#39;pageview&#39;）; &lt;/script&gt; &lt;！ -  Google Analyticsを終了 - &gt;</strong>
+ 
+    &lt;！ -  V4 JSコアが必要です。 スキン、ディスカバリー、広告などのプラグインは個別にロードする必要があります - &gt; &lt;script src = &quot;url_where_hosted / core.min.js&quot;&gt; &lt;/script&gt; &lt;script src = &quot;url_where_hosted / html5-skin.min.js&quot;&gt; &lt;/script&gt; &lt;link rel = &quot;スタイルシート&quot; href = &quot;url_where_hosted / html5-skin.min.css&quot; /&gt; &lt;！ - ビデオプラグインが必要です。 この例は、メインビデオプラグイン - &gt; &lt;script src = &quot;url_where_hosted / main_html5.min.js&quot;&gt; &lt;/script&gt;を示しています。
+    <strong class="ph b">&lt;！ -  Google Analyticsプラグイン - &gt; &lt;script src = &quot;// player.ooyala.com/static/v4 / product / analytics-plugin / googleAnalytics.min.js&quot;&gt;&lt;/script</strong>&gt; &lt;/head&gt; &lt;body&gt; &lt;div id = &quot;container&quot; style = &quot;幅：640px;高さ：360px;&quot;&gt; &lt;/div&gt; &lt;script&gt; var playerParam = {&quot;pcode&quot;： &quot;YOUR_PCODE&quot;、 &quot;playerBrandingId&quot; ： &quot;YOUR_PLAYER_ID&quot;、 &quot;skin&quot;：{// Configにはプレイヤースキンの設定が含まれています。 必要に応じてローカル設定に変更してください。 &quot;config&quot;： &quot;url_where_hosted / skin.json&quot;}、
+<strong class="ph b">            // trackerNameはオプションです &quot;googleAnalytics&quot;：{&quot;trackerName&quot;： &quot;myTrackerName&quot;}</strong>
+        ; OO.ready（function（）{window.pp = OO.Player.create（ &quot;container&quot;、 &quot;YOUR_ASSET_ID&quot;、playerParam）;}）; &lt;/script&gt; &lt;body&gt; &lt;/html&gt;
+             </pre>
+
+         </div>
+
+     
+     
+     
+     </div>
+
+    
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></di

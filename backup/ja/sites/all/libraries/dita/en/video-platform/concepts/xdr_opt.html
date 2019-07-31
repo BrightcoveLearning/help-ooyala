@@ -1,0 +1,59 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Server-side Formatting the Ooyala Player Token String"/>
+<meta name="abstract" content=""/>
+<meta name="description" content=""/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_xdr.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept_r5z_qbj_bm"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Ooyalaプレーヤートークン文字列のサーバー側フォーマット</title>
+</head>
+<body id="concept_r5z_qbj_bm">
+
+
+ <h1 class="title topictitle1">Ooyalaプレーヤートークン文字列のサーバー側フォーマット</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc"/>
+
+  <div class="section"><div class="note note"><span class="notetitle">注意：</span> この機能はOoyalaに適用されます <span class="ph">プレイヤーV4</span> そして <span class="ph">プレイヤーV3</span> （廃止予定）</div>
+</div>
+
+  <div class="section">アーキテクチャの概要で説明したように、Ooyala Player Tokenのリクエストをフォーマットする必要があります。 再生時に検証するために、この文字列を（再生ヘッドの位置とともに）クライアントアプリケーションに渡します。 以下は、Ooyala Player Token（OPT）に対する代表的なHTTPリクエストの構文です。 <pre class="pre codeblock"> 
+http://player.ooyala.com/sas/embed_token/<var class="keyword varname">pcode</var>/<var class="keyword varname">埋め込みコード</var>？api_key =<var class="keyword varname">apiKey</var>＆expires =<var class="keyword varname">expirationTime</var>＆signature =<var class="keyword varname">measuredSignature</var>＆<var class="keyword varname">アカウントID</var> 
+</pre>
+
+            <ul class="ul" id="concept_r5z_qbj_bm__ul_bmb_zh4_bm">
+                <li class="li"><var class="keyword varname">pcode</var> Ooyalaが提供するプロバイダIDです。</li>
+
+                <li class="li"><var class="keyword varname">埋め込みコード</var> 動画IDまたはコンテンツIDです。</li>
+
+                <li class="li"><var class="keyword varname">apiKey</var>,  <var class="keyword varname">expirationTime</var>、および
+                        <var class="keyword varname">measuredSignature</var> リクエストの署名は
+                        <a class="xref" href="api_keys.html" title="Ooyala APIの認証情報には、APIキーとシークレットが含まれています。これらは、HTTPリクエストに署名するため、およびスクラッチパッドを使用するときに提供するものです。">あなたのAPIクレデンシャル</a> そして <a class="xref" href="../tasks/api_signing_requests.html" title="Backlotに対して行われるすべてのリクエストは、認証のために3つのクエリ文字列パラメータを必要とします：APIキー、リクエストの有効期限、そして署名です。 このトピックでは、署名を生成する方法について説明します。">要求に署名するための一般的なアルゴリズム</a>.</li>
+
+                <li class="li"><var class="keyword varname">アカウントID</var> 視聴者のあなたの識別子です。</li>
+
+            </ul>
+見る <a class="xref" href="player_v3dev_authoverview.html">プレイヤーV3のOoyalaプレイヤートークン（廃止予定）</a> 詳細については。 </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_xdr.html" title="クロスデバイスレジューム（XDR）を使用すると、視聴者はあるデバイスでビデオの視聴を開始し、一時停止し、後で別のデバイスからビデオを再生し続けることができます。 Ooyala Player（V4およびV3）とモバイルSDKは、OoyalaのREST APIと組み合わせて、デバイス間での再生再開をサポートします。">クロスデバイスレジューム（XDR）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

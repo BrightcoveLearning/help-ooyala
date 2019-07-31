@@ -1,0 +1,164 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2016-06-23 Release"/>
+<meta name="abstract" content="Notable contents of this release include version 4.15.0 of the mobile SDKs for iOS and Android, the first release of the tvOS SDK, and new encoding recommendations for Player V4."/>
+<meta name="description" content="Notable contents of this release include version 4.15.0 of the mobile SDKs for iOS and Android, the first release of the tvOS SDK, and new encoding recommendations for Player V4."/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2016.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release20160623"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2016-06-23リリース</title>
+</head>
+<body id="release20160623">
+
+
+    <h1 class="title topictitle1">2016-06-23リリース</h1>
+
+    
+    <div class="body conbody"><p class="shortdesc">このリリースの注目すべき内容には、iOSおよびAndroid用のモバイルSDKのバージョン4.15.0、tvOS SDKの最初のリリース、およびPlayer V4用の新しいエンコードの推奨事項が含まれています。</p>
+
+        <div class="section"><h2 class="title sectiontitle">ソフトウェア機能リリース</h2><p class="gt-block p"><strong class="ph b">Android用モバイルSDK v.4.15.0</strong></p>
+<p class="gt-block p">ダウンロード <a class="xref" href="http://static.ooyala.com.s3.amazonaws.com/sdk/android/release/OoyalaSDK-Android.zip" target="_blank">最新バージョン</a> Android用モバイルSDKの概要</p>
+<p class="gt-block p"><strong class="ph b">新機能と強化</strong></p>
+<div class="p">
+                <ul class="ul">
+                    <li class="li">FacebookはもはやMavenリポジトリと一緒にReact Native AARファイルの最新バージョンを配布していないので、React Nativeファイルは現在で配布されています。 <span class="ph filepath">OoyalaSkinSDK.jar</span>。 詳細については、を参照してください。 <a class="xref" href="../concepts/android_v4_gettingthesdk.html#android_v4_gettingthesdk">Android用プレイヤースキン</a>.</li>
+
+                    <li class="li">SecurePlayerがバージョン3.8.2.0に更新されました。 SecurePlayerを使用している場合は、SecurePlayerライブラリをこのバージョンにアップデートする必要があります。</li>
+
+                </ul>
+
+            </div>
+<p class="gt-block p"><strong class="ph b">解決済みの問題</strong></p>
+<div class="p">
+                <ul class="ul">
+                    <li class="li">ファイルが重複しているためにgradle2でビルドに失敗した場合は、build.gradleの除外リストにファイル名の重複を追加してください。 例えば：<pre class="pre codeblock">包装オプション{除外 &#39;jsr305_annotations / Jsr305_annotations.gwt.xml&#39;}                                                    </pre>
+</li>
+
+                    <li class="li">ミッドロール広告があるときにExoPlayerSampleAppで再生の最後までシークしようとすると、アプリがクラッシュまたはフリーズすることがあるという問題がありました。 この問題は解決されました。</li>
+
+                    <li class="li">シーク時にOoyala Skin SDKスクラバーバーをタッチに反応させるのが難しいという問題がありました。 この問題は解決されました。</li>
+
+                    <li class="li">広告イベントの順序に問題がありました。 これらの問題は解決され、以下のイベントの順序が適用されるようになりました。 <ol class="ol" id="release20160623__ol_p3x_q5n_jw">
+                            <li class="li">An  <span class="keyword apiname">AdPodStarted</span> イベントは、1つまたは複数の広告になる可能性があるものの始まりを示します。</li>
+
+                            <li class="li">この時点で、複数の広告開始イベントと広告完了イベントが発生する可能性があります。 </li>
+
+                            <li class="li">An  <span class="keyword apiname">AdPodEnded</span> イベントは広告の終了とコンテンツの再開を意味します。</li>
+
+                        </ol>
+</li>
+
+                </ul>
+
+            </div>
+<p class="gt-block p"><strong class="ph b">既知の問題点</strong></p>
+<div class="p">React NativeにAndroidアプリケーションのメモリリークとして現れるバグがあります。 この問題は現在調査中ですが、この問題を回避したい場合は、次のようにしてください。 <ol class="ol" id="release20160623__ol_wvd_ctv_jw">
+                    <li class="li">アプリケーションのSkin.jsonで、 &quot;startScreen&quot;  - &gt; &quot;showPromo&quot;：trueと設定します。</li>
+
+                    <li class="li">アプリケーションのPlaybackアクティビティで、Optionsオブジェクトを作成したら、OptionsBuilder.setShowPromoImage（true）を呼び出します。</li>
+
+                </ol>
+これは従来のOoyalaのプロモ画像機能を使用するため、メモリリークを回避しながらプロモ画像を作成することができます。</div>
+<p class="p"/>
+<p class="gt-block p"><strong class="ph b">iOS用モバイルSDK v.4.14.0</strong></p>
+<p class="gt-block p">ダウンロード <a class="xref" href="http://static.ooyala.com.s3.amazonaws.com/sdk/ios/release/OoyalaSDK-iOS.zip" target="_blank">最新バージョン</a> iOS用モバイルSDKの概要</p>
+<p class="gt-block p"><strong class="ph b">新機能と機能強化</strong></p>
+<p class="p">iOS用Adobe Marketing Cloud SDKは、Ooyala Mobile SDK for IOSに含まれるようになり、ビデオと広告の両方の分析をサポートします。</p>
+<p class="gt-block p"><strong class="ph b">APIの変更</strong></p>
+<ul class="ul" id="release20160623__ul_acr_t3q_jw">
+                <li class="li">から発生する以下のイベント <samp class="ph codeph">OOOoyalaPlayer</samp> 追加されました： <ul class="ul" id="release20160623__ul_ugr_t3q_jw">
+                        <li class="li"><samp class="ph codeph">OOOoyalaPlayerAdStarted</samp></li>
+
+                        <li class="li"><samp class="ph codeph">OOOoyalaPlayerAdCompleted</samp></li>
+
+                    </ul>
+</li>
+
+            </ul>
+<p class="gt-block p"><strong class="ph b">解決済みの問題</strong></p>
+<ul class="ul" id="release20160623__ul_qjr_t3q_jw">
+                <li class="li">Fairplayの再生で過度のログ記録が発生するという問題がありました。 この問題は解決されました。</li>
+
+                <li class="li">シークに関する問題がありました。 これらの問題は解決されました。</li>
+
+                <li class="li">1つのVAST広告に複数のリニア広告が含まれるという問題がありました
+                        <samp class="ph codeph">創造的</samp> タグを使用すると、プレロール広告が1つだけ表示されるのではなく、プレーヤーがクラッシュします。 この問題は解決されました。</li>
+
+            </ul>
+<p class="p"/>
+<p class="gt-block p"><strong class="ph b">新しいtvOS SDK</strong></p>
+<p class="gt-block p">最新バージョンの <a class="xref" href="http://static.ooyala.com.s3.amazonaws.com/sdk/tvos/release/OoyalaSDK-tvOS.zip" target="_blank">tvOS SDK</a> そして <a class="xref" href="http://static.ooyala.com.s3.amazonaws.com/sdk/tvos/release/OoyalaSkinSDK-tvOS.zip" target="_blank">tvOSスキンSDK</a>.</p>
+ 新しいOoyala tvOS SDKは、HLSおよびMP4アセットの基本的な再生を提供し、FairPlay DRM、Ooyala広告、VAST広告、およびOoyala分析をサポートします。 <p class="gt-block p">見る <a class="xref" href="../concepts/mobile_sdk_ios_tvos_integration.html">tvOS用モバイルSDK</a> tvOS SDKとの統合方法およびOoyala tvOSプレーヤーUIのカスタマイズ方法について詳しくは、を参照してください。</p>
+
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">新しいOoyala IQ JavaScript SDK</strong></p>
+
+                <div class="p">新しいOoyala IQ JavaScript SDKは、サードパーティのプレイヤーをOoyala IQと統合するために利用可能です。 新しいライブラリーは、Thriftエンドポイントを経由せずに直接イベントをJSON APIエンドポイントに送信します。これにより、既に使用可能だったものに加えて、以下のメトリックを報告することができます。<ul class="ul" id="release20160623__ul_ydw_cvr_jw">
+                        <li class="li"><strong class="ph b">イベントを探す</strong>：視聴者がビデオを通してシークする（進行インジケータを前方または後方にドラッグする）ときはいつでも。</li>
+
+                        <li class="li"><strong class="ph b">選手情報</strong>：一意の識別子、プレイヤーの名前、およびプレイヤーのバージョン。</li>
+
+                    </ul>
+</div>
+
+                <div class="note note"><span class="notetitle">注意：</span> たとえば、Kaltura Player、FlowPlayerなどのためにOoyala IQ JavaScript SDKの上に構築されている現在の標準アダプタは、これらの追加のメトリックをサポートしていません。</div>
+
+                <p class="gt-block p">新しいライブラリについて詳しくは、を参照してください。 <a class="xref" href="../tasks/analytics_v3_integrate_javascriptsdk.html">JS SDKを使用したサードパーティ製プレイヤーとIQの統合</a>.</p>
+
+            </div></div>
+        
+        <div class="section"><h2 class="title sectiontitle">ドキュメントリリース</h2>
+            
+            <ul class="ul">
+                <li class="li"><a class="xref" href="../concepts/mobile_sdk_ios_tvos_integration.html">tvOS用モバイルSDK</a>：新しいtvOS SDKを説明する新しいトピックを追加しました。</li>
+
+                <li class="li"><a class="xref" href="../concepts/encodings_recommendations_ratios.html">プレーヤV4のための推奨エンコーディング</a>：Player V4のエンコードの推奨事項と処理プロファイルを説明する新しいトピックを追加しました。</li>
+
+                <li class="li"><a class="xref" href="../concepts/widevine_modular.html">Widevineモジュラーコンテンツ保護</a>：Widevine Modular DRMのコンテンツ保護ページを更新しました。</li>
+
+                <li class="li"><a class="xref" href="../concepts/contentprotection_types_drm.html">デジタル著作権管理（DRM）システム</a>：Widevine Modular DRMのコンテンツ保護ページを更新しました。</li>
+
+                <li class="li"><a class="xref" href="../concepts/device_registration.html">デバイス登録API</a>：Widevine Modular DRMのコンテンツ保護ページを更新しました。</li>
+
+                <li class="li"><a class="xref" href="../concepts/chapter_configurable_drm.html" title="デジタル著作権管理（DRM）を使用すると、視聴者がDRMポリシーを介して高価値コンテンツをどのように使用してアクセスするかを制御できます。 DRMポリシーはアカウントまたは資産レベルで設定できます。">設定可能なDRM</a>：Widevine Modular DRMのコンテンツ保護ページを更新しました。</li>
+
+                <li class="li"><a class="xref" href="../api/player_v4_authorization_api.html" title="The Authorization API request is a key element in Ooyala's content protection features. This topic refers to Player V4.">プレーヤV4用プレーヤ認可API</a>：Widevine Modular DRMのコンテンツ保護ページを更新しました。</li>
+
+                <li class="li"><a class="xref" href="../concepts/pbv4_resources.html">OoyalaがホストするプレイヤーV4リソース</a>：DASHおよびHLS用のBitmovinビデオプラグイン（bit_wrapper.min.js）に関するメモを追加し、以下のファイルも同じ場所でホストする必要があることを示しました。
+                    <ul class="ul">
+                        <li class="li"><span class="ph">http://player.ooyala.com/static/v4/stable/</span><span class="ph"><strong class="ph b"><em class="ph i">latest_player_version</em></strong></span>/video-plugin/bitdashplayer.min.js</li>
+
+                        <li class="li"><span class="ph">http://player.ooyala.com/static/v4/stable/</span><span class="ph"><strong class="ph b"><em class="ph i">latest_player_version</em></strong></span>/video-plugin/bitdashplayer.swf</li>
+
+                    </ul>
+</li>
+
+             </ul>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Ooyalaリリースノートを購読する</h2>
+             見る <a class="xref" href="../concepts/release_notes_subscribe.html">Ooyalaリリースノートを購読する</a> Ooyalaリリースノートの自動通知を購読する方法については、こちらをご覧ください。 </div>
+
+        <div class="section">このコンテンツは06 / 23 / 16の7：00 PM UTCに掲載されました。</div>
+
+    </div>
+    
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2016.html" title="2016からのリリースノート。">2016ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

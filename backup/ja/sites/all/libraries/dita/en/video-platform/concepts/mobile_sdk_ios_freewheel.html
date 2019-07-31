@@ -1,0 +1,180 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Integration with FreeWheel on iOS"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_ios_integrations.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_ios_cuepointmarkers.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_ios_freewheel_tutorial.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_ios_freewheel_sampleapp_decomposed.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/mobile_sdk_ios_insertadsdynamically.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="mobile_sdk_ios_freewheel"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>iOS上のFreeWheelとの統合</title>
+</head>
+<body id="mobile_sdk_ios_freewheel">
+
+
+
+   <h1 class="title topictitle1">iOS上のFreeWheelとの統合</h1>
+
+   <div class="body conbody">
+      <div class="p">SDKを使用すると、モバイルデバイス向けの豊富なカスタムビデオアプリケーションエクスペリエンスを迅速に開発できます。 SDKには、ビデオの再生、VAST広告およびOoyala広告の表示、Ooyalaコンテンツのクエリなどを行うためのメソッドやクラスが含まれています。<ul class="ul">
+        <li class="li">Playback</li>
+
+        <li class="li">プレイリスト/チャンネル - サムネイル</li>
+
+        <li class="li">インフォ</li>
+
+        <li class="li">関連メディア</li>
+
+        <li class="li">ライブ（新） </li>
+
+        <li class="li">広告 </li>
+
+        <li class="li">アナリティクス </li>
+
+        <li class="li">モバイル使用状況を理解するための完全に統合された分析 </li>
+
+        <li class="li">クローズドキャプション </li>
+
+        <li class="li">DFXP（現在はTTML）ファイルを介してクローズドキャプションをロードおよび表示するためのAPI </li>
+
+      </ul>
+</div>
+
+
+      <div class="section" xml:lang="en-us" lang="en-us" id="mobile_sdk_ios_freewheel__whatYouNeed"><h2 class="title sectiontitle">あなたが必要なもの</h2>
+         <p class="p">FreeWheelを統合するためのOoyala SDKを使用すると、デスクトップで作成したのと同じ広告エクスペリエンスを、サポートされているモバイルデバイスでも作成できます。 </p>
+
+         
+         <p class="p">iOSでOoyalaのSDK for FreeWheelを使い始めるには、以下をダウンロードしてください。</p>
+
+         <ul class="ul">
+            <li class="li">iOS用Ooyala Mobile SDK <span class="ph">Ooyala <a class="xref" href="../../../../../../../../ja/downloads/index.html" target="_blank">ダウンロード</a></span>)</li>
+
+            <li class="li">iOS用のOoyala FreeWheel SDK <span class="ph">Ooyala <a class="xref" href="../../../../../../../../ja/downloads/index.html" target="_blank">ダウンロード</a></span>）（Ooyala FreeWheel iOS）<p class="gt-block p"><strong class="ph b">注意： </strong>Mobile SDKが依存するOoyala Backlotの動画アセットに関連付けられた静的広告タグが必要です。 これらが本番のBacklotアカウントに存在しない場合は、それらをアプリにロードする必要があります。</p>
+</li>
+
+            <li class="li">  <a class="xref" href="http://hub.freewheel.tv/display/techdocs/MRM+Integration+SDK+Downloads" target="_blank">AdManager.framework</a> FreeWheelのWebサイト（zipをダウンロードするにはFreeWheelの認証情報が必要です）<div class="note note"><span class="notetitle">注意：</span> FreeWheelライブラリの最新バージョンを使用している間、あなたが使用しているバージョンが最新のOoyala統合と互換性があることを確認してください。</div>
+</li>
+
+            <li class="li"><a class="xref" href="https://developer.apple.com/xcode/" target="_blank">アップルXcode</a></li>
+
+
+         </ul>
+
+      </div>
+
+
+      <div class="section" xml:lang="en-us" lang="en-us" id="mobile_sdk_ios_freewheel__openTheAndroidSampleApp.d0e157"><h2 class="title sectiontitle">Ooyala FreeWheel SDKの構造</h2>
+          SDKには、次のディレクトリとファイルがあります。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+               
+               
+               <thead class="thead" align="left">
+                  <tr class="row">
+                     <th class="entry" valign="top" width="50%" id="d370101e115">ディレクトリ/ファイル</th>
+
+                     <th class="entry" valign="top" width="50%" id="d370101e118">説明</th>
+
+                  </tr>
+
+               </thead>
+
+               <tbody class="tbody">
+                  <tr class="row">
+                     <td class="entry" valign="top" width="50%" headers="d370101e115 "><samp class="ph codeph">オンラインマニュアル</samp></td>
+
+                     <td class="entry" valign="top" width="50%" headers="d370101e118 ">OoyalaFreewheelManagerのリファレンスドキュメント</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" width="50%" headers="d370101e115 "><samp class="ph codeph">FreeWheelHeaders</samp></td>
+
+                     <td class="entry" valign="top" width="50%" headers="d370101e118 ">Ooyala-FreeWheel統合用のヘッダーファイル。</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" width="50%" headers="d370101e115 "><samp class="ph codeph">FreeWheelSampleApp</samp></td>
+
+                     <td class="entry" valign="top" width="50%" headers="d370101e118 ">Ooyala SDKを実装するサンプルアプリケーション</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" width="50%" headers="d370101e115 "><samp class="ph codeph">libOoyalaFreeWheelSDK.a</samp></td>
+
+                     <td class="entry" valign="top" width="50%" headers="d370101e118 ">新しいアプリに追加する必要があるOoyala SDKライブラリファイル</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" width="50%" headers="d370101e115 "><samp class="ph codeph">VERSION</samp></td>
+
+                     <td class="entry" valign="top" width="50%" headers="d370101e118 ">FreeWheel用Ooyala SDKのバージョン番号 </td>
+
+                  </tr>
+
+               </tbody>
+
+            </table>
+</div>
+<div class="note note"><span class="notetitle">注意：</span> FreeWheelサンプルアプリは、次のWebサイトからダウンロードできます。 <a class="xref" href="https://github.com/ooyala/ios-sample-apps" target="_blank">OoyalaサンプルアプリGit Hub</a>.</div>
+</div>
+
+      <div class="section" id="mobile_sdk_ios_freewheel__freewheel_essential_parms"><h2 class="title sectiontitle">基本パラメータとFreeWheel OPFモジュール広告セット</h2>
+         Mobile SDKでFreeWheelを利用するには、タイプの広告セットを作成する必要があります。 <span class="ph uicontrol">フリーホイールOPFモジュール</span> Backlotで。 詳細はBacklotユーザーガイドを参照してください。 Ooyalaでは、FreeWheel広告関連のパラメータをさまざまな場所に保存できます。 優先順位の高い順に、FreeWheelパラメータとその値は次のように定義できます。 <ol class="ol">
+            <li class="li">あなたのアプリ自体。</li>
+
+            <li class="li">お客様のサクセスマネージャーを介して設定できる、内部Ooyala構成。</li>
+
+            <li class="li">バックスロットで <span class="ph uicontrol">マネー</span> タブ、 <span class="ph uicontrol">広告セット</span>
+               のサブタブ <span class="ph uicontrol">フリーホイールOPFモジュール</span> 広告セットの種類。</li>
+
+         </ol>
+OoyalaのMobile SDK用のFreeWheel統合に含まれているサンプルアプリには、次の行が含まれています。これらの行には、アプリで設定する必要がある2つの重要なパラメーターが示されています。 <div class="p"><strong class="ph b">注意： </strong>これらのパラメータは、アプリケーションで直接設定するか、Customer Success ManagerによってOoyalaに内部設定する必要があります。 <ul class="ul" id="mobile_sdk_ios_freewheel__ul_lsz_mcz_cm">
+               <li class="li"><samp class="ph codeph">fw_ios_ad_server</samp>：iOSで広告を配信するためのURL</li>
+
+               <li class="li"><samp class="ph codeph">fw_ios_player_profile</samp>：iOS上のプレーヤー用に定義されたプロファイル</li>
+
+            </ul>
+</div>
+<pre class="pre codeblock">// FreeWheelパラメータを設定します。 これらはオプションであり、BacklotまたはOoyala内部で設定されている設定を上書きすることに注意してください。
+<strong class="ph b">[fwParameters setObject：@ &quot;http://demo.v.fwmrm.net/&quot; forKey：@ &quot;fw_ios_ad_server&quot;]; [fwParameters setObject：@ &quot;90750：ooyala_ios&quot; forKey：@ &quot;fw_ios_player_profile&quot;];</strong>
+[fwParameters setObject：@ &quot;ooyala_test_site_section&quot; forKey：@ &quot;fw_ios_site_section_id&quot;]; [fwParameters setObject：@ &quot;ooyala_test_video_with_bvi_cuepoints&quot; forKey：@ &quot;fw_ios_video_asset_id&quot;]; [fwParameters setObject：@ &quot;channel = TEST; subchannel = TEST; section = TEST; mode = online; player = ooyala; beta = n&quot; forKey：@ &quot;FRMSegment&quot;];       </pre>
+
+      </div>
+
+   </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../concepts/mobile_sdk_ios_cuepointmarkers.html">キューポイントマーカー</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/mobile_sdk_ios_freewheel_tutorial.html">iOSで動作中のFreeWheelサンプルアプリを見る</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/mobile_sdk_ios_freewheel_sampleapp_decomposed.html">iOSサンプルアプリと統合の詳細</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../tasks/mobile_sdk_ios_insertadsdynamically.html">動的に広告を挿入する</a></strong><br/>
+</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/mobile_sdk_ios_integrations.html">iOSサードパーティ統合</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

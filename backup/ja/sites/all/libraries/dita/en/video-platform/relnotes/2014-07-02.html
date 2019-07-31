@@ -1,0 +1,159 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2014-07-02 Release"/>
+<meta name="abstract" content="Notable changes include the release of v.2.5.0 of the iOS and Android mobile SDKs and a new optional parameter for the destroy() function in the Player API (HTML5 only)."/>
+<meta name="description" content="注目すべき変更には、iOSおよびAndroidモバイルSDKのv.2.5.0のリリース、およびプレーヤAPIのdestroy（）関数の新しいオプションパラメータ（HTML5のみ）が含まれます。"/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2014.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release_2014-07-02"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2014-07-02リリース</title>
+</head>
+<body id="release_2014-07-02">
+
+
+    <h1 class="title topictitle1">2014-07-02リリース</h1>
+
+    
+    <div class="body conbody"><p class="shortdesc">注目すべき変更には、iOSおよびAndroidモバイルSDKのv.2.5.0のリリース、およびプレーヤAPIのdestroy（）関数の新しいオプションパラメータ（HTML5のみ）が含まれます。 </p>
+
+        <div class="section"><h2 class="title sectiontitle">ソフトウェア機能リリース</h2><p class="p">以下は新しいソフトウェアリリース項目です。</p>
+
+            <p class="gt-block p"><strong class="ph b">iOS SDK v.2.5.0</strong></p>
+
+            <div class="p">iOS用Ooyala Mobile SDKのバージョン2.5.0がリリースされました。 バージョン2.5.0はクローズドキャプションとAirplayサポートに関するバグ修正を含みます。 バージョン2.5.0にはVAST広告機能への変更も含まれており、アプリケーションをAdSupport.frameworkとリンクする必要があります。
+            <ul class="ul">
+                <li class="li">モバイルアプリでLiveRailを介した広告の再生を可能にするために、VAST URLに[LR_DEVICEID] &#39;マクロ&#39;拡張を実装しました。 これにはAdSupport.frameworkが必要です。</li>
+
+                <li class="li">ログをカスタマイズするためのOODebugModeを追加しました。</li>
+
+                <li class="li">HLS再生用のビットレート変更通知を追加しました。</li>
+
+            </ul>
+
+            <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/concepts/mobile_sdk_ios_release_notes.html">iOS SDK v.2.5.0のフルリリースノート</a></div>
+
+          <p class="gt-block p"><strong class="ph b">Android SDK v.2.5.0</strong></p>
+
+            <div class="p">Android用Ooyala Mobile SDKのバージョン2.5.0がリリースされました。 バージョン2.5.0には、ほとんどのOoyala SDKクラスのネームスペースに対する変更が含まれています。 アプリケーションのインポートを更新する必要があるかもしれません。
+            <ul class="ul">
+                <li class="li">Data Model、Player、VAST、およびUIクラスを独自のパッケージに移動しました。 クラスは、簡単に消費できるパッケージを作成し、混乱を減らすために分離されました。 クラスが移動された場所を確認するには、SDK zipファイル内のAPIドキュメントを参照してください。 これはあなたの輸入のいくつかへの変更を必要とするかもしれません。</li>
+
+                <li class="li">モバイルアプリでLiveRailを介した広告の再生を可能にするために、VAST広告のLR_DEVICEIDの代わりにbeginFetchingAdvertisingIdを追加しました。 これにはGoogle Play Services Libraryが必要です。
+                </li>
+
+                <li class="li">サードパーティの認証トークンにsetCustomDrmDataを追加しました。</li>
+
+                <li class="li">一貫性のあるロギングとランタイムアサーションのためのDebugModeクラスを追加しました。</li>
+
+                <li class="li">フルスクリーンコントローラにクローズドキャプションを追加しました。</li>
+
+                <li class="li">Playready DRMのサポートを追加しました。</li>
+
+                   
+            </ul>
+
+            <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/concepts/mobile_sdk_android_release_notes.html">Android SDK v.2.5.0のフルリリースノート</a></div>
+
+      
+            <p class="gt-block p"><strong class="ph b">フリーホイール広告セットフィールド &quot;fw_video_asset_id&quot;</strong></p>
+
+            <p class="p">広告設定フィールド「fw_video_asset_id」は、ページレベルで設定することも、映画のメタデータ（Backlot UIまたはBacklot APIを介して設定）によって設定することもできます。 この新機能により、シンジケートコンテンツおよびプレーヤでのターゲット広告が可能になります。 どちらも設定されていない場合、このフィールドの値はexternalIDまたはembed_code（プレーヤーの埋め込みに使用されている方）のいずれかにフォールバックします。</p>
+
+         
+                </div>
+<div class="section"><h2 class="title sectiontitle">ドキュメントリリース項目</h2>
+                    <p class="p">以下は、新しいドキュメントのリリース項目です。 </p>
+
+                    <ul class="ul">
+                        
+                        <li class="li">
+                            <p class="gt-block p"><strong class="ph b"> iOS SDK v.2.5.0</strong></p>
+
+                            <ul class="ul">
+                                <li class="li"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/concepts/mobile_sdk_ios_release_notes.html">iOS用Mobile SDK v.2.5.0 </a>- バージョン2.5.0用のアップデートされたiOS SDKドキュメント。</li>
+
+                                <li class="li">
+                            <a class="xref" href="../concepts/mobile_sdk_ios_freewheel_sampleapp_decomposed.html">FreeWheelサンプルアプリ</a>- 「ヘッダファイルとライブラリファイル」に関する最新のドキュメント。</li>
+
+                            </ul>
+
+                        </li>
+
+                        
+                        <li class="li">
+                            <p class="gt-block p"><strong class="ph b">Android SDK v.2.5.0 </strong></p>
+
+                            <ul class="ul">
+                                <li class="li">
+                            <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/concepts/mobile_sdk_android_release_notes.html">Android用Mobile SDK v.2.5.0</a>- バージョン2.5.0用のアップデートされたAndroid SDKドキュメント。</li>
+
+                                <li class="li"><a class="xref" href="../concepts/mobile_sdk_android_freewheel_sampleapp_decomposed.html">FreeWheelサンプルアプリ</a>- 「プロジェクト用のライブラリの設定」に関する更新されたドキュメント。</li>
+</ul>
+
+                       </li>
+
+                     <li class="li">
+                        <p class="gt-block p"><strong class="ph b">プレーヤAPIのdestroy（）</strong></p>
+
+                        <ul class="ul">
+                            <li class="li"><a class="xref" href="../api/player_v3_apis.html" title="プレーヤV3 JavaScript関数を使用してプレーヤの動作と外観をカスタマイズできます。">プレーヤAPI関数</a>-  destroy（）のオプションパラメータの説明を追加しました。</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="li">
+                        <p class="gt-block p"><strong class="ph b">フリーホイール広告セットフィールド“ fw_video_asset_id”</strong></p>
+
+                        <ul class="ul">
+                            <li class="li"><a class="xref" href="../concepts/ads_dev_freewheel.html">FreeWheel Ads統合ガイド</a>- “ fw_video_asset_id”の説明を更新しました。</li>
+
+                        </ul>
+
+                     
+                    </li>
+
+                    <li class="li"><p class="gt-block p"><strong class="ph b">player.ooyala.comに設定されている認証クッキーの消去</strong></p>
+
+                    <ul class="ul">
+                        <li class="li"><a class="xref" href="../concepts/player_v3dev_tokenexpire.html">Ooyalaプレイヤートークンの有効期限</a>-  player.ooyala.comに設定されているautokoken-cookieの消去方法に関する情報を追加しました。</li>
+
+                    </ul>
+
+                    </li>
+
+                        <li class="li"><p class="gt-block p"><strong class="ph b">原資料</strong></p>
+
+                        <ul class="ul">
+                            <li class="li"><a class="xref" href="../concepts/encodings_sourcematerial.html" title="あなたは常に利用可能な最高品質のソース素材から始めるべきです。">素材の品質と推奨事項（ビデオとオーディオ）</a>- 推奨されるビデオコーデック、オーディオコーデック、および多重化/コンテナフォーマットに関する更新情報。</li>
+
+                        </ul>
+
+                    </li>
+
+                    </ul>
+
+                
+                </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2014.html" title="2014からのリリースノート。">2014ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

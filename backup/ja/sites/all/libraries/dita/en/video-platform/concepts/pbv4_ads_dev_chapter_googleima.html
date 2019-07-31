@@ -1,0 +1,122 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Google IMA Ad Plugin"/>
+<meta name="DC.Relation" scheme="URI" content="mobile_sdk_android_googleima.html"/>
+<meta name="DC.Relation" scheme="URI" content="mobile_sdk_ios_googleima.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_ads_dev_chapter_googleima"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Google IMA Ad Plugin</title>
+</head>
+<body id="pbv4_ads_dev_chapter_googleima">
+
+
+    <h1 class="title topictitle1">Google IMA Ad Plugin</h1>
+
+
+    <div class="body conbody">
+        <div class="section">使用 <samp class="ph codeph">google_ima.js</samp> Player V4にGoogle IMA広告を読み込むためのプラグイン。 やり方 <samp class="ph codeph">google_ima.js</samp> プラグインは動作します、広告は広告の位置の前に動的にロードされます。 プラグインはを使用して開発されました <a class="xref" href="pbv4_ads_framework.html">広告マネージャフレームワーク</a>.</div>
+
+        <div class="section"><h2 class="title sectiontitle">Google IMA v3</h2>
+            
+            <p class="p">Google IMA v3は広告サーバーおよび広告管理プラットフォームです。 Googleインタラクティブメディア広告（IMA）SDKを使用すると、媒体社は動画やゲームなどのインタラクティブメディアコンテンツにリニア広告、ノンリニア広告、およびコンパニオン広告を表示できます。 サイト運営者はIMA SDKを使用して、DoubleClick for Publishers（DFP）、Google AdSenseネットワーク、またはVASTに準拠した広告サーバーによって配信される広告を要求および表示できます。 IMA SDKを使用する一般的なシナリオには、ビデオコンテンツのプレロールまたはオーバーレイの表示があります。</p>
+
+            <div class="note note"><span class="notetitle">注意：</span> Google IMAのHTML5 SDKは、すべてのブラウザでサポートされているわけではありません。 Google IMAでサポートされているブラウザの一覧については、にアクセスしてください。 <a class="xref" href="https://developers.google.com/interactive-media-ads/compatibility#platforms" target="_blank">https://developers.google.com/interactive-media-ads/compatibility#platforms</a>.</div>
+
+            <div class="p"><a class="xref" href="https://developers.google.com/interactive-media-ads/" target="_blank">Googleごと</a>Google IMA SDKは、以下のサイト運営者を対象としています。 <ul class="ul">
+                    <li class="li"><strong class="ph b">DoubleClick for Publishers（DFP）ユーザー</strong>：サイト運営者様はDFPを使用して、直販広告のトラフィック、ターゲティング、配信を行うことができます。 IMA SDKは高度なビデオ広告配信機能を提供します。</li>
+
+                    <li class="li"><strong class="ph b">AdSenseサイト運営者</strong>注：サイト運営者は、Google AdSenseネットワーク（ビデオ向けAdSense（AFV）およびゲーム向けAdSense（AFG））を使用して広告枠を収益化することもできます。 AFV / AFG広告のみを表示する場合は、DFPは必要ありません。 ただし、AFV / AFG広告にはまだIMA SDKが必要です。 </li>
+
+                    <li class="li"><strong class="ph b">VAST広告を使用しているサイト運営者</strong> 第三者広告サーバーから：パブリッシャーはDFPでVAST広告を予約し、IMA SDKを使用してそれらをリクエストして表示することができます。 VAST広告の応答は、広告の再生前に解析されます。 詳細についてはVASTのガイドラインを参照してください。</li>
+
+                    <li class="li"><strong class="ph b">動画向けAdExchange</strong>：サイト運営者は、Google AdSenseネットワーク経由でAdExchange for Videoの空き広告枠を利用できます。</li>
+
+                </ul>
+</div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">サポートされているプラ​​ットフォーム</h2>
+            <div class="p">Ooyalaは、このリリースのPlayer V2.0では、DFPまたはAdSenseによって配信されるGoogle IMA広告をVAST 3.0および1.0およびVPAID 2.0および4形式でサポートしています。 <ul class="ul">
+                    <li class="li">HTML5</li>
+
+                    <li class="li">iOSモバイルSDK</li>
+
+                    <li class="li">AndroidモバイルSDK</li>
+
+                </ul>
+</div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">広告ルール</h2>
+            <div class="p">広告ルールは、動画コンテンツでの広告の表示方法を定義します。 サイト運営者は、DFP Premiumアカウントに広告ルールを作成して、動画での広告の再生時間、期間、およびコンテンツターゲティングパラメータなどのトリガーの結果を決定できます。 また、広告ルールをターゲットに設定して、以下に適用することもできます。 <ul class="ul">
+                    <li class="li">特定のテレビ番組の全エピソードなどの特定のビデオ。</li>
+
+                    <li class="li">「スポーツ」ジャンルのビデオなどのビデオメタデータ。</li>
+
+                    <li class="li">ユーザーの地理</li>
+
+                    <li class="li">ユーザーのブラウザ</li>
+
+                    <li class="li">定義したカスタムターゲティングキーと値。</li>
+
+                </ul>
+</div>
+
+            <p class="gt-block p">Ad Rulesでサポートされているプラ​​ットフォームの詳細については、にアクセスしてください。 <a class="xref" href="https://developers.google.com/interactive-media-ads/video_features_and_sdk_versions#html5_footnote" target="_blank">https://developers.google.com/interactive-media-ads/video_features_and_sdk_versions#html5_footnote</a></p>
+
+            <div class="note note"><span class="notetitle">注意：</span> Google IMAのAdRules機能は、追加コードなしでアドブレークをサポートします。 他の種類の広告にAdRulesを使用しないでください。 予期しない動作を引き起こす可能性があるため、他のadTagUrlとAdRule adTagを混在させることはお勧めできません。 </div>
+
+            <p class="gt-block p">広告ルール広告の場合、Googleはすべての広告管理とGoogle IMA広告の掲載を処理します。 広告ルール広告の場合、Ooyalaプラグインは、動画のタイムラインのどの時点に動画があるのか​​をGoogleに知らせるだけです。 1つの広告タグは、広告ルール広告のグループを表すために使用されます。 デフォルトでは、OoyalaはiOS Safari上のGoogle IMA Ad Rules（HTML5）とPlayer V4をサポートしています。 グーグルの <a class="xref" href="https://developers.google.com/interactive-media-ads/compatibility" target="_blank">サポートされているビデオプレーヤープラットフォーム</a> 詳細については。</p>
+<p class="p">広告ルールのない広告の場合、Googleは広告を再生してレンダリングしますが、広告マネージャコントローラは広告をいつ再生するかを決定します。 各広告に1つの広告タグが使用されます。</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">サポートされている広告掲載順位</h2>
+            <div class="p">このリリースでは、次の広告掲載位置で、プレーヤV4 HTML5プレーヤとiOSおよびAndroid用のモバイルSDKで広告がサポートされています。 <ul class="ul">
+                    <li class="li">プリロール</li>
+
+                    <li class="li">ミッドロール</li>
+
+                    <li class="li">ポストロール</li>
+
+                    <li class="li">ポッド</li>
+
+                    <li class="li">スキップ可能</li>
+
+                    <li class="li">クリックスルー</li>
+
+                    
+                    <li class="li">オーバーレイ（Ad Rules広告ではサポートされていません）</li>
+
+                    <li class="li">コンパニオン</li>
+
+                </ul>
+</div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">広告とFirefoxのプライベートブラウジング</h2>使用している消費者のために <a class="xref" href="https://developer.mozilla.org/en-US/Firefox/Privacy/Tracking_Protection" target="_blank">プライベートブラウジングウィンドウ</a> Firefoxでは、プライバシーモードが特定の種類のトラッキングURLをブロックするため、一部の広告が読み込めないことがあります。</div>
+
+    </div>
+
+    <div class="related-links"><div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="mobile_sdk_android_googleima.html">Android上のGoogle IMAとの統合</a></div>
+<div><a class="link" href="mobile_sdk_ios_googleima.html">iOS上のGoogle IMAとの統合</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

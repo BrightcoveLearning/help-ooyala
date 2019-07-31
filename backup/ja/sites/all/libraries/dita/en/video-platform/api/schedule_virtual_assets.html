@@ -1,0 +1,253 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Virtual Assets"/>
+<meta name="abstract" content="A virtual asset represents an individual program or event."/>
+<meta name="description" content="仮想アセットは個々のプログラムまたはイベントを表します。"/>
+<meta name="DC.Relation" scheme="URI" content="../api/schedule.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="schedule_virtual_assets"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>バーチャルアセット</title>
+</head>
+<body id="schedule_virtual_assets">
+
+
+  <h1 class="title topictitle1">バーチャルアセット</h1>
+
+  
+  <div class="body refbody"><p class="shortdesc">仮想アセットは個々のプログラムまたはイベントを表します。 </p>
+
+    <div class="section">
+      <p class="gt-block p">カスタムキーと値のペアのメタデータは、通常のアセットのカスタムメタデータと同じ規則に従って、仮想アセットに関連付けることができます。 見る <a class="xref" href="asset_metadata.html#asset_metadata" title="どのタイプのアセットにも、最大100個の名前と値のペアを追加できます。">カスタムメタデータ</a>.</p>
+
+      <div class="p"> APIの仮想アセットは以下の構造を持ちます。 <div class="note note"><span class="notetitle">注意：</span>  
+            <span class="keyword parmname">external_id</span> 仮想資産のIDを外部システムにマッピングするためのオプションのフィールドです。 </div>
+
+      </div>
+<pre class="pre codeblock">{「名前」：「ユタフットボール」、「external_id」：「PAC_CLF00011」、「id」：「999fffdc884841aeb05fc9e5c6fcf958」}</pre>
+
+    </div>
+
+    <div class="section refsyn"><h2 class="title sectiontitle">すべてのバーチャルアセットを見る</h2>
+      <pre class="pre codeblock">[GET] / v2 / virtual_assets</pre>
+
+    </div>
+
+    <div class="section refsyn"><h2 class="title sectiontitle">単一の仮想アセットを表示する</h2>
+      <pre class="pre codeblock">[GET] / v2 / virtual_asset /<a class="xref" href="schedule_virtual_assets.html#schedule_virtual_assets__virtual_asset_id"><kbd class="ph userinput">virtual_asset_id</kbd></a></pre>
+
+    </div>
+
+    <div class="section refsyn"><h2 class="title sectiontitle">仮想資産のトラックセグメントを表示する</h2>
+      <pre class="pre codeblock">[GET] / v2 / virtual_assets /<a class="xref" href="schedule_virtual_assets.html#schedule_virtual_assets__virtual_asset_id"><kbd class="ph userinput">virtual_asset_id</kbd></a>/ track_segment_instances</pre>
+
+    </div>
+
+    <div class="section refsyn"><h2 class="title sectiontitle">仮想資産のインスタンスを表示する</h2>
+      <pre class="pre codeblock">[GET] / v2 / virtual_assets /<a class="xref" href="schedule_virtual_assets.html#schedule_virtual_assets__virtual_asset_id"><kbd class="ph userinput">virtual_asset_id</kbd></a>/ asset_instances</pre>
+
+    </div>
+
+    <div class="section refsyn"><h2 class="title sectiontitle">仮想アセットを作成する</h2>
+      <pre class="pre codeblock">[POST] / v2 / virtual_assets {
+   <a class="xref" href="schedule_virtual_assets.html#schedule_virtual_assets__virtual_asset_properties"><kbd class="ph userinput">プロパティ</kbd></a>
+
+}</pre>
+
+    </div>
+
+    <div class="section refsyn"><h2 class="title sectiontitle">仮想資産を変更する</h2>
+      <pre class="pre codeblock">[パッチ] / v2 / virtual_assets /<a class="xref" href="schedule_virtual_assets.html#schedule_virtual_assets__virtual_asset_id"><kbd class="ph userinput">virtual_asset_id</kbd></a>{&quot;名前&quot;： &quot;ユタフットボール2012&quot;}</pre>
+
+    </div>
+
+    <div class="section refsyn"><h2 class="title sectiontitle">仮想資産メタデータの設定/置換</h2>
+      <pre class="pre codeblock">[PUT] / v2 / virtual_assets /<kbd class="ph userinput">virtual_asset_id</kbd>/ metadata {&quot;<var class="keyword varname">name1</var>「」<var class="keyword varname">value1</var>「」<var class="keyword varname">name2</var>「」<var class="keyword varname">value2</var>「」<var class="keyword varname">name3</var>「」<var class="keyword varname">value3</var>「……」<var class="keyword varname">name100</var>「」<var class="keyword varname">value100</var>&quot;}</pre>
+
+    </div>
+
+    <div class="section refsyn"><h2 class="title sectiontitle">カスタムメタデータを変更する</h2>
+      <pre class="pre codeblock">[パッチ] / v2 / virtual_assets /<kbd class="ph userinput">virtual_asset_id</kbd>/ metadata {&quot;<var class="keyword varname">name1</var>「」<var class="keyword varname">value1</var>「」<var class="keyword varname">name2</var>「」<var class="keyword varname">value2</var>「」<var class="keyword varname">name3</var>「」<var class="keyword varname">value3</var>「……」<var class="keyword varname">name100</var>「」<var class="keyword varname">value100</var>&quot;}</pre>
+
+    </div>
+
+    <div class="section refsyn"><h2 class="title sectiontitle">仮想アセットのメタデータを取得する</h2>
+      <pre class="pre codeblock">[GET] / v2 / virtual_assets /<a class="xref" href="schedule_virtual_assets.html#schedule_virtual_assets__virtual_asset_id"><kbd class="ph userinput">virtual_asset_id</kbd></a>/メタデータ</pre>
+
+    </div>
+
+    <div class="section refsyn"><h2 class="title sectiontitle">仮想資産を削除する</h2>
+      <pre class="pre codeblock">[削除] / v2 / virtual_assets /<a class="xref" href="schedule_virtual_assets.html#schedule_virtual_assets__virtual_asset_id"><kbd class="ph userinput">virtual_asset_id</kbd></a></pre>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">ルート属性</h2>
+      
+      <p class="p">次の表は、ルートを通じて表現できるすべての属性を示しています。</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" id="d126932e225">ルート属性</th>
+
+              <th class="entry" valign="top" id="d126932e228">説明</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            
+          <tr class="row">
+              <td class="entry" valign="top" headers="d126932e225 d126932e228 "><var class="keyword varname" id="schedule_virtual_assets__virtual_asset_id">virtual_asset_id</var></td>
+
+              <td class="entry" valign="top" headers="d126932e225 d126932e228 ">
+                <p class="p">仮想資産のID。</p>
+
+                <p class="p">タイプ：文字列 </p>
+
+                <p class="p">デフォルト：なし </p>
+
+                <p class="p">Example: "999fffdc884841aeb05fc9e5c6fcf958" </p>
+
+              </td>
+
+            </tr>
+</tbody>
+
+        </table>
+</div>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">クエリ文字列パラメータ</h2>
+      <p class="p">次の表は、クエリ文字列を通じて表現できるすべてのパラメータを示しています。</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="22.22222222222222%" id="d126932e282">パラメーター</th>
+
+              <th class="entry" valign="top" width="55.55555555555556%" id="d126932e285">説明</th>
+
+              <th class="entry" valign="top" width="22.22222222222222%" id="d126932e288">必須？</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            
+          <tr class="row">
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d126932e282 "><span class="keyword parmname">include =オブジェクト</span></td>
+
+              <td class="entry" valign="top" width="55.55555555555556%" headers="d126932e285 ">仮想アセットを含めるには <p class="p">タイプ：CGIエスケープ、コンマ区切りの以下の値のリスト</p>
+有効な値：virtual_asset | virtual_asset.metadata | virtual_asset.track_segment_instances | virtual_asset.asset_instances
+                  <p class="p">例：[GET] /v2/virtual_assets?include=virtual_asset.metadata </p>
+</td>
+
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d126932e288 ">いいえ</td>
+
+            </tr>
+</tbody>
+
+        </table>
+</div>
+</div>
+
+    <div class="section" id="schedule_virtual_assets__virtual_asset_properties"><h2 class="title sectiontitle">プロパティ</h2>
+      
+      <p class="p">次の表は、トラックに関連付けることができるすべてのプロパティについて説明しています。 </p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="22.22222222222222%" id="d126932e338">プロパティ</th>
+
+              <th class="entry" valign="top" width="55.55555555555556%" id="d126932e341">説明</th>
+
+              <th class="entry" valign="top" width="22.22222222222222%" id="d126932e344">必須？</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            
+            
+          <tr class="row">
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d126932e338 "><span class="keyword parmname">external_id</span></td>
+
+              <td class="entry" valign="top" width="55.55555555555556%" headers="d126932e341 ">外部システムで使用するための識別子<p class="p">タイプ：文字列 </p>
+<p class="p">例：「PAC_CLF00011」 </p>
+</td>
+
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d126932e344 ">いいえ</td>
+
+            </tr>
+<tr class="row">
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d126932e338 "><span class="keyword parmname">名</span></td>
+
+              <td class="entry" valign="top" width="55.55555555555556%" headers="d126932e341 "><p class="p">仮想資産のわかりやすい名前</p>
+
+                <p class="p">タイプ：文字列 </p>
+
+                <p class="p">例： &quot;ユタサッカー&quot; </p>
+
+              </td>
+
+              <td class="entry" valign="top" width="22.22222222222222%" headers="d126932e344 ">はい</td>
+
+            </tr>
+</tbody>
+
+        </table>
+</div>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">例</h2>
+      
+      <div class="sectiondiv">
+        <p class="p"> この例では仮想アセットを作成します。 </p>
+
+        <pre class="pre codeblock">[POST] / v2 / virtual_assets {&quot;name&quot;： &quot;Stanford at Cal&quot;}</pre>
+
+        <p class="gt-block p"><span class="ph">バックスロット</span> 次のような応答を返します。</p>
+
+        <pre class="pre codeblock">{&quot;created_at&quot;： &quot;2013-01-28T17：35：53Z&quot;、 &quot;id&quot;： &quot;53eed5ed1b734d30b364cXXUMX、XXXXXXXXXXXXXXXXXXXXXXX&quot;。 &quot;：&quot;芸術との生活 &quot;}</pre>
+
+        <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+      </div>
+    </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/schedule.html" title="Ooyala Scheduleを使用すると、仮想アセットのトラックを組み合わせてライブストリームの上で再生できます。">ウーヤラスケジュール</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

@@ -1,0 +1,421 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Player Authorization API for Player V4"/>
+<meta name="abstract" content="The Authorization API request is a key element in Ooyala's content protection features. This topic refers to Player V4."/>
+<meta name="description" content="Authorization APIリクエストは、Ooyalaのコンテンツ保護機能における重要な要素です。 このトピックはPlayer V4を参照しています。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/authorization_overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_authz_api.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="reference_authzpv4"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>プレーヤV4用プレーヤ認可API</title>
+</head>
+<body id="reference_authzpv4">
+
+
+	<h1 class="title topictitle1">プレーヤV4用プレーヤ認可API</h1>
+
+	 
+	<div class="body refbody"><p class="shortdesc">Authorization APIリクエストは、Ooyalaのコンテンツ保護機能における重要な要素です。 このトピックはPlayer V4を参照しています。</p>
+
+		<div class="section"><div class="note note"><span class="notetitle">注意：</span> このAPIはPlayer V4に適用されます。 プレーヤV3のプレーヤ認証APIの詳細については、を参照してください。 <a class="xref" href="player_v3_authorization_api.html" title="Authorization APIリクエストは、Ooyalaのコンテンツ保護機能の重要な要素です。 このトピックはPlayer V3（廃止予定）を参照しています。">プレーヤV3用プレーヤ認証API（廃止予定）</a>.</div>
+</div>
+
+<div class="section"><h2 class="title sectiontitle">許可APIの資料</h2> 以下の資料を参照してください。 <ul class="ul">
+        <li class="li"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/content_protection_api/authorization_api/index.html" target="_blank">認証APIリファレンス</a> リクエストの詳細については</li>
+
+        <li class="li"><a class="xref" href="../concepts/authorization_errors.html" title="このページには、Authorization APIによって返される可能性があるAuthorization Errorコードの参照表があります。">認証エラー</a> 応答で返されたエラーコード</li>
+
+        <li class="li"><a class="xref" href="../concepts/authorization_overview.html">承認</a> 概要について </li>
+
+      </ul>
+</div>
+
+	  <div class="section"><h2 class="title sectiontitle">リクエスト構文</h2>
+	<p class="p">Authorization APIへの要求の構文は以下のとおりです。</p>
+	
+	  	<p class="p"><samp class="ph codeph">[GET] / sas / player_api / v2 / authorization / embed_code / {pcode} / {embed_codes}？{query_params}</samp></p>
+
+	<p class="p">例：</p>
+<p class="p"><samp class="ph codeph">http://player.ooyala.com/sas/player_api/v2/authorization/embed_code/Z5Mm06XeZlcDlfU_1R9v_L2KwYG6/44azdwNDpSWUvfd8F30d55tXY0YH9njH?codecPriority=avc&amp;device=html5&amp;domain=debug.ooyala.com&amp;supported_formats=m3u8,hds&amp;player_type=video</samp></p>
+
+</div>
+
+<div class="section"><h2 class="title sectiontitle">ルート属性</h2>
+			
+			<div class="p">次の表は、経路のすべての属性について説明しています。
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="reference_authzpv4__table_mwz_25c_jj" class="table" frame="border" border="1" rules="all">
+						
+						
+						<thead class="thead" align="left">
+							<tr class="row">
+								<th class="entry" valign="top" width="50%" id="d98510e90">属性</th>
+
+								<th class="entry" valign="top" width="50%" id="d98510e93">説明</th>
+
+							</tr>
+
+						</thead>
+
+						<tbody class="tbody">
+							<tr class="row">
+								<td class="entry" valign="top" width="50%" headers="d98510e90 ">{pcode}</td>
+
+								<td class="entry" valign="top" width="50%" headers="d98510e93 ">プロバイダコード</td>
+
+							</tr>
+
+							<tr class="row">
+								<td class="entry" valign="top" width="50%" headers="d98510e90 ">{embed_codes}</td>
+
+								<td class="entry" valign="top" width="50%" headers="d98510e93 ">&#39;、&#39;または &#39;|&#39;で区切られた単一の埋め込みコードまたは複数の埋め込みコード</td>
+
+							</tr>
+
+						</tbody>
+
+					</table>
+</div>
+</div>
+
+		</div>
+
+<div class="section"><h2 class="title sectiontitle">クエリ文字列パラメータ </h2>
+			<div class="p">次の表に、ルートのクエリ文字列パラメータを示します。 リクエストは、いくつかのオプションのクエリ文字列パラメータを持つことができます。 唯一の必須パラメータは
+					<samp class="ph codeph">ドメイン</samp>.
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="reference_authzpv4__table_xfj_glc_jj" class="table" frame="border" border="1" rules="all">
+						
+						
+						
+						
+						<thead class="thead" align="left">
+							<tr class="row">
+								<th class="entry" valign="top" width="25%" id="d98510e147">パラメーター</th>
+
+								<th class="entry" valign="top" width="25%" id="d98510e150">説明</th>
+
+								<th class="entry" valign="top" width="25%" id="d98510e153">必須？</th>
+
+								<th class="entry" valign="top" width="25%" id="d98510e156">値</th>
+
+							</tr>
+
+						</thead>
+
+						<tbody class="tbody">
+							<tr class="row">
+							  <td class="entry" valign="top" width="25%" headers="d98510e147 "><samp class="ph codeph">ドメイン</samp></td>
+
+								<td class="entry" valign="top" width="25%" headers="d98510e150 ">プレーヤーのドメインが埋め込みます。</td>
+
+								<td class="entry" valign="top" width="25%" headers="d98510e153 ">はい</td>
+
+								<td class="entry" valign="top" width="25%" headers="d98510e156 "> </td>
+
+							</tr>
+
+							<tr class="row">
+							  <td class="entry" valign="top" width="25%" headers="d98510e147 "><samp class="ph codeph">タイムスタンプ</samp></td>
+
+								<td class="entry" valign="top" width="25%" headers="d98510e150 ">リクエストが行われたタイムスタンプ（エポックタイム）。<p class="p">デフォルト：サーバが受信した時間要求</p>
+</td>
+
+								<td class="entry" valign="top" width="25%" headers="d98510e153 ">いいえ</td>
+
+								<td class="entry" valign="top" width="25%" headers="d98510e156 "> </td>
+
+							</tr>
+
+							<tr class="row">
+							  <td class="entry" valign="top" width="25%" headers="d98510e147 "><samp class="ph codeph">supported_formats</samp></td>
+
+								<td class="entry" valign="top" width="25%" headers="d98510e150 ">サポートされている形式を示すコンマ区切り値のリスト。 フォーマットのサポートはデバイスによって制限されるため、このパラメータの値は通常デバイスタイプと密接に関連しています。
+										<p class="p">有効な値：以下の表に示されています</p>
+</td>
+
+								<td class="entry" valign="top" width="25%" headers="d98510e153 ">いいえ</td>
+
+								<td class="entry" valign="top" width="25%" headers="d98510e156 "> </td>
+
+							</tr>
+
+							<tr class="row">
+							  <td class="entry" valign="top" width="25%" headers="d98510e147 "><samp class="ph codeph">JSONP</samp></td>
+
+								<td class="entry" valign="top" width="25%" headers="d98510e150 ">このパラメータの値はJSONPを返す際のラッパーとして使用されます。 <p class="p">デフォルト：JSON</p>
+</td>
+
+								<td class="entry" valign="top" width="25%" headers="d98510e153 ">いいえ</td>
+
+								<td class="entry" valign="top" width="25%" headers="d98510e156 "> </td>
+
+							</tr>
+
+							<tr class="row">
+							  <td class="entry" valign="top" width="25%" headers="d98510e147 "><samp class="ph codeph">embed_token</samp></td>
+
+								<td class="entry" valign="top" width="25%" headers="d98510e150 ">のセクション「Ooyala Player Token」で説明しました。 <em class="ph i">プレーヤー開発者ガイド</em>.  </td>
+
+								<td class="entry" valign="top" width="25%" headers="d98510e153 ">いいえ</td>
+
+								<td class="entry" valign="top" width="25%" headers="d98510e156 "> </td>
+
+							</tr>
+
+							<tr class="row">
+							  <td class="entry" valign="top" width="25%" headers="d98510e147 "><samp class="ph codeph">auth_token</samp></td>
+
+								<td class="entry" valign="top" width="25%" headers="d98510e150 ">認可トークン <a class="xref" href="../concepts/player_v3_concurrent_stream_limits.html" title="デフォルトでは、あなたのOoyala Backlotプロバイダアカウントは各視聴者アカウントを2同時ストリームに制限します。 この機能は、アカウントを持たない友人と自分の資格を共有することを視聴者に勧めません。 最大数のストリームが開いている間に視聴者、または自分のアカウント資格情報を持つ誰かが追加のストリームを開こうとすると、プレーヤーはメッセージを表示してストリームを開くことを拒否します。 この既定の制限は、プロバイダアカウント内のすべてのシンジケーショングループ（公開ルール）に適用されます。 この制限を変更すると、グループごとに制限を有効または無効にできます。 デフォルトグループに対してこの設定を有効または無効にすることもできます。 Ooyala Backlotプロバイダアカウントの制限を変更することができます。 資産レベルでこのタイプの制限を設定することもできます。 たとえば、プロバイダアカウントの上限を3にし、資産レベルの上限を1にすることができます。 この場合、3人の友人または家族が同じ資格情報を使用してログインし、同時に3つの異なる資産を監視できますが、特定の資産を同時に監視することはできなくなります。">ビューアごとの同時ストリーム数の制限</a></td>
+
+								<td class="entry" valign="top" width="25%" headers="d98510e153 ">いいえ</td>
+
+								<td class="entry" valign="top" width="25%" headers="d98510e156 "> </td>
+
+							</tr>
+
+							<tr class="row">
+								<td class="entry" valign="top" width="25%" headers="d98510e147 "><samp class="ph codeph">コーデック優先度</samp></td>
+
+								<td class="entry" valign="top" width="25%" headers="d98510e150 ">HEVCコーデックの値</td>
+
+								<td class="entry" valign="top" width="25%" headers="d98510e153 ">いいえ</td>
+
+								<td class="entry" valign="top" width="25%" headers="d98510e156 "><samp class="ph codeph">hvc</samp> （デフォルト）、 <samp class="ph codeph">ヘック</samp>,  <samp class="ph codeph">AVC</samp>,  <samp class="ph codeph">を</samp>.</td>
+
+							</tr>
+
+							<tr class="row">
+								<td class="entry" valign="top" width="25%" headers="d98510e147 "><samp class="ph codeph">player_type</samp></td>
+
+								<td class="entry" valign="top" width="25%" headers="d98510e150 ">コンテンツ再生用のプレーヤーの種類。 A <samp class="ph codeph">ビデオ</samp> プレーヤーはビデオとオーディオの両方のコンテンツを再生できます。
+										<samp class="ph codeph">audio_only</samp> プレーヤーは、その名のとおり、オーディオコンテンツの再生しかできません。</td>
+
+								<td class="entry" valign="top" width="25%" headers="d98510e153 ">いいえ</td>
+
+								<td class="entry" valign="top" width="25%" headers="d98510e156 "><samp class="ph codeph">ビデオ</samp> （デフォルト）、 <samp class="ph codeph">audio_only</samp>.</td>
+
+							</tr>
+
+							<tr class="row">
+								<td class="entry" valign="top" width="25%" headers="d98510e147 "><samp class="ph codeph">デバイス</samp></td>
+
+								<td class="entry" valign="top" width="25%" headers="d98510e150 ">認証が行われているデバイス。 このパラメータの値は、 <samp class="ph codeph">{supported_formats}</samp> 一部のフォーマットは特定のデバイスではサポートされていないため、このパラメータは</td>
+
+								<td class="entry" valign="top" width="25%" headers="d98510e153 ">いいえ（要求に使用された装置に従って自動的に割り当てられます）</td>
+
+								<td class="entry" valign="top" width="25%" headers="d98510e156 "><samp class="ph codeph">generic_flash</samp> （デフォルト）、 <samp class="ph codeph">iphone</samp>,  <samp class="ph codeph">アプリ</samp>,  <samp class="ph codeph">アプレット</samp> （または <samp class="ph codeph">apple_tv</samp>),  <samp class="ph codeph">イオス</samp>,  <samp class="ph codeph">Chromecastの</samp>,  <samp class="ph codeph">android_sdk</samp>,  <samp class="ph codeph">android_html</samp>,  <samp class="ph codeph">android_3plus_sdk</samp>,  <samp class="ph codeph">android_hls_sdk</samp>,  <samp class="ph codeph">html5</samp>,  <samp class="ph codeph">フック</samp>,  <samp class="ph codeph">DLNA</samp>,  <samp class="ph codeph">ジェネリック</samp>.</td>
+
+							</tr>
+
+						</tbody>
+
+					</table>
+</div>
+</div>
+
+			</div>
+
+		<div class="section"><h2 class="title sectiontitle">サポートされているフォーマットとデバイス</h2>
+			   <samp class="ph codeph">supported_formats</samp>
+			parameterは、コンマで区切られた以下の値のいずれかのリストです。 supported_formatsパラメータで指定された各フォーマットのストリームが返されます。 あれば
+				<samp class="ph codeph">supported_formats</samp> パラメータが空白の場合、利用可能なすべてのフォーマットのストリームが返されます。<div class="p">
+				
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="reference_authzpv4__table_ymx_smc_jj" class="table" frame="border" border="1" rules="all">
+						
+						
+						<thead class="thead" align="left">
+							<tr class="row">
+								<th class="entry" valign="top" width="50%" id="d98510e422">フォーマット</th>
+
+								<th class="entry" valign="top" width="50%" id="d98510e425">値</th>
+
+							</tr>
+
+						</thead>
+
+						<tbody class="tbody">
+							<tr class="row">
+								<td class="entry" valign="top" width="50%" headers="d98510e422 ">ダッシュ</td>
+
+								<td class="entry" valign="top" width="50%" headers="d98510e425 "><samp class="ph codeph">ダッシュ</samp></td>
+
+							</tr>
+
+							<tr class="row">
+								<td class="entry" valign="top" width="50%" headers="d98510e422 ">HDS</td>
+
+								<td class="entry" valign="top" width="50%" headers="d98510e425 "><samp class="ph codeph">HDS</samp></td>
+
+							</tr>
+
+							<tr class="row">
+								<td class="entry" valign="top" width="50%" headers="d98510e422 ">のRTMP</td>
+
+								<td class="entry" valign="top" width="50%" headers="d98510e425 "><samp class="ph codeph">rtmp</samp></td>
+
+							</tr>
+
+							<tr class="row">
+								<td class="entry" valign="top" width="50%" headers="d98510e422 ">HLS</td>
+
+								<td class="entry" valign="top" width="50%" headers="d98510e425 "><samp class="ph codeph">m3u8</samp></td>
+
+							</tr>
+
+							<tr class="row">
+								<td class="entry" valign="top" width="50%" headers="d98510e422 ">MP4</td>
+
+								<td class="entry" valign="top" width="50%" headers="d98510e425 "><samp class="ph codeph">mp4</samp></td>
+
+							</tr>
+
+							<tr class="row">
+								<td class="entry" valign="top" width="50%" headers="d98510e422 ">アカマイHD</td>
+
+								<td class="entry" valign="top" width="50%" headers="d98510e425 "><samp class="ph codeph">akamai_hd</samp></td>
+
+							</tr>
+
+							<tr class="row">
+								<td class="entry" valign="top" width="50%" headers="d98510e422 ">フェアプレイHLS</td>
+
+								<td class="entry" valign="top" width="50%" headers="d98510e425 "><samp class="ph codeph">FPS</samp></td>
+
+							</tr>
+
+							<tr class="row">
+								<td class="entry" valign="top" width="50%" headers="d98510e422 ">Widevine WVM（Widevine Classic、廃止予定）</td>
+
+								<td class="entry" valign="top" width="50%" headers="d98510e425 "><samp class="ph codeph">wv_wvm</samp></td>
+
+							</tr>
+
+							<tr class="row">
+								<td class="entry" valign="top" width="50%" headers="d98510e422 ">アドビアクセスHLS</td>
+
+								<td class="entry" valign="top" width="50%" headers="d98510e425 "><samp class="ph codeph">faxs_hls</samp></td>
+
+							</tr>
+
+							<tr class="row">
+								<td class="entry" valign="top" width="50%" headers="d98510e422 ">Microsoft Smooth Streaming</td>
+
+								<td class="entry" valign="top" width="50%" headers="d98510e425 "><samp class="ph codeph">スムーズ</samp></td>
+
+							</tr>
+
+							<tr class="row">
+								<td class="entry" valign="top" width="50%" headers="d98510e422 ">M4A</td>
+
+								<td class="entry" valign="top" width="50%" headers="d98510e425 "><samp class="ph codeph">オーディオ</samp></td>
+
+							</tr>
+
+							<tr class="row">
+								<td class="entry" valign="top" width="50%" headers="d98510e422 ">OGG</td>
+
+								<td class="entry" valign="top" width="50%" headers="d98510e425 "><samp class="ph codeph">オーディオ</samp></td>
+
+							</tr>
+
+						</tbody>
+
+					</table>
+</div>
+
+			</div>
+<p class="p">クエリパラメータ <samp class="ph codeph">player_type</samp> に設定されています
+					<samp class="ph codeph">audio_only</samp>以下の3つの値のみがサポートされています。</p>
+<div class="p">
+				
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="reference_authzpv4__table_ymx_smc_vv" class="table" frame="border" border="1" rules="all">
+						
+						
+						<thead class="thead" align="left">
+							<tr class="row">
+								<th class="entry" valign="top" width="50%" id="d98510e579">フォーマット</th>
+
+								<th class="entry" valign="top" width="50%" id="d98510e582">値</th>
+
+							</tr>
+
+						</thead>
+
+						<tbody class="tbody">
+							<tr class="row">
+								<td class="entry" valign="top" width="50%" headers="d98510e579 ">AAC</td>
+
+								<td class="entry" valign="top" width="50%" headers="d98510e582 "><samp class="ph codeph">audio_hls</samp></td>
+
+							</tr>
+
+							<tr class="row">
+								<td class="entry" valign="top" width="50%" headers="d98510e579 ">M4A</td>
+
+								<td class="entry" valign="top" width="50%" headers="d98510e582 "><samp class="ph codeph">audio_m4a</samp></td>
+
+							</tr>
+
+							<tr class="row">
+								<td class="entry" valign="top" width="50%" headers="d98510e579 ">OGG</td>
+
+								<td class="entry" valign="top" width="50%" headers="d98510e582 "><samp class="ph codeph">audio_ogg</samp></td>
+
+							</tr>
+
+						</tbody>
+
+					</table>
+</div>
+
+			</div>
+
+		</div>
+
+		<div class="section"><h2 class="title sectiontitle">Authorization APIからの応答</h2>
+<p class="p">呼び出し側が許可要求を行うと、許可APIはJSON配列を使用して呼び出し側に応答し、各埋め込みコードの許可状況を示します。 以下は、Authorization APIからのサンプル応答です。 </p>
+
+			
+			<pre class="pre codeblock">{&quot;authorization_data&quot;：{&quot;44azdwNDpSWUvfd8F30d55tXY0YH9njH&quot;：{&quot;authorized&quot;：true、 &quot;コード&quot;： &quot;0&quot;、 &quot;メッセージ&quot;： &quot;authorized&quot;、 &quot;request_timestamp&quot;： &quot;1549578650_NULLX&quot;、 &quot;再試行&quot;、 &quot;0_NULLXRY&quot; ：null、 &quot;require_mid_stream_check&quot;：false、 &quot;require_heartbeat&quot;：false、 &quot;restrict_devices&quot;：false、 &quot;is_cmaf&quot;：false、 &quot;streams&quot;：[{&quot;delivery_type&quot;： &quot;hds&quot;、 &quot;url&quot;：{&quot;format&quot;： &quot;符号化された&quot;、 &quot;データ&quot;： &quot;aHR2cDovL295NmLmMub80YWxhLmNvbS6NGF1ZHdORHBTV2V4ZmQ1RjMwZDU5dFhZMFlIOW80qSC6NGF1ZHdORHBTV2V4ZmQ1RjMwZDU5dFhZMFlIOW8qSF0xLmY0bQ ==&quot;}、{ &quot;delivery_type&quot;： &quot;HLS&quot;、 &quot;URL&quot;：{ &quot;フォーマット&quot;： &quot;符号化&quot;、 &quot;データ&quot;： &quot;aHR3cDovL5BsYXllci3vb29lhbGEuY2tL9hscy5wbGF0ZXIvYWxsLzQ05YXpkd0EcFNXVXZmZDhGMzBkNTV5WFkwWUg0bmpILm2zdTg / dGFyZ0V0Qml0cmF0ZT32.298190999999996yMDAw&quot;}}] }、 &quot;user_info&quot;：{&quot;ip_address&quot;： &quot;&quot;、 &quot;ドメイン&quot;： &quot;&quot;、 &quot;request_timestamp&quot;： &quot;&quot;、 &quot;デバイス&quot;： &quot;&quot;、 &quot;郵便番号&quot;： &quot;&quot;、 &quot;件数&quot; ry &quot;：&quot; &quot;、&quot;タイムゾーン &quot;：&quot; &quot;、&quot;大陸 &quot;：&quot; &quot;、&quot;州 &quot;：&quot; &quot;、&quot;市 &quot;：&quot; &quot;、&quot;緯度 &quot;：&quot; &quot;、&quot;経度 &quot;：&quot; &quot;}、&quot; debug_data &quot;：{&quot; server_latency &quot;：&quot; 9 &quot;、&quot; request_id &quot;：&quot; 8b2e9b0d8c89d42078c874702e95dc &quot;、&quot; user_info &quot;：&quot; false &quot;、プロバイダー名：false&quot; provider &quot;true&quot; provider &quot; &quot;fhLQIE2H8WUxwY90xEg0wB5pcQ4jvYMU1j7cLel2J / E =&quot;}</pre>
+
+
+		</div>
+
+
+		<div class="section"><h2 class="title sectiontitle">レスポンスの要素 </h2>
+			<p class="p">レスポンスで返された要素の中で：</p>
+<ul class="ul">
+				  <li class="li"><samp class="ph codeph">debug_data</samp> データのデバッグにのみ使用されます。 いつでも変更できます。</li>
+
+				  <li class="li"><samp class="ph codeph">署名</samp> 応答には、応答が3rdパーティーによって改ざんされていないことを確認するために使用されます。</li>
+
+				  <li class="li"><samp class="ph codeph">ストリーム</samp> これらのストリームにアクセスするためのbase64エンコードURLを含む、埋め込みコードが承認された場合は含まれます。 各ストリームは承認結果を返すことができます。 <a class="xref" href="../concepts/authorization_errors.html" title="このページには、Authorization APIによって返される可能性があるAuthorization Errorコードの参照表があります。">認証エラー</a>.</li>
+</ul>
+
+		</div>
+<div class="section"><p class="gt-block p">視聴者ごとの同時ストリーム制限については、で説明されているように、追加のプロパティが返されます。 <a class="xref" href="../concepts/player_v3_concurrent_stream_limits.html" title="デフォルトでは、あなたのOoyala Backlotプロバイダアカウントは各視聴者アカウントを2同時ストリームに制限します。 この機能は、アカウントを持たない友人と自分の資格を共有することを視聴者に勧めません。 最大数のストリームが開いている間に視聴者、または自分のアカウント資格情報を持つ誰かが追加のストリームを開こうとすると、プレーヤーはメッセージを表示してストリームを開くことを拒否します。 この既定の制限は、プロバイダアカウント内のすべてのシンジケーショングループ（公開ルール）に適用されます。 この制限を変更すると、グループごとに制限を有効または無効にできます。 デフォルトグループに対してこの設定を有効または無効にすることもできます。 Ooyala Backlotプロバイダアカウントの制限を変更することができます。 資産レベルでこのタイプの制限を設定することもできます。 たとえば、プロバイダアカウントの上限を3にし、資産レベルの上限を1にすることができます。 この場合、3人の友人または家族が同じ資格情報を使用してログインし、同時に3つの異なる資産を監視できますが、特定の資産を同時に監視することはできなくなります。">ビューアごとの同時ストリーム数の制限</a>.</p>
+</div>
+</div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/authorization_overview.html">承認</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_authz_api.html" title="承認APIは、ユーザーを承認するための一連のアプリケーションプログラミングインターフェイス（API）です。">認証APIリファレンス</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

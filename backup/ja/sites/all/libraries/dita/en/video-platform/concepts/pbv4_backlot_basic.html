@@ -1,0 +1,139 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Basic Embedding Information"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_embed.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_backlot_basic"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>基本的な埋め込み情報</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="pbv4_backlot_basic">
+
+
+    <h1 class="title topictitle1">基本的な埋め込み情報</h1>
+
+
+    <div class="body conbody">
+        <div class="section">This topic describes the information you will need to provide when you embed <span class="ph">プレイヤーV4</span> on a web page.
+                See for details.</div>
+
+        
+        <div class="section" id="pbv4_backlot_basic__pcode"><h2 class="title sectiontitle">Retrieve Your pcode</h2>
+            <span class="ph">プレイヤーV4</span> requires that
+            you provide your <span class="keyword parmname">pcode</span>, which you can retrieve from Backlot. <ol class="ol">
+                <li class="li">Log into your Backlot account.</li>
+
+                <li class="li">ストリーミングを停止する場合は上部の <strong class="ph b">アカウント</strong> をクリックします。</li>
+
+                <li class="li">ストリーミングを停止する場合は上部の <strong class="ph b">開発者</strong> サブタブ</li>
+
+                <li class="li">Look for your API key on the left side of the screen. </li>
+
+                <li class="li">Copy your <samp class="ph codeph">pcode</samp>, which is the alphanumeric string that precedes
+                    the period. For example, if the API key is xxxxxxxxxxxxxxxxxxxxxxxxxxxx.xxxxx,
+                    then use the first 28 characters (xxxxxxxxxxxxxxxxxxxxxxxxxxxx) for the
+                    pcode.</li>
+
+            </ol>
+</div>
+
+        <div class="section" id="pbv4_backlot_basic__playerBrandingId"><h2 class="title sectiontitle">Retrieve a Player Branding ID</h2>
+            <span class="ph">プレイヤーV4</span> requires that
+            you provide a <span class="keyword parmname">playerBrandingId</span>, which references a player defined
+            in your Backlot account. Backlot displays this as <span class="keyword parmname">プレーヤーID</span>. To
+            retrieve this from Backlot: <ol class="ol">
+                <li class="li">Log into your Backlot account.</li>
+
+                <li class="li">ストリーミングを停止する場合は上部の <strong class="ph b">管理</strong> をクリックします。</li>
+
+                <li class="li">ストリーミングを停止する場合は上部の <strong class="ph b">埋め込む</strong> サブタブ</li>
+
+                <li class="li">Select your player from the Custom Player dropdown.</li>
+
+                <li class="li">Copy its <span class="keyword parmname">プレーヤーID</span>, which you need to provide in the
+                        <span class="keyword parmname">playerBrandingId</span>.</li>
+
+            </ol>
+<p class="gt-block p">Alternatively, you can retrieve the Player ID with the Backlot API. See the
+                    <a class="xref" href="../api/players_core.html#players_core__player_id">Backlot API reference</a> 詳細については。</p>
+<p class="gt-block p">You can use players that have
+                already been defined for Player V4 (see <a class="xref" href="pbv4_migration.html">プレーヤV4への移行</a>), or you can create an entirely new player. </p>
+<p class="p">There are two
+                ways in which to create a player in Backlot:</p>
+<ul class="ul">
+                <li class="li">Backlot UI (<a class="xref" href="../tasks/player_create.html" title="Backlotには、好きなだけプレーヤーを作成して構成することができます。 プレーヤーを好きなだけビデオに関連付けることができます。 Player V3の場合、プレーヤーをオーディオアセット、チャンネル、またはチャンネルセットに関連付けることもできます。">Backlotでプレイヤーを作成する</a>)</li>
+
+                <li class="li">Backlot API（を参照） <a class="xref" href="../tasks/api_player_create.html" title="You can create as many players as you like and assign them to videos, channels, or channel sets.">Creating a Player Using the Backlot REST API</a>)</li>
+
+            </ul>
+</div>
+
+
+        <div class="section" id="pbv4_backlot_basic__html_asset_id"><h2 class="title sectiontitle">Retrieving the Asset ID</h2>
+            <span class="ph">プレイヤーV4</span> requires that
+            you provide an <span class="keyword parmname">asset ID</span> that uniquely identifies the video asset.
+                <span class="ph"> An asset ID is the same as a <span class="keyword parmname">コンテンツID</span> (in the Backlot UI) and an <span class="keyword parmname">埋め込みコード</span> （の中に <span class="ph">プレイヤーV4</span> JavaScript API).</span> To
+            retrieve this from Backlot: <ol class="ol">
+                <li class="li">Log into your Backlot account.</li>
+
+                <li class="li">ストリーミングを停止する場合は上部の <strong class="ph b">管理</strong> をクリックします。</li>
+
+                <li class="li">ストリーミングを停止する場合は上部の <strong class="ph b">埋め込む</strong> サブタブ</li>
+
+                <li class="li">Select your content from the list of video assets.</li>
+
+                <li class="li">Copy its <span class="keyword parmname">コンテンツID</span>, which you need to provide in the
+                        <span class="keyword parmname">assetId</span>.</li>
+
+            </ol>
+</div>
+
+        <div class="section"><h2 class="title sectiontitle">Retrieving a Default Embed Code</h2>
+             You can retrieve a default Player V4
+            embed code from Backlot and paste it into your web page. <ol class="ol">
+                <li class="li">Log into your Backlot account.</li>
+
+                <li class="li">ストリーミングを停止する場合は上部の <strong class="ph b">管理</strong> をクリックします。</li>
+
+                <li class="li">ストリーミングを停止する場合は上部の <strong class="ph b">埋め込む</strong> サブタブ</li>
+
+                <li class="li">下 <span class="ph uicontrol">カスタムプレイヤー</span>, select a Player V4 player.</li>
+
+                <li class="li">の中に <strong class="ph b">埋め込みコードを生成する </strong> section, configure any settings you want to
+                  change. For details, see <a class="xref" href="../tasks/publishing_manual_embed.html">バックスロットでのプレーヤー埋め込み設定</a>.</li>
+
+                <li class="li">Copy the embed code and paste it into your web page.</li>
+
+            </ol>
+<div class="note note"><span class="notetitle">注意：</span> The default player does not include all available plugins. You might need to
+                add some manually after pasting the default code, including any analytics plugins
+                (except Ooyala IQ), playlists, and some add plugins (SSAI, VAST/VPAID). See <a class="xref" href="pbv4_plugins.html">プレイヤーV4プラグイン</a> 完全なリストについては、</div>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/pbv4_embed.html">WebページへのプレーヤーV4の埋め込み</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

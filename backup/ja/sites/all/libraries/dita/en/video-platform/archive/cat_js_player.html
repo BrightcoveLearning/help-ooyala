@@ -1,0 +1,493 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Player JavaScript APIs (Player V2 Deprecated)"/>
+<meta name="abstract" content="Player/Player UI JavaScript APIs can be used to handle aspects of the player such as fullscreen mode, player state, volume, playhead, player volume and more."/>
+<meta name="description" content="プレーヤー/プレーヤーUI JavaScript APIは、フルスクリーンモード、プレーヤーの状態、音量、再生ヘッド、プレーヤーの音量など、プレーヤーのさまざまな側面を処理するために使用できます。"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/player_api_js_intro.html"/>
+<meta name="DC.Relation" scheme="URI" content="cat_as_assets.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="cat_js_player"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>プレーヤJavaScript API（プレーヤV2は廃止予定）</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="cat_js_player">
+
+
+ <h1 class="title topictitle1">プレーヤJavaScript API（プレーヤV2は廃止予定）</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">Player/Player UI JavaScript APIs can be used to handle aspects of the player such as
+  fullscreen mode, player state, volume, playhead, player volume and more.</p>
+
+  <div class="section"><h2 class="title sectiontitle">Player and Player UI Properties</h2>
+   <div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V2は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V2はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V2を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="../concepts/pbv4_about.html">プレイヤーV4</a>.</div>
+
+   
+   <p class="p">The following table describes all the JavaScript properties that are associated with a
+    player.</p>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" id="d147354e40">関数</th>
+
+       <th class="entry" valign="top" id="d147354e43">説明</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+       
+      
+      
+      
+      
+      
+      
+      
+      
+     <tr class="row">
+       <td class="entry" valign="top" headers="d147354e40 d147354e43 ">
+        <span class="keyword apiname">getState</span>
+       </td>
+
+       <td class="entry" valign="top" headers="d147354e40 d147354e43 "><p class="p">現在のプレイヤーの状態を取得します </p>
+
+              <p class="p">フォーマット：読み取り専用 </p>
+
+              <p class="p">タイプ：文字列 </p>
+
+              <p class="p">Valid Values: One of playing, paused, buffering, channel, or error. </p>
+
+       </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d147354e40 d147354e43 "><span class="keyword apiname">getActivePanel</span></td>
+
+       <td class="entry" valign="top" headers="d147354e40 d147354e43 "><p class="p">Returns info, channels, embed or syndication if the respective panel is shown or an empty string, if not shown. </p>
+
+<p class="p">フォーマット：読み取り専用 </p>
+
+<p class="p">タイプ：文字列</p>
+
+       </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d147354e40 d147354e43 "><span class="keyword apiname">getDescription </span>
+       </td>
+
+       <td class="entry" valign="top" headers="d147354e40 d147354e43 "><p class="gt-block p">Get the description of the player source. Typically this is the description entered for a video or audio asset in Backlot. This API
+allows you to retrieve the entered description that was set in the Backlot <strong class="ph b">管理&gt;詳細</strong> tab or equivalent manual setting.
+Format: read-only </p>
+
+<p class="p">タイプ：文字列  </p>
+  
+<p class="p">戻り値：資産の英数字による説明 </p>
+
+<p class="p">例：「シーズン22オープニングゲーム」       </p>
+
+       </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d147354e40 d147354e43 "><span class="keyword apiname">getFullscreen </span>
+       </td>
+
+       <td class="entry" valign="top" headers="d147354e40 d147354e43 "><p class="p">Returns true if in fullscreen mode, false if not.</p>
+
+<p class="p">フォーマット：読み取り専用 </p>
+
+<p class="p">タイプ：ブール </p>
+
+<p class="p">有効な値は以下のとおりです。 偽      </p>
+
+       </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d147354e40 d147354e43 "><span class="keyword apiname">getPlayheadTime/setPlayheadTime </span>
+       </td>
+
+       <td class="entry" valign="top" headers="d147354e40 d147354e43 "><p class="p">Find where the playhead is, or move it to a new location in seconds with millisecond accuracy. </p>
+
+<p class="p">タイプ：番号 </p>
+
+<p class="p">Valid Values: duration in seconds</p>
+
+   </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d147354e40 d147354e43 "><span class="keyword apiname">getVolume</span>
+       </td>
+
+       <td class="entry" valign="top" headers="d147354e40 d147354e43 ">
+        <p class="p">Get the current volume. </p>
+
+<p class="p">タイプ：番号 </p>
+
+<p class="p">Valid Values: a number between 0 and 1 inclusive </p>
+
+      </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d147354e40 d147354e43 "><span class="keyword apiname">setModuleParams</span></td>
+
+       <td class="entry" valign="top" headers="d147354e40 d147354e43 "><p class="gt-block p">When the player loads modules, pass data to the module(s) using a callback function. Use this function with the  <a class="xref" href="cat_qstr_player.html" title="すべてのプレイヤークエリ文字列パラメータをリストして説明します"><samp class="ph codeph">hasModuleParams</samp></a> 
+query string parameter.  What the <samp class="ph codeph">hasModuleParams</samp>=1 parameter does is signal to the player that it should wait for custom data to be sent via the <samp class="ph codeph">setModuleParams</samp> 機能。 </p>
+
+        
+        <p class="p">タイプ：オブジェクト </p>
+
+        <p class="p">Valid Values: a key value pair</p>
+
+        <p class="gt-block p">Usage: The <samp class="ph codeph">setModuleParams</samp> function is used with the <a class="xref" href="cat_qstr_player.html" title="すべてのプレイヤークエリ文字列パラメータをリストして説明します"><samp class="ph codeph">hasModuleParams</samp></a> as a more efficient method of 
+passing parameters to the player.js than by using thruParams. We recommend using <samp class="ph codeph">setModuleParams</samp> 　 <samp class="ph codeph">hasModuleParams</samp> over the
+         use of <samp class="ph codeph">thruParams</samp>。 ザ  <samp class="ph codeph">setModuleParams</samp> takes an object of key-value pairs. </p>
+
+<p class="gt-block p">Example: If you want to add parameters to your script embed, you would use the <a class="xref" href="cat_qstr_player.html" title="すべてのプレイヤークエリ文字列パラメータをリストして説明します"><samp class="ph codeph">hasModuleParams</samp></a> and a callback in the embed string, 
+as shown in the following example: </p>
+<pre class="pre codeblock">&lt;script src="http://player.ooyala.com/player.js? ... hasModuleParams=1&amp;callback=playerAPICallback"&gt;&lt;/script&gt;</pre>
+
+<p class="p">In the following example, you set <samp class="ph codeph">hasModuleParams</samp> to 1, while the callback can be any function. You also need to add the callback function in JavaScript elsewhere on your page. 
+In the callback, you wait for the <samp class="ph codeph">playerEmbedded</samp> event and call <samp class="ph codeph">setModuleParams</samp>. The following example provides a callback function for a <samp class="ph codeph">hasModuleParams</samp>:</p>
+
+        <pre class="pre codeblock">// callback function
+function playerAPICallback(playerId, eventName, parameters) {
+  // the callback gets called when events are fired (here, wait for the playerEmbedded event)
+  if (eventName == "playerEmbedded") {
+    document.getElementById(playerId).setModuleParams({
+      // include any module parameters as an object of key-value pairs, example below
+      "doubleclick" : {
+        "tagUrl" : "http://ad.doubleclick.net/pfadx/N270.132652.1516607168321/B3442378.3;dcadv=1379578;sz=0x0;ord=79879;dcmt=text/xml"
+      }
+    });
+  }
+}</pre>
+
+       </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d147354e40 d147354e43 "><span class="keyword apiname">setQueryStringParameters</span>
+       </td>
+
+       <td class="entry" valign="top" headers="d147354e40 d147354e43 ">Set the query string parameters for the current player. See the topic <a class="xref" href="cat_qstr_player.html" title="すべてのプレイヤークエリ文字列パラメータをリストして説明します">"Query String
+        and Pass-Through Parameters"</a>この文書では、</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" headers="d147354e40 d147354e43 "><span class="keyword apiname">setVolume</span>
+       </td>
+
+       <td class="entry" valign="top" headers="d147354e40 d147354e43 ">Set the current volume. Type: Number Valid Values: a number between 0 and 1
+        inclusive</td>
+
+      </tr>
+</tbody>
+
+    </table>
+</div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">プレイヤー/プレイヤーUIイベント処理</h2>
+   
+   <p class="p">The following table describes all the JavaScript events that are associated with a player.</p>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="16.611295681063122%" id="d147354e324">イベント</th>
+
+       <th class="entry" valign="top" width="36.37873754152824%" id="d147354e327">コールバックの3番目の引数のパラメータ</th>
+
+       <th class="entry" valign="top" width="47.00996677740864%" id="d147354e330">説明</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+     <tr class="row">
+       <td class="entry" valign="top" width="16.611295681063122%" headers="d147354e324 ">
+        <span class="keyword apiname">activePanelChanged</span>
+       </td>
+
+       <td class="entry" valign="top" width="36.37873754152824%" headers="d147354e327 "><p class="p">activePanel </p>
+
+<p class="p">タイプ：オブジェクト </p>
+
+       </td>
+
+       <td class="entry" valign="top" width="47.00996677740864%" headers="d147354e330 ">情報、埋め込み、共有、またはチャンネルパネルが表示または非表示になりました。</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="16.611295681063122%" headers="d147354e324 ">
+        <span class="keyword apiname">playheadTimeChanged（）</span>
+       </td>
+
+       <td class="entry" valign="top" width="36.37873754152824%" headers="d147354e327 "><p class="p">playheadTime </p>
+
+<p class="p">タイプ：ハッシュ  </p>
+     
+</td>
+
+       <td class="entry" valign="top" width="47.00996677740864%" headers="d147354e330 ">The playhead has been moved.
+      </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="16.611295681063122%" headers="d147354e324 "><span class="keyword apiname">apiReady( )</span>
+       </td>
+
+       <td class="entry" valign="top" width="36.37873754152824%" headers="d147354e327 ">タイプ：オブジェクト</td>
+
+       <td class="entry" valign="top" width="47.00996677740864%" headers="d147354e330 ">プレーヤーは次のようなAPIリクエストを受け取る準備ができています。 <span class="keyword apiname">映画を再生（）</span>,
+         
+         <span class="keyword apiname">getItem（）</span>, etc. Wait for this event to be dispatched before making any
+        API requests. This event is fired each time the player's embedCode is changed. The embed code
+        can be changed using <span class="keyword apiname">setEmbedCode（）</span>  or
+         
+         <span class="keyword apiname">setQueryStringParameters（）</span>.
+        
+        <p class="gt-block p"><strong class="ph b">注</strong>: Version 2 and onward.</p>
+</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="16.611295681063122%" headers="d147354e324 "><span class="keyword apiname">fullscreenChanged( )</span>
+       </td>
+
+       <td class="entry" valign="top" width="36.37873754152824%" headers="d147354e327 ">
+        <p class="p">Cancelable </p>
+
+        <p class="p">タイプ：文字列 </p>
+
+        <p class="p">Parameters: (format, source, type) </p>
+
+        <p class="p">Example: (video, doubleClick, adStarted)</p>
+
+       </td>
+
+       <td class="entry" valign="top" width="47.00996677740864%" headers="d147354e330 ">全画面表示状態が切り替えられました。 </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="16.611295681063122%" headers="d147354e324 "><span class="keyword apiname">loadComplete( )</span></td>
+
+       <td class="entry" valign="top" width="36.37873754152824%" headers="d147354e327 ">タイプ：オブジェクト</td>
+
+       <td class="entry" valign="top" width="47.00996677740864%" headers="d147354e330 ">Player has been initialized. This is deprecated; use the <span class="keyword apiname">apiReady</span>
+        代わりにイベント。</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="16.611295681063122%" headers="d147354e324 "><span class="keyword apiname">metadataReady( )</span>
+       </td>
+
+       <td class="entry" valign="top" width="36.37873754152824%" headers="d147354e327 "><p class="p">メタデータ </p>
+
+<p class="p">タイプ：文字列 </p>
+
+<p class="p">Valid Values: Each name/value pair has two properties: name and value </p>
+
+<p class="p">例： <samp class="ph codeph">{ name: "actor", value: "Johnny Depp"}</samp> </p>
+</td>
+
+       <td class="entry" valign="top" width="47.00996677740864%" headers="d147354e330 "><p class="gt-block p">によって要求されたメタデータ <span class="keyword apiname">fetchMetadata（）</span> call is now ready. 
+        The metadata property is an array of name/value pairs.</p>
+
+       </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="16.611295681063122%" headers="d147354e324 "><span class="keyword apiname">playComplete( )</span>
+       </td>
+
+       <td class="entry" valign="top" width="36.37873754152824%" headers="d147354e327 ">Type: Void</td>
+
+       <td class="entry" valign="top" width="47.00996677740864%" headers="d147354e330 "><p class="p">The video or channel has completed.</p>
+</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="16.611295681063122%" headers="d147354e324 "><span class="keyword apiname">playerEmbedded</span></td>
+<td class="entry" valign="top" width="36.37873754152824%" headers="d147354e327 ">タイプ：オブジェクト </td>
+
+       <td class="entry" valign="top" width="47.00996677740864%" headers="d147354e330 ">A player.js embedded on a web page fires this event and triggers a callback. For
+        example,<pre class="pre codeblock">{
+  // the callback gets called when events are fired (here, wait for the playerEmbedded event)
+  if (eventName == "playerEmbedded") {
+  ... </pre>
+This
+        event is used with the <a class="xref" href="cat_qstr_player.html" title="すべてのプレイヤークエリ文字列パラメータをリストして説明します"><span class="keyword apiname">hasModuleParams</span></a> query string parameter, the
+         <a class="xref" href="cat_qstr_player.html" title="すべてのプレイヤークエリ文字列パラメータをリストして説明します"><span class="keyword apiname">setModuleParams</span></a> 機能と <a class="xref" href="cat_qstr_player.html" title="すべてのプレイヤークエリ文字列パラメータをリストして説明します"><span class="keyword apiname">折り返し電話</span></a> クエリ文字列パラメータ。</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="16.611295681063122%" headers="d147354e324 "><span class="keyword apiname">ratingsApiReady( )</span>
+       </td>
+
+       <td class="entry" valign="top" width="36.37873754152824%" headers="d147354e327 "> </td>
+
+       <td class="entry" valign="top" width="47.00996677740864%" headers="d147354e330 ">The ratings API has loaded and is now ready for use. This event is dispatched after
+         <span class="keyword apiname">loadRatingsApi（）</span> が呼び出されます。</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="16.611295681063122%" headers="d147354e324 "><span class="keyword apiname">relatedMediaReady( )</span>
+       </td>
+
+       <td class="entry" valign="top" width="36.37873754152824%" headers="d147354e327 ">relatedMedia. The <span class="keyword apiname">relatedMedia</span> property is an array of media
+        items.<p class="p">Each item has a title, description, time, promo, and embedCode.</p>
+</td>
+
+       <td class="entry" valign="top" width="47.00996677740864%" headers="d147354e330 ">
+        <p class="gt-block p">The related media requested by the <span class="keyword apiname">fetchRelatedMedia（）</span> call is now
+         ready. </p>
+
+       </td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="16.611295681063122%" headers="d147354e324 "><span class="keyword apiname">seeked( )</span>
+       </td>
+
+       <td class="entry" valign="top" width="36.37873754152824%" headers="d147354e327 "><p class="p">newPlayheadTime, oldPlayheadTime </p>
+
+       <p class="p">タイプ：ハッシュ </p>
+
+</td>
+
+       <td class="entry" valign="top" width="47.00996677740864%" headers="d147354e330 ">A seek event happened in the player. This event can be triggered in two ways: 
+        <ul class="ul" id="cat_js_player__ul_seek_list">
+         <li class="li">a user moves the scrubber bar </li>
+
+         <li class="li">The API request <span class="keyword apiname">setPlayheadTime</span> 作られます </li>
+
+        </ul>
+<p class="gt-block p"><strong class="ph b">注</strong>: The event is registered when the user releases the scrubber bar.</p>
+</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="16.611295681063122%" headers="d147354e324 "><span class="keyword apiname">stateChanged( )</span>
+       </td>
+
+       <td class="entry" valign="top" width="36.37873754152824%" headers="d147354e327 ">
+        <p class="p">state, errorCode, errorText </p>
+
+        <p class="p">タイプ：オブジェクト </p>
+
+        <p class="p">Valid Values: playing | paused | buffering | error </p>
+
+       </td>
+
+       <td class="entry" valign="top" width="47.00996677740864%" headers="d147354e330 ">The state has changed between playing, paused, buffering, or error.</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="16.611295681063122%" headers="d147354e324 "><span class="keyword apiname">totalTimeChanged( )</span>
+       </td>
+
+       <td class="entry" valign="top" width="36.37873754152824%" headers="d147354e327 ">
+        <p class="p">totalTime </p>
+
+        <p class="p">タイプ：ハッシュ  </p>
+
+       </td>
+
+       <td class="entry" valign="top" width="47.00996677740864%" headers="d147354e330 ">Total time of the item has changed.</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="16.611295681063122%" headers="d147354e324 "><span class="keyword apiname">volumeChanged（）</span>
+       </td>
+
+       <td class="entry" valign="top" width="36.37873754152824%" headers="d147354e327 ">
+        <p class="p">ボリューム  </p>
+
+        <p class="p">タイプ：ハッシュ    </p>
+
+       </td>
+
+       <td class="entry" valign="top" width="47.00996677740864%" headers="d147354e330 ">The volume has changed. </td>
+
+      </tr>
+</tbody>
+
+    </table>
+</div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">関連情報 </h2>
+   
+   <p class="p">以下のリストは、プレイヤーについての一般的な情報を提供するBacklotドキュメントへのリンクを提供します。</p>
+
+   <ul class="ul">
+    <li class="li"><a class="xref" href="../api/players_core.html" title="プレーヤーを作成してアカウント内の1つ以上のアセットに割り当てると、再生オプションとコンテンツの外観が決まります。">Backlot REST APIを使用したプレーヤーの管理</a></li>
+
+    <li class="li"><a class="xref" href="../api/players.html">プレイヤー（Backlot REST API）</a></li>
+
+    <li class="li"><a class="xref" href="../concepts/chapter_players.html" title="Backlot UIを使用してOoyalaプレーヤーを作成および構成する方法を説明します。">Backlotでプレイヤーを管理する</a></li>
+
+   </ul>
+
+  </div>
+
+ </div>
+
+ <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../archive/player_api_js_intro.html" title="Ooyala Player JavaScript APIを使用すると、この人気の高いスクリプト言語を使用してOoyala Playerとビデオエクスペリエンスをカスタマイズできます。">プレーヤJavaScript API（プレーヤV2は廃止予定）</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong><br/>
+<div><a class="link" href="cat_as_assets.html" title="アセットActionScript APIを使用して、評価、ビデオ（再生/一時停止、説明）、およびチャンネルを処理できます。">ActionScript APIのアセット（Player V2は非推奨）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

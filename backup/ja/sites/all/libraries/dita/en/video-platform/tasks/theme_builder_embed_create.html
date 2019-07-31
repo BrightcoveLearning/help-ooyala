@@ -1,0 +1,147 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Working with Embeds in Theme Builder"/>
+<meta name="abstract" content="A Theme Builder embed is one or more playlists embedded within a player."/>
+<meta name="description" content="テーマビルダーの埋め込みは、プレーヤー内に埋め込まれた1つ以上のプレイリストです。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_theme_builder.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_theme_builder.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_create"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>テーマビルダーで埋め込みを操作する</title>
+</head>
+<body id="player_create">
+
+
+ <h1 class="title topictitle1">テーマビルダーで埋め込みを操作する</h1>
+
+ 
+ <div class="body taskbody"><p class="shortdesc">テーマビルダーの埋め込みは、プレーヤー内に埋め込まれた1つ以上のプレイリストです。</p>
+
+  <div class="section context">
+   <p class="p">埋め込みには、選択した特定のプレーヤーとプレイリストが含まれています。 プレーヤーの幅が流動的か固定的かを設定することもできます。 埋め込みが作成されると、テーマビルダーをWebページに埋め込むためのJavaScriptの行が表示されます。</p>
+
+   <p class="p">埋め込みを作成するには：</p>
+
+  </div>
+
+  <ol class="ol steps"><li class="li step stepexpand">
+    <span class="ph cmd">テーマビルダーにログインします。</span>
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">ストリーミングを停止する場合は上部の <span class="ph uicontrol">埋め込む</span> をクリックします。</span>
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">埋め込みの背景色を設定するには、左上にある四角形をクリックしてカラーパレットを表示します。 パレットから希望の色を選択して、をクリックします。 <span class="ph uicontrol">適用します</span>.</span>
+     
+     <img class="image" src="http://help-ooyala.brightcove.com/../image/themebuilder_embed_backgroundcolor.png"/>
+    
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">からプレーヤーを選択してください <span class="ph uicontrol">プレーヤー</span> リストボックス。</span>
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">ビデオを選択してください。 プレーヤーのビデオを最初のプレイリストの最初のビデオに設定するには、 <span class="ph uicontrol">最初のプレイリストの最初のビデオ</span>。 プレイリストが動的に更新されると、キャッシュの有効期限が切れると、最初のプレイリストの最初のビデオが更新されます。 別のビデオを選択するには、をクリックします <span class="ph uicontrol">選択します</span>検索ボックスを使用して、目的のビデオを見つけます。</span>
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">プレイリストを追加するには、をクリックしてください。 <span class="ph uicontrol">選択します</span> 近くに
+      <span class="ph uicontrol">プレイリスト</span> 目的のプレイリストの見出しをクリックしてチェックボックスをクリックします。</span>
+      複数のプレイリストを追加すると、ポッドはビデオサムネールの上のタブにさまざまなプレイリストを表示します。 プレイリストを1つだけ追加した場合、ビデオのサムネイルの上にタブは表示されません。  
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">とともに <span class="ph uicontrol">設定</span> 左側のコントロール
+      <strong class="ph b">自動再生</strong> そして <strong class="ph b">自動繰り返し</strong>:  </span>
+     <div class="p">両方 <em class="ph i">自動再生</em> そして <em class="ph i">自動繰り返し</em> 個々の動画と再生リスト全体の両方に関係しますが、動作はそれらによって異なります。 プレイリストを作成したときの設定の動作は次のとおりです。 <ul class="ul" id="player_create__ul_nzp_5zc_lm">
+              <li class="li"><strong class="ph b">自動再生制御 </strong><ul class="ul" id="player_create__ul_pfw_wzc_lm">
+                  <li class="li">ON：システムは自動的にプレイリスト内の各ビデオの再生を開始します。</li>
+
+                  <li class="li">OFF：ビデオごとに再生ボタンが表示され、ユーザーがクリックするのを待ちます。</li>
+
+                </ul>
+</li>
+
+              <li class="li"><strong class="ph b">個々の動画の自動繰り返し制御</strong>
+                <ul class="ul">
+                  <li class="li">ON：個々のビデオが完成した後、個々のビデオが自動的に再生されます。
+                    </li>
+
+                  <li class="li">OFF：個々のビデオが完成した後、
+                      <span class="ph uicontrol">リプレイ</span> 下のオプション <span class="ph uicontrol">終了画面</span>
+                    テーマビルダーで選択されている <span class="ph uicontrol">プレーヤー</span> タブ（
+                      <a class="xref" href="theme_builder_player_create.html#theme_builder_player_edit" title="プレーヤーはいつでも作成できます。 プレーヤー内では、ポッドでプレイリストを表示できるようにすることができます。">テーマビルダーでプレーヤーとポッドを操作する</a>）を押すと、再生ボタンと終了画面が表示されます。</li>
+
+                </ul>
+
+              </li>
+
+              <li class="li"><strong class="ph b">プレイリスト全体の自動繰り返し制御 </strong><ul class="ul">
+                  <li class="li">ON：プレイリストの最後のビデオが完了すると、システムは自動的にプレイリストを最初から再生します。</li>
+
+                <li class="li">OFF：プレイリストの最後のビデオが終了したとき、
+                      <span class="ph uicontrol">リプレイ</span> 下のオプション <span class="ph uicontrol">終了画面</span>
+                    テーマビルダーで選択されている <span class="ph uicontrol">プレーヤー</span> タブ（
+                      <a class="xref" href="theme_builder_player_create.html#theme_builder_player_edit" title="プレーヤーはいつでも作成できます。 プレーヤー内では、ポッドでプレイリストを表示できるようにすることができます。">テーマビルダーでプレーヤーとポッドを操作する</a>）を押すと、再生ボタンと終了画面が表示されます。 再生をクリックすると、プレイリストが最初から再開されます。</li>
+
+                </ul>
+</li>
+
+            </ul>
+</div>
+
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">とともに <span class="ph uicontrol">設定</span> 左側のコントロール
+      <strong class="ph b">流体</strong>  or  <strong class="ph b">固定の</strong>:  </span>
+     
+      <p class="p">プレーヤの幅は、ターゲットHTMLページのコンテナの幅によって制限されることに注意してください。</p>
+
+    <p class="gt-block p"><strong class="ph b">流体</strong>：長期 <em class="ph i">流体</em> プレーヤとプレイリストはコンテナの幅に合わせて調整されます。<samp class="ph codeph">&lt;DIV&gt;</samp> 埋め込んだHTMLページの</p>
+
+      <p class="gt-block p"><strong class="ph b">固定の</strong>：長期 <em class="ph i">固定の</em> 特定の設定幅を意味します。 選択した場合 <span class="ph uicontrol">固定の</span>幅をピクセル単位で指定し、プレーヤーの縦横比を維持するかどうかを指定します。</p>
+
+    <div class="note note"><span class="notetitle">注意：</span> テーマビルダーの設定で <span class="ph uicontrol">流体</span>つまり、プレーヤーの幅は、プレーヤー自体に静的な幅が組み込まれているのではなく、コンテナの幅に合わせて調整されます（これが設定です）。 <span class="ph uicontrol">固定の</span>） したがって、流動的な場合は、親に特定の幅と高さを設定する必要があります。
+              <samp class="ph codeph">&lt;DIV&gt;</samp> 次の例のように、テーマビルダーのコンテナは埋め込みます。 そうでなければ、流動的なプレーヤーは適応する幅を持っていません。<pre class="pre codeblock">
+&lt;div id = &quot;playerContainer&quot; style = &quot;高さ：240px;幅：320px;&quot;&gt;       
+      </pre>
+
+          </div>
+
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">終了したら、左上隅のをクリックします <span class="ph uicontrol">埋め込みコードを生成する</span>.</span>  埋め込みの例です。プログラムの構成要素については、 <a class="xref" href="../concepts/tb_dg_embeds.html#dg_embeds" title="テーマビルダーの埋め込みは、プレーヤー内に埋め込まれた1つ以上のプレイリストです。 あなたは自分で埋め込みを作成する必要があります。">テーマビルダーの埋め込み</a>
+          <pre class="pre codeblock">&lt;DIV ID = &quot;playerContainer&quot;&gt; &lt;/ div&gt; &lt;スクリプトタイプ= &quot;テキスト/ javascriptの&quot; SRC = &quot;http://player.ooyala.com/v3/1b80572b5bd64648b17db6c515f551ab?version=717c866e439820e7364025e4127ad37b2f0759f7&quot;&gt; &lt;/ SCRIPT&gt; &lt;スクリプトタイプ= &quot;text / javascript&quot;&gt; var ooyalaPlayer; OO.ready（function（）{var playerConfiguration = {playlistsPlugin：{&quot;データ&quot;：[&quot;123456&quot;]}、自動再生：false、ループ：false、高さ： &#39;&#39;、幅： &#39;&#39;、useFirstVideoFromPlaylist：true}; ooyalaPlayer = OO.Player.create（ &#39;playerContainer&#39;、 &#39;&#39;、playerConfiguration）;}）; &lt;/script&gt;
+      </pre>
+
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">生成された埋め込みコードをコピーしてWebページに埋め込みます。</span>
+   </li>
+</ol>
+
+  <div class="section postreq">
+   <div class="note note"><span class="notetitle">注意：</span> 生成されたJavaScriptコードは、その中に埋め込む必要があるフラグメントです。
+     <samp class="ph codeph">&lt;BODY&gt;</samp> 完全に形成されたHTMLページのタグ。 コードを完全に正確にそのままコピーするようにしてください。</div>
+
+    <div class="note note"><span class="notetitle">注意：</span> DiscoveryとPlaylists（ThemeBuilderを使用して作成された）はそれぞれ画面の動作を終了させるので、それらを同時に使用することはできません。 Webページにプレーヤーを埋め込むときは、次のものを使用できます。 <em class="ph i">どちら</em> ディスカバリーまたはプレイリスト。ただし両方ではありません。</div>
+
+  </div>
+
+ </div>
+
+ 
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_theme_builder.html" title="テーマビルダーを使用すると、Ooyala Player V4またはPlayer V3のアセットベースまたはラベルベースのプレイリストを作成し、複雑なテンプレートを使用してカスタム再生エクスペリエンスを作成し、作成したプレイリストを含む埋め込みを作成できます。">プレイリストとテーマビルダーのユーザーインターフェイス</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div

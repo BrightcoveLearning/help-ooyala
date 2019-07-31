@@ -1,0 +1,112 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="iOS FCC Rating Configuration Parameters"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_ios_fccratings.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="mobile_sdk_android_fccratings_params.xml"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>iOS FCC評価設定パラメータ</title>
+</head>
+<body id="mobile_sdk_android_fccratings_params.xml">
+
+
+    <h1 class="title topictitle1">iOS FCC評価設定パラメータ</h1>
+
+    <div class="body conbody">
+        <p class="p">The iOS rating configuration is set with the
+                <samp class="ph codeph">FCCTVRatingConfguration.Builder</samp> object and contains the following
+            parameters:</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                
+                
+                <thead class="thead" align="left">
+                    <tr class="row">
+                        <th class="entry" valign="top" width="30.3951367781155%" id="d369689e29">パラメーター</th>
+
+                        <th class="entry" valign="top" width="69.6048632218845%" id="d369689e32">説明</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody class="tbody">
+                    <tr class="row">
+                        <td class="entry" valign="top" width="30.3951367781155%" headers="d369689e29 "><samp class="ph codeph">durationSeconds </samp></td>
+
+                        <td class="entry" valign="top" width="69.6048632218845%" headers="d369689e32 "><p class="p">評価が資産の透かしとして表示される時間（秒単位）。 </p>
+
+                            <p class="p">This parameter takes any positive float value and does not assert a
+                                default value.</p>
+</td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top" width="30.3951367781155%" headers="d369689e29 "><samp class="ph codeph">位置</samp></td>
+
+                        <td class="entry" valign="top" width="69.6048632218845%" headers="d369689e32 ">
+                            <p class="p">The position of the of the rating watermark on the video asset. This
+                                parameter can have one of the following four values: </p>
+<ul class="ul">
+                                <li class="li"><samp class="ph codeph">OOFCCTvRatingsPositionTopLeft</samp> （デフォルト）</li>
+
+                                <li class="li"><samp class="ph codeph">OOFCCTvRatingsPositionTopRight</samp></li>
+
+                                <li class="li">
+                                    <samp class="ph codeph">OOFCCTvRatingsPositionBottomLeft</samp>
+                                </li>
+
+                                <li class="li"><samp class="ph codeph">OOFCCTvRatingsPositionBottomRight</samp></li>
+
+                            </ul>
+</td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top" width="30.3951367781155%" headers="d369689e29 "><samp class="ph codeph">階段</samp></td>
+
+                        <td class="entry" valign="top" width="69.6048632218845%" headers="d369689e32 "><p class="p">このパラメータは、ビデオアセットのサイズを基準にして、格付け透かしのスケールを設定します。</p>
+
+                            <p class="p">このパラメータは、0と1の間の任意のfloat値を取ります。 デフォルト値は0.2です。</p>
+</td>
+
+                    </tr>
+
+                    <tr class="row">
+                        <td class="entry" valign="top" width="30.3951367781155%" headers="d369689e29 "><samp class="ph codeph">不透明度</samp></td>
+
+                        <td class="entry" valign="top" width="69.6048632218845%" headers="d369689e32 "><p class="p">このパラメータは、格付け透かしの不透明度を設定します。</p>
+
+                            <p class="p">このパラメータは、0と1の間の任意のfloat値を取ります。 デフォルト値は0.9です。</p>
+</td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+</div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/mobile_sdk_ios_fccratings.html">iOS用FCCレーティングの使用</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

@@ -1,0 +1,504 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Localizing a Flash or HTML5 Player V3 Using JavaScript (Deprecated)"/>
+<meta name="abstract" content="You can localize your player user interface using Ooyala Player V3 APIs in JavaScript."/>
+<meta name="description" content="JavaScriptでOoyala Player V3 APIを使用してプレーヤーのユーザーインターフェイスをローカライズできます。"/>
+<meta name="DC.Relation" scheme="URI" content="player_v3_api_intro.html#player_v3_api_intro"/>
+<meta name="DC.Relation" scheme="URI" content="player_backlot_intro.html#chapter_players"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_v3_dev_localization"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>JavaScriptを使用したFlashまたはHTML5プレーヤーV3のローカライズ（廃止予定）</title>
+</head>
+<body id="player_v3_dev_localization">
+
+
+ <h1 class="title topictitle1">JavaScriptを使用したFlashまたはHTML5プレーヤーV3のローカライズ（廃止予定）</h1>
+
+ 
+   <div class="body conbody"><p class="shortdesc">You can localize your player user interface using Ooyala Player V3 APIs in
+      JavaScript.</p>
+
+      <div class="section"><div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V3は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V3はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V3を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="pbv4_migration_v3.html">Player V3からの移行</a> そして <a class="xref" href="pbv4_migration_faq.html">プレイヤー移行に関するFAQ</a>).</div>
+<p class="p">The default language for the player user interface (UI) is American English.
+         </p>
+For Flash, the Ooyala player is localized in languages listed in the table below. At
+         this time, for HTML5, the Ooyala player is only localized in English and Japanese. The
+         player detects the language selection in the browser and sets the user interface to display
+         text in that language. Here are some things to keep in mind about Player localization: <ul class="ul" id="player_v3_dev_localization__internal-source-marker_0.7785623416173959">
+            <li class="li">
+               <p class="p">Only Ooyala can add new languages to the player.</p>
+
+            </li>
+
+            <li class="li">
+               <p class="p">You can override the language settings. For example, you might set your browser to
+                  French but have the player language set to Hebrew. To do this, you need to specify
+                  a <samp class="ph codeph">ローカル</samp> string in the Player's <samp class="ph codeph">DIV</samp>。 例えば：</p>
+
+               <pre class="pre codeblock">
+&lt;!-- Player Placement --&gt;
+&lt;div id='playerwrapper'style='width:480px;height:360px;
+    <strong class="ph b">OO.Player.create(.....{ locale: 'he' });</strong>&gt;
+      .
+      .
+      .
+</pre>
+
+            </li>
+
+         </ul>
+</div>
+
+      <div class="section">
+         <p class="p">The following table lists the valid values for the <samp class="ph codeph">ローカル</samp> パラメータ。</p>
+
+         
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+              <thead class="thead" align="left">
+                 <tr class="row">
+                    <th class="entry" valign="top" id="d615630e74">Language</th>
+
+                    <th class="entry" valign="top" id="d615630e77">文字列</th>
+
+                    <th class="entry" valign="top" id="d615630e80">Player Support</th>
+
+                 </tr>
+
+              </thead>
+
+               <tbody class="tbody">
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">英語</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">en</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">Flash, HTML5</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">ドイツ語</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">de</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">スペイン語</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">es</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フランス語</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">fr</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">イタリア語</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">it</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">日本語</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">ja</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">Flash, HTML5</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">ポリッシュ</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">pl</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">ポルトガル語</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">pt</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">Russian</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">ru</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">簡体字中国語</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">zh-hans</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">繁体字中国語</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">zh-hant</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">Arabic</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">ar</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">カタロニア語</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">ca</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">チェコ語</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">cs</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">デンマーク語</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">da</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">Dutch</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">nl</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">Finnish</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">fi</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">ギリシャ語</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">el</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">ヘブライ語</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">he</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">ハンガリー語</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">hu</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">アイスランド語</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">is</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">Korean</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">ko</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">Malay</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">ml</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">Norwegian</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">いいえ</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">ペルシア語</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">fa</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">パンジャブ語</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">pa</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">ルーマニア</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">ro</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">セルビア</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">sr</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">クロアチア</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">hr</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">ボスニア語</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">bs</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">スロベニア語</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">sl</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">Slovak</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">sk</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">Swedish</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">sv</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">Thai</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">th</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">トルコ語</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">tr</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">ウクライナ語</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">uk</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+                  
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">ベトナム語</td>
+
+                        <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">vi</td>
+
+                        <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                     </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">Indonesian</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">id</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+<tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">ヒンディー語</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">hi</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+<tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">ポルトガル語（ブラジル）</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">PT-BR</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+<tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">Portuguese (Portuguese)</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">pt-pt</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+<tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">Spanish (Spanish)</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">エン</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+<tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">Latin Spanish</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">es-419</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+<tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">イギリス英語</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">eng-gb</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+<tr class="row">
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">英語（米国）</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">EN-US</td>
+
+                     <td class="entry" valign="top" headers="d615630e74 d615630e77 d615630e80 ">フラッシュ</td>
+
+                  </tr>
+
+               </tbody>
+
+            </table>
+</div>
+
+      </div>
+
+   </div>
+  
+   <div class="related-links"><div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="player_v3_api_intro.html#player_v3_api_intro" title="Ooyala Player APIリファレンスへようこそ。 Ooyalaはカスタマイズ可能で機能豊富なPlayerを提供しています。これは業界や複数のデバイスで最高のビデオ体験を提供するために使用されています。">プレーヤV3 JavaScript APIの概要</a></div>
+<div><a class="link" href="player_backlot_intro.html#chapter_players" title="Backlot APIを使用して、Ooyalaプレーヤーに変更を加えることができます。">Setting up Players Using the Backlot REST API (Deprecated)</a></div>
+</div>
+</div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

@@ -1,0 +1,145 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Trending and Popular Content"/>
+<meta name="abstract" content="Trending enables viewers to discover videos that are popular or have gained significant momentum during the time period you specify."/>
+<meta name="description" content="傾向付けにより、視聴者は、指定した期間中に人気のある、または大きな勢いを得たビデオを見つけることができます。"/>
+<meta name="DC.Relation" scheme="URI" content="../api/content_discovery.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/content_discovery.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="content_discovery_trending"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>トレンドと人気コンテンツ</title>
+</head>
+<body id="content_discovery_trending">
+
+
+ <h1 class="title topictitle1">トレンドと人気コンテンツ</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">傾向付けにより、視聴者は、指定した期間中に人気のある、または大きな勢いを得たビデオを見つけることができます。 </p>
+
+  <div class="section">
+   <div class="note note"><span class="notetitle">注意：</span> （要求ごとに個別のパラメーターを使用して）アドホック要求を作成するのではなく、ディスカバリー・プロファイルを使用して設定と推奨動作を一元管理することを検討してください。 検出プロファイルは、ユーザーが作成した設定の定義済み構成です。 <samp class="ph codeph">のGET</samp> ルート 詳細については、 <a class="xref" href="../concepts/../concepts/content_discovery_profile.html" title="プレーヤーに表示されるコンテンツの推奨事項に対してOoyala Discoveryの設定を構成する再利用可能な検出プロファイルを作成できます。">ディスカバリープロファイル</a>.</div>
+
+  </div>
+
+  <div class="section refsyn"><h2 class="title sectiontitle">最も勢いのある動画を入手する</h2>
+   
+   <pre class="pre codeblock">[GET] / v2 /発見/トレンド/勢い</pre>
+
+  </div>
+
+  <div class="section refsyn"><h2 class="title sectiontitle">最も人気のある動画を入手する</h2>
+   
+   <pre class="pre codeblock">[GET] / v2 /発見/トレンド/トップ   </pre>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">クエリ文字列パラメータ</h2>
+   
+   <p class="p">次の表に、この経路に固有のクエリ文字列パラメータを示します。</p>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="22.22222222222222%" id="d68709e73">パラメーター</th>
+
+       <th class="entry" valign="top" width="55.55555555555556%" id="d68709e76">説明</th>
+
+       <th class="entry" valign="top" width="22.22222222222222%" id="d68709e79">必須？</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      
+      
+      
+      
+     <tr class="row">
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d68709e73 ">編集機能</td>
+
+       <td class="entry" valign="top" width="55.55555555555556%" headers="d68709e76 ">次のような編集機能の説明を参照してください。 <span class="keyword parmname">discovery_profile_id</span>で <a class="xref" href="content_discovery_common_queryparms.html#content_discovery_common_queryparms" title="これらのクエリ文字列パラメータは、類似/関連アセット、トレンド分析、およびパーソナライズされた推奨事項に対するAPIリクエストで使用できます。">クエリ文字列パラメータ</a></td>
+
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d68709e79 ">いいえ</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d68709e73 "><span class="keyword parmname">国</span></td>
+
+       <td class="entry" valign="top" width="55.55555555555556%" headers="d68709e76 ">評価する1つまたは複数の国を指定します。 <p class="p">タイプ：文字列  </p>
+<p class="p">有効値：すべて 有効なISO-639-1の2桁の国別コード </p>
+<p class="p">デフォルトのall </p>
+<p class="p">例：country = us、uk、ca </p>
+</td>
+
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d68709e79 ">いいえ</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d68709e73 "><span class="keyword parmname">時間</span></td>
+
+       <td class="entry" valign="top" width="55.55555555555556%" headers="d68709e76 "> 返すデータの終了日時を指定します。 たとえば、毎月のウィンドウでDecember 31stを指定した場合は、12月からの結果が返されます。 週ごとのウィンドウでDecember 31stを指定した場合は、December 31stとその前の6日間のデータが返されます。 <div class="note note"><span class="notetitle">注意：</span> 30日までの日付を指定できます。</div>
+<p class="p">タイプ：文字列
+         </p>
+<p class="p">有効値：今すぐ| YYYY-MM-DD | YYYY-MM-DD-HH </p>
+<p class="p">今すぐデフォルト </p>
+<p class="p">例：時間= 2013  -  12  -  31 </p>
+</td>
+
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d68709e79 ">いいえ</td>
+
+      </tr>
+<tr class="row">
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d68709e73 "><span class="keyword parmname">ウィンドウ</span></td>
+
+       <td class="entry" valign="top" width="55.55555555555556%" headers="d68709e76 ">評価する時間枠を指定します。 たとえば、頻繁に訪れる人にはその日の最も人気のある動画を、それほど頻繁に訪れない人にはその週に最も人気のある動画を返すことができます。 <p class="p">タイプ：文字列  </p>
+<p class="p">有効値：時間| 日| 週| 月 </p>
+<p class="p">デフォルトの日 </p>
+<p class="p">例：ウィンドウ=週 </p>
+</td>
+
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d68709e79 ">いいえ</td>
+
+      </tr>
+</tbody>
+
+    </table>
+</div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">例</h2><div class="sectiondiv"> 次の例では、その日の最も人気のある5つのビデオを返します。
+     <pre class="pre codeblock">[GET] / v2 /発見/トレンド/ top？国=すべて＆時間=今＆ウィンドウ=日＆制限= 5</pre>
+<p class="p">返信応答は次のようになります。</p>
+<pre class="pre codeblock">		{&quot;結果&quot;：[{&quot;名前&quot;： &quot;猫ビデオ#145678434&quot;、 &quot;説明&quot;： &quot;もっと猫がいます！&quot;、 &quot;embed_code&quot;： &quot;<var class="keyword varname">埋め込みコード</var>&quot;、&quot; external_id &quot;：&quot;<var class="keyword varname">external_id</var>&quot;、&quot; preview_image_url &quot;：&quot;<var class="keyword varname">image_url</var>&quot;、&quot;期間 &quot;：&quot; 91000 &quot;、&quot;ostedAtURL&quot;：null、 &quot;bucket_info&quot;： &quot;<var class="keyword varname">bucket_info_id</var>&quot;、&quot;理由 &quot;：&quot; top &quot;}、{&quot;名前 &quot;：&quot;猫の動画#145678435 &quot;、&quot;説明 &quot;：&quot;さらに猫が！ &quot;、&quot; embed_code &quot;：&quot;<var class="keyword varname">埋め込みコード</var>&quot;、&quot; external_id &quot;：&quot;<var class="keyword varname">external_id</var>&quot;、&quot; preview_image_url &quot;：&quot;<var class="keyword varname">image_url</var>&quot;、&quot;期間 &quot;：&quot; 91000 &quot;、&quot;ostedAtURL&quot;：null、 &quot;bucket_info&quot;： &quot;<var class="keyword varname">bucket_info_id</var>&quot;、&quot;理由 &quot;：&quot; top &quot;}、{&quot;名前 &quot;：&quot;猫のビデオ#145678436 &quot;、&quot;説明 &quot;：&quot;まだ猫だ！ &quot;、&quot; embed_code &quot;：&quot;<var class="keyword varname">埋め込みコード</var>&quot;、&quot; external_id &quot;：&quot;<var class="keyword varname">external_id</var>&quot;、&quot; preview_image_url &quot;：&quot;<var class="keyword varname">image_url</var>&quot;、&quot;期間 &quot;：&quot; 91000 &quot;、&quot;ostedAtURL&quot;：null、 &quot;bucket_info&quot;： &quot;<var class="keyword varname">bucket_info_id</var>&quot;、&quot;理由 &quot;：&quot; top &quot;}、{&quot;名前 &quot;：&quot;猫のビデオ#145678437 &quot;、&quot;説明 &quot;：&quot;信じられますか？ &quot;、&quot; embed_code &quot;：&quot;<var class="keyword varname">埋め込みコード</var>&quot;、&quot; external_id &quot;：&quot;<var class="keyword varname">external_id</var>&quot;、&quot; preview_image_url &quot;：&quot;<var class="keyword varname">image_url</var>&quot;、&quot;期間 &quot;：&quot; 91000 &quot;、&quot;ostedAtURL&quot;：null、 &quot;bucket_info&quot;： &quot;<var class="keyword varname">bucket_info_id</var>&quot;、&quot;理由 &quot;：&quot; top &quot;}、{&quot;名前 &quot;：&quot;犬のビデオ#0000001 &quot;、&quot;説明 &quot;：&quot;犬 &quot;、&quot; embed_code &quot;：&quot;<var class="keyword varname">埋め込みコード</var>&quot;、&quot; external_id &quot;：&quot;<var class="keyword varname">external_id</var>&quot;、&quot; preview_image_url &quot;：&quot;<var class="keyword varname">image_url</var>&quot;、&quot;期間 &quot;：&quot; 91000 &quot;、&quot;ostedAtURL&quot;：null、 &quot;bucket_info&quot;： &quot;<var class="keyword varname">bucket_info_id</var>&quot;、&quot; reason &quot;：&quot; top &quot;}]}  </pre>
+
+   </div>
+   <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+  </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/content_discovery.html">ディスカバリーREST APIリファレンス</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

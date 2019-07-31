@@ -1,0 +1,140 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2016-08-11 Release"/>
+<meta name="abstract" content="Notable contents of this release include an upgrade to Cross-Device Resume functionality with IQ, as well as upgrades to Live."/>
+<meta name="description" content="Notable contents of this release include an upgrade to Cross-Device Resume functionality with IQ, as well as upgrades to Live."/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2016.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release20160811"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2016-08-11リリース</title>
+</head>
+<body id="release20160811">
+
+
+    <h1 class="title topictitle1">2016-08-11リリース</h1>
+
+    
+    <div class="body conbody"><p class="shortdesc">このリリースの注目すべき内容には、IQによるクロスデバイス再開機能へのアップグレード、およびLiveへのアップグレードが含まれます。</p>
+
+        <div class="section" id="release20160811__xdr"><h2 class="title sectiontitle">Ooyala IQリリース - バージョン1.6.1.5</h2>
+            
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">新機能と強化</strong></p>
+
+                <ul class="ul">
+                <li class="li">
+                <p class="gt-block p"><strong class="ph b">サードパーティのプレイヤーはXDR機能を使用できます。</strong></p>
+
+                <p class="gt-block p">サードパーティのプレイヤーはこれを利用することができます。 <strong class="ph b">XDR</strong> のためのコード <em class="ph i">一時停止</em> そして <em class="ph i">履歴書</em> プレーヤーがIQ JSON APIと統合できる場合は、機能。 たとえば、ビデオをOoyalaプレーヤーで一時停止し、Rokuプレーヤーで再開することができます。 互換性のあるサードパーティ製デバイスの例は次のとおりです。</p>
+
+                <ul class="ul">
+                    <li class="li">年</li>
+
+                    <li class="li">Xbox One</li>
+
+                </ul>
+
+                </li>
+
+                <li class="li">
+                <p class="gt-block p"><strong class="ph b">XDRは外部資産をサポートしています。</strong></p>
+
+                <p class="p">XDRには、Backlotの外部の資産（たとえば、サードパーティのコンテンツ管理システムに配置されているものなど）に対するサポートが追加されました。</p>
+
+                </li>
+
+                </ul>
+
+            </div>
+        </div>
+      
+        <div class="section" id="release20160811__live_rnotes_210"><h2 class="title sectiontitle">ウーヤラライブリリース - バージョン2.1.0</h2>
+            
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">新機能と強化</strong></p>
+
+                <ul class="ul">
+                    <li class="li">Ooyala Liveは新しいロゴを使用しています。 見る <a class="xref" href="../concepts/liveplatform_deliver_live_content.html#liveplatform_deliver_live_content" title="単一のセルフサービスインターフェイスから、チャンネル、スケジュール、イベント、プレイリストを作成および更新し、チャンネル出力を監視します。">ライブコンテンツを配信する</a> 詳細については。</li>
+
+                    <li class="li">  <span class="ph uicontrol">イベントの詳細</span> ページに新しいページが表示されます <span class="ph uicontrol">DVRウィンドウ</span> フィールド。 このフィールドには、
+                            <span class="ph uicontrol">DVR期間オーバーライド</span> 上にあるフィールド
+                            <span class="ph uicontrol">高度な</span> タブ <span class="ph uicontrol">イベントを追加</span> ダイアログ。</li>
+
+                    <li class="li">いつ <span class="ph uicontrol">Facebookのシンジケート</span> 有効になっている
+                            <span class="ph uicontrol">ストリーム期間（分）</span> デフォルトは240分です。 Facebookで許可されている最大数 以前は、デフォルトで90分でした。 以前のリリースで作成されたチャンネルの場合、
+                            <span class="ph uicontrol">ストリーム期間（分）</span> それでもデフォルトは90分です。 ただし、この値を240分に変更することができます。</li>
+
+                    <li class="li">Ooyala Player V4では、アドビのHTTP Dynamic Streaming（HDS）およびDynamic Adaptive Streaming over HTTP（DASH）を表示できます。 <span class="ph menucascade"><span class="ph uicontrol">チャネル</span> &gt; <span class="ph uicontrol">モニター</span></span> のページをご覧ください。</li>
+
+                    <li class="li">Ooyala Player V4での再生サポートとともに、HTTP（DASH）および共通暗号化（CENC）上の動的適応ストリーミングによるMicrosoft PlayReady（PR）コンテンツ保護のサポートが追加されました。</li>
+
+                    <li class="li">  <span class="ph uicontrol">スレート</span> マネージャーのサポート <span class="ph filepath">。楽章</span>
+                        ファイル たとえば、 <span class="ph uicontrol">スレートを追加</span> ファイルをアップロードするには、 <span class="ph filepath">。楽章</span> ファイル。</li>
+
+                    <li class="li">あなたが使用している場合 <span class="ph uicontrol">イベントを追加します。</span> ダイアログ、
+                            <span class="ph uicontrol">アーカイブを有効にする</span> このフィールドはデフォルトで有効になっています。 以前は <span class="ph uicontrol">アーカイブを有効にする</span> デフォルトでは有効になっていませんでした。</li>
+
+                    <li class="li">チャンネル、イベント、スケジュール、およびエラーの電子メール通知がサポートされました。 電子メール通知を有効にするには、ライブウィンドウの右上隅にある自分のログイン名の上にマウスを移動して、を選択します。 <span class="ph uicontrol">通知設定</span> 表示されるメニューから それから、
+                            <span class="ph uicontrol">通知設定</span> 開いたページで、カンマ区切りのEメールアドレスを追加し、送信したい通知を選択します。 最後に、ページの下部にあるをクリックします <span class="ph uicontrol">通知を更新する</span>。 通知機能は約15分以内に機能し始めます。</li>
+
+                </ul>
+
+                <p class="gt-block p"><strong class="ph b">解決済みの問題</strong></p>
+
+                <ul class="ul">
+                    <li class="li">パブリックプロファイルが削除される問題を修正するために、チャンネルが停止している間にプロファイルを再割り当てすることができます。 チャンネルの
+                            <span class="ph uicontrol">状態</span>  is  <span class="ph uicontrol">停止</span>上
+                            <span class="ph uicontrol">エンコーディング</span> 使用できるページ <span class="ph uicontrol">エンコーダ入力プロファイル</span> そして <span class="ph uicontrol">エンコーダ出力プロファイル</span> 別のプロファイルを選択します。 同様に
+                            <span class="ph uicontrol">プラスチック削減</span> ページ、あなたが使用することができます <span class="ph uicontrol">パッケージャ入力フィルタテンプレート</span> そして <span class="ph uicontrol">パッケージャ出力フィルタテンプレート</span> 別のテンプレートを選択します。</li>
+
+                    <li class="li">以前は、DRMが有効になっていた各出力に対して、チャンネルに重複したリストが表示されていました。 新しく作成されたチャンネルの場合は、チャンネルの
+                            <span class="ph uicontrol">プラスチック削減</span> ページ、 <span class="ph uicontrol">出力フォーマット</span> fieldsは各出力フォーマットを一度表示します。 同様に、 <span class="ph uicontrol">新しいチャンネルを作成</span> ダイアログ、
+                            <span class="ph uicontrol">梱包セットアップ</span> ページを開くと、ダイアログに各出力が1回表示されます。 以前のリリースで作成されたチャンネルでも、重複したリストが表示されることがあります。</li>
+
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">統合の統合とプレイヤーV4</h2>
+                Cleengのペイウォール統合は、（Player V4に加えて）Player V3をサポートするようになりました。
+         </div>
+
+        <div class="section"><h2 class="title sectiontitle">ドキュメントリリース</h2>
+            
+            <ul class="ul">
+                
+                <li class="li"><strong class="ph b">統合の整理</strong>。 次のトピックは、Player V4サポートの追加を反映するように更新されました。 <a class="xref" href="../concepts/backlot_integrate_cleeng.html">Cleeng Paywallと統合する</a>.</li>
+ 
+                
+                <li class="li"><strong class="ph b">コンテンツ保護オプションに対するブラウザサポート</strong>。 「Ooyala Player V4でマルチDRMを使用してサポートされているブラウザ」をに追加しました。 <a class="xref" href="../concepts/contentprotection_optionsbydevice.html" title="テクノロジオプションは、ターゲットデバイスの種類、ネットワーク、ストリーミングプロトコル、およびその他の要因によって異なります。">デバイス別のコンテンツ保護オプション</a>.</li>
+                 
+            </ul>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Ooyalaリリースノートを購読する</h2>
+             見る <a class="xref" href="../concepts/release_notes_subscribe.html">Ooyalaリリースノートを購読する</a> Ooyalaリリースノートの自動通知を購読する方法については、こちらをご覧ください。 </div>
+
+        <div class="section">このコンテンツは08 / 11 / 16の11：00 PM UTCに掲載されました。</div>
+ 
+    </div>
+    
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2016.html" title="2016からのリリースノート。">2016ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

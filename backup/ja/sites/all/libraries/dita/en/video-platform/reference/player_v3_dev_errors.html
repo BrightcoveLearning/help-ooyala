@@ -1,0 +1,248 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Handling Errors for an HTML5 Player V3 Using JavaScript (Deprecated)"/>
+<meta name="abstract" content="Error Handling functions and events enable you to get information about Player V3"/>
+<meta name="description" content="エラー処理機能とイベントを使用すると、Player V3に関する情報を取得できます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_errors_player.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_errors_player.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/player_v3_dev_pubsub.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/player_v3_api_events.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_v3_dev_errors"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>JavaScriptを使用したHTML5プレーヤーV3のエラー処理（非推奨）</title>
+</head>
+<body id="player_v3_dev_errors">
+
+
+ <h1 class="title topictitle1">JavaScriptを使用したHTML5プレーヤーV3のエラー処理（非推奨）</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc"> エラー処理機能とイベントを使用すると、Player V3に関する情報を取得できます。 </p>
+
+  <div class="section">
+   <div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V3は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V3はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V3を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="../concepts/pbv4_migration_v3.html">Player V3からの移行</a> そして <a class="xref" href="../concepts/pbv4_migration_faq.html">プレイヤー移行に関するFAQ</a>).</div>
+
+   <p class="p">次の表に、Player V3のエラー機能とイベントを示します。 </p>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">エラー関数</h2>
+   
+   <p class="p">次の表に、サポートされているエラー処理機能を示します。</p>
+
+  </div>
+
+  <div class="section">
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="player_v3_dev_errors__table_assets_jsprop" class="table" frame="border" border="1" rules="all">
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="25.510204081632654%" id="d907587e57">関数</th>
+
+       <th class="entry" valign="top" width="74.48979591836735%" id="d907587e60">説明</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" width="25.510204081632654%" headers="d907587e57 "><span class="keyword apiname" id="player_v3_dev_errors__as_canR1">getError</span>,  <span class="keyword apiname">getErrorCode</span>
+       </td>
+
+       <td class="entry" valign="top" width="74.48979591836735%" headers="d907587e60 ">ビデオエラーコードを表示します。 ご了承ください <span class="keyword apiname">getErrorText（）</span> 利用できないかサポートされていません。</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="25.510204081632654%" headers="d907587e57 "><span class="keyword apiname" id="player_v3_dev_errors__as_curIRat1">getState</span>
+       </td>
+
+       <td class="entry" valign="top" width="74.48979591836735%" headers="d907587e60 ">現在のプレイヤーの状態を取得します。 可能な状態は、で定義されています。
+         <samp class="ph codeph">OO.STATE</samp> 次のように<ul class="ul" id="player_v3_dev_errors__ul_p3b_r44_n3">
+         <li class="li">ローディング</li>
+
+         <li class="li">READY</li>
+
+         <li class="li">プレイ</li>
+
+         <li class="li">PAUSED</li>
+
+         <li class="li">バッファリング</li>
+
+         <li class="li">ERROR</li>
+
+         <li class="li">破壊されました</li>
+
+        </ul>
+</td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">Player V3エラーメッセージ</h2>
+   
+   <p class="gt-block p"> 次の名前空間 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/index.html" target="_blank">プレーヤJavaScript APIリファレンス</a>、V3 JavaScriptメッセージバスを介して処理できるエラーメッセージが含まれています。 メッセージバスイベントを使用して、を購読またはインターセプトしてエラーを処理します。 <samp class="ph codeph">OO.EVENTS.ERROR</samp> イベント：</p>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="25.510204081632654%" id="d907587e153">エラーネームスペース</th>
+
+       <th class="entry" valign="top" width="74.48979591836735%" id="d907587e156">説明</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" width="25.510204081632654%" headers="d907587e153 "><samp class="ph codeph">OO.ERROR</samp>
+       </td>
+
+       <td class="entry" valign="top" width="74.48979591836735%" headers="d907587e156 ">Ooyala V3プレーヤーエラーを表します。 これはすべてのエラーの親ネームスペースであり、チャンネルコンテンツのエラーを含みます。</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="25.510204081632654%" headers="d907587e153 "><samp class="ph codeph">OO.ERROR.API</samp>
+       </td>
+
+       <td class="entry" valign="top" width="74.48979591836735%" headers="d907587e156 ">コンテンツ、メタデータ、およびサーバー接続に関連するエラーを表します。</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="25.510204081632654%" headers="d907587e153 "><samp class="ph codeph">OO.ERROR.API.SAS</samp>
+       </td>
+
+       <td class="entry" valign="top" width="74.48979591836735%" headers="d907587e156 ">承認関連のすべてのエラーを表します。 </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="25.510204081632654%" headers="d907587e153 "><samp class="ph codeph">OO.ERROR.PLAYBACK</samp>
+       </td>
+
+       <td class="entry" valign="top" width="74.48979591836735%" headers="d907587e156 ">再生に関するすべてのエラーを表します。 </td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">プレイヤーV3エラーイベント</h2>
+   
+   <p class="p">次の表は、メッセージバスによって発行されたエラー処理イベントについて説明しています。</p>
+
+  </div>
+
+  <div class="section">
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="player_v3_dev_errors__table_error_events" class="table" frame="border" border="1" rules="all">
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="25.510204081632654%" id="d907587e235">エラーイベント</th>
+
+       <th class="entry" valign="top" width="74.48979591836735%" id="d907587e238">説明</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" width="25.510204081632654%" headers="d907587e235 "><samp class="ph codeph" id="player_v3_dev_errors__dev_crea"> PLAYER_CREATED </samp>
+       </td>
+
+       <td class="entry" valign="top" width="74.48979591836735%" headers="d907587e238 ">プレーヤが作成された後に発行される一番最初のメッセージ。初期化するようにすべてのプラグインに通知するために使用されます。 </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="25.510204081632654%" headers="d907587e235 "><samp class="ph codeph" id="player_v3_dev_errors__dev_err1"> ERROR </samp>
+       </td>
+
+       <td class="entry" valign="top" width="74.48979591836735%" headers="d907587e238 ">エラーが発生したときに公開されます。2番目のパラメータにはエラーの詳細があります。 </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="25.510204081632654%" headers="d907587e235 "><samp class="ph codeph" id="player_v3_dev_errors__dev_dest"> 破壊する </samp>
+       </td>
+
+       <td class="entry" valign="top" width="74.48979591836735%" headers="d907587e238 ">プレイヤーが破壊されているときに公開されます。 </td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+  </div>
+
+  <div class="section" id="player_v3_dev_errors__erroreventsubscriptionexpired"><h2 class="title sectiontitle">エラーイベントの処理</h2>
+      <samp class="ph codeph">OO.EVENTS.ERROR</samp> イベントはメッセージバスに発行されます。 これがどうやって使えるかです。 <div class="p">エラーの処理方法には2つの設計オプションがあります。<ul class="ul" id="player_v3_dev_errors__ul_yjf_sp4_n3">
+     <li class="li"><samp class="ph codeph">mb.subscribe</samp> エラーが発生したときに指定した関数（コールバック関数）を起動し、そのエラーは他のサブスクライバに伝播し続けます。 </li>
+
+     <li class="li"><samp class="ph codeph">mb.intercept</samp> エラー通知を乗っ取って、将来の加入者のペイロードを変更できるようにします。 つまり、エラーをインターセプトすることで、必要に応じてエラーメッセージを変更できます。 </li>
+
+    </ul>
+おそらく最も実用的な推奨事項は使用することです。 <samp class="ph codeph">mb.subscribe</samp> 既存のエラー処理機能（コンソールへの出力、再生の停止、エラー画面の表示など）に従って、必要に応じてエラーを処理します。
+   </div>
+メッセージバスの使用方法を示す次の例では <samp class="ph codeph">申し込む（）</samp>
+   メソッド、コールバック関数 <samp class="ph codeph">YourErrorHandlingFunctionNameHere</samp> 以下の場合に呼び出されます。 <samp class="ph codeph">OO.EVENTS.ERROR</samp> イベントはメッセージバスに発行されます。<pre class="pre codeblock">
+        &lt;div id = &quot;ooyalaplayer&quot; style = &quot;幅：640px;高さ：360px&quot;&gt; &lt;/div&gt; &lt;スクリプト&gt; function onCreate（player）{player.mb.subscribe（OO.EVENTS.ERROR、 &#39;test&#39;、function（イベント、ペイロード）{YourErrorHandlingFunctionNameHere（yourArgs）;}）; } OO.ready（function（）{player = OO.Player.create（ &#39;ooyalaplayer&#39;、 &#39;hkbTd2czrIYRs4-HnJ9nVcHSxtA07FUK&#39;、{onCreate：window.onCreate}）; &lt;/script&gt;</pre>
+メッセージバスの使用方法を示す次の例では
+    <samp class="ph codeph">インターセプト（）</samp> エラーが発生すると、「ヒューストン、問題があります」というメッセージが表示されます。 JavaScriptコンソールに出力されます。
+    <pre class="pre codeblock">
+
+//インターセプトエラーplayer.mb.intercept（OO.EVENTS.ERROR、 &quot;test-plugin&quot;、関数（eventName、payload）{return [&quot;ヒューストン、問題がある。
+   </pre>
+<p class="gt-block p">メッセージバスイベントの使用を含む完全な例については、 <a class="xref" href="../concepts/player_v3_dev_javascript.html#player_v3_dev_queryparams" title="Player V3 JavaScript関数およびイベントを使用して、Ooyala V3 Playerで高度なアプリケーションを作成します。">Player V3用の高度なJavaScriptの例（廃止予定）</a>.</p>
+
+  </div>
+
+ </div>
+
+ <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_errors_player.html" title="エラーリストとエラー処理トピックを使用して、プレーヤーの問題をトラブルシューティングします。">Player V3エラーの概要（廃止予定）</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong><br/>
+<div><a class="link" href="../reference/player_v3_dev_pubsub.html" title="イベント処理のためにメッセージをパブリッシュおよびサブスクライブできます。">プレーヤV3でのイベントの発行と購読（廃止予定）</a></div>
+<div><a class="link" href="../api/player_v3_api_events.html" title="メッセージバスイベントを使用して、動画から広告の再生までのプレーヤイベントを購読または発行します。">プレーヤV3メッセージバスイベント（非推奨）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

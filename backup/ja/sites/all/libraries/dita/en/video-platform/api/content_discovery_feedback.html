@@ -1,0 +1,141 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Providing Feedback"/>
+<meta name="abstract" content="To help tune recommendations, make sure to record displays and plays."/>
+<meta name="description" content="推薦を調整するのを助けるために、ディスプレイと演劇を記録するようにしてください。"/>
+<meta name="DC.Relation" scheme="URI" content="../api/content_discovery.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/content_discovery.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="content_discovery_feedback"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>フィードバックの提供</title>
+</head>
+<body id="content_discovery_feedback">
+
+
+    <h1 class="title topictitle1">フィードバックの提供</h1>
+
+    
+    <div class="body refbody"><p class="shortdesc">推薦を調整するのを助けるために、ディスプレイと演劇を記録するようにしてください。 </p>
+
+        <div class="section">
+            <p class="p">推奨事項がプレーヤーのエンドスクリーンに表示されている場合は、何もする必要はありません。 プレイヤーの外におすすめを表示する場合は、必ず各ディスプレイを記録してイベントを再生してください。</p>
+
+        </div>
+
+        <div class="section refsyn"><h2 class="title sectiontitle">ディスプレイを録音する</h2>
+            <pre class="pre codeblock">[POST] / v2 /発見/フィードバック/印象{  
+   <var class="keyword varname">bucket_info</var>,
+   
+   <var class="keyword varname">デバイスID</var>
+
+}</pre>
+
+        </div>
+
+        <div class="section refsyn"><h2 class="title sectiontitle">プレイを録音する</h2>
+            
+            <pre class="pre codeblock">[POST] / v2 /発見/フィードバック/再生{  
+    <var class="keyword varname">bucket_info</var>,
+    
+    <var class="keyword varname">デバイスID</var>
+
+}</pre>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">プロパティ</h2>
+            
+            <p class="p">次の表に、ルートのクエリ文字列パラメータを示します。</p>
+
+            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                    
+                    
+                    
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" width="22.22222222222222%" id="d67445e71">プロパティ</th>
+
+                            <th class="entry" valign="top" width="55.55555555555556%" id="d67445e74">説明</th>
+
+                            <th class="entry" valign="top" width="22.22222222222222%" id="d67445e77">必須？</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        
+                        
+                    <tr class="row">
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d67445e71 "><span class="keyword parmname">bucket_info</span></td>
+
+                            <td class="entry" valign="top" width="55.55555555555556%" headers="d67445e74 ">容器。 の <span class="keyword parmname">bucket_info</span> 傾向、関連、または他の推奨事項のためにOoyala Discoveryによって返された構造。<p class="gt-block p"><strong class="ph b">注意：</strong> の内容 <span class="keyword parmname">bucket_info</span> JSONデータでエスケープする必要があります。</p>
+</td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d67445e77 ">はい</td>
+
+                        </tr>
+<tr class="row">
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d67445e71 "><span class="keyword parmname">デバイスID</span></td>
+
+                            <td class="entry" valign="top" width="55.55555555555556%" headers="d67445e74 ">推奨を返す対象となるデバイスまたはユーザーのID。 <p class="p">タイプ：文字列  </p>
+<p class="p">デフォルト：なし
+                                    </p>
+<p class="p">Example: pmd2xzMjrCg4TpQd6cwz9HP4U-pcFSHH </p>
+</td>
+
+                            <td class="entry" valign="top" width="22.22222222222222%" headers="d67445e77 ">はい</td>
+
+                        </tr>
+</tbody>
+
+                </table>
+</div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">例</h2><div class="sectiondiv">
+                <div class="note note"><span class="notetitle">注意：</span>  このルートに対してOoyalaが返す200応答には本文がありません。 </div>
+
+                <p class="p">次の例では表示を記録します。 </p>
+
+                <pre class="pre codeblock">[POST]/v2/discover/feedback/impression{  
+   "bucket_info":"1{ 
+ \"encoded\":\"eNpNj1EOgyAQRO+y36ZBQRAuY4hsqIkoWYiJsd69tNbGz9mZeZndIVrCOfdr\\n7EcHBqTWnAvxalTNOFSA68fNW0QwdQURaSgH64tkj7atIGWyGf1Wup4Q3VZK\\ndvILjfkZ+kK3IYHZIQ0L4Q8EZGe3BDju0dmGr4VT4blCIRz6aUz5XCW0kucq\\nI3UjZCcu1THONLuUYoLxf1IJ1bDupri6fjve7Q5Lhg==\", \"position\":0
+ }",
+   "device_id":"<kbd class="ph userinput">デバイスID</kbd>&quot;}</pre>
+
+                <p class="p">これは200応答を返します。</p>
+
+            </div>次の例では、劇を録音します。
+                <pre class="pre codeblock">[POST] / v2 / discover / feedback / play {&quot;device_id&quot;： &quot;<kbd class="ph userinput">デバイスID</kbd>",
+   "bucket_info":"1{ 
+
+ \"encoded\":\"eNpVT9sOgjAM/Zc+EzNQkfEzSwPNaMItW11C0H+3eEF96+npuXSFGQON4tLs\\nuIUaSltZcylvxSU3R8iA0sbKMhPUeQYzhUYX6BWagzlngL2fAks3OHXCIUK9\\ngg84XnvU9aKWhdoID6oAnWIzBXobQkuBEwonUkb1wsLTGLfL+6/1iE+5aNU2\\n6mmgxvUc5VPYmlfhWlFlq+KLrDH/3OmX+0N5edrf1lzv9nyN6dh3rqUGF7g/\\nAEHSXq0=\", \"position\":0}"
+}</pre>
+<p class="p">これは200応答を返します。</p>
+<div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/content_discovery.html">ディスカバリーREST APIリファレンス</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

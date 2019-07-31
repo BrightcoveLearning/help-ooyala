@@ -1,0 +1,113 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2014-04-22 Release"/>
+<meta name="abstract" content="Updates include software updates to the Player API and iOS and Android mobile SDKs, the addition of an Ad Integration guide, and an update to a Hook script snippet."/>
+<meta name="description" content="Updates include software updates to the Player API and iOS and Android mobile SDKs, the addition of an Ad Integration guide, and an update to a Hook script snippet."/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2014.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2014-04-22リリース</title>
+</head>
+<body id="release">
+
+
+    <h1 class="title topictitle1">2014-04-22リリース</h1>
+
+    
+    <div class="body conbody"><p class="shortdesc">アップデートには、プレーヤAPI、iOSおよびAndroidモバイルSDKのソフトウェアアップデート、広告統合ガイドの追加、およびフックスクリプトスニペットのアップデートが含まれます。</p>
+
+        <div class="section"><h2 class="title sectiontitle">ソフトウェアアップデート</h2>
+             
+            <p class="p">以下は新しいソフトウェアリリース項目です。</p>
+
+        <ul class="ul">
+            <li class="li">テーマビルダーへの影響を考慮したプレーヤAPIの更新：プレーヤは現在、最初のプレイリストの最初のビデオを動的にロードすることがサポートされています。 ページレベルパラメータ
+                <samp class="ph codeph">useFirstVideoFromPlaylist</samp> プレイヤーに追加されました。 </li>
+
+                <li class="li">iOSとAndroidのモバイルSDKは、FreeWheelのオプションパラメータとしてFRMSegmentを含むように更新されました。 </li>
+
+        </ul>
+
+        </div>
+
+     
+       <div class="section"><h2 class="title sectiontitle">ドキュメントリリース項目</h2>
+        
+        <p class="p">以下は、新しいドキュメントのリリース項目です。 </p>
+
+        <ul class="ul">
+            <li class="li">
+                <p class="gt-block p"><strong class="ph b">テーマビルダー</strong></p>
+
+                <ul class="ul" id="release__ul_g4z_thc_sn">
+                    <li class="li"><a class="xref" href="../tasks/theme_builder_embed_create.html" title="テーマビルダーの埋め込みは、プレーヤー内に埋め込まれた1つ以上のプレイリストです。">埋め込みを使った作業</a>- プレイリストが動的に更新されたときに「最初のプレイリストの最初のビデオ」が動的に更新される新機能に関する情報を追加しました。 </li>
+
+                    <li class="li"><a class="xref" href="../concepts/tb_dg_embeds.html" title="テーマビルダーの埋め込みは、プレーヤー内に埋め込まれた1つ以上のプレイリストです。 あなたは自分で埋め込みを作成する必要があります。">テーマビルダーの埋め込み</a>- 新しいページレベルパラメータを表示するための埋め込み例を更新しました <samp class="ph codeph">useFirstVideoFromPlaylist</samp>.  </li>
+
+                    <li class="li"><a class="xref" href="../api/player_v3_api_embedparams.html">埋め込みパラメータ</a>- パラメータを追加しました
+                            <samp class="ph codeph">useFirstVideoFromPlaylist</samp>.</li>
+
+                </ul>
+
+            </li>
+
+            <li class="li"><p class="gt-block p"><strong class="ph b">広告の統合</strong></p>
+
+                <ul class="ul">
+                    <li class="li"><a class="xref" href="../concepts/book_ads_integration.html" title="このドキュメントでは、Player V3の広告サーバー、広告ネットワーク、および広告管理プラットフォームの統合を設定する方法について説明します。">広告統合ガイド</a>- サードパーティの広告マネージャ（FreeWheel、LiveRail、Google IMAを含む）、VAST、VPAIDとの統合方法に関する新しいガイドを追加しました。 </li>
+
+                </ul>
+</li>
+
+            <li class="li"><p class="gt-block p"><strong class="ph b">フック</strong></p>
+
+                <ul class="ul">
+                    <li class="li"><a class="xref" href="../concepts/hook.html">フックモバイルプレーヤーアプリ</a>- 「フックの設定」セクションのステップ3でプロバイダコードをplayer_idに変更することによってスクリプトスニペットを修正しました。</li>
+
+                </ul>
+
+                
+            </li>
+
+            <li class="li"><p class="gt-block p"><strong class="ph b">モバイルSDK</strong></p>
+
+            <ul class="ul">
+                <li class="li"><a class="xref" href="../concepts/mobile_sdk_android_freewheel.html">Android上のFreeWheelとの統合</a>,  <a class="xref" href="../concepts/mobile_sdk_android_freewheel_sampleapp_decomposed.html">Androidサンプルアプリと統合タッチポイントの詳細</a>,  <a class="xref" href="../concepts/mobile_sdk_ios_freewheel.html">iOS上のFreeWheelとの統合</a>、および <a class="xref" href="../concepts/mobile_sdk_ios_freewheel_sampleapp_decomposed.html">iOSサンプルアプリと統合タッチポイントの詳細</a>-  FreeWheelのオプションパラメータとしてFRMSegmentを追加しました。</li>
+
+            </ul>
+</li>
+
+            <li class="li"><p class="gt-block p"><strong class="ph b">Discovery</strong></p>
+
+                <ul class="ul">
+                    <li class="li"><a class="xref" href="../concepts/content_discovery_profile_ui.html" title="Backlot UIを使用して、定義済みのプレーヤーまたはDiscovery API要求で使用する検出プロファイルを作成できます。">Backlot UIを使用したプロファイルの作成/管理</a>,  <a class="xref" href="../concepts/content_discovery_profile_comparison_ui_and_api.html" title="これは、Backlot UIと検出プロファイル作成用のAPIの比較です。">Backlot UIとAPIでの検出プロファイル設定の比較</a>,  <a class="xref" href="../concepts/discovery_config.html" title="パーソナライズされたおすすめを設定する方法と、ビデオの再生が終了または一時停止したときにOoyalaプレーヤーがおすすめを表示する方法を学びます。">プレイヤー終了画面でのOoyalaディスカバリーの設定</a>、および <a class="xref" href="../api/players_discovery_profile.html">ディスカバリープロファイル</a>- 広告の再生中にDiscovery Up Nextが表示されないことに注意してください。</li>
+
+                </ul>
+
+            </li>
+
+        </ul>
+
+       </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2014.html" title="2014からのリリースノート。">2014ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

@@ -1,0 +1,213 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Change the Watchlist Name"/>
+<meta name="DC.Relation" scheme="URI" content="../api/cd_watchlist_api.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="watchlist_api_update"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>ウォッチリスト名を変更する</title>
+</head>
+<body id="watchlist_api_update">
+
+
+  <h1 class="title topictitle1">ウォッチリスト名を変更する</h1>
+
+ <div class="body refbody">
+   <div class="section">このエンドポイントは、指定されたウォッチリストの名前を変更します。 <div class="note note"><span class="notetitle">注意：</span> ユーザーの名前を変更することはできません <span class="keyword parmname">デフォルト</span> ウォッチリスト</div>
+</div>
+
+  <div class="section"><h2 class="title sectiontitle">HTTPリクエスト</h2>
+    <pre class="pre codeblock">PUT https://player.ooyala.com/watchlist/v3/&lt;watchlist_id&gt;?account_token= &lt;account_token&gt; {name &quot;：&quot;新しいウォッチリスト名 &quot;、}</pre>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">クエリパラメータ</h2>
+    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+        
+        
+        
+        
+        <thead class="thead" align="left">
+          <tr class="row">
+            <th class="entry" valign="top" width="14.285714285714285%" id="d60122e47">パラメーター</th>
+
+            <th class="entry" valign="top" width="57.14285714285714%" id="d60122e50">説明</th>
+
+            <th class="entry" valign="top" width="14.285714285714285%" id="d60122e53">タイプ</th>
+
+            <th class="entry" valign="top" width="14.285714285714285%" id="d60122e56">必須</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody class="tbody">
+          <tr class="row">
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d60122e47 "><span class="keyword parmname">api_version</span></td>
+
+            <td class="entry" valign="top" width="57.14285714285714%" headers="d60122e50 ">でなければなりません <span class="keyword parmname">v3</span>.  </td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d60122e53 ">文字列</td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d60122e56 ">はい（URL）</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d60122e47 "><span class="keyword parmname">watchlist_id</span></td>
+
+            <td class="entry" valign="top" width="57.14285714285714%" headers="d60122e50 ">名前を変更する監視リストのID。 これは有効なUIIDである必要があり、ユーザーのアカウントの下に存在している必要があります。 ユーザーの名前を変更することはできません <span class="keyword parmname">デフォルト</span>
+                ウォッチリスト</td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d60122e53 ">UUIDv4または文字列</td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d60122e56 ">はい（URL）</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d60122e47 "><span class="keyword parmname">account_token</span></td>
+
+            <td class="entry" valign="top" width="57.14285714285714%" headers="d60122e50 ">特定のエンドユーザに関連付けられているウォッチリストを参照するためにウォッチリストサービスによって使用されます（UUIDによって識別されます）。 詳しくは、
+                  <a class="xref" href="account_token_api.html" title="eコマースやウォッチリストなどの特定のOoyalaサービスへのアクセスは、Ooyalaアカウントトークンを使用して制御されます。 OoyalaアカウントトークンAPIは、ユーザーを認証するためのアカウントトークンを生成します。 これらのAPIを呼び出すとき、クライアントは認証用のアカウントトークンを提供する必要があります。 アプリケーションがユーザーにログインすると、OoyalaアカウントトークンAPIルートを呼び出してアカウントトークンを取得します。 アカウントトークンは特定の期間、デフォルトでは15分有効です。">OoyalaアカウントトークンAPI</a>.</td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d60122e53 ">文字列</td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d60122e56 ">はい（URL）</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d60122e47 "><span class="keyword parmname">名</span></td>
+
+            <td class="entry" valign="top" width="57.14285714285714%" headers="d60122e50 ">ウォッチリストの新しい名前。 指定できません &quot;<span class="keyword parmname">デフォルト</span>名前比較では大文字と小文字が区別されます。たとえば、 &quot;MY_WATCHLIST&quot;を &quot;my_watchlist&quot;に変更するとうまくいきます。</td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d60122e53 ">文字列</td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d60122e56 ">はい（ボディ）</td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+</div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">リターンコード</h2>
+    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+        
+        
+        
+        <thead class="thead" align="left">
+          <tr class="row">
+            <th class="entry" valign="top" width=".5" id="d60122e166">コード</th>
+
+            <th class="entry" valign="top" width="NaN%" id="d60122e169">理由</th>
+
+            <th class="entry" valign="top" width="NaN%" id="d60122e172">説明</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody class="tbody">
+          <tr class="row">
+            <td class="entry" valign="top" width=".5" headers="d60122e166 "><span class="keyword parmname">200</span></td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d60122e169 ">OK</td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d60122e172 ">PUT要求は成功しました。 監視リストは正常に更新されました。</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width=".5" headers="d60122e166 "><span class="keyword parmname">400</span></td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d60122e169 ">リクエストエラー</td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d60122e172 ">次の問題が原因で失敗しました。 <ul class="ul">
+                  <li class="li">パラメーターが欠落しているかフォーマットが正しくありません。</li>
+
+                  <li class="li">指定された <span class="keyword parmname">watchlist_id</span> このユーザーのデフォルトのウォッチリストです。</li>
+
+                  <li class="li">指定されたウォッチリスト <span class="keyword parmname">名</span>  is
+                      
+                      <span class="keyword parmname">&quot;デフォルト&quot;</span> （またはその単語の任意のケースのバリエーション）。</li>
+
+                  <li class="li">指定されたウォッチリスト <span class="keyword parmname">名</span> このユーザーには既に存在します。</li>
+
+                </ul>
+</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width=".5" headers="d60122e166 "><span class="keyword parmname">401</span></td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d60122e169 ">無断</td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d60122e172 ">指定された <span class="keyword parmname">account_token</span> 無効です。</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width=".5" headers="d60122e166 "><span class="keyword parmname">404</span></td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d60122e169 ">見つかりませんでした</td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d60122e172 ">サーバーが停止しています。</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width=".5" headers="d60122e166 "><span class="keyword parmname">500</span></td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d60122e169 ">内部サーバーエラー</td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d60122e172 ">内部サーバーエラーが発生しました。</td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+</div>
+
+  </div>
+
+   <div class="section"><h2 class="title sectiontitle">例</h2>
+      
+      <strong class="ph b">登録リクエスト</strong>
+      <pre class="pre codeblock">[PUT]/watchlist/v3/d074b535-253d-4f6a-82a1-1be382g7c181?account_token=NnMvb01DWWRMWmJXdTRRRUJCQmwvWjE4WVQvUytpSittY2h0azlmWWZPVVlUc25MOGxPNzZJV2ttMzk0TG4ydlkvbFZrZTI4VkNIYUJiU0owTGFadlFxenM3YU5mS2VrYXRjSVhpWDBXUS84S2VDQ0dUNmJYTmhEY2VNSkZ1dmc=
+{	
+    "name" : "latest action movies"
+}</pre>
+
+      <strong class="ph b">レスポンス</strong> （成功）<pre class="pre codeblock">OK（200）</pre>
+
+    </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/cd_watchlist_api.html">ウォッチリストREST APIリファレンス</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

@@ -1,0 +1,141 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Monetizing Your Ooyala Content with DFP"/>
+<meta name="abstract" content="You can synch your Ooyala-hosted content with DoubleClick for Publishers (DFP) via either the Backlot API or an MRSS feed so you can monetize it with Google IMA."/>
+<meta name="description" content="Backoy APIまたはMRSSフィードを介して、OoyalaでホストされているコンテンツをDoubleClick for Publishers（DFP）と同期させることで、Google IMAで収益化することができます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_monetization.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_monetization.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="monetization_dfp"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>DFPでOoyalaコンテンツを収益化する</title>
+</head>
+<body id="monetization_dfp">
+
+
+ <h1 class="title topictitle1">DFPでOoyalaコンテンツを収益化する</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">Ooyalaでホストされているコンテンツは、Backlot APIまたはMRSSフィードを介してDoubleClick for Publishers（DFP）と同期させることができるので、Google IMAで収益化することができます。</p>
+
+  <p class="gt-block p">DoubleClick for Publishersを設定できます（<a class="xref" href="https://www.google.com/intl/en_US/dfp/info/welcome.html" target="_blank">Google DFP</a>）Ooyalaでホストされているコンテンツを転送するアカウントなので、Google IMA V3を使用してそのコンテンツを収益化できます。 </p>
+
+  <p class="p">ここで説明するすべての作業（必要に応じて広告ルールの設定を除く。下記参照）はDFP自体で行われ、Backlot APIまたはMRSSフィードのいずれかを介して新しいデータソースを定義する必要があります。</p>
+
+  <div class="section" id="monetization_dfp__dfp_prerequisites"><h2 class="title sectiontitle">前提条件とあなたの決定</h2>
+   
+   <p class="p">以下が必要です。</p>
+
+   <ul class="ul">
+    <li class="li">Googleの要求に応じて、作業中のDFPアカウント。</li>
+
+    <li class="li">Backlot APIを介してシンジケートする場合は、Backlot APIキーとシークレットをDFPで設定するのに便利です。 詳細については、 <a class="xref" href="api_keys.html" title="Ooyala APIの認証情報には、APIキーとシークレットが含まれています。これらは、HTTPリクエストに署名するため、およびスクラッチパッドを使用するときに提供するものです。">あなたのAPIクレデンシャル</a>.</li>
+
+
+   </ul>
+
+   <p class="p">どちらのアプローチが必要かを決めます。キーとシークレットを使用してBacklot APIを介してコンテンツを取得するか、MRSSを使用します。 決定したら、以下で説明されている目的のオプションに適した手順に従います。</p>
+
+  </div>
+
+  <div class="section" id="monetization_dfp__setup_dfp"><h2 class="title sectiontitle">DFPで新しいソースを作成する</h2>
+       コンテンツを転送するには、DFPで新しいソースを定義する必要があります。 DFPの場合 <ol class="ol">
+        <li class="li">ストリーミングを停止する場合は上部の <span class="ph uicontrol">動画</span> タブ、[選択] <span class="ph uicontrol">情報源</span>.  </li>
+
+        <li class="li">あなたの後 <span class="ph uicontrol">コンテンツソース</span> 現れる、クリックする <span class="ph uicontrol">新しい情報源</span>.</li>
+
+        <li class="li">必須フィールドに入力して、ソースを選択します <span class="ph uicontrol">タイプ</span>。 MRSSの場合は、MRSSタイプを選択します。 Backlot APIを介してコンテンツを取得したい場合は、Ooyalaタイプを選択してください。</li>
+
+      </ol>
+
+    </div>
+
+   <div class="section"><h2 class="title sectiontitle">広告ルール</h2>
+     
+     <div class="note note"><span class="notetitle">注意：</span>  キューポイントは、Google IMA V3ではサポートされなくなりました。 これで、DFPアカウントに作成された広告ルールを通じて広告掲載順位を設定できます。 </div>
+
+     <p class="gt-block p">広告ルールは、広告が挿入される時期、掲載期間、掲載される広告、および広告ソースを定義します。 さまざまなプラットフォームやブラウザでどの広告ルールの広告位置がサポートされているかを説明する行列については、 <a class="xref" href="../concepts/ads_dev_chapter_googleima.html">プレーヤV3 Google IMA広告統合</a>.</p>
+
+     <div class="note note"><span class="notetitle">注意：</span> Google IMAのAdRules機能は、追加コードなしでアドブレークをサポートします。 他の種類の広告にAdRulesを使用しないでください。 予期しない動作を引き起こす可能性があるため、他のadTagUrlとAdRule adTagを混在させることはお勧めできません。 たとえば、Backlotで設定されたミッドロール広告の掲載位置と一緒にAdRule adTagを使用することはお勧めできません。</div>
+
+     <p class="p">広告の広告ルールを有効にするには：</p>
+
+     <ol class="ol">
+          <li class="li">DFPで広告ルールを指定してください。 DFP広告ルールの実装については、にアクセスしてください。
+              <a class="xref" href="https://support.google.com/dfp_premium/answer/2553686?hl=en" target="_blank">https://support.google.com/dfp_premium/answer/2553686?hl=en</a>.</li>
+
+          <li class="li">DFP広告ルールがBacklot UIでGoogle IMA V3広告に正しく表示されるようにするには、[]をクリックします。 <span class="ph menucascade"><span class="ph uicontrol">マネー</span> &gt; <span class="ph uicontrol"> </span> &gt; <span class="ph uicontrol">広告セット</span></span>そして、希望の広告の広告位置を「広告ルール」に設定します。 Backlot UIのGoogle IMA V3広告の詳細については、をご覧ください。 <a class="xref" href="../reference/adset_fields_google.html" title="ここで説明しているフィールドは、広告ソースがGoogle IMA V3に設定されているBacklot広告セット用です。">Google IMA V3の広告セットフィールド</a>.  <p class="p">OR</p>
+<div class="p">DFP広告ルールがBacklot APIを使用してGoogle IMA V3広告に正しく表示されるようにするには、 &quot;<span class="keyword parmname">ad_type</span>&quot;：&quot;<samp class="ph codeph">ルール</samp>&quot;目的の広告の場合。詳細については <a class="xref" href="../api/ad_sets.html#ad_sets__ad_type">広告セット</a>.
+                
+                <div class="note note"><span class="notetitle">注意：</span> 広告タグのURLを使用してページレベルで設定を適用すると、Backlotの設定が上書きされます。 ただし、広告と広告ルールを正しく表示するには、掲載順位の種類（広告ルールまたは非広告ルール）がページレベルとBacklotで一致している必要があります。</div>
+</div>
+</li>
+
+        </ol>
+
+   </div>
+
+  <div class="section"><h2 class="title sectiontitle">Backlot APIを介した同期</h2>
+      
+      <p class="p">DFPはこのメタデータキーを読み取り、それを自分のCMS上のキューポイントオブジェクトに関連付けます。
+      </p>
+ DFPでBacklot APIを介してコンテンツを配信するには、次の手順を実行します。 <ol class="ol" id="monetization_dfp__ol_nmb_xdh_fn">
+        <li class="li">ソースから、を選択します。 <span class="ph uicontrol">Ooyala</span>.</li>
+
+        <li class="li">表示された入力フィールドに、APIキーと秘密を入力します。</li>
+
+      </ol>
+
+    DFPは各アセットのタイトル、デュレーション、およびカスタムメタデータをソースから取得します。 
+    <div class="fig fignone"><img class="image" src="http://help-ooyala.brightcove.com/../image/dfp_ooyala.png" height="127" width="216" alt="DFP"/></div>
+</div>
+
+  <div class="section"><h2 class="title sectiontitle">MRSSフィードで同期</h2>
+       DFPのソース定義でMRSSを介してコンテンツを配信するには、次の手順を実行します。 <ol class="ol">
+        <li class="li">ために <span class="ph uicontrol">タイプ</span>、MRSSフィードを選択します。</li>
+
+        <li class="li"><p class="gt-block p">MRSSフィードを指すURLに、取り込みたいコンテンツを設定します。 必要なMRSS要素の詳細については、 <a class="xref" href="https://support.google.com/dfp_premium/answer/2475956?ref_topic=2475994" target="_blank">https://support.google.com/dfp_premium/answer/2475956?ref_topic=2475994</a>.</p>
+
+          <div class="fig fignone"><img class="image" src="http://help-ooyala.brightcove.com/../image/dfp2.png" height="127" width="216" alt="DFP"/></div>
+</li>
+
+      </ol>
+</div>
+
+  <div class="section"><h2 class="title sectiontitle">同期を開始する</h2>
+   新しいソースを設定したら、をクリックします。
+    <span class="ph uicontrol">SNS</span>DFPがあなたのコンテンツを引っ張り始めます。 </div>
+
+   <div class="section"><h2 class="title sectiontitle">メタデータターゲティング</h2>
+     
+     <p class="p">メタデータターゲティングの詳細については、Google DFPの開発者向けドキュメントを参照してください。</p>
+
+     <ul class="ul">
+       <li class="li"><a class="xref" href="https://support.google.com/dfp_premium/answer/1241072?hl=en" target="_blank">コンテンツターゲティングの概要</a></li>
+
+       <li class="li"><a class="xref" href="https://support.google.com/dfp_premium/answer/4546161?hl=en" target="_blank">コンテンツメタデータを管理する</a></li>
+
+     </ul>
+
+   </div>
+
+  
+ </div>
+
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_monetization.html" title="Ooyalaを使用すると、広告やペイウォールを通じてコン​​テンツを収益化できます。">収益化</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolu

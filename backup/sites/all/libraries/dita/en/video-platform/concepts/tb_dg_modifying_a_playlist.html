@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Modifying a Playlist"/>
+<meta name="abstract" content="You can modify the parameters of any playlist."/>
+<meta name="description" content="You can modify the parameters of any playlist."/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/tb_dg_playlist_concept.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="dg_modifying_a_playlist"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../css/ooyala.css"/>
+<title>Modifying a Playlist</title>
+</head>
+<body id="dg_modifying_a_playlist">
+
+
+    <h1 class="title topictitle1">Modifying a Playlist</h1>
+
+    
+    <div class="body conbody"><p class="shortdesc">You can modify the parameters of any playlist.</p>
+
+        <div class="section">
+            <p class="p">To modify a playlist:</p>
+
+            <p class="p">1. Perform a <samp class="ph codeph">GET</samp> on the <samp class="ph codeph">playlists</samp> playlists route
+                to view the existing playlist. This example retrieves a playlist from the
+                    <samp class="ph codeph">playlist_id</samp>.</p>
+
+            <pre class="pre codeblock">[GET]/v2/playlists/625622dfd22c47e9b7dcd0e8d1843638</pre>
+
+            <p class="p">Backlot returns a response similar to the following:</p>
+
+            <pre class="pre codeblock">{  
+   "sort_by":"custom",
+   "limit":null,
+   "type":"movie",
+   "id":"625622dfd22c47e9b7dcd0e8d1843638",
+   "items":[  
+
+   ],
+   "created_at":"2013-07-10T18:24:32Z",
+   "name":"New Movie Playlist",
+   "updated_at":"2013-07-10T18:35:17Z",
+   "provider_id":"61670"
+}</pre>
+
+            <div class="note note"><span class="notetitle">Note:</span> 
+            <p class="p">Try out the code samples using your account credentials in the Ooyala Scratchpad. For information about using the Scratchpad, see <a class="xref" href="api_scratchpad.html" title="You can make practice requests on the scratchpad.">Practice Making Requests with the Scratchpad</a>. To launch the scratchpad, go to <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad">API Scratchpad</a></span>.</p>
+
+        </div>
+
+            <p class="p">2. Use <samp class="ph codeph">PATCH</samp> with the <samp class="ph codeph">playlists</samp> route to update the
+                playlist's existing parameters. The following example modifies the playlist title. </p>
+
+            <pre class="pre codeblock">[PATCH]v2/playlists/625622dfd22c47e9b7dcd0e8d1843638{
+   "name": "Modified New Movie Playlist"
+}</pre>
+
+            <p class="p">Backlot returns a response similar to the following:</p>
+
+            <pre class="pre codeblock">{  
+   "sort_by":"custom",
+   "limit":null,
+   "type":"movie",
+   "id":"625622dfd22c47e9b7dcd0e8d1843638",
+   "items":[  
+
+   ],
+   "created_at":"2013-07-10T18:24:32Z",
+   "name":"Modified New Movie Playlist",
+   "updated_at":"2013-07-10T18:35:17Z",
+   "provider_id":"61670"
+}</pre>
+
+            <div class="note note"><span class="notetitle">Note:</span> 
+            <p class="p">Try out the code samples using your account credentials in the Ooyala Scratchpad. For information about using the Scratchpad, see <a class="xref" href="api_scratchpad.html" title="You can make practice requests on the scratchpad.">Practice Making Requests with the Scratchpad</a>. To launch the scratchpad, go to <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad">API Scratchpad</a></span>.</p>
+
+        </div>
+
+            <p class="p">3. To add or remove parameters, use the <samp class="ph codeph">PUT</samp> command as detailed in <a class="xref" href="tb_dg_replacing_a_playlist.html#dg_replacing_a_playlist__putReference">Replacing a Playlist</a>.</p>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../concepts/tb_dg_playlist_concept.html" title="Playlists are ordered groupings of video content.">Playlists</a></div>
+</div>
+</div>
+
+</body>
+</html>

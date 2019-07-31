@@ -1,0 +1,82 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Deprecated: Upload Widget API v1 Reference (Deprecated)"/>
+<meta name="abstract" content="The v1 upload widget is based on the v1 API and is therefor deprecated. Instead, use the Uploader JavaScript Libarary."/>
+<meta name="description" content="v1アップロードウィジェットはv1 APIに基づいているため、非推奨です。 代わりに、Uploader JavaScript Libararyを使用してください。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_archive.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/widget_option.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/widget_add_labels.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/widget_signature_generation.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/widget_events.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/widget_functions.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/widget_embedding.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/widget_ping.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/widget_example.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="api_upload_widget"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>非推奨：アップロードウィジェットAPI v1リファレンス（非推奨）</title>
+</head>
+<body id="api_upload_widget">
+
+
+ <h1 class="title topictitle1">非推奨：アップロードウィジェットAPI v1リファレンス（非推奨）</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">v1アップロードウィジェットはv1 APIに基づいているため、非推奨です。 代わりに、Uploader JavaScript Libararyを使用してください。 </p>
+
+  <div class="section">
+   <div class="note note"><span class="notetitle">注意：</span> このバージョンのアップローダウィジェットは推奨されていないテクノロジに基づいているため、使用しないでください。 代わりに、 <a class="xref" href="api_uploader_javascript_library.html#api_uploader_javascript_library" title="Uploader JavaScript Libraryには、参照サーバーの実装が含まれています。">アップローダJavaScriptライブラリ（廃止予定）</a>.</div>
+
+   <p class="p">このウィジェットはWebサイトにシームレスに埋め込むことができ、高度な柔軟性、カスタマイズ、およびセキュリティを提供します。 Ooyalaは、アップロードの処理が完了したときに指定したURLにGETリクエストを送信して、新しいアップロードについて警告することができます。 HTMLページ、メソッド呼び出し、およびパラメータ名では、キーワードooyalaUploaderは予約されています。
+   </p>
+
+   <div class="note note"><span class="notetitle">注意：</span> OSX Leopardユーザーは、アップロードウィジェットを使用するにはFlash 9 r115以上にアップグレードする必要があります。 <a class="xref" href="http://weblogs.macromedia.com/emmy/archives/2007/10/adobe_products.cfm" target="_blank">http://weblogs.macromedia.com/emmy/archives/2007/10/adobe_products.cfm</a>.</div>
+
+   
+
+<p class="p">アップロードウィジェットを使用すると、Ooyala Backlotパートナーは自分のOoyala Backlotアカウントへのユーザーアップロードを受け入れることができます。 このウィジェットはWebサイトにシームレスに埋め込むことができ、高度な柔軟性、カスタマイズ、およびセキュリティを提供します。 Ooyalaは、アップロードの処理が完了したときに指定したURLにGETリクエストを送信して、新しいアップロードについて警告することができます。 HTMLページ、メソッド呼び出し、およびパラメータ名では、キーワード <samp class="ph codeph">ooyalaUploader</samp> 予約済みです。 </p>
+
+   
+  </div>
+
+    
+ </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../archive/widget_option.html">ウィジェットオプションリファレンスのアップロード（廃止予定）</a></strong><br/>
+アップロードウィジェットには、必須パラメータとオプションパラメータが混在しています。 </li>
+<li class="link ulchildlink"><strong><a href="../archive/widget_add_labels.html">ラベルを追加する（廃止予定）</a></strong><br/>
+ユーザーがアップロードした動画を安全に整理するために、静的動画を宣言できます。 <samp class="ph codeph">ラベル</samp> または正規表現 <samp class="ph codeph">ダイナミック</samp> パラメータ。 </li>
+<li class="link ulchildlink"><strong><a href="../archive/widget_signature_generation.html">署名生成（廃止予定）</a></strong><br/>
+ユーザーがアップロードした動画を安全に整理するために、静的動画を宣言できます。 <samp class="ph codeph">ラベル</samp> または正規表現 <samp class="ph codeph">ダイナミック</samp> パラメータ。 </li>
+<li class="link ulchildlink"><strong><a href="../archive/widget_events.html">ウィジェットイベント（非推奨）</a></strong><br/>
+ユーザーがアップロードした動画を安全に整理するために、静的動画を宣言できます。 <samp class="ph codeph">ラベル</samp> または正規表現 <samp class="ph codeph">ダイナミック</samp> パラメータ。 </li>
+<li class="link ulchildlink"><strong><a href="../archive/widget_functions.html">ウィジェット機能（廃止予定）</a></strong><br/>
+このセクションでは、ウィジェットのアップロード機能をリストします。 </li>
+<li class="link ulchildlink"><strong><a href="../archive/widget_embedding.html">Ooyalaアップロードウィジェットの埋め込み（廃止予定）</a></strong><br/>
+ウィジェットを埋め込むには、Webページの本文にコードスニペットを含める必要があります。 </li>
+<li class="link ulchildlink"><strong><a href="../archive/widget_ping.html">アップロード完了pingのURL（廃止予定）</a></strong><br/>
+あなたが完了ping URLを設定した場合、Ooyalaはあなたのビデオがあなたのアカウントにアップロードされるとあなたに通知します。 </li>
+<li class="link ulchildlink"><strong><a href="../archive/widget_example.html">アップロードAPIの例（廃止予定）</a></strong><br/>
+この節ではPHPの簡単な例を紹介します。 </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_archive.html" title="Ooyala Archiveへようこそ。ここには、廃止予定の機能、ツール、およびAPIのドキュメントが含まれています。">アーカイブ</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

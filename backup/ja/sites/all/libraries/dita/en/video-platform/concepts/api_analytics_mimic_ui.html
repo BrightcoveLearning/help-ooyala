@@ -1,0 +1,80 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Getting the Data Underneath the Analytics Displays (Deprecated)"/>
+<meta name="abstract" content="The Backlot UI displays your analytics data in graphs and charts."/>
+<meta name="description" content="The Backlot UI displays your analytics data in graphs and charts."/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_analytics.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="api_custom_analytics"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Analyticsディスプレイの下にデータを取得する（廃止予定）</title>
+</head>
+<body id="api_custom_analytics">
+
+
+ <h1 class="title topictitle1">Analyticsディスプレイの下にデータを取得する（廃止予定） </h1>
+
+ 
+ <div class="body conbody"><p class="gt-block shortdesc">  <span class="ph">バックスロットUI</span> 分析データをグラフやチャートで表示します。</p>
+
+        <div class="p">
+            <div class="note warning"><span class="warningtitle">警告：</span> v2 Analytics APIは非推奨になりました。 見る <a class="xref" href="ooyala_iq_developer_guide.html">ウーヤラIQアナリティクス</a> 新しいv3 Analytics APIの詳細については、</div>
+
+        </div>
+
+     <p class="gt-block p">ここにいくつかの分析データのさまざまなグラフィック表示 <span class="ph uicontrol">ANALYZE</span> ページ上 <span class="ph">バックスロットUI</span> 統計グラフィックの基礎となるデータを返すAPIリクエストと照合されます。</p>
+
+     <div class="section"><h2 class="title sectiontitle">パフォーマンス：国別</h2>
+         
+    
+     <div class="p">In  <span class="ph">バックスロットUI</span> あなたはあなたの資産のパフォーマンスのいくつかの異なるビューをすることができます。 たとえば、左側の選択リストでは、次に示すように国別のパフォーマンスを表示できます。<div class="fig fignone">
+                    <img class="image" id="api_custom_analytics__image_bkz_gnf_f3" src="http://help-ooyala.brightcove.com/../image/backlotui_analytics_pulldown.png" height="230" width="168"/>
+                </div>
+</div>
+
+         <p class="p"><img class="image" id="api_custom_analytics__image_ey3_lnf_f3" src="http://help-ooyala.brightcove.com/../image/backlotui_analytics_bycountry.png" height="122" width="216"/></p>
+
+         
+         <p class="p">すべての動画についてこの表示の基礎となるデータを取得するための呼び出し。</p>
+
+         <pre class="pre codeblock">[GET]/v2/analytics/reports/account/performance/countries/2012-01-01...2012-11-11</pre>
+
+     </div>
+
+     <div class="section"><h2 class="title sectiontitle">日付による株式</h2>
+         
+         <div class="p"> 同様に、タイムラインビューを見ると、「共有」（ソーシャルネットワークでの動画の投稿または共有）の傾向を見ることができます。 以下のデータは1日を表しています。<div class="fig fignone">
+                    <img class="image" id="api_custom_analytics__image_qbj_t4f_f3" src="http://help-ooyala.brightcove.com/../image/backlotui_analytics_byshares.png" height="57" width="453"/>
+                </div>
+</div>
+
+         
+     </div>
+
+        <div class="section">
+            <p class="p">1年中この表示の基礎となるデータを取得するための呼び出し。</p>
+
+            <pre class="pre codeblock">[GET]/v2/analytics/reports/account/sharing/videos/2012-01-01...2012-12-31</pre>
+
+        </div>
+
+ </div>
+
+
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_analytics.html" title="Ooyalaには、v2 Analytics APIを使用してデータを取得するという基本的な分析機能がありました。">v2 Analytics（非推奨）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/3661864

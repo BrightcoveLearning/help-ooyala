@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Google IMA View (Deprecated)"/>
+<meta name="abstract" content="You can use the following code sample to work with Google IMA ad manager."/>
+<meta name="description" content="You can use the following code sample to work with Google IMA ad manager."/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/xmp_securexdr_views.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_v3_dev_intro"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../css/ooyala.css"/>
+<title>Google IMA View (Deprecated)</title>
+</head>
+<body id="player_v3_dev_intro">
+
+
+  <h1 class="title topictitle1">Google IMA View (Deprecated)</h1>
+
+  
+  <div class="body conbody"><p class="shortdesc">You can use the following code sample to work with Google IMA ad manager.</p>
+
+    <div class="section"><div class="note note"><span class="notetitle">Note:</span> Ooyala Player V3 has been deprecated and is scheduled to be
+    disabled. For details and alternatives, see the <a class="xref" href="../relnotes/2017-06-04.html">OVP
+     Release Notes</a>.</div>
+
+      <p class="p">The code sample includes multiple client web pages or views illustrating each feature and a
+        seventh code sample that shows all the features working in combination. To implement each
+        client page, you will need all the standard elements that you normally use such as your API
+        Key, pcode, and so forth. </p>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Where to Find the Code</h2> To explore this code sample view in GitHub, go to
+        <a class="xref" href="https://github.com/ooyala/code-samples/blob/master/application/views/Secure_XDR_GoogleIMA/google_ima.php" target="_blank">https://github.com/ooyala/code-samples/blob/master/application/views/Secure_XDR_GoogleIMA/google_ima.php</a>.<p class="p">The following section describes the
+        implementation of each of the Google IMA client-side view.</p>
+</div>
+
+    <div class="section"><h2 class="title sectiontitle">How the Google IMA Sample Works</h2>To examine how Google IMA works in this
+      code sample, you need to look at the following files:<ul class="ul" id="player_v3_dev_intro__ul_htp_gzk_nm">
+        <li class="li"><samp class="ph codeph">application/config/ooyala_config (default_embed_code, default_player_id,
+            google_ima_ad_tag)</samp></li>
+
+        <li class="li"><samp class="ph codeph">application/views('google_ima')</samp></li>
+
+      </ul>
+ In this Google IMA sample, we use the following Player V3 APIs and parameters.<ul class="ul" id="player_v3_dev_intro__ul_dqh_jxf_jm">
+        <li class="li"><span class="keyword apiname">OO.Player.create()</span> - In the sample, you should note that
+            <samp class="ph codeph">OO.Player.create</samp> is used with the google ad tag.</li>
+
+        <li class="li"><span class="keyword apiname">google-ima-ads-manager</span> - The google-ima-ads manager parameter is set
+          in the hash of the <samp class="ph codeph">OO.Player.create</samp> function. It takes an adTagUrl as
+          part of a key value pair. In this sample, we pass the response from the PHP server
+          containing the ad server URL.</li>
+
+        <li class="li"><span class="keyword apiname">mb.subscribe</span> - This function is used to subscribe to events and pass
+          them to the console log.</li>
+
+      </ul>
+<p class="p"> Before you start working with the Ooyala Google IMA sample: </p>
+<div class="p">
+        <ol class="ol" id="player_v3_dev_intro__docs-internal-guid--76eb343-7da4-b4df-4c18-02827caf61be">
+          <li class="li">You need to know what Google IMA does and how it works. For more information, see
+              <a class="xref" href="../reference/player_v3_dev_adsparams.html" title="Customize ads using embedded parameters.">“Ads Embedded Parameters.”</a></li>
+
+          <li class="li">If you have an asset and want Google IMA, you must remember that Google IMA must be
+            set on a per player basis.</li>
+
+          <li class="li">Associate your Google IMA ads with your video assets in Ooyala Backlot.  For more
+            information, see <a class="xref" href="../tasks/monetization_ads_adsets_adnetworks_wrapper.html#task_wlz_nm4_zh" title="This material includes how to create ad sets in Backlot and how to integrate with ad sources.">“Working with Your Own Ad Assets, Ad Sets, and Ad Sources.”</a></li>
+
+          <li class="li">Set up the Google IMA ad tags. You can also do this within Backlot. For more
+            information, see <a class="xref" href="../tasks/monetization_ads_adsets_adnetworks_wrapper.html" title="This material includes how to create ad sets in Backlot and how to integrate with ad sources.">“Working with Your Own Ad Assets, Ad Sets, and Ad Sources,”</a>
+              “<a class="xref" href="../tasks/monetization_ads_adsets_integratingadnetworks.html" title="Instead of using your own assets, you can work with other ad sources.">Creating Ad Sets for Integration with Ad Sources,”</a> and “<a class="xref" href="../reference/adset_fields_google.html" title="The fields described here are for Backlot ad sets with ad source set to Google IMA V3.">Ad Set Fields for
+              Google.</a>”</li>
+
+        </ol>
+
+      </div>
+</div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../concepts/xmp_securexdr_views.html" title="The client views provide sample code to implement a feature or features on a web page.">Client Views (Deprecated)</a></div>
+</div>
+</div>
+
+</body>
+</html>

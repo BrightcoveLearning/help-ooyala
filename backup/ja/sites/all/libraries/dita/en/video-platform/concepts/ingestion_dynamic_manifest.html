@@ -1,0 +1,94 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Dynamic Manifests"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ingestion_ois.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ingestion_ois.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="ingestion_ftp"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>動的マニフェスト</title>
+</head>
+<body id="ingestion_ftp">
+
+
+ <h1 class="title topictitle1">動的マニフェスト</h1>
+
+ <div class="body conbody">
+  <div class="section">Microsoft Azure Media Servicesを使用してアップロードされたアセットを保存している場合は、事前定義済みのフィルタを使用して、トランスコーディング用のカスタマイズされた動的なマニフェストを生成できます。 フィルタは、特定のデバイスで最高の視聴体験を提供するためにオーディオとビデオのレンディションのサブセットを指定するために最も一般的に使用されるサーバー側のルールです。 たとえば、アセットのトランスコード時にHDとSDのレンディションのみが作成されるように要求するようにフィルタを設定できます。
+   <p class="gt-block p">動的マニフェストは、視聴者が、フィルタが関連付けられているビデオのストリーミングを要求したときに作成されます。 これは他の種類のOoyalaマニフェストファイルと比較されます。これらのファイルはアセットと一緒にアップロードされ、すべての表示要求に対して同じままです（「 <a class="xref" href="../tasks/ingestion_ftp_csv.html" title="動画を取り込むときは、CSVマニフェストファイルを使用して、追加のメタデータ（動画のタイトル、説明、フライト時間、ラベル、カスタムメタデータなど）、およびサムネイルやクローズドキャプションファイルを指定できます。 FTPまたはAsperaでコンテンツを取り込むときは、CSVマニフェストファイルを使用できます。">CSVマニフェストファイル</a>  or  <a class="xref" href="../tasks/ingestion_ftp_xml.html" title="動画を取り込むときは、XMLマニフェストファイルを使用して、サムネイルおよびクローズドキャプションファイルだけでなく、追加のメタデータ（動画のタイトル、説明、掲載時間、ラベル、カスタムメタデータなど）を指定できます。 FTP、Aspera、またはMRSSでコンテンツを取り込むときにXMLマニフェストファイルを使用できます。">XMLマニフェストファイル</a>） アセットは、静的マニフェストファイルと動的マニフェストフィルタの両方を持つことができます。</p>
+<p class="p">
+    動的マニフェストは、アセットのデフォルトのマニフェストファイルで定義できるものよりも柔軟性が必要な場合に役立ちます。 動的マニフェストを使用すると、次のことができます。</p>
+<ul class="ul">
+   <li class="li">さまざまな種類のデバイスで顧客の視聴体験を適切に制御</li>
+
+   <li class="li">CDNの使用を減らす</li>
+
+  </ul>
+</div>
+
+  <div class="section"><h2 class="title sectiontitle">動的目録の設定</h2>
+   
+   <p class="p">動的マニフェストを有効にするには、Ooyalaのサポート担当者に連絡して必要なフィルタ条件を指定してください。 Ooyalaチームはあなたのアカウント用にフィルタを設定し、あなたにフィルタの名前を送ります。</p>
+<p class="p">    
+    以下の点から、希望する出力を指定できます。</p>
+<ul class="ul">
+     <li class="li">ビットレート（シングルビットレートまたはビットレートの範囲）</li>
+
+      <li class="li">オーディオストリーム専用のビットレート</li>
+
+      <li class="li">ビデオストリーム専用のビットレート</li>
+
+    </ul>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">フィルタの使用</h2>
+   
+   <p class="p">フィルタを有効にするには、Ooyala PlayerをWebページに埋め込むとき、またはiOS SDKまたはAndroid SDKを呼び出してモバイルアプリでビデオを表示するときにフィルタ名を含めます。</p>
+
+   <p class="gt-block p"><strong class="ph b">例：Webプレーヤー</strong></p>
+
+   <pre class="pre codeblock">var playerParam = {&quot;dynamicFilters&quot;： &quot;filterA、filterB、filterC&quot;}; OO.Player.Create（DIV、embed_code、playerParam）;</pre>
+
+   <p class="gt-block p"><strong class="ph b">例：Android SDK</strong></p>
+
+   <pre class="pre codeblock">List &lt;String&gt; dynamicFilters = Arrays.asList（ &quot;filterA&quot;、 &quot;filterB&quot;、 &quot;filterC&quot;）; Options options = new Options.Builder（）。setDynamicFilters（dynamicFilters）.build（）; player = new OoyalaPlayer（pcode、新しいPlayerDomain（ドメイン）、null、options）;</pre>
+
+   <p class="gt-block p"><strong class="ph b">例：Swift付きiOS SDK</strong></p>
+
+   <pre class="pre codeblock">オプションをさせてください：OOOptions = OOOptions（）！ options.dynamicFilters = [&quot;filterA&quot;、 &quot;filterB&quot;、 &quot;filterC&quot;、 &quot;filterD&quot;] player = OOOoyalaPlayer（pcode：pcode、domain：ドメイン、embedTokenGenerator：nil、options：options）！ </pre>
+ 
+   <p class="gt-block p"><strong class="ph b">例：Objective-C付きiOS SDK</strong></p>
+
+   <pre class="pre codeblock">OOOptions * options = [OOOptions new]; options.dynamicFilters = [[NSArray alloc] initWithObjects：@ &quot;filterA&quot;、@ &quot;filterB&quot;、@ &quot;filterC&quot;、nil]; OOOoyalaPlayer * ooyalaPlayer = [[OOOoyalaPlayer alloc] initWithPcode：self.pcodeドメイン：[[OOPlayerDomain alloc] initWithString：self.playerDomain] options：options];</pre>
+ 
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">制限事項</h2>
+   
+   1つの資産に複数のフィルターを含めることができます。資産ごとに最大3つ（3）のフィルターを含めることができます。</div>
+
+  <div class="section"><h2 class="title sectiontitle">エラー処理</h2>
+   
+  embedパラメータまたはSDK呼び出しのフィルタ名が定義済みのフィルタと一致しない場合（たとえば、コードに誤字がある場合など）、フィルタは適用されず、ビデオは通常、フィルタが要求されていない場合と同様にトランスコードします。</div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/ingestion_ois.html">ウーヤラ摂取サービス（OIS）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

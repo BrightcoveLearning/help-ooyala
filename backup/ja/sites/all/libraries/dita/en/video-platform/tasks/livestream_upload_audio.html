@@ -1,0 +1,83 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Adding a Live Audio Stream (Deprecated)"/>
+<meta name="abstract" content="In addition to streaming live video, you can also stream live audio."/>
+<meta name="description" content="ライブビデオのストリーミングに加えて、ライブオーディオのストリーミングも可能です。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/content_livestreams_audio.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_encoding.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="livestream_upload_audio"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>ライブオーディオストリームを追加する（廃止予定）</title>
+</head>
+<body id="livestream_upload_audio">
+
+
+<h1 class="title topictitle1">ライブオーディオストリームを追加する（廃止予定）</h1>
+
+
+<div class="body taskbody"><p class="shortdesc">ライブビデオのストリーミングに加えて、ライブオーディオのストリーミングも可能です。</p>
+
+ <div class="section context"><div class="note note"><span class="notetitle">注意：</span> Backlot Liveストリーミングは推奨されておらず、無効にされる予定です。 詳細と代替案については、 <a class="xref" href="../relnotes/2017-06-04.html">OVPリリースノート</a>.  </div>
+
+  <p class="p">最高品質のストリーミングを実現するには、ブロードキャスト元の場所でエンコーダのURLを指定し、すべてのライブストリームをエンコードして配信するのに十分な専用帯域幅があることを確認してください。 	</p>
+
+  <div class="note note"><span class="notetitle">注意：</span> 現在は、音声をエンコードしてURLからストリーミングする必要があります。 エンドクライアントがOoyala AudioプレーヤーであろうとVLCメディアプレーヤーであろうと、ライブオーディオストリーミング用のUIシェルを提供するだけです。 </div>
+
+  <p class="p">Backlotにライブオーディオストリームを追加するには：</p>
+
+ </div>
+
+ <ol class="ol steps"><li class="li step stepexpand">
+   <span class="ph cmd">にログインします。 <a class="xref" href="https://backlot.ooyala.com/" target="_blank">バックスロットUI</a>.</span>
+    Backlot UIが開きます。
+   
+  </li>
+<li class="li step stepexpand">
+   <span class="ph cmd">ナビゲーションヘッダーの <span class="ph uicontrol">コンテンツを追加</span> をクリックして <span class="ph uicontrol">ライブストリーム</span>.</span>
+      <span class="ph uicontrol">ライブストリームを作成する</span> ダイアログボックスが表示されます。
+  </li>
+<li class="li step stepexpand">
+   <span class="ph cmd">選択します <span class="ph uicontrol">AUDIO</span> から <span class="ph uicontrol">タイプ</span> リストボックス。</span>
+  </li>
+<li class="li step stepexpand">
+   <span class="ph cmd">ライブストリーミングURLを <span class="ph uicontrol">URL</span> フィールド（例：http://oggvorbis.tb-stream.net/technobase.ogg） </span>
+  </li>
+<li class="li step stepexpand">
+   <span class="ph cmd">ナビゲーションヘッダーの <span class="ph uicontrol">OK</span>.</span>
+    ライブストリームがに追加されます <span class="ph">バックスロット</span>.
+  
+  </li>
+<li class="li step stepexpand">
+   <span class="ph cmd">オーディオストリームを埋め込むには、 <span class="ph uicontrol">管理</span> ページを開き、新しく作成したオーディオストリームを選択してクリックします。 <span class="ph uicontrol">埋め込む</span> タブ。 次にクリック <span class="ph uicontrol">クリップボードにコピー</span> そして、ストリームを埋め込む場所に埋め込みコードを貼り付けます。</span>
+  </li>
+<li class="li step stepexpand">
+   <span class="ph cmd">新しく作成したWebページを開きます。 オーディオプレーヤーはライブオーディオストリームを再生します。</span>
+  </li>
+</ol>
+
+</div>
+
+ 
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/content_livestreams_audio.html" title="ライブオーディオストリーミングは、リアルタイムでのオーディオコンテンツの配信です。">ライブオーディオストリーム（廃止予定）</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="../concepts/chapter_encoding.html" title="マスタービデオをインターネットで直接ストリーミングすることはできません。 それらはまずストリーミング形式に変換またはトランスコードする必要があります。 Ooyalaトランスコーディングサービス（OTS）を使用して、ファイルをソース形式から出力形式に変換します。">トランスコーディング設定</a></div>
+</div>
+</div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

@@ -1,0 +1,54 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Working with AirPlay and Widevine Encrypted Assets"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_ios_integrations.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="mobile_sdk_ios_airplay_widevine"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>AirPlayとWidevineの暗号化された素材を扱う</title>
+</head>
+<body id="mobile_sdk_ios_airplay_widevine">
+
+
+    <h1 class="title topictitle1">AirPlayとWidevineの暗号化された素材を扱う</h1>
+
+    <div class="body conbody">
+        <p class="p">Ooyala SDKでは、AirPlayを有効/無効にすることができます。 最新のOoyala SDKでは、AirPlayボタンはiOS 7上のOoyala APIから有効になります。</p>
+
+        
+        <div class="p">AirPlayボタンは、他の外部再生方法と一緒に、プロパティを通じて無効/有効にすることができます（スタジオの権利順守規則が与えられている場合）。<samp class="ph codeph">allowExternalPlayback</samp>&#39;。 Widevine暗号化アセットでAirPlay機能を完全に有効にするには、クライアントSDKとWidevine DRMポリシーに次の変更を加える必要があります。 <ol class="ol">
+                <li class="li"> Widevine DRMポリシーに、アナログおよびデジタル出力を許可することを除いて、デフォルトのポリシー設定があることを確認してください。 Widevineポリシーでデジタル出力を許可すると、AirPlayを使用できるようになります。 他のWidevineポリシー設定を変更したい場合は、希望するポリシー要件についてBrightcoveテクニカルサポートにお問い合わせください。 設定可能なDRMの詳細については、
+                        <a class="xref" href="chapter_configurable_drm.html" title="デジタル著作権管理（DRM）を使用すると、視聴者がDRMポリシーを介して高価値コンテンツをどのように使用してアクセスするかを制御できます。 DRMポリシーはアカウントまたは資産レベルで設定できます。">設定可能なDRM</a>.</li>
+
+                <li class="li">OoyalaクライアントSDKも以下のパラメータで設定する必要があります。 <pre class="pre codeblock">[OOOoyalaPlayer setEncryptedLoopback：true];</pre>
+
+                    <p class="p">次に、AirPlayでWidevineを有効にします。 </p>
+
+                    <pre class="pre codeblock">[ooyalaPlayerViewController.player setEmbedCode：EMBEDCODE] </pre>
+
+                </li>
+
+            </ol>
+<div class="note note"><span class="notetitle">注意：</span> Widevine Classic DRMを使用したコンテンツは、AirPlayモードではサポートされていません。 それらを一緒に使用すると、再生の問題とエンドユーザーの視覚的な問題が発生します。 さらに、GoogleはWidevine Classic DRMを非推奨にしています。 代わりにeHLSを使用することをお勧めします。また、PlayReady HLSを使用したAirPlayも実行可能な選択肢であるかどうかを確認するためのテストを行ってください。</div>
+</div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/mobile_sdk_ios_integrations.html">iOSサードパーティ統合</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

@@ -1,0 +1,168 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2016-05-31 Release"/>
+<meta name="abstract" content="Notable contents of this release include version 4.4.8 of the Ooyala Player V4 and version 1.4.0 of Ooyala Live."/>
+<meta name="description" content="Notable contents of this release include version 4.4.8 of the Ooyala Player V4 and version 1.4.0 of Ooyala Live."/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2016.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release20160531"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2016-05-31リリース</title>
+</head>
+<body id="release20160531">
+
+
+    <h1 class="title topictitle1">2016-05-31リリース</h1>
+
+    
+    <div class="body conbody"><p class="shortdesc">このリリースの注目すべき内容には、Ooyala Player V4.4.8のバージョン4とOoyala Liveのバージョン1.4.0があります。</p>
+ 
+        <div class="section"><h2 class="title sectiontitle">プレーヤーV4リリース - バージョン4.4.8</h2>
+            
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">このリリースの新機能 </strong></p>
+
+                <ul class="ul">
+                    <li class="li">Player V4用の新しいサードパーティ分析プラグイン。 <ul class="ul">
+                            <li class="li">  <strong class="ph b">Player V4用のcomScore分析プラグイン</strong> comScoreによって開発および管理されています。 Player V4でcomScoreプラグインを使用したい場合は、プラグインを有効にして使用する方法の詳細について、Ooyalaアカウントマネージャにお問い合わせください。 4.3.3以降のすべてのバージョンのプレーヤーはcomScoreプラグインをサポートします。</li>
+
+                            <li class="li">  <strong class="ph b">Player V4用のAdobe Analytics（Omniture）分析プラグイン</strong>
+                                Ooyalaによって開発および管理されています。 4.4.8以降のすべてのバージョンのプレーヤーは、Adobe Analytics（Omniture）プラグインをサポートしています。 見る <a class="xref" href="../concepts/pbv4_analytics_omniture.html">Adobe Analytics（Omniture）プラグイン</a>
+                                詳細については。</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="li">再生コントロールとソーシャル共有のためのまったく新しいアイコンセットを含む、デフォルトのプレーヤコントロールバーのルックアンドフィールを更新しました。 </li>
+
+                    <li class="li">コンテンツ推薦のためのより直感的な発見アルゴリズムを含むOoyala発見強化。</li>
+
+                    <li class="li">Google IMAプラグインを更新しました。 <ul class="ul">
+                            <li class="li">Google IMAプラグインは新しいパラメータをサポートします。
+                                    <samp class="ph codeph">useGoogleAdUI</samp>これにより、広告にGoogleのUIを使用するかどうかを指定できます。 この機能を使用すると、Google広告のカウントダウンを使用したり、Google IMA広告の[詳細]ボタンを使用したりできます。 見る <a class="xref" href="../concepts/pbv4_configure_ads_embedded_params.html">埋め込みパラメータを使用したプレーヤV4広告設定の構成</a> 詳細については。</li>
+
+                            <li class="li">Google IMAプラグインは新しいパラメータをサポートします。
+                                    <samp class="ph codeph">vpaidMode</samp>つまり、「安全でない」VPAIDクリエイティブを使用することができます。 見る <a class="xref" href="../concepts/pbv4_configure_ads_embedded_params.html">埋め込みパラメータを使用したプレーヤV4広告設定の構成</a> 詳細については。</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="li" id="release20160531__d43355e26465">このリリースでは、iPhoneモバイルWebでPlayer V4を使用しているときに、ビデオ画面で[完了]をタップすると、一時停止画面が表示されます。 以前のリリースの動作では開始画面が表示されていました。 </li>
+
+                    <li class="li">このリリースでは、main_html5.min.jsビデオプラグインを使用してiOSデバイスでHLSビデオを使用するときに発生したバグが修正されています。 バッファリングされた範囲を超えてシークした後、ビデオの再生は続行されません。 この問題は修正され、期待通りに動作機能を求めます。</li>
+
+                </ul>
+
+            </div>
+            <div class="sectiondiv">
+                <p class="gt-block p"><strong class="ph b">デフォルトのプレイヤーリンク</strong></p>
+
+                <ul class="ul">
+                    <li class="li">Core Player（必須）：http://player.ooyala.com/static/v4/stable / 4.4.8 / core.min.js</li>
+
+                    <li class="li">プレイヤーのスキン： <ul class="ul">
+                            <li class="li">http://player.ooyala.com/static/v4/stable/4.4.8/skin-plugin/html5-skin.min.js</li>
+
+                            <li class="li">http://player.ooyala.com/static/v4/stable/4.4.8/skin-plugin/skin.json</li>
+
+                            <li class="li">http://player.ooyala.com/static/v4/stable/4.4.8/skin-plugin/html5-skin.min.css</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="li">ビデオプラグイン（少なくとも1つは必須） <ul class="ul">
+                            <li class="li">HLSおよびMP4用のメインビデオプラグイン：http://player.ooyala.com/static/v4/stable / 4.4.8 / video-plugin / main_html5.min.js</li>
+
+                            <li class="li">HDS用のOSMF Flashプラグイン：http://player.ooyala.com/static/v4/stable / 4.4.8 / video-plugin / osmf_flash.min.js</li>
+
+                            <li class="li">HLSおよびDASH用のBitmovinプラグイン：http://player.ooyala.com/static/v4/stable / 4.4.8 / video-plugin / bit_wrapper.min.js
+                            </li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="li">広告プラグイン <ul class="ul">
+                            <li class="li">Ooyala Pulse広告プラグイン：https://player.ooyala.com/static/v4/stable / 4.4.8 / ad-plugin / pulse.min.js</li>
+
+                            <li class="li">VASTおよびVPAID広告プラグイン：https://player.ooyala.com/static/v4/stable / 4.4.8 / ad-plugin / ad_manager_vast.min.js</li>
+
+                            <li class="li">Google IMA広告プラグイン：https://player.ooyala.com/static/v4/stable / 4.4.8 / ad-plugin / google_ima.min.js</li>
+
+                            <li class="li">FreeWheel広告プラグイン：https://player.ooyala.com/static/v4/stable / 4.4.8 / ad-plugin / freewheel.min.js</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="li">分析プラグイン <ul class="ul">
+                            <li class="li">Adobe Analytics（Omniture）プラグイン：https://player.ooyala.com/static/v4/stable / 4.4.8 /analytics-plugin/omniture.js </li>
+
+                            <li class="li">comScore Analyticsプラグイン：このプラグインへのアクセスについては、アカウントマネージャにお問い合わせください。</li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="li">ディスカバリー：http://player.ooyala.com/static/v4/stable / 4.4.8 /other-plugin/discovery_api.min.js</li>
+
+                </ul>
+
+            </div>
+            <div class="sectiondiv">見る <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/concepts/pbv4_release_notes.html#pbv4_release_notes__20160531_known_issues">Player V4リリースノート</a> このリリースの既知の問題の完全なリストについては。</div>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">ウーヤラライブリリース - バージョン1.4.0</h2>
+            
+            <div class="sectiondiv"><p class="gt-block p"><strong class="ph b">新機能と強化</strong></p>
+このリリースには、新しいOoyala-Facebookライブ統合が含まれています（<a class="xref" href="http://go.ooyala.com/facebooklive" target="_blank">ooyala.com/facebooklive</a>これにより、Ooyala Liveの顧客は、Facebookを使用してFacebookページに即座に公開できます。 <a class="xref" href="http://go.https//developers.facebook.com/docs/graph-api/live-video-apiooyala.com/facebooklive" target="_blank">ライブグラフAPI</a>。 Ooyalaは、無料のアドオンとしてFacebook Liveとの統合を提供しています。 現在のOoyala LiveセットアップがFacebookシンジケーションをサポートしているかどうかを判断するには、Ooyalaの担当者にお問い合わせください。 </div>
+            <div class="sectiondiv">見る <a class="xref" href="../concepts/liveplatform_facebook_integration.html">Ooyala-Facebookライブストリーム統合</a> 詳細については。</div>
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">ドキュメントリリース</h2>
+            
+            <ul class="ul">
+                <li class="li"><a class="xref" href="../concepts/pbv4_configure_ads_embedded_params.html">広告パラメータを設定する</a>：新しいパラメータに関するドキュメントを追加しました <samp class="ph codeph">useGoogleAdUI</samp> そして
+                        <samp class="ph codeph">vpaidMode</samp>.</li>
+
+                <li class="li"><a class="xref" href="../reference/faq_pbv4.html">プレイヤーV4に関するよくある質問</a>：Player V4 FAQを更新しました。</li>
+
+                <li class="li">
+                    <a class="xref" href="../concepts/liveplatform_facebook_integration.html">Ooyala-Facebookライブストリーム統合</a>：OoyalaとFacebookのライブ統合に関する新しいトピックを追加しました。 </li>
+
+                <li class="li"><a class="xref" href="../concepts/pbv4_analytics_comscore.html">comScore Analyticsプラグイン</a>：Player V4用のcomScoreプラグインの説明を追加しました。</li>
+
+                <li class="li"><a class="xref" href="../concepts/pbv4_analytics_omniture.html">Adobe Analytics（Omniture）プラグイン</a>：Player V4用のAdobe Analytics（Omniture）プラグインの統合手順を追加しました。</li>
+
+                 </ul>
+
+        </div>
+
+        
+        <div class="section"><h2 class="title sectiontitle">Ooyalaリリースノートを購読する</h2>
+             見る <a class="xref" href="../concepts/release_notes_subscribe.html">Ooyalaリリースノートを購読する</a> Ooyalaリリースノートの自動通知を購読する方法については、こちらをご覧ください。 </div>
+
+        <div class="section">このコンテンツは06 / 01 / 16の4：00 AM UTCに掲載されました。</div>
+
+    </div>
+    
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2016.html" title="2016からのリリースノート。">2016ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

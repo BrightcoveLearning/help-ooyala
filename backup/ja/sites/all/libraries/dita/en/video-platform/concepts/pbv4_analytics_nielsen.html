@@ -1,0 +1,237 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Nielsen Analytics Plugin"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_analytics_nielsen"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Nielsen Analyticsプラグイン</title>
+</head>
+<body id="pbv4_analytics_nielsen">
+
+
+    <h1 class="title topictitle1">Nielsen Analyticsプラグイン</h1>
+
+     <div class="body conbody">
+         <div class="section">Player V4 Nielsen分析プラグイン（<samp class="ph codeph">Nielsen.min.js</samp>） 記録します <a class="xref" href="http://www.nielsen.com/eu/en/solutions/capabilities/media-analytics.html">ニールセンアナリティクス</a> Ooyala Player V4用です。 
+         </div>
+
+         <div class="section"><h2 class="title sectiontitle">再生中の実行時の流れ</h2>再生中に、再生イベントによってイベントに関する通知がNielsen Analyticsに送信されます。 <div class="fig fignone">
+                <img class="image" src="http://help-ooyala.brightcove.com/../image/pbv4_analytics_nielsen.png"/>
+            </div>
+
+        </div>
+ 
+        <div class="section"><h2 class="title sectiontitle">対応プレイヤー</h2>Nielsen Analyticsプラグインは、Nielsen AnalyticsとOoyala HTML5 Webプレーヤーのバージョン4.8.5以降との統合をサポートします。
+                <div class="note note"><span class="notetitle">注意：</span> iOSおよびAndroid用のOoyalaモバイルSDKはすでにNielsenとの統合をサポートしています。 詳しくは、 <a class="xref" href="nielsen_about.html" title="あなたのOoyalaモバイルアプリケーションでNielsen分析と簡単に統合することができます。">Nielsen Analyticsとの統合</a>.</div>
+</div>
+
+         
+         <div class="section"><h2 class="title sectiontitle">必須条件</h2>Player V4用のNielsenプラグインを使用する前に、Ni​​elsenの担当者に連絡してください。 <span class="keyword parmname">腹水</span> （Nielsenが提供する固有のID） WebページにPlayer V4を埋め込むときにこの値を指定する必要があります。</div>
+
+         <div class="section"><h2 class="title sectiontitle">ステップ1：最新のNielsenプラグインを入手</h2>
+             <div class="note note"><span class="notetitle">注意：</span> これは、で説明しているように、プレーヤーリソースをセルフホスティングしている場合にのみ適用されます <a class="xref" href="pbv4_host.html">ホスティングプレイヤーV4リソース</a>.</div>
+
+            <ol class="ol">
+                <li class="li">最新バージョンの <samp class="ph codeph">Nielsen.min.js</samp> プラグイン ダウンロードURLについては、 <a class="xref" href="pbv4_release_notes.html">Ooyala Player V4リリースノート</a>.</li>
+
+                <li class="li">他のPlayer V4プラグインと同じようにこのプラグインをホストします。</li>
+
+            </ol>
+
+         </div>
+
+         <div class="section"><h2 class="title sectiontitle">ステップ2：WebページにNielsen統合を追加する</h2>プレーヤーを読み込むページに次のスクリプトを追加します。 このプラグインを必ずロードしてください
+                <em class="ph i">After</em> core.min.jsをロードします。
+            <pre class="pre codeblock">&lt;script src = &quot;url_where_hosted / Nielsen.min.js&quot;&gt; &lt;/script&gt;</pre>
+</div>
+
+         <div class="section"><h2 class="title sectiontitle">ステップ3（オプション）：WebページにNielsen SDKをロードする</h2>プレーヤーをロードするページに、次のバージョンのNielsen SDKをロードします。 これらのオプションのいずれもロードしない場合、NielsenプラグインはデフォルトでGlobalバージョンをロードします。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                    
+                    
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" width="25%" id="d437308e108">バージョン</th>
+
+                            <th class="entry" valign="top" width="75%" id="d437308e111">リンク</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d437308e108 ">グローバル</td>
+
+                            <td class="entry" valign="top" width="75%" headers="d437308e111 "><a class="xref" href="http://cdn-gl.imrworldwide.com/novms/js/2/ggcmb510.js">http://cdn-gl.imrworldwide.com/novms/js/2/ggcmb510.js</a></td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d437308e108 ">鑑定書</td>
+
+                            <td class="entry" valign="top" width="75%" headers="d437308e111 "><a class="xref" href="http://secure-dcr-cert.imrworldwide.com/novms/js/2/ggcmb510.js">http://secure-dcr-cert.imrworldwide.com/novms/js/2/ggcmb510.js</a></td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d437308e108 ">生産</td>
+
+                            <td class="entry" valign="top" width="75%" headers="d437308e111 "><a class="xref" href="http://secure-dcr.imrworldwide.com/novms/js/2/ggcmb510.js">http://secure-dcr.imrworldwide.com/novms/js/2/ggcmb510.js</a></td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+</div>
+
+         <div class="section"><h2 class="title sectiontitle">ステップ4：Nielsenプラグインのページレベルパラメータの指定</h2>他のPlayer V4プラグインと同様に、プレーヤーを実行するページでは、次のページレベルのパラメータを指定できます。 <span class="keyword parmname">playerparams</span>
+            プレーヤーの作成中に渡される変数（を参照） <a class="xref" href="../api/pbv4_api_embedparams.html">プレーヤV4のページレベルパラメータ</a>） これらのパラメータの詳細については、 <a class="xref" href="https://engineeringforum.nielsen.com/sdk/developers/bsdk-product-dcr-metadata.php">Nielsen SDKドキュメント</a>.  <p class="gt-block p"><strong class="ph b">必須パラメータ</strong></p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                    
+                    
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" width="25%" id="d437308e184">パラメーター</th>
+
+                            <th class="entry" valign="top" width="75%" id="d437308e187">説明</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d437308e184 "><span class="keyword parmname">腹水</span></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d437308e187 ">Nielsenによって提供された固有のID。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d437308e184 "><span class="keyword parmname">sfcode</span></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d437308e187 ">コレクション環境の場所。 <ul class="ul">
+                                    <li class="li">用途 <span class="keyword parmname">&quot;dcr-cert&quot;</span> テスト用。 </li>
+
+                                    <li class="li">用途 <span class="keyword parmname">&quot;dcr&quot;</span> 生産用です。</li>
+
+                                </ul>
+</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d437308e184 "><span class="keyword parmname">APN</span></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d437308e187 ">プレーヤー/サイトを識別する一意の文字列</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d437308e184 "><span class="keyword parmname">プログラム</span></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d437308e187 ">プログラム名</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d437308e184 "><span class="keyword parmname">isfullepisode</span></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d437308e187 ">フルエピソードフラグ（短い形式のコンテンツと長い形式のコンテンツを区別するために使用されます）。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d437308e184 "><span class="keyword parmname">タイトル</span></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d437308e187 ">ビデオアセットのタイトル。 </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d437308e184 "><span class="keyword parmname">crossId1</span></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d437308e187 ">標準エピソードID（一意である必要があります）。 </td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d437308e184 "><span class="keyword parmname">crossId2</span></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d437308e187 ">コンテンツ発信者を識別します。 </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+<p class="gt-block p"><strong class="ph b">オプションのパラメータ</strong></p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                    
+                    
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" width="25%" id="d437308e307">パラメーター</th>
+
+                            <th class="entry" valign="top" width="75%" id="d437308e310">説明</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d437308e307 "><span class="keyword parmname">放送日</span></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d437308e310 ">元の（現地の）放送日時。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d437308e307 "><span class="keyword parmname">分節</span></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d437308e310 ">セグメントB（カスタムカテゴリの分割）</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" width="25%" headers="d437308e307 "><span class="keyword parmname">分節</span></td>
+
+                            <td class="entry" valign="top" width="75%" headers="d437308e310 ">セグメントC（カスタムカテゴリ分割）</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+</div>
+
+         <div class="section"><h2 class="title sectiontitle">ステップ5：Nielsenにテストページを送る</h2>テストページを確認して認証できるように、Nielsenにテストページを送信します。 </div>
+
+     <div class="section"><h2 class="title sectiontitle">例</h2>
+        <pre class="pre codeblock">&lt;html&gt; &lt;head&gt; &lt;title&gt; Nielsen Analyticsプラグインの例&lt;/title&gt; &lt;！ -  V4 JSコアが必要です。 スキン、ディスカバリー、広告などのプラグインは個別にロードする必要があります - &gt; &lt;script src = &quot;url_where_hosted / core.min.js&quot;&gt; &lt;/script&gt; &lt;script src = &quot;url_where_hosted / html5-skin.min.js&quot;&gt; &lt;/script&gt; &lt;link rel = &quot;スタイルシート&quot; href = &quot;url_where_hosted / html5-skin.min.css&quot; /&gt; &lt;！ - ビデオプラグインが必要です。 この例では、メインビデオプラグイン - &gt; &lt;script src = &quot;url_where_hosted / main_html5.min.js&quot;&gt; &lt;/script&gt; &lt;！ -  Analyticsプラグイン - &gt; &lt;script src = &quot;url_where_hosted / Nielsen.min.js&quot;の組み合わせを示しています。 &gt; &lt;/script&gt; &lt;/head&gt; &lt;body&gt; &lt;div id = &quot;コンテナ&quot; style = &quot;幅：640px;高さ：360px;&quot;&gt; &lt;/div&gt; &lt;script&gt; var playerParam = {&quot;pcode&quot;： &quot;YOUR_PCODE&quot; 、 &quot;playerBrandingId&quot;： &quot;YOUR_PLAYER_ID&quot;、 &quot;skin&quot;：{// Configにはプレーヤスキンの設定が含まれています。 必要に応じてローカル設定に変更してください。 &quot;config&quot;： &quot;url_where_hosted / skin.json&quot;}、
+            <strong class="ph b">&quot;Nielsen&quot;：{&quot;apid&quot;： &quot;YOUR_APID&quot;、 &quot;dcr-cert&quot;、 &quot;apn&quot;： &quot;Ooyala V4&quot;、 &quot;プログラム&quot;： &quot;myProgram&quot;、 &quot;isfullepisode&quot;： &quot;N&quot;、 &quot;title&quot; &quot;：&quot;マイタイトル &quot;、&quot; crossId1 &quot;：&quot; EP01S9S290015 &quot;、&quot; crossId2 &quot;：&quot; ABC &quot;、&quot;放送日 &quot;：&quot; 20150420 21：00：00 &quot;、&quot; segB &quot;：&quot; segC &quot;：&quot;ドラマ &quot; &quot;}</strong>
+        ; OO.ready（function（）{window.pp = OO.Player.create（ &quot;container&quot;、 &quot;YOUR_ASSET_ID&quot;、playerParam）;}）; &lt;/script&gt; &lt;/body&gt; &lt;/html&gt; </pre>
+
+     </div>
+
+     </div>
+
+    
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></di

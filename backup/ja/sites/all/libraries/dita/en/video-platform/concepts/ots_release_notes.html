@@ -1,0 +1,104 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Ooyala Transcoding Service (OTS) Release Notes"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_encoding.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_encoding.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="ots_release_notes"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Ooyalaトランスコーディングサービス（OTS）リリースノート</title>
+</head>
+<body id="ots_release_notes">
+
+
+    <h1 class="title topictitle1">Ooyalaトランスコーディングサービス（OTS）リリースノート</h1>
+
+    <div class="body conbody">
+        
+        <div class="section" id="ots_release_notes__2018-02-06"><h2 class="title sectiontitle">OTSの機能強化（2018-02-06）</h2><p class="gt-block p"><strong class="ph b">このリリースの新機能</strong></p>
+
+            <ul class="ul">
+                <li class="li">静的トランスコーディングおよびパッケージングを使用しているお客様のために、H.4 HEVCコーデックとも呼ばれる高効率ビデオコーディング（HEVC）を使用したMP265コンテンツの取り込みをサポートします。 サポートされているソースファイルフォーマットの完全なリストは、を見てください。 <a class="xref" href="../reference/input_formats.html" title="コンテンツをBacklotにアップロードする前に、サポートされているファイル形式を使用し、ソースファイルのベストプラクティスに従っていることを確認してください。">サポートされている取り込みフォーマット</a>。 Ooyalaプレーヤーは現在HEVC再生をサポートしていないことに注意してください。 </li>
+
+                <li class="li">プロファイルに、異なるピクセル縦横比（PAR）値を持つ複数の透かしを含めることができるようになりました。 トランスコーディング中に、OTSはソースビデオに最も近いPAR値を持つ透かしを自動選択します。</li>
+
+            </ul>
+
+            <p class="gt-block p"><strong class="ph b">このリリースで修正されました</strong></p>
+
+            <ul class="ul">
+                <li class="li">Azure上で実行されているOTSは、アルバムアートを含むソースをトランスコードできるようになりました。</li>
+
+            </ul>
+
+            
+        </div>
+
+        
+      <div class="section" id="ots_release_notes__2017-12-20"><h2 class="title sectiontitle">VR 360ビデオのトランスコーディング（2017-12-20）のサポート</h2>このリリースでは、Ooyalaプレーヤーでの最適化された再生のためのVR 360ビデオのトランスコーディングのサポートが導入されました。 <span class="ph">
+     現在、VR 360では、明確なHLSおよびDASHストリームのみがサポートされています。 デフォルトでは、Ooyalaはアップロード時にVR 360として識別されたすべてのビデオに対してシングルビットレートの処理プロファイルを提供します。 このプロファイルは、最低でも8Kの4K解像度を持つ〜3840 Mbps HLSおよび/またはDASHストリームを作成します。 Ooyalaの取り込みはソースの縦横比を維持し、高さを動的に計算しますが、ソースのフレームレートもソースファイルから保持されます。</span> 詳細は、 <a class="xref" href="encodings_recommendations_ratios.html">プレーヤV4のための推奨エンコーディング</a>。 概要については、 <a class="xref" href="../concepts/vr360.html">VR 360ビデオ</a>.  </div>
+  
+           
+      <div class="section" id="ots_release_notes__2017-10-12"><h2 class="title sectiontitle">OTSの機能強化（2017-10-12）</h2>
+            <ul class="ul"><li class="li"><strong class="ph b">動的マニフェスト</strong> Microsoft Azureで。 事前定義されたフィルタに基づいてカスタマイズされたマニフェストを生成します。 たとえば、HDとSDのレンディションのみを要求します。 さまざまなデバイスタイプでの顧客の視聴体験をより適切に制御し、CDNの使用を減らします。 見る <a class="xref" href="ingestion_dynamic_manifest.html">動的マニフェスト</a>.</li>
+
+                <li class="li"><strong class="ph b">取り込み後のビデオファイルの追加検証</strong>
+                    トランスコーディングの前後に、一連のビデオとオーディオの品質チェックを実行できます。 これらの検証チェックを依頼するには、Ooyalaアカウント担当者に連絡してください。 見る <a class="xref" href="transcode.html">ウーヤラトランスコーディングサービス（OTS）</a>.
+                
+                </li>
+
+                <li class="li"><strong class="ph b">地域内摂取とトランスコーディング</strong> Azure Mediaサービスを使用して、全体のトランスコーディング時間を短縮し、コンテンツを顧客と同じ地域に保存します。 見る <a class="xref" href="transcode.html">ウーヤラトランスコーディングサービス（OTS）</a>.</li>
+
+                <li class="li"><strong class="ph b">より小さなファイルのためのより速いトランスコーディング</strong> そしてアップデートのためのより短いポーリングサイクル。</li>
+</ul>
+</div>
+
+        
+        <div class="section" id="ots_release_notes__2017-07-20"><h2 class="title sectiontitle">OTSの機能強化（2017-07-20）</h2>
+        <ul class="ul">
+            <li class="li"><strong class="ph b">パフォーマンスの向上</strong> 変換速度が速くなります。</li>
+
+            <li class="li"><strong class="ph b">VODソースファイルの検証</strong>：OTSはソースフレームカウントと出力フレームカウントを比較することによってソースファイルの破損をチェックします。</li>
+
+            <li class="li"><strong class="ph b">リモートアセット用の暗号化接続</strong>：リモートアセットでOoyala Widevine / Playready DRMキーサーバーを使用するためのサポートを追加しました。 独自のVODおよびBacklot、Ooyala Player、およびOoyala IQによるライブトランスコーディングを使用しているお客様も、DRMキーサーバーを使用できます。</li>
+
+            <li class="li"><strong class="ph b">動的再パッケージ</strong>：VODファイルに静的再パッケージ化を使用しているお客様のために、OTSはAzure Media Servicesを介した動的再パッケージ化をサポートするようになりました。 動的パッケージの使用に興味がある場合は、アカウントマネージャに連絡してください。</li>
+
+        </ul>
+
+        
+        </div>
+
+
+        <div class="section"><h2 class="title sectiontitle">OTSのリソース</h2>
+            <ul class="ul">
+                <li class="li"><a class="xref" href="transcode.html">ウーヤラトランスコーディングサービス（OTS）</a></li>
+
+                <li class="li"><a class="xref" href="chapter_encoding.html" title="マスタービデオをインターネットで直接ストリーミングすることはできません。 それらはまずストリーミング形式に変換またはトランスコードする必要があります。 Ooyalaトランスコーディングサービス（OTS）を使用して、ファイルをソース形式から出力形式に変換します。">トランスコーディング設定</a></li>
+
+                <li class="li"><a class="xref" href="ovp_intro.html">オンラインビデオプラットフォームの紹介</a></li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_encoding.html" title="マスタービデオをインターネットで直接ストリーミングすることはできません。 それらはまずストリーミング形式に変換またはトランスコードする必要があります。 Ooyalaトランスコーディングサービス（OTS）を使用して、ファイルをソース形式から出力形式に変換します。">トランスコーディング設定</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

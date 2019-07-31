@@ -1,0 +1,105 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="copyright" content="(C) Copyright 2005" />
+  <meta name="DC.rights.owner" content="(C) Copyright 2005" />
+  <meta name="DC.Type" content="concept" />
+  <meta name="DC.Title" content="Viewing Usage Metrics" />
+  <meta name="abstract" content="Use the Usage subtab under the ACCOUNT tab to view usage metrics for activity on your Backlot account. The Usage subtab displays monthly usage totals at the top, and daily usage statistics in the graphs below." />
+  <meta name="description" content="[アカウント]タブの[使用状況]サブタブを使用して、Backlotアカウントのアクティビティに関する使用状況の統計情報を表示します。 [Usage]サブタブの上部には月別の使用量の合計が、下のグラフには日々の使用量の統計が表示されます。" />
+  <meta name="DC.Relation" scheme="URI" content="../concepts/chapter_account.html" />
+  <meta name="DC.Format" content="XHTML" />
+  <meta name="DC.Identifier" content="accounttab_usage" />
+  <meta name="DC.Language" content="en-us" />
+  <link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css" />
+  <link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css" />
+  <title>利用状況メトリックの表示</title>
+</head>
+
+<body id="accounttab_usage">
+
+
+  <h1 class="title topictitle1">利用状況メトリックの表示</h1>
+
+
+  <div class="body conbody">
+    <p class="gt-block shortdesc">使用 <span class="ph uicontrol">使用法</span> の下のサブタブ <span class="ph uicontrol">アカウント</span> Backlotアカウントのアクティビティに関する使用状況の統計情報を表示するタブ。 の <span class="ph uicontrol">使用法</span> 下のグラフには、上部に月別使用量の合計、および日々の使用量の統計が表示されます。 </p>
+
+    <div class="section">
+      <h2 class="title sectiontitle">日別および月別の使用統計</h2>
+      <p class="gt-block p">Ooyalaサーバーは使用統計を協定世界時（UTC）で保管します。 Ooyala Billing Systemは、あなたの統計に従って利用統計を計算します。 <span class="ph">バックスロットUI</span> アカウントのローカルタイムゾーン設定（ <span class="ph uicontrol">アカウント設定</span> の下のサブタブ <span class="ph uicontrol">アカウント</span> タブ）。</p>
+
+      <p class="p">毎日の使用状況の指標では、絶対的な真夜中は、ある日が次の日に変わる瞬間です。 同様に、絶対深夜0時は、ある月の最後の日と翌月の最初の日の間の変化を示します。</p>
+
+      <div class="note note"><span class="notetitle">注意：</span> 統計情報の計算方法が異なるため、Usage Metricsの合計がOoyala Analyticsの合計と異なる場合があります。 使用統計については、Ooyalaは月末にデータを凍結し、合計は顧客への請求に使用されます。 一方、分析では、ログが遅れて受信された場合や処理に他の遅延が発生した場合は、合計を更新し続けます。</div>
+
+    </div>
+
+    <div class="section">
+      <h2 class="title sectiontitle">選択した期間</h2>
+      <p class="gt-block">デフォルトでは、 <span class="ph uicontrol">使用法</span> サブタブは当月の値を表示します。 合計は、月の初日から現在の日付までの累積です。 前月の利用統計情報を表示するには、 <span class="ph uicontrol">月</span> 右上隅のセレクタ。 <span class="ph">バックスロットUI</span> 最大1年間のメトリックを保存します。</p>
+
+      <div class="note note"><span class="notetitle">注意：</span> トランスコードされた議事録は前の月についてのみ表示されます。</div>
+    </div>
+
+    <div class="section">
+      <h2 class="title sectiontitle">サブアカウントとマスターアカウント</h2>
+      サブアカウントユーザーには、自分のサブアカウントの統計のみが表示されます。 マスターアカウントには、すべてのサブアカウントの集計統計が表示されます。
+    </div>
+
+    <div class="section" id="accounttab_usage__usage_metrics_demystified">
+      <h2 class="title sectiontitle">使用メトリクス</h2>
+      <p class="gt-block p">  <span class="ph uicontrol">使用法</span> タブには、以下のメトリックが表示されます。</p>
+
+      <p class="gt-block p"><strong class="ph b">ストリーム</strong></p>
+
+      <p class="gt-block p">  <em class="ph i">ストリーム</em> metricは、コンテンツの再生が開始された回数を表します（必ずしも完了しているとは限りません）。 たとえば、視聴者が開始してドロップアウトした場合でも、このアクティビティはストリームとしてカウントされます。 使用状況グラフは、毎日（x軸）のストリーム数（y軸）をプロットします。</p>
+
+      <p class="gt-block p"><strong class="ph b">トランスコード分</strong></p>
+
+      <p class="gt-block p">  <em class="ph i">トランスコード分</em> metricは、すべての動画の長さの合計（分単位）に、Ooyalaのトランスコーディングシステムによって生成されたバージョンの数（エンコーディング）を掛けたものです。</p>
+
+      <p class="gt-block p">Ooyalaは、前月の各暦月の終わりの後にこのメトリックを計算します。 これが、現在の月がに選択されたときにこの統計が常にゼロ（0）になる理由です。 <span class="ph">バックスロットUI</span>。 それ以外の場合、ゼロの値は通常、選択した月にトランスコーディングが行われなかったことを意味します。Ooyalaアカウントが新しい場合は、トランスコーディングが開始されるまでのセットアップ時間を表すことができます。</p>
+
+      <p class="gt-block p"><strong class="ph b">ライブトランスコーディング議事録</strong></p>
+
+      <p class="gt-block p"><em class="ph i">ライブトランスコーディング議事録</em>ライブプラットフォームによるシングルビットレートファイルのライブからVODへの変換の分単位の長さを参照してください。 VODトランスコーディング分は、Liveプラットフォームに関連して使用することはできず、契約書に記載されているとおり、個別の使用量ベースの料金および料金が適用されるものとします。</p>
+
+      <p class="gt-block p"><strong class="ph b">ライブパッケージ分</strong></p>
+
+      <p class="gt-block p">  <em class="ph i">包装ミニッツ</em> metricは、コンテンツをパッケージ化するためのすべてのライブチャンネルやイベントの長さの合計（分単位）を表します。</p>
+
+      <p class="gt-block p"><strong class="ph b">処理済みコンテンツ</strong></p>
+
+      <p class="gt-block p">  <em class="ph i">処理済みコンテンツ</em> メトリックは、ソースファイルとトランスコードファイルの両方を含め、Ooyalaによって保存されたすべてのコンテンツの1日の平均ギガバイト（GB）を表します。 使用状況グラフは、毎日発生した1日の平均GB（y軸）をプロットします（x軸）。</p>
+
+      <p class="p">Ooyalaは、日の終わり以降の合計を計算し、事実から24時間以内の合計を表示します。 そのため、処理されたコンテンツの1日の使用量は、その日がまだ終了しておらず、したがって値がまだ計算されていないため、「N / A」（使用不可）とマークされたデータとともに今日を表示する場合があります。</p>
+
+      <p class="gt-block p"><strong class="ph b">配信されたVoD GB</strong></p>
+
+      <p class="gt-block p">  <em class="ph i">配信されたVoD GB</em> metricは、プレーヤー、コンテンツデータネットワーク、またはその他の配信先に配信されたコンテンツの合計ギガバイト数（GB）を表します。 使用状況グラフは、毎日（x軸）に配信されたGB（y軸）をプロットします。 Ooyalaは、事実から24-48時間以内に合計を計算して表示します。</p>
+
+      <p class="gt-block p"><strong class="ph b">ライブGB配信</strong></p>
+
+      <p class="gt-block p">  <em class="ph i">ライブGB配信</em> metricは、OoyalaのCDNを介してプレーヤー、コンテンツデータネットワーク、またはその他の宛先に配信されたライブストリームコンテンツの合計ギガバイト数（GB）を表します。 統計は毎日計算されます。</p>
+
+      <div class="note note"><span class="notetitle">注意：</span> この使用状況の指標は、Live DeliveryのCDNとしてAkamaiを使用している場合にのみ表示されます。</div>
+
+    </div>
+
+  </div>
+
+  <div class="related-links">
+    <div class="familylinks">
+      <div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_account.html" title="Backlotへのコンテンツのアップロードを始める前に、あなたのアカウントが設定されていることを確認しなければなりません。 アカウントの設定は[アカウント]タブで行います。">アカウント設定</a></div>
+    </div>
+  </div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+
+</html>
+<!-- d

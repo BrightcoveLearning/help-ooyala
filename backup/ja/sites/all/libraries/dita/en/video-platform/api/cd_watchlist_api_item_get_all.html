@@ -1,0 +1,283 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Get All Items from a Watchlist"/>
+<meta name="DC.Relation" scheme="URI" content="../api/cd_watchlist_api.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="watchlist_api_items"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>ウォッチリストからすべてのアイテムを入手する</title>
+</head>
+<body id="watchlist_api_items">
+
+
+  <h1 class="title topictitle1">ウォッチリストからすべてのアイテムを入手する</h1>
+
+ <div class="body refbody">
+   <div class="section">このエンドポイントは、指定されたウォッチリストに属するすべてのアイテムを取得します。 </div>
+
+  <div class="section"><h2 class="title sectiontitle">HTTPリクエスト</h2>
+    <pre class="pre codeblock">GET https://player.ooyala.com/watchlist/v3/&lt;watchlist_id&gt;/items?page_number=&lt;123&gt;&amp;page_size=&lt;10&gt;&amp;account_token= &lt;アカウントカウント&gt;</pre>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">クエリパラメータ</h2>
+    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+        
+        
+        
+        
+        <thead class="thead" align="left">
+          <tr class="row">
+            <th class="entry" valign="top" width="14.285714285714285%" id="d57434e42">パラメーター</th>
+
+            <th class="entry" valign="top" width="57.14285714285714%" id="d57434e45">説明</th>
+
+            <th class="entry" valign="top" width="14.285714285714285%" id="d57434e48">タイプ</th>
+
+            <th class="entry" valign="top" width="14.285714285714285%" id="d57434e51">必須</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody class="tbody">
+          <tr class="row">
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d57434e42 "><span class="keyword parmname">api_version</span></td>
+
+            <td class="entry" valign="top" width="57.14285714285714%" headers="d57434e45 ">でなければなりません <span class="keyword parmname">v3</span>.  </td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d57434e48 ">文字列</td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d57434e51 ">はい（URL）</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d57434e42 "><span class="keyword parmname">watchlist_id</span></td>
+
+            <td class="entry" valign="top" width="57.14285714285714%" headers="d57434e45 ">取得するアイテムを含むウォッチリストのID。 ユーザーのアカウントに関連付けられている既存のウォッチリストにリンクされている有効なUUIDである必要があります。 指定しない場合、アイテムはユーザーのデフォルトのウォッチリストから取得されます。</td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d57434e48 ">UUIDv4または文字列</td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d57434e51 ">いいえ（URL）</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d57434e42 "><span class="keyword parmname">ページ番号</span></td>
+
+            <td class="entry" valign="top" width="57.14285714285714%" headers="d57434e45 ">どのページのアイテムを返すかを指定します。 0以上の整数値でなければなりません。<div class="note note"><span class="notetitle">注意：</span> ページは、インデックス0から始まる番号が付けられています。</div>
+</td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d57434e48 ">文字列</td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d57434e51 ">はい（URL）</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d57434e42 "><span class="keyword parmname">ページサイズ</span></td>
+
+            <td class="entry" valign="top" width="57.14285714285714%" headers="d57434e45 ">1ページあたりの項目数を指定します。 指定した場合は、1以上の整数値でなければなりません。 指定しない場合、デフォルトのページサイズは10アイテムです。 </td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d57434e48 ">文字列</td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d57434e51 ">いいえ（URL）</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d57434e42 "><span class="keyword parmname">account_token</span></td>
+
+            <td class="entry" valign="top" width="57.14285714285714%" headers="d57434e45 ">特定のエンドユーザに関連付けられているウォッチリストを参照するためにウォッチリストサービスによって使用されます（UUIDによって識別されます）。 詳しくは、
+                  <a class="xref" href="account_token_api.html" title="eコマースやウォッチリストなどの特定のOoyalaサービスへのアクセスは、Ooyalaアカウントトークンを使用して制御されます。 OoyalaアカウントトークンAPIは、ユーザーを認証するためのアカウントトークンを生成します。 これらのAPIを呼び出すとき、クライアントは認証用のアカウントトークンを提供する必要があります。 アプリケーションがユーザーにログインすると、OoyalaアカウントトークンAPIルートを呼び出してアカウントトークンを取得します。 アカウントトークンは特定の期間、デフォルトでは15分有効です。">OoyalaアカウントトークンAPI</a>.</td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d57434e48 ">文字列</td>
+
+            <td class="entry" valign="top" width="14.285714285714285%" headers="d57434e51 ">はい（URL本体）</td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+</div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">返されたメタデータ</h2> Ooyalaがサポートするメタデータストアを使用している場合は、次のメタデータが返されます。 <div class="note note"><span class="notetitle">注意：</span> ウォッチリストサービスは、アセットメタデータストアとの同期を自動的に維持する責任を負いません。 メタデータストアでアセットが削除または変更された場合、これによって自動的に（ウォッチリストの範囲内で）このアセットへのすべての参照が削除または変更されることはありません。</div>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="33.33333333333333%" id="d57434e174">フィールド</th>
+
+              <th class="entry" valign="top" width="66.66666666666666%" id="d57434e177">説明</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d57434e174 "><span class="keyword parmname">位置</span></td>
+
+              <td class="entry" valign="top" width="66.66666666666666%" headers="d57434e177 ">リスト内の項目の配置</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d57434e174 "><span class="keyword parmname">created_at</span></td>
+
+              <td class="entry" valign="top" width="66.66666666666666%" headers="d57434e177 ">リストが作成された時刻。</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d57434e174 "><span class="keyword parmname">updated_at</span></td>
+
+              <td class="entry" valign="top" width="66.66666666666666%" headers="d57434e177 ">リストが最後に更新された日時。</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d57434e174 "><span class="keyword parmname">リーディングシート</span></td>
+
+              <td class="entry" valign="top" width="66.66666666666666%" headers="d57434e177 ">それぞれのリスト <span class="keyword parmname">asset_id</span> リストに含まれています。</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="33.33333333333333%" headers="d57434e174 "><span class="keyword parmname">メタデータ</span></td>
+
+              <td class="entry" valign="top" width="66.66666666666666%" headers="d57434e177 ">資産に関するすべてのメタデータ。</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+<div class="note note"><span class="notetitle">注意：</span> 使用しているサポートされているアセットメタデータストアによっては、追加のメタデータが返されることがあります。</div>
+
+    </div>
+
+  <div class="section"><h2 class="title sectiontitle">リターンコード</h2>
+    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+        
+        
+        
+        <thead class="thead" align="left">
+          <tr class="row">
+            <th class="entry" valign="top" width=".5" id="d57434e261">コード</th>
+
+            <th class="entry" valign="top" width="NaN%" id="d57434e264">理由</th>
+
+            <th class="entry" valign="top" width="NaN%" id="d57434e267">説明</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody class="tbody">
+          <tr class="row">
+            <td class="entry" valign="top" width=".5" headers="d57434e261 "><span class="keyword parmname">200</span></td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d57434e264 ">OK</td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d57434e267 ">GETリクエストは成功しました。</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width=".5" headers="d57434e261 "><span class="keyword parmname">400</span></td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d57434e264 ">リクエストエラー</td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d57434e267 ">次の問題が原因で失敗しました。 <ul class="ul">
+                  <li class="li">パラメーターが欠落しているかフォーマットが正しくありません。</li>
+
+                  <li class="li">指定された <span class="keyword parmname">watchlist_id</span> 空ではなく、存在しません。</li>
+
+                </ul>
+</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width=".5" headers="d57434e261 "><span class="keyword parmname">401</span></td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d57434e264 ">無断</td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d57434e267 ">指定された <span class="keyword parmname">account_token</span> 無効です。</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width=".5" headers="d57434e261 "><span class="keyword parmname">404</span></td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d57434e264 ">見つかりませんでした</td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d57434e267 ">サーバーが停止しています。</td>
+
+          </tr>
+
+          <tr class="row">
+            <td class="entry" valign="top" width=".5" headers="d57434e261 "><span class="keyword parmname">500</span></td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d57434e264 ">内部サーバーエラー</td>
+
+            <td class="entry" valign="top" width="NaN%" headers="d57434e267 ">内部サーバーエラーが発生しました。</td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+</div>
+
+  </div>
+
+   <div class="section"><h2 class="title sectiontitle">例</h2>
+      <strong class="ph b">登録リクエスト</strong>
+      <pre class="pre codeblock">[GET]/watchlist/v3/d074b535-253d-4f6a-82a1-1be384e7c182/items?account_token=NnMvb01DWWRMWmJXdTRRRUJCQmwvWjE4WVQvUytpSittY2h0azlmWWZPVVlUc25MOGxPNzZJV2ttMzk0TG4ydlkvbFZrZTI4VkNIYUJiU0owTGFadlFxenM3YU5mS2VrYXRjSVhpWDBXUS84S2VDQ0dUNmJYTmhEY2VNSkZ1dmc=&amp;page_number=0&amp;page_size=10</pre>
+
+      <strong class="ph b">レスポンス</strong> （成功） <ul class="ul">
+        <li class="li">位置の索引付けは0から始まります。</li>
+
+        <li class="li">ページ番号の索引付けは0から始まります。</li>
+
+        <li class="li">アイテムは、それらの位置インデックスに従って昇順に並べ替えられます（昇順）。</li>
+
+        <li class="li">メタデータは特定のアイテム（ビデオ）に存在する場合と存在しない場合があります。 そうでない場合、メタデータフィールドはそのアイテムの対応するjsonオブジェクトに返されません。 アイテムのメタデータは、指定されたアイテムに関連付けられたメタデータに対応するキーと値のペアのJSON形式のコレクションになります。 </li>
+
+      </ul>
+<pre class="pre codeblock">OK（200）{ &quot;account_pcode&quot;： &quot;t5SYJyOnyQw1eBBfirDLeVPt_p18&quot;、 &quot;ACCOUNT_ID&quot;： &quot;18285cswfcdf204896230fc2a67a5faf&quot;、 &quot;watchlist_id&quot;： &quot;d074b535-253d-4f6a-82a1-1be384e7c182&quot;、 &quot;のcreated_at&quot;：1454351584074、 &quot;名前&quot;「ホラー映画&quot;、&quot; updated_at &quot;：1454351595185、&quot; number_of_items &quot;：2&quot; page_size &quot;：10、&quot; page_number &quot;：0、&quot; items &quot;：[{&quot; watchlist_id &quot;：&quot; d074b535-253d-XNXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXMXMXXXXXMXXXXXXXXXXXX被用事表を実行してください。 ：4、 &quot;item_id&quot;： &quot;VlNWJrdarkDhWd-y6D82NuEbHi1V1_y&quot;、 &quot;updated_at&quot;：384、 &quot;位置&quot;：7、 &quot;メタデータ&quot;：{&quot;評価&quot;： &quot;PG、NUMX&quot;、… &quot;X&quot;、 &quot;X&quot; ...、{ &quot;watchlist_id&quot;： &quot;d182b1454351584084-4d-0f872a-9a1454351584094-0be13e2014c074&quot;、 &quot;のcreated_at&quot;：535、 &quot;ITEM_ID&quot;： &quot;VlNWJrdarkDhWd-y253D4NuEbHi6V82_z&quot;、 &quot;updated_atの&quot;：1、 &quot;位置&quot;：1、 &quot;メタデータ&quot; ：{“評価”：“ PG384”、…“年”：“ 7”、}}]}</pre>
+
+    </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/cd_watchlist_api.html">ウォッチリストREST APIリファレンス</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

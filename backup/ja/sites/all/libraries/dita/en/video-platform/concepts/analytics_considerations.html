@@ -1,0 +1,74 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Considerations about the Analytics API (Deprecated)"/>
+<meta name="abstract" content="Be aware of some notable points about the v2 Analytics API, including differences between the analytics in the Backlot UI and the API."/>
+<meta name="description" content="Be aware of some notable points about the v2 Analytics API, including differences between the analytics in the Backlot UI and the API."/>
+<meta name="DC.Relation" scheme="URI" content="../api/analytics_overview.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="analytics_considerations"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Analytics APIに関する考慮事項（廃止予定）</title>
+</head>
+<body id="analytics_considerations">
+
+
+ <h1 class="title topictitle1">Analytics APIに関する考慮事項（廃止予定） </h1>
+
+ 
+ <div class="body conbody"><p class="gt-block shortdesc">v2 Analytics APIに関するいくつかの注目すべき点に注意してください。 <span class="ph">バックスロットUI</span> そしてAPI。</p>
+
+    <div class="p">
+      <div class="note warning"><span class="warningtitle">警告：</span> v2 Analytics APIは非推奨になりました。 見る <a class="xref" href="ooyala_iq_developer_guide.html">ウーヤラIQアナリティクス</a> 新しいv3 Analytics APIの詳細については、</div>
+
+    </div>
+
+  <p class="p">アナリティクスAPIから利用可能なデータに関するいくつかの考慮事項は、Backlot UIのアナリティクスと比較して以下に記載されています。</p>
+
+  <ul class="ul"><li class="li"><strong class="ph b">時間</strong>
+        <p class="p">Analytics UIとAnalytics APIの日付/時刻の範囲は異なるクロック開始時刻に基づいているため、1日ごとに異なります。 Analytics UIで日付範囲を指定するときは、関心のある日付範囲を指定します（たとえば、April 1からApril 25まで）。
+          </p>
+<p class="gt-block p">ただし、Analytics APIでは、日付範囲+ 1日を指定する必要があります。 したがって、同じ例で、April 1から25までのアナリティクスを取得するには、APIでApril 1からApril 26までを指定する必要があります。 （詳細は <a class="xref" href="../api/analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_date_range">インクルード <var class="keyword varname">日付範囲</var> 属性を使用する</a>.)</p>
+
+    <p class="p"/>
+
+      </li>
+
+  <li class="li"><strong class="ph b">時間単位</strong>
+    <p class="p">同様に、日付/時刻範囲を含むデータは、分単位ではなく1時間単位で返されます。 つまり、特定の分を含む日付/時刻の範囲を指定しても、返されるデータは最も近い時間に切り捨てられます。</p>
+
+    <p class="p"/>
+</li>
+
+  <li class="li"><strong class="ph b">一次元データ</strong><p class="p">Analytics UIでは、多くのレポートで、時間ごとの地理的分布によるデバイスなどの多次元でデータが表示されます（3次元）。 </p>
+<p class="p">ただし、Analytics APIでは、同じ結果を得るために複数のリクエストを行う必要があるかもしれません。 たとえば、上記の例を続けると、デバイスに関連するデータを取得するために1回呼び出しを行い、地理的分布に関連するデータを取得するために2回目の呼び出しを行う必要があります。 </p>
+ <p class="p"/>
+</li>
+
+   <li class="li"><strong class="ph b">データの導出</strong>
+    <p class="gt-block p">他の値の場合、多くの場合、目的の値はAnalytics APIから返されたデータから派生できます。 たとえば、Analytics APIを使用すると、特定の期間における一意のユーザーの総数を取得できますが、 <em class="ph i">平均</em> ユニークユーザー数
+      <em class="ph i">1日当たり</em>あなたは関係する日数で合計を分割する必要があります。</p>
+
+   </li>
+
+  </ul>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/analytics_overview.html" title="アカウントに基づいて、さまざまな分析パッケージを利用できます。">v2 Analytics API（廃止予定）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

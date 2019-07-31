@@ -1,0 +1,134 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Discovery Best Practices"/>
+<meta name="abstract" content="Consider these best practice recommendations to maximize the benefits of your Discovery implementation and increase engagement on your site or app."/>
+<meta name="description" content="Consider these best practice recommendations to maximize the benefits of your Discovery implementation and increase engagement on your site or app."/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_discovery_dg.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="content_discovery_toptips"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>発見のベストプラクティス</title>
+</head>
+<body id="content_discovery_toptips">
+
+
+ <h1 class="title topictitle1">発見のベストプラクティス</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">これらのベストプラクティスの推奨事項を考慮して、Discoveryの実装によるメリットを最大化し、サイトまたはアプリへの参加を促進します。</p>
+
+  
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="content_discovery_toptips__discoverytoptips" class="table" frame="border" border="1" rules="all">
+    
+    
+    <thead class="thead" align="left">
+     <tr class="row">
+      <th class="entry" valign="top" width="15.974440894568689%" id="d280292e26">特徴</th>
+
+      <th class="entry" valign="top" width="84.02555910543131%" id="d280292e29">メリット</th>
+
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr class="row">
+      <td class="entry" valign="top" width="15.974440894568689%" headers="d280292e26 ">ラベル</td>
+
+      <td class="entry" valign="top" width="84.02555910543131%" headers="d280292e29 ">ラベルを使用して、コンテンツカテゴリを除外または含めることで、サイトまたはアプリのDiscoveryの推奨事項を調整します。 たとえば、消費者がテニスに関するビデオを見ている場合、おすすめを同様のラベルが付けられた他のテニスビデオに制限することができます。 詳細については、 <a class="xref" href="../api/labels.html" title="外部発行ターゲットに追加すると、ラベルは外部に発行するビデオ、チャンネル、およびチャンネルセットを指定します。 さらに、ラベルは、ビデオライブラリの整理、ビデオの検索、およびターゲット分析の取得にも役立ちます。">ラベル</a>.</td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="15.974440894568689%" headers="d280292e26 ">編集コンテンツプロモーション</td>
+
+      <td class="entry" valign="top" width="84.02555910543131%" headers="d280292e29 ">
+       ディスカバリートレイの任意の位置にラベルを指定するか、ディスカバリーAPIを使用して結果を指定することにより、ドライブトラフィックを重要なコンテンツに宣伝します。 たとえば、VODとLiveの両方のコンサートストリーミングがある大規模メディアサイトでは、この機能を使用して、VODビューからLiveイベントへのトラフィックが増えています。 詳細については、 <a class="xref" href="../api/players_discovery_profile.html">ディスカバリープロファイル</a> そして <a class="xref" href="cd_api_editorial.html" title="Ooyala Discoveryの推奨事項の結果を調整できるように、OoyalaはベースラインAPIにクエリ文字列パラメータを提供しています。">ディスカバリー編集用照会ストリングのパラメーター</a>.
+       
+      
+       
+      </td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="15.974440894568689%" headers="d280292e26 ">順次コンテンツプロモーション</td>
+
+      <td class="entry" valign="top" width="84.02555910543131%" headers="d280292e29 ">
+       関連コンテンツを識別するためにカスタムメタデータキーを使用してシリーズベースのコンテンツを順番に推奨します。 たとえば、シリーズXのパート2があなたのパート1がアクティブなアセットであるときに提供される最初の推奨事項となるようにカスタムメタデータを指定します。 詳細については、 <a class="xref" href="../api/asset_metadata.html" title="どのタイプのアセットにも、最大100個の名前と値のペアを追加できます。">カスタムメタデータ</a>. 
+       
+      </td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="15.974440894568689%" headers="d280292e26 ">ディスカバリーAPI</td>
+
+      <td class="entry" valign="top" width="84.02555910543131%" headers="d280292e29 ">
+       Discovery APIを使用して、サイトまたはアプリの任意のセクションに、エンゲージメントが高いと思われるコンテンツを入力します。 たとえば、消費者の国の過去1時間に大きな勢いを得たビデオのメニューを含めます。 詳細については、 <a class="xref" href="../tasks/cd_api_get_trending.html" title="Ooyala Discoveryのトレンド分析アルゴリズムは、現在あなたのサイトで人気のあるコンテンツを見つけ、その人気を高めるように設計されています。">推奨コンテンツの傾向</a>.
+      
+      </td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="15.974440894568689%" headers="d280292e26 ">パーマリンクURL</td>
+
+      <td class="entry" valign="top" width="84.02555910543131%" headers="d280292e29 ">新しいブラウザタブの（アセットメタデータ内の）パーマリンクURLで指定された専用ページで開くように発見されたDiscoveryのおすすめ動画を設定することで、収益化を高め、追跡と社会的な互換性を向上させます。 この設定は、BacklotユーザーインターフェースのPublish&gt; Discoveryタブから設定します。 詳細については、 <a class="xref" href="../tasks/remote_asset_manage_details.html" title="詳細では、メタデータの設定、プレーヤーの指定、ペイウォールの選択をすることができます。">リモート資産詳細の管理</a> そして <a class="xref" href="discovery_config.html" title="パーソナライズされたおすすめを設定する方法と、ビデオの再生が終了または一時停止したときにOoyalaプレーヤーがおすすめを表示する方法を学びます。">バックスロットUIでの検出の設定</a>.
+       
+       </td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="15.974440894568689%" headers="d280292e26 ">ディスカバリープロファイル</td>
+
+      <td class="entry" valign="top" width="84.02555910543131%" headers="d280292e29 ">ディスカバリープロファイルを使用して、ディスカバリーAPI呼び出しに基づいて設定バンドルを作成および管理します。 たとえば、最初のおすすめビデオが常にその月の &#39;Spotlight&#39;ラベルを持つものであるように、 &#39;December Spotlight Promo&#39;ディスカバリプロファイルを作成します。 詳細については、 <a class="xref" href="../api/players_discovery_profile.html">ディスカバリープロファイル</a>.</td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="15.974440894568689%" headers="d280292e26 ">編集クエリ文字列パラメータ</td>
+
+      <td class="entry" valign="top" width="84.02555910543131%" headers="d280292e29 ">APIリクエストで編集クエリ文字列パラメータを使用してアドホックディスカバリ結果を作成します。 このオプションを使用すると、ラベルに基づいてコンテンツを含めたり、除外したり、制限したり、結合したりできます。 たとえば、消費者があなたのサイトのそのページにアクセスした場合、人気のあるコンテンツを「カントリーミュージック」のラベルで動的に表示します。 詳細については、 <a class="xref" href="cd_api_editorial.html" title="Ooyala Discoveryの推奨事項の結果を調整できるように、OoyalaはベースラインAPIにクエリ文字列パラメータを提供しています。">ディスカバリー編集用照会ストリングのパラメーター</a>.</td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="15.974440894568689%" headers="d280292e26 ">ディスカバリーインサイトレポート</td>
+
+      <td class="entry" valign="top" width="84.02555910543131%" headers="d280292e29 ">レポート機能を使用して、コンテンツの関係に対する使用パターンを見つけ、それを活用します。 あなたの資産関係の多くは主題に基づいて明白ですが、あまり明白でない関係はDiscoveryの機械学習アルゴリズムによる使用パターンから明らかにされています。 詳細については、 <a class="xref" href="cd_discovery_insights_report.html" title="Ooyala Discovery Insightsのレポートには、ユーザーエンゲージメントと成長に関する主要業績評価指標（KPI）の詳細なビューが表示されます。">ディスカバリーインサイトレポート（利用不可）</a>.</td>
+
+     </tr>
+
+     <tr class="row">
+      <td class="entry" valign="top" width="15.974440894568689%" headers="d280292e26 ">ディスカバリープロファイルAPI</td>
+
+      <td class="entry" valign="top" width="84.02555910543131%" headers="d280292e29 ">Discovery Profile APIと統合して、内部ツールまたはUIから既存の検出プロファイルを更新します。 詳細については、 <a class="xref" href="../api/content_discovery.html">ディスカバリーREST APIリファレンス</a>.  </td>
+
+     </tr>
+
+    </tbody>
+
+   </table>
+</div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_discovery_dg.html" title="Ooyalaのコンテンツ検出機能を使用して、コンテンツの推奨事項、詳細なプログラミングガイド、およびパーソナライズされたコンテンツキューを提供することで、顧客エンゲージメントを高めます。">コンテンツの発見と推奨事項</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

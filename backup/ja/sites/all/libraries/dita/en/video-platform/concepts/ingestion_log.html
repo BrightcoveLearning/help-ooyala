@@ -1,0 +1,146 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Ingestion Log"/>
+<meta name="abstract" content=""/>
+<meta name="description" content=""/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ingestion_ois.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_errors.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ingestion_ois.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_errors.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="ingestion_log"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>摂取ログ</title>
+</head>
+<body id="ingestion_log">
+
+
+ <h1 class="title topictitle1">摂取ログ</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc"/>
+
+<div class="section"><h2 class="title sectiontitle">取り込みログREST API（OIS v2.5）</h2>
+   FTP、Aspera、またはMRSSを使用して取り込む場合は、取り込みログREST API（API）を使用してさまざまな基準に基づいてログ情報を検索できます。 期間（基本およびマニフェストベースのユーザー）またはステータス（マニフェストベースのユーザーのみ）でフィルタできます。 詳しくは、 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/ingestion_log_api/index.html" target="_blank">Ooyala Ingestion Log APIドキュメント</a>.</div>
+  
+  <div class="section"><h2 class="title sectiontitle">取り込みログとエラーメッセージ（OIS v1）（非推奨）</h2>
+   <div class="note note"><span class="notetitle">注意：</span> OIS v1は無効になっています。 OIS v1を使用しているお客様は、OIS v2.5に切り替える必要があります。</div>
+
+   FTPやAsperaを使ってコンテンツを取り込むときは、 <span class="ph">Ooyala</span> という名前のホームディレクトリにログファイルを作成します。 <span class="ph filepath">ooyala.log</span>.  <div class="note note"><span class="notetitle">注意：</span>   <span class="ph filepath">ooyala.log</span> OIS v1でのみ使用されます。</div>
+<p class="p">このファイルを表示してアップロードのステータスを確認できます。 </p>
+<p class="gt-block p"><strong class="ph b">成功メッセージの例</strong></p>
+<p class="p">次のスニペットは、正常にアップロードされたために取り込みログに記録される内容を示しています。</p>
+<pre class="pre codeblock">    。 。 。 2012-10-31 02：25：48 INFOインポート &quot;http://d18tka3ecu2l5z.cloudfront.net/39206_MOV01E_1228612704000.flv&quot; 2012-10-31 02：26：04 INFOフェッチhttp://d18tka3ecu2l5z.cloudfront.net/39206_MOV01E_1228612704000 FLV 2012-10-31 02：26：07 INFOに成功しました：41351347.0：2012 INFO割り当てembed_code o10b31lnNjq02XhRGgF26cVEJP14iF2hv2R 28-26-1 2：2：o2012b10lnNjq31XhRGgF02cVEJP26iF21hv2R 2-28ため26 INFO更新メタデータ1は2-2-2012 10バイト受信-31 02：26：22情報が成功しました。 。 。</pre>
+
+   <p class="gt-block p"><strong class="ph b">エラーメッセージ</strong>
+   </p>
+<p class="p">次の表に、考えられるエラーメッセージを示します。 </p>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" id="d315304e66">エラーメッセージ</th>
+
+       <th class="entry" valign="top" id="d315304e69">説明</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" headers="d315304e66 d315304e69 ">Xバイトが必要です。 Yバイトを得た </td>
+
+       <td class="entry" valign="top" headers="d315304e66 d315304e69 ">ダウンロードしたファイルは正しいサイズではありません。 メタデータファイルを再送信してください。 </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d315304e66 d315304e69 ">リモートサーバーが404またはリモートサーバーが505を言った</td>
+
+       <td class="entry" valign="top" headers="d315304e66 d315304e69 ">OISはサーバー上のファイルを見つけることができませんでした。 ビデオファイルがあることを確認して、メタデータファイルをもう一度送信してください。 </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d315304e66 d315304e69 ">リモートサーバーは###を言った </td>
+
+       <td class="entry" valign="top" headers="d315304e66 d315304e69 ">サーバーでエラーが発生しました。 サーバーを確認してメタデータファイルを再送信してください。
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d315304e66 d315304e69 ">ハッシュミスマッチ：期待しています... </td>
+
+       <td class="entry" valign="top" headers="d315304e66 d315304e69 ">ファイルが破損していました。 メタデータファイルを再送信してください。 </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d315304e66 d315304e69 ">サムネイルをアップロードできませんでした </td>
+
+       <td class="entry" valign="top" headers="d315304e66 d315304e69 ">映画は取り込まれましたが、サムネイルのアップロードに失敗しました。 あなたは手動でこれを修正することができます。 <span class="ph">バックスロットUI</span> またはそのビデオのビデオ、サムネイル、およびメタデータファイルをもう一度アップロードします。 </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d315304e66 d315304e69 ">フィードの取得中にエラーが発生しました... </td>
+
+       <td class="entry" valign="top" headers="d315304e66 d315304e69 ">MRSSフィードの取得中に問題が発生しました。 MRSSサーバーが正しく機能していることを確認してください。 </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d315304e66 d315304e69 ">失敗：ワークフローエラー </td>
+
+       <td class="entry" valign="top" headers="d315304e66 d315304e69 ">提供したコンテンツに問題がありました。 あなたは手動でこれを修正することができます。 <span class="ph">バックスロットUI</span> またはそのビデオのビデオ、サムネイル、およびメタデータファイルをもう一度アップロードします。 </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d315304e66 d315304e69 ">失敗：システムがビジー。 再試行する </td>
+
+       <td class="entry" valign="top" headers="d315304e66 d315304e69 ">動画のアップロード中に問題が発生しました。 あなたは手動でこれを修正することができます。 <span class="ph">バックスロットUI</span> またはそのビデオのムービー、サムネイル、およびメタデータファイルをもう一度アップロードします。 </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d315304e66 d315304e69 ">失敗：内部エラー </td>
+
+       <td class="entry" valign="top" headers="d315304e66 d315304e69 ">アップロードを再試行してください。 5分以内に解決しない場合は、チケットを <a class="xref" href="../../../../../../../../ja/contact/index.html" target="_blank">カスタマーポータル</a>.  </td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+  </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/ingestion_ois.html">ウーヤラ摂取サービス（OIS）</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_errors.html" title="このガイドでは、ユーザー向け、プログラミング、イベント、モバイルSDK、および取り込みエラーの各メッセージについて説明します。">エラーとエラー処理</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

@@ -1,0 +1,107 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Chromecast Receiver Application"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chromecast_and_ooyala.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="chromecast_overview_receiver_app"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Chromecast受信アプリケーション</title>
+</head>
+<body id="chromecast_overview_receiver_app">
+
+
+    <h1 class="title topictitle1">Chromecast受信アプリケーション</h1>
+
+    <div class="body conbody">
+        <div class="note important"><span class="importanttitle">重要：</span> このトピックには古い情報が含まれており、推奨されていません。 OoyalaとChromecastの統合に関する最新情報は、をご覧ください。 <a class="xref" href="chromecast/index.html">Chromecastの統合</a>.</div>
+
+        <div class="section"><h2 class="title sectiontitle">受信機アプリケーション</h2>
+            
+            <p class="p">受信側アプリケーションは、Chromecastデバイス上で動作するHTML5 / JavaScriptアプリケーションです。 受信側アプリケーションは以下の機能を実行します。</p>
+
+            <ul class="ul">
+                <li class="li">アプリのコンテンツをテレビ画面に表示するためのユーザーインターフェイスを提供します。</li>
+
+                <li class="li">送信側アプリケーションからのメッセージを処理して、受信側デバイスのコンテンツを制御します。</li>
+
+                <li class="li">アプリケーション固有の送信側アプリケーションからのカスタムメッセージを処理します。</li>
+
+            </ul>
+
+            <p class="p">Receiverアプリケーションフレームワーク：</p>
+
+            <ul class="ul">
+                <li class="li">と統合 <a class="xref" href="https://developers.google.com/cast/docs/custom_receiver" target="_blank">GoogleのレシーバーSDK</a> レシーバアプリケーションページを構築して有効にします。</li>
+
+                <li class="li">Ooyala V3 HTML5プレーヤーと統合します。</li>
+
+                <li class="li">Googleのと統合 <a class="xref" href="https://developers.google.com/cast/docs/player" target="_blank">メディアプレーヤーライブラリ</a> これは、メディア/ビデオ再生用のGoogleのコードです。</li>
+
+                <li class="li">Google Custom Channelを介してSenderアプリケーションとの通信を確立します。</li>
+
+            </ul>
+
+            <p class="p">私たちはあなたが始めることができる2つのサンプル受信機を提供します：デフォルトの受信機とカスタム受信機。</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">デフォルトの受信者</h2>
+              
+            <p class="p">デフォルトのReceiverアプリケーションには、Receiverアプリケーションから抽象化された再生機能とスタイリングを備えた単純化されたコードが含まれています。 この受信機はテスト目的などのための迅速で簡単な実装を可能にします。 受信機のUIを複雑にカスタマイズしたくない場合は、この受信機を使用してください。 デフォルトのレシーバUIでは、ロゴとアイコンのみをカスタマイズできます。</p>
+
+            <p class="p">この受信機は、以下を必要とするお客様にお勧めです。</p>
+
+            <ul class="ul">
+                <li class="li">クイック起動スケジュール</li>
+
+                <li class="li">低運用コストと低メンテナンス。</li>
+
+                <li class="li">カスタム作業なしの基本的なChromecast機能。</li>
+
+            </ul>
+
+            <p class="gt-block p">サンプルのデフォルトレシーバは現在オープンソースです。 に行く <a class="xref" href="https://github.com/ooyala/chromecast-sample-receiver" target="_blank">https://github.com/ooyala/chromecast-sample-receiver</a> そしてreceiver_default.htmlを開きます。</p>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">カスタムレシーバー</h2>
+            
+            <p class="gt-block p">カスタムレシーバーアプリケーションはキャストレシーバーライブラリと対話し、豊富なカスタマイズを可能にするために冗長です。 カスタムレシーバーUIは「そのまま」使用することも、カスタマイズすることもできます。 使う <a class="xref" href="http://community.ooyala.com/t5/Developers-Knowledge-Base/Implementing-a-Chromeless-Player/ta-p/1055" target="_blank">クロムレスプレイヤー</a> カスタムレシーバーの上に独自のUIを構築したり、再生機能をカスタマイズしたりします。 </p>
+
+            <p class="p">この受信機は顧客にお勧めです。</p>
+
+            <ul class="ul">
+                <li class="li">カスタムChromecast機能を実装するための柔軟なフレームワークが必要です。</li>
+
+                <li class="li">製品のブランディング、スタイリング、およびUXに関して厳しいビジネス要件があります。</li>
+
+                <li class="li">カスタム要件と継続的なメンテナンスを実装するための開発リソースにアクセスできます。</li>
+
+                <li class="li">既に提供されているものの上に追加の機能（SenderとReceiver）を構築する必要があります。</li>
+
+            </ul>
+
+            <p class="gt-block p">サンプルのカスタムレシーバーは現在オープンソースです。 に行く <a class="xref" href="https://github.com/ooyala/chromecast-sample-receiver" target="_blank">https://github.com/ooyala/chromecast-sample-receiver</a> そしてreceiver_custom.htmlを開きます。</p>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chromecast_and_ooyala.html">ChromecastとOoyala（廃止予定）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

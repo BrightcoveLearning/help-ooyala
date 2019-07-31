@@ -1,0 +1,133 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Integration with Ooyala Pulse on Android"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_android_integrations.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_android_pulse_parameters.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="mobile_sdk_android_pulse"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>AndroidでのOoyala Pulseとの統合</title>
+</head>
+<body id="mobile_sdk_android_pulse">
+
+
+
+   <h1 class="title topictitle1">AndroidでのOoyala Pulseとの統合</h1>
+
+   <div class="body conbody">
+      <div class="section"><h2 class="title sectiontitle">あなたが必要なもの</h2>
+         <p class="p">Ooyala Pulseを統合するためのOoyala SDKを使用すると、デスクトップで作成したのと同じ広告エクスペリエンスを、サポートされているモバイルデバイスでも作成できます。 </p>
+
+         
+         <p class="p">Ooyala Player V4とAndroid上のOoyala Pulseからの広告配信を統合するには、次のものが必要です。</p>
+
+         <ul class="ul">
+            <li class="li">Android用Ooyala Mobile SDK（ <span class="ph">Ooyala <a class="xref" href="../../../../../../../../ja/downloads/index.html" target="_blank">ダウンロード</a></span>)</li>
+
+            <li class="li"><a class="xref" href="http://static.ooyala.com.s3.amazonaws.com/sdk/android/release/OoyalaSkinSDK-Android.zip" target="_blank">Android用Ooyala Skin SDK</a>詳細については、を参照してください。
+                  <a class="xref" href="android_v4_gettingthesdk.html">Android用プレイヤースキン</a></li>
+
+            <li class="li">Ooyala Video Advertising Android 2.x SDK（ <span class="ph">Ooyala <a class="xref" href="../../../../../../../../ja/downloads/index.html" target="_blank">ダウンロード</a></span>)</li>
+
+            <li class="li">Ooyala Pulse Android用Ooyala SDK（ <span class="ph">Ooyala <a class="xref" href="../../../../../../../../ja/downloads/index.html" target="_blank">ダウンロード</a></span>)</li>
+
+            <li class="li"><a class="xref" href="http://developer.android.com/sdk/index.html" target="_blank">Androidのメーカー</a></li>
+
+
+         </ul>
+
+         <p class="gt-block p">のために <em class="ph i">Android用Ooyala Mobile SDK</em>,  <em class="ph i">Android用Ooyala Skin SDK</em>、および
+               <em class="ph i">Ooyala Pulse Android用Ooyala SDK</em>同じ番号のバージョンを使う必要があります。 のために <em class="ph i">ウーヤラビデオ広告アンドロイド2.x SDK</em>常に最新版を使用してください。</p>
+
+      </div>
+
+
+      <div class="section"><h2 class="title sectiontitle">サンプルアプリケーション</h2>
+         
+         <p class="gt-block p">Ooyala Pulseサンプルアプリは、次のWebサイトからダウンロードできます。 <a class="xref" href="https://github.com/ooyala/android-sample-apps/tree/dev/PulseSampleApp" target="_blank">OoyalaサンプルアプリGit Hub</a>。 この場所には、プロジェクトの設定方法とサンプルアプリの動作に関する情報も含まれています。</p>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">使ってみよう</h2>
+         
+         <p class="p">次の手順では、Androidでの広告配信のためのOoyala PlayerとOoyala Pulseの統合を開始する方法の基本的な概要を説明します。</p>
+
+         <ol class="ol" id="mobile_sdk_android_pulse__ol_jxq_dsw_yx">
+            <li class="li">Ooyala Video Advertising Android 2.x SDKおよびOoyala Pulse Android用Ooyala SDKをプロジェクトにインポートします。<pre class="pre codeblock">import com.ooyala.pulse; import com.ooyala.android.pulseintegration;</pre>
+</li>
+
+            <li class="li">OoyalaPulseManagerオブジェクトを作成し、それをOoyalaPlayerと関連付けます。<pre class="pre codeblock">this.manager = new OoyalaPulseManager（this.ooyalaPlayer）; this.manager.setListener（this）;
+</pre>
+</li>
+
+            <li class="li">必要に応じて、OoyalaPulseManagerのPulsePlayerOptionsオブジェクトを通じて広告プレーヤーのオプションを設定します。 可能なオプションは以下のとおりです。<ul class="ul" id="mobile_sdk_android_pulse__ul_afd_41x_yx">
+                  <li class="li">displayAdTitle：広告再生中に広告タイトルを表示するかどうかを示すブール値。 デフォルト値はfalseで、広告タイトルを表示しないことを示します。</li>
+
+               </ul>
+<pre class="pre codeblock">this.manager.setOptions（new PulsePlayerOptions（true））;</pre>
+<div class="note note"><span class="notetitle">注意：</span> 広告プレーヤーのオプションは、ビデオコンテンツプレーヤーには影響しません。 </div>
+</li>
+
+            <li class="li">デリゲートにOoyalaPulseManager.Listenerメソッドを実装します。 このメソッドのすべてのパラメータの初期値は、Backlotアカウントの設定から自動的に取得されますが、必要に応じて、セッションを作成する前に、Ooyala Pulseアカウントのホストの場所、永続ID、コンテンツメタデータ、リクエスト設定などを変更できます。 。 すべての可能なパラメータについては、 <a class="xref" href="mobile_sdk_android_pulse_parameters.html">AndroidのOoyala Pulseのパラメータ</a>
+               
+               .<pre class="pre codeblock">@Override public PulseSession createPulseSession（OoyalaPulseManager ooyalaPulseManager、String video、String pulseHost、ContentMetadata contentMetadata、RequestSettings requestSettings）{//正しいパルスホストとオプションを設定します。Pulse.setPulseHost（pulseHost、nil、nil）; //幅と高さを広告が含まれるビューの幅と高さに設定します。 requestSettings.width = containerView.getWidth（）; requestSettings.height = containerView.getHeight（）; //要求する広告の最大ビットレートを決定する方法を実装します。 requestSettings.setMaxBitRate（BandwidthChecker.getMaxBitRate（））; Pulse.createSession（contentMetadata、requestSettings）を返します。 }</pre>
+</li>
+
+         </ol>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">必須パラメータ、カスタムメタデータ、およびビデオプラザ広告セット</h2>
+         <p class="gt-block p">Mobile SDKでOoyala Pulse広告配信を利用するには、次のタイプの広告セットを作成する必要があります。
+               <span class="ph uicontrol">ビデオプラザ</span> Backlotで。 詳細はBacklotユーザーガイドを参照してください。 Ooyalaでは、Ooyala Pulse関連のパラメータをさまざまな場所に保存できます。 優先順位の高い順に、Pulseパラメータとその値は次のように定義できます。 </p>
+<ol class="ol">
+            <li class="li">あなたのアプリ自体。</li>
+
+            <li class="li">バックスロットで <span class="ph uicontrol">管理</span> タブで定義されたカスタムメタデータとしての各ビデオアセット用 <span class="ph uicontrol">カスタムメタデータ</span> をクリックします。</li>
+
+            <li class="li">バックスロットで <span class="ph uicontrol">マネー</span> タブ、 <span class="ph uicontrol">広告セット</span>
+               のサブタブ <span class="ph uicontrol">ビデオプラザ</span> 広告セットの種類。 </li>
+
+         </ol>
+<div class="note note"><span class="notetitle">注意：</span> アプリで直接パラメータを設定する場合は、Ooyala Pulse Sessionが作成される前に設定する必要があります。</div>
+<div class="p">次のパラメータは、アプリで直接設定するか、Backlotでアセットのカスタムメタデータとして設定するか、またはアセットに関連付けられたVideoplaza広告セット（推奨）で設定する必要があります。 <ul class="ul">
+               <li class="li"><strong class="ph b">パルスホスト</strong>：あなたのOoyala PulseアカウントへのURL。 アプリでは、このパラメータを <samp class="ph codeph">Pulse.setPulseHost（pulseHost、deviceContainer、persistentId）</samp> メソッドを設定することもできます。
+                     <samp class="ph codeph">deviceContainer</samp> と <samp class="ph codeph">persistentId</samp>。 設定することをお勧めします <samp class="ph codeph">deviceContainer</samp> 〜へ <samp class="ph codeph">ゼロ</samp>。 例えば：<pre class="pre codeblock">Pulse.setPulseHost（ &quot;https://pulse-demo.videoplaza.tv&quot;、nil、nil）;</pre>
+</li>
+
+            </ul>
+</div>
+<div class="p">他の重要なパラメータは次のオブジェクトを通して設定されます。<ul class="ul">
+               <li class="li"><strong class="ph b">リクエスト設定オブジェクト</strong>：Ooyala Pulseから要求する広告の掲載順位と広告の品質に関する情報。 このオブジェクトのプロパティは <a class="xref" href="http://pulse-sdks.ooyala.com/android_2/latest/com/ooyala/adtech/RequestSettings.html" target="_blank">RequestSettings</a>.</li>
+
+               <li class="li"><strong class="ph b">コンテンツメタデータオブジェクト</strong>：アプリでの再生用に選択された動画コンテンツに関する情報。OoyalaPulseからのターゲット広告のリクエストに役立ちます。 このオブジェクトのプロパティは <a class="xref" href="http://pulse-sdks.ooyala.com/android_2/latest/com/ooyala/adtech/ContentMetadata.html" target="_blank">ContentMetadata</a>.</li>
+
+            </ul>
+</div>
+各パラメータの概要、設定可能な場所、および基本値の場所については、を参照してください。 <a class="xref" href="mobile_sdk_android_pulse_parameters.html">AndroidのOoyala Pulseのパラメータ</a>.  </div>
+
+   </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../concepts/mobile_sdk_android_pulse_parameters.html">AndroidのOoyala Pulseのパラメータ</a></strong><br/>
+</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/mobile_android_integrations.html">Androidのサードパーティ統合</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-

@@ -1,0 +1,451 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Supported Closed Caption DFXP (now TTML) Format"/>
+<meta name="abstract" content="Closed caption files that you upload to Backlot must be in a supported format. The DFXP format (now TTML) is a popular supported format."/>
+<meta name="description" content="Backlotにアップロードするクローズドキャプションファイルは、サポートされている形式でなければなりません。 DFXP形式（現在はTTML）は、広く使用されている形式です。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_standards.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/closed_captions_ingest.html"/>
+<meta name="DC.Relation" scheme="URI" content="closed_caption_language.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ingestion_fileformats.html"/>
+<meta name="DC.Relation" scheme="URI" content="closed_caption_language.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="dfxp_format"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>サポートされているクローズドキャプションDFXP（現在はTTML）形式</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="dfxp_format">
+
+
+  <h1 class="title topictitle1">サポートされているクローズドキャプションDFXP（現在はTTML）形式</h1>
+
+  
+  <div class="body refbody"><p class="shortdesc">Closed caption files that you upload to Backlot must be in a supported format. The DFXP
+    format (now TTML) is a popular supported format. </p>
+
+    <div class="section"><div class="note note"><span class="notetitle">注意：</span> Ooyala supports other closed caption formats. For details, see <a class="xref" href="closed_caption_language.html" title="クローズドキャプションファイルをBacklotにアップロードする前に、サポートされている言語とファイル形式を使用していることを確認してください。">サポートされているクローズドキャプション</a>.</div>
+
+      <div class="note note"><span class="notetitle">注意：</span> The Ooyala Web Player utilizes WebVTT. If a TTML file is uploaded, the Ooyala Player will utilize a WebVTT file that is converted from the TTML file, which will remove styling.</div>
+</div>
+
+    
+    <div class="section"><h2 class="title sectiontitle">Supported DFXP Format</h2>
+      <div class="note note"><span class="notetitle">注意：</span>  DFXP (now TTML) is used as a familiar term for
+        closed caption formats. However, the specification is now called TTML.</div>
+ Among the DFXP
+      formats, Ooyala supports only the DFXP v2006 format. For more information about the DFXP
+      format that Ooyala supports, go to the official DFXP site at <a class="xref" href="http://www.w3.org/TR/2006/WD-ttaf1-dfxp-20060427/" target="_blank">http://www.w3.org/TR/2006/WD-ttaf1-dfxp-20060427/</a>.  <div class="note note"><span class="notetitle">注意：</span> Ooyalaモバイルアプリ（Ooyala iOSおよびAndroid SDKを使用して開発されたアプリ）で再生するには、TTML（以前のDFXP）形式が必要です。 Player V4 Webは、iOSおよびAndroidデバイスのブラウザを含むすべてのブラウザ環境で、追加の字幕フォーマットをサポートしています。</div>
+
+    </div>
+
+     
+    <div class="section" id="dfxp_format__flash_dfxp_cc_styling"><h2 class="title sectiontitle">デフォルトのスタイリングプロパティ</h2>
+      
+      <div class="p">Flashプレーヤーの場合、DFXPファイルの次のスタイルプロパティがデフォルトとして使用されます（DFXP字幕ファイルで指定されている場合）。 OoyalaはDFXP v2006フォーマットのみをサポートします。 <ul class="ul">
+          <li class="li">Language</li>
+
+          <li class="li">テキストの配置</li>
+
+          
+          <li class="li">テキストの背景色（<samp class="ph codeph">tts：backgroundColor</samp>)  <div class="p">
+              <div class="note note"><span class="notetitle">注意：</span> テキストの背景は、ttsとペアになっている場合にのみデフォルトで表示されます。showBackground = &quot;always&quot;</div>
+
+            </div>
+</li>
+
+          <li class="li">テキストの色 （<samp class="ph codeph">tts：色</samp>)</li>
+
+          <li class="li">フォントサイズ （<samp class="ph codeph">tts：fontSize</samp>)</li>
+
+          <li class="li">フォントファミリー （<samp class="ph codeph">tts：fontFamily</samp>)</li>
+
+          <li class="li">フォントスタイル（<samp class="ph codeph">tts：fontStyle</samp>)</li>
+
+          <li class="li">フォントの太さ（<samp class="ph codeph">tts：fontWeight</samp>)</li>
+
+          <li class="li">不透明度、すなわちテキストボックスの背景またはウィンドウの背景に適用可能（<samp class="ph codeph">tts：不透明度</samp>)</li>
+
+        </ul>
+</div>
+
+      <div class="note note"><span class="notetitle">注意：</span> テキスト方向（<samp class="ph codeph">tts：方向</samp>）、Flashは言語に基づいてテキストの方向を自動的に調整します。 </div>
+
+    
+     
+   </div>
+
+    <div class="section"><h2 class="title sectiontitle">Supported DFXP Tags</h2>
+      
+      <p class="p">Ooyala supports all tags from the 2006 DFXP standard, listed below. Other tags are not supported.</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" id="d834179e130">タグ</th>
+
+              <th class="entry" valign="top" id="d834179e133">例</th>
+
+              <th class="entry" valign="top" id="d834179e136">追加情報</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" headers="d834179e130 d834179e133 d834179e136 "><samp class="ph codeph">カラー</samp></td>
+
+              <td class="entry" valign="top" headers="d834179e130 d834179e133 d834179e136 "><samp class="ph codeph">tts:color="green"</samp></td>
+
+              <td class="entry" valign="top" headers="d834179e130 d834179e133 d834179e136 ">Ooyala only supports this in the top-level tag that wraps all other
+                captions.</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d834179e130 d834179e133 d834179e136 "><samp class="ph codeph">fontSize</samp></td>
+
+              <td class="entry" valign="top" headers="d834179e130 d834179e133 d834179e136 "><samp class="ph codeph">tts:fontSize="18"</samp></td>
+
+              <td class="entry" valign="top" headers="d834179e130 d834179e133 d834179e136 "> </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d834179e130 d834179e133 d834179e136 "><samp class="ph codeph">textOutline</samp></td>
+
+              <td class="entry" valign="top" headers="d834179e130 d834179e133 d834179e136 "><samp class="ph codeph">textOutline="green 2px 0px"</samp></td>
+
+              <td class="entry" valign="top" headers="d834179e130 d834179e133 d834179e136 ">Applies at the paragraph level only, not in subtags.</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d834179e130 d834179e133 d834179e136 "><samp class="ph codeph">fontFamily</samp></td>
+
+              <td class="entry" valign="top" headers="d834179e130 d834179e133 d834179e136 "><samp class="ph codeph">tts:fontFamily="serif"</samp></td>
+
+              <td class="entry" valign="top" headers="d834179e130 d834179e133 d834179e136 ">Supports fonts installed only by the end-user or generic fonts.</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d834179e130 d834179e133 d834179e136 "><samp class="ph codeph">textAlign</samp></td>
+
+              <td class="entry" valign="top" headers="d834179e130 d834179e133 d834179e136 "><samp class="ph codeph">tts:textAlign="right"</samp></td>
+
+              <td class="entry" valign="top" headers="d834179e130 d834179e133 d834179e136 ">Re-aligns within the closed caption box only. This does not move the
+                box.</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d834179e130 d834179e133 d834179e136 "><samp class="ph codeph">fontStyle</samp></td>
+
+              <td class="entry" valign="top" headers="d834179e130 d834179e133 d834179e136 "><samp class="ph codeph">tts:fontStyle="italic"</samp></td>
+
+              <td class="entry" valign="top" headers="d834179e130 d834179e133 d834179e136 ">Oblique style is not supported.</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d834179e130 d834179e133 d834179e136 "><samp class="ph codeph">fontWeight</samp></td>
+
+              <td class="entry" valign="top" headers="d834179e130 d834179e133 d834179e136 "><samp class="ph codeph">tts:fontWeight="bold"</samp></td>
+
+              <td class="entry" valign="top" headers="d834179e130 d834179e133 d834179e136 "> </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d834179e130 d834179e133 d834179e136 "><samp class="ph codeph">lineHeight</samp></td>
+
+              <td class="entry" valign="top" headers="d834179e130 d834179e133 d834179e136 "><samp class="ph codeph">tts:lineHeight="32"</samp></td>
+
+              <td class="entry" valign="top" headers="d834179e130 d834179e133 d834179e136 "> </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d834179e130 d834179e133 d834179e136 "><samp class="ph codeph">不透明度</samp></td>
+
+              <td class="entry" valign="top" headers="d834179e130 d834179e133 d834179e136 "><samp class="ph codeph">tts:opacity="0.50"</samp></td>
+
+              <td class="entry" valign="top" headers="d834179e130 d834179e133 d834179e136 ">Sets opacity of the background bounding box color.</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+      <div class="section" id="dfxp_format__flash_dfxp_settings_apply"><h2 class="title sectiontitle">DFXP設定の適用方法</h2>
+        
+        <p class="p">キャッシュされた設定がないブラウザでは、プレーヤーとアセットにDFXP設定がロードされると、上記のリストにマークされているすべての属性がDFXPファイルで提供されているデフォルト設定で適用されます。 エンドユーザーがUIインターフェイスを介してCC設定を変更すると、DFXP設定はすべての設定に対して上書きされ、プレーヤーのデフォルトおよびユーザー設定に置き換えられます。 Flashプレーヤーのデフォルトは以下の表のとおりです。</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+            
+            <thead class="thead" align="left">
+              
+              <tr class="row">
+                
+                <th class="entry" valign="top" id="d834179e287">DFXPスタイリングプロパティ</th>
+
+                
+                <th class="entry" valign="top" id="d834179e290">デフォルトのFlash Player設定 </th>
+
+                <th class="entry" valign="top" id="d834179e293">追加情報</th>
+
+                
+              </tr>
+
+              
+            </thead>
+
+            
+            <tbody class="tbody">
+              
+              <tr class="row">
+                
+                <td class="entry" valign="top" headers="d834179e287 d834179e290 d834179e293 ">Language</td>
+
+                
+                <td class="entry" valign="top" headers="d834179e287 d834179e290 d834179e293 ">最初に利用可能</td>
+
+                <td class="entry" valign="top" headers="d834179e287 d834179e290 d834179e293 "> </td>
+
+                
+              </tr>
+
+              
+              <tr class="row">
+                
+                <td class="entry" valign="top" headers="d834179e287 d834179e290 d834179e293 ">テキストの配置</td>
+
+                
+                <td class="entry" valign="top" headers="d834179e287 d834179e290 d834179e293 ">センター</td>
+
+                <td class="entry" valign="top" headers="d834179e287 d834179e290 d834179e293 ">有効な値  <samp class="ph codeph">左</samp>  |  <samp class="ph codeph">センター</samp>  |  <samp class="ph codeph">右</samp></td>
+
+                
+              </tr>
+
+              
+              <tr class="row">
+                
+                <td class="entry" valign="top" headers="d834179e287 d834179e290 d834179e293 ">テキストの背景色（<samp class="ph codeph">tts：背景</samp>)</td>
+
+                
+                <td class="entry" valign="top" headers="d834179e287 d834179e290 d834179e293 ">なし</td>
+
+                <td class="entry" valign="top" headers="d834179e287 d834179e290 d834179e293 "> </td>
+
+                
+              </tr>
+
+              
+              <tr class="row">
+                
+                <td class="entry" valign="top" headers="d834179e287 d834179e290 d834179e293 ">テキストの色 （<samp class="ph codeph">tts：色</samp>)</td>
+
+                
+                <td class="entry" valign="top" headers="d834179e287 d834179e290 d834179e293 ">白</td>
+
+                <td class="entry" valign="top" headers="d834179e287 d834179e290 d834179e293 "> </td>
+
+                
+              </tr>
+
+              
+              <tr class="row">
+                
+                <td class="entry" valign="top" headers="d834179e287 d834179e290 d834179e293 ">フォントサイズ （<samp class="ph codeph">tts：fontSize</samp>)</td>
+
+                
+                <td class="entry" valign="top" headers="d834179e287 d834179e290 d834179e293 ">14px</td>
+
+                <td class="entry" valign="top" headers="d834179e287 d834179e290 d834179e293 ">値はpxにする必要があります</td>
+
+                
+              </tr>
+
+              
+              <tr class="row">
+                
+                <td class="entry" valign="top" headers="d834179e287 d834179e290 d834179e293 ">フォントファミリー （<samp class="ph codeph">tts：fontFamily</samp>)</td>
+
+                
+                <td class="entry" valign="top" headers="d834179e287 d834179e290 d834179e293 ">サンセリフ</td>
+
+                <td class="entry" valign="top" headers="d834179e287 d834179e290 d834179e293 ">一般的な姓のみをサポート</td>
+
+                
+              </tr>
+
+              
+              <tr class="row">
+                
+                <td class="entry" valign="top" headers="d834179e287 d834179e290 d834179e293 ">フォントスタイル（<samp class="ph codeph">tts：fontStyle</samp>)</td>
+
+                
+                <td class="entry" valign="top" headers="d834179e287 d834179e290 d834179e293 ">通常の</td>
+
+                <td class="entry" valign="top" headers="d834179e287 d834179e290 d834179e293 ">有効な値 <samp class="ph codeph">通常の</samp>）| <samp class="ph codeph">イタリック</samp>)</td>
+
+                
+              </tr>
+
+              
+              <tr class="row">
+                
+                <td class="entry" valign="top" headers="d834179e287 d834179e290 d834179e293 ">フォントの太さ（<samp class="ph codeph">tts：fontWeight</samp>)</td>
+
+                
+                <td class="entry" valign="top" headers="d834179e287 d834179e290 d834179e293 ">通常の</td>
+
+                <td class="entry" valign="top" headers="d834179e287 d834179e290 d834179e293 ">有効な値 <samp class="ph codeph">通常の</samp>）| <samp class="ph codeph">大胆な</samp>)</td>
+
+                
+              </tr>
+
+              
+              <tr class="row">
+                
+                <td class="entry" valign="top" headers="d834179e287 d834179e290 d834179e293 ">不透明度、すなわちテキストの背景またはウィンドウの背景に適用可能（<samp class="ph codeph">tts：不透明度</samp>)</td>
+
+                
+                <td class="entry" valign="top" headers="d834179e287 d834179e290 d834179e293 ">0.7</td>
+
+                <td class="entry" valign="top" headers="d834179e287 d834179e290 d834179e293 ">有効値は0〜1です。</td>
+
+                
+              </tr>
+
+              
+              
+              
+            </tbody>
+
+            
+          </table>
+</div>
+
+        <p class="p">ユーザー設定はフラッシュストレージに保存されるため、フラッシュストレージがクリアされるまで、その特定のデバイスのユーザーは設定を利用できます。 これは、Ooyala Flashプレーヤーで再生されたすべてのアセットにわたって保存できる1回限りの設定です。</p>
+
+      </div>
+ 
+    <div class="section"><h2 class="title sectiontitle">DFXP Example</h2>
+      
+      <p class="p"> The following is an example of a DFXP (now TTML) file with seven captions in English
+          (<samp class="ph codeph">xml:lang="en"</samp>) and one caption in French
+        (<samp class="ph codeph">xml:lang="fr"</samp>).  </p>
+
+      <div class="note note"><span class="notetitle">注意：</span> On the first line or in the appropriate <samp class="ph codeph">&lt;DIV&gt;</samp>s, be sure to change
+        the value of the <samp class="ph codeph">xml:lang</samp> attribute to match your target language; for
+        example, change <samp class="ph codeph">en</samp> 〜へ <samp class="ph codeph">de</samp> for German.</div>
+
+      <pre class="pre codeblock">&lt;?xml version="1.0" encoding= "UTF-8" ?&gt;
+&lt;tt xml:lang="en" xmlns="http://www.w3.org/ns/ttml" xmlns:tts="http://www.w3.org/2006/04/ttaf1#styling"&gt;
+&lt;head&gt;
+  &lt;styling&gt;
+    &lt;style xml:id= "defaultCaption"
+      tts:fontSize= "12"
+      tts:fontFamily= "sansSerif"
+      tts:fontWeight= "normal"
+      tts:fontStyle= "normal"
+      tts:color= "white"
+      tts:backgroundColor= "black"
+      tts:showBackground= "always"
+      tts:textAlign= "left"
+    /&gt;
+
+    &lt;style xml:id= "styleTwo"
+      tts:fontFamily= "serif"
+      tts:color= "blue"
+    /&gt;
+
+    &lt;style xml:id= "styleThree"
+      tts:color= "black"
+      tts:backgroundColor= "white"
+      tts:fontStyle= "italic"
+    /&gt;
+
+    &lt;style xml:id= "styleFour" style= "styleTwo"
+      tts:textOutline= "red 2px 0px"
+    /&gt;
+
+    &lt;style xml:id= "styleFive" style= "styleTwo"
+      tts:color= "red"
+      tts:fontWeight= "bold"
+    /&gt;
+
+  &lt;/styling&gt;
+&lt;/head&gt;
+&lt;body xml:id= "thebody"&gt;
+  &lt;div style= "defaultCaption" xml:lang= "en"&gt;
+    &lt;p begin= "0:00:00.00" end= "0:00:04.00"&gt;This is my 1st caption&lt;/p&gt;
+    &lt;p begin= "0:00:05.00" end= "0:00:09.00" style= "styleTwo"&gt;This is my 2nd caption&lt;/p&gt;
+    &lt;p begin= "0:00:10.00" end= "0:00:14.00" style= "styleThree"&gt;This is my 3rd caption&lt;/p&gt;
+    &lt;p begin= "0:00:15.00" end= "0:00:19.00" style= "styleFour"&gt;This is my 4th caption&lt;/p&gt;
+    &lt;p begin= "0:00:20.00" end= "0:00:24.00"&gt;This is my 5th caption
+      &lt;span style= "styleFive"&gt;This is a sub-caption&lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p begin= "0:00:25.00" end= "0:00:29.00"&gt;This is my 6th caption&lt;/p&gt;
+    &lt;p begin= "0:00:25.00" end= "0:00:29.00" style= "styleTwo"&gt;This is my 7th caption&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div style= "defaultCaption" xml:lang= "fr"&gt;
+    &lt;p begin= "0:00:00.00" end= "0:00:34.00"&gt;Bonjour&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/tt&gt;    </pre>
+
+    </div>
+
+    <div class="section" id="dfxp_format__ccValidatorDisclaimer"><h2 class="title sectiontitle">Closed Caption Validator</h2>
+      
+      <p class="gt-block p">We are also providing a <span class="ph">Ooyala <a class="xref" href="../../../../../../../../ja/ttml_validator/index.html" target="_blank">クローズドキャプションバリデータ</a></span> to
+        check your DFXP/TTML documents for your convenience. However, please note that we provide
+        Ooyala-specific DFXP support. Even if you follow the w3c document definition for DFXP/TTML,
+        it might not be supported. If you run into any issues with your DFXP/TTML files, check with
+        your Ooyala representative or Technical Support.</p>
+
+    </div>
+
+  </div>
+
+  <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_standards.html" title="Supported Standards Guideへようこそ。 これらのトピックでは、Ooyalaがサポートする要件と標準について説明します。">サポートされている標準</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="../concepts/closed_captions_ingest.html" title="BacklotまたはOoyala Ingestion Service（OIS）を介して字幕ファイルを取り込むことができます。">クローズドキャプションファイルの取り込み</a></div>
+<div><a class="link" href="../concepts/ingestion_fileformats.html">マニフェストファイル形式</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong><br/>
+<div><a class="link" href="closed_caption_language.html" title="クローズドキャプションファイルをBacklotにアップロードする前に、サポートされている言語とファイル形式を使用していることを確認してください。">サポートされているクローズドキャプション</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

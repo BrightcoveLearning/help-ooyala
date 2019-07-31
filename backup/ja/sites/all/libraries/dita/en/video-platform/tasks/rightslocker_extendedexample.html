@@ -1,0 +1,84 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Extended Example of Rights Locker"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_rightslocker.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept_m2n_5td_v3"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>権利ロッカーの拡張例</title>
+</head>
+<body id="concept_m2n_5td_v3">
+
+
+ <h1 class="title topictitle1">権利ロッカーの拡張例</h1>
+
+ <div class="body taskbody">
+  <div class="section context"><p class="p">このシナリオでは、Rights Lockerの一部である2つのAPIを含め、Rights Lockerがどのように動作しているかのエンドツーエンドの完全な例を示します。</p>
+
+  
+  <p class="p">アイデアはビデオオンデマンド（VOD）アセットの資格を管理することです。 その後、視聴者アカウントにコンテンツへのアクセス権を付与できます（Rights Locker APIを使用）。 再生時に、システムは認証されたユーザーアカウントが特定のコンテンツへのアクセスを許可されているかどうかを確認します。 </p>
+
+   
+   <p class="gt-block p">以下の例では、資産は <samp class="ph codeph">my_asset_id</samp>。 同様に、 <span class="ph">バックスロットAPI</span>公開ルールを作成することも、既存のルールを使用することもできます。 この例では、ユーザーは公開ルールIDを再利用することを決定します。
+    <samp class="ph codeph">my_publishing_rule_id</samp>.  </p>
+
+  </div>
+
+  <ol class="ol steps"><li class="li step stepexpand">
+    <span class="ph cmd">公開ルールを更新する <samp class="ph codeph">my_publishing_rule</samp> を設定する
+      <samp class="ph codeph">require_user_entitlement</samp> 〜へのフィールド <samp class="ph codeph">true</samp>.
+      
+      </span>
+     
+     あなたに <span class="ph">バックスロットAPI</span> https://api.ooyala.comのサーバー。
+     <pre class="pre codeblock">[パッチ] / v2 / publishing_rules /<span class="keyword parmname">my_publishing_rule_id</span>{&quot;secure_playback_token&quot;：{&quot;有効&quot;：true、//有効期限は秒です &quot;expiration&quot;：600、 &quot;require_user_entitlement&quot;： &quot;true&quot;}}</pre>
+
+    
+   </li>
+<li class="li step stepexpand" id="concept_m2n_5td_v3__create_entitlement">
+    <span class="ph cmd">として識別された視聴者アカウントの資格を追加します <samp class="ph codeph">gz7XwF_1p2qYM</samp> Rights Lockerの作成ルートを使用して資産にアクセスする <a class="xref" href="../api/rightslocker.html">Rights Locker APIリファレンス</a>。 （アカウントIDは、実際には、で説明したアルゴリズムのようなもので構成されています <a class="xref" href="../concepts/rightslocker_accountsecurity.html#concept_m2n_5td_v3">あなたのユーザ、あなたのアカウント：セキュリティ</a> プロバイダだけが実際の視聴者が誰であるかを知っているように。）</span>
+     
+     http://rl.ooyala.comのRights Locker APIサーバーにリクエストを送信します。
+     <pre class="pre codeblock">[POST] / v2 /資格/ provider / 932nf90r3mkoewfmungedID / accounts /<span class="keyword parmname">my_account_id</span>/ content {{“資産”：[{“ content_id”：“<span class="keyword parmname">my_asset_id</span>、「publishing_rule_id」：「<span class="keyword parmname">my_publishing_rule</span>&quot;、&quot; external_product_id &quot;：&quot; 12345 &quot;、&quot; start_time &quot;：20130902、&quot; end_time &quot;：20140902}]}}</pre>
+
+    
+     アカウントを持つ視聴者 <samp class="ph codeph">my_account_id</samp> これで資産への権利が与えられました <samp class="ph codeph">my_asset_id</samp>で指定された規則に従って、
+     <samp class="ph codeph">my_publishing_rule_id</samp> 公開ルール
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">再生時に、Ooyalaの認証サーバーに認証要求を送信します。</span>
+     
+     <p class="p">以下の例（読みやすくするために数行に分割）は、埋め込まれたURLエンコードされたOoyala Player Token（OPT）と、ユーザーのアカウントID（<samp class="ph codeph">account_id％3Dmy_account_id</samp>).  </p>
+<p class="p">http://player.ooyala.com認証サービスにリクエストを送信します。</p>
+
+     <pre class="pre codeblock">[GET] http://player.ooyala.com/sas/player_api/v1/authorization/embed_code/my_asset_id?domain=test.com&amp;amp; supported_formats=smooth&amp;amp;embedToken=http%3A%2F%2Fplayer.ooyala.com%2Fsas%2Fembed_token%2FFoeG1Q2jqbkH9m%2FU5MHg0YTHZIPHGNsr%3F account_id%3Dmy_account_id%26api_key%3DFo%26expires%3D1376069474%26signature%3DnSYMwiVFzbGE5O%252BWhEbXvm1M</pre>
+
+     <p class="gt-block p">資産と割り当てられた公開ルールが取得されます。 次に、システムは、で説明されているように、これらの規則に基づいてユーザーアカウントが承認されているかどうかを確認します。
+       <a class="xref" href="../concepts/rightslocker_howauthorizationworks.html#concept_m2n_5td_v3">承認のしくみ</a>.</p>
+
+     <p class="gt-block p">ほとんどの場合（カスタマイズなしのOoyalaプレーヤーに基づく）、エンタイトルメントの確認はプレーヤー認証APIへの呼び出しで自動的に行われます。 で説明されているRights Lockerの前提条件構成をセットアップしている限り、追加のプログラミングは必要ありません。 <a class="xref" href="../concepts/rightslocker_prerequisites.html">Rights Lockerの前提条件</a>.</p>
+
+    
+   </li>
+</ol>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_rightslocker.html">権利ロッカー</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

@@ -1,0 +1,422 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Reporting Query String Parameters"/>
+<meta name="DC.Relation" scheme="URI" content="../api/analytics_v3_api_reference.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/analytics_v3_api_reference.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="analytics_v3_querystringparms"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>クエリ文字列パラメータの報告</title>
+</head>
+<body id="analytics_v3_querystringparms">
+
+
+  <h1 class="title topictitle1">クエリ文字列パラメータの報告</h1>
+
+ 
+  <div class="body refbody">
+    <div class="section">
+      <p class="gt-block p">これはのためのすべてのクエリ文字列パラメータの完全なリファレンス詳細です。 <span class="ph">v3アナリティクス</span>
+        <a class="xref" href="analytics_v3_api_reporting_overview.html#analytics_reporting">レポートAPI</a>.</p>
+<p class="p">すべてのパラメータ名は大文字と小文字が区別され、小文字です。</p>
+<p class="p">クエリ文字列全体をURLエンコードする必要があります。 パラメーター <samp class="ph codeph">制限</samp> そして <samp class="ph codeph">ページ</samp> 正しい合計カウント値を取得するには、API呼び出しで使用する必要があります。</p>
+
+    </div>
+
+      <div class="section"><h2 class="title sectiontitle">レポートGETの一般的な構文</h2>
+            
+            <p class="p">ルートとクエリ文字列の基本的な構文は次のとおりです。 読みやすくするために、単一行の要求は複数の行に分割されています。 </p>
+
+            <pre class="pre codeblock" id="analytics_v3_querystringparms__d1794e40">
+<strong class="ph b">[GET] / v3 / analytics / reports /？</strong>
+            <a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__report_type"><strong class="ph b">report_type</strong></a>=<a class="xref" href="analytics_v3_api_reporting_reports.html#analytics_reporting_preprogrammed_reports"><var class="keyword varname">type</var></a>
+            ＆<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__dimensions">大きさ</a>=<a class="xref" href="analytics_v3_api_reporting_dimensions.html#analytics_v3_dimensions"><var class="keyword varname">大きさ</var></a>
+            ＆<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__metrics">メトリクス</a>=<a class="xref" href="analytics_v3_api_reporting_metrics.html#analytics_v3_metrics"><var class="keyword varname">メトリクス</var></a>
+            ＆<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__filters">フィルター</a>=<a class="xref" href="analytics_v3_api_reporting_filters.html#analytics_v3_filters"><var class="keyword varname">filter_type == &#39;filter_value&#39;</var></a>
+            ＆<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__start_date"><strong class="ph b">START_DATE</strong></a>=<var class="keyword varname">date</var>
+            ＆<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__end_date">終了日</a>=日付＆<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms"><var class="keyword varname">other_parms</var></a>
+            <strong class="ph b">＆api_key = your_api_key</strong>
+         </pre>
+
+            <ul class="ul">
+               <li class="li">  <strong class="ph b">必須</strong> クエリ文字列パラメータ（太字で表示）は <a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__report_type"><samp class="ph codeph">report_type</samp></a>,  <samp class="ph codeph">START_DATE</samp>、そしてapi_key。 </li>
+
+               <li class="li">次元が指定されていない場合は、すべての次元にわたる合計値が返されます。 </li>
+
+               <li class="li">最大1月の時間範囲では、無制限のデータ行を使用して、一度に最大3ディメンションで照会できます。 1か月を超える時間範囲では、最大2行のデータを使用して、一度に最大10,000ディメンションで照会できます。 </li>
+
+               <li class="li">メトリックが指定されていない場合は、すべてのメトリックが返されます。 </li>
+
+            </ul>
+
+            <div class="note note"><span class="notetitle">注意：</span> APIキーはクエリパラメータとして、またはヘッダX-API-KEYを介して渡すことができます。</div>
+
+            <div class="note note"><span class="notetitle">注意：</span> 現時点では、 <var class="keyword varname">report_type</var>  is
+                  
+                  <samp class="ph codeph">パフォーマンス</samp>.</div>
+
+            <div class="note note"><span class="notetitle">注意：</span> 1ディメンションのみを使用できます（<samp class="ph codeph">URL</samp>）のための <samp class="ph codeph">URL</samp>
+               クエリ</div>
+
+         </div>
+
+      <div class="section"><h2 class="title sectiontitle">ロングクエリのレポートの一般的な構文POST</h2>
+            
+            <p class="p">HTTP GET仕様の230文字の制限を超えるクエリパラメータを持つクエリの場合は、POSTリクエストを使用してください。 一部のブラウザおよびhttpクライアントは、230文字を超える文字をサポートしている場合がありますが、HTTP GET仕様に違反するクエリについては正式なサポートは提供されません。 POSTリクエストの場合は、クエリ文字列パラメータの代わりにリクエストボディにJSONオブジェクトを渡します。 </p>
+
+            <pre class="pre codeblock">
+<strong class="ph b">[POST] / v3 / analytics / reports {</strong>
+    
+    "<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__report_type"><strong class="ph b">report_type</strong></a>「」<a class="xref" href="analytics_v3_api_reporting_reports.html#analytics_reporting_preprogrammed_reports"><var class="keyword varname">type</var></a>「」<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__dimensions">大きさ</a>「」<a class="xref" href="analytics_v3_api_reporting_dimensions.html#analytics_v3_dimensions"><var class="keyword varname">大きさ</var></a>「」<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__metrics">メトリクス</a>「」<a class="xref" href="analytics_v3_api_reporting_metrics.html#analytics_v3_metrics"><var class="keyword varname">メトリクス</var></a>「」<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__filters">フィルター</a>&quot;：&quot;（<a class="xref" href="analytics_v3_api_reporting_filters.html#analytics_v3_filters"><var class="keyword varname">filter_type == \ &quot;filter_value \&quot;）</var></a>「」<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__start_date"><strong class="ph b">START_DATE</strong></a>「」<var class="keyword varname">date</var>「」<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__end_date">終了日</a>&quot;：&quot;日付 &quot;、&quot;<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms"><var class="keyword varname">other_parms</var></a>&quot;：&quot; other_param_value &quot;、
+   <strong class="ph b"> &quot;api_key&quot;： &quot;your_api_key&quot;}</strong>
+         </pre>
+
+         </div>
+
+    <div class="section">
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="analytics_v3_querystringparms__analytics_v3_querystringparms" class="table" frame="border" border="1" rules="all">
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" id="d23743e252">パラメーター </th>
+
+              <th class="entry" valign="top" id="d23743e255">説明 </th>
+
+              <th class="entry" valign="top" id="d23743e258">必須 </th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="p"><samp class="ph codeph" id="analytics_v3_querystringparms__report_type">report_type</samp></p>
+
+              </td>
+
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="p">レポートの種類を指定します。</p>
+
+                <p class="p">有効な値 <samp class="ph codeph">パフォーマンス</samp>
+                </p>
+
+                <p class="p">デフォルト：なし</p>
+
+                <p class="p">例： <samp class="ph codeph">report_type = performance</samp></p>
+
+              </td>
+
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="p">はい</p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="p"><samp class="ph codeph" id="analytics_v3_querystringparms__start_date">START_DATE</samp></p>
+
+              </td>
+
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="gt-block p">開始日は次のように指定されます。 <samp class="ph codeph"><em class="ph i">YYYY</em>-<em class="ph i">MM</em>-<em class="ph i">DD</em></samp>.  <span class="ph" id="analytics_v3_querystringparms__time">開始日と開始時刻を指定するには、次のように指定します。 <samp class="ph codeph"><em class="ph i">YYYY</em>-<em class="ph i">MM</em>-<em class="ph i">DDTHH：MM</em></samp>。 時間は、15分で割り切れる値で指定する必要があります（たとえば、02：00、02：15、02：30、02：45など）。 15で割り切れない時間を入力した場合、エラーメッセージが返され、クエリは処理されません。 </span>
+                </p>
+
+                <p class="p">の値 <samp class="ph codeph">START_DATE</samp> プロバイダのタイムゾーンです。 </p>
+
+                <p class="p">デフォルト：なし</p>
+
+                <p class="gt-block p">制限事項：最大1フィルターの場合は最大366年（2日）、1フィルターの場合は最大31月（3日）までの範囲を照会できます。 <span class="ph">を使用したクエリ <samp class="ph codeph">時間</samp> そして
+                      <samp class="ph codeph">15min</samp> タイムセグメントは、最大7日の日付範囲でのみ作成できます。</span> </p>
+
+                <p class="p">例： <samp class="ph codeph">開始日= 2014-10-28</samp></p>
+
+              </td>
+
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="p">はい</p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="p"><samp class="ph codeph" id="analytics_v3_querystringparms__end_date">終了日</samp></p>
+
+              </td>
+
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="gt-block p">終了日は次のように指定されます。 <samp class="ph codeph"><em class="ph i">YYYY</em>-<em class="ph i">MM</em>-<em class="ph i">DD</em></samp>.<span class="ph">開始日と開始時刻を指定するには、次のように指定します。 <samp class="ph codeph"><em class="ph i">YYYY</em>-<em class="ph i">MM</em>-<em class="ph i">DDTHH：MM</em></samp>。 時間は、15分で割り切れる値で指定する必要があります（たとえば、02：00、02：15、02：30、02：45など）。 15で割り切れない時間を入力した場合、エラーメッセージが返され、クエリは処理されません。 </span></p>
+
+                <p class="gt-block p"><strong class="ph b">注意： </strong>終了日は含まれていません。 つまり、応答のデータは終了日までですが、終了日は含みません。 </p>
+
+                <p class="p">デフォルト：プロバイダのタイムゾーンでの明日の日付。</p>
+
+                <p class="gt-block p">制限事項：最大1フィルターの場合は最大366年（2日）、1フィルターの場合は最大31月（3日）までの範囲を照会できます。 <span class="ph">を使用したクエリ <samp class="ph codeph">時間</samp> そして
+                      <samp class="ph codeph">15min</samp> タイムセグメントは、最大7日の日付範囲でのみ作成できます。</span> </p>
+
+                <p class="p">例：2014-10-29の終わりまでデータを取得するには： <samp class="ph codeph">終了日= 2014-10-29</samp></p>
+
+              </td>
+
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="p">いいえ</p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="p"><samp class="ph codeph" id="analytics_v3_querystringparms__metrics">メトリクス</samp></p>
+
+              </td>
+
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="p">コンマ区切りのメトリック名のリスト。 </p>
+
+                <p class="p">デフォルト：*（すべてのメトリック） </p>
+
+                <p class="gt-block p">有効値：を参照してください。 <a class="xref" href="analytics_v3_api_reporting_metrics.html#analytics_v3_metrics">メトリック</a> 詳細はセクションを参照してください。</p>
+
+                <p class="p">例： <samp class="ph codeph">metrics = plays_requested、表示</samp></p>
+
+              </td>
+
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="p">いいえ</p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="p"><samp class="ph codeph" id="analytics_v3_querystringparms__dimensions">大きさ</samp></p>
+
+              </td>
+
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="p">コンマ区切りのディメンション名のリスト。 結果は指定された次元でグループ化されています。 次元が指定されていない場合は、すべての次元にわたる合計値が返されます。 </p>
+
+                <div class="p">有効値：を参照してください。 <a class="xref" href="analytics_v3_api_reporting_dimensions.html#analytics_v3_dimensions">レンディション</a>
+                  セクションを参照してください。 <ul class="ul">
+          <li class="li">最大1月の時間範囲では、無制限のデータ行を使用して、一度に最大3ディメンションで照会できます。</li>
+
+          <li class="li">1か月を超える時間範囲では、最大2行のデータを使用して、一度に最大10,000ディメンションで照会できます。 <div class="note note"><span class="notetitle">注意：</span> 1ディメンションは、
+                <samp class="ph codeph">URL</samp> クエリ</div>
+
+          </li>
+
+          <li class="li">複数の値は、スペースを入れずにコンマで区切る必要があります。</li>
+
+          <li class="li">倍数の順序は重要ではありません。<ul class="ul" id="analytics_v3_querystringparms__d2845e48">
+              <li class="li"><samp class="ph codeph">ディメンション= device_type、dma</samp> と同じです。
+                  <samp class="ph codeph">ディメンション= dma、device_type</samp></li>
+
+            </ul>
+</li>
+
+        </ul>
+</div>
+
+                <p class="p">デフォルト：なし</p>
+
+                <p class="p">例： <samp class="ph codeph">寸法=国、地域</samp></p>
+
+              </td>
+
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="p">いいえ</p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="p"><samp class="ph codeph" id="analytics_v3_querystringparms__filters">フィルター</samp></p>
+
+              </td>
+
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 "> 指定されたフィルター値によって結果のセットを制限します。 <div class="note note"><span class="notetitle">注意：</span> 最大2フィルタの場合は、最大1年（366日）までの日付範囲を設定できます。 3フィルタの場合、最大1月（31日）までの日付範囲を設定できます。</div>
+<p class="gt-block p">有効値：を参照してください。 <a class="xref" href="analytics_v3_api_reporting_filters.html#analytics_v3_filters">フィルター</a> 有効なフィルター名およびブール演算用。 </p>
+<div class="p">
+                  <ul class="ul">
+                    <li class="li">の値 <samp class="ph codeph">filter_by</samp> URLエンコードされている必要があります。 </li>
+
+                    <li class="li">実際のフィルターの値は単一引用符で囲む必要があります。</li>
+
+                  </ul>
+
+                </div>
+
+                <p class="p">デフォルト：なし</p>
+
+                <div class="p">例：<ul class="ul" id="analytics_v3_querystringparms__ul_ew3_5jd_zm">
+                    <li class="li">国で絞り込むオーストラリア： <samp class="ph codeph">filters =国== &#39;AU&#39;</samp></li>
+
+                    <li class="li">国のモバイル機器で絞り込むコロンビア <samp class="ph codeph">フィルタ=国== &#39;CO&#39;、デバイスタイプ== &#39;携帯電話&#39;</samp></li>
+
+                    
+                  </ul>
+</div>
+</td>
+
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="p">いいえ</p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="p"><samp class="ph codeph" id="analytics_v3_querystringparms__time_segment">time_segment</samp></p>
+
+              </td>
+
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="gt-block p">ディメンションデータの時間ベースのセグメントを指定します。 の動作の説明を参照してください。 <a class="xref" href="#analytics_v3_querystringparms__time_segment_and_dates/index.html">time_segmentとデータの持続性について</a>。 これはデータのブロックをソートします。</p>
+
+                <div class="note note"><span class="notetitle">注意：</span> 週は月曜日 - 日曜日として定義されます。</div>
+
+                <p class="p">有効な値   <samp class="ph codeph">月</samp>  |  <samp class="ph codeph">週間</samp>  |  <samp class="ph codeph">日</samp>|  <samp class="ph codeph">時間</samp>  |  <samp class="ph codeph">15min</samp></p>
+
+                <div class="note note"><span class="notetitle">注意：</span> <span class="ph" id="analytics_v3_querystringparms__7day_limit">を使用したクエリ <samp class="ph codeph">時間</samp> そして
+                      <samp class="ph codeph">15min</samp> タイムセグメントは、最大7日の日付範囲でのみ作成できます。</span> を使用したクエリ <samp class="ph codeph">時間</samp> そして
+                    <samp class="ph codeph">15min</samp> 時間セグメントは、のメトリック情報を返しません。
+                    <samp class="ph codeph">segment_watched</samp>,  <samp class="ph codeph" id="analytics_v3_querystringparms__unique_displays">uniq_displays</samp>,  <samp class="ph codeph" id="analytics_v3_querystringparms__unique_video_starts">uniq_video_starts</samp>,  <samp class="ph codeph">percentage_watched</samp>  ,  <samp class="ph codeph" id="analytics_v3_querystringparms__unique_plays">uniq_plays_requested</samp>または任意のディスカバリメトリック。</div>
+
+                <p class="p">デフォルト：なし</p>
+
+                <p class="p">例： <samp class="ph codeph">time_segment =日</samp></p>
+
+              </td>
+
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="p">いいえ</p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="p"><samp class="ph codeph" id="analytics_v3_querystringparms__sort">sort</samp></p>
+
+              </td>
+
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="p">並べ替えの基準となるコンマ区切りのメトリックのリスト。 複数の指標の場合は、指標がクエリに配置されている順序で指標によって並べ替えます。 （メトリックがあると仮定して）任意の数のソートメトリックを明示的に使用できますが、デフォルトのソートには2つのメトリックの制限があります。</p>
+
+                <p class="p">デフォルト：クエリー順に（存在する場合）最初の2つのメトリックで並べ替えます。 これは常に降順でデータを返します。 昇順でデータを返すことはできません。</p>
+
+                <div class="p">例： <ul class="ul">
+                    <li class="li">要求された再生、表示、およびビデオの降順の再生 <samp class="ph codeph">sort = plays_requested、表示、video_starts</samp></li>
+
+                  </ul>
+</div>
+
+                <div class="note note"><span class="notetitle">注意：</span> 
+                  <p class="p">使用しないことをお勧めします <samp class="ph codeph">segment_watched</samp>  or  <samp class="ph codeph">percentage_watched</samp>  ソート用 のような他の指標を使ってください
+                      <samp class="ph codeph" id="analytics_v3_querystringparms__plays">plays_requested</samp>代わりに。</p>
+
+                  <p class="p">メトリクスごとに異なるソートセマンティクスがあります。 例えば、 <samp class="ph codeph">segment_watched</samp> そして <samp class="ph codeph">percentage_watched</samp> ソートには（配列全体の）ストリングを使用し、数値ソートは使用しないでください。 これはつまり、 <samp class="ph codeph">segment_watched</samp> 結果は番号順に表示されない場合があります。 最初の結果の件数が少ない場合、結果が表示されることがあります。
+                      <samp class="ph codeph">segment_watched</samp> 2番目の結果よりも（例えば[99、…]、[999、...]）。</p>
+
+                  <p class="p">対照的に、 <samp class="ph codeph">plays_requested</samp> 数値ソートを使用すると、明確な結果が得られます。</p>
+
+                </div>
+
+              </td>
+
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="p">いいえ</p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="p"><samp class="ph codeph" id="analytics_v3_querystringparms__limit">制限</samp></p>
+
+              </td>
+
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="p">応答で返されるレコードを制限してください。 最大制限：1000 あなたが使用することができます
+                    <samp class="ph codeph">ページ</samp> すべてのデータをページ分割するためのパラメータ。 注：パラメータ <samp class="ph codeph">制限</samp> そして <samp class="ph codeph">ページ</samp> 正しい合計カウント値を取得するには、API呼び出しで使用する必要があります。</p>
+
+                <p class="p">デフォルト：1000</p>
+
+                <p class="p">例： <samp class="ph codeph">制限= 100</samp></p>
+
+              </td>
+
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="p">いいえ</p>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="p"><samp class="ph codeph" id="analytics_v3_querystringparms__page">ページ</samp></p>
+
+              </td>
+
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="p">ページネーション用の整数。 0で始まります。 注：パラメータ <samp class="ph codeph">制限</samp> そして <samp class="ph codeph">ページ</samp> 正しい合計カウント値を取得するには、API呼び出しで使用する必要があります。</p>
+
+                <p class="p">デフォルト：0</p>
+
+                <p class="p">例：2ページ目の場合： <samp class="ph codeph">ページ= 1</samp></p>
+
+              </td>
+
+              <td class="entry" valign="top" headers="d23743e252 d23743e255 d23743e258 ">
+                <p class="p">いいえ</p>
+
+              </td>
+
+            </tr>
+
+            
+            
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+<div class="section" id="analytics_v3_querystringparms__time_segment_and_dates"><h2 class="title sectiontitle">time_segmentとデータの持続性について</h2>
+  
+  <p class="p">時間範囲は、要求を満たすために自動的に最小時間範囲に拡張されます。 たとえば、今日だけの開始日と終了日を指定しますが、 <samp class="ph codeph">time_segment</samp>  of  <samp class="ph codeph">週間</samp> 指定された開始/終了日を今週全体（プロバイダのタイムゾーン内）に拡大します。 指定がない場合 <samp class="ph codeph">time_segment</samp>指定したディメンションの集計合計が返されます。 どちらもない場合 <samp class="ph codeph">time_segment</samp> 指定されたディメンションも、時間範囲の総計も返されません。 </p>
+
+  
+</div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/analytics_v3_api_reference.html">パラメータ参照</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</ht

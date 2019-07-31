@@ -1,0 +1,186 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Top Titles Route Parameters"/>
+<meta name="abstract" content="Learn about the Top Titles route parameters and return values."/>
+<meta name="description" content="Top Titlesのルートパラメータと戻り値について学びます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/discovery_abouttoptitles.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="discovery_toptitlesparams"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>トップタイトルルートパラメータ</title>
+</head>
+<body id="discovery_toptitlesparams">
+
+
+ <h1 class="title topictitle1">トップタイトルルートパラメータ</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">Top Titlesのルートパラメータと戻り値について学びます。</p>
+
+  <div class="p">次の表は、Top Titlesルートで使用されるパラメータを説明しています。
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="discovery_toptitlesparams__toptitle_parameters" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">表1 トップタイトルのパラメータ</span></caption>
+     
+     
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="17.562724014336915%" id="d293438e35">パラメーター</th>
+
+       <th class="entry" valign="top" width="11.917562724014337%" id="d293438e38">必須？</th>
+
+       <th class="entry" valign="top" width="8.960573476702509%" id="d293438e41">タイプ</th>
+
+       <th class="entry" valign="top" width="61.55913978494624%" id="d293438e44">説明/例</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" width="17.562724014336915%" headers="d293438e35 "><samp class="ph codeph">score_type</samp></td>
+
+       <td class="entry" align="center" valign="top" width="11.917562724014337%" headers="d293438e38 ">はい</td>
+
+       <td class="entry" valign="top" width="8.960573476702509%" headers="d293438e41 ">文字列</td>
+
+       <td class="entry" valign="top" width="61.55913978494624%" headers="d293438e44 ">このパラメータには常に1つの値が割り当てられています。 <samp class="ph codeph">top_titles</samp>。 次の例に使用方法を示します。<pre class="pre codeblock">score_type = top_titles</pre>
+</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="17.562724014336915%" headers="d293438e35 "><samp class="ph codeph">show_type</samp></td>
+
+       <td class="entry" align="center" valign="top" width="11.917562724014337%" headers="d293438e38 ">いいえ</td>
+
+       <td class="entry" valign="top" width="8.960573476702509%" headers="d293438e41 ">文字列</td>
+
+       <td class="entry" valign="top" width="61.55913978494624%" headers="d293438e44 "> このパラメータは、次のいずれかの値を取ります。 <ul class="ul">
+         <li class="li"><samp class="ph codeph">映画</samp></li>
+
+         <li class="li"><samp class="ph codeph">シリーズ</samp></li>
+
+        </ul>
+ このパラメータを呼び出さないと、映画やテレビ番組などの結果が返されます。<pre class="pre codeblock">show_type =映画 </pre>
+</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="17.562724014336915%" headers="d293438e35 "><samp class="ph codeph">ウィンドウ</samp></td>
+
+       <td class="entry" align="center" valign="top" width="11.917562724014337%" headers="d293438e38 ">いいえ</td>
+
+       <td class="entry" valign="top" width="8.960573476702509%" headers="d293438e41 ">文字列</td>
+
+       <td class="entry" valign="top" width="61.55913978494624%" headers="d293438e44 "> このパラメーターは、結果が提供される期間を定義します。 以下のいずれかの値を取ります。 <ul class="ul">
+         <li class="li"><samp class="ph codeph">営業時間</samp> - 結果は1時間以内に人気のあるコンテンツのために提供されています。</li>
+
+         <li class="li"><samp class="ph codeph">日</samp> - 結果は24時間内の人気コンテンツに対して提供されます。</li>
+
+         <li class="li"><samp class="ph codeph">週間</samp> - 結果は、過去7日間に人気のあるコンテンツに対して提供されます。 </li>
+
+         <li class="li"><samp class="ph codeph">月</samp> - 結果は、過去30日間に人気のあるコンテンツに対して提供されます。</li>
+
+        </ul>
+ 次の例に使用方法を示します。<pre class="pre codeblock">ウィンドウ=日</pre>
+</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="17.562724014336915%" headers="d293438e35 "><samp class="ph codeph">制限</samp></td>
+
+       <td class="entry" align="center" valign="top" width="11.917562724014337%" headers="d293438e38 ">いいえ</td>
+
+       <td class="entry" valign="top" width="8.960573476702509%" headers="d293438e41 ">文字列</td>
+
+       <td class="entry" valign="top" width="61.55913978494624%" headers="d293438e44 ">このパラメータは、返される結果の最大数を定義します。 デフォルトは100で、有効な値は1から500までです。 次の例に使用方法を示します。
+        <pre class="pre codeblock">＆limit = 7</pre>
+</td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+</div>
+
+  <div class="p">次の表にrouteの戻り値のパラメータを示します。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="discovery_toptitlesparams__table_cbg_wcn_cs" class="table" frame="border" border="1" rules="all">
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="24.570024570024568%" id="d293438e178">値</th>
+
+       <th class="entry" valign="top" width="75.42997542997541%" id="d293438e181">説明/例</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" width="24.570024570024568%" headers="d293438e178 "><samp class="ph codeph">id</samp></td>
+
+       <td class="entry" valign="top" width="75.42997542997541%" headers="d293438e181 "> 資産タイトルの一意の識別子。 次の例に構文が示されています。 <pre class="pre codeblock">"id": "ZpZXI5bjocHxChXG-8LKW8-5mYuxk4wm"</pre>
+</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="24.570024570024568%" headers="d293438e178 "><samp class="ph codeph">localized_names</samp></td>
+
+       <td class="entry" valign="top" width="75.42997542997541%" headers="d293438e181 "> 資産の言語と関連する名前。 次の例に構文が示されています。
+        <pre class="pre codeblock">&quot;localized_names&quot;：[{&quot;name&quot;： &quot;Name&quot;、 &quot;language&quot;： &quot;es&quot;}]</pre>
+</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="24.570024570024568%" headers="d293438e178 "><samp class="ph codeph">スコア</samp></td>
+
+       <td class="entry" valign="top" width="75.42997542997541%" headers="d293438e181 ">資産の人気度スコア。 スコアの値は、特定のクエリに対する相対値です。 この値は、返された資産の絶対値を示すものではありません。 <div class="note note"><span class="notetitle">注意：</span> この機能は将来変更される可能性があり、特定の資産のスコアの大幅な変更は、必ずしも資産の人気の大幅な変更を意味するわけではありません。</div>
+<pre class="pre codeblock">&quot;スコア&quot;：642.0</pre>
+</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="24.570024570024568%" headers="d293438e178 "><samp class="ph codeph">show_type</samp></td>
+
+       <td class="entry" valign="top" width="75.42997542997541%" headers="d293438e181 ">資産タイプ（<samp class="ph codeph">シリーズ</samp>  or  <samp class="ph codeph">映画</samp>） 次の例に構文が示されています。 <pre class="pre codeblock">&quot;show_type&quot;： &quot;シリーズ&quot; </pre>
+</td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+</div>
+
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/discovery_abouttoptitles.html" title="トップタイトルのルートを使用して、トップトレンドの動画に関する統計情報を返します。">トップタイトル</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

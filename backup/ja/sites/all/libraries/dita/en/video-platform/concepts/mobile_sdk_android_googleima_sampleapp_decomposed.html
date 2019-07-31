@@ -1,0 +1,162 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="A Closer Look at the Android Sample App"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_android_googleima.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="mobilesdk_ios_googleima_sampleapp_decomposed"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Androidサンプルアプリを詳しく見る</title>
+</head>
+<body id="mobilesdk_ios_googleima_sampleapp_decomposed">
+
+
+
+   <h1 class="title topictitle1">Androidサンプルアプリを詳しく見る</h1>
+
+   <div class="body conbody">
+
+
+      <p class="p">サンプルアプリのソースコードを詳しく見ると、独自のアプリを構築するために焦点を合わせる必要がある設定ポイントが強調されています。</p>
+
+      <div class="section"><h2 class="title sectiontitle">プロジェクト用のライブラリを設定する</h2><p class="p">新しいプロジェクトの場合は、必ず次のjarファイルをlibまたはlibsディレクトリに配置してください。</p>
+<ul class="ul">
+            <li class="li"><samp class="ph codeph">OoyalaSDK.jar</samp>：Android用ベースラインOoyala Mobile SDKのjarファイル。</li>
+
+            <li class="li"><samp class="ph codeph">OoyalaIMASDK.jar</samp>：Android上のGoogle IMA用Ooyala SDKからのjarファイル。 </li>
+
+         </ul>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">AndroidManifest.xmlファイルを更新する</h2>の中に
+            <samp class="ph codeph">AndroidManifest.xml</samp> ファイル、追加
+            <samp class="ph codeph">アンドロイド：configChanges</samp> アプリケーションの属性（下のハイライトされた行を参照） <samp class="ph codeph">＜活動＞</samp> 宣言。 <p class="gt-block p"><strong class="ph b">注意： </strong>これを使用する場合にのみ必要です <samp class="ph codeph">OptimizedOoyalaPlayerLayoutController</samp>これはお勧めです。 これについては後でさらに説明します。</p>
+<pre class="pre codeblock">&lt;application&gt; &lt;activity android：name = &quot;com.ooyala.android.imasampleapp.IMASampleAppActivity&quot; android：label = &quot;@ string / app_name&quot;
+    <strong class="ph b">アンドロイド：configChanges = &quot;向き| keyboardHidden&quot;</strong> &gt; ... &lt;/activity&gt; &lt;/application&gt;</pre>
+</div>
+
+      <div class="section"><h2 class="title sectiontitle">サンプルアプリのソース</h2>
+         
+         <p class="p">Video Cloud Studioで
+               <samp class="ph codeph">IMASampleApp / src / ooyala / com / android / imasampleapp / IMASampleAppActivity.java</samp>
+            ファイル。</p>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">輸入</h2>
+         
+         <div class="p">を調べる <samp class="ph codeph">インポート</samp> ファイルの先頭にあるステートメント<ul class="ul">
+               <li class="li">最初の2つのimport文は、Ooyala SDK for Google IMAから定義を取得します。</li>
+
+               <li class="li">次の4つは標準的なAndroidのインポートです。</li>
+
+               <li class="li">ベースラインのOoyala Mobile SDK for Androidからのプレーヤーとビューコントローラの最後の3つのプル定義。</li>
+
+            </ul>
+</div>
+
+         <pre class="pre codeblock"><strong class="ph b">import com.ooyala.android.imasdk。*; import com.ooyala.android.imasampleapp.R;</strong>
+android.app.Activityをインポートします。 android.os.Bundleをインポートします。 android.util.Logをインポートします。 import android.view.ViewGroup;
+<strong class="ph b">import com.ooyala.android.OoyalaPlayer; import com.ooyala.android.OoyalaPlayerLayout; import com.ooyala.android.OptimizedOoyalaPlayerLayoutController; </strong>
+...</pre>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">定数</h2><div class="p">トピック <a class="xref" href="../tasks/mobile_sdk_android_tutorial.html" title="基本的なプレーヤーアプリを素早く作成する方法を学びましょう。">基本的なAndroidアプリの作成</a> 定数を紹介します <samp class="ph codeph">PCODE</samp>,  <samp class="ph codeph">埋め込み</samp>、および <samp class="ph codeph">新しいPlayerDomain（ドメイン）</samp>:
+            
+            <pre class="pre codeblock">  最後の文字列 <strong class="ph b">埋め込み</strong>  = &quot;h5OWFoYTrG4YIPdrDKrIz5-VhobsuT-M&quot;; //コードまたはコンテンツIDの最終文字列を埋め込む <strong class="ph b">PCODE</strong>  = &quot;R2d3I6s06RyB712DN0_2GsQS-RY&quot;; 最後の文字列 <strong class="ph b">新しいPlayerDomain（ドメイン）</strong> = &quot;http://www.ooyala.com&quot;; ...</pre>
+
+            サンプルアプリではこれらを定数として定義していますが、特に、 <samp class="ph codeph">埋め込み</samp> 定数（アセットIDまたはコンテンツID）。 </div>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">コントローラの設定、初期化
+               <samp class="ph codeph">OoyalaIMAManager</samp> とクラス</h2>
+         <p class="gt-block p">さまざまなレイアウトコントローラと組み合わせて <samp class="ph codeph">OoyalaIMAManager</samp> SDKに含まれています。 <a class="xref" href="mobile_sdk_android_controls.html">選択できる基本的なビューは、ベースラインのMobile SDK for Androidに含まれています。</a></p>
+<div class="note note"><span class="notetitle">注意：</span> Google IMAを使用する場合は、を使用することを強くお勧めします。
+               <samp class="ph codeph">OptimizedOoyalaPlayerLayoutController</samp> レイアウトコントローラ。
+            </div>
+<p class="p">サンプルアプリでは、レイアウトコントローラはtypeとして宣言されています。
+               <samp class="ph codeph">OptimizedOoyalaPlayerLayoutController</samp>.  </p>
+<p class="p">最後に、
+               <samp class="ph codeph">imaManager</samp> オブジェクトは型として初期化されます
+               <samp class="ph codeph">OOIMAManager</samp> プレイヤーと：</p>
+<pre class="pre codeblock">  OptimizedOoyalaPlayerLayoutController playerLayoutController;
+  <strong class="ph b">OoyalaIMAManager</strong> imaManager; / ** *アクティビティが最初に作成されたときに呼び出されます。 * / @オーバーライドpublic void onCreate（Bundle savedInstanceState）{super.onCreate（savedInstanceState）;} setContentView（R.layout.main）; OoyalaPlayerLayout playerLayout =（OoyalaPlayerLayout）findViewById（R.id.ooyalaPlayer）;
+    <strong class="ph b">playerLayoutController = new OptimizedOoyalaPlayerLayoutController（playerLayout、PCODE、new PlayerDomain（DOMAIN））;</strong>
+    OoyalaPlayer player = playerLayoutController.getPlayer（）; // IMAクラスを初期化する
+    <strong class="ph b">imaManager = new OoyalaIMAManager（プレーヤ）。</strong></pre>
+
+         <div class="note note"><span class="notetitle">注意：</span> についての参照資料 <samp class="ph codeph">OoyalaIMAManager</samp>Ooyala IMA SDK  -  Android APIドキュメントを参照してください。</div>
+</div>
+
+      <div class="section"><h2 class="title sectiontitle">コンパニオン広告スロット</h2>
+         
+         <p class="p">コンパニオンビューはtypeとして宣言されています <samp class="ph codeph">ViewGroup</samp>、およびそのビューのコンパニオン広告スロットは、幅と高さがピクセル単位で、
+               <samp class="ph codeph">imaManager</samp> オブジェクト。 </p>
+
+         <pre class="pre codeblock">    ViewGroup companionView =（ViewGroup）findViewById（R.id.companionFrame）; imaManager.addCompanionSlot（companionView、300、50）;</pre>
+
+      </div>
+
+      <div class="section" id="mobilesdk_ios_googleima_sampleapp_decomposed__adtagparameters"><h2 class="title sectiontitle">広告タグのURLに広告タグのパラメータを追加する</h2><p class="p">Google提供の広告タグURLに独自の広告タグを追加するには、
+               <samp class="ph codeph">setAdTagParameters（）</samp> 方法。</p>
+<ol class="ol">
+            <li class="li">まず、 <samp class="ph codeph">ハッシュマップ</samp> 広告タグのURLに追加するパラメータを保持する2つの文字列を使用します。 サンプルアプリでは、ハッシュはと呼ばれます
+                  <samp class="ph codeph">adTagParameters</samp>.
+               
+               <pre class="pre codeblock">  Map &lt;String、String&gt; adTagParameters = new HashMap &lt;String、String&gt;（）;
+  <strong class="ph b">adTagParameters.put（ &quot;vid&quot;、EMBED）;</strong>
+  adTagParameters.put（ &quot;url&quot;、 &quot;[referrer_url]&quot;）; adTagParameters.put（ &quot;pod&quot;、 &quot;2&quot;）; adTagParameters.put（ &quot;ppos&quot;、 &quot;2&quot;）; adTagParameters.put（ &quot;vpos&quot;、 &quot;preroll&quot;）; adTagParameters.put（ &quot;mridx&quot;、 &quot;2&quot;）; imaManager.setAdTagParameters（adTagParameters）;</pre>
+</li>
+
+            <li class="li">追加したいパラメータごとに、 <samp class="ph codeph">プット（）</samp> タグ名と値のペアをハッシュに入れます。 サンプルでは、​​最初の広告タグの名前と値のペアによって、 <samp class="ph codeph">VID</samp> の値にタグを付ける <samp class="ph codeph">埋め込み</samp>
+               定数（動画またはアセットID）。</li>
+
+            <li class="li">最後に、ハッシュを作成したら、それをに渡します。
+                  <samp class="ph codeph">imaManager.setadTagParameters（）</samp> 方法。 <p class="p">例として、次のようなadTagUrlがあるとします（このURLは読みやすくするために複数行にまたがっています。</p>
+<pre class="pre codeblock">
+http://pubads.g.doubleclick.net/gampad/ads?sz=400x300&amp;iu=%2F6062%2Fhanna_MA_group%2Fwrapper_with_comp
+&amp;ciu_szs=728x90&amp;impl=s&amp;gdfp_req=1&amp;env=vp&amp;output=xml_vast2&amp;unviewed_position_start=1
+&amp;m_ast=vast&amp;correlator=[timestamp]</pre>
+
+               サンプルアプリに示すように広告タグのパラメータを設定した後、広告タグのURLは次のようになり、余分なタグが強調表示されます。
+               <pre class="pre codeblock">http://pubads.g.doubleclick.net/gampad/ads?sz=400x300&amp;iu=%2F6062%2Fhanna_MA_group%2Fwrapper_with_comp
+&amp;ciu_szs=728x90&amp;impl=s&amp;gdfp_req=1&amp;env=vp&amp;output=xml_vast2&amp;unviewed_position_start=1
+&amp;m_ast=vast&amp;correlator=[timestamp]
+<strong class="ph b">&amp;mridx=2&amp;vpos=preroll&amp;ppos=2&amp;vid=h5OWFoYTrG4YIPdrDKrIz5-VhobsuT-M&amp;pod=2&amp;url=[referrer_url]</strong></pre>
+</li>
+
+         </ol>
+広告タグURL自体の基本値を上書きすることもできます。 の議論を参照してください
+            <a class="xref" href="mobile_sdk_android_googleima_adtagurloverride.html#mobilesdk_android_googleima_adurloverride">Androidで広告タグのURLを上書きする</a>.  </div>
+
+      <div class="section" id="mobilesdk_ios_googleima_sampleapp_decomposed__play"><h2 class="title sectiontitle">ビデオを再生する</h2>
+         
+         <p class="gt-block p">最後に、ビデオは <samp class="ph codeph">setEmbedCode（）</samp> 付属のメソッド <a class="xref" href="../tasks/mobile_sdk_android_tutorial.html" title="基本的なプレーヤーアプリを素早く作成する方法を学びましょう。">ベースラインMobile SDK</a>:</p>
+
+         <pre class="pre codeblock">  if（プレーヤー。<strong class="ph b">setEmbedCode</strong>（EMBED））{player.play（）; } else {Log.d（this.getClass（）。getName（）、 &quot;何かが間違っていました！&quot;）;
+   </pre>
+
+      </div>
+
+   </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/mobile_sdk_android_googleima.html">Android上のGoogle IMAとの統合</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

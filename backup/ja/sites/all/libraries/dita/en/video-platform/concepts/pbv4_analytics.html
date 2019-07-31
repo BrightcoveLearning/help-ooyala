@@ -1,0 +1,102 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Analytics in Player V4"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_about.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_analytics"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Player V4での分析</title>
+</head>
+<body id="pbv4_analytics">
+
+
+    <h1 class="title topictitle1">Player V4での分析</h1>
+
+
+    <div class="body conbody">
+        <div class="section">分析の再生統計を報告するには、Player V4と統合されている分析プラグインのいずれかを使用します。 <div class="note note"><span class="notetitle">注意：</span>  Ooyala IQ Analyticsは自動的にPlayer V4に含まれています。 別のプラグインは必要ありません。 詳しくは、以下を参照してください。 <ul class="ul">
+                    <li class="li"><a class="xref" href="ooyala_iq_user_guide.html">Ooyala IQアナリティクスユーザーガイド</a></li>
+
+                    <li class="li"><a class="xref" href="ooyala_iq_developer_guide.html">ウーヤラIQアナリティクス</a></li>
+
+                </ul>
+</div>
+</div>
+
+        <div class="section"><h2 class="title sectiontitle">オプトアウト制御の追跡</h2>
+            
+            <div class="p">Webプレーヤーには、メトリックを追跡するための2つの設定レベルがあります。 これらは：
+                <span class="ph uicontrol">デフォルト</span> そして
+                    <span class="ph uicontrol">無効</span>.<ul class="ul" id="pbv4_analytics__ul_cx3_53f_zdb">
+                    <li class="li"><span class="ph uicontrol">デフォルト</span>：これは、値が
+                            <span class="ph uicontrol">デフォルト</span> または未定義。 この場合、標準分析追跡が行われます。 Ooyalaは、特定の機能（購入など）を容易にするために必要な場合を除き、Webサイトまたはアプリケーションから具体的に提供される場合を除き、個人を特定できる情報（PII）を取得および保存しません。 ただし、Ooyalaは、一意のユーザーカウントが正確になるように、保存されセッション間で保持されるランダムな一意のデバイス識別子（GUID）を作成します。 </li>
+
+                         
+                    <li class="li"><span class="ph uicontrol">使用禁止</span>注：この設定では、すべての追跡イベントが無効になります。 <div class="note note"><span class="notetitle">注意：</span> 重要：この設定を使用すると、すべてのビデオ分析（メディア再生イベント）がユーザーに報告されないため、IQなどの製品では実際の使用量が過少報告されます。</div>
+</li>
+
+                </ul>
+</div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">分析プラグイン</h2>以下の分析プラグインを使用できます。
+                <ul class="ul" id="pbv4_analytics__analytics_integrations">
+                <li class="li"><a class="xref" href="pbv4_analytics_omniture.html">Adobe Analytics（Omniture）プラグイン</a></li>
+
+                <li class="li"><a class="xref" href="pbv4_analytics_comscore.html">comScore Analyticsプラグイン</a></li>
+
+                    <li class="li"><a class="xref" href="pbv4_analytics_conviva.html">Conviva Analyticsプラグイン</a></li>
+
+                <li class="li"><a class="xref" href="pbv4_analytics_google.html">Googleアナリティクスプラグイン</a></li>
+
+                <li class="li"><a class="xref" href="pbv4_analytics_nielsen.html">Nielsen Analyticsプラグイン</a></li>
+
+                <li class="li"><a class="xref" href="pbv4_analytics_youbora.html">YOUBORA Analyticsプラグイン</a></li>
+
+
+            </ul>
+これらのプラグインは、 <a class="xref" href="pbv4_analytics_framework.html">分析フレームワーク</a>.  </div>
+
+        <div class="section"><h2 class="title sectiontitle">実行時再生フロー</h2>再生中に、再生イベントによって、イベントに関する通知が分析プロバイダに送信されます。<div class="fig fignone">
+                <img class="image" src="http://help-ooyala.brightcove.com/../image/pbv4_analytics.png"/>
+            </div>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">要件</h2>
+  分析目的でビットレート情報を追跡する場合は、次のいずれかのビデオプラグインを使用する必要があります。
+   <ul class="ul">
+    <li class="li">DASHおよびHLS用のBitmovinプラグイン（<a class="xref" href="pbv4_resources.html#pbv4_resources__bitmovin_plugin">bit_wrapper.min.js</a>（SafariのHLS HTML5を除く）</li>
+
+    <li class="li">AkamaiパッケージHDS用のAkamai HDビデオプラグイン（<a class="xref" href="pbv4_resources.html#pbv4_resources__akamai_hd_plugin">akamaiHD_flash.min.js</a>)<div class="note note"><span class="notetitle">注意：</span>  プレーヤーV4用のAkamai Packaged HDS用Akamai HDビデオプラグインは推奨されておらず、無効にする予定です。 詳細と代替案については、
+     <a class="xref" href="../relnotes/2017-06-04.html">OVPリリースノート</a>.</div>
+</li>
+
+    <li class="li">HDS用OSMF Flashプラグイン（<a class="xref" href="pbv4_resources.html#pbv4_resources__flash_hds">osmf_flash.min.js</a>)<div class="note note"><span class="notetitle">注意：</span>  Player V4用HDS用OSMF Flash Videoプラグインは推奨されておらず、無効にする予定です。 詳細と代替案については、 <a class="xref" href="../relnotes/2017-06-04.html">OVPリリースノート</a>.  </div>
+</li>
+
+   </ul>
+ 
+   HLSとMP4メインビデオプラグイン（<a class="xref" href="pbv4_resources.html#pbv4_resources__hls_mp4">main_html5.min.js</a>）ビットレート情報は報告されません。
+   </div>
+
+    </div>
+
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/pbv4_about.html">プレイヤーV4</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></di

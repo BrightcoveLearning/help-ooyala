@@ -1,0 +1,74 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Backlot Asset Management"/>
+<meta name="abstract" content="This documentation describes how to use the Backlot API to manage your assets."/>
+<meta name="description" content="このドキュメントでは、Backlot APIを使用してアセットを管理する方法について説明しています。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_dev_map.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_gettingstarted.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_planning.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_api_setup.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_asset_manage.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_monetization.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_publishing.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/api_signing_requests_appendix.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_api.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/content_discovery.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/schedule.html"/>
+<meta name="DC.Relation" scheme="URI" content="docs.brightcove.com/apidocs-ooyala/concepts/backlot_release_notes.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="book_devguide"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>バックスロット資産管理</title>
+</head>
+<body id="book_devguide">
+
+
+ <h1 class="title topictitle1">バックスロット資産管理</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">このドキュメントでは、Backlot APIを使用して資産を管理する方法について説明しています。</p>
+</div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../concepts/book_gettingstarted.html">Backlot入門</a></strong><br/>
+動画をアップロードしてWebページに埋め込むことで、Backlot UIの使用を開始します。</li>
+<li class="link ulchildlink"><strong><a href="../concepts/book_planning.html">計画と設定の手引き</a></strong><br/>
+へようこそ <span class="ph">Ooyala</span> 計画および設定ガイド</li>
+<li class="link ulchildlink"><strong><a href="../concepts/chapter_api_setup.html">Backlot REST APIを使用する</a></strong><br/>
+<span class="ph">Ooyala</span> RESTベースのインターフェースを提供します。 <span class="ph">バックスロット</span> プラットフォームを提供します。   </li>
+<li class="link ulchildlink"><strong><a href="../concepts/chapter_asset_manage.html">資産の管理</a></strong><br/>
+Backlotでは、アセットはビデオ、オーディオ、ライブストリームなどのさまざまな種類のコンテンツの一部です。</li>
+<li class="link ulchildlink"><strong><a href="../concepts/chapter_monetization.html">収益化</a></strong><br/>
+<span class="ph">Ooyala</span> 広告やペイウォールを通じてコン​​テンツを収益化することができます。 </li>
+<li class="link ulchildlink"><strong><a href="../concepts/chapter_publishing.html">コンテンツ発行</a></strong><br/>
+公開を使用すると、動画や動画のメタデータを複数のWebプロパティやコンテンツネットワークと共有できます。 </li>
+<li class="link ulchildlink"><strong><a href="../tasks/api_signing_requests_appendix.html">署名要求のサンプルコード</a></strong><br/>
+リクエストに署名するためのさまざまなプログラミング言語のサンプルコードの集まりです。</li>
+<li class="link ulchildlink"><strong><a href="../concepts/book_api.html">バックスロットREST API</a></strong><br/>
+プレーヤーのクロム（デザイン要素）をカスタマイズするには、Backlot REST APIを使用してください。 これには、フォント、色、スクラバーバーなどのUI要素が含まれます。</li>
+<li class="link ulchildlink"><strong><a href="../api/content_discovery.html">ディスカバリーREST APIリファレンス</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../api/schedule.html">ウーヤラスケジュール</a></strong><br/>
+Ooyala Scheduleを使用すると、仮想アセットのトラックを組み合わせてライブストリームの上で再生できます。</li>
+<li class="link ulchildlink"><strong><a href="docs.brightcove.com/apidocs-ooyala/concepts/backlot_release_notes.html">Ooyala Backlotリリースノート</a></strong><br/>
+</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_dev_map.html" title="このトピックは、Ooyala Video Platform開発の手引きです。">開発者ガイド</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

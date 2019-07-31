@@ -1,0 +1,99 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Monetization"/>
+<meta name="abstract" content="Ooyala enables you to monetize your content through advertising and paywalls."/>
+<meta name="description" content="Ooyalaを使用すると、広告やペイウォールを通じてコン​​テンツを収益化できます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_user.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/monetization_ads_adsets_adnetworks_wrapper.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/paywall_third_party_integrations.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/monetization_dfp.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_dev.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/api_monetization.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/monetization_ads.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/paywall_third_party_integrations.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/monetization_dfp.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="chapter_monetization"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>収益化</title>
+</head>
+<body id="chapter_monetization">
+
+
+ <h1 class="title topictitle1">収益化</h1>
+
+ 
+ <div class="body conbody"><p class="gt-block shortdesc"><span class="ph">Ooyala</span> 広告やペイウォールを通じてコン​​テンツを収益化することができます。 </p>
+
+  <div class="section"><h2 class="title sectiontitle">よく使われる用語</h2>
+   
+   <p class="p">次の用語は、ビデオの収益化を指すときによく使用されます。 </p>
+
+   <ul class="ul">
+    <li class="li"><strong class="ph b">広告サーバー</strong>：Ooyala PulseやFreeWheelなどの広告配信プラットフォーム。</li>
+
+    <li class="li"><strong class="ph b">広告マネージャー</strong>：Ooyala Playerのコンテキストでは、セッション中の広告再生のために、PlayerのAd Manager FrameworkとAd Serving PlatformのSDKとの間で双方向の通信を提供するマネージャ。</li>
+
+    <li class="li"><strong class="ph b">広告タグ</strong>：プレーヤと広告マネージャにどの広告を表示するかを指示するHTMLまたはJavaScriptコード。 広告タグは広告プロバイダによって定義されます。 </li>
+
+    <li class="li"><strong class="ph b">VAST</strong>：インタラクティブ広告局（<a class="xref" href="http://www.iab.com/guidelines/digital-video-ad-serving-template-vast-3-0/" target="_blank">IAB</a>VAST（Video Ad Serving Template）を「デジタルビデオプレーヤに広告を配信するための汎用XMLスキーマとして定義し、VASTフォーマットの広告応答を実行するときに予想されるビデオプレーヤの動作を記述する... VASTは広告サーバが使用できる共通プロトコルを提供する複数の媒体社/動画プレーヤにわたる単一の広告レスポンスフォーマット。」 に行く <a class="xref" href="http://www.iab.com/guidelines/digital-video-ad-serving-template-vast-3-0/" target="_blank">http://www.iab.com/guidelines/digital-video-ad-serving-template-vast-3-0/</a> 詳細はこちら</li>
+
+    <li class="li"><strong class="ph b">VPAID</strong>:  <a class="xref" href="http://www.iab.com/guidelines/digital-video-player-ad-interface-definition-vpaid-2-0/" target="_blank">IAB</a> VPAID（Video Player Ad-Serving Interface Definition）を「動画プレーヤと広告ユニットの間に共通のインタフェースを確立し、リッチでインタラクティブなインストリーム広告体験を可能にする」という標準として定義しています。 に行く <a class="xref" href="http://www.iab.com/guidelines/digital-video-player-ad-interface-definition-vpaid-2-0/" target="_blank">http://www.iab.com/guidelines/digital-video-player-ad-interface-definition-vpaid-2-0/</a> 詳細はこちら</li>
+
+    <li class="li"><strong class="ph b">埋め込みパラメータ</strong>：広告マーキーの表示/非表示、広告のタイムアウト期間など、広告に関するプロパティを制御できるページレベル（HTML）で使用されるコード（JavaScript）のビット。 ページレベルで適用された広告設定は、Backlotで適用された広告設定を上書きします。</li>
+
+    <li class="li"><strong class="ph b">プリロール</strong>：動画が開始される前に広告が再生される広告位置。</li>
+
+    <li class="li"><strong class="ph b">ミッドロール</strong>：動画の再生中に広告が再生される広告の位置。</li>
+
+    <li class="li"><strong class="ph b">ポストロール</strong>：動画が終了した後に広告が再生される広告位置。</li>
+
+    <li class="li"><strong class="ph b">オーバーレイ</strong>：動画の再生中に広告が動画の一部に重なって表示される広告位置。</li>
+
+    <li class="li"><strong class="ph b">スキップ可能な広告</strong>：エンドユーザーが &quot;スキップ&quot;（または同様の）ボタンをクリックしてスキップできる機能を持つ広告。</li>
+
+    <li class="li"><strong class="ph b">ポッド広告</strong>：広告の切れ目で連続して再生されるように順序付けされた広告のグループ。 ポッド広告は、広告の中断が予定されている場所で再生されます。</li>
+
+    <li class="li"><strong class="ph b">コンパニオン広告</strong>：ビデオプレーヤーの近くに表示される広告バナー。</li>
+
+   </ul>
+
+  </div>
+
+ </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../tasks/monetization_ads_adsets_adnetworks_wrapper.html">独自の広告資産、広告セット、および広告ソースを操作する</a></strong><br/>
+この資料には、広告セットを作成する方法が含まれています <span class="ph">バックスロット</span>         広告ソースとの統合方法</li>
+<li class="link ulchildlink"><strong><a href="../concepts/paywall_third_party_integrations.html">ペイウォール統合</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/monetization_dfp.html">DFPでOoyalaコンテンツを収益化する</a></strong><br/>
+Backoy APIまたはMRSSフィードを介して、OoyalaでホストされているコンテンツをDoubleClick for Publishers（DFP）と同期させることで、Google IMAで収益化することができます。</li>
+<li class="link ulchildlink"><strong><a href="../concepts/api_monetization.html">収益化とAPI</a></strong><br/>
+  <span class="ph">バックスロットAPI</span> 広告セットを資産に関連付けることができます。</li>
+<li class="link ulchildlink"><strong><a href="../concepts/monetization_ads.html">広告</a></strong><br/>
+<span class="ph">Ooyala</span> インストリーム広告、リニアインストリーム広告、オーバーレイ広告など、数種類の広告をサポートしています。     </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_user.html" title="このトピックでは、Backlotユーザーインターフェースの使用方法について説明します。">Backlotユーザーガイド</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_dev.html" title="このドキュメントでは、Backlot APIを使用してアセットを管理する方法について説明しています。">バックスロット資産管理</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

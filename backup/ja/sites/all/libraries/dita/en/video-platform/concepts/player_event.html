@@ -1,0 +1,144 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Player V3 Run-time Events (Deprecated)"/>
+<meta name="abstract" content="This topic introduces Player V3 run-time events. It applies to Ooyala's web-based players (HTML5 and Flash) and mobile native app players (iOS and Android)."/>
+<meta name="description" content="このトピックでは、Player V3ランタイムイベントについて説明します。 これは、OoyalaのWebベースのプレーヤー（HTML5とFlash）およびモバイルネイティブアプリケーションのプレーヤー（iOSとAndroid）に適用されます。"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_event"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>プレーヤV3ランタイムイベント（非推奨）</title>
+</head>
+<body id="player_event">
+
+
+ <h1 class="title topictitle1">プレーヤV3ランタイムイベント（非推奨）</h1>
+
+  
+ <div class="body conbody"><p class="shortdesc">This topic introduces Player V3 run-time events. It applies to Ooyala's web-based
+    players (HTML5 and Flash) and mobile native app players (iOS and Android).</p>
+
+   <div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V3は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V3はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V3を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="pbv4_migration_v3.html">Player V3からの移行</a> そして <a class="xref" href="pbv4_migration_faq.html">プレイヤー移行に関するFAQ</a>).</div>
+
+   <div class="section"><h2 class="title sectiontitle">About Player V3 Run-time Events</h2> Player run-time events can be triggered
+      in either of the following ways: <ul class="ul" id="player_event__ul_c3g_dqm_ss">
+        <li class="li">manually by end user actions (for example, clicking the play or pause button)</li>
+
+        <li class="li">API呼び出しを介してプログラム的に</li>
+
+      </ul>
+</div>
+
+    <div class="section">一般的な再生イベントの例をいくつか示します。 <ul class="ul" id="player_event__ul_fp4_dqm_ss">
+        <li class="li">play has started</li>
+
+        <li class="li">play has completed</li>
+
+        <li class="li">広告の掲載が開始されました</li>
+
+        <li class="li">1つ以上の広告の再生が完了しました</li>
+
+        <li class="li">エラーが発生しました</li>
+
+      </ul>
+Events can trigger changes in the player state. For example, a user clicking the play
+      button fires the "play has started" event and changes the player state to "playing". For more
+      information, see <a class="xref" href="../concepts/player_state.html" title="このトピックでは、Player V3のランタイム状態について説明します。 これは、OoyalaのWebベースのプレーヤー（HTML5 / Flash）およびモバイルネイティブアプリのプレーヤー（iOSおよびAndroid）に適用されます。">プレーヤV3の実行時状態（廃止予定）</a>.  </div>
+
+   <div class="section"><h2 class="title sectiontitle">Developer Resources for Player V3 Run-time Events</h2>Ooyala's developer
+      resources provide event listeners, event notifications, and callback functions that fire when
+      certain run-time events occur. Due to different technical requirements across platforms, the
+      list of player events varies by platform. Some states are common across platforms (such as
+      play starting or stopping), while many others are platform-specific. In addition, the names of
+      the player events differ across platforms to be consistent with platform SDK conventions.
+      Refer to the following resources to learn more about player run-time events. 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="player_event__table_events_info" class="table" frame="border" border="1" rules="all">
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="20%" id="d598954e85">Development Platform</th>
+
+              <th class="entry" valign="top" width="80%" id="d598954e88">詳細は</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d598954e85 ">ウエブサイト</td>
+
+              <td class="entry" valign="top" width="80%" headers="d598954e88 ">
+                <ul class="ul">
+                  <li class="li"><a class="xref" href="../api/player_v3_api_events.html" title="メッセージバスイベントを使用して、動画から広告の再生までのプレーヤイベントを購読または発行します。">プレーヤV3メッセージバスイベント（非推奨）</a></li>
+
+                  <li class="li"><a class="xref" href="../concepts/player_v3_dev_eventmodel.html" title="HTML5プレーヤーV3は、イベントを処理するためのメッセージバスの使用を組み込んでいます。">HTML5 Player V3のイベントモデル（非推奨）</a></li>
+
+                  <li class="li"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.EVENTS.html" target="_blank">JavaScript API Reference (Namespace:
+                      Events)</a></li>
+
+                </ul>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d598954e85 ">アイフォン</td>
+
+              <td class="entry" valign="top" width="80%" headers="d598954e88 ">
+                <ul class="ul">
+                  <li class="li"><a class="xref" href="mobile_sdk_android_events.html" title="Ooyala通知を含むようにActivityオブジェクトを拡張する方法を学びます。">イベントでの作業</a></li>
+
+                  <li class="li">com.ooyala.android.OoyalaPlayer</li>
+
+                </ul>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="20%" headers="d598954e85 ">iOS</td>
+
+              <td class="entry" valign="top" width="80%" headers="d598954e88 ">
+                <ul class="ul">
+                  <li class="li"><a class="xref" href="mobile_sdk_ios_events.html" title="プレーヤオブジェクトのイベント通知を監視する必要があります。">イベントでの作業</a></li>
+
+                  <li class="li">OOOoyalaPlayer.h (see section on notifications)</li>
+
+                </ul>
+
+              </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+ </div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

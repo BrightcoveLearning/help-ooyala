@@ -1,0 +1,122 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Customizing the Receiver Application for the Ooyala Chromecast Integration"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chromecast_and_ooyala.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/chromecast_start_receiver_manager.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/chromecast_setup_receiver_manager.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/chromecast_setup_message_bus.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chromecast_setup_html_interface.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/chromecast_error_handling.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/chromecast_constants.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="chromecast_customize_receiver_app"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Ooyala Chromecast統合のためのReceiverアプリケーションのカスタマイズ</title>
+</head>
+<body id="chromecast_customize_receiver_app">
+
+
+    <h1 class="title topictitle1">Ooyala Chromecast統合のためのReceiverアプリケーションのカスタマイズ</h1>
+
+    <div class="body conbody">
+        <div class="note important"><span class="importanttitle">重要：</span> このトピックには古い情報が含まれており、推奨されていません。 OoyalaとChromecastの統合に関する最新情報は、をご覧ください。 <a class="xref" href="chromecast/index.html">Chromecastの統合</a>.</div>
+
+        <p class="gt-block p">サンプルのカスタムレシーバーは現在オープンソースです。 に行く <a class="xref" href="https://github.com/ooyala/chromecast-sample-receiver" target="_blank">https://github.com/ooyala/chromecast-sample-receiver</a> そしてreceiver_custom.htmlを開きます。</p>
+
+        <div class="p">カスタムレシーバーアプリケーションの多くの部分をカスタマイズできます。
+            <ul class="ul">
+                <li class="li">ロゴ
+                    <ul class="ul">
+                        <li class="li">透かし</li>
+
+                        <li class="li">テレビの評価</li>
+
+                    </ul>
+</li>
+
+                <li class="li">動画メタデータ
+                    <ul class="ul">
+                        <li class="li">タイトル</li>
+
+                        <li class="li">説明</li>
+
+                        <li class="li">デュレーション</li>
+
+                    </ul>
+</li>
+
+                <li class="li">プレーヤーコントロール
+                    <ul class="ul">
+                        <li class="li">遊びます</li>
+
+                        <li class="li">一時停止</li>
+
+                        <li class="li">バッファーバー</li>
+
+                        <li class="li">スクラバーバー</li>
+
+                    </ul>
+</li>
+
+                <li class="li">プレイヤー状態画面<ul class="ul">
+                        <li class="li">スプラッシュ画面</li>
+
+                        <li class="li">ロード画面</li>
+
+                        <li class="li">プレイヤー画面</li>
+
+                        <li class="li">エラー画面</li>
+
+                    </ul>
+
+                </li>
+
+                <li class="li">エラーメッセージ</li>
+
+            </ul>
+
+        </div>
+
+        <p class="gt-block p">カスタマイズ可能なパラメータは、受信側のコードコメントに記述されています。 レシーバーをカスタマイズできるいくつかの方法を説明します <a class="xref" href="chromecast_setup_html_interface.html">詳細はこちら</a>しかし、あなたはあなたが好きなようにそれをカスタマイズするのは自由です。 ここに示されているカスタマイズに限定されません。</p>
+
+        <div class="p">以下は、カスタム受信側アプリケーションコードの簡略化されたスケルトンです。
+        <pre class="pre codeblock">&lt;html&gt; &lt;head&gt;（Chromecastスクリプト、その他のjavascriptファイル、cssなどをロードします）&lt;/head&gt; &lt;body&gt;（ユーザーインターフェイス関連のHTMLはこちら）&lt;script&gt; window.onload = function（）{//設定キャストレシーバマネージャ//キャストメッセージバスの設定//キャストレシーバマネージャの起動} ... &lt;/script&gt; &lt;/body&gt; &lt;/html&gt;</pre>
+</div>
+
+        <p class="gt-block p">カスタムレシーバーには次のコンポーネントがあります。 あなたが望むようにそれらをさらにカスタマイズすることができます。 カスタムレシーバーアプリケーションでカスタマイズできる内容の詳細については、にアクセスしてください。 <a class="xref" href="https://developers.google.com/cast/docs/custom_receiver">https://developers.google.com/cast/docs/custom_receiver</a>.</p>
+
+    </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../tasks/chromecast_start_receiver_manager.html">キャストレシーバマネージャの起動</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../tasks/chromecast_setup_receiver_manager.html">キャストレシーバマネージャの設定</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../tasks/chromecast_setup_message_bus.html">キャストメッセージバスの設定</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/chromecast_setup_html_interface.html">Chromecast Receiverのユーザーインターフェイスをカスタマイズする</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../reference/chromecast_error_handling.html">エラー処理</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../reference/chromecast_constants.html">Chromecastの定数を変更する</a></strong><br/>
+カスタムレシーバコードで次の定数を変更して、画面上の変更を確認できます。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chromecast_and_ooyala.html">ChromecastとOoyala（廃止予定）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

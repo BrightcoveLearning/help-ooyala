@@ -1,0 +1,143 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Updating an Existing Application with the iOS Skin"/>
+<meta name="abstract" content=""/>
+<meta name="description" content=""/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ios_v4_gettingthesdk.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="ios_v4_sample_app_steps"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>iOSスキンを使用した既存のアプリケーションの更新</title>
+</head>
+<body id="ios_v4_sample_app_steps">
+
+
+  <h1 class="title topictitle1">iOSスキンを使用した既存のアプリケーションの更新</h1>
+
+  
+  <div class="body taskbody"><p class="shortdesc"> </p>
+
+    <div class="section context">
+      <p class="gt-block p">新しいiOSスキンを使用して既存のアプリケーションを更新することができます。 以下は、iOSスキンをに統合する方法を説明するチュートリアルです。 <strong class="ph b">BasicPlaybackSampleApp</strong>.</p>
+
+    </div>
+
+    <ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">まだ行っていない場合は、ダウンロードして解凍します。 <a class="xref" href="../../../../../../../../ja/downloads/index.html">OoyalaモバイルSDKの最新バージョン</a> iOSの場合 またダウンロード <a class="xref" href="http://static.ooyala.com.s3.amazonaws.com/sdk/ios/release/OoyalaSkinSDK-iOS.zip" target="_blank">iOS用Ooyala Skin SDK</a> これは必要なフレームワークを含みます。 最後に、 <strong class="ph b">IOSサンプルアプリケーション</strong> 次のコマンドを入力してリポジトリを作成します。</span>
+         
+          <pre class="pre codeblock">git clone https://github.com/ooyala/ios-sample-apps.git</pre>
+
+        
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">クローンから <strong class="ph b">IOSサンプルアプリケーション</strong> ディレクトリに移動します
+            <strong class="ph b">BasicPlaybackSampleApp</strong> サブディレクトリ。 開く
+            <strong class="ph b">BasicPlaybackSampleApp.xcodeproj</strong> XCodeのファイル</span>
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">加えます <strong class="ph b">JavascriptCore</strong>,  <strong class="ph b">Social</strong>、および <strong class="ph b">MessageUI</strong> フレームワーク たとえば、次のようにします。 <strong class="ph b">JavascriptCore</strong>、をクリックしてください <strong class="ph b">BasicPlaybackSampleApp</strong>
+          左上隅のプロジェクト（青いアイコン）。 に行く <em class="ph i">リンクされたフレームワークとライブラリ</em> セクション。 クリック <samp class="ph codeph">+</samp> 新しいフレームワークを追加するためのプラスボタン。 下にスクロールして <strong class="ph b">JavascriptCore.framework</strong> フレームワーク。</span>
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">Add をクリックします。 <strong class="ph b">libz.tbd</strong>、zip圧縮ライブラリ。 これを行うには、プロジェクトで、
+            <em class="ph i">構築フェーズ</em> タブ。 下 <strong class="ph b">バイナリとライブラリのリンク</strong> セクション、を押す
+            <samp class="ph codeph">+</samp> プラスボタン を検索して追加 <strong class="ph b">libz.tbd</strong>.</span>
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">加えます <strong class="ph b">OoyalaSkinSDK.framework</strong> フレームワーク。 これを行う最も簡単な方法は、フレームワークを左側の列の適切なフォルダにドラッグすることです。 [必要に応じてアイテムをコピーする]チェックボックスがオンになっていることを確認してください。 必要に応じて、フォルダのパスを
+            <strong class="ph b">フレームワーク検索パス</strong> 下のスロット <strong class="ph b">ビルド設定</strong> の中に <strong class="ph b">検索パス設定</strong>。 新しいフレームワーク検索パスを追加するには、スロットをクリックし、既存のパスの後にコロン（スペースで区切って）を追加してから、新しいパスを挿入します。</span>
+      </li>
+<li class="li step stepexpand"><span class="ph cmd">に行きます <em class="ph i">ビルド設定</em> タブ。 下 <em class="ph i">連結</em> セクション、追加
+            <samp class="ph codeph">- オブジェクト</samp> 「その他のリンカーフラグ」と書かれているスロットに。</span>
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">ドラッグ <strong class="ph b">main.jsbundle</strong> からのファイル <strong class="ph b">OoyalaSkinSDK-iOS</strong> ディレクトリに
+            <strong class="ph b">BasicPlaybackSampleApp</strong> &gt; <strong class="ph b">Players の作成と管理</strong> Xcodeプロジェクトの左側の列にあるディレクトリ構造。 [必要に応じてアイテムをコピーする]チェックボックスがオンになっていることを確認してください。</span>
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">あなた自身のスキン設定ファイルを作ることができます。 また、あります
+            <strong class="ph b">skin-config</strong> サブディレクトリ <strong class="ph b">OoyalaSkinSDK-iOS</strong> フォルダ。 スキン設定ファイルから、 <strong class="ph b">en.json</strong>,  <strong class="ph b">es.json</strong>,  <strong class="ph b">zh.json</strong>、および
+            <strong class="ph b">skin.json</strong> ファイルを <strong class="ph b">Players の作成と管理</strong> ディレクトリ。 [必要に応じてアイテムをコピーする]チェックボックスがオンになっていることを確認してください。</span>
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">In  <strong class="ph b">BasicPlaybackSampleApp</strong> &gt; <strong class="ph b">Players の作成と管理</strong> &gt;
+            <strong class="ph b">BasicSimplePlaybackViewController.m</strong>、変化 <samp class="ph codeph">#import &lt;OoyalaSDK / OOOoyalaPlayerViewController.h&gt;</samp> 〜へ <samp class="ph codeph">#import &lt;OoyalaSkinSDK / OOSkinViewController.h&gt;</samp>.</span>
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">Add をクリックします。 <samp class="ph codeph">#import &lt;OoyalaSDK / OODiscoveryOptions.h&gt;</samp> そして <samp class="ph codeph">#import &lt;OoyalaSkinSDK / OOSkinOptions.h&gt;</samp> インポートのリストへ</span>
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">同じファイルで、のすべてのインスタンスを置き換えます。
+            <samp class="ph codeph">OOOoyalaPlayerViewController</samp> 　
+          <samp class="ph codeph">OOSkinViewController</samp>。 これは押すことによってすることができます <samp class="ph codeph">CMD + F</samp> と演奏 <em class="ph i">見つけて交換する</em>.</span>
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">Since <strong class="ph b">OOSkinViewController</strong> 初期化するには単なるプレイヤーよりも多くの情報が必要です。行を置き換えてください</span>
+         <pre class="pre codeblock">self.ooyalaPlayerViewController = [[OOSkinViewControllerの割り当て] initWithPlayer：player];</pre>
+
+          の中に <samp class="ph codeph">- （void）viewDidLoad</samp> メソッド<pre class="pre codeblock">OODiscoveryOptions * discoveryOptions = [[OODiscoveryOptions alloc] initWithType：OODiscoveryType最大制限：10タイムアウト：60]; NSURL * jsCodeLocation = [[NSBundle mainBundle] URLForResource：@ &quot;main&quot; withExtension：@ &quot;jsbundle&quot;]; OOSkinOptions * skinOptions = [[OOSkinOptions alloc] initWithDiscoveryOptions：discoveryOptions jsCodeLocation：jsCodeLocation configFileName：@ &quot;skin&quot; overrideConfigs：nil]; self.ooyalaPlayerViewController = [[OOSkinViewController alloc] initWithPlayer：プレーヤーのskinOptions：skinOptionsの親：self.playerViewのlaunchOptions：nil];</pre>
+
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">ドラッグ <strong class="ph b">フォント</strong> の中のフォルダ <strong class="ph b">OoyalaSkinSDK-iOS</strong> のルートへのディレクトリ <strong class="ph b">BasicPlaybackSampleApp</strong> XCodeプロジェクト [必要に応じてアイテムをコピーする]チェックボックスがオンになっていることを確認してください。 また、フォルダとしてではなく、グループとしてコピーされていることを確認してください。</span>
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">開いた <strong class="ph b">サポートファイル</strong> &gt; <samp class="ph codeph">Info.plist</samp>。 プレス
+            <samp class="ph codeph">+</samp> によるプラスボタン <strong class="ph b">情報物件リスト</strong> 新しいフィールドを追加するためのスロット。 キーを使ってフィールドを追加する<samp class="ph codeph">アプリケーションが提供するフォント</samp>&#39;（これはドロップダウンメニューにあります）。 になるように配列要素を設定します。 <strong class="ph b">TTF</strong> ファイル名 <em class="ph i">フォント</em> フォルダ（すなわち、 <strong class="ph b">alice.ttf</strong> そして
+          <strong class="ph b">fontawesome-webfont.ttf</strong>).</span>
+      </li>
+<li class="li step stepexpand"><span class="ph cmd">押す <samp class="ph codeph">遊びます</samp> アプリをビルドして実行するためのボタン。</span></li>
+</ol>
+
+    <div class="example"><p class="p">まとめると、以下は、Ooyala Skin SDKがアプリケーションで機能するための要件のリストです。</p>
+
+    <ul class="ul"><li class="li"><strong class="ph b">ウーヤラSDK</strong>,  <strong class="ph b">JavascriptCore</strong>,  <strong class="ph b">Social</strong>、および <strong class="ph b">MessageUI</strong> リンクする必要があります。</li>
+
+      <li class="li"><strong class="ph b">ウーヤラスキンSDK</strong>
+        <ul class="ul"><li class="li">リンクする必要があります。</li>
+
+          <li class="li">スキンパッケージのSDKバージョン <strong class="ph b">VERSION</strong> ファイルは <strong class="ph b">VERSION</strong>
+              Ooyala SDKのファイル。</li>
+</ul>
+
+      </li>
+
+      <li class="li"><strong class="ph b">フォント</strong>
+      <ul class="ul">
+        <li class="li">同梱する必要があります。</li>
+
+        <li class="li">の一部であるべきです <strong class="ph b">Info.plist</strong>.</li>
+
+      </ul>
+</li>
+
+      <li class="li"><strong class="ph b">ローカライゼーションファイル</strong> （en.json、zh.jsonなど）、 <strong class="ph b">skin-config.json</strong>、および <strong class="ph b">main.jsbundle</strong> 同梱する必要があります。</li>
+
+      <li class="li">Objective-Cのコードは <strong class="ph b">OOSkinViewController</strong>そしてそれは使うべきです
+            <strong class="ph b">main.jsbundle</strong> として <strong class="ph b">jsCodeLocation</strong>.</li>
+
+      <li class="li"><strong class="ph b">その他のリンカーフラグ</strong> はに設定する必要があります <samp class="ph codeph">- オブジェクト</samp>.</li>
+
+    </ul>
+
+    </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/ios_v4_gettingthesdk.html">iOS用プレイヤースキン</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

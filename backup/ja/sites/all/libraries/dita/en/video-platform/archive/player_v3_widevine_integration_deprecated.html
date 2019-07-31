@@ -1,0 +1,309 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Widevine Content Protection (Deprecated)"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/chapter_widevine_classic.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="widevine_classic_deprecated"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Widevineコンテンツ保護（廃止予定）</title>
+</head>
+<body id="widevine_classic_deprecated">
+
+
+ <h1 class="title topictitle1">Widevineコンテンツ保護（廃止予定）</h1>
+
+ 
+   <div class="body conbody"><div class="note note"><span class="notetitle">注意：</span> Widevine Classic DRMとのOoyala統合は推奨されておらず、無効にされる予定です。 詳細と代替案については、 <a class="xref" href="../relnotes/2017-06-04.html">OVPリリースノート</a>.  </div>
+
+<p class="p">Ooyalaは、オンデマンドおよびライブストリーミング形式で、高品質のコンテンツをオンラインで保護するためのWidevineのサポートを提供しています。 WidevineのマルチプラットフォームDRMは、あらゆるコンシューマデバイスでマルチメディアコンテンツの再生をライセンス、安全に配布、保護する機能を提供します。 コンテンツ所有者とデジタルメディアプロバイダは、Widevineのソリューションを使用して、収益を生み出すサービスが、あらゆるデバイス消費者が望むものに流れ続けるようにすることができます。  
+</p>
+
+    <p class="p">OoyalaとWidevineを使用してコンテンツを保護するための機能を提供するには、Widevineの機能と、iOS、Android、またはConnected TVデバイスでのWidevineの使用方法を理解する必要があります。 このドキュメントではこれを行う方法について説明します。 </p>
+
+<p class="p">Widevineは、コンテンツを保護する機能を提供するために連携して機能する一連の包括的なコンテンツ保護機能の一部です。 これらの機能は次のとおりです。
+</p>
+
+    <div class="p"><ul class="ul" id="widevine_classic_deprecated__ul_wvx_cqg_nj">
+            <li class="li">Ooyala Secure Player Tokenなどのトークンベースのオプションによるユーザー認証。 この機能の設定と使い方については、を参照してください。 <a class="xref" href="../concepts/player_v3dev_authoverview.html">プレイヤーV3のOoyalaプレイヤートークン（廃止予定）</a>.  </li>
+
+            <li class="li">Widevineなどのメカニズムによるコンテンツ認証。 Widevineに関する情報はこの文書で提供されています。 </li>
+
+            <li class="li">すべての許可要求を処理するメカニズムである許可API。 Authorization APIの詳細については、 <a class="xref" href="../api/player_v3_authorization_api.html" title="Authorization APIリクエストは、Ooyalaのコンテンツ保護機能の重要な要素です。 このトピックはPlayer V3（廃止予定）を参照しています。">プレーヤV3用プレーヤ認証API（廃止予定）</a>.  </li>
+
+         </ul>
+Ooyalaが提供するコンテンツ保護は、スタンドアロンまたは組み合わせて複数レベルのコンテンツ保護を提供します。 Ooyalaでは、これらの機能を組み合わせてコンテンツ保護戦略を作成することができます。 追加のコンテンツ保護機能（Adobe Passなど）については、営業、カスタマーサクセスマネージャー、またはテクニカルサポートにお問い合わせください。</div>
+
+<div class="section"><h2 class="title sectiontitle">サポートされているプラ​​ットフォームとフォーマット</h2>
+         WidevineでDRM保護されているコンテンツが必要な場合は、iOSアプリ、Androidアプリ、およびConnected TVに適した、サポートされているプラ​​ットフォーム形式を使用する必要があります。 <div class="p">
+            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="widevine_classic_deprecated__table_xgg_3qg_nj" class="table" frame="border" border="1" rules="all">
+                  
+                  
+                  
+                  <thead class="thead" align="left">
+                     <tr class="row">
+                        <th class="entry" valign="top" id="d172270e72">プラットフォーム</th>
+
+                        <th class="entry" valign="top" id="d172270e75">サポートされるフォーマット</th>
+
+                        <th class="entry" valign="top" id="d172270e78">ノート</th>
+
+                     </tr>
+
+                  </thead>
+
+                  <tbody class="tbody">
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d172270e72 ">Android 2.x</td>
+
+                        <td class="entry" valign="top" headers="d172270e75 ">MP4</td>
+
+                        <td class="entry" valign="top" headers="d172270e78 ">Android 2xはライブストリーミングをサポートしません。</td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d172270e72 ">アンドロイド3.0 +</td>
+
+                        <td class="entry" valign="top" headers="d172270e75 ">MP4、WVM（VOD）、HLS（ライブ）</td>
+
+                        <td class="entry" valign="top" headers="d172270e78 ">WVMはWidevine ABRです。</td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d172270e72 ">iOS</td>
+
+                        <td class="entry" valign="top" headers="d172270e75 ">WVM（VOD）HLS（ライブ）</td>
+
+                        <td class="entry" valign="top" headers="d172270e78 ">MP4は利用可能ですが、私達はこのフォーマットの使用から離れることを顧客に奨励するべきです。</td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d172270e72 ">ConnectedTVおよびSTBs Samsung 2010 + LG2011 +</td>
+
+                        <td class="entry" valign="top" headers="d172270e75 ">WVM（VOD）HLS（ライブ）テレビがサポートするもの</td>
+
+                        <td class="entry" valign="top" headers="d172270e78 ">WVMまたはHLSをサポートするアプリの場合。他のConnected TVやSTBは機能する可能性がありますが、Ooyalaではまだテストされていません。 </td>
+
+                     </tr>
+
+                  </tbody>
+
+               </table>
+</div>
+
+         </div>
+</div>
+
+    <div class="section"><h2 class="title sectiontitle">OoyalaとWidevine DRMのワークフロー</h2>
+         <p class="p">Widevineをご希望のお客様は、Widevineサポートを有効にするために、Ooyalaカスタマーサクセスマネージャーまたはプロフェッショナルサービスと協力する必要があります。 OoyalaのWidevineサーバーを使用すると、ライセンスはWidevineクラウドに存在します。 </p>
+<p class="p">Widevine DRMの実装では、コンテンツが暗号化されていてライセンスなしでは役に立たないため、各コンテンツビューアには個別のライセンスが必要です。 Widevineは暗号化を実行しません、CDNからのコンテンツはすでに暗号化されています。 Widevineは、ライセンスキーの保存と取得のための安全なクラウドを提供するだけです。 </p>
+<p class="p">Widevineと統合する場合は、コンテンツの保護がOoyalaのコンテンツ保護機能のさまざまな部分とどのように機能するかを理解する必要があります。 次の図は、WidevineがOoyalaプレーヤートークン（オプションですが推奨されるユーザー認証機能）と、ユーザー認証要求を処理するOoyala Authorization APIとの関係を示しています。</p>
+<p class="gt-block p"><strong class="ph b">Widevineコンテンツ保護ワークフロー</strong></p>
+
+         <div class="fig fignone">
+            <img class="image" id="widevine_classic_deprecated__image_zzw_rqg_nj" src="http://help-ooyala.brightcove.com/../image/widevine_drm_workflow.png" height="225" width="374"/>
+         </div>
+<p class="p">次の表は、Widevineをコンテンツ保護に使用するためのワークフロー手順を示しています。</p>
+
+         <div class="p">
+            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="widevine_classic_deprecated__table_ck4_bsg_nj" class="table" frame="border" border="1" rules="all">
+                  
+                  
+                  
+                  
+                  <thead class="thead" align="left">
+                     <tr class="row">
+                        <th class="entry" valign="top" width="4.987531172069825%" id="d172270e177">手順</th>
+
+                        <th class="entry" valign="top" width="45.13715710723192%" id="d172270e180">アクション</th>
+
+                        <th class="entry" valign="top" width="24.937655860349125%" id="d172270e183">責任者</th>
+
+                        <th class="entry" valign="top" width="24.937655860349125%" id="d172270e186">追加のドキュメント</th>
+
+                     </tr>
+
+                  </thead>
+
+                  <tbody class="tbody">
+                     <tr class="row">
+                        <td class="entry" valign="top" width="4.987531172069825%" headers="d172270e177 ">1.  </td>
+
+                        <td class="entry" valign="top" width="45.13715710723192%" headers="d172270e180 ">ビデオプレーヤーAppは、コンテンツプロバイダーに対してユーザーを認証します。 </td>
+
+                        <td class="entry" valign="top" width="24.937655860349125%" headers="d172270e183 ">アプリ開発者とコンテンツプロバイダのサービス</td>
+
+                        <td class="entry" valign="top" width="24.937655860349125%" headers="d172270e186 "><a class="xref" href="../concepts/player_v3dev_authoverview.html">プレイヤーV3のOoyalaプレイヤートークン（廃止予定）</a></td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="4.987531172069825%" headers="d172270e177 ">2.</td>
+
+                        <td class="entry" valign="top" width="45.13715710723192%" headers="d172270e180 ">コンテンツプロバイダーは、ユーザーの認証ステータスを示すOoyalaプレーヤートークンをアプリに提供します。 </td>
+
+                        <td class="entry" valign="top" width="24.937655860349125%" headers="d172270e183 ">アプリ開発者とコンテンツプロバイダのサービス</td>
+
+                        <td class="entry" valign="top" width="24.937655860349125%" headers="d172270e186 "><a class="xref" href="../concepts/player_v3dev_authoverview.html">プレイヤーV3のOoyalaプレイヤートークン（廃止予定）</a></td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="4.987531172069825%" headers="d172270e177 ">3.</td>
+
+                        <td class="entry" valign="top" width="45.13715710723192%" headers="d172270e180 ">ビデオアプリは、Ooyala Player Tokenを含むOoyalaに認証要求を行います。 </td>
+
+                        <td class="entry" valign="top" width="24.937655860349125%" headers="d172270e183 ">アプリ開発者</td>
+
+                        <td class="entry" valign="top" width="24.937655860349125%" headers="d172270e186 "><a class="xref" href="../concepts/player_v3dev_authoverview.html">プレイヤーV3のOoyalaプレイヤートークン（廃止予定）</a> そして <a class="xref" href="../api/player_v3_authorization_api.html" title="Authorization APIリクエストは、Ooyalaのコンテンツ保護機能の重要な要素です。 このトピックはPlayer V3（廃止予定）を参照しています。">プレーヤV3用プレーヤ認証API（廃止予定）</a></td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="4.987531172069825%" headers="d172270e177 ">4.</td>
+
+                        <td class="entry" valign="top" width="45.13715710723192%" headers="d172270e180 ">Ooyalaの認証リクエストはストリームのURLと認証クッキーを返します。 </td>
+
+                        <td class="entry" valign="top" width="24.937655860349125%" headers="d172270e183 ">アプリ開発者</td>
+
+                        <td class="entry" valign="top" width="24.937655860349125%" headers="d172270e186 "><a class="xref" href="../api/player_v3_authorization_api.html" title="Authorization APIリクエストは、Ooyalaのコンテンツ保護機能の重要な要素です。 このトピックはPlayer V3（廃止予定）を参照しています。">プレーヤV3用プレーヤ認証API（廃止予定）</a></td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="4.987531172069825%" headers="d172270e177 ">5.</td>
+
+                        <td class="entry" valign="top" width="45.13715710723192%" headers="d172270e180 ">デバイスのネイティブ再生コンポーネントは、DRMライセンスについてOoyalaに連絡します。 </td>
+
+                        <td class="entry" valign="top" width="24.937655860349125%" headers="d172270e183 ">Ooyala</td>
+
+                        <td class="entry" valign="top" width="24.937655860349125%" headers="d172270e186 "> </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="4.987531172069825%" headers="d172270e177 ">6.</td>
+
+                        <td class="entry" valign="top" width="45.13715710723192%" headers="d172270e180 ">OoyalaはDRMコンテンツを再生するためのライセンスを提供しています。 </td>
+
+                        <td class="entry" valign="top" width="24.937655860349125%" headers="d172270e183 ">Ooyala</td>
+
+                        <td class="entry" valign="top" width="24.937655860349125%" headers="d172270e186 "> </td>
+
+                     </tr>
+
+                  </tbody>
+
+               </table>
+</div>
+
+         </div>
+ 
+    
+    </div>
+
+
+<div class="section"><h2 class="title sectiontitle">Ooyala SDKベースのアプリケーションでWidevineを使用する</h2>
+          iOSおよびAndroidのプレーヤーでWidevineを使用するには、ネイティブSDKをダウンロードして使用し、クライアントサイドページを作成する必要があります。 Ooyalaをダウンロードするには： <ul class="ul" id="widevine_classic_deprecated__ul_vdn_3rg_nj">
+            <li class="li">Android SDK  -  <span class="ph">Ooyala <a class="xref" href="../../../../../../../../ja/downloads/index.html" target="_blank">ダウンロード</a></span></li>
+
+            <li class="li">iOS SDK  -  <span class="ph">Ooyala <a class="xref" href="../../../../../../../../ja/downloads/index.html" target="_blank">ダウンロード</a></span></li>
+
+         </ul>
+SDKをダウンロードしたら、AndroidまたはiOSアプリを実装するためのパッケージの指示に従ってください。 Widevine機能を有効にすると、Ooyala SDKベースのアプリはWidevineとシームレスに連携するようになります。 </div>
+
+    <div class="section"><h2 class="title sectiontitle">Widevineを接続テレビで使用する</h2>
+         Widevineを接続されたテレビで使用したい場合は、次の作業が必要です。<ol class="ol" id="widevine_classic_deprecated__ol_u1f_lrg_nj">
+            <li class="li">デバイス固有のSDKに従ってWidevineを実装します。 SDKの指示に従って、デバイスのSDKとWidevineを事前に設定します。</li>
+
+            <li class="li">WidevineおよびデバイスSDKをSDK固有の言語で初期化します（これはデバイスによって異なります）。 該当するプラットフォームプログラミングガイドに従ってアプリを設定します。 </li>
+
+            <li class="li">あなたは電話をかけるでしょう <a class="xref" href="../api/player_v3_authorization_api.html" title="Authorization APIリクエストは、Ooyalaのコンテンツ保護機能の重要な要素です。 このトピックはPlayer V3（廃止予定）を参照しています。">認証API</a> （これはJSON RESTful API呼び出しです） </li>
+
+            <li class="li">Widevine URLを取得するか、データをストリーミングするために電話をかけます。 </li>
+
+            <li class="li">取得したURLの要素をWidevineフィールドの対応する値にマッピングする必要があります。 下記の値を差し込みます。 </li>
+
+         </ol>
+
+       
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="widevine_classic_deprecated__table_h5c_xwh_nj" class="table" frame="border" border="1" rules="all">
+             
+             
+            <thead class="thead" align="left">
+                <tr class="row">
+                   <th class="entry" valign="top" id="d172270e373">このセグメントの場合</th>
+
+                   <th class="entry" valign="top" id="d172270e376">提供する...</th>
+
+                </tr>
+
+            </thead>
+
+             <tbody class="tbody">
+                <tr class="row">
+                   <td class="entry" valign="top" headers="d172270e373 ">動画のURL</td>
+
+                   <td class="entry" valign="top" headers="d172270e376 ">ストリームURL</td>
+
+                </tr>
+
+                <tr class="row">
+                   <td class="entry" valign="top" headers="d172270e373 ">DRMサーバー</td>
+
+                   <td class="entry" valign="top" headers="d172270e376 ">許可応答内のWidevineサーバーパス</td>
+
+                </tr>
+
+                <tr class="row">
+                   <td class="entry" valign="top" headers="d172270e373 ">ポータル、プロバイダ、または所有者ID</td>
+
+                   <td class="entry" valign="top" headers="d172270e376 ">ウオヤラ</td>
+
+                </tr>
+
+                <tr class="row">
+                   <td class="entry" valign="top" headers="d172270e373 ">デバイスID</td>
+
+                   <td class="entry" valign="top" headers="d172270e376 ">デバイスのオプションの一意の識別子。IDを生成します。</td>
+
+                </tr>
+
+             </tbody>
+
+          </table>
+</div>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Widevine Streamを使用した許可応答</h2>      
+         widevineストリームを含む許可応答の場合は、という追加の値
+            <samp class="ph codeph">widevine_server_path</samp> が返されます。 これは、Widevineライセンスを取得してトークンを復号化するために、ストリームのURLと一緒に再生SDKに渡される必要があります。
+         <pre class="pre codeblock">
+   {&quot;authorization_data&quot;：{&quot;huNWp2NjoCaCKrsV_wqBdcSw9P1XmlwW&quot;：{... &quot;ストリーム&quot;：[{&quot;delivery_type&quot;： &quot;wv_wvm&quot;、 &quot;url&quot;：{...}、 &quot;widevine_server_path&quot;： &quot;http：//player.o .COM / SAS / drm2 / lvcjAxOj82_rjlIAJ6Jr8ZZqGP-S / huNWp2NjoCaCKrsV_wqBdcSw9P1XmlwW / widevine /ウーヤラ」}]}}、 &quot;debug_data&quot;：...、 &quot;署名&quot;： &quot;Fo6ewzq2tTrLJrFmjo5eQpeKUOoLvhSen7KLjrFU1YQ = \ n&quot;}
+    </pre>
+
+      </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../archive/chapter_widevine_classic.html">Widevine Classic（廃止予定）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></d

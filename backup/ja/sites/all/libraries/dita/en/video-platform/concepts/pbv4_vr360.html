@@ -1,0 +1,117 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Customizing VR 360 Player Controls"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_customize.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_vr360"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>VR 360プレーヤーコントロールのカスタマイズ</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="pbv4_vr360">
+
+
+  <h1 class="title topictitle1">VR 360プレーヤーコントロールのカスタマイズ</h1>
+
+
+    <div class="body conbody">
+      <div class="section" id="pbv4_vr360__intro">You can configure several parameters in the skin.json file to customize Ooyala player controls that are used to navigate VR 360 videos. For more information, see <a class="xref" href="../reference/pbv4_skin_schema_docs.html">skin.jsonを使用したPlayer V4スキンのカスタマイズ</a> そして <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_v4_skin_config/index.html" target="_blank">プレーヤV4 JSONスキーマ</a>.</div>
+
+      <div class="section"><h2 class="title sectiontitle">On-screen Camera Angle Control</h2> The on-screen Camera Angle Control
+      allows the viewer to navigate in VR 360 using a mouse to click on the arrows to direct
+      movement. <div class="fig fignone">
+        <img class="image" src="http://help-ooyala.brightcove.com/../image/vr360_control.png" height="43" width="42"/>
+      </div>
+ You can customize this control using the following settings in skin.json. <pre class="pre codeblock">{"name":"arrowsBlack", "location": "mainView", "whenDoesNotFit":"keep", "minWidth":45 }</pre>
+
+      
+      検討事項： <ul class="ul">
+        <li class="li">This control is available only on desktop browsers (where mouse devices are used). It is
+          disabled on mobile devices (including mobile browsers) and touch-screens, even if it is
+          specified in skin.json. For example, the "arrowsBlack" control, if specified in skin.json,
+          is ignored on mobile platforms and touch screens. </li>
+
+        <li class="li">If you want to exclude this control from Player V4 web during VR 360 playback, add an
+          override inline to remove this element from the skin.json. </li>
+
+      </ul>
+</div>
+
+      <div class="section"><h2 class="title sectiontitle">VR 360 Video Navigation Helper </h2> The following message appears briefly
+      upon starting playback and advises the viewer to navigate during VR 360 video by using either
+      a mouse to click and drag it or touch and drag for touchscreens. <div class="fig fignone">
+        <img class="image" src="http://help-ooyala.brightcove.com/../image/vr360_prompt.png" height="258" width="566"/>
+      </div>
+<div class="note note"><span class="notetitle">注意：</span> This control is available only on desktop browsers (where mouse devices are used).
+        It is disabled on mobile devices (including mobile browsers) and touch-screens, even if it
+        is specified in skin.json.</div>
+ To show the message and/or icon, specify the following
+      settings in json.config
+      <pre class="pre codeblock">"isVrAnimationEnabled": {
+      "vrNotification": true,
+      "vrIcon": false
+      }</pre>
+
+      Both (message and icon) appear with fade in / fade out animation. The length of animation can
+      be managed through the additional
+      settings:<pre class="pre codeblock">"animationDurations": {
+      "vrNotification": 5,
+      "vrIcon": 4
+      }</pre>
+To
+      display the VR 360 icons and control, you must specify these settings in the skin.json file.
+      To hide these controls, simply remove these lines from skin.json. Also, if in stereoscopic
+      mode, ads will be displayed, but if the ads are flat, the viewer will not be able to view the
+      VR 360 video properly. Ads are typically flat currently. </div>
+
+      <div class="section"><h2 class="title sectiontitle">Stereoscopic Icon</h2>The Stereoscopic icon allows the viewer to switch
+      between Monoscopic and Stereoscopic modes. <div class="fig fignone">
+        <img class="image" src="http://help-ooyala.brightcove.com/../image/vr360_switch.png" height="29" width="39"/>
+      </div>
+ You can customize this control using the following settings in skin.json. <pre class="pre codeblock">{"name":"stereoscopic", "location":"controlBar", "whenDoesNotFit":"keep", "minWidth":45 }</pre>
+
+      
+      検討事項： <ul class="ul">
+        <li class="li">
+          This should be left as disabled if you do not want to allow stereoscopic viewing of the VR
+          360 content using binocular head-mounted displays (HMDs), such as Google Cardboard.</li>
+
+        <li class="li">This option is appropriate only for screens that can be used with a binocular
+          head-mounted display. Do not use this toggle option if the viewer will view the VR 360
+          content with a monocular HMD or on a desktop or mobile device without binocular
+          lenses.</li>
+
+        <li class="li">The Stereoscopic icon is disabled for Web desktop and for tablets. Even if the
+          "stereoscopic" parameter is specified in skin.json, these controls won’t be visible on Web
+          desktop and for tablets (only appropriate for devices that can be used with head-mounted
+          displays). However, note that this means the user may not realize the content is VR 360.
+          If this icon is disabled, we recommend that the thumbnail make it clear that the video is
+          VR 360.</li>
+
+      </ul>
+
+    </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/pbv4_customize.html">プレーヤV4外観のカスタマイズ</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?

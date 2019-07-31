@@ -1,0 +1,129 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Assigning Ad Sets Dynamically"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_assign_adsets_dynamic"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>広告セットを動的に割り当てる</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="pbv4_assign_adsets_dynamic">
+
+
+    <h1 class="title topictitle1">広告セットを動的に割り当てる</h1>
+
+
+    <div class="body conbody">
+        <div class="section">You can override a Backlot ad set with one that you specify at runtime.</div>
+
+        <div class="section"><h2 class="title sectiontitle">Enabling Dynamic Ad Sets</h2>Contact your Ooyala support representative
+            to enable the dynamic ad set code feature for your account. </div>
+
+        <div class="section"><h2 class="title sectiontitle">JavaScript Functions Used to Assign Ad Sets Dynamically</h2>Use the
+            following Player V4 JavaScript functions to specify an ad set at runtime. Each ad set
+            has a unique ad set code identifier (<span class="keyword parmname">adSetCode</span> parameter), which
+            you pass to identify the ad set when assigning it dynamically. 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                    <thead class="thead" align="left">
+                        <tr class="row">
+                            <th class="entry" valign="top" id="d1076899e34">タイプ</th>
+
+                            <th class="entry" valign="top" id="d1076899e37">説明</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d1076899e34 d1076899e37 "><samp class="ph codeph"><samp class="ph codeph">OO.Player.setEmbedCode</samp></samp></td>
+
+                            <td class="entry" valign="top" headers="d1076899e34 d1076899e37 ">Assign an ad set to a specific embed code.</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry" valign="top" headers="d1076899e34 d1076899e37 "><samp class="ph codeph"><samp class="ph codeph">OO.Player.create</samp></samp></td>
+
+                            <td class="entry" valign="top" headers="d1076899e34 d1076899e37 ">Assign an ad set to a specific player and video asset.</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+</div>
+</div>
+        
+        <div class="section"><h2 class="title sectiontitle">Step 1: Set up the adSetCode in Backlot</h2>First, you need to set up the
+                <span class="keyword parmname">adSetCode</span> in Backlot. <div class="note note"><span class="notetitle">注意：</span> The ad set code is not available by
+                default for security reasons. Contact your Ooyala support representative to enable
+                this feature.</div>
+<ol class="ol">
+                <li class="li">In the Backlot UI, associate an ad set with a video asset.</li>
+
+                <li class="li">Retrieve the <span class="keyword parmname">adSetCode</span>. The following figure shows an
+                    example of this association, along with the Ad Set Code that you create in the
+                    MONETIZE tab. <div class="fig fignone">
+                        <img class="image" id="pbv4_assign_adsets_dynamic__image_rp4_gc2_mh" src="http://help-ooyala.brightcove.com/../image/player_v3_dev_assocadset.png"/>
+                    </div>
+</li>
+
+            </ol>
+</div>
+
+                
+            <div class="section"><h2 class="title sectiontitle">Step 2: Specify the adSetCode on the Web Page</h2><p class="gt-block p"><strong class="ph b">Associating
+                    an Ad Set with a Player and Video Asset</strong></p>
+ To associate the ad set with a
+            particular player and video asset, use the <samp class="ph codeph">OO.Player.create</samp> function to
+            generate a player and add the parameter <samp class="ph codeph">adSetCode</samp> with the ad set code
+            value retrieved from step 1.
+                    <pre class="pre codeblock">&lt;script&gt;
+    var playerParam = {
+        "pcode": "YOUR_PCODE",
+        "playerBrandingId": "YOUR_PLAYER_ID",
+        "skin": {
+            // Config contains the configuration setting for player skin. Change to your local config when necessary.
+            "config": "<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/skin.json"
+        },
+        <strong class="ph b">"adSetCode": "yourAdSetCode"</strong>
+    };
+    OO.ready(function() {
+        <strong class="ph b">window.pp = OO.Player.create("container", "YOUR_ASSET_ID", playerParam);</strong>
+    });
+&lt;/script&gt;</pre>
+<p class="gt-block p"><strong class="ph b">Associating
+                    an Ad Set with an Embed Code</strong></p>
+ To assign an ad set to a specific embed
+            code, use the <samp class="ph codeph">setEmbedCode</samp> 関数。 ザ <samp class="ph codeph">setEmbedCode</samp>
+            function takes an additional <samp class="ph codeph">オプション</samp> parameter, which must be an object
+            and must belong to the same provider as the embed code. In the <samp class="ph codeph">オプション</samp>
+            hash, use the <samp class="ph codeph">adSetCode</samp> parameter with the ad set code value retrieved
+            from step 1, as shown in the following example.<pre class="pre codeblock">&lt;script&gt;
+    player.setEmbedCode(embedCode, {
+        "adSetCode": "yourAdSetCode"
+    }); 
+&lt;script&gt;</pre>
+
+        </div>
+
+    </div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></di

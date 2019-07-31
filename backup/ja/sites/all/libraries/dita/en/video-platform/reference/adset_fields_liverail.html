@@ -1,0 +1,145 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Ad Set Fields for LiveRail"/>
+<meta name="abstract" content="The fields described here are for Backlot ad sets with ad source set to LiveRail in the Backlot UI."/>
+<meta name="description" content="ここで説明するフィールドは、Backlot UIで広告ソースがLiveRailに設定されているBacklot広告セット用です。"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/monetization_ads_adsets_integratingadnetworks.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ads_dev_liverail.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/monetization_ads_adsets_adnetworks_wrapper.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="adsetfields_liverail"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>LiveRailの広告セットフィールド</title>
+</head>
+<body id="adsetfields_liverail">
+
+
+ <h1 class="title topictitle1">LiveRailの広告セットフィールド </h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">ここで説明するフィールドは、Backlot UIで広告ソースがLiveRailに設定されているBacklot広告セット用です。</p>
+  
+ <div class="section">
+   <div class="note note"><span class="notetitle">注意：</span> フィールドの正確な意味については、常に広告ソースのドキュメントを確認してください。</div>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="10.504201680672269%" id="d827177e31">フィールド名</th>
+
+       <th class="entry" valign="top" width="89.49579831932773%" id="d827177e34">説明</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" width="10.504201680672269%" headers="d827177e31 ">サイト運営者ID</td>
+
+       <td class="entry" valign="top" width="89.49579831932773%" headers="d827177e34 ">LiveRailアカウントの一意の識別子</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="10.504201680672269%" headers="d827177e31 ">パートナーID</td>
+
+       <td class="entry" valign="top" width="89.49579831932773%" headers="d827177e34 ">LiveRailシステムで作成された収入分配パートナーID </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="10.504201680672269%" headers="d827177e31 ">タグ</td>
+
+       <td class="entry" valign="top" width="89.49579831932773%" headers="d827177e34 ">キャンペーンのターゲット設定またはレポート作成のためにLiveRailのシステムに渡すキーワードまたはコンテンツタグ </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="10.504201680672269%" headers="d827177e31 ">広告マップ</td>
+
+       <td class="entry" valign="top" width="89.49579831932773%" headers="d827177e34 ">広告マップは、ビデオストリームで利用可能な広告の中断または機会を定義します。 LiveRailは、広告マップを使用して、プレロール広告、ミッドロール広告、ポストロール広告など、どの種類の広告を取得するか、およびいくつの広告を取得するかを決定します。 デフォルトではLiveRailアカウントに設定されている広告マップが適用されますが、広告セットに広告マップを指定した場合はLiveRailシステムに設定されているデフォルトの広告マップより優先されます。 </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="10.504201680672269%" headers="d827177e31 ">カスタムメタデータを使用する</td>
+
+       <td class="entry" valign="top" width="89.49579831932773%" headers="d827177e34 ">メタデータの取り込みはデフォルトで無効になっています。 この機能を有効にして、ビデオアセットからLiveRailのシステムにカスタムメタデータを自動的に渡すことができます。 （1）Backlot内の動画アセットにカスタムメタデータを追加するだけでなく、（2）広告セットに対してこの機能を有効にする必要があります。 </td>
+
+      </tr>
+
+      
+      <tr class="row">
+       <td class="entry" valign="top" width="10.504201680672269%" headers="d827177e31 ">広告タグ</td>
+
+       <td class="entry" valign="top" width="89.49579831932773%" headers="d827177e34 ">LiveRailで定義された広告タグ</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="10.504201680672269%" headers="d827177e31 ">広告掲載順位</td>
+
+       <td class="entry" valign="top" width="89.49579831932773%" headers="d827177e34 ">広告を再生する場所：インストリーム（ミッドロール）、ポストロール（LiveRail（VAST）オーバーレイ）</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="10.504201680672269%" headers="d827177e31 ">後に最初の広告を表示 <em class="ph i">x</em> ビデオ</td>
+
+       <td class="entry" valign="top" width="89.49579831932773%" headers="d827177e34 ">広告の頻度設定 これらの設定はLiveRail In-Stream VASTオプションにのみ関係し、LiveRail広告マネージャの統合には関係しません。</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="10.504201680672269%" headers="d827177e31 ">毎回広告を出す <em class="ph i">x</em> ビデオ</td>
+
+       <td class="entry" valign="top" width="89.49579831932773%" headers="d827177e34 ">広告の頻度設定 これらの設定はLiveRail In-Stream VASTオプションにのみ関係し、LiveRail広告マネージャの統合には関係しません。</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="10.504201680672269%" headers="d827177e31 ">この広告はいつ再生されますか。</td>
+
+       <td class="entry" valign="top" width="89.49579831932773%" headers="d827177e34 ">広告開始の時間設定（秒またはパーセンテージ）（LiveRail（VAST）インストリームおよびオーバーレイ）</td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+  </div>
+
+ </div>
+
+ 
+ <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../tasks/monetization_ads_adsets_integratingadnetworks.html" title="自分のアセットを使用する代わりに、他の広告ソースを使用することができます。">広告ソースと統合するための広告セットの作成</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="../concepts/ads_dev_liverail.html">プレーヤV3 LiveRail広告統合</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong><br/>
+<div><a class="link" href="../tasks/monetization_ads_adsets_adnetworks_wrapper.html" title="この資料には、Backlotで広告セットを作成する方法、および広告ソースと統合する方法が含まれています。">独自の広告資産、広告セット、および広告ソースを操作する</a></div>
+</div>
+</div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

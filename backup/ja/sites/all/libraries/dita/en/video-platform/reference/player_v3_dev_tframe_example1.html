@@ -1,0 +1,70 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Example: Passing Multiple IMA Ad Tags for Pre-roll"/>
+<meta name="abstract" content="This example of tframe.html includes several ad manager options."/>
+<meta name="description" content="このtframe.htmlの例には、いくつかの広告マネージャオプションが含まれています。"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/player_v3_dev_tframe.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_v3_tframe_example1"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>例：プリロール用の複数のIMA広告タグを渡す</title>
+</head>
+<body id="player_v3_tframe_example1">
+
+
+ <h1 class="title topictitle1">例：プリロール用の複数のIMA広告タグを渡す</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">このtframe.htmlの例には、いくつかの広告マネージャオプションが含まれています。</p>
+
+  <div class="section"> 以下の例では、インタラクティブメディア広告（IMA）プリロール広告を設定するためのプレーヤー埋め込みパラメータは複数指定されています <samp class="ph codeph">オプション</samp> Ooyalaの属性
+        <samp class="ph codeph">tframe.html</samp>。 このコードは、次のような標準のOoyalaプレーヤーオプションハッシュと同等です。
+        <pre class="pre codeblock">OO.Player.create（ &quot;<em class="ph i">コンテナ</em>&quot;、&quot;<em class="ph i">videoID</em>&quot;、&quot; {&quot;isTwitter&quot;：true、 &quot;広告マネージャ&quot;：{&quot;url&quot;： &quot;https://adserver.net?id=400&amp;style=preroll&quot;、 &quot;type&quot;： &quot;ima&quot;}、 &quot;height&quot;： &quot;500px&quot;、 &quot;幅&quot;： &quot;500px&quot;} &quot;              
+   </pre>
+<div class="p">ために
+          <samp class="ph codeph">tframe.html</samp>同等の完全な単一行のURLが複数行にまたがっている。 いくつかのことに注意してください。 <ul class="ul">
+          <li class="li">  <samp class="ph codeph">&quot;isTwitter&quot;：true</samp> このオプションはtframe.html自体によって設定されるため、必要ありません。</li>
+
+          <li class="li">player.ooyala.comと広告マネージャの両方のURLの場合、URLのプロトコルは次のとおりです。
+                <samp class="ph codeph">HTTP<strong class="ph b">s</strong></samp> （ない <samp class="ph codeph">HTTP</samp>なぜならTwitterでは広告はSSLで配信されなければならないからです。</li>
+
+          <li class="li">ネストされたパススルーパラメータの名前（この例では、
+              <samp class="ph codeph">広告マネージャ</samp> （パラメータは）フォームのドット表記である
+                <samp class="ph codeph"><em class="ph i">パラメーター</em>.<em class="ph i">サブパラメーター</em></samp>、のような
+              <samp class="ph codeph">ad-manager.url</samp>.</li>
+
+          <li class="li">の値 <samp class="ph codeph">オプション[ad-manager.url]</samp> URLエンコードされています。</li>
+
+        </ul>
+</div>
+<pre class="pre codeblock">https://player.ooyala.com/tframe.html?
+ec=9hdHJ2NTpSn4RM_3ahx8QBE7Y7NDi
+&amp;pbid=2f2c8826b6774f9096d23ce5334a
+&amp;options[ad-manager.url]=https%3A%2F%2Fadserver.net%3Fid%3D400%26style%3Dpreroll
+&amp;options[ad-manager.type]=ima
+&amp;options[height]=500px
+&amp;options[width]=500px
+   </pre>
+</div>
+
+ </div>
+
+ 
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../reference/player_v3_dev_tframe.html" title="Using a special page from Ooyala, you can create a Player URL to embed a video in Twitter's Player Card, including all available Ooyala player options.">Twitterカードの高度なプレーヤーオプション</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

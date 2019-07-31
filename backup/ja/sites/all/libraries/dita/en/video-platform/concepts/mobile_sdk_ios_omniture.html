@@ -1,0 +1,207 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Integration with Omniture on iOS"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_ios_integrations.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="mobilesdk_ios_omniture"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>iOS上のOmnitureとの統合</title>
+</head>
+<body id="mobilesdk_ios_omniture">
+
+
+   <h1 class="title topictitle1">iOS上のOmnitureとの統合</h1>
+
+   <div class="body conbody">
+      <p class="p">Ooyala SDKをAdobe Video AnalyticsのHeartbeatライブラリと統合しました。 この統合を「Ooyala Adob​​e Analytics SDK」と呼びます。</p>
+
+      <p class="p">このドキュメントでは、サンプルアプリケーションを使用して、SiteCatalyst®レポート作成のためにXcodeプロジェクトでOoyala Adob​​e Analytics SDKを使用してネイティブビデオアプリのアクティビティ（ユーザー、使用状況、動作、ジェスチャなど）をキャプチャしてアドビサーバーに送信する方法を示します。 </p>
+
+      <div class="section" id="mobilesdk_ios_omniture__section_et5_khy_tw"><h2 class="title sectiontitle">あなたが必要なもの</h2>
+         
+         <p class="p">以下のアイテムをダウンロードしてください。</p>
+
+         <ul class="ul" id="mobilesdk_ios_omniture__ul_j3v_lhy_tw">
+            <li class="li"><a class="xref" href="http://static.ooyala.com.s3.amazonaws.com/sdk/ios/release/OoyalaAdobeAnalyticsSDK-iOS.zip" target="_blank">ウーヤラアドビアナリティクスSDK</a></li>
+
+            <li class="li"><a class="xref" href="https://github.com/ooyala/ios-sample-apps/tree/stable/OmnitureSampleApp/iOSOmnitureSampleApp" target="_blank">iOS用Ooyala Omnitureサンプルアプリ</a>
+            </li>
+
+            <li class="li"><a class="xref" href="https://github.com/Adobe-Marketing-Cloud/mobile-services/releases" target="_blank">iOS用Adobe®Marketing Cloudライブラリ（SDK）</a></li>
+
+            <li class="li"><a class="xref" href="https://github.com/Adobe-Marketing-Cloud/video-heartbeat/releases" target="_blank">iOS用のAdobe VideoHeartbeatライブラリ</a>
+               
+               (<span class="ph filepath">.zipファイル</span> ファイル、バージョン1.5.6以上）</li>
+
+            <li class="li">
+               <a class="xref" href="https://developer.apple.com/xcode/" target="_blank">アップルXcode</a>.  </li>
+
+         </ul>
+
+         <p class="p">分析を捉えるその能力の一部として、OmnitureはAdobe SiteCatalyst Webサイトから情報を引き出し、そこに情報を提供します。 始める前に、次のこともする必要があります。</p>
+
+         <ol class="ol" id="mobilesdk_ios_omniture__ol_t13_vwy_tw">
+            <li class="li">アドビのSiteCatalystのログイン認証情報を持つアカウントを取得または取得します。 </li>
+
+            <li class="li">Adobe Marketing Cloudのにログインする <a class="xref" href="https://my.omniture.com/login/" target="_blank">レポートと分析</a> site（以前はOmniture SiteCatalystサイト）。 </li>
+
+            <li class="li">以下の情報を入手してください。 <ul class="ul">
+               <li class="li">レポートスイートID</li>
+
+               <li class="li">追跡サーバー                     <p class="p">次の画像はSiteCatalystからのサンプルトラッキングサーバー情報を示しています。</p>
+<div class="fig fignone">
+                     <img class="image" src="http://help-ooyala.brightcove.com/../image/Omniture_SiteCatalyst_snapshot.png"/>
+                  </div>
+</li>
+
+            </ul>
+</li>
+
+         </ol>
+
+      </div>
+
+      <div class="section" xml:lang="en-us" lang="en-us" id="mobilesdk_ios_omniture__whatYouNeed.d0e14"><h2 class="title sectiontitle">開発環境を設定する</h2>
+         
+         <ol class="ol" id="mobilesdk_ios_omniture__ol_skj_gdx_tw">
+            <li class="li">iOS用Adobe VideoHeartbeatライブラリのダウンロードが完了したら、
+               <span class="ph filepath">.zipファイル</span> Mac OSのFinderでファイルを作成します。</li>
+
+            <li class="li">Xcodeで、プロジェクトを開き、次のライブラリにリンクします。
+               <span class="ph filepath">VideoHeartbeatLibrary-ios-tvos-v *</span>  フォルダ：<ul class="ul" id="mobilesdk_ios_omniture__ul_jw1_l5w_tw">
+                  <li class="li"><span class="ph filepath">libs / VideoHearbeat.a</span></li>
+
+                  <li class="li"><span class="ph filepath">samples / BasicPlayerSample / libs / Adob​​eMobile / ADBMobile.h</span></li>
+
+                  <li class="li"><span class="ph filepath">samples / BasicPlayerSample / libs / Adob​​eMobile / Adob​​eMobileLibrary.a</span></li>
+
+               </ul>
+</li>
+
+            <li class="li">ダウンロード <span class="ph filepath">ADBMobileConfig.json</span> アドビアカウントから。 あるいは、iOS用のOoyala Omnitureサンプルアプリケーションのファイルを使用することもできます（例：
+               <span class="ph filepath">VideoHeartbeatLibrary-ios-tvos-v * / samples / BasicPlayerSample / libs / Adob​​eMobile / ADBMobileConfig.json</span>).</li>
+
+            <li class="li">Xcodeでは、へのリンク <span class="ph filepath">ADBMobileConfig.json</span> ファイル。</li>
+
+            <li class="li">Xcodeで、以下のプロパティを更新します。
+               <span class="ph filepath">ADBMobileConfig.json</span> SiteCatalystから取得した値を使用します。<pre class="pre codeblock">    &quot;アナリティクス&quot;：{&quot;rsids&quot;： &quot;sample-account&quot;、 &quot;サーバー&quot;： &quot;example.com&quot;、</pre>
+<pre class="pre codeblock">    &quot;marketingCloud&quot;：{&quot;組織&quot;： &quot;サンプルマーケティングクラウドの組織ID&quot;</pre>
+</li>
+
+         </ol>
+
+      </div>
+
+      <div class="section" xml:lang="en-us" lang="en-us" id="mobilesdk_ios_omniture__openTheIosSampleApp.d0e141"><h2 class="title sectiontitle">iOSサンプルアプリを使用する</h2>
+         
+         <p class="p">統合プロセスの動作を練習し、それが機能するかどうかをテストするには、iOS用のOoyala Omnitureサンプルアプリケーションを使用できます。</p>
+
+         <div class="p">
+            <ol class="ol" id="mobilesdk_ios_omniture__ol_jgp_4dx_tw">
+               <li class="li">Mac OSのFinderを使って、ダウンロードしたファイルを開く <a class="xref" href="https://github.com/ooyala/ios-sample-apps/tree/stable/OmnitureSampleApp/iOSOmnitureSampleApp" target="_blank">iOS用Ooyala Omnitureサンプルアプリ</a> ファイル、
+                  <span class="ph filepath">OmnitureSampleApp_iOS.zip</span>.  </li>
+
+               <li class="li">Xcodeを使って開く
+                  <span class="ph filepath">〜/ダウンロード/ OmnitureSampleApp / OmnitureSampleApp</span><span class="ph filepath">OmnitureSampleApp / OmnitureSampleApp.xcodeproj</span>.  </li>
+
+               <li class="li">Xcodeで、以下のプロパティを更新します。
+                  <span class="ph filepath">VideoHeartbeatLibrary-ios-tvos-v1.5.7 / samples / BasicPlayerSample / libs / Adob​​eMobile / ADBMobileConfig.json</span>
+                  次のように：<pre class="pre codeblock">&quot;分析&quot;：{&quot;rsids&quot;： &quot;ovppooyala&quot;、 &quot;サーバ&quot;： &quot;ovppartners.sc.omtrdc.net&quot;</pre>
+<pre class="pre codeblock">&quot;marketingCloud&quot;：{&quot;組織&quot;： &quot;2A5D3BC75244638C0A490D4D @ Adob​​eOrg&quot;</pre>
+</li>
+
+               <li class="li">ファイルをオープンする <span class="ph filepath">プレイヤー/ BasicPlayerViewController.m</span> 以下の変数を次のようにファイルおよびpdateします。<pre class="pre codeblock">self.hbTrackingServer = @ &quot;ovppartners.hb.omtrdc.net&quot;; self.hbProvider = @ &quot;ooyalatester&quot;;</pre>
+次の例では、このファイルはこれら2つのプロパティを使用しています。 アプリが起動すると、アドビアナリティクスセッションが作成されます。 <samp class="ph codeph">OOAdobeHeartbeatConfiguration</samp>
+                  オブジェクト：<pre class="pre codeblock">  // adobe analyticsを起動します。 self.adobeAnalyticsManager = [[OOAdobeAnalyticsManager alloc] initWithPlayer：プレーヤー設定：hbConfig]; [self.adobeAnalyticsManager startCapture];</pre>
+</li>
+
+               <li class="li">サンプルアプリをビルドして実行します。 成功すれば、Adobe Marketing Cloudのアナリティクスでアナリティクスを見ることができます。 <a class="xref" href="https://my.omniture.com/login/" target="_blank">レポートと分析</a> site（以前はOmniture SiteCatalystサイト）。 </li>
+
+               <li class="li">アプリがトラッキングサーバーに送信するデータを検出するには、Adobe DebugプロキシまたはCharlesプロキシを使用します。</li>
+
+            </ol>
+
+         </div>
+
+      </div>
+
+      <div class="section" id="mobilesdk_ios_omniture__section_p42_tfx_tw"><h2 class="title sectiontitle">Adobe Debug Proxyを使用したサーバーpingのテスト</h2>
+         
+         <p class="gt-block p">あなたが使用することができます <a class="xref" href="https://debug.adobe.com" target="_blank">アドビデバッグダッシュボード</a> サンプルアプリからのpingがAdobeサーバーに届いているかどうかを確認します。 ダッシュボードを使用するには、アドビデバッグプロキシのインストール方法についての「はじめに」の手順に従ってください。</p>
+
+         <div class="p">
+            <ol class="ol" id="mobilesdk_ios_omniture__ol_z3k_k3x_tw">
+               <li class="li">HTTPリスニングセッションを録音するたびに、 <span class="ph uicontrol">新しい報告</span> ダッシュボードのボタンをクリックします。 </li>
+
+               <li class="li">開いたフォームで、レポートに名前を付けます。 また、 <span class="ph uicontrol">アドビアナリティクス</span> そして <span class="ph uicontrol">ビデオハートビート</span> チェックボックス チェックボックスを選択した後に表示されるフィールドを編集しないでください。 </li>
+
+               <li class="li">次に、をクリックします。 <span class="ph uicontrol">デバッグレポートを開始</span>.  </li>
+
+               <li class="li">プロンプトが表示されたら、アクティブセッションのレポートページを開きます。 </li>
+
+               <li class="li">セッションを停止すると、同じレポートでセッションを再開することはできません。 （新しいセッションごとに新しいレポートを作成します。）</li>
+
+            </ol>
+
+         </div>
+
+      </div>
+
+      <div class="section" id="mobilesdk_ios_omniture__section_l4n_yfx_tw"><h2 class="title sectiontitle">Charlesプロキシを使用してテストサーバping</h2>
+         
+         <p class="gt-block p">Adobe Debugプロキシの代わりにCharles Webデバッグプロキシアプリケーションを使用することができます。 Charlesプロキシをダウンロードしてインストールするには、にアクセスしてください。 <a class="xref" href="https://www.charlesproxy.com/">https://www.charlesproxy.com/</a>.</p>
+
+         <p class="p">開発システムでサンプルアプリを実行すると、サンプルアプリからのHTTPトラフィックがCharlesプロキシに表示されます。</p>
+
+         <p class="p">実際のiOSデバイスでサンプルアプリを実行する場合は、次の手順に従って、Charlesプロキシを使用するようにiOSデバイスを設定してください。</p>
+
+         <ol class="ol" id="mobilesdk_ios_omniture__ol_t31_sjx_tw">
+            <li class="li">iOSデバイスとCharlesプロキシを実行している開発システムの両方を同じローカルネットワークに接続します。 （これを行うと、デバイスからのネットワークトラフィックが開発システムのプロキシから見えるようになります。）</li>
+
+            <li class="li">Charlesプロキシを実行している開発システムのIPアドレスを取得します。</li>
+
+            <li class="li">iOSデバイスで、開きます <span class="ph uicontrol">設定</span>.</li>
+
+            <li class="li">に行きます <span class="ph uicontrol">無線LAN</span> 設定を行います。</li>
+
+            <li class="li">ネットワークの「情報」アイコンをクリックしてください。</li>
+
+            <li class="li">ネットワークの詳細オプションで、次の設定を変更します。 <div class="p">
+               <ul class="ul" id="mobilesdk_ios_omniture__ul_ctt_5kx_tw">
+                  <li class="li">ために <span class="ph uicontrol">HTTPプロキシ</span>選択
+                     <span class="ph uicontrol">マニュアル</span>.</li>
+
+                  <li class="li">ために <span class="ph uicontrol">サーバー</span>Charlesプロキシを実行する開発システムのIPアドレスを入力します。</li>
+
+                  <li class="li">ために <span class="ph uicontrol">ポート</span>Charlesプロキシが使用するポート番号を入力します。 デフォルト値を変更しない限り、このポート番号は
+                     <samp class="ph codeph">8888</samp>.</li>
+
+               </ul>
+
+            </div>
+</li>
+
+            <li class="li">iOSデバイスでサンプルアプリを実行すると、CharlesプロキシソフトウェアはiOSデバイスからのHTTP要求を表示します。</li>
+
+         </ol>
+
+      </div>
+
+   </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/mobile_sdk_ios_integrations.html">iOSサードパーティ統合</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></di

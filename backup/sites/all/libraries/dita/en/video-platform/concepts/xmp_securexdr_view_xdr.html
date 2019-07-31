@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Cross Device Resume View (Deprecated)"/>
+<meta name="abstract" content="You can use the following code sample to work with Cross Device Resume."/>
+<meta name="description" content="You can use the following code sample to work with Cross Device Resume."/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/xmp_securexdr_views.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_v3_dev_intro"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../css/ooyala.css"/>
+<title>Cross Device Resume View (Deprecated)</title>
+</head>
+<body id="player_v3_dev_intro">
+
+
+  <h1 class="title topictitle1">Cross Device Resume View (Deprecated)</h1>
+
+  
+  <div class="body conbody"><p class="shortdesc">You can use the following code sample to work with Cross Device Resume.</p>
+
+    <div class="section"><div class="note note"><span class="notetitle">Note:</span> Ooyala Player V3 has been deprecated and is scheduled to be
+    disabled. For details and alternatives, see the <a class="xref" href="../relnotes/2017-06-04.html">OVP
+     Release Notes</a>.</div>
+
+      <p class="p">The code sample includes multiple client web pages or views illustrating each feature and a
+        seventh code sample that shows all the features working in combination. To implement each
+        client page, you will need all the standard elements that you normally use such as your API
+        Key, pcode, and so forth. </p>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Where to Find the Code</h2><p class="p" id="player_v3_dev_intro__docs-internal-guid--76eb343-7da1-6fa1-5074-58f93b6be835">To explore this code sample
+        view in GitHub, go to: <a class="xref" href="https://github.com/ooyala/code-samples/blob/master/application/views/Secure_XDR_GoogleIMA/cross_resume.php" target="_blank">https://github.com/ooyala/code-samples/blob/master/application/views/Secure_XDR_GoogleIMA/cross_resume.php</a>.</p>
+.</div>
+
+    <div class="section"><h2 class="title sectiontitle">Cross Device Resume (XDR) Client Code</h2> The
+        <samp class="ph codeph">cross_resume.php</samp> file code implements a client-side version of Ooyala Cross
+      Device Resume (XDR) as a sample. We have implemented a simple version of XDR so you can see
+      how it works. Cross-Device Resume, of course, is designed to work with our mobile SDKs and
+      from the desktop or mobile device to an appropriate TV type. For more information about XDR,
+      see “ <a class="xref" href="player_v3_dev_xdintro.html" title="The Ooyala Player includes support for Cross-Device Resume (XDR) that enables you to provide a seamless video experience across multiple devices."> "Player
+        for Cross Device Resume."</a><div class="note note"><span class="notetitle">Note:</span> Before you work with any feature, including Ooyala
+        Cross Device Resume (XDR), you need to make sure the feature is enabled. Contact your
+        Customer Success Manager to set this up. If you do not have XDR enabled, you can make a
+        request but the server will give you an empty response. You may not be able to quickly debug
+        the empty response as there is no specific message indicating that you have not enabled the
+        feature.  Make sure you have the feature enabled before you start. </div>
+</div>
+
+    <div class="section"><h2 class="title sectiontitle">How the XDR Sample Works</h2>
+      
+      <p class="p">In implementing XDR for this sample, we limited the code to perform XDR from desktop to
+        desktop for simplicity.  XDR supports start and resume across mobile devices, desktops,  and
+        XTV enabled TVs. For more information about XDR, see “ <a class="xref" href="player_v3_dev_xdintro.html" title="The Ooyala Player includes support for Cross-Device Resume (XDR) that enables you to provide a seamless video experience across multiple devices.">Player for Cross Device
+          Resume.</a>”</p>
+
+      <p class="p">In this XDR client sample, we pass the playhead time from the PHP server to var
+        playheadTime. We create the player with <span class="keyword apiname">OO.Player.create ()</span> function and
+        set the <samp class="ph codeph"><strong class="ph b">embedToken</strong></samp> parameter and pass the
+            <samp class="ph codeph"><strong class="ph b">playheadTime</strong></samp> to the <samp class="ph codeph"><strong class="ph b">initialTime</strong></samp>
+        parameter.</p>
+
+    </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../concepts/xmp_securexdr_views.html" title="The client views provide sample code to implement a feature or features on a web page.">Client Views (Deprecated)</a></div>
+</div>
+</div>
+
+</body>
+</html>

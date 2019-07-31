@@ -1,0 +1,204 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Creating a Basic Android App"/>
+<meta name="abstract" content="Learn how to quickly create a basic player app."/>
+<meta name="description" content="基本的なプレーヤーアプリを素早く作成する方法を学びましょう。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_android_getstarted.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="mobile_sdk_android_tutorial"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>基本的なAndroidアプリの作成</title>
+</head>
+<body id="mobile_sdk_android_tutorial">
+
+
+  <h1 class="title topictitle1">基本的なAndroidアプリの作成</h1>
+
+  
+  <div class="body taskbody"><p class="shortdesc">基本的なプレーヤーアプリを素早く作成する方法を学びましょう。</p>
+
+    <div class="section prereq p">
+      <div class="p">このチュートリアルでは、次のものが必要です。 <ul class="ul">
+          <li class="li">提供されたOoyala <samp class="ph codeph">PCODE</samp>。 あなたを得るために <samp class="ph codeph">PCODE</samp>、Backlotアカウントにログインして、 <span class="ph uicontrol">アカウント</span> &gt;
+              <span class="ph uicontrol">開発者</span>。 あなたに <span class="ph uicontrol">APIキー</span>ピリオドの前の英数字（ &quot;。&quot;）は、 <samp class="ph codeph">PCODE</samp>
+            チュートリアルで使用する定数です。 たとえば、APIキーが
+              <samp class="ph codeph">xxxxxxxxxxxxxxxxxxxxxxxxxxxx.0000</samp>その後、最初の28文字（<samp class="ph codeph">xxxxxxxxxxxxxxxxxxxxxxxxxxxx</samp>） のために <samp class="ph codeph">PCODE</samp>。 詳しくは、 <a class="xref" href="../concepts/api_keys.html" title="Ooyala APIの認証情報には、APIキーとシークレットが含まれています。これらは、HTTPリクエストに署名するため、およびスクラッチパッドを使用するときに提供するものです。">あなたのAPIクレデンシャル</a>.</li>
+
+
+          <li class="li">再生したい動画の埋め込みコード（コンテンツIDまたはアセットID）。</li>
+
+        <li class="li"><a class="xref" href="http://developer.android.com/sdk/index.html" target="_blank">Androidのメーカー</a> システムにインストールおよび設定されている。 </li>
+
+        </ul>
+</div>
+
+    </div>
+
+
+    <ol class="ol steps"><li class="li step stepexpand">
+        <span class="ph cmd">GitHubレポジトリからBasic Playback Sample Appを入手します。</span>
+           <p class="gt-block p"><a class="xref" href="https://github.com/ooyala/android-sample-apps" target="_blank">Androidサンプルアプリ用のOoyala Mobile SDK</a></p>
+
+        
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd"> Android Studioを開いて選択 <span class="ph uicontrol">フィレット</span> &gt; <span class="ph uicontrol">プロジェクトをインポート</span>.</span>
+      </li>
+<li class="li step stepexpand"><span class="ph cmd"> BasicPlaybackSampleAppに移動して、 <span class="ph uicontrol">OK</span>.</span>
+    <img class="image" src="http://help-ooyala.brightcove.com/../image/androidstudio_import.png" height="308" width="273" alt="Android Studioへのプロジェクトのインポート"/>
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">編集のためにBasicPlaybackVideoPlayerActivityを開きます。</span>
+         
+          <pre class="pre codeblock">BasicPlaybackSampleApp / app / java / com.ooyala.sample / players / BasicPlaybackVideoPlayerActivity.java</pre>
+
+          <img class="image" src="http://help-ooyala.brightcove.com/../image/basicplayeractivity.png" height="369" width="625" alt="BasicPlaybackVideoPlayerActivity"/>
+          <p class="p">importステートメントに注目してください。 次のステートメントは、あらゆるプレーヤーアプリの標準的なインポートです。</p>
+<ul class="ul">
+            <li class="li"><samp class="ph codeph">import com.ooyala.android.OoyalaPlayer;</samp></li>
+
+            <li class="li"><samp class="ph codeph">import com.ooyala.android.OoyalaPlayerLayout</samp></li>
+
+            <li class="li"><samp class="ph codeph">import com.ooyala.android.PlayerDomain</samp></li>
+
+            <li class="li"><samp class="ph codeph">import com.ooyala.android.OoyalaPlayerLayoutController</samp>;  </li>
+
+          </ul>
+
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">独自のEMBEDおよびPCODE値を入力してください。</span>
+         
+          <pre class="pre codeblock">  final String EMBED = &quot;<em class="ph i">yourEmbedCodeこちら</em>&quot;; //埋め込みコード、またはコンテンツID final String PCODE =&quot;<em class="ph i">yourPcodeHere</em>";</pre>
+<div class="note note"><span class="notetitle">注意：</span> 出て <samp class="ph codeph">DOMAIN</samp> 変わらない定数 <samp class="ph codeph">http://www.ooyala.com</samp>。 これはと連携して動作します <strong class="ph b">シンジケーション制御</strong> Backlotの（公開ルール） Backlotのビデオにインターネットドメイン制限を設定している場合は、
+              <var class="keyword varname">ドメイン</var> ここの変数はそれらの許可されたドメインの1つに設定することができます。 設定していない場合 <strong class="ph b">シンジケーション制御</strong>、 <samp class="ph codeph">DOMAIN</samp> ここでの定数は効果がありません。</div>
+
+        
+      </li>
+<li class="li step stepexpand"><span class="ph cmd">アプリをテストします。</span>
+        <ol type="a" class="ol substeps">
+          <li class="li substep substepexpand">
+            <span class="ph cmd">ナビゲーションヘッダーの <span class="ph uicontrol">遊びます</span>.</span>
+             <img class="image" src="http://help-ooyala.brightcove.com/../image/androidstudio_play.png" height="38" width="210" alt="アプリをテストするためにプレイ"/>
+          </li>
+
+        </ol>
+
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">テストデバイスまたはエミュレータを選択して、 <span class="ph uicontrol">OK</span>.</span>
+         <img class="image" src="http://help-ooyala.brightcove.com/../image/androidstudio_emulator.png" height="243" width="285" alt="Playデバイスを選択"/>
+      </li>
+<li class="li step stepexpand">
+        <span class="ph cmd">テストデバイスのロック解除オプションに移動して、[基本再生]オプションを選択します。</span>
+         <img class="image" src="http://help-ooyala.brightcove.com/../image/androidstudio_selectasset.png" height="484" width="270" alt="再生オプションを選択"/>
+      </li>
+</ol>
+
+    <div class="section result"><p class="p">ビデオが再生されます。</p>
+
+      <img class="image" src="http://help-ooyala.brightcove.com/../image/androidstudio_videoplays.png" height="457" width="252" alt="ビデオ再生"/>
+    </div>
+
+    <div class="section postreq">
+      <p class="p">プレーヤーの初期化に使用されるコード要素を調べます。</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="mobile_sdk_android_tutorial__table_nb2_rmh_4r" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">表1 プレーヤーを初期化する</span></caption>
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="50%" id="d1067578e266">説明</th>
+
+              <th class="entry" valign="top" width="50%" id="d1067578e269">サンプルコード</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="50%" headers="d1067578e266 "><p class="p">レイアウトを <samp class="ph codeph">OoyalaPlayerLhayout</samp>.</p>
+ 
+                <div class="note note"><span class="notetitle">注意：</span>  レイアウトの詳細については、 <a class="xref" href="../concepts/mobile_sdk_android_controls.html">レイアウトコントロール</a></div>
+
+              </td>
+
+              <td class="entry" valign="top" width="50%" headers="d1067578e269 ">
+                <pre class="pre codeblock">OoyalaPlayerLayout playerLayout =（OoyalaPlayerLayout）findViewById（R.id.ooyalaPlayer）;</pre>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="50%" headers="d1067578e266 ">                <p class="p">作る <samp class="ph codeph">OoyalaPlayerController</samp> オブジェクト（名前付き
+                    <samp class="ph codeph">playerLayoutController</samp>).</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="50%" headers="d1067578e269 ">
+                <pre class="pre codeblock">playerLayoutController = new OoyalaPlayerLayoutController（playerLayout、PCODE、new PlayerDomain（DOMAIN））;</pre>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="50%" headers="d1067578e266 ">    <p class="p">でプレーヤーオブジェクトをインスタンス化します。 <samp class="ph codeph">playerLayoutController.getPlayer（）</samp>
+                  方法。</p>
+
+              </td>
+
+              <td class="entry" valign="top" width="50%" headers="d1067578e269 ">
+                <pre class="pre codeblock"> player = playerLayoutController.getPlayer（）;</pre>
+
+              </td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="50%" headers="d1067578e266 "><p class="p">   <samp class="ph codeph">if</samp> でテストする <samp class="ph codeph">player.setEmbedCode（）</samp> 再生するビデオの識別子で機能します（<samp class="ph codeph">ヘミング</samp>).</p>
+
+                <div class="note note"><span class="notetitle">注意：</span> ビデオ識別子をハードコーディングするのではなく、より高度なアプリケーションの場合は、変数に変数を渡します。 <samp class="ph codeph">setEmbedCode（）</samp> 機能。</div>
+
+                
+                
+              </td>
+
+              <td class="entry" valign="top" width="50%" headers="d1067578e269 ">
+                <pre class="pre codeblock">player.addObserver（this）; if（player.setEmbedCode（EMBED））{player.play（）; } else {Log.e（TAG、 &quot;Asset Failure&quot;）; }}</pre>
+
+              </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+      
+          
+    </div>
+
+  </div>
+
+ 
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/mobile_sdk_android_getstarted.html">Ooyala Android SDKを始めよう</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window

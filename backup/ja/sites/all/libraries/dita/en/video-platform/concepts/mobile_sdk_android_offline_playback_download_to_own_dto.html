@@ -1,0 +1,247 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Offline Playback: Download to Own (DTO) and Rentals (DTR) for Android"/>
+<meta name="abstract" content=""/>
+<meta name="description" content=""/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_android_about.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="offline_playback_download_to_own_dto_for_android"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>オフライン再生：アンドロイド用ダウンロード（DTO）とレンタル（DTR）</title>
+</head>
+<body id="offline_playback_download_to_own_dto_for_android">
+
+
+ <h1 class="title topictitle1">オフライン再生：アンドロイド用ダウンロード（DTO）とレンタル（DTR）</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc"/>
+
+  <div class="section">Android用Ooyala SDKは、オフライン再生をサポートするためにGoogleのExoPlayerが提供する機能を利用します。 ExoPlayerはDASHストリームの解析を可能にします。 Android用Ooyala SDKは、WidevineをDRMサーバーとして使用し、WidevineサーバーからのDRMライセンスを保存します。 開発者は、自分のアプリでOoyala SDK for Androidを利用して、オフライン再生用に当社のCMS（例：Backlot）に保存されているDASHアセットをダウンロードできます。</div>
+
+  <div class="section"><h2 class="title sectiontitle">機能</h2>
+  <p class="p">Ooyala SDKを使用すると、以下のことが可能になります。</p>
+
+  <ul class="ul">
+   <li class="li">資産をダウンロードしてください。</li>
+
+   <li class="li">進行中のダウンロードをキャンセルします。</li>
+
+   <li class="li">資産のダウンロードを再開します。 これは、ダウンロードをキャンセルするときに適用されます。もう一度ダウンロードしようとすると、すでにダウンロードされているセグメントが使用されるため、時間を節約できます。</li>
+
+   <li class="li">ダウンロードプロセスに関する最新情報を聞きます。</li>
+
+   <li class="li">ダウンロードした資産を削除します。</li>
+
+   <li class="li">ダウンロードしたアセットを再生します。</li>
+
+   <li class="li">ライセンスの有効期限を確認してください。</li>
+
+   <li class="li">ダウンロードしたアセットが特定の日付以降に再生されないようにします。</li>
+
+  </ul>
+
+  <p class="p">現在サポートしていません：</p>
+
+  <ul class="ul">
+   <li class="li">ダウンロードしたアセットのクローズドキャプション</li>
+
+   <li class="li">ダウンロードしたアセットを表すプロモーションまたは静止画像。</li>
+
+   <li class="li">マルチオーディオ（スペイン語、英語など） SDKはアセットのデフォルトの言語をダウンロードします。</li>
+
+   <li class="li">進行中のダウンロードを一時停止しています。</li>
+
+   <li class="li">ダウンロードする動画のサイズを見積もる</li>
+
+   <li class="li">有効期限が切れている資産を自動削除します。</li>
+
+  </ul>
+
+  <div class="note note"><span class="notetitle">注意：</span> アセットをダウンロードするために使用されたアプリをアンインストールすると、ダウンロードされたアセットの内容はデバイスに残ります。 これは予想される動作です。 ダウンロードしたアセットを削除する方法は2つあります。 <ol class="ol" id="offline_playback_download_to_own_dto_for_android__ol_rrl_gyr_3y">
+          <li class="li">DTO APIを使用して、アプリをアンインストールする前にアセットを削除します（<em class="ph i">推奨される</em>）、または</li>
+
+          <li class="li">一時的にファイルを探して削除します（<em class="ph i">サポートされていません</em>)</li>
+
+        </ol>
+</div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">要件</h2>
+  <p class="p">Ooyala Android SDKを使用するDTOおよびDTRには、以下が必要です。</p>
+
+  <ul class="ul">
+   <li class="li">保護されていない、明確なDASHアセット用のAndroid 4.1（API 16）。</li>
+
+   <li class="li">Widevine DASHアセット用のAndroid 4.3（API 18）。</li>
+
+   <li class="li">Google ExoPlayer</li>
+
+   <li class="li">Android Ooyala SDK v4.21.0以上。</li>
+
+   <li class="li">賃貸料を定義するためのWidevine DASH資産（DTR）。</li>
+
+   <li class="li">DTR専用のAndroid 5 +。</li>
+
+  </ul>
+
+  <p class="p">Androidは次のビデオフォーマットのダウンロードをサポートしています。</p>
+
+  <ul class="ul">
+   <li class="li">保護されていない明確なDASH資産。</li>
+
+   <li class="li">Widevine DASHアセット</li>
+
+  </ul>
+
+    <div class="note note"><span class="notetitle">注意：</span> Android 4.xデバイスでWidevineライセンスの有効期限に関する問題が発生しました。有効期限が切れた後もオフライン再生が許可されていました。 ライセンスにはシステム（AndroidおよびWidevine）によって適用されていない有効期限があるため、Android 5より下のDTR機能をサポートすることはできません。 修正が見つかるまで、DTRをAndroid v4.xデバイスにデプロイしないことをお勧めします。 Android 5以上の場合、Widevineライセンスの有効期限が切れると、予想どおり、ユーザーはそのライセンスにリンクされている特定のビデオを再生できなくなります。</div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">オフライン再生のユースケース：購入とレンタル</h2>
+  <p class="p">オフライン動画にはいくつかの使用例があります。 所有するダウンロード（DTO）とダウンロードする家賃（DTR）に同じクライアントAPIを公開していますが、違いは、それらが明確なDASHまたは無限ライセンスを持つWidevine DASHである場合、資産がDTOであると見なすことです。これらの特性を持つアセットをダウンロードすると、それがあなたのデバイスに残っている限り再生することができます。 一方、Rentals（DTR）では、有限ライセンスのWidevine DASHアセットが必要です。 アクセスウィンドウは資格設定によって定義され、ダウンロードされたアセットがユーザーによって再生できなくなる有効期限を設定します。</p>
+
+   <p class="gt-block p">資産のレンタルアクセス期間ルールを追加するには、それらに資格を設定する必要があります。 詳細については、 <a class="xref" href="../api/rightslocker.html#reference_rj1_dzd_v3">Rights Locker APIリファレンス</a>.</p>
+
+  </div>
+
+  <div class="section"><strong class="ph b">Ooyala SDK for AndroidのDTOおよびDTR機能を使用する</strong>
+      <p class="gt-block p">まず、Ooyala SDKを使ってアプリを設定する必要があります。 Ooyala SDK.jarのような外部ライブラリをAndroidアプリに追加することに慣れていない場合は、次のページで作成したチュートリアルに従ってください。 <a class="xref" href="../tasks/mobile_sdk_android_installation.html#concept_jnv_bk2_yj">../tasks/mobile_sdk_android_installation.html#concept_jnv_bk2_yj</a>.</p>
+
+      <p class="p">DTOには以下のクラスがあります。</p>
+
+      <div class="p">
+        <div class="fig fignone" id="offline_playback_download_to_own_dto_for_android__fig_ozx_kf3_fy">
+          <img class="image" id="offline_playback_download_to_own_dto_for_android__image_wr4_lf3_fy" src="http://help-ooyala.brightcove.com/../image/mobile_sdk_android_dto_uml.png" height="521" width="619"/>
+        </div>
+
+      </div>
+
+      <p class="p">のインスタンスを作成するとき <samp class="ph codeph">DashDownloader</samp> 自分のAndroidデバイスにアセットをダウンロードするには、実装する必要があります。 <samp class="ph codeph">DashDownloader.Listener</samp> ダウンロードの進行状況に基づいて行動する。 を供給 <samp class="ph codeph">DashOptions</samp> ユーザーがダウンロードしたいアセットの構成を持つインスタンス。 の <samp class="ph codeph">フォルダ</samp>
+        ダウンロードしたアセットを再生するために将来使用される予定です。</p>
+<p class="gt-block p"><strong class="ph b">実行時権限</strong></p>
+<p class="gt-block p"><strong class="ph b">Android 6（API 23）</strong>、それ以降のAndroidバージョンと同様に、ランタイム権限が必要です。 <samp class="ph codeph">WRITE_EXTERNAL_STORAGE</samp>.  <a class="xref" href="https://developer.android.com/training/permissions/requesting.html">このページ</a>
+        実行時権限に関する詳細情報を提供します。 この <a class="xref" href="https://github.com/ooyala/android-sample-apps/tree/stable/PlaybackLab/DownloadToOwnSampleApp">SampleApp</a> 外部ストレージを書き込むためのランタイム許可の要求を示すサンプルコードが含まれています。</p>
+<p class="gt-block p"><strong class="ph b">ExoPlayerのクラス</strong></p>
+<p class="p">次の図は、ExoPlayerクラスから使用しているものを示しています。 それらを使用してDASHストリームをダウンロードし、MPDとセグメントを解析し、オフラインビデオを再生するためのライセンスを取得するためのWidevineセッションを準備します。</p>
+
+      <div class="p">
+        <div class="fig fignone" id="offline_playback_download_to_own_dto_for_android__fig_ibs_ydq_fy">
+          <img class="image" id="offline_playback_download_to_own_dto_for_android__image_uzb_f2q_fy" src="http://help-ooyala.brightcove.com/../image/mobild_sdk_android_dto_exoplayer.png" height="488" width="857"/>
+        </div>
+
+      </div>
+
+      <p class="p">ワークフローは次のとおりです。</p>
+<ol class="ol">
+        <li class="li"><samp class="ph codeph">OoyalaPlayer</samp> 作成します。 <samp class="ph codeph">ExoStreamPlayer</samp> ストリームタイプとプレーヤー構成に基づくプレーヤーファクトリ経由。</li>
+
+        <li class="li"><samp class="ph codeph">ExoStreamPlayer</samp> ストリーム・タイプに基づいてレンダラー・ビルダーを選択します（DASHストリーム用のDASHレンダラー・ビルダー、HLSストリーム用のHLSレンダラー・ビルダー、およびMP4用のExtractorレンダラー・ビルダー）。</li>
+
+        <li class="li"><samp class="ph codeph">RendererBuilder</samp> ストリームマニフェストを非同期で取得し、4つのトラックレンダラーを作成します。ビデオ、オーディオ、テキスト（クローズドキャプション用）およびメタデータ（ID3タグ用、HLSのみ）です。</li>
+
+        <li class="li">カスタマイズされたトラックセレクタは、ビットレートコントロールまたはオフライン再生用に作成されます（このシナリオではダウンロードされたトラックのみが有効になります）。</li>
+
+        <li class="li">コンテンツが保護されている場合は、DRMセッションマネージャをライセンス取得用に作成する必要があります。 ビデオストリームの最初のセグメントがデコードされ、ライセンス取得要求が発生して <samp class="ph codeph">WidevineDrmCallback</samp> メソッドが呼び出されます。</li>
+
+        <li class="li">その間に、 <samp class="ph codeph">ExoStreamPlayer</samp> サーフェスビューを作成し、それをプレーヤーにバインドします。</li>
+
+        <li class="li">これでビデオを再生する準備が整いました。</li>
+
+      </ol>
+<p class="gt-block p"><strong class="ph b">サンプルアプリケーション</strong></p>
+<p class="gt-block p">私たちはあなたがあなた自身のものを作るためのガイドとして使えるサンプルアプリを提供します。 DTO用に紹介したクラスを使用し、アセットをアプリにダウンロードするための基本的な実装を示します。 これがサンプルアプリへのリンクです。 <a class="xref" href="https://github.com/ooyala/android-sample-apps/tree/stable/PlaybackLab/DownloadToOwnSampleApp" target="_blank">https://github.com/ooyala/android-sample-apps/tree/stable/PlaybackLab/DownloadToOwnSampleApp</a>.</p>
+<p class="gt-block p"><strong class="ph b">ダウンロードを開始する</strong></p>
+<p class="p">ダウンロードを開始するには、次のインスタンスを使用する必要があります。
+          <samp class="ph codeph">DashDownloader</samp> そして呼び出す <samp class="ph codeph">startDownload</samp> 方法。
+          <samp class="ph codeph">DashDownloader</samp> が必要です <samp class="ph codeph">DashOptions</samp> ダウンロードする資産を知るためのオブジェクトです。 pcode、埋め込みコード、ドメイン、埋め込みトークンジェネレータなどのオプションを指定します。 OPTはすべてのDRMアセットに必要なので、embedTokenGeneratorはWidevineアセットに必要です。 ダウンロードを開始する方法についてのより現実的な例についてはサンプルアプリを見てください。 次のコードは、新しいアセットのダウンロードを開始する基本的な例です。</p>
+<div class="p">
+        <pre class="pre codeblock">public void startDownload（）{ファイルフォルダ= android.os.Environment.getExternalStoragePublicDirectory（Environment.DIRECTORY_MOVIES）; DashOptionsオプション= DashOptions.Builder（PCODE、EMBED_CODE、DOMAIN、folder）.setEmbedTokenGenerator（this）.build（）; DashDownloader dashDownloader = new DashDownloader（これ、オプション、これ）; downloader.startDownload（）; }</pre>
+
+      </div>
+<p class="p">ビデオアセットは、指定されたフォルダに保存されます。
+          <samp class="ph codeph">DashOptions</samp> オブジェクト セグメントURLはMPDファイルの場所に関連していると仮定します。 これらの用語はDASH仕様に関連しています。 ダウンロードされたすべてのDASHセグメントはMPDと同じフォルダにあります。 MPDファイルがフォルダ内にすでに存在する場合は、エラーが発生します。 このエラーが発生した場合は、このディレクトリの内容を削除することをお勧めします。</p>
+<p class="p">我々が供給することに注意してください <samp class="ph codeph">DashDownloader.Listener</samp>
+        を <samp class="ph codeph">DashDownloader</samp> ダウンロード用の更新を取得するために必要なコンストラクタ。 これがリスナーを提供する唯一の方法です。 <samp class="ph codeph">DashDownloader</samp>。 次のコードは、で呼び出されたメソッドを示しています。 <samp class="ph codeph">DashDownloader.Listener</samp>ダウンロードが正常に完了したとき。</p>
+<div class="p">
+        <pre class="pre codeblock">public void onCompletion（）{//ダウンロードが完了しました。DRMアセットの場合は、ライセンスの有効期限をここで確認できます。long expiration = downloader.getLicenseExpirationDate（）; }</pre>
+
+      </div>
+<p class="p">資産が保護されている場合は、ダウンロードプロセスでWidevineライセンスもダウンロードされます。 コンテンツをオフラインで再生するために使用されます。 上記の例は、ダウンロードが完了したときのライセンスの有効期限を取得する方法を示しています。 ファイルがまだ存在しないため、ダウンロードが完了する前に有効期限を尋ねることはできません。</p>
+<p class="gt-block p"><strong class="ph b">ダウンロードするビットレートを選択する</strong></p>
+<p class="p">構築時 <samp class="ph codeph">DashOptions</samp> に提供されたインスタンス <samp class="ph codeph">DashDownloader</samp>ダウンロードする最小ビットレートを選択できます。 の <samp class="ph codeph">setBitrate（）</samp> メソッドは、ビットレート値が1秒あたりのビット数（bps）であることを期待します。</p>
+<pre class="pre codeblock">DashOptionsオプション= new DashOptions.Builder（PCODE、EMBED、DOMAIN、folder）.setEmbedTokenGenerator（this）.setBitrate（BITRATE_VALUE_INTEGER）.build（）; DashDownloader downloader = new DashDownloader（これ、オプション、これ）;</pre>
+ダウンロードするビットレートを指定した場合、ダウンロード処理が開始されると、そのビットレートが指定したビットレートより高いか低いかに関係なく、オプションオブジェクトで指定されたビットレートに最も近いか等しいビットレートが検索されます。 次のダッシュダッシュマニフェストマスタープレイリストの例は、3つの異なるバリエーションを示しています。
+      <pre class="pre codeblock">&lt;？xml version = &quot;1.0&quot; encoding = &quot;utf-8&quot;？&gt; &lt;MPD xmlns：xsi = &quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns = &quot;urn：mpeg：dash：schema ：mpd：2011 &quot;xsi：schemaLocation =&quot; urn：mpeg：ダッシュ：スキーマ：mpd：2011 http://standards.iso.org/ittf/PubliclyAvailableStandards/MPEG-DASH_schema_files/DASH-MPD.xsd &quot;id =&quot; 36400 &quot; type = &quot;static&quot; mediaPresentationDuration = &quot;PT51.60S&quot; minBufferTime = &quot;PT1S&quot; profiles = &quot;urn：mpeg：dash：profile：isoff-main：2011&quot;&gt; &lt;ピリオド開始= &quot;PT0.00S&quot; id = &quot;1&quot;&gt; &lt;AdaptationSet mimeType = &quot;video / mp4&quot; segmentAlignment = &quot;true&quot; subsegmentAlignment = &quot;true&quot; startWithSAP = &quot;1&quot; subsegmentStartsWithSAP = &quot;1&quot; bitstreamSwitching = &quot;true&quot;&gt; &lt;表示ID = &quot;1&quot;幅= &quot;1920&quot;高さ= &quot;1440&quot;高さ= &quot;30&quot; frameRate = &quot;1 / 4400000&quot;帯域幅= &quot;1.42&quot;コーデック= &quot;avc032C2&quot;&gt; &lt;/Representation&gt; &lt;Representation id = &quot;320&quot;幅= &quot;240&quot;高さ= &quot;30&quot; frameRate = &quot;1&quot;帯域幅= &quot;400000&quot;コーデック= &quot;avc1.42C00D&quot;&gt; &lt;/Representation&gt; &lt;Representation id = &quot;3&quot; width = &quot;720&quot; height = &quot;540&quot; frameRate = &quot;30 / 1 &quot;bandwidth =&quot; 1200000 &quot;codecs =&quot; avc1.42C01F &quot;&gt; &lt;/Representation&gt; &lt;/AdaptationSet&gt; &lt;/Period&gt; &lt;/MPD&gt;</pre>
+たとえば、このダッシュダッシュアセットの例をダウンロードしたいとします。 使うなら <samp class="ph codeph">setBitrate（790000）</samp>それから、それはでバリアントを選択します <samp class="ph codeph">帯域幅</samp>  of  <samp class="ph codeph">400000</samp>。 790000は400000よりも1200000に近いため、これがダウンロードされるバリアントです。 使うなら <samp class="ph codeph">setBitrate（810000）</samp>その後、それはでバリアントを選択します <samp class="ph codeph">帯域幅</samp>  of  <samp class="ph codeph">1200000</samp>.
+          
+          <p class="gt-block p"><strong class="ph b">ダウンロードの進行状況を確認する</strong></p>
+<p class="p"><samp class="ph codeph">DashDownloader.Listener</samp>
+        あなたはそれを通してダウンロードの進行状況について知ることができます <samp class="ph codeph">onPercentage</samp>
+        方法。</p>
+<div class="p">
+        <pre class="pre codeblock">public void onPercentage（int percentCompleted）{// percentCompletedは0と100の間の整数}</pre>
+
+      </div>
+<p class="gt-block p"><strong class="ph b">進行中のダウンロードをキャンセルする</strong></p>
+<p class="p">ダウンロード中に、あなたはそれを呼び出すことによってそれをキャンセルすることができます <samp class="ph codeph">アボート</samp> の方法 <samp class="ph codeph">DashDownloader</samp> オブジェクト。</p>
+<div class="p">
+        <pre class="pre codeblock">public void abort（）{downloader.abort（）; }</pre>
+
+      </div>
+<p class="p">呼び出し <samp class="ph codeph">アボート</samp> トリガーします <samp class="ph codeph">DashDownloader.Listener</samp> それを呼び出すために <samp class="ph codeph">onAbort</samp> 方法。</p>
+<div class="p">
+        <pre class="pre codeblock">public void onAbort（）{//ダウンロードをキャンセルしました}</pre>
+
+      </div>
+<p class="gt-block p"><strong class="ph b">オフラインビデオを再生する</strong></p>
+<p class="p">オフラインビデオが端末に保存されたので、これを使用して再生できます。 <samp class="ph codeph">OoyalaPlayer</samp>。 次のコードは、あなたがすでに <samp class="ph codeph">OoyalaPlayer</samp> Androidアクティビティのインスタンス。</p>
+<div class="p">
+        <pre class="pre codeblock">public void initializePlayer（）{PlayerDomainドメイン= new PlayerDomain（DOMAIN）; Options options = new Options.Builder（）。setShowPromoImage（false）.setShowNativeLearnMoreButton（false）.setUseExoPlayer（true）.build（）; OoyalaPlayerプレーヤー=新しいOoyalaPlayer（PCODE、ドメイン、オプション）。 / * *ここにさらに設定を追加します。例えば、スキンプレーヤーのセットアップです。* / //アセットをダウンロードしたフォルダを使用しますFile folder = new File（android.os.Environment.getExternalStoragePublicDirectory（android.os.Environment.DIRECTORY_MOVIES）、埋め込みコード）; OfflineVideo offlineVideo = OfflineVideo.getVideo（フォルダ）; //既にダウンロードしたビデオを取得します。//ダウンロードしたビデオプレーヤーでプレーヤーを初期化します。setUnbundledVideo（offlineVideo）; }</pre>
+
+      </div>
+<p class="p">電話をかけた後 <samp class="ph codeph">setUnbundledVideo</samp> を使用してオフラインアセットを正常に再生できるはずです。 <samp class="ph codeph">OoyalaPlayer</samp>。 アセットをダウンロードするときに使用したのと同じフォルダを使用することを忘れないでください。</p>
+<p class="gt-block p"><strong class="ph b">ダウンロードしたアセットを削除する</strong></p>
+<p class="p">これは、アセットのコンテンツとライセンスの両方を削除する方法を示すコードスニペットです。</p>
+<div class="p">
+        <pre class="pre codeblock">public void deleteAsset（）{//ダウンローダインスタンス（DashDownloader）が正しいフォルダで設定されていると仮定します。 downloader.deleteAll（）; }</pre>
+
+      </div>
+<p class="p">これにより、指定したフォルダに保存されていたコンテンツが削除されます。
+          <samp class="ph codeph">DashOptions</samp> 初期化時のオブジェクト <samp class="ph codeph">DashDownloader</samp>
+        インスタンス。</p>
+</div>
+
+    
+    
+
+   
+   
+   
+   
+   
+   <div class="section"><h2 class="title sectiontitle">参照</h2>
+     <ul class="ul">
+       <li class="li"><a class="xref" href="https://google.github.io/ExoPlayer/guide.html" target="_blank">ExoPlayer開発ガイド</a></li>
+
+     </ul>
+</div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/mobile_sdk_android_about.html">Android SDKを使った作業</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:abso

@@ -1,0 +1,286 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Encoding Settings"/>
+<meta name="abstract" content="Encoding settings determine how the Ooyala Transcoding Service (OTS) encodes streams created during the transcoding process."/>
+<meta name="description" content="エンコード設定は、Ooyalaトランスコーディングサービス（OTS）がトランスコーディングプロセス中に作成されたストリームをエンコードする方法を決定します。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_encoding.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_encoding.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="taskconcept"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>エンコーディング設定</title>
+</head>
+<body id="taskconcept">
+
+
+ <h1 class="title topictitle1">エンコーディング設定</h1>
+
+ 
+<div class="body conbody"><p class="shortdesc">エンコード設定は、Ooyalaトランスコーディングサービス（OTS）がトランスコーディングプロセス中に作成されたストリームをエンコードする方法を決定します。</p>
+
+ <div class="section"><h2 class="title sectiontitle">コンテンツの幅と高さ</h2>
+   
+   <p class="p">幅と高さは、ビデオのサイズ（ピクセル単位）を指定します。 OTSは、幅を使用してソースビデオの縦横比を維持し、それに応じて高さを調整します。</p>
+
+   <p class="p">デバイス（電話やタブレットなど）がビデオの幅をサポートできない場合は再生されません。 さらに、電話やタブレットは、低帯域幅の接続でインターネットに接続されていることがよくあります。 その結果、低ビットレートのエンコーディングの幅が狭くなるようにする必要があります。 たとえば、幅が1280でビット幅が300kbpsのエンコードは、最大幅が640のiPhoneでは再生できませんでした。 </p>
+
+   <p class="p">大画面の方が高解像度になると見栄えがよくなり、帯域幅が向上する傾向があります。 幅を広くするために、より高いビットレートのエンコーディングを予約してください。 たとえば、1280、1500、および2200kbpsのビットレートエンコードに対して3600の幅を指定できます。 </p>
+
+   <p class="p">次の表は、一般的なデバイスの幅と高さを示しています。</p>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" id="d306629e40">デバイス</th>
+
+       <th class="entry" valign="top" id="d306629e43">幅</th>
+
+       <th class="entry" valign="top" id="d306629e46">高さ</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" headers="d306629e40 d306629e43 d306629e46 ">iPhone 6 / 6S / 7 / 8</td>
+
+       <td class="entry" valign="top" headers="d306629e40 d306629e43 d306629e46 ">1334以下</td>
+
+       <td class="entry" valign="top" headers="d306629e40 d306629e43 d306629e46 ">750以下</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d306629e40 d306629e43 d306629e46 ">iPhone 6 + / 6 + / 7 + / 8 +</td>
+
+       <td class="entry" valign="top" headers="d306629e40 d306629e43 d306629e46 ">2208以下</td>
+
+       <td class="entry" valign="top" headers="d306629e40 d306629e43 d306629e46 ">1242以下</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d306629e40 d306629e43 d306629e46 ">iPhone X</td>
+
+       <td class="entry" valign="top" headers="d306629e40 d306629e43 d306629e46 ">2436以下</td>
+
+       <td class="entry" valign="top" headers="d306629e40 d306629e43 d306629e46 ">1125以下</td>
+
+      </tr>
+
+      
+      <tr class="row">
+       <td class="entry" valign="top" headers="d306629e40 d306629e43 d306629e46 ">iPad Air / Pro</td>
+
+       <td class="entry" valign="top" headers="d306629e40 d306629e43 d306629e46 ">2048以下</td>
+
+       <td class="entry" valign="top" headers="d306629e40 d306629e43 d306629e46 ">1536以下</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d306629e40 d306629e43 d306629e46 ">大型iPad Pro</td>
+
+       <td class="entry" valign="top" headers="d306629e40 d306629e43 d306629e46 ">2732以下</td>
+
+       <td class="entry" valign="top" headers="d306629e40 d306629e43 d306629e46 ">2048以下</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d306629e40 d306629e43 d306629e46 ">Apple TVの</td>
+
+       <td class="entry" valign="top" headers="d306629e40 d306629e43 d306629e46 ">640以上</td>
+
+       <td class="entry" valign="top" headers="d306629e40 d306629e43 d306629e46 ">320以上</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d306629e40 d306629e43 d306629e46 ">アイフォン</td>
+
+       <td class="entry" valign="top" headers="d306629e40 d306629e43 d306629e46 ">異なる（960以下を推奨）</td>
+
+       <td class="entry" valign="top" headers="d306629e40 d306629e43 d306629e46 ">異なる（640以下を推奨）</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d306629e40 d306629e43 d306629e46 ">デスクトップ/ノートブック</td>
+
+       <td class="entry" valign="top" headers="d306629e40 d306629e43 d306629e46 ">異なる（1280推奨）</td>
+
+       <td class="entry" valign="top" headers="d306629e40 d306629e43 d306629e46 ">異なる（720推奨）</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d306629e40 d306629e43 d306629e46 ">TV</td>
+
+       <td class="entry" valign="top" headers="d306629e40 d306629e43 d306629e46 ">異なる（1920以下を推奨）</td>
+
+       <td class="entry" valign="top" headers="d306629e40 d306629e43 d306629e46 ">異なる（1080以下を推奨）</td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+  <div class="note note"><span class="notetitle">注意：</span> エンコードプロファイルで0の幅を指定した場合、コンテンツはソースファイルの幅を使用します。</div>
+
+  </div>
+
+ <div class="section"><h2 class="title sectiontitle">垂直ビデオの管理（縦モード）</h2>
+  
+  <p class="p">垂直ビデオは、映画やテレビで標準化されているワイドスクリーン形式ではなく、縦モードでの表示を目的としたカメラによって作成されたビデオで、横幅よりも縦長の画像を生成します。 これは通常、ユーザーが携帯電話を「縦」モードまたは「縦」モードに保持しているスマートフォン（iPhone、Androidなど）で撮影したビデオからのものです。 </p>
+
+   <p class="p">これらのデバイスでは、ビデオを横向きに回転させて保存することがよくありますが、ビデオを表示するには90度（時計回り）の回転を使用するようにビデオヘッダーのメタデータを設定します。</p>
+
+   <p class="p">黒の余白を追加せずに垂直ビデオを正しく処理するには、以下の2つのオプションのいずれかを実行する必要があります。 これらのオプションのいずれかを実行する前に、アカウントで垂直ビデオ処理が有効になっていることをアカウントマネージャまたはテクニカルサポートエンジニアに確認してください。</p>
+
+   <div class="p">
+    <ul class="ul" id="taskconcept__ul_pns_n1m_zdb">
+     <li class="li">ソースに <samp class="ph codeph">タグ：回転</samp> 属性が指定されている場合は、トランスコーディングワークフローによって垂直トランスコーディング用に自動的に検出および処理されます。 このワークフローではデフォルトの処理プロファイルが使用されますが、出力解像度の縦横比が6：19と一致するように交換されます。 その結果、黒いバーは追加されません。 </li>
+
+     <li class="li">ソースに回転タグが含まれていない場合は、活用できます。 <a class="xref" href="../../../../../../../../ja/video-platform/concepts/ingestion_overview.html" target="_blank">マニフェストベースの取り込み</a> 回転値を指定します。 ビデオローテーションの有効な値は[<samp class="ph codeph">90</samp>,<samp class="ph codeph">-90</samp>,<samp class="ph codeph">270</samp>,<samp class="ph codeph">-270</samp>,<samp class="ph codeph">180</samp>]： 例えば、 <samp class="ph codeph">&lt;ooyala：metadata name = &quot;video_rotation&quot;&gt;  -  90 &lt;/ ooyala：metadata&gt;</samp> </li>
+
+    </ul>
+
+    <div class="note note"><span class="notetitle">注意：</span> それを記録するデバイスがデフォルトでそれを追加しない場合は、FFMPEGを利用してローテーションフラグをソースアセットに設定できます。 例： <samp class="ph codeph">ffmpeg -i portrait_sequence.mp4 -vf &quot;転置= 2&quot;  - メタデータ：s：v：0回転= 90  - アスペクト16：9ファイル名.mp4</samp> （2を転置すると、ビデオは反時計回りに90度回転します。これは垂直記録と一致させるために必要です）。
+    </div>
+
+   </div>
+
+ </div>
+
+ <div class="section"><h2 class="title sectiontitle">コンテナ、ビデオコーデック、およびオーディオコーデック</h2>
+  <p class="p">各符号化は、ビデオおよびオーディオコーデックを含むコンテナフォーマット（たとえばMP4）です。 </p>
+
+   <p class="p">処理プロファイルを指定するときは、コンテナフォーマットとオーディオフォーマットを指定する必要があります。</p>
+
+   <p class="gt-block p">OoyalaはH265とH264コーデックの両方をサポートしています。 ただし、H264コーデックはすべてのブラウザおよびデバイスでサポートされているため、デフォルトのコーデックはH264です。 H265コーデックは、市場では比較的新しく、ビデオ圧縮が優れているため、H264よりもはるかに低いビットレートでより高い品質が得られます。 ただし、H265のブラウザとデバイスのサポートは制限されています。 詳細については、を参照してください <a class="xref" href="../../../../../../../../ja/video-platform/concepts/hevc.html" target="_blank">ここに。</a></p>
+
+   <p class="p"> H.264は、利用可能な機能のサブセットをグループ化する一連の機能とさまざまなプロファイルを指定します。 Ooyalaは以下のプロファイルをサポートします。 </p>
+
+   <ul class="ul">
+    <li class="li">ベースライン</li>
+
+    <li class="li">メイン</li>
+
+    <li class="li">ハイ</li>
+
+   </ul>
+
+   <p class="p">高プロファイルはより良い品質を提供しますが、すべてのデバイスがそれをサポートするわけではありません - 古いデバイスをカバーするためにベースラインを使用します。 </p>
+
+   <div class="note note"><span class="notetitle">注意：</span> 同じビデオの場合、ベースラインプロファイルは、ハイプロファイルと同じ品質を提供するために最大20％高いビットレートを必要とする場合があります。</div>
+
+ 
+ </div>
+
+ 
+ <div class="section"><h2 class="title sectiontitle">解像度</h2>
+  <p class="p">電話やタブレットなどのデバイスがエンコードの解像度をサポートしていない場合は、ビデオが再生されないことがあります。 これは通常デスクトップやラップトップでは問題になりませんが、携帯電話やタブレットでは問題になる可能性があります。</p>
+
+ </div>
+
+ <div class="section"><h2 class="title sectiontitle">ビデオビットレート</h2>ビデオビットレートは、ビデオの1秒間のビット数を指定します。 一般に、ビットレートが高いほど、ビデオ品質は高くなります。 <p class="p">エンコードに対してビットレートが指定されている場合、実際のビットレートは再生中に一定ではありません。 Ooyalaは、一貫したビットレート（CBR）と可変ビットレート（VBR）の両方をサポートしています。 処理プロファイル作成中に、ターゲットビットレートを挿入します。</p>
+<p class="p">Ooyalaはまた、パフォーマンスとビデオ品質を最適化するために2パスエンコーディング方法をサポートしています。 最初のパスはコンテンツを分析して、ビデオの各部分のビットレートを決定します。 2番目のパスは分析に基づいてビデオをエンコードします。</p>
+</div>
+
+ 
+ <div class="section"><h2 class="title sectiontitle">オーディオのビットレート</h2>
+ <p class="p">音声のビットレートは、音声1秒間のビット数です。 オーディオビットレートが高いほど、品質も高くなり、視聴者の帯域幅要件も高くなります。 156kb / sまでの任意のオーディオビットレートを選択できます。 例えば：</p>
+
+ <ul class="ul">
+  <li class="li">32Kbps（キロビット/秒） -  AM Radio Quality</li>
+
+  <li class="li">64Kbps  - 音声品質</li>
+
+  <li class="li">96Kbps  -  FMラジオ品質</li>
+
+  <li class="li">128Kbps  - 標準品質（推奨）</li>
+
+ </ul>
+
+ <div class="note note"><span class="notetitle">注意：</span> 可能であれば、すべてのエンコードで同じオーディオビットレートを使用することをお勧めします。 さもなければ、何人かの視聴者はプレーヤーがエンコーディングを切り替えるとオーディオレベルの変化に気付くかもしれません。</div>
+
+ </div>
+
+ <div class="section"><h2 class="title sectiontitle">オーディオサンプルレート</h2> オーディオサンプリングレートは、1秒間に取得されるサンプル数を指定します。 Ooyalaは48,000までのすべてのオーディオサンプリングレートをサポートしますが、以下のレートを推奨します。 <ul class="ul">
+    <li class="li">32,000（miniDV）</li>
+
+    <li class="li">44,100  - （CD）</li>
+
+    <li class="li">48,000（プロ用デジタルビデオ機器）</li>
+
+   </ul>
+<div class="note note"><span class="notetitle">注意：</span> 可能であれば、すべてのエンコードで同じオーディオサンプルレートを使用することをお勧めします。 さもなければ、何人かの視聴者はプレーヤーがエンコーディングを切り替えるとオーディオレベルの変化に気付くかもしれません。
+   </div>
+</div>
+
+ 
+ <div class="section"><h2 class="title sectiontitle">スムーズな再生</h2>
+  <p class="p">以下は、視聴者の再生体験に影響を与える可能性があるいくつかの変数です。</p>
+
+  <ul class="ul">
+   <li class="li">
+    <p class="p">デバイスのCPUおよびGPU機能 バックグラウンドで実行されている他のプログラム</p>
+
+   </li>
+
+   <li class="li">
+    <p class="p">視聴者のデバイスと画面サイズ</p>
+
+   </li>
+
+   <li class="li">
+    <p class="p">接続速度または帯域幅の上限</p>
+
+   </li>
+
+   <li class="li">
+    <p class="p">ルータからの距離やローカルの輻輳など、無線ルータによって発生する遅延</p>
+
+   </li>
+
+   <li class="li">
+    <p class="p">ビデオをホストしているデバイスとサーバー間のネットワークトラフィックによる待ち時間</p>
+
+   </li>
+
+   <li class="li">
+    <p class="p">視聴者のブラウザのブランド、バージョン、および利用可能なプラグイン（Flash、Silverlightなど）</p>
+
+   </li>
+
+  </ul>
+
+ <p class="p">スムーズに再生するには、視聴者の帯域幅はビデオ再生のビットレート（オーディオとビデオのビットレート）の約2倍にする必要があります。</p>
+
+ </div>
+
+</div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_encoding.html" title="マスタービデオをインターネットで直接ストリーミングすることはできません。 それらはまずストリーミング形式に変換またはトランスコードする必要があります。 Ooyalaトランスコーディングサービス（OTS）を使用して、ファイルをソース形式から出力形式に変換します。">トランスコーディング設定</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- delivered by GTransl

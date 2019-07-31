@@ -1,0 +1,236 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Offline Playback: Download to Own (DTO) and Rentals (DTR) for iOS"/>
+<meta name="abstract" content=""/>
+<meta name="description" content=""/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_ios_about.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="offline_playback_download_to_own_dto_for_ios"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>オフライン再生：iOS用ダウンロード（DTO）およびレンタル（DTR）</title>
+</head>
+<body id="offline_playback_download_to_own_dto_for_ios">
+
+
+    <h1 class="title topictitle1">オフライン再生：iOS用ダウンロード（DTO）およびレンタル（DTR）</h1>
+
+    
+    <div class="body conbody"><p class="shortdesc"/>
+
+        <p class="p">AppleはHLSアセットをiOSデバイスにダウンロードできる新しいAPIをリリースしました。 これらのAPIを使用して、Ooyala SDKのアセットをダウンロードできるようにしています。 当社のいずれかのCMS（Backlotなど）に保存されているOoyalaアセットをダウンロードする場合は、Ooyala SDKを使用してください。 それ以外の場合、資産はデフォルトでダウンロードできません。</p>
+
+        <p class="gt-block p"><strong class="ph b">概要</strong></p>
+
+        <p class="p">Ooyala SDKを使用すると、以下のことが可能になります。</p>
+
+        <ul class="ul">
+            <li class="li">資産をダウンロードしてください。 <ul class="ul">
+          <li class="li">HLSマスタープレイリストに複数のビットレートが含まれている場合は、最小ビットレートを指定してダウンロードするものを選択できます。</li>
+
+        </ul>
+</li>
+
+            <li class="li">進行中のダウンロードをキャンセルします。</li>
+
+            <li class="li">ダウンロードプロセスに関する最新情報を聞きます。</li>
+
+            <li class="li">ダウンロードした資産を削除します。</li>
+
+            <li class="li">ダウンロードしたアセットを再生します。</li>
+
+            <li class="li">ダウンロードしたアセットが特定の日付以降に再生されないようにします。</li>
+
+        </ul>
+
+        <p class="p">現在サポートしていません：</p>
+
+        <ul class="ul">
+            <li class="li">ダウンロードしたアセットのクローズドキャプション</li>
+
+            <li class="li">ダウンロードしたアセットを表すプロモーションまたは静止画像。</li>
+
+            <li class="li">マルチオーディオ（スペイン語、英語など） SDKはアセットのデフォルトの言語のみをダウンロードします。</li>
+
+            <li class="li">進行中のダウンロードを一時停止しています。</li>
+
+            <li class="li">ダウンロードを再開します。 ダウンロードがユーザーによって明示的にキャンセルされた場合、この時点までにダウンロードされたものは削除されます。</li>
+
+            <li class="li">ダウンロードする動画のサイズを見積もる</li>
+
+            <li class="li">ライセンスの有効期限を確認しています。 ライセンスはiOSのみで読み取り可能です。</li>
+
+            <li class="li">有効期限が切れている資産を自動削除します。</li>
+
+        </ul>
+
+        <div class="note note"><span class="notetitle">注意：</span> アセットのダウンロードに使用されたアプリをアンインストールすると、ダウンロードされたアセットの内容も削除されます。 iOSアプリ内でダウンロードされたファイルはアプリに固有の内部コンテナーにダウンロードされ、そのコンテナーはアプリがインストールされている限り存続するため、これは予想される動作です。 アプリを削除すると、このコンテナも削除されます。つまり、ダウンロードされたすべてのアセットが削除されます。</div>
+
+        <p class="gt-block p"><strong class="ph b">要件</strong></p>
+
+        <p class="p">Ooyala SDKを使用するDTOとDTRには、以下が必要です。</p>
+
+        <ul class="ul">
+            <li class="li">iOS 10以上</li>
+
+            <li class="li">iOS Ooyala SDK v4.21.0以上。</li>
+
+            <li class="li">DTRはさらにFairPlay HLS資産を必要とします。</li>
+
+        </ul>
+
+        <p class="p">iOSは次のビデオフォーマットのダウンロードをサポートしています。</p>
+
+        <ul class="ul">
+            <li class="li">通常の非保護HLS資産。</li>
+
+            <li class="li">FairPlay HLSアセット。
+                <ul class="ul">
+                    <li class="li">DTOの統合は、FairPlay HLSアセットのマスタープレイリストにEXT-X-SESSION-KEYタグが含まれていることを前提としています。 持っていないと、ダウンロードは開始されません。 EXT-X-SESSION-KEYの詳細については、こちらを参照してください。 <a class="xref" href="https://tools.ietf.org/html/draft-pantos-http-live-streaming-20#section-4.3.4.5" target="_blank">https://tools.ietf.org/html/draft-pantos-http-live-streaming-20#section-4.3.4.5</a>.</li>
+
+                </ul>
+
+            </li>
+
+        </ul>
+
+        <p class="gt-block p"><strong class="ph b">オフライン再生のユースケース：購入とレンタル</strong></p>
+
+        <p class="p">オフライン動画にはいくつかの使用例があります。 所有するダウンロード（DTO）とダウンロードする家賃（DTR）に同じクライアントAPIを公開していますが、違いは、それらが明確なHLSまたは無制限のライセンスを持つFairPlay HLSである場合、資産をDTOと見なすことです。これらの特性を持つアセットをダウンロードすると、それがあなたのデバイスに残っている限り再生することができます。 一方、Rentals（DTR）では、FairPlay HLSアセットには有限ライセンスが必要です。 アクセスウィンドウは資格設定によって定義され、ダウンロードされたアセットがユーザーによって再生できなくなる有効期限を設定します。</p>
+
+        <p class="gt-block p">資産のレンタルアクセス期間ルールを追加するには、それらに資格を設定する必要があります。 詳細については、 <a class="xref" href="../api/rightslocker.html#reference_rj1_dzd_v3">Rights Locker APIリファレンス</a>.</p>
+
+        <p class="gt-block p"><strong class="ph b">注意事項</strong></p>
+
+        <ul class="ul">
+            <li class="li">ユーザーがオフラインビデオを再生しているときにFairPlayライセンスが期限切れになった場合、プレーヤーが破棄されるまでビデオコンテンツを継続できます。 ライセンスはiOSによって強制されており、ライセンスはプレーヤーが新しいアセットで初期化されたときにのみ取得されるため、ビデオセッションを強制的に終了させることはできません。</li>
+
+        </ul>
+
+        <p class="gt-block p"><strong class="ph b">iOS用Ooyala SDKの使用DTOおよびDTR機能</strong></p>
+
+        <p class="gt-block p">まず、Ooyala SDKを使ってアプリを設定する必要があります。 Ooyala SDK.frameworkのようなフレームワークをiOSアプリにリンクすることに慣れていない場合は、次のページで作成したチュートリアルに従ってください。 <a class="xref" href="../tasks/mobile_sdk_ios_gettingstarted.html#mobile_sdk_ios_gettingstarted" title="iOSおよびXcode用のOoyala Mobile SDKを使用して基本プロジェクトを設定する方法を学びます。">はじめに：Xcodeで環境を設定する</a>.</p>
+
+        <p class="p">DTOには以下のクラスがあります。</p>
+
+        <div class="p">
+            <div class="fig fignone" id="offline_playback_download_to_own_dto_for_ios__fig_avq_v23_fy">
+                <img class="image" id="offline_playback_download_to_own_dto_for_ios__image_fsl_x23_fy" src="http://help-ooyala.brightcove.com/../image/mobile_sdk_ios_dto_uml.png" height="733" width="755"/>
+            </div>
+
+        </div>
+
+        <p class="p">あなたが使用する必要があります <samp class="ph codeph">OOAssetDownloadManager</samp> ダウンロード処理を開始するためのオブジェクト。 彼はまた実装する必要があります <samp class="ph codeph">OOAssetDownloadManagerDelegate</samp> インスタンスをの委任先に設定します。 <samp class="ph codeph">OOAssetDownloadManager</samp>。 これにより、開発者はダウンロードプロセスに関する最新情報を入手することができます。</p>
+
+        <p class="gt-block p"><strong class="ph b">サンプルアプリケーション</strong></p>
+
+        <p class="gt-block p">私たちはあなたがあなた自身のものを作るためのガイドとして使えるサンプルアプリを提供します。 DTO用に紹介したクラスを使用して、アプリ内の複数のダウンロード可能なアセットを管理する方法を説明します。 これがサンプルアプリへのリンクです。 <a class="xref" href="https://github.com/ooyala/ios-sample-apps/tree/stable/PlaybackLab/DownloadToOwnSampleApp" target="_blank">https://github.com/ooyala/ios-sample-apps/tree/stable/PlaybackLab/DownloadToOwnSampleApp</a>。 アプリケーション設定の詳細についてはREADMEを参照してください。</p>
+
+        <p class="gt-block p"><strong class="ph b">ダウンロードを開始する</strong></p>
+
+        <p class="p">ダウンロードを開始するには、次のインスタンスを使用する必要があります。 <samp class="ph codeph">OOAssetDownloadManager</samp> そして <samp class="ph codeph">startDownload</samp> 方法。 <samp class="ph codeph">OOAssetDownloadManager</samp> が必要です <samp class="ph codeph">OOAssetDownloadOptions</samp> ダウンロードする資産を知るためのオブジェクトです。 開発者は、pcode、埋め込みコード、ドメイン、埋め込みトークンジェネレータなどのオプションを提供します。 OPTはすべてのDRMアセットに必要であるため、embedTokenGeneratorはFairPlayアセットに必要です。 を見て <samp class="ph codeph">BasicEmbedTokenGenerator</samp> サンプルアプリケーションでは、 <samp class="ph codeph">OOEmbedTokenGeneratorの実装</samp>.</p>
+
+        <div class="p"><pre class="pre codeblock"> - （void）startDownload {//ダウンロードしようとしているアセットの設定でオプションを初期化しますOOAssetDownloadOptions * options = [[OOAssetDownloadOptions alloc] init]; options.pcode = self.pcode; options.embedCode = self.embedCode; options.domain = [OOPlayeDomain domainWithString：self.domain]; options.embedTokenGenerator = self.embedTokenGenerator; OOAssetDownloadManager * manager = [[OOAssetDownloadManager割り当て] initWithOptions：options]; // OOAssetDownloadManagerデリゲートをダウンロードコールバックを受け取るように設定しますmanager.delegate = self; [downloadManager startDownload]; }</pre>
+</div>
+
+        <p class="p"> マネージャの代理人を設定することが重要です。 デリゲートはのインスタンスです
+                <samp class="ph codeph">OOAssetDownloadManagerDelegate</samp> エラーがあっても、ダウンロードプロセス中にそのメソッドが呼び出されます。 を呼び出した後
+                <samp class="ph codeph">startDownload</samp> 上記の例のメソッド
+                <samp class="ph codeph">downloadManager：downloadTaskStartedWithError：</samp> デリゲートのメソッドが呼び出されます。 </p>
+
+        <div class="p"><pre class="pre codeblock">- （void）downloadManager：（OOAssetDownloadManager *）マネージャdownloadTaskStartedWithError：（OOOoyalaError *）error {if（error）{//ダウンロードに失敗しました} else {//ダウンロードに成功しました}}</pre>
+</div>
+
+        <p class="p"><samp class="ph codeph">OOAssetDownloadManager</samp> 〜を持つ <samp class="ph codeph">embedCodeプロパティ</samp> どの資産がダウンロードされているのかを識別するために使用できます。</p>
+
+        <p class="gt-block p"><strong class="ph b">ダウンロードするビットレートを選択する</strong></p>
+
+        <p class="p">構築時 <samp class="ph codeph">OOAssetDownloadOptions</samp> に提供されたインスタンス <samp class="ph codeph">OOAssetDownloadManager</samp>ダウンロードする最小ビットレートを選択できます。</p>
+
+        <div class="p"><pre class="pre codeblock">OOAssetDownloadOptions * options = [[OOAssetDownloadOptions alloc] init]; //他のオプションを設定する。options.minimumBitrate = 1500000; OOAssetDownloadManager * manager = [[OOAssetDownloadManager割り当て] initWithOptions：options];</pre>
+</div>
+
+        <p class="p">ダウンロードする最小ビットレートを指定した場合、ダウンロードプロセスが開始されると、optionsオブジェクトで指定された最小ビットレート以上の最初のビットレートが検索されます。</p>
+
+        <p class="p">次のHLSマスタープレイリストの例は、4のさまざまなバリエーションを示しています。</p>
+
+        <div class="p"><pre class="pre codeblock">#EXTM3U
+#EXT-X-VERSION:6
+#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2855600,CODECS="avc1.4d001f,mp4a.40.2",RESOLUTION=960x540
+medium.m3u8
+#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=5605600,CODECS="avc1.640028,mp4a.40.2",RESOLUTION=1280x720
+high.m3u8
+#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=1755600,CODECS="avc1.42001f,mp4a.40.2",RESOLUTION=640x360
+low.m3u8
+#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=545600,CODECS="avc1.42001e,mp4a.40.2",RESOLUTION=416x234
+cellular.m3u8</pre>
+</div>
+
+        <p class="p">この例のHLSアセットをダウンロードしようとしていると仮定しましょう。 上記のコードスニペットで提供されているビットレート（minimumBitrate = 1500000）を使用すると、次のようにバリアントが選択されます。 <samp class="ph codeph">帯域幅</samp> 1755600 これは、1500000以上の値を持つ最初のバリアントであるため、ダウンロードされるバリアントです。</p>
+
+        <p class="gt-block p"><strong class="ph b">ダウンロードの進行状況を確認する</strong></p>
+
+        <p class="p"><samp class="ph codeph">OOAssetDownloadManagerDelegate</samp> あなたはそれを通してダウンロードの進行状況について知ることができます <samp class="ph codeph">downloadManager：downloadPercentage：</samp> 方法。</p>
+
+        <div class="p"><pre class="pre codeblock">- （void）downloadManager：（OOAssetDownloadManager *）manager downloadPercentage：（Float64）パーセンテージ{//パーセンテージは0.0から1.0までの数字です。</pre>
+</div>
+
+        <p class="gt-block p"><strong class="ph b">ダウンロードしたアセットを保存する</strong></p>
+
+        <p class="p"><samp class="ph codeph">OOAssetDownloadManagerDelegate</samp> があります <samp class="ph codeph">downloadManager：downloadCompletedAtLocation：withError：</samp> これにより、資産が保存された場所を知ることができます。 コンテンツを再生するためにはこの場所が必要なので、自分でこの場所を保持します。</p>
+
+        <div class="p"><pre class="pre codeblock"> - （void）downloadManager：（OOAssetDownloadManager *）manager downloadCompletedAtLocation：（NSURL *）location withError：（OOOoyalaError *）error {if（error）{// download failed} else {// NSUserDefaultsに格納する方法の例[NSUserDefaults standardUserDefaults] setURL：location forKey：manager.embedCode]; }}</pre>
+</div>
+
+        <p class="p">自分でビデオを保存する必要はありません。 それはすでに保存されていて、あなたはただを通してその位置を与えられます <samp class="ph codeph">場所</samp> このメソッドのパラメータ</p>
+
+        <p class="gt-block p"><strong class="ph b">FairPlayライセンスを保存する（オプション）</strong></p>
+
+        <p class="p">この手順は、資産がFairPlayでDRM保護されている場合にのみ必要です。 ダウンロードプロセスの間に、あなたはその特定の資産のために承認されます。 この許可の一部は、資産をダウンロードできるかどうか、FairPlayサーバーに尋ねます。 もし、そうなら、 <samp class="ph codeph">OOAssetDownloadManagerDelegate</samp> ています <samp class="ph codeph">downloadManager：persistedContentKeyAtLocation：</samp> ライセンスが正常に保存されたときに呼び出されるメソッド。</p>
+
+        <div class="p"><pre class="pre codeblock"> - （void）downloadManager：（OOAssetDownloadManager *）manager persistedContentKeyAtLocation：（NSURL *）location {// NSUserDefaultsにライセンスの場所を格納する方法の例//埋め込みコードが &quot;myEmbedCode&quot;の場合NSStringキー &quot;DTO_myEmbedCode.key&quot;を使って位置を保存します[[NSUserDefaults standardUserDefaults] setURL：location forKey：[NSString stringWithFormat：@ &quot;DTO _％@。key&quot;、manager.embedCode]]; }</pre>
+</div>
+
+        <p class="p">FairPlayアセットの場合、オフラインビデオを再生するときにもライセンスが必要です。 そのため、後で使用するために場所を保存する必要があります。</p>
+
+        <p class="gt-block p"><strong class="ph b">オフラインビデオを再生する</strong></p>
+
+        <p class="p">オフラインビデオがあるので、これを使用して再生できます。 <samp class="ph codeph">OOOoyalaPlayer</samp>。 次のコードはあなたが <samp class="ph codeph">UIViewController</samp> とともに <samp class="ph codeph">UIView</samp> それはになります <samp class="ph codeph">OOOoyalaPlayer</samp>の見解</p>
+
+        <div class="p"><pre class="pre codeblock"> - （void）initializePlayer {OOOptions * options = [[OOOptions alloc] init]; options.secureURLGenerator = ... // FairPlay資産に必要なOOSecureURLGeneratorのインスタンスOOOoyalaPlayer * player = [[OOOoyalaPlayer alloc] initWithPcode：self.pcodeドメイン：[OOPlayerDoamin domainWithString：self.domain] embedTokenGenerator：self.embedToken options： ; / * *このコメントブロックは、OOOoyalaPlayerをOOOoyalaPlayerViewControllerに設定するコードがあることを前提としています* / //ダウンロードしたビデオとFairPlayのライセンスの場所でOOOfflineVideoを初期化します。 NSURL * keyLocation = [[NSUserDefaults standardUserDefaults] URLForKey：[NSString stringWithFormat：@ &quot;DTO _％@。key&quot;、self.embedCode]]; OOOfflineVideo * video = [OOOfflineVideo videoWithVideoLocation：videoLocation fairplayKeyLocation：keyLocation]; [player setUnbundledVideo：video]; }</pre>
+</div>
+
+        <p class="p">電話をかけた後 <samp class="ph codeph">setUnbundledVideo：</samp> を使用してオフラインアセットを正常に再生できるはずです。 <samp class="ph codeph">OOOoyalaPlayer</samp>.</p>
+
+        <p class="gt-block p"><strong class="ph b">ダウンロードしたアセットを削除する</strong></p>
+
+        <p class="p">これは、アセットのコンテンツとライセンスの両方を削除する方法を示すコードスニペットです。 上記の例に従ったのであれば、その中のキーをクリアしたいと思うかもしれません。 <samp class="ph codeph">NSUserDefaults</samp> オブジェクト。</p>
+
+        <div class="p"><pre class="pre codeblock"> - （void）deleteAsset：（NSString *）embedCode {//動画コンテンツを削除する[OOAssetDownloadManager deleteFileAtLocation：[[NSUserDefaults standardUserDefaults] URLForKey：embedCode]]; [[NSUserDefaults standardUserDefaults] removeObjectForKey：embedCode]; // FairPlayライセンスの内容を削除する [[NSUserDefaults standardUserDefaults] removeObjectForKey：[NSString stringWithFormat：@ &quot;DTO _％@。key&quot;、embedCode]]; }</pre>
+</div>
+
+        <p class="gt-block p"><strong class="ph b">参照</strong></p>
+
+        <ul class="ul">
+            <li class="li"><a class="xref" href="https://developer.apple.com/library/content/documentation/AudioVideo/Conceptual/MediaPlaybackGuide/Contents/Resources/en.lproj/HTTPLiveStreaming/HTTPLiveStreaming.html" target="_blank">アップルのGeneral HLSページ</a></li>
+ 
+            <li class="li"><a class="xref" href="https://developer.apple.com/library/content/documentation/AudioVideo/Conceptual/MediaPlaybackGuide/Contents/Resources/en.lproj/HTTPLiveStreaming/HTTPLiveStreaming.html" target="_blank">Appleの基本的なHLSオフライン再生ドキュメント</a></li>
+ 
+        </ul>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/mobile_sdk_ios_about.html">iOS用Ooyala Mobile SDKを使用する</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div

@@ -1,0 +1,220 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Integration with Nielsen Analytics"/>
+<meta name="abstract" content="You can easily integrate with Nielsen analytics in your Ooyala mobile applications."/>
+<meta name="description" content="あなたのOoyalaモバイルアプリケーションでNielsen分析と簡単に統合することができます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_android_integrations.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/nielsen_requirements.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/nielsen_android.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/nielsen_how.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_ios_integrations.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/nielsen_requirements.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/nielsen_ios.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/nielsen_how.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="neilsen_about"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Nielsen Analyticsとの統合</title>
+</head>
+<body id="neilsen_about">
+
+
+ <h1 class="title topictitle1">Nielsen Analyticsとの統合</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">あなたのOoyalaモバイルアプリケーションでNielsen分析と簡単に統合することができます。</p>
+
+  <p class="gt-block p">ニールセンNV（<a class="xref" href="http://www.nielsen.com" target="_blank">www.nielsen.com</a>）ビデオ、オーディオ、およびテキストコンテンツが配信されているデバイス間で消費者が何を見て購入しているかについての測定と分析を提供します。 Nielsenは、線形（TVベース）と動的（インターネットベース）の配信方法および広告モデルにわたる測定を組み合わせて、あらゆるデバイスにわたるコンテンツの一部に対して統一された視聴者データを提供します。 Nielsenのデータは、広告モデル、コンテンツの放送時間、コンテンツのキャンセルまたは更新、コンテンツ配信のロジスティクスについての決定に使用されます。 </p>
+
+  <p class="p">iOSおよびAndroid SDK用のOoyalaのNielsenプラグインを使用すると、開発者はNielsenの機能をOoyalaモバイルアプリケーションに統合できます。 Nielsenで強化されたアプリは、iOSおよびAndroidデバイスで再生されるデジタルコンテンツのために、消費者の視聴およびエンゲージメントデータをNielsenに提供します。 このデータには、識別とフィルタリングを可能にするイベント情報とメタデータタグが含まれています。</p>
+
+  <div class="section"><h2 class="title sectiontitle">機能とハイライト</h2>
+   
+   <ul class="ul">
+    <li class="li">テレビ視聴者測定に使用されるNielsenのオーディオ透かし技術のサポート</li>
+
+    <li class="li">Nielsenのカスタムメタデータとカスタム設定のサポート</li>
+
+    <li class="li">CMSタグと業界でサポートされているID3メタデータタグのサポート</li>
+
+    <li class="li">NielsenのApp SDKと簡単に統合</li>
+
+    <li class="li">消費者がNielsenの機能からオプトアウトできるようにするNielsenプライバシーポリシーのサポート</li>
+
+   </ul>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">統合の範囲</h2>
+   
+   <p class="p">Ooyalaは、次のNielsen製品とのモバイルアプリ統合をサポートしています。</p>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     
+     
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="7.6923076923076925%" id="d404828e72">コンテンツ配信</th>
+
+       <th class="entry" valign="top" width="15.384615384615385%" id="d404828e75">ニールセン製品</th>
+
+       <th class="entry" valign="top" width="61.53846153846154%" id="d404828e78">説明</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" width="7.6923076923076925%" headers="d404828e72 ">VOD</td>
+
+       <td class="entry" valign="top" width="15.384615384615385%" headers="d404828e75 ">mDPR（モバイルデジタルプログラム評価）</td>
+
+       <td class="entry" valign="top" width="61.53846153846154%" headers="d404828e78 ">動的広告モデルを使用してデジタルのみまたはリニアTVコンテンツに使用されます。 モバイルアプリは、ユニークな視聴者指標、ストリーム数、年齢や性別によるリーチなど、オンデマンドテレビ視聴用の視聴者データを提供します。 を参照してください <a class="xref" href="http://engineeringforum.nielsen.com/sdk/developers/mdpr.php" target="_blank">mDPRのドキュメント</a> 詳細については。</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="7.6923076923076925%" headers="d404828e72 ">テレビライブ</td>
+
+       <td class="entry" valign="top" width="15.384615384615385%" headers="d404828e75 ">mTVR（モバイルテレビの評価）</td>
+
+       <td class="entry" valign="top" width="61.53846153846154%" headers="d404828e78 ">モバイルオーディエンス測定およびテレビの評価に使用されます。 を参照してください <a class="xref" href="http://engineeringforum.nielsen.com/sdk/developers/mtvr.php" target="_blank">mTVRのドキュメント</a> 詳細については。 </td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">カスタムメタデータ</h2>
+   
+   <p class="gt-block p">Nielsenは、資産の識別と分類に使用する追加のメタデータを提供するように要求しています。 OoyalaのNielsen統合を使用するには、VODかライブかにかかわらず、アセットごとにBacklotにカスタムメタデータを追加する必要があります。 見る <a class="xref" href="../tasks/metadata_create.html" title="資産には最大100個の名前と値のペアを追加できます。">カスタムメタデータの追加</a> 手順を参照してください。</p>
+
+   <p class="p">すべてのアセットに2つのカスタムメタデータが必要です（VODとライブ）。
+     <samp class="ph codeph">nielsen_channelName</samp> そして <samp class="ph codeph">nielsen_dataSrc</samp>。 他のすべてが必要な場合 <samp class="ph codeph">nielsen_dataSrc</samp> &quot;cms&quot;です。 </p>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="33.222591362126245%" id="d404828e161">名前</th>
+
+       <th class="entry" valign="top" width="66.77740863787375%" id="d404828e164">説明</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" width="33.222591362126245%" headers="d404828e161 "><samp class="ph codeph">nielsen_channelName</samp></td>
+
+       <td class="entry" valign="top" width="66.77740863787375%" headers="d404828e164 ">送信されているプログラムまたはフィードの名前。 32文字のフリーフォームテキストフィールド。 必須。</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="33.222591362126245%" headers="d404828e161 "><samp class="ph codeph">nielsen_dataSrc</samp></td>
+
+       <td class="entry" valign="top" width="66.77740863787375%" headers="d404828e164 ">データの出所 必須。 以下のいずれかの値
+        <ul class="ul">
+         <li class="li">ストリームにID3メタデータが含まれる場合は &quot;ID3&quot;。 mTVRに必要です。</li>
+
+         <li class="li">ストリームにID3メタデータが含まれていない場合は &quot;cms&quot;。 </li>
+
+        </ul>
+</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="33.222591362126245%" headers="d404828e161 "><samp class="ph codeph">nielsen_assetid</samp></td>
+
+       <td class="entry" valign="top" width="66.77740863787375%" headers="d404828e164 ">コンテンツの一意のID。 スペースを使用しないでください。</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="33.222591362126245%" headers="d404828e161 "><samp class="ph codeph">nielsen_category</samp></td>
+
+       <td class="entry" valign="top" width="66.77740863787375%" headers="d404828e164 ">プログラム名</td>
+
+      </tr>
+
+
+      <tr class="row">
+       <td class="entry" valign="top" width="33.222591362126245%" headers="d404828e161 "><samp class="ph codeph">nielsen_tv</samp></td>
+
+       <td class="entry" valign="top" width="66.77740863787375%" headers="d404828e164 ">JSONブール値。 以下のいずれかの値<ul class="ul">
+         <li class="li">テレビ関連コンテンツ（テレビで放送）の場合は「true」。</li>
+
+         <li class="li">テレビ以外のコンテンツ（YouTube動画など）の場合は「false」（デフォルト）</li>
+
+        </ul>
+</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="33.222591362126245%" headers="d404828e161 "><samp class="ph codeph">nielsen_title</samp></td>
+
+       <td class="entry" valign="top" width="66.77740863787375%" headers="d404828e164 ">エピソードタイトル。</td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+
+   <p class="gt-block p">で始まるキー <samp class="ph codeph">ニールセン_</samp> Nielsenの収集施設に値を渡すために使用されます。 先頭のnielsen_文字列は処理中に削除されます。 たとえば、Backlot内のnielsen_xyzpdqという値が123のアセットごとのキーは、キーxyzpdqおよび値123としてNielsenにコピーされます。 を参照してください <a class="xref" href="http://engineeringforum.nielsen.com/sdk/developers/" target="_blank">Nielsen App API開発者ガイド</a> 詳細については。</p>
+
+  </div>
+
+  <div class="section">ID3タグがNielsenの要件に従ってストリームに含まれる場合（たとえば、
+    <samp class="ph codeph">www.nielsen.com</samp>）、彼らはニールセンの収集施設に引き渡されます。 ID3タグを渡すには、OoyalaモバイルSDKが次のようにしてVisualOnストリームプレーヤーを使用するように設定する必要があります。
+    <samp class="ph codeph">OoyalaPlayer.enableCustomHLSPlayer = true</samp>。 を参照してください <a class="xref" href="http://engineeringforum.nielsen.com/sdk/developers/" target="_blank">Nielsen App API開発者ガイド</a> の詳細については <samp class="ph codeph">jsonMetadata</samp> パラメータ。 </div>
+
+ </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../concepts/nielsen_requirements.html">ニールセンの統合要件</a></strong><br/>
+OoyalaモバイルアプリをNielsen分析と統合するための要件。</li>
+<li class="link ulchildlink"><strong><a href="../concepts/nielsen_android.html">Android上でNielsenと統合する</a></strong><br/>
+Nielsenの機能をOoyala Androidアプリケーションに統合します。</li>
+<li class="link ulchildlink"><strong><a href="../concepts/nielsen_how.html">ニールセン統合の仕組み</a></strong><br/>
+このトピックでは、OoyalaとNielsenの統合に関する補足的な背景情報を提供します。</li>
+<li class="link ulchildlink"><strong><a href="../concepts/nielsen_ios.html">iOSでNielsenと統合する</a></strong><br/>
+Nielsenの機能をOoyala iOSアプリケーションに統合します。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/mobile_android_integrations.html">Androidのサードパーティ統合</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/mobile_sdk_ios_integrations.html">iOSサードパーティ統合</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

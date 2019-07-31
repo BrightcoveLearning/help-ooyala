@@ -1,0 +1,101 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Implementation Notes for Theme Builder"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_themebuilder.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept_f13_pzp_5m"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>テーマビルダーの実装上の注意</title>
+</head>
+<body id="concept_f13_pzp_5m">
+
+
+ <h1 class="title topictitle1">テーマビルダーの実装上の注意</h1>
+
+
+ <div class="body conbody">
+  <div class="note note"><span class="notetitle">注意：</span> テーマビルダーは、Ooyala Player V4とPlayer V3の両方で動作するように設計されています。 で説明されているように、Player V4のプレイリストを設定する方法にはいくつかの違いがあります。 <a class="xref" href="pbv4_playlist.html">プレーヤV4でのプレイリストの使用</a>.</div>
+
+  <p class="p">以下は、January 17、2014のテーマビルダーの実装上の注意のリストです。</p>
+
+  <ol class="ol">
+  
+   
+   
+   
+   <li class="li">Ooyala Player Framework（OPF）モジュールはテーマビルダーのUIには読み込まれたりアクティブになったりしませんが、埋め込みがWebページに挿入されたときに読み込まれたりアクティブになったりします。</li>
+
+   
+   
+   <li class="li">ハイライトカラーは、プレーヤー内のすべてのテキストには機能しません。</li>
+
+   
+   
+   
+    <li class="li">上の <span class="ph uicontrol">埋め込む</span> タブ付き <span class="ph uicontrol">流体</span> 幅および高さと幅を0に設定した場合、Microsoft Internet Explorer v10 Webブラウザはプレーヤーを正しく表示しません。 他のブラウザは正常に動作します。 <strong class="ph b">回避策： </strong>親の幅と高さの値を設定します <samp class="ph codeph">&lt;DIV&gt;</samp> IE上でレンダリングされたときのWebページ上のプレーヤーのコンテナー。 </li>
+
+   
+   
+   
+   <li class="li">上の <span class="ph uicontrol">埋め込む</span> タブ、終了画面が表示されたら、 <span class="ph uicontrol">はじめに戻る</span> ボタンが機能しません。</li>
+
+   
+   
+   
+    <li class="li">画像の場合、推奨縦横比は4：3であり、推奨画像サイズは320ピクセルx 240ピクセルです。 （より高い解像度は許可されていますがお勧めできません。）画像ファイルのサイズ制限は1MBです。</li>
+
+   
+   
+   
+   <li class="li">上の <span class="ph uicontrol">Players の作成と管理</span> タブ、 <span class="ph uicontrol">オーバーフロー</span> の設定 <span class="ph uicontrol">ページング</span> プレイリストのサイズが指定した行数と異なる場合、余分な不要な行が生じることがあります。</li>
+
+   
+   
+   
+    <li class="li">サムネイルサイズ、メタデータ、およびテキストサイズを選択するときは注意してください。 結果はあなたの期待とは異なる場合があります。</li>
+
+   
+   
+   
+   <li class="li">持っているプレイヤーを選択した場合 <span class="ph uicontrol">もっと動画</span> Ooyala Backlotを介して有効にします。 <span class="ph uicontrol">埋め込む</span> テーマビルダーUIのタブ <span class="ph uicontrol">もっと動画</span> 表示されません。 ただし、Webページに埋め込むと、 <span class="ph uicontrol">もっと動画</span> 示されています。</li>
+
+   
+   
+   
+   <li class="li">プレイリストで使用すると、ロードアイコンがHTML5プレーヤーの中心から外れて表示されます。</li>
+
+   </ol>
+
+  <div class="section" id="concept_f13_pzp_5m__tb_player_support"><h2 class="title sectiontitle">Flash Player V3およびHTML5 Player V3のサポート </h2>
+   HTML5プレーヤーには、テーマビルダーのプレーヤーのカスタマイズ（色、ハイライト、画面情報の一時停止など）を適用することはできません。 具体的には、「設定」、「コントロール」、および「画面」という見出しのプレーヤー設定領域の設定は、Flashプレーヤーにのみ適用されます。 CSSとJavaScriptを使用して、プレーヤのカスタマイズをv3 HTML5プレーヤに適用します。 <p class="p">ただし、UIの「ポッド」セクションの設定は、プレイリストおよび埋め込みの設定と同様に、HTML5プレーヤーでも機能します。 プレイリストとポッドのカスタマイズは、HTML5であり、FlashプレーヤーとHTML5プレーヤーの両方で機能します。 </p>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">テーマビルダーでOPFモジュールがアクティブにならない</h2>
+   
+   <a class="xref" href="../reference/player_v3_dev_module.html" title="Ooyala Playerを使用すると、Event ModelとJavaScript APIを使用してJavaScriptカスタムモジュールを構築できます。">HTML5 Player V3用のカスタムクライアントモジュールの開発（廃止予定）</a> ビデオプレーヤー用に定義されたモジュール（カスタムクライアントサイドJavaScript）は、テーマビルダーの「内部」ではアクティブになりません。 これには、次のような機能が含まれますが、これらに限定されません。 <a class="xref" href="chapter_content_discovery.html" title="ディスカバリーを使用すると、サイト上の関連性のある関連コンテンツにユーザーを誘導することで、ユーザーの関心を引くことができます。 ディスカバリーは、ビデオの印象や再生から継続的に学習して、動的でパーソナライズされた体験をユーザーに提供します。">コンテンツの発見と推奨について</a>。 テーマビルダーで作業している間は、Discoveryの推奨事項は表示されません。 <p class="gt-block p">テーマビルダーはデモプレーヤーを使用して、ユーザーが行ったデザイン選択のユーザーインターフェイス効果を表示します。意図的にビデオプレーヤーのすべての機能を本番環境で再現するわけではありません。 以前にOPFを使用するように設定されているプレーヤーを含めると、テーマビルダーでデザインしている間はそれらの機能は表示されません。 しかし、結果として <a class="xref" href="../tasks/theme_builder_embed_create.html#player_create" title="テーマビルダーの埋め込みは、プレーヤー内に埋め込まれた1つ以上のプレイリストです。">埋め込みます</a> 本番用のWebページに追加すると、すべての機能が完全に機能します。 </p>
+
+  </div>
+
+  <div class="section" id="concept_f13_pzp_5m__delay"><h2 class="title sectiontitle">BacklotとTheme Builderの間での変更の伝播</h2>
+   Backlotで行った変更がTheme Builderに表示されるまでに少し時間がかかることがあります。 </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_themebuilder.html" title="このドキュメントではテーマビルダーのユーザーインターフェースでプレーヤーをカスタマイズする方法を説明します。">Theme Builder Playerカスタマイズユーザガイド</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

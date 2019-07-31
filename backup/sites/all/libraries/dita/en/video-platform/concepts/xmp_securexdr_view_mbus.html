@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Message Bus Views (Deprecated)"/>
+<meta name="abstract" content="You can use the following code sample to work with the player message bus and message bus events."/>
+<meta name="description" content="You can use the following code sample to work with the player message bus and message bus events."/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/xmp_securexdr_views.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_v3_dev_intro"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../css/ooyala.css"/>
+<title>Message Bus Views (Deprecated)</title>
+</head>
+<body id="player_v3_dev_intro">
+
+
+  <h1 class="title topictitle1">Message Bus Views (Deprecated)</h1>
+
+  
+  <div class="body conbody"><p class="shortdesc">You can use the following code sample to work with the player message bus and message
+    bus events.</p>
+
+    <div class="section"><div class="note note"><span class="notetitle">Note:</span> Ooyala Player V3 has been deprecated and is scheduled to be
+    disabled. For details and alternatives, see the <a class="xref" href="../relnotes/2017-06-04.html">OVP
+     Release Notes</a>.</div>
+
+      <p class="p">The code sample includes multiple client web pages or views illustrating each feature and a
+        seventh code sample that shows all the features working in combination. To implement each
+        client page, you will need all the standard elements that you normally use such as your API
+        Key, pcode, and so forth. </p>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Where to Find the Code</h2><p class="p" id="player_v3_dev_intro__docs-internal-guid--76eb343-7da1-6fa1-5074-58f93b6be835">To explore these code sample views in GitHub, go to:<a class="xref" href="https://github.com/ooyala/code-samples/blob/master/application/views/Secure_XDR_GoogleIMA/message-bus.php" target="_blank">https://github.com/ooyala/code-samples/blob/master/application/views/Secure_XDR_GoogleIMA/message-bus.php</a> and <a class="xref" href="https://github.com/ooyala/code-samples/blob/master/application/views/Secure_XDR_GoogleIMA/message-bus-advanced.php" target="_blank">https://github.com/ooyala/code-samples/blob/master/application/views/Secure_XDR_GoogleIMA/message-bus-advanced.php</a>.</p>
+
+     </div>
+
+    <div class="section"><h2 class="title sectiontitle"> Message Bus Event Handling</h2><p class="p">One important feature of Player V3 is its
+        message bus event handling mechanism. This code sample includes the use of the V3 message
+        bus to implement some event handling functions. </p>
+<ul class="ul" id="player_v3_dev_intro__docs-internal-guid--76eb343-7da6-6dd6-7fb0-d149abb7926a">
+        <li class="li">
+          <p class="p"><strong class="ph b">message_bus.php</strong> - Used for the set up of event handling.</p>
+
+        </li>
+
+        <li class="li">
+          <p class="p"><strong class="ph b">message_bus_advanced.php</strong> - Illustrates the set up of event handling and the
+            display of event milestones in an area beneath the player.</p>
+
+        </li>
+
+      </ul>
+<p class="p">These files implement event handling code to demonstrate the following:</p>
+<ul class="ul" id="player_v3_dev_intro__ul_lqc_pcm_vm">
+        <li class="li">
+          <p class="p">Video start and play</p>
+
+        </li>
+
+        <li class="li">
+          <p class="p">Video pause</p>
+
+        </li>
+
+        <li class="li">
+          <p class="p">Video reached 25% milestone</p>
+
+        </li>
+
+        <li class="li">
+          <p class="p">Video reached 50% milestone</p>
+
+        </li>
+
+        <li class="li">
+          <p class="p">Video reached 75% milestone</p>
+
+        </li>
+
+        <li class="li">
+          <p class="p">Video complete</p>
+
+        </li>
+
+        <li class="li">
+          <p class="p">Ad break started</p>
+
+        </li>
+
+        <li class="li">
+          <p class="p">Ad request made</p>
+
+        </li>
+
+        <li class="li">Ad request successful </li>
+
+        <li class="li">
+          <p class="p">Ad played through 100%</p>
+
+        </li>
+
+        <li class="li">
+          <p class="p">Ad break finished</p>
+
+        </li>
+
+      </ul>
+<p class="p">Here is a portion of the code for handling these types of events from the <a class="xref" href="https://github.com/ooyala/code-samples/tree/master/application/assets/Secure_XDR_GoogleIMA/javascript" target="_blank">simple_milestones.js file</a>. In this code snippet, we
+        subscribe to the PLAYING event. This javascript file uses the
+          <samp class="ph codeph">CONTENT_TREE_FETCHED</samp>, <samp class="ph codeph">PLAYING</samp>,
+          <samp class="ph codeph">PLAYHEAD_TIME_CHANGED</samp>, and <samp class="ph codeph">PLAYED</samp> events. For a full
+        list of the message bus OO.EVENTS that you can use in your code, see <a class="xref" href="../api/player_v3_api_events.html" title="Use message bus events to subscribe to or publish player events from video to ad playback.">Player Message
+          Bus Events</a>.</p>
+<pre class="pre codeblock">this.mb = window.mb; 
+    .
+    .
+    .
+this.mb.subscribe(OO.EVENTS.PLAYING, "func2", function (eventName, arg1, arg2) {
+        if (videoEnded) {
+            // Reset all values
+            // We are asuming we hit replay on the same video
+            videoStarted = false;
+            _25per = false;
+            _50per = false;
+            _75per = false;
+            videoEnded = false;
+            write("Replaying video");
+        }
+            .
+            .
+            . </pre>
+<p class="p">In the <samp class="ph codeph">message_bus_advanced.php</samp> file we provide a
+        div id called <samp class="ph codeph">logName</samp> to create a text area where we display the milestone
+        events collected from the <samp class="ph codeph">simple_milestones.js</samp>. In this script we subscribe
+        to <samp class="ph codeph">OO.EVENTS.PLAYING</samp> and use
+          <samp class="ph codeph">OO.EVENTS.PLAYHEAD_TIME_CHANGED</samp> to account for scrubbing. When you run
+        the sample, you should see the output of the event handling tasks from the .js logic written
+        to the screen, like so: </p>
+
+      <img class="image" id="player_v3_dev_intro__image_qqc_pcm_vm" src="../image/xmp_display_events.png" height="317" width="448"/>
+    </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../concepts/xmp_securexdr_views.html" title="The client views provide sample code to implement a feature or features on a web page.">Client Views (Deprecated)</a></div>
+</div>
+</div>
+
+</body>
+</html>

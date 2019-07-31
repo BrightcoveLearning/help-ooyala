@@ -1,0 +1,74 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Integrating Multiple Ad Managers"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_integrate_ads_multiple"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>複数の広告マネージャを統合する</title>
+</head>
+<body id="pbv4_integrate_ads_multiple">
+
+
+    <h1 class="title topictitle1">複数の広告マネージャを統合する</h1>
+
+    <div class="body conbody">
+        <div class="section">1ページに複数の広告プラグイン（Freewheel、VAST、Google IMAの広告プラグインのみ）をロードして使用できます。 たとえば、3つすべてがページにロードされていて、そのページに複数の埋め込みプレーヤーがある場合、プレーヤーAとプレーヤーBは両方ともIMAを使用でき、プレーヤーCはフリーホイールを使用でき、プレーヤーDはVASTを使用できます。 <div class="note note"><span class="notetitle">注意：</span> Pulseプラグインを使用したい場合は、代わりにiFrameを使用することを検討してください。 あなたがpulse pluginをロードして、それに広告を与えないならば、あなたは予想外の行動を得る。</div>
+ 
+            見る <a class="xref" href="pbv4_ads_framework.html">広告マネージャフレームワーク</a> 概要と <a class="xref" href="../tasks/pbv4_integrate_ads.html">広告を統合する</a> 紹介のために。</div>
+
+        <div class="section"><h2 class="title sectiontitle">ステップ1：ページにプラグインをロードする</h2>以下の要件を考慮してください。 <ul class="ul">
+                <li class="li">フリーホイール広告、VAST広告、およびGoogle IMA広告プラグインのみを使用している限り、1つのページに複数の広告プラグインを読み込むことができます。</li>
+
+                <li class="li">プラグインはすべて同じプレーヤV4バージョンであるべきです。</li>
+
+                <li class="li">1ページにロードできるのは、同じ広告プラグインの1つのバージョンだけです。 たとえば、同じページに2つの異なるバージョンのFreewheelプラグインをロードすることはできません。</li>
+
+                <li class="li">そのページで使用する予定のプラグインのみをロードしてください。</li>
+
+
+            </ul>
+<div class="p">広告プラグインをロードするには、（ロード後に）次のスクリプトを追加します。 <samp class="ph codeph">core.min.js</samp>プレーヤーをロードしているページに）。 たとえば、3つの広告プラグインをすべてロードするには、次のようにします。
+                <pre class="pre codeblock">&lt;script language =“ javascript &quot;src =&quot;<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/freewheel.min.js &quot;&gt; &lt;/script&gt; &lt;スクリプト言語=“ javascript&quot; src = &quot;<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/ad_manager_vast.min.js &quot;&gt; &lt;/script&gt; &lt;スクリプト言語=“ javascript&quot; src = &quot;<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/google_ima.min.js &quot;&gt; &lt;/script&gt;                </pre>
+
+                交換します <samp class="ph codeph">url_where_hosted</samp> リソースをホストしているURLを指定します。
+            </div>
+</div>
+
+        <div class="section"><h2 class="title sectiontitle">ステップ2：ページへのプレイヤーのロードと設定</h2> 以下の要件を考慮してください。 <ul class="ul">
+                <li class="li">ページ上の複数の埋め込みプレーヤーが同じ広告プラグインにアクセスできます。</li>
+
+                <li class="li">ただし、埋め込みプレーヤーごとに使用できる広告プラグインは1つだけです。 たとえば、プレーヤーAとプレーヤーBはIMAのみを使用でき、IMAとVASTは使用できません。</li>
+
+            </ul>
+該当する広告マネージャをページで有効にしたら、次のことができます。 <a class="xref" href="pbv4_configure_ads_embedded_params.html">一般的な広告設定を構成する</a> 埋め込まれたパラメータを使って。 次の説明に従って、広告マネージャ固有の設定を構成することもできます。 <ul class="ul">
+                <li class="li"><a class="xref" href="pbv4_ads_dev_vast.html">VAST広告とVPAID広告の統合</a></li>
+
+                <li class="li"><a class="xref" href="pbv4_ads_dev_freewheel.html">フリーホイール広告の統合</a></li>
+
+                <li class="li"><a class="xref" href="pbv4_ads_dev_google_ima.html">Google IMA広告の統合</a></li>
+
+            </ul>
+</div>
+
+        <div class="section"><h2 class="title sectiontitle">例</h2>交換します <samp class="ph codeph">url_where_hosted</samp> リソースをホストしているURLを指定します。
+            <pre class="pre codeblock">&lt;！DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;script src = &quot;<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/core.js &quot;&gt; &lt;/script&gt;
+<strong class="ph b">      &lt;script src = &quot;<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/ad-plugin/freewheel.js &quot;&gt; &lt;/script&gt; &lt;script src =&quot;<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/ad-plugin/ad_manager_vast.js &quot;&gt; &lt;/script&gt; &lt;script src =&quot;<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/ad-plugin/google_ima.js &quot;&gt; &lt;</strong>/ script&gt; &lt;script src = &quot;<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/video-plugin/bit_wrapper.min.js &quot;&gt; &lt;/script&gt; &lt;script src =&quot;<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/video-plugin/main_html5.min.js &quot;&gt; &lt;/script&gt; &lt;script src =&quot;<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/video-plugin/osmf_flash.min.js &quot;&gt; &lt;/script&gt; &lt;script src =&quot;<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/skin-plugin/html5-skin.min.js &quot;&gt; &lt;/script&gt; &lt;link rel =&quot;スタイルシート &quot;href =&quot;<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/skin-plugin/html5-skin.min.css &quot;/&gt; &lt;/head&gt; &lt;body&gt; &lt;！ - 共有機能iframe-&gt; &lt;div id = &#39;ima&#39; style =&quot;幅：900px;高さ：600px &quot;&gt; &lt; / div&gt; &lt;div id = &#39;広大な&#39; style = &quot;幅：900px;高さ：600px&quot;&gt; &lt;/div&gt; &lt;div id = &#39;フリーホイール&#39; style = &quot;幅：900px;高さ：600px&quot;&gt; &lt;/div&gt; &lt; script&gt; var playerParam = {&quot;autoPlay&quot;：false、 &quot;pcode&quot;： &quot;your_pcode&quot;、 &quot;playerBrandingId&quot;： &quot;your_brandingid&quot;、 &#39;debug&#39;：true、 &quot;skin&quot;：{&quot;config&quot;： &quot;//player.ooyala。 com / static / v4 / stable / latest / skin-plugin / skin.json &quot;、&quot;インライン &quot;：{&quot; shareScreen &quot;：{&quot;埋め込み &quot;：{&quot;ソース &quot;：&quot; &lt;iframe width = &#39;640&#39; height = &#39;480 &#39;frameborder =&#39; 0 &#39;allowfullscreen src =&#39; // player.ooyala.com/static/v4/stable/latest/skin-plugin/iframe.html?ec= &lt;ASSET_ID&gt;＆pbid = &lt;PLAYER_ID&gt;＆pcode = &lt;PUBLISHER_ID&gt; &#39; &gt; &lt;/iframe&gt; &quot;}}}}、}; var playerParamFreewheel = {&quot; autoPlay &quot;：false、&quot; pcode &quot;：&quot; your_pcode &quot;、&quot; playerBrandingId &quot;：&quot; your_brandingid &quot;、 &#39;debug&#39;：true、&quot; skin &quot;：{ &quot;config&quot;： &quot;//player.ooyala.com/static/v4/stable/latest/skin-plugin/skin.json&quot;、 &quot;インライン&quot;：{&quot;shareScreen&quot;：{&quot;em bed &quot;：{&quot; source &quot;：&quot; &lt;iframe width = &#39;640&#39; height = &#39;480&#39; frameborder = &#39;0&#39; allowfullscreen src = &#39;// player.ooyala.com/static/v4/stable/latest/skin-plugin/ iframe.html？ec = &lt;ASSET_ID&gt;＆pbid = &lt;PLAYER_ID&gt;＆pcode = &lt;PUBLISHER_ID&gt; &#39;} &lt;/iframe&gt; &quot;}}}}、&quot; freewheel-ads-manager &quot;：{&quot; fw_video_asset_id &quot;：&quot; 111111111111111111111111111111111 &quot;、&quot; html5_ad_server &quot;：&quot; // g1.v.fwmrm.net &quot;、&quot; html5_player_profile &quot;：&quot; 90750：ooyala_html5 &quot;、&quot; fw_mrm_network_id &quot;：&quot; 380912 &quot;}};
+             <strong class="ph b">OO.ready（function（）{window.pp = OO.Player.create（ &#39;ima&#39;、 &#39;222222222222222222222222222222222&#39;、playerParam）; window.pp2 = OO.Player.create（ &#39;vast&#39;、 &#39;333333333333333333333333333333333&#39;、playerParam）; window.pp3 = OO.Player.create（ &#39;freewheel&#39;、 &#39;444444444444444444444444444444444&#39;、playerParamFreewheel）;}</strong>
+           ; &lt;/script&gt; &lt;/body&gt; &lt;/html&gt;</pre>
+
+        </div>
+
+    </div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

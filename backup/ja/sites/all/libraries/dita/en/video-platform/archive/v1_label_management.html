@@ -1,0 +1,202 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Label Management API (Deprecated)"/>
+<meta name="abstract" content="The Backlot Label API allows for programmatic control of labels. Included in the API are calls for label creation and deletion, association and removal of labels and content, and renaming of a label."/>
+<meta name="description" content="Backlot Label APIはラベルのプログラムによる制御を可能にします。 APIには、ラベルの作成と削除、ラベルとコンテンツの関連付けと削除、およびラベルの名前変更の呼び出しが含まれています。"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/api_v1.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="v1_label_management"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>ラベル管理API（廃止予定）</title>
+</head>
+<body id="v1_label_management">
+
+
+ <h1 class="title topictitle1">ラベル管理API（廃止予定）</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">Backlot Label APIはラベルのプログラムによる制御を可能にします。 APIには、ラベルの作成と削除、ラベルとコンテンツの関連付けと削除、およびラベルの名前変更の呼び出しが含まれています。 </p>
+
+  <div class="section">
+   <div class="note note"><span class="notetitle">注意：</span> このソフトウェアは非推奨です。 最新版を使用してください。</div>
+
+   <p class="p">Query APIの例と同様に、Backlot Label APIとのやり取りは、署名されたRESTスタイルのGETリクエストを介して行われます。 <samp class="ph codeph">http://api.ooyala.com/partner/labels</samp>.</p>
+
+   
+   
+   <p class="p">応答は次の構造を持つXMLです</p>
+
+   
+   <pre class="pre codeblock">&lt;？xml version = &quot;1.0&quot; encoding = &quot;UTF-8&quot;？&gt;&gt; &lt;result code = &quot;success&quot;&gt; ok &lt;/result&gt;</pre>
+
+   
+   <p class="p">コードは成功、失敗、params_missingのいずれかになります。 のxmlレスポンス <samp class="ph codeph">&lt;結果&gt;</samp> tagは成功した場合は &#39;ok&#39;、失敗した場合はエラーの説明です。</p>
+
+   
+   <p class="p">必須パラメータ</p>
+
+   
+   <ul class="ul">
+    <li class="li">pcode  - プロバイダコード</li>
+
+    <li class="li">expires  - エポックからの経過秒数での照会有効期限（00：00：00 1 / 1 / 1970 GMT）</li>
+
+    <li class="li">モード - の1つ <samp class="ph codeph">listLabels、createLabels、deleteLabels、assignLabels、unassignLabels、renameLabel、</samp>  or  <samp class="ph codeph">clearLabels</samp></li>
+
+    <li class="li">signature  - リクエストのデジタル署名 署名は、署名生成規則とともにSHA-256を使用して計算する必要があります。
+    </li>
+
+   </ul>
+
+   
+   <p class="p">listLabels</p>
+
+   
+   <p class="p">与えられたアカウントのラベルのリストを返します。</p>
+
+   
+   <p class="p">
+    オプションパラメータ：label  - これが提供されている場合、指定されたラベルのサブラベルが返されます。 これが指定されていない場合は、アカウント内のすべてのラベルが返されます。
+   </p>
+
+   
+   <p class="p">例：</p>
+
+   
+   <pre class="pre codeblock">http://www.ooyala.com/partner/labels?pcode=&lt;pcode&gt;&amp;expires=&lt;expiration&gt;
+&amp;mode=listLabels&amp;signature=&lt;signature&gt;</pre>
+
+   
+   <p class="p">createLabelsとdeleteLabels</p>
+
+   
+   <p class="p">追加の必須パラメーター：ラベルのコンマ区切りリストまたはのリスト <samp class="ph codeph">label [&lt;id&gt;] = label</samp> パラメータ </p>
+
+   
+   <p class="p"><samp class="ph codeph">createLabels</samp> そして <samp class="ph codeph">deleteLabels</samp> ラベルの作成と削除をそれぞれ許可します。 ラベルはスラッシュ「/」で始まらなければならず、ツリー構造は通常の方法で指定できます：/ grandparent / parent / child。 ラベルは、次の2つの形式のいずれかで指定できます。</p>
+
+   
+   <ol class="ol">
+    <li class="li"><samp class="ph codeph">labels = &lt;ラベル1&gt;、&lt;ラベルX NUMX&gt;、&lt;ラベルX NUMX&gt;</samp></li>
+
+    <li class="li"><samp class="ph codeph">label[1]=&lt;label1&gt;&amp;label[2]=&lt;label2&gt;&amp;label[3]=&lt;label3&gt;</samp></li>
+
+   </ol>
+
+   
+   <p class="p">/ labelParent / labelChildのように複数の要素を持つラベルパスの場合、必要に応じて親ラベルを含めてパス全体が作成されます。 </p>
+
+   
+   <p class="p">例：</p>
+
+   
+   <pre class="pre codeblock">http://api.ooyala.com/partner/labels?pcode=&lt;pcode&gt;&amp;expires=&lt;expiration&gt;&amp;labels=/hello&amp;
+mode=createLabels&amp;signature=&lt;signature&gt;
+
+http://api.ooyala.com/partner/labels?pcode=&lt;pcode&gt;&amp;expires=&lt;expiration&gt;&amp;labels=/hello&amp;mode=
+deleteLabels&amp;signature=&lt;signature&gt;</pre>
+
+   
+   <p class="p">assignLabelsとunassignLabels</p>
+
+   
+   <p class="p">その他の必須パラメータ：embedCodes、labels（またはlabel [&lt;id&gt;]の）</p>
+
+   
+   <p class="p">オプションのパラメータ：</p>
+
+   
+   <ul class="ul">
+    <li class="li"><p class="p">includeSublabels = true</p>
+
+     <p class="p">ために <samp class="ph codeph">unassignLabels</samp>パスの下にあるラベルをすべて削除します。 たとえば、/ parentおよび/ parent / childというラベルに関連付けられたコンテンツがあり、/ parentを削除すると、/ parent / childも削除されます。 デフォルトはfalseです。</p>
+
+    </li>
+
+    <li class="li">
+     <p class="p">ignoreNotFound = true</p>
+
+     <p class="p">ために <samp class="ph codeph">unassignLabels</samp>指定されたラベルが存在しない場合、成功を強制的に返します（ &#39;OK&#39;）。 デフォルトはfalseです。</p>
+
+    </li>
+
+    <li class="li">
+     <p class="p">createLabels = false</p>
+
+     <p class="p">ために <samp class="ph codeph">assignLabels</samp>ラベルが存在しない場合は作成しないでください。 デフォルトはtrueです。</p>
+
+    </li>
+
+   </ul>
+
+   
+   <p class="p"><samp class="ph codeph">assignLabels</samp> そして <samp class="ph codeph">unassignLabels</samp> 一連のビデオで、それぞれラベルの割り当てまたは削除を許可します。 ラベルは上記と同じ方法で指定できます。 動画は、埋め込みコードのカンマ区切りリストとして指定されます。</p>
+
+   
+   <p class="p">例：</p>
+
+   
+   <pre class="pre codeblock">http://api.ooyala.com/partner/labels?pcode=&lt;pcode&gt;&amp;embedCodes=&lt;embedCode1&gt;,&lt;embedCode2&gt;
+&amp;expires=&lt;expiration&gt;&amp;labels=/hello,/bye&amp;mode=assignLabels&amp;signature=&lt;signature&gt;
+
+http://api.ooyala.com/partner/labels?pcode=&lt;pcode&gt;&amp;embedCodes=&lt;embedCode1&gt;,&lt;embedCode2&gt;
+&amp;expires=&lt;expiration&gt;&amp;labels=/hello,/bye&amp;mode=unassignLabels&amp;signature=&lt;signature&gt;</pre>
+
+   
+   <p class="p">renameLabel</p>
+
+   
+   <p class="p">追加の必須パラメーター：oldlabel、newlabel</p>
+
+   
+   <p class="p">renameLabelを使用すると、関連付けられている動画を失うことなくラベルの名前を変更したり移動したりできます。 newlabelがoldlabelと異なる先祖を持っている場合、それは適切に移動されます。 名前が異なる場合は、適切に名前が変更されます。</p>
+
+   
+   <p class="p">例：</p>
+
+   
+   <pre class="pre codeblock">http://api.ooyala.com/partner/labels?pcode=&lt;pcode&gt;&amp;embedCodes=&lt;embedCode1&gt;,&lt;embedCode2&gt;
+&amp;expires=&lt;expiration&gt;&amp;mode=renameLabel&amp;newlabel=/bye&amp;oldlabel=/hello&amp;signature=&lt;signature&gt;</pre>
+
+   
+   <p class="p">clearLabels</p>
+
+   
+   <p class="p">追加の必須パラメーター：embedCodes</p>
+
+   
+   <p class="p">clearLabelsを使用すると、ラベルを個別に列挙せずに、一連の動画から関連付けられているすべてのラベルを削除できます。 ビデオは、assignLabelsおよびunassignLabelsモードと同様に、埋め込みコードのコンマ区切りリストとして指定されます。</p>
+
+   
+   <p class="p">例：</p>
+
+   
+   <pre class="pre codeblock">http://api.ooyala.com/partner/labels?pcode=&lt;pcode&gt;&amp;embedCodes=&lt;embedCode1&gt;&amp;
+expires=&lt;expiration&gt;&amp;mode=clearLabels&amp;signature=&lt;signature&gt;</pre>
+
+   
+  </div>
+
+  
+  
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../archive/api_v1.html" title="このバージョンのBacklot APIは非推奨です。 APIのバージョン2で新しい開発作業を行うことを強くお勧めします。 V2 APIの使用方法については、Ooyalaサポートセンターの開発者ドキュメントセクションを参照してください。">Ooyala Backlot APIリファレンスV1（非推奨）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

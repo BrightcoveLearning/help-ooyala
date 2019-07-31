@@ -1,0 +1,170 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Close Captioning JavaScript APIs (Player V2 Deprecated)"/>
+<meta name="abstract" content="Close Captioning JavaScript APIs enable you to get supported closed captions, set close caption languages, and get the caption timing."/>
+<meta name="description" content="Close Captioning JavaScript APIs enable you to get supported closed captions, set close caption languages, and get the caption timing."/>
+<meta name="DC.Relation" scheme="URI" content="../archive/player_api_js_intro.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="cat_js_closecap"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>JavaScript APIのキャプションを閉じる（Player V2は非推奨）</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="cat_js_closecap">
+
+
+ <h1 class="title topictitle1">JavaScript APIのキャプションを閉じる（Player V2は非推奨）</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">Close Captioning JavaScript APIs enable you to get supported closed captions, set close
+  caption languages, and get the caption timing.</p>
+
+  <div class="section"><h2 class="title sectiontitle">Close Captioning Properties</h2>
+   <div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V2は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V2はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V2を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="../concepts/pbv4_about.html">プレイヤーV4</a>.</div>
+
+   
+   <p class="p">The following table describes all the JavaScript properties that are associated with close
+    captioning.</p>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" id="d145471e40">プロパティ</th>
+
+       <th class="entry" valign="top" id="d145471e43">説明</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      
+      
+   <tr class="row">
+       <td class="entry" valign="top" headers="d145471e40 d145471e43 "><span class="keyword apiname">getCurrentItemClosedCaptionsLanguages </span>
+       </td>
+
+       <td class="entry" valign="top" headers="d145471e40 d145471e43 "><p class="p">Get a list of supported closed captions languages for the currently playing item. This
+        list is derived from the closed captions XML file for this content, uploaded via Backlot. If
+        there is no such file, this method returns an empty list. </p>
+
+        <p class="p">タイプ：リスト </p>
+
+        <p class="gt-block p">Return Values: A list in the form of "language code":<span class="keyword apiname">"displayName"</span>.  </p>
+
+        <p class="gt-block p">例： <span class="keyword apiname">{ "en": "English",... }</span>.    </p>
+
+        <p class="gt-block p"><strong class="ph b">注</strong>: This method will throw an exception if no Closed Captions file has been uploaded for the current embed code. </p>
+
+      </td>
+
+      </tr>
+<tr class="row">
+      <td class="entry" valign="top" headers="d145471e40 d145471e43 "><span class="keyword apiname">setClosedCaptionsLanguage</span>
+      </td>
+
+      <td class="entry" valign="top" headers="d145471e40 d145471e43 ">
+       <p class="p">Sets the language of the closed captions that will be shown in the player. </p>
+
+       <p class="p">パラメータ：language </p>
+
+       <p class="p">Valid Values: Specify ISO 639-1 language code | none. For Chinese, you should use "zh-hans" for Simplified Chinese and "zh-hant" for Traditional Chinese. 
+        To show no closed captions, set the language to "none". </p>
+
+       <p class="p">Examples: en, de, ja. </p>
+
+       <p class="p">Exception: This method will throw an exception if no Closed Captions file has been uploaded for the current embed code. </p>
+
+     </td>
+
+     </tr>
+</tbody>
+
+   </table>
+</div>
+
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Close Captioning Function</h2>   
+   
+   <p class="p">The following table describes all the JavaScript functions that are associated with close
+    captioning.    </p>
+
+</div>
+
+<div class="section">
+    <table cellpadding="4" cellspacing="0" summary="" id="cat_js_closecap__simpletable_g4b_y1c_2f" border="1" class="simpletable"><tr class="sthead">
+      <th valign="bottom" align="left" id="d145471e128" class="stentry" width="28.81844380403458%">関数</th>
+
+      <th valign="bottom" align="left" id="d145471e131" class="stentry" width="71.18155619596541%">説明</th>
+
+      </tr>
+<tr class="strow">
+      <td valign="top" headers="d145471e128" class="stentry"><span class="keyword apiname">getTimedText（startTime、endTime）</span>
+      </td>
+
+      <td valign="top" headers="d145471e131" class="stentry"><p class="gt-block p">Returns the timed text (captions and caption formatting information) which appear between the <span class="keyword apiname">startTime</span> そして <span class="keyword apiname">endTime</span>.  </p>
+
+               <p class="p">タイプ：文字列 </p>
+
+       <p class="p">Return Value: alphanumeric caption and caption information. </p>
+
+       <p class="gt-block p">Valid Values: Specify the <span class="keyword apiname">startTime</span> そして <span class="keyword apiname">endTime</span> 秒単位で指定します。  </p>
+   
+    </td>
+
+    </tr>
+</table>
+
+    </div>
+
+  <div class="section"><h2 class="title sectiontitle">関連情報 </h2>
+   
+   <p class="p">The following list provides links to Backlot documentation that provides some general
+    information about closed captions.</p>
+
+  </div>
+
+  <div class="section">
+   <ul class="ul">
+    <li class="li"><a class="xref" href="../concepts/chapter_closed_captions.html" title="あなたのビデオにクローズドキャプションを追加することができます。">クローズドキャプションの管理</a></li>
+
+    <li class="li"><a class="xref" href="../api/asset_closed_caption.html" title="動画、広告、リモートアセット、またはYouTube動画にクローズドキャプションを追加できます。">クローズドキャプションの使用</a></li>
+
+    <li class="li"><a class="xref" href="../reference/closed_caption_language.html" title="クローズドキャプションファイルをBacklotにアップロードする前に、サポートされている言語とファイル形式を使用していることを確認してください。">サポートされているクローズドキャプション</a></li>
+
+    <li class="li"><a class="xref" href="../reference/dfxp_format.html" title="Backlotにアップロードするクローズドキャプションファイルは、サポートされている形式でなければなりません。 DFXP形式（現在はTTML）は、広く使用されている形式です。">サポートされているクローズドキャプションDFXP（現在はTTML）形式</a></li>
+
+    <li class="li"><a class="xref" href="../tasks/api_closed_captions_upload.html" title="DFXP（現在はTTML）のクローズドキャプションファイルを準備したら、それをBacklotにアップロードできます。">クローズドキャプションファイルのアップロードと表示</a></li>
+
+   </ul>
+
+  </div>
+
+</div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../archive/player_api_js_intro.html" title="Ooyala Player JavaScript APIを使用すると、この人気の高いスクリプト言語を使用してOoyala Playerとビデオエクスペリエンスをカスタマイズできます。">プレーヤJavaScript API（プレーヤV2は廃止予定）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

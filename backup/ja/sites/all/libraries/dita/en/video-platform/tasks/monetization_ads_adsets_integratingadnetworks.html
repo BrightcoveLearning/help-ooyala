@@ -1,0 +1,118 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Creating Ad Sets for Integrating with Ad Sources"/>
+<meta name="abstract" content="Instead of using your own assets, you can work with other ad sources."/>
+<meta name="description" content="自分のアセットを使用する代わりに、他の広告ソースを使用することができます。"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/monetization_ads_adsets_adnetworks_wrapper.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/adset_fields_pulse.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/adset_fields_adaptv.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/adset_fields_freewheel.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/adset_fields_google.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/adset_fields_liverail.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/adset_fields_tremor.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/monetization_ads_adsets_inserttrackingpixelurl.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="task_wcr_ll2_yh"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>広告ソースと統合するための広告セットの作成</title>
+</head>
+<body id="task_wcr_ll2_yh">
+
+
+    <h1 class="title topictitle1">広告ソースと統合するための広告セットの作成</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">自分のアセットを使用する代わりに、他の広告ソースを使用することができます。</p>
+
+        <div class="section context"><div class="p">このセクションでは、次のサービスを含む、広告ソース固有の広告セットを設定するための一般的なプロセスについて説明します。 <ol class="ol" id="task_wcr_ll2_yh__ol_idj_ml2_yh">
+                    <li class="li">ウーヤラパルス</li>
+
+                    <li class="li">Google IMA V3</li>
+
+                    <li class="li">フリーホイール</li>
+
+                    <li class="li">LiveRail</li>
+
+                    <li class="li">Adap.TV</li>
+
+                    <li class="li">振戦メディア</li>
+
+                </ol>
+</div>
+<p class="p">どの広告ソースオプションを選択するべきかわからない場合は、広告パートナーと相談して決定してください。 </p>
+<strong class="ph b">ピクセルURLの追跡について </strong>
+            <p class="p" id="task_wcr_ll2_yh__tp1">トラッキングピクセルを使用して広告資産の配信を監視できます。 トラッキングピクセルURLは、Ooyala Backlot広告、Ooyala Pulse広告、および第三者広告の両方に関連付けて、Backlotを通じて広告インプレッションを計算することができます。 Ooyala Backlotは、四分位数の再生やクリックなど、他の種類の広告イベントを追跡しませんが、Ooyala Pulseは配信するすべての広告についてこれらのイベントを追跡します。</p>
+<p class="p" id="task_wcr_ll2_yh__tp2">第三者広告の場合、トラッキングピクセルはVASTタグとVPAIDタグ、およびGoogle IMAにのみ関連しています。 広告マネージャモジュールを使用すると、媒体社は広告プラットフォーム内で自分でトラッカーを管理できます。 </p>
+<p class="p" id="task_wcr_ll2_yh__tp3">視聴者がトラッキングピクセルに関連付けられた広告を見るたびに、HTTPリクエストがトラッキングピクセルURLに対して行われます。 トラッキングピクセルURLは通常、広告配信を追跡するために使用する第三者広告プラットフォームに電話をかけるために使用されます。 各広告アセットに最大3ピクセルまで指定できます（これにより、最大3つのサードパーティ広告プラットフォームに通知されます）。</p>
+
+        </div>
+
+        <ol class="ol steps"><li class="li step stepexpand" id="task_wcr_ll2_yh__login">
+                <span class="ph cmd">にログインします。 <a class="xref" href="https://backlot.ooyala.com/" target="_blank"><span class="ph">バックスロットUI</span></a>.</span>
+                   <span class="ph">バックスロットUI</span> 開きます。 
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Video Cloud Studioで <span class="ph uicontrol">マネー</span> のページをご覧ください。</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">ストリーミングを停止する場合は上部の <span class="ph uicontrol">広告セット</span> をクリックします。</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">ナビゲーションヘッダーの <span class="ph uicontrol">新しい</span>.</span>
+                 新しい広告セットが名前で作成されます <samp class="ph systemoutput">新しい広告セット</samp>.
+            
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">広告セットの名前をニーモニックに変更し、おそらく目的の広告ソースの名前と一致させます。</span>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">から <span class="ph uicontrol">広告ソース</span> リストボックスで、希望する広告ネットワークの名前を選択します。</span>
+                 情報のフィールドが表示されますが、広告ソースによって異なります。
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">表示されたフィールドに入力します。</span>
+                 さまざまな広告ソースのフィールドの説明については、他のセクションを参照してください。
+                        <div class="note note"><span class="notetitle">注意：</span> どのフィールドも厳密には必要ありません。 <span class="ph">バックスロット</span>第三者広告のタグURLフィールドを除く。 ただし、広告ソース自体で必要とされていることがわかっているフィールドは必ず入力してください。 よくわからない場合は、それらを使用して、またはそれらのドキュメントで確認してください。 </div>
+
+            </li>
+</ol>
+
+
+    </div>
+
+    <div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../reference/adset_fields_pulse.html">Ooyala Pulse Ad Managerの広告セットフィールド</a></strong><br/>
+ここで説明するフィールドは、Backlot UIで広告ソースがOoyala Pulse（Videoplaza）広告マネージャに設定されているBacklot広告セットのものです。</li>
+<li class="link ulchildlink"><strong><a href="../reference/adset_fields_adaptv.html">Adap.tvの広告セットフィールド</a></strong><br/>
+ここで説明するフィールドは、広告ソースがAdap.tvに設定されている広告セット用です。</li>
+<li class="link ulchildlink"><strong><a href="../reference/adset_fields_freewheel.html">FreeWheel Ad Managerの広告セットフィールド</a></strong><br/>
+ここに記載されているフィールドは、Backlot UIで広告ソースがFreeWheel広告マネージャに設定されているBacklot広告セット用です。</li>
+<li class="link ulchildlink"><strong><a href="../reference/adset_fields_google.html">Google IMA V3の広告セットフィールド</a></strong><br/>
+ここで説明しているフィールドは、広告ソースがGoogle IMA V3に設定されているBacklot広告セット用です。</li>
+<li class="link ulchildlink"><strong><a href="../reference/adset_fields_liverail.html">LiveRailの広告セットフィールド</a></strong><br/>
+ここで説明するフィールドは、Backlot UIで広告ソースがLiveRailに設定されているBacklot広告セット用です。</li>
+<li class="link ulchildlink"><strong><a href="../reference/adset_fields_tremor.html">振戦メディアの広告セットフィールド</a></strong><br/>
+ここで説明するフィールドは、広告ソースがTremor Mediaに設定されている広告セット用です。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../tasks/monetization_ads_adsets_adnetworks_wrapper.html" title="この資料には、Backlotで広告セットを作成する方法、および広告ソースと統合する方法が含まれています。">独自の広告資産、広告セット、および広告ソースを操作する</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong><br/>
+<div><a class="link" href="../tasks/monetization_ads_adsets_inserttrackingpixelurl.html" title="広告配信を追跡するために追跡ピクセルURLを挿入する方法。">追跡ピクセルURLを挿入</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

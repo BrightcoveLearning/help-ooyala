@@ -1,0 +1,216 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Integration with FreeWheel on Android"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_android_integrations.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_android_cuepointmarkers.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_android_freewheel_tutorial.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/mobile_sdk_android_freewheel_sampleapp_decomposed.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="mobile_sdk_android_freewheel"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Android上のFreeWheelとの統合</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="mobile_sdk_android_freewheel">
+
+
+
+   <h1 class="title topictitle1">Android上のFreeWheelとの統合</h1>
+
+   <div class="body conbody">
+
+      <div class="p">SDKを使用すると、モバイルデバイス向けの豊富なカスタムビデオアプリケーションエクスペリエンスを迅速に開発できます。 SDKには、ビデオの再生、VAST広告およびOoyala広告の表示、Ooyalaコンテンツのクエリなどを行うためのメソッドやクラスが含まれています。<ul class="ul">
+        <li class="li">Playback</li>
+
+        <li class="li">プレイリスト/チャンネル - サムネイル</li>
+
+        <li class="li">インフォ</li>
+
+        <li class="li">関連メディア</li>
+
+        <li class="li">ライブ（新） </li>
+
+        <li class="li">広告 </li>
+
+        <li class="li">アナリティクス </li>
+
+        <li class="li">モバイル使用状況を理解するための完全に統合された分析 </li>
+
+        <li class="li">クローズドキャプション </li>
+
+        <li class="li">DFXP（現在はTTML）ファイルを介してクローズドキャプションをロードおよび表示するためのAPI </li>
+
+      </ul>
+</div>
+
+      <div class="p">Some key design principles behind Ooyala's SDK for FreeWheel include: <ul class="ul">
+          <li class="li">Ooyala's FreeWheel Manager object, which incorporates in it all of the necessary
+            functions, so that you do not need to be concerned with working with a wide variety of
+            calls. </li>
+
+          <li class="li">You can continue to use the basic functions of Ooyala's Mobile SDK, on which Ooyala
+            FreeWheel SDK is built.</li>
+
+        </ul>
+</div>
+
+      <div class="section" xml:lang="en-us" lang="en-us" id="mobile_sdk_android_freewheel__whatYouNeed.d0e14"><h2 class="title sectiontitle">あなたが必要なもの</h2>
+         
+         <p class="p">To get started with Ooyala’s Android SDK for FreeWheel, download the following:</p>
+
+         <ol class="ol">
+            <li class="li"><a class="xref" href="http://developer.android.com/sdk/index.html" target="_blank">Google's Android SDK</a></li>
+
+            <li class="li">Ooyala Mobile SDK for Android (available at <span class="ph">Ooyala <a class="xref" href="../../../../../../../../ja/downloads/index.html" target="_blank">ダウンロード</a></span>)</li>
+
+
+            <li class="li">Ooyala FreeWheel SDK for Android (Ooyala FreeWheel Android) (available at <span class="ph">Ooyala <a class="xref" href="../../../../../../../../ja/downloads/index.html" target="_blank">ダウンロード</a></span>)</li>
+
+            <li class="li"><a class="xref" href="http://hub.freewheel.tv/display/techdocs/MRM+Integration+SDK+Downloads" target="_blank">FWAdManager.jar</a> from the
+               FreeWheel website (you need FreeWheel credentials to download the zip) <div class="note note"><span class="notetitle">注意：</span> While
+                  using the latest version of the FreeWheel libraries please make sure the
+                  version you are using is compatible with the latest Ooyala integrations.</div>
+
+            </li>
+
+            <li class="li"><a class="xref" href="http://developer.android.com/sdk/index.html" target="_blank">Androidのメーカー</a>
+               <p class="gt-block p"><strong class="ph b">注意： </strong>Mobile SDKが依存するOoyala Backlotの動画アセットに関連付けられた静的広告タグが必要です。 これらが本番のBacklotアカウントに存在しない場合は、それらをアプリにロードする必要があります。</p>
+</li>
+
+         </ol>
+
+      </div>
+
+
+      <div class="section" xml:lang="en-us" lang="en-us" id="mobile_sdk_android_freewheel__openTheAndroidSampleApp"><h2 class="title sectiontitle">Ooyala FreeWheel SDKの構造</h2>
+         
+         <p class="p">The SDK has the following directories and files.</p>
+
+         
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+               
+               
+               <thead class="thead" align="left">
+                  <tr class="row">
+                     <th class="entry" valign="top" width="50%" id="d337884e132">ディレクトリ/ファイル</th>
+
+                     <th class="entry" valign="top" width="50%" id="d337884e135">説明</th>
+
+                  </tr>
+
+               </thead>
+
+               <tbody class="tbody">
+                  <tr class="row">
+                     <td class="entry" valign="top" width="50%" headers="d337884e132 "><samp class="ph codeph">オンラインマニュアル</samp></td>
+
+                     <td class="entry" valign="top" width="50%" headers="d337884e135 ">Reference Java docs for the <samp class="ph codeph">OoyalaFrewheelManager</samp>
+                        class</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" width="50%" headers="d337884e132 "><samp class="ph codeph">FreeWheelSampleApp</samp></td>
+
+                     <td class="entry" valign="top" width="50%" headers="d337884e135 ">Ooyala SDKを実装するサンプルアプリケーション</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" width="50%" headers="d337884e132 "><samp class="ph codeph">OoyalaFreeWheelSDK.jar</samp></td>
+
+                     <td class="entry" valign="top" width="50%" headers="d337884e135 ">The Ooyala SDK jar file you need to add to any new Eclipse project
+                     </td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td class="entry" valign="top" width="50%" headers="d337884e132 "><samp class="ph codeph">VERSION</samp></td>
+
+                     <td class="entry" valign="top" width="50%" headers="d337884e135 ">FreeWheel用Ooyala SDKのバージョン番号</td>
+
+                  </tr>
+
+               </tbody>
+
+            </table>
+</div>
+
+         <div class="note note"><span class="notetitle">注意：</span> FreeWheelサンプルアプリは、次のWebサイトからダウンロードできます。 <a class="xref" href="https://github.com/ooyala/android-sample-apps" target="_blank">OoyalaサンプルアプリGit Hub</a>.</div>
+
+      </div>
+
+      <div class="section" id="mobile_sdk_android_freewheel__freewheel_essential_parms"><h2 class="title sectiontitle">基本パラメータとFreeWheel OPFモジュール広告セット</h2>
+         <p class="gt-block p">To make use of
+            FreeWheel in the Mobile SDK, you must create an ad set of type <span class="ph uicontrol">FreeWheel OPF
+               Module</span> in Backlot. See the Backlot User Guide for details. Ooyala allows
+            you to store FreeWheel-ad-related parameters in a variety of locations. In order of
+            precedence, FreeWheel parameters and their values can be defined in:</p>
+
+         <ol class="ol">
+            <li class="li">アプリ</li>
+
+            <li class="li">Internal Ooyala configuration (contact your CSM)</li>
+
+            <li class="li">バックスロットで <span class="ph uicontrol">マネー</span> タブ、 <span class="ph uicontrol">広告セット</span>
+               のサブタブ <span class="ph uicontrol">フリーホイールOPFモジュール</span> type of ad set</li>
+
+         </ol>
+
+         <p class="p">The FreeWheel sample app includes the following lines to show the parameters that must
+            be set in your app:</p>
+
+         <div class="note note"><span class="notetitle">注意：</span> These parameters must be set either directly in your app or internal-to-Ooyala by
+            your Customer Success Manager: <ul class="ul">
+               <li class="li"><samp class="ph codeph">fw_android_ad_server</samp>: The URL for serving ads on Android</li>
+
+               <li class="li"><samp class="ph codeph">fw_android_player_profile</samp>: The defined profile for the player on
+                  Android</li>
+
+            </ul>
+</div>
+
+         <pre class="pre codeblock">//freewheelParameters.put("fw_android_mrm_network_id",  "90750");
+freewheelParameters.put("fw_android_ad_server", "http://demo.v.fwmrm.net/");
+freewheelParameters.put("fw_android_player_profile", "90750:ooyala_android");
+//freewheelParameters.put("fw_android_site_section_id", "ooyala_test_site_section");
+//freewheelParameters.put("fw_android_video_asset_id",  "ooyala_test_video_with_bvi_cuepoints");
+//freewheelParameters.put("FRMSegment", "channel=TEST;subchannel=TEST;section=TEST;mode=online;player=ooyala;beta=n");</pre>
+
+      </div>
+
+   </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../concepts/mobile_sdk_android_cuepointmarkers.html">キューポイントマーカー</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/mobile_sdk_android_freewheel_tutorial.html">Android上のFreeWheelサンプルアプリの実例を見る</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/mobile_sdk_android_freewheel_sampleapp_decomposed.html">Android Integrationサンプルアプリケーションの詳細</a></strong><br/>
+</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/mobile_android_integrations.html">Androidのサードパーティ統合</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-

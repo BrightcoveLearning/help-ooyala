@@ -1,0 +1,101 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Playlists and the Theme Builder User Interface"/>
+<meta name="abstract" content="With Theme Builder, you can build asset- or label-based playlists for the Ooyala Player V4 or Player V3, use complex templates to build a custom playback experience, and create an embed that contains the playlists you construct."/>
+<meta name="description" content="テーマビルダーを使用すると、Ooyala Player V4またはPlayer V3のアセットベースまたはラベルベースのプレイリストを作成し、複雑なテンプレートを使用してカスタム再生エクスペリエンスを作成し、作成したプレイリストを含む埋め込みを作成できます。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_user.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/theme_builder_accessing.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/theme_builder_basiclayout.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/theme_builder_playlist_create.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/theme_builder_player_create.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/theme_builder_embed_create.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_themebuilder.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/theme_builder_basiclayout.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/theme_builder_accessing.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/themebuilder_dg_supported_browsers.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/theme_builder_design_choices.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/theme_builder_playlist_create.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/theme_builder_player_create.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/theme_builder_embed_create.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="chapter_theme_builder"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>プレイリストとテーマビルダーのユーザーインターフェイス</title>
+</head>
+<body id="chapter_theme_builder">
+
+
+ <h1 class="title topictitle1">プレイリストとテーマビルダーのユーザーインターフェイス</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">テーマビルダーを使用すると、Ooyala Player V4またはPlayer V3のアセットベースまたはラベルベースのプレイリストを作成したり、複雑なテンプレートを使用してカスタム再生エクスペリエンスを作成したり、作成したプレイリストを含む埋め込みを作成できます。</p>
+
+  <div class="note note"><span class="notetitle">注意：</span> テーマビルダーは、Ooyala Player V4とPlayer V3の両方で動作するように設計されています。 で説明されているように、Player V4のプレイリストを設定する方法にはいくつかの違いがあります。 <a class="xref" href="pbv4_playlist.html">プレーヤV4でのプレイリストの使用</a>.</div>
+
+  <p class="gt-block p">Backlotでプレーヤにブランドを設定して視聴者にカスタムエクスペリエンスを提供することは簡単ですが、Theme Builderでは視聴者のビデオ視聴エクスペリエンスをさらに詳細に制御できます。 特定のビデオアセットまたはラベルごとにプレイリストを作成できます。 これらのプレイリストは、ポッドと呼ばれる目に見えないコンテナに埋め込まれて表示されます。これもカスタマイズできます。 プレーヤーにとっては、レイアウト、コントロール、その他の動作のさまざまな側面を制御できます。 テーマビルダーを使ってカスタマイズできる例は、 <a class="xref" href="../concepts/theme_builder_design_choices.html" title="テーマビルダーを使用して、視聴者のビデオ視聴体験をさまざまな方法でカスタマイズできます。 このページには、プレーヤー、ポッド、および画面に加えることができるカスタマイズの一部が表示されます。">デザインの選択</a>.</p>
+
+  <div class="p">テーマビルダーでは、両方のコレクションを作成します。 <dfn class="term">プレーヤー</dfn> そして
+    <dfn class="term">プレイリスト</dfn>。 これらで形作ることができます <dfn class="term">埋め込む</dfn>これは、Webページに埋め込むことができるプレーヤとプレイリストの特定の組み合わせです。 これらの概念的な関係を以下に図解します。<div class="fig fignone">
+    <img class="image" src="http://help-ooyala.brightcove.com/../image/theme_builder_diagram.png" height="208" width="460"/>
+   </div>
+</div>
+
+  <p class="p">プレイリスト、ポッド、および埋め込みは、テーマビルダーのGUIを使用して、またはBacklot APIとOoyala Player V3 JavaScriptを使用してリクエストを組み合わせてプログラムで作成できます。</p>
+
+  <p class="p">以下はテーマビルダーの埋め込みの例です。</p>
+
+  <img class="image" src="http://help-ooyala.brightcove.com/../image/themebuilder_annotateddiagram.png" height="285" width="461"/>
+  <p class="p">埋め込みは以下から構成されます。</p>
+
+  <ul class="ul">
+   <li class="li">現在選択されている、またはデフォルトのビデオを持つビデオプレーヤー。</li>
+
+   <li class="li">プレイリスト。ビデオプレーヤーの外側の「ポッド」内に表示されます。 ポッドはプレイリスト用の見えないコンテナーで、プレイリストを見ることができます。 </li>
+
+   <li class="li">選択した再生リスト内のビデオのサムネイル。</li>
+
+  </ul>
+
+  <p class="p">Webページに埋め込まれた後、テーマビルダーはそれ自体に比例して自動的にサイズ変更され、デスクトップ、タブレット、電話などの表示デバイスの種類に合わせます。</p>
+
+
+ </div>
+
+ 
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../concepts/theme_builder_accessing.html">テーマビルダーへのログイン</a></strong><br/>
+テーマビルダーは、Backlotで使用しているのと同じユーザー名とパスワードでアクセスできます。</li>
+<li class="link ulchildlink"><strong><a href="../concepts/theme_builder_basiclayout.html">テーマビルダーの概要</a></strong><br/>
+Theme Builderは、Webサイトに埋め込むことができる豊富なビデオコンテンツのコレクションを作成します。 Theme Builderを使った作業には、3つの一般的なステップがあります。</li>
+<li class="link ulchildlink"><strong><a href="../tasks/theme_builder_playlist_create.html">テーマビルダーでプレイリストを操作する</a></strong><br/>
+あなたは好きなだけプレイリストを作成しカスタマイズすることができます。 </li>
+<li class="link ulchildlink"><strong><a href="../tasks/theme_builder_player_create.html">テーマビルダーでプレーヤーとポッドを操作する</a></strong><br/>
+プレーヤーはいつでも作成できます。 プレーヤー内では、ポッドでプレイリストを表示できるようにすることができます。</li>
+<li class="link ulchildlink"><strong><a href="../tasks/theme_builder_embed_create.html">テーマビルダーで埋め込みを操作する</a></strong><br/>
+テーマビルダーの埋め込みは、プレーヤー内に埋め込まれた1つ以上のプレイリストです。</li>
+<li class="link ulchildlink"><strong><a href="../concepts/themebuilder_dg_supported_browsers.html">サポートされているオペレーティングシステムとブラウザ</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/theme_builder_design_choices.html">テーマビルダーのデザイン選択</a></strong><br/>
+テーマビルダーを使用して、視聴者のビデオ視聴体験をさまざまな方法でカスタマイズできます。 このページには、プレーヤー、ポッド、および画面に加えることができるカスタマイズの一部が表示されます。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_user.html" title="このトピックでは、Backlotユーザーインターフェースの使用方法について説明します。">Backlotユーザーガイド</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_themebuilder.html" title="このドキュメントではテーマビルダーのユーザーインターフェースでプレーヤーをカスタマイズする方法を説明します。">Theme Builder Playerカスタマイズユーザガイド</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:abso

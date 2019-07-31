@@ -1,0 +1,331 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Advanced: Intercepting Events in Player V3 (Deprecated)"/>
+<meta name="abstract" content="Learn to set up dependencies between events."/>
+<meta name="description" content="イベント間の依存関係を設定する方法を学びます。"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/player_v3_dev_tutorial.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_v3_dev_intercepting_events"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Advanced：Player V3でのイベントのインターセプト（廃止予定）</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="player_v3_dev_intercepting_events">
+
+
+    <h1 class="title topictitle1"> Advanced：Player V3でのイベントのインターセプト（廃止予定）</h1>
+
+    
+    <div class="body refbody" id="refbody_g1j_wd4_rr"><p class="shortdesc"> イベント間の依存関係を設定する方法を学びます。</p>
+
+        <div class="section" id="player_v3_dev_intercepting_events__section_bqj_rvp_rr">
+            <div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V3は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V3はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V3を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="../concepts/pbv4_migration_v3.html">Player V3からの移行</a> そして <a class="xref" href="../concepts/pbv4_migration_faq.html">プレイヤー移行に関するFAQ</a>).</div>
+
+            Suppose you would like to customize how your web page
+            responds to user interaction with the video player. In this example we intercept the
+            pause and play events. When the user clicks the pause control, a confirmation dialog
+            appears before the video is paused. When the user clicks the play or pause control, a
+            textbox displays the new state of the player.<div class="p">The purpose of this web page is to
+                provide the user with an option to switch to fullscreen mode, so the design will
+                include: <ul class="ul" id="player_v3_dev_intercepting_events__ul_rlp_lvp_rr">
+                    <li class="li">A  <samp class="ph codeph">head</samp> を含む要素 <samp class="ph codeph">スクリプト</samp> tag
+                        specifying the loading and initialization request.</li>
+
+                    <li class="li">A  <samp class="ph codeph">ボディ</samp> 以下を含む要素<ul class="ul" id="player_v3_dev_intercepting_events__ul_a4p_lvp_rr">
+                            <li class="li">PlayerコンテナのUI表示とレイアウト。</li>
+
+                            <li class="li">プレイヤーイベントを監視して応答するイベントリスナー。</li>
+
+                            <li class="li">Functions that intercept play and pause events and fire dependent
+                                events.</li>
+
+                            <li class="li">A  <samp class="ph codeph">スクリプト</samp> プレーヤを作成するタグ。</li>
+
+                            <li class="li">HTML <samp class="ph codeph">入力</samp> element that displays text indicating
+                                whether the video is playing or paused.</li>
+
+                        </ul>
+</li>
+
+                </ul>
+</div>
+</div>
+<div class="section"><div class="p">Webページを作成するには、次の手順に従ってください。<ul class="ul" id="player_v3_dev_intercepting_events__ul_cpp_lvp_rr">
+                    <li class="li"><a class="xref" href="#player_v3_dev_intercepting_events__section_qcz_gzw_rr/index.html">ステップ1：複数のイベントを聴く</a></li>
+
+                    <li class="li"><a class="xref" href="#player_v3_dev_intercepting_events__section_okc_hdp_rr/index.html">Step 2: Intercepting Events</a></li>
+
+                    <li class="li"><a class="xref" href="#player_v3_dev_intercepting_events__section_qw2_3dp_rr/index.html">Step 3: Setting up Event Dependencies</a></li>
+
+                </ul>
+</div>
+<p class="gt-block p">見る <a class="xref" href="#player_v3_dev_intercepting_events__section_gxh_jdp_rr/index.html">完全な例</a> Webページ全体のコードを表示します。</p>
+<p class="gt-block p">を開発する
+                    <samp class="ph codeph">head</samp> element and the logic for presenting and creating the
+                Player, see <a class="xref" href="../reference/player_v3_dev_tutorial.html#player_v3_dev_tutorial" title="このチュートリアルを使用して、HTML5 Player V3の使用を開始してください。">HTML5プレーヤーV3の基本チュートリアル（非推奨）</a>.
+                
+                </p>
+<p class="gt-block p">To learn about event handling, see <a class="xref" href="../concepts/player_v3_dev_eventmodel.html#player_v3_dev__eventmodel" title="HTML5プレーヤーV3は、イベントを処理するためのメッセージバスの使用を組み込んでいます。">HTML5 Player V3のイベントモデル（非推奨）</a>。 すべてのイベントのリストについては、 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/index.html" target="_blank">プレーヤJavaScript APIリファレンス</a>.</p>
+</div>
+
+        <div class="section" id="player_v3_dev_intercepting_events__section_qcz_gzw_rr"/>
+<div class="section"><h2 class="title sectiontitle">ステップ1：複数のイベントを聴く</h2>
+      
+      <div class="p">時には、一度に複数のイベントを監視して応答すると便利です。 これを行う1つの方法は、すべてのイベントを購読することです。 の <a class="xref" href="../concepts/player_v3_dev_eventmodel.html#player_v3_dev__eventmodel" title="HTML5プレーヤーV3は、イベントを処理するためのメッセージバスの使用を組み込んでいます。">HTML5 Player V3のイベントモデル（非推奨）</a> 作成したPlayerオブジェクトのを介してアクセスするメッセージバスを提供します。 <span class="keyword apiname">mb</span> オブジェクト この場合、メッセージバスを使います。 <span class="keyword apiname">申し込む（）</span> ワイルドカードを指定する関数（<samp class="ph codeph">&quot;*&quot;</samp>）イベント名の場合<pre class="pre codeblock">          function onCreate（player）{/ *すべてのイベントを購読する：*これにより、複数のイベントに基づいてロジックを作成することができます。 * / player.mb.subscribe（ &quot;*&quot;、 &#39;example&#39;、function（eventName）{}）; }</pre>
+</div>
+
+      <div class="p">考えられるすべてのイベントをリスニングしているので、コールバック関数内に複数のイベントに基づくロジックを含めることができます。 <span class="keyword parmname">イベント名</span> パラメータ この例では、ダウンロードと再生ヘッドの時間変更イベントを除くすべてのイベントを書き込みます（<span class="keyword apiname">OO.EVENTS.DOWNLOADING</span> そして
+          <span class="keyword apiname">OO.EVENTS.PLAYHEAD_TIME_CHANGED</span> JavaScriptコンソールログに）：<pre class="pre codeblock">          function onCreate（player）{/ * *すべてのイベントを購読する：*これにより、複数のイベントに基づいてロジックを作成できます*。 * / player.mb.subscribe（ &quot;*&quot;、 &#39;example&#39;、function（eventName）{/ *ダウンロードおよび再生ヘッドの時間変更イベントを除くすべてのイベントを* JavaScriptコンソールに書き込みます。* / if（eventName！= OO .EVENTS.DOWNLOADING &amp;&amp; eventName！= OO.EVENTS.PLAYHEAD_TIME_CHANGED）console.log（eventName）;}）; }</pre>
+</div>
+
+    </div>
+
+        <div class="section" id="player_v3_dev_intercepting_events__section_okc_hdp_rr"><h2 class="title sectiontitle">Step 2: Intercepting Events</h2>
+            To intercept a video playing event
+                (<span class="keyword apiname">OO.EVENTS.PLAYING</span>), call the message bus
+                <span class="keyword apiname">インターセプト（）</span> function. In this example we include a callback that
+            displays a message in the textbox. If the textbox was previously empty, the message
+            indicates that the video has begun playing whether the video has begun playing or
+            playback has continued. We add a variable called <samp class="ph codeph">justStartedPlaying</samp> to
+            keep track of the player state.<div class="p">
+                <pre class="pre codeblock">
+        &lt;script&gt;
+            /*
+             * Use this to control playing state messages.
+             */
+            justStartedPlaying = true;
+            
+            function onCreate(player) {
+            
+                 player.mb.subscribe("*" , 'example', function(eventName) { 
+                     if (eventName != OO.EVENTS.DOWNLOADING &amp;&amp; 
+                         eventName != OO.EVENTS.PLAYHEAD_TIME_CHANGED)
+                          console.log(eventName);
+                });
+        
+                /*
+                 * Intercept the video playing event
+                 * and display the status in the text box.
+                 */
+                player.mb.intercept(
+                  OO.EVENTS.PLAYING, 
+                  'example', 
+                  function(eventName) {
+                    var message = OO.$("#messagesTxt").val();
+                    if (message == "" || justStartedPlaying == true) {
+                        OO.$("#messagesTxt").val("Just started playing the video now!!!");
+                    } else {
+                        OO.$("#messagesTxt").val("Playback continues...");
+                    }
+                    
+                  }
+                );
+            }
+        &lt;/script&gt;
+                </pre>
+
+            </div>
+<div class="p">Similarly, to intercept a video pause event
+                (<span class="keyword apiname">OO.EVENTS.PAUSED</span>), we again call the message bus
+                    <span class="keyword apiname">インターセプト（）</span> function. If the user confirms that the video is
+                to be paused, the callback fires a dependent event called
+                    <samp class="ph codeph">user_allowed_pause</samp>, used later in the
+                    <span class="keyword apiname">addDependent（）</span> method that blocks the
+                    <span class="keyword apiname">OO.EVENTS.PAUSED</span> event until this dependent event is fired.
+                In this case the callback function displays a confirmation dialog, updates the
+                player state, and updates the message displayed to the user:<pre class="pre codeblock">                /*
+                 * Intercept the video pause event. 
+                 * Publish the dependent event required before
+                 * actually pausing the video.
+                 * 
+                 * The addDependent() function monitors 
+                 * this event ('user_allowed_pause')
+                 * and fires the PAUSED event only after this event fires.  
+                 */
+                player.mb.intercept(
+                  OO.EVENTS.PAUSED, 
+                  'example', 
+                  function(eventName) {
+                    if (confirm("Pause Video?") == true) {
+
+                        /*
+                         * Once the video has paused we will next be able
+                         * to change the playing status from just starting
+                         * to continuing.
+                         */
+                        justStartedPlaying = false;
+                    
+                        OO.$("#messagesTxt").val("You paused the video!");
+                        
+                        /*
+                         * Fire the dependent event required before
+                         * firing the PAUSED event.
+                         */
+                        player.mb.publish('user_allowed_pause');
+                        
+                    }else{
+                        player.play();
+                        OO.$("#messagesTxt").val("Playback continues...");
+                    }
+                  }
+                );
+                </pre>
+</div>
+</div>
+<div class="section" id="player_v3_dev_intercepting_events__section_qw2_3dp_rr"><h2 class="title sectiontitle">Step 3: Setting up Event Dependencies</h2>
+            In order to block the video pause
+            event until the dependent event fires, we call the message bus
+                <span class="keyword apiname">addDependent（）</span> function. In this example we require that the
+                <samp class="ph codeph">user_allowed_pause</samp> event fire before the
+                <span class="keyword apiname">OO.EVENTS.PAUSED</span> event is permitted to fire:<pre class="pre codeblock">                /*
+                 * This blocks the PAUSED event from firing until
+                 * the 'user_allowed_pause' event has fired 
+                 * (see the intercept() function above).
+                 */
+                player.mb.addDependent(
+                  OO.EVENTS.PAUSED, 
+                  'user_allowed_pause', 
+                  'example', 
+                  function(){}
+                );
+            </pre>
+</div>
+
+        <div class="section" id="player_v3_dev_intercepting_events__section_gxh_jdp_rr"><h2 class="title sectiontitle">完全な例</h2>You now have a complete
+            working example of a web page that loads multiple Ooyala V3 Players, responds to user
+            interaction with the video player by intercepting pause and play events with a
+            confirmation dialog and textbox that displays messages, and creates the player: 
+            <pre class="pre codeblock"> 
+&lt;!DOCTYPE html&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+    &lt;head&gt;
+        &lt;title&gt;My Test Player V3 Web Page&lt;/title&gt;
+        &lt;!-- Load Ooyala Player --&gt;
+        &lt;script src="http://player.ooyala.com/v3/f6d2bba353f74b3db7683cf6b0a91f29?platform=html5-priority"&gt;&lt;/script&gt;
+        &lt;!-- Load additional custom modules --&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="ooyalaplayer" style="width:640px;height:360px"&gt;&lt;/div&gt;
+        &lt;script&gt;
+            /*
+             * Use this to control playing state messages. */
+            justStartedPlaying = true;
+            
+            /*
+             * Always add event listeners and error handling 
+             * within the onCreate() function. * Include this function in the embedded parameters 
+             * in the Player.create() call. */
+            function onCreate(player) {
+            
+                /*
+                 * Subscribe to all events:
+                 * this allows you to create logic 
+                 * based on multiple events. */
+                 player.mb.subscribe("*" , 'example', function(eventName) { 
+                     if (eventName != OO.EVENTS.DOWNLOADING &amp;&amp; 
+                         eventName != OO.EVENTS.PLAYHEAD_TIME_CHANGED)
+                          console.log(eventName);
+                });
+        
+                /*
+                 * Intercept the video playing event
+                 * and display the status in the text box. */
+                player.mb.intercept(
+                  OO.EVENTS.PLAYING, 
+                  'example', 
+                  function(eventName) {
+                    var message = OO.$("#messagesTxt").val();
+                    if (message == "" || justStartedPlaying == true) {
+                        OO.$("#messagesTxt").val("Just started playing the video now!!!");
+                    } else {
+                        OO.$("#messagesTxt").val("Playback continues...");
+                    }
+                    
+                  }
+                );
+        
+                /*
+                 * Intercept the video pause event. * Publish the dependent event required before
+                 * actually pausing the video. * 
+                 * The addDependent() function monitors 
+                 * this event ('user_allowed_pause')
+                 * and fires the PAUSED event only after this event fires. */
+                player.mb.intercept(
+                  OO.EVENTS.PAUSED, 
+                  'example', 
+                  function(eventName) {
+                    if (confirm("Pause Video?") == true) {
+
+                        /*
+                         * Once the video has paused we will next be able
+                         * to change the playing status from just starting
+                         * to continuing. */
+                        justStartedPlaying = false;
+                    
+                        OO.$("#messagesTxt").val("You paused the video!");
+                        
+                        /*
+                         * Fire the dependent event required before
+                         * firing the PAUSED event. */
+                        player.mb.publish('user_allowed_pause');
+                        
+                    }else{
+                        player.play();
+                        OO.$("#messagesTxt").val("Playback continues...");
+                    }
+                  }
+                );
+                
+                /*
+                 * This blocks the PAUSED event from firing until
+                 * the 'user_allowed_pause' event has fired 
+                 * (see the intercept() function above). */
+                player.mb.addDependent(
+                  OO.EVENTS.PAUSED, 
+                  'user_allowed_pause', 
+                  'example', 
+                  function(){}
+                );
+            }
+            
+
+            OO.ready(function() { 
+                var videoPlayer = OO.Player.create(
+                'ooyalaplayer', 
+                'VwZjJ2czoYkk20dfBsb9VuAI1TIbQrg-', {
+                    onCreate: window.onCreate
+                });
+            
+            });
+        &lt;/script&gt;
+        
+        Messages: &lt;input type="text" id="messagesTxt" size="108" value=" "&gt;
+            
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+
+        </div>
+
+    </div>
+
+    <div class="related-links"><div class="relinfo relref"><strong>関連資料</strong><br/>
+<div><a class="link" href="../reference/player_v3_dev_tutorial.html" title="このチュートリアルを使用して、HTML5 Player V3の使用を開始してください。">HTML5プレーヤーV3の基本チュートリアル（非推奨）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="

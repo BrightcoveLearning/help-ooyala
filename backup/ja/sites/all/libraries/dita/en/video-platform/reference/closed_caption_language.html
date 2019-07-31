@@ -1,0 +1,406 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Supported Closed Captions"/>
+<meta name="abstract" content="Before uploading closed caption files to Backlot, verify that you are using a supported language and file format."/>
+<meta name="description" content="クローズドキャプションファイルをBacklotにアップロードする前に、サポートされている言語とファイル形式を使用していることを確認してください。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_standards.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="closed_caption_language"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>サポートされているクローズドキャプション</title>
+</head>
+<body id="closed_caption_language">
+
+
+ <h1 class="title topictitle1">サポートされているクローズドキャプション</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">クローズドキャプションファイルをBacklotにアップロードする前に、サポートされている言語とファイル形式を使用していることを確認してください。</p>
+
+  <div class="section"><h2 class="title sectiontitle">サポートされているクローズドキャプションファイルフォーマット</h2>次のファイル形式のいずれかを使用するクローズドキャプションファイルをアップロードできます。 <div class="note important"><span class="importanttitle">重要：</span> クローズドキャプションファイルを取り込むまたはアップロードするには、Backlotアカウントにロードする形式をサポートする（✔）適切なオプション（Ooyala Ingestion Service、Backlot UI、またはBacklot API）を必ず使用してください。 </div>
+<div class="note note"><span class="notetitle">注意：</span> アップロードされたソースファイルが受信側デバイスが使用しているものと同じタイプではない場合、クローズドキャプションファイルに追加されたスタイルは現在削除されています。 Ooyala Webプレーヤーの場合は、WebVTTが使用されます。 Ooyala iOSおよびAndroid SDKでは、TTML形式が使用されます。 アップロードされたクローズドキャプションファイルタイプが一致しない場合、当社のクローズドキャプション変換サービスはフォーマットを互換性のあるものに変換しますが、変換中のスタイルフォーマットを削除します。</div>
+
+   
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="closed_caption_language__closed_caption_formats" class="table" frame="border" border="1" rules="all">
+     
+     
+     
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="22.22222222222222%" id="d830509e42">拡張</th>
+
+       <th class="entry" valign="top" width="44.44444444444444%" id="d830509e45">説明</th>
+
+       <th class="entry" valign="top" width="11.11111111111111%" id="d830509e48">OIS</th>
+
+       <th class="entry" valign="top" width="11.11111111111111%" id="d830509e51">バックスロットUI</th>
+
+       <th class="entry" valign="top" width="11.11111111111111%" id="d830509e54">バックスロットAPI</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d830509e42 "><samp class="ph codeph">.TTML</samp> （旧 <samp class="ph codeph">DXFP</samp>)</td>
+
+       <td class="entry" valign="top" width="44.44444444444444%" headers="d830509e45 ">TTML（Timed Text Markup Languageファイル。一般に、クローズドキャプションファイルの拡張子は.dfxp（Distribution Format Exchange Profile）です。詳細については、を参照してください。 <a class="xref" href="dfxp_format.html" title="Backlotにアップロードするクローズドキャプションファイルは、サポートされている形式でなければなりません。 DFXP形式（現在はTTML）は、広く使用されている形式です。">サポートされているクローズドキャプションDFXP（現在はTTML）形式</a>.</td>
+
+       <td class="entry" valign="top" width="11.11111111111111%" headers="d830509e48 ">✔</td>
+
+       <td class="entry" valign="top" width="11.11111111111111%" headers="d830509e51 ">✔</td>
+
+       <td class="entry" valign="top" width="11.11111111111111%" headers="d830509e54 ">✔</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d830509e42 "><samp class="ph codeph">.SCC</samp></td>
+
+       <td class="entry" valign="top" width="44.44444444444444%" headers="d830509e45 ">SCC（Scenarist Closed Caption）ファイル。</td>
+
+       <td class="entry" valign="top" width="11.11111111111111%" headers="d830509e48 ">✔</td>
+
+       <td class="entry" valign="top" width="11.11111111111111%" headers="d830509e51 ">✔</td>
+
+       <td class="entry" valign="top" width="11.11111111111111%" headers="d830509e54 "> </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d830509e42 "><samp class="ph codeph">.SRT</samp></td>
+
+       <td class="entry" valign="top" width="44.44444444444444%" headers="d830509e45 ">WebSRT（Web字幕リソーストラック）ファイル。</td>
+
+       <td class="entry" valign="top" width="11.11111111111111%" headers="d830509e48 ">✔</td>
+
+       <td class="entry" valign="top" width="11.11111111111111%" headers="d830509e51 "> </td>
+
+       <td class="entry" valign="top" width="11.11111111111111%" headers="d830509e54 "> </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="22.22222222222222%" headers="d830509e42 "><samp class="ph codeph">.VTT</samp></td>
+
+       <td class="entry" valign="top" width="44.44444444444444%" headers="d830509e45 ">WebVTT（Webビデオテキストトラック）ファイル。</td>
+
+       <td class="entry" valign="top" width="11.11111111111111%" headers="d830509e48 ">✔</td>
+
+       <td class="entry" valign="top" width="11.11111111111111%" headers="d830509e51 ">✔</td>
+
+       <td class="entry" valign="top" width="11.11111111111111%" headers="d830509e54 "> </td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+</div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">サポートされているクローズドキャプション言語</h2>次のいずれかの言語を使用する字幕ファイルをアップロードできます。 <div class="note note"><span class="notetitle">注意：</span> クローズドキャプションファイルに使用される言語コードはISO 639-1形式でなければなりません。</div>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="closed_caption_language__table_msd_5pn_d1b" class="table" frame="border" border="1" rules="all">
+     
+     
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" width="2.0" id="d830509e165">言語コード</th>
+
+       <th class="entry" valign="top" width="3.0" id="d830509e168">Language</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">ar</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">Arabic</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">ca</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">カタロニア語</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">zh-Hans</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">中国語（簡体字）</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">zh-Hant</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">中国語（繁体字）</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">cs</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">チェコ語</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">da</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">デンマーク語</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">nl</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">Dutch</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">en</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">英語</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">fi</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">Finnish</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">fr</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">フランス語</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">de</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">ドイツ語</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">el</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">ギリシャ語</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">he</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">ヘブライ語</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">hi</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">ヒンディー語</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">hu</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">ハンガリー語</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">is</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">アイスランド語</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">id</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">Indonesian</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">it</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">イタリア語</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">jp</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">日本語</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">ko</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">Korean</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">ms</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">Malay</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">いいえ</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">Norwegian</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">pl</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">ポリッシュ</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">pt</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">ポルトガル語</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">pa</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">パンジャブ語</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">ro</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">ルーマニア</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">sr</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">セルビア</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">es</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">スペイン語</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">sv</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">Swedish</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">ta</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">タミル語</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">th</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">Thai</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">tr</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">トルコ語</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">uk</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">ウクライナ語</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" width="2.0" headers="d830509e165 "><samp class="ph codeph">vi</samp></td>
+
+       <td class="entry" valign="top" width="3.0" headers="d830509e168 ">ベトナム語</td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+<div class="note note"><span class="notetitle">注意：</span> 取り込みマニフェストを使用して字幕ファイルをアップロードする場合は、言語コードを <a class="xref" href="../tasks/ingestion_ftp_csv.html" title="動画を取り込むときは、CSVマニフェストファイルを使用して、追加のメタデータ（動画のタイトル、説明、フライト時間、ラベル、カスタムメタデータなど）、およびサムネイルやクローズドキャプションファイルを指定できます。 FTPまたはAsperaでコンテンツを取り込むときは、CSVマニフェストファイルを使用できます。">CSVマニフェストファイル</a> そして
+    <a class="xref" href="../tasks/ingestion_ftp_xml.html" title="動画を取り込むときは、XMLマニフェストファイルを使用して、サムネイルおよびクローズドキャプションファイルだけでなく、追加のメタデータ（動画のタイトル、説明、掲載時間、ラベル、カスタムメタデータなど）を指定できます。 FTP、Aspera、またはMRSSでコンテンツを取り込むときにXMLマニフェストファイルを使用できます。">XMLマニフェストファイル</a>.</div>
+</div>
+
+  
+  
+  <div class="section">詳細については、以下を参照してください。 <ul class="ul">
+    <li class="li"><a class="xref" href="../concepts/closed_captions_about.html" title="クローズドキャプションは、再生中にビデオ内に表示される追加のテキストです。 キャプションには通常、ビデオの音声記録が含まれています。">クローズドキャプションについて</a></li>
+ 
+    <li class="li"><a class="xref" href="../tasks/closed_captions_upload.html" title="クローズドキャプションファイルを準備したら、それをBacklotにアップロードできます。">Backlotでクローズドキャプションファイルをアップロードする</a></li>
+
+    <li class="li"><a class="xref" href="../concepts/closed_captions_ingest.html" title="BacklotまたはOoyala Ingestion Service（OIS）を介して字幕ファイルを取り込むことができます。">クローズドキャプションファイルの取り込み</a></li>
+
+    <li class="li"><a class="xref" href="../tasks/closed_captions_ingest_xml.html" title="XMLマニフェストファイルを使用して字幕ファイルを取り込むことができます。">XMLマニフェストファイルを使用したクローズドキャプションの取り込み</a></li>
+
+    <li class="li"><a class="xref" href="../tasks/closed_captions_ingest_csv.html" title="CSVマニフェストファイルを使用して字幕ファイルを取り込むことができます。">CSVマニフェストファイルを使用した字幕の取り込み</a></li>
+
+    <li class="li"><a class="xref" href="../api/asset_closed_caption.html" title="動画、広告、リモートアセット、またはYouTube動画にクローズドキャプションを追加できます。">クローズドキャプションの使用</a></li>
+
+   </ul>
+ 
+ .  </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_standards.html" title="Supported Standards Guideへようこそ。 これらのトピックでは、Ooyalaがサポートする要件と標準について説明します。">サポートされている標準</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

@@ -1,0 +1,88 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2017-01-12 Release"/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2017.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release20170112"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2017-01-12リリース</title>
+</head>
+<body id="release20170112">
+
+
+    <h1 class="title topictitle1">2017-01-12リリース</h1>
+
+    <div class="body conbody">
+        <div class="section"><span class="ph" id="release20170112__release_summary">Ooyala Liveリリースv2.6.0には、セグメントスナップ（LiveをVODにトリミングする場合）と通知の機能強化が含まれています。</span></div>
+
+        <div class="section"><h2 class="title sectiontitle">ソフトウェア機能リリース</h2>
+            
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle"><span class="ph" id="release20170112__d44824e865">ウーヤラライブv2.6.0（2017-01-12）</span></h2><p class="gt-block p"><strong class="ph b">新機能と強化</strong></p>
+<strong class="ph b">ライブからVODへのトリミング時のセグメントスナップ</strong>
+            <p class="p">VOD用のライブストリーミングコンテンツを編集している顧客のために、以前は、Live to VODビデオがトリミングされたときに、UIはトリム値を2番目に設定していました。 これは、VODプラットフォームがその正確さに合わせてトリム値を受け入れるという印象を与えましたが、それは受け入れません。 これで、トリミングは関連するライブチャンネルのエンコーディングプロファイルのセグメント境界にスナップします。 この新しい機能は、ビデオコンテンツをトリミングするときに自動的に適用されます。 </p>
+<p class="p">チャンネルのエンコーディングプロファイル（通常は6または10秒）を変更するには、Ooyalaサポートに連絡してください。 </p>
+<p class="gt-block p"><strong class="ph b">通知の改善 </strong></p>
+<p class="p">Ooyala EncodeとOoyala Packageを使ってチャンネルのアラートを監視するために、Ooyala Liveには &#39;alerting&#39;という新しいチャンネルステータスがあります。 この状況は、アラート条件があるとアクティブになります。 この新機能は自動的に適用されます。 チャンネルのプロフィールを変更する必要はありません。 </p>
+<p class="p"><img class="image" src="http://help-ooyala.brightcove.com/../image/live_channel_alerts.png" alt="Ooyalaライブ通知"/></p>
+<p class="p">アラートはEncoderとPackagerからキャプチャされ、通知領域に表示されます。 アラートが解決されると（自動的に、または人間の介入によって）、チャネルは「実行中」の状態に戻ります。</p>
+<p class="p">一般的なアラート条件は次のとおりです。</p>
+<ul class="ul">
+                <li class="li">エンコーダ入力または出力に関する問題</li>
+
+                <li class="li">パッケージャの入出力に関する問題</li>
+
+            </ul>
+<p class="p">この機能により、デバッグが容易になります。 詳細なデバッグ情報も電子メール通知に追加されました。 問題がある場合は、Ooyalaサポートに電子メールでデバッグ情報を提供してください。 </p>
+<p class="gt-block p"><strong class="ph b">既知の問題点</strong></p>
+<ul class="ul">
+                <li class="li">On-Air状態またはOff-Air状態でイベントをフィルタリングすると、返される結果が正確にならない可能性があります。</li>
+
+                <li class="li">[イベント]ページで別の日付範囲を選択した場合、イベントのページ区切りは機能しません。</li>
+
+                <li class="li">トリムされたアセットの場合、イベントが停止中、オフエア中の状態では、イベントの開始時間と停止時間がイベントの期間と一致しません。 イベントがStopped、Off-Air状態に達すると、期間は正しくなります。</li>
+
+            </ul>
+</div>
+
+        <div class="section"><h2 class="title sectiontitle">ビデオプラットフォーム - 製品リリースノート</h2>
+            
+            <ul class="ul">
+                <li class="li"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/concepts/pbv4_release_notes.html">Ooyala Player V4リリースノート</a></li>
+
+                <li class="li"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/concepts/mobile_sdk_android_release_notes.html">Android用Mobile SDKのリリースノート</a></li>
+
+                <li class="li"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/concepts/mobile_sdk_ios_release_notes.html">iOS用Mobile SDKリリースノート</a></li>
+
+                <li class="li"><a class="xref" href="../live_release_notes.html#live_release_notes" title="Ooyala Liveの機能に関する最新情報をお読みください。">Ooyala Liveリリースノート</a></li>
+
+                <li class="li"><a class="xref" href="../concepts/analytics_v3_release_notes.html">Ooyala IQリリースノート</a></li>
+
+            </ul>
+
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle">Ooyalaリリースノートを購読する</h2>
+             見る <a class="xref" href="../concepts/release_notes_subscribe.html">Ooyalaリリースノートを購読する</a> Ooyalaリリースノートの自動通知を購読する方法については、こちらをご覧ください。 </div>
+
+        <div class="section">このコンテンツは、12：2017 PM UTCのJan 11、00に掲載されました。</div>
+
+        
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2017.html" title="2017からのリリースノート。">2017ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></di

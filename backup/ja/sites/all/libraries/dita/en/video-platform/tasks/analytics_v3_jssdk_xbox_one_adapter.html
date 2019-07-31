@@ -1,0 +1,157 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Integrating Xbox One Video App with IQ Using the JS SDK"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/analytics_v3_integrate_javascriptsdk.html"/>
+<meta name="DC.Relation" scheme="URI" content="https://docs.brightcove.com/apidocs-ooyala/iq_standalone/index.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/ooyala_iq_user_guide.html"/>
+<meta name="DC.Relation" scheme="URI" content="analytics_v3_ug_ingest_third_party_player.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/analytics_v3_ug_account.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/faq_analytics.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="analytics_v3_jssdk_xbox_one_adapter"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>JS SDKを使用したXbox OneビデオアプリとIQの統合</title>
+</head>
+<body id="analytics_v3_jssdk_xbox_one_adapter">
+
+
+    <h1 class="title topictitle1">Integrating Xbox One Video App with <span class="ph">IQ</span> JS SDKを使う</h1>
+
+    
+    <div class="body taskbody">
+        <div class="section context"><p class="gt-block p">Ooyala Xbox Oneアダプターは <span class="ph">ウーヤラIQ</span> Xbox Oneビデオアプリからのビデオイベントを通信するためのJavaScript SDK <span class="ph">ウーヤラIQ</span>。 このアダプタを自分で実装することも、Ooyalaプロフェッショナルサービスがアダプタを有料で実装することもできます。 Xbox OneのHTML5ビデオアプリをOoyala IQと統合するには、次の手順を実行します。</p>
+
+            <p class="gt-block p">Ooyala Xbox Oneアダプターを使用している場合は、Xboxの[デバイス]パネルにXboxがOSとして表示されます。 <a class="xref" href="https://analytics.ooyala.com/iq/bi" target="_blank">Ooyala IQビジネスインテリジェンス</a> インタフェース。</p>
+
+        </div>
+
+        <div class="section prereq p">Xbox Oneアダプターを使用する前に、Ooyalaアセットがサードパーティのプレーヤーで再生可能であることを確認する必要があります。 <ol class="ol">
+                <li class="li">HTML5ビデオタグがXbox Oneでサポートするエンコードを許可するために、アカウントに正しいエンコードプロファイルが設定されていることを確認してください。 あなたはあなたのアカウントマネージャにあなたの処理プロファイルをチェックする援助を求めることができます。</li>
+
+                <li class="li"> エンコードプロファイルで新しいファイルをエンコードできるようにする必要がある場合は、新しく生成されたファイルを取得するために、新しいビデオファイルをアップロードするか、ビデオファイルを再エンコードする必要があります。 コンテンツの置き換え（アセットの置き換え）はこのステップでは機能しません。 新しいファイルをアップロードするか、Ooyalaテクニカルサポートでサポートチケットを開いて、同じ埋め込みコードを維持するために手動でアップロードせずにビデオを再処理する必要があります。</li>
+
+            </ol>
+
+        </div>
+
+        <ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd">からanalytics.jsをダウンロードしてください。 <a class="xref" href="https://analytics.ooyala.com/static/v3/analytics.js" target="_blank">https://analytics.ooyala.com/static/v3/analytics.js</a> とxbox_adapter.js <a class="xref" href="https://github.com/ooyala/iq-sdk-xbox-one-sample" target="_blank">https://github.com/ooyala/iq-sdk-xbox-one-sample</a>Xbox OneビデオアプリケーションにJavaScriptライブラリを追加してバンドルし、プレーヤーがホストされているページでそれらを参照します。 これは、プレーヤーがあるページに対して行う必要があります。 これらのスクリプトは、&lt;video /&gt;要素を変更する他のスクリプトの前にロードする必要があります。</span>
+                 
+                    <pre class="pre codeblock">&lt;！DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;meta charset = &quot;utf-8&quot; /&gt; &lt;title&gt; Xbox OneとIQの例&lt;/title&gt; &lt;link href = &quot;css / default.css&quot; rel = &quot;stylesheet&quot; /&gt; &lt;script src = &quot;lib / iq / analytics.js&quot;&gt; &lt;/script&gt; &lt;script src = &quot;lib / iq / xbox_adapter.js&quot;&gt; &lt;/script&gt; &lt;/head&gt; &lt;/html&gt;</pre>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">ページに&lt;video /&gt; HTML5タグを含めます。</span>
+                 
+                    <pre class="pre codeblock">&lt;body&gt; &lt;video id = &quot;player&quot;&gt; &lt;/video&gt; &lt;/body&gt;</pre>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">ページにスクリプトを作成して、再生用に選択したビデオ要素とビデオをXbox Oneアダプターに登録します。</span>
+                <ol type="a" class="ol substeps" id="analytics_v3_jssdk_xbox_one_adapter__substeps_cjd_4dl_gw">
+                    <li class="li substep substepexpand">
+                        <span class="ph cmd">video要素の変数を作成してください。</span>
+                         
+                            <pre class="pre codeblock">var player = document.getElementById（ &#39;player&#39;）;</pre>
+
+                        
+                    </li>
+
+                    <li class="li substep substepexpand">
+                        <span class="ph cmd">再生用に選択されたビデオを
+                                <samp class="ph codeph">data-oo-embedId</samp> video要素の属性です。 この属性の値は、Backlotから取得した埋め込みコードです。</span>
+                         この属性の値は、次のいずれかです。<ul class="ul" id="analytics_v3_jssdk_xbox_one_adapter__ul_aj3_3fm_hw">
+                                <li class="li">Backlot内の資産の埋め込みコード</li>
+
+                                <li class="li">またはサードパーティのCMS内のアセットのID。その場合は、 <samp class="ph codeph">contentType</samp> オプション
+                                        <samp class="ph codeph">EXTERNAL_CONTENT</samp> レポーターを作成するとき。</li>
+
+                            </ul>
+
+                         
+                            <pre class="pre codeblock">player.setAttribute('data-oo-embedId', "k4cWdsdzoTxuCp6lyBN7TSTsI6OmdII9");</pre>
+
+                        
+                    </li>
+
+                    <li class="li substep substepexpand">
+                        <span class="ph cmd">のインスタンスを作成してXbox Oneレポーターを作成します
+                                <samp class="ph codeph">XboxOneReporter</samp>Backlotプロバイダコード（pcode）、video要素、およびオプションでレポーターのオプションを渡します。</span>
+                         これらのオプションは以下のとおりです。<ul class="ul" id="analytics_v3_jssdk_xbox_one_adapter__ul_udj_m2m_hw">
+                                <li class="li"><strong class="ph b">プレーヤの名前</strong>：プレイヤーの名前、デフォルト値は
+                                        <samp class="ph codeph">携帯</samp>.</li>
+
+                                <li class="li"><strong class="ph b">playerId</strong>：プレイヤーのID、デフォルト値は
+                                        <samp class="ph codeph">携帯</samp>.</li>
+
+                                <li class="li"><strong class="ph b">playerVersion</strong>：プレイヤーのバージョン、デフォルト値は <samp class="ph codeph">xbox-10</samp>.</li>
+
+                                <li class="li"><strong class="ph b">contentType</strong>：ビデオアセットがホストされている場所を示すコンテンツタイプ（Ooyala.Analytics.MediaContentType）、デフォルト値は
+                                        <samp class="ph codeph">Ooyala.Analytics.MediaContentType.OOYALA_CONTENT</samp>。 このオプションの他の可能な値は次のとおりです。
+                                        <samp class="ph codeph">Ooyala.Analytics.MediaContentType.EXTERNAL_CONTENT</samp>これは、資産がサードパーティのCMSでホストされている場合に設定する必要があります。<div class="note note"><span class="notetitle">注意：</span> Ooyala IQ JavaScript SDKは、ページ内の同じプレーヤインスタンス内で複数のコンテンツタイプを指定することをサポートしていません。 ただし、同じページの異なるプレーヤーに対して複数のコンテンツタイプを指定することはサポートされています。 たとえば、Ooyalaのビデオアセットと外部アセットを再生するページに1人のプレーヤーがいる場合のユースケースの分析はサポートされていません。 一方がOoyalaビデオアセットを再生し、もう一方が外部（Ooyalaビデオアセット以外）を再生する、同じページに2人のプレーヤーがいるユースケースの分析をサポートします。 </div>
+</li>
+
+                            </ul>
+
+                         
+                            <pre class="pre codeblock">var myXboxOneReporter = new Ooyala.Analytics.XboxOneReporter（ &quot;pcode&quot;、player）;</pre>
+
+                            <p class="p">or</p>
+
+                            <pre class="pre codeblock">var myXboxOneReporter = new Ooyala.Analytics.XboxOneReporter（ &quot;pcode&quot;、プレーヤー、{contentType：Ooyala.Analytics.MediaContentType.EXTERNAL_CONTENT}）;</pre>
+
+                        
+                    </li>
+
+                </ol>
+
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">必要に応じて、次のようにカスタムイベントを報告できます。</span>
+                 
+                    <pre class="pre codeblock">myXboxOneReporter.reportCustomEvent（ &quot;eventName&quot; {metadata1：value、...}）;</pre>
+
+                
+            </li>
+</ol>
+
+        <div class="example"> 以下の例を見てください。
+            <pre class="pre codeblock">&lt;！DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;meta charset = &quot;utf-8&quot; /&gt; &lt;title&gt; Xbox OneとIQの例&lt;/title&gt; &lt;link href = &quot;css / default.css&quot; rel = &quot;stylesheet&quot; /&gt; &lt;script src = &quot;lib / iq / analytics.js&quot;&gt; &lt;/script&gt; &lt;script src = &quot;lib / iq / xbox_adapter.js&quot;&gt; &lt;/script&gt; &lt;/head&gt; &lt;body&gt; &lt;video id = &quot; player &quot;&gt; &lt;/video&gt; &lt;script type =&quot; text / javascript &quot;&gt; var player = document.getElementById（ &#39;player&#39;）; player.setAttribute（ &#39;data-oo-embedId&#39;、 &quot;k4cWdsdzoTxuCp6lyBN7TSTsI6OmdII9&quot;）; var myXboxOneReporter = new Ooyala.Analytics.XboxOneReporter（ &quot;pcode&quot;、player）; &lt;/script&gt; &lt;/body&gt; &lt;/html&gt;</pre>
+
+        </div>
+
+        
+    </div>
+
+    <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../tasks/analytics_v3_integrate_javascriptsdk.html">JS SDKを使用したサードパーティ製プレイヤーとIQの統合</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="../concepts/ooyala_iq_user_guide.html">Ooyala IQユーザーガイド</a></div>
+<div><a class="link" href="../concepts/analytics_v3_ug_account.html">Ooyala IQアカウント管理</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong><br/>
+<div><a class="link" href="analytics_v3_ug_ingest_third_party_player.html">Ooyala IQとサードパーティのメタデータを同期させる</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong><br/>
+<div><a class="link" href="../reference/faq_analytics.html" title="Ooyala IQアナリティクスについてよく寄せられる質問">Analyticsのよくある質問</a></div>
+</div>
+<div class="relinfo"><strong>関連情報</strong><br/>
+<div><a class="link" href="https://docs.brightcove.com/apidocs-ooyala/iq_standalone/index.html" target="_blank">Ooyala IQ JavaScript SDK APIドキュメント</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

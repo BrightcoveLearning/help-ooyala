@@ -1,0 +1,164 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Player V3 Run-time States (Deprecated)"/>
+<meta name="abstract" content="This topic introduces Player V3 run-time states. It applies to Ooyala's web-based players (HTML5 / Flash) and mobile native app players (iOS and Android)."/>
+<meta name="description" content="このトピックでは、Player V3のランタイム状態について説明します。 これは、OoyalaのWebベースのプレーヤー（HTML5 / Flash）およびモバイルネイティブアプリのプレーヤー（iOSおよびAndroid）に適用されます。"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_state"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>プレーヤV3の実行時状態（廃止予定）</title>
+</head>
+<body id="player_state">
+
+
+ <h1 class="title topictitle1">プレーヤV3の実行時状態（廃止予定）</h1>
+
+  
+ <div class="body conbody"><p class="shortdesc">This topic introduces Player V3 run-time states. It applies to Ooyala's web-based
+    players (HTML5 / Flash) and mobile native app players (iOS and Android).</p>
+
+   <div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V3は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V3はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V3を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="pbv4_migration_v3.html">Player V3からの移行</a> そして <a class="xref" href="pbv4_migration_faq.html">プレイヤー移行に関するFAQ</a>).</div>
+
+   <div class="section"><h2 class="title sectiontitle">About Player V3 Run-time States</h2>A running player undergoes various states
+      during its lifecycle. The following table introduces the most common player run-time states.
+      There are also other states that apply only to specific platforms. 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="player_state__table_states" class="table" frame="border" border="1" rules="all">
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="15.789473684210526%" id="d601916e44">州</th>
+
+              <th class="entry" valign="top" width="84.21052631578947%" id="d601916e47">説明</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="15.789473684210526%" headers="d601916e44 ">ローディング</td>
+
+              <td class="entry" valign="top" width="84.21052631578947%" headers="d601916e47 ">The embed code has been set. The video and its metadata are currently being
+                loaded into the player.</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="15.789473684210526%" headers="d601916e44 ">準備</td>
+
+              <td class="entry" valign="top" width="84.21052631578947%" headers="d601916e47 ">Playback of the video is ready to begin (including replay).</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="15.789473684210526%" headers="d601916e44 ">再生</td>
+
+              <td class="entry" valign="top" width="84.21052631578947%" headers="d601916e47 ">The player is currently playing video content.</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="15.789473684210526%" headers="d601916e44 ">一時停止</td>
+
+              <td class="entry" valign="top" width="84.21052631578947%" headers="d601916e47 ">The player is currently paused (after playback had begun).</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="15.789473684210526%" headers="d601916e44 ">バッファリング</td>
+
+              <td class="entry" valign="top" width="84.21052631578947%" headers="d601916e47 ">Playback is currently stopped because it does not have enough video data to
+                continue and is downloading more.</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="15.789473684210526%" headers="d601916e44 ">エラー</td>
+
+              <td class="entry" valign="top" width="84.21052631578947%" headers="d601916e47 ">The player has encountered an error that prevents playback of the video. The
+                error could be due to many reasons, such as video format, syndication rules, or the
+                asset being disabled.</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+State changes are triggered by events (see <a class="xref" href="../concepts/player_event.html" title="このトピックでは、Player V3ランタイムイベントについて説明します。 これは、OoyalaのWebベースのプレーヤー（HTML5とFlash）およびモバイルネイティブアプリケーションのプレーヤー（iOSとAndroid）に適用されます。">プレーヤV3ランタイムイベント（非推奨）</a>), which occur either through user interaction (for example,
+      the user clicks the play button) or programmatically via API calls. The current player state
+      determines which functionality is available in the current context. For example, the play
+      operation is available when the player is in the ready state, and the pause operation is
+      available when it is in the playing state. </div>
+
+   <div class="section"><h2 class="title sectiontitle">Developer Resources for Player V3 Run-time States</h2>Due to different
+      technical requirements across platforms, the list of player run-time states can vary by
+      platform. Some states are universal (such as loading and ready), while others (such as init)
+      apply only to certain platforms. In addition, the names of the player states differ across
+      platforms to be consistent with platform SDK conventions. Refer to the following resources to
+      learn how to access player state information programmatically. 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="player_state__table_states_info" class="table" frame="border" border="1" rules="all">
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="13.020833333333334%" id="d601916e136">Development Platform</th>
+
+              <th class="entry" valign="top" width="86.97916666666666%" id="d601916e139">詳細は</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="13.020833333333334%" headers="d601916e136 ">ウエブサイト</td>
+
+              <td class="entry" valign="top" width="86.97916666666666%" headers="d601916e139 "><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#getState" target="_blank">https://docs.brightcove.com/apidocs-ooyala/player_js/OO.Player.html#getState</a></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="13.020833333333334%" headers="d601916e136 ">アイフォン</td>
+
+              <td class="entry" valign="top" width="86.97916666666666%" headers="d601916e139 ">Documentation for com.ooyala.android.OoyalaPlayer.State: <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/android_mobilesdk/enumcom_1_1ooyala_1_1android_1_1_ooyala_player_1_1_state.html" target="_blank">https://docs.brightcove.com/apidocs-ooyala/android_mobilesdk/enumcom_1_1ooyala_1_1android_1_1_ooyala_player_1_1_state.html</a></td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="13.020833333333334%" headers="d601916e136 ">iOS</td>
+
+              <td class="entry" valign="top" width="86.97916666666666%" headers="d601916e139 ">See OOPlayerProtocol.h in the Ooyala SDK for iOS. </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+
+    </div>
+
+ </div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

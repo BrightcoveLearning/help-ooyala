@@ -1,0 +1,166 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Promoting Content in Discovery Results"/>
+<meta name="abstract" content="If you have content that you want to promote for a period of time, you can inject it into Ooyala Discovery results."/>
+<meta name="description" content="一定期間宣伝したいコンテンツがある場合は、それをOoyala Discoveryの結果に挿入できます。"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="cd_api_editorial_promo"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Promoting Content in Discovery Results</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="cd_api_editorial_promo">
+
+
+    <h1 class="title topictitle1">Promoting Content in Discovery Results</h1>
+
+    
+    <div class="body taskbody"><p class="shortdesc">If you have content that you want to promote for a period of time, you can inject it
+        into Ooyala Discovery results. </p>
+
+        <div class="section context">
+            <p class="p">Have you ever watched television and saw the same advertisement for the same show
+                time and time again? Ooyala Discovery enables you to avoid that by specifying a
+                group of content that is randomly selected, reducing the number of times your
+                viewers have to watch the same video. This section describes how to create a
+                promotional content set and inject it into the Ooyala Discovery results.</p>
+
+            <div class="note note"><span class="notetitle">注意：</span> An alternative creating a promotional content set is to specify a label. </div>
+
+            <p class="p">To define promotional content and inject it into results: </p>
+
+        </div>
+
+        <ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd"> Create a promotional content set. </span>
+                 The following example creates a set of promotional content that runs during September 2012.
+                 <pre class="pre codeblock">[POST] /v2/discover/editorial/2012-09_extreme_paint
+{ 
+   "start": "2012-09-01", 
+   "end":   "2012-10-01", 
+   "assets":
+   {
+       "Z5Mmw2NTp252DQytJBl1zDd_CbyVbaK0" : 1,                 
+       "BueWs2NTppB3PNFZJesgWepLqeVUDX33" : 2,     
+       "43a2s2NTpGjKwRPncNhTZ8DotgZJX2NP" : 3,       
+       "x5M2s2NTpO0PdbmPfHV1wvo-4WftkLV_" : 4,
+       "FpZWg2NTr2utPh8vlH80kO_FQa9sl_Ku" : 5,
+       "Q3dmY2NTrfBNn3Shp4tjvojb2og2gZU3" : 6, 
+       "I0Z2Q2NTovn8hcncFeNal9aLMFK5lWqo" : 7,    
+       "pmdGI2NToGHXwAeJIA1s82iU3-zbEGVq" : 8, 
+       "txa2I2NTo1-iBAkmfhT3XJmQycMXGMCS" : 9, 
+       "ttN2E2NTotLr1sYVTwbt6600H3VTRhg6" : 10
+    } 
+}</pre>
+
+                 <p class="gt-block p"><span class="ph">バックスロット</span> 200応答を返します。</p>
+
+                    <p class="gt-block p"><a class="xref" href="https://api.ooyala.com/docs/api_scratchpad?url=/v2/discover/editorial/2012-09_extreme_paintmethodGETapi_key" target="_blank"><img class="image" src="http://help-ooyala.brightcove.com/../static/tryme.png" height="11" width="11" alt="並べ替え（ソート）"/> それを試してみてください</a></p>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Add the promotional content using the <span class="keyword parmname">組合</span> query string
+                    parameter and specifying the promotional content set. </span>
+                 The following example returns the three most popular videos for the day.
+                    However, it injects a randomly selected item from the
+                        <span class="keyword parmname">2012-09_extreme_paint</span> promotional content into position
+                    0.
+                 <pre class="pre codeblock">[GET] /v2/discover/trending/top?countries=all&amp;time=now&amp;window=day&amp;limit=3&amp;union=collection|2012-09_extreme_paint|0</pre>
+
+                 <p class="gt-block p"><span class="ph">バックスロット</span> 次のような応答を返します。</p>
+
+                    <pre class="pre codeblock">		{
+		  "results": [
+		   {
+		      "name": "Extreme Paint Drying is Back",
+		      "description": "The new season starts in October!",
+		      "embed_code": "x5M2s2NTpO0PdbmPfHV1wvo",
+		      "external_id": "paint-drying-promo:000004",
+		      "preview_image_url": "http://paint.com/images/paint-drying-promo_000004.jpg",
+		      "duration": "91000",
+		      "hostedAtURL": null,
+		      "bucket_info": "1{\"encoded\":\"eNpNjtsKhCAQht9lrmNR1+zwMiElrVAqOhtE27vv2Abr3fynjzkg6GgcDlsY\\n7tyRdfIlHNJw9oQKz5RT3YKDnFQQTRzL0TJI9WF2BXmYfLb7WgUh6TdAf\\nMEft3osmeydkxqBdaQF0pdFHcwMBfSCLhmjRepdy5SyZTl87pB+nRNVoxmGx\\nCa9Pn13N1e/TPislxF+1jZRFJmTRbEVTZG3HbgXnF+k0UNc=\",\"position\":0}",
+		      "reason": "promo"
+		    },
+		    {
+		      "name": "More cats playing piano!",
+		      "description": "More cats playing piano!",
+		      "embed_code": "Jr8fdsNDrcK-TYHGlFIZuTlPoDZ_QkW3",
+		      "external_id": "cat:7880638",
+		      "preview_image_url": "http://catscatscats.com/images/catvideo1456.jpg",
+		      "duration": "91000",
+		      "hostedAtURL": null,
+		      "bucket_info": "1{\"encoded\":\"eNpNjtsKhCAQht9lrmNR1+zwMiElrVAqOhtE27vv2Abr3fynjzkg6GgcDlsY\\n7tyRdfIlHNJw9oQKz5RT3YKDnFQQTRzL0TJI9WF2BXmYfLb7WgUh6TdAf\\nMEft3osmeydkxqBdaQF0pdFHcwMBfSCLhmjRepdy5SyZTl87pB+nRNVoxmGx\\nCa9Pn13N1e/TPislxF+1jZRFJmTRbEVTZG3HbgXnF+k0UNc=\",\"position\":0}",
+		      "reason": "top"
+		    },
+		    {
+		      "name": "Cat Video #1457",
+		      "description": "Even more cats playing piano!",
+		      "embed_code": "3556csNDrcK-ZaRTYhuTlPoDZ_tyrD",
+		      "external_id": "cat:7880638",
+		      "preview_image_url": "http://catscatscats.com/images/catvideo1457.jpg",
+		      "duration": "91000",
+		      "hostedAtURL": null,
+		      "bucket_info": "1{\"encoded\":\"eNpNjtsKhCAQht9lrmNR1+zwMiElrVAqOhtE27vv2Abr3fynjzkg6GgcDlsY\\n7tyRdfIlHNJw9oQKz5RT3YKDnFQQTRzL0TJI9WF2BXmYfLb7WgUh6TdAf\\nMEft3osmeydkxqBdaQF0pdFHcwMBfSCLhmjRepdy5SyZTl87pB+nRNVoxmGx\\nCa9Pn13N1e/TPislxF+1jZRFJmTRbEVTZG3HbgXnF+k0UNc=\",\"position\":1}",
+		      "reason": "top"
+		    }
+		  ]}</pre>
+
+                    <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+                
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">You can also specify promotional content through labels.</span>
+                 The following example returns the three most popular videos for the day.
+                    However, it injects a randomly selected item from the
+                        <span class="keyword parmname">BasketballPromo</span> label into position 0.
+                 <pre class="pre codeblock">[GET] /v2/discover/trending/top?countries=all&amp;time=now&amp;window=day&amp;limit=3&amp;union=collection|label:BasketballPromo|0</pre>
+
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd"> 各結果から情報を取得してWebページコンテンツを生成します。 </span>
+                 次の例には単純なHTMLコンテンツが含まれています。
+                 <pre class="pre codeblock">&lt;div class="sidebar"&gt;
+    &lt;h4 class="sidebar-head"&gt;Popular Now&lt;/h4&gt;
+    &lt;ul&gt;
+        &lt;li&gt;
+            &lt;p&gt;&lt;a href="/ja/video/x5M2s2NTpO0PdbmPfHV1wvo"&gt;Extreme Paint Drying is Back&lt;/a&gt;&lt;/p&gt;
+            &lt;p&gt;The new season starts in October!&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;p&gt;&lt;a href="/ja/video/Jr8fdsNDrcK-TYHGlFIZuTlPoDZ_QkW3"&gt;Cat Video #1456&lt;/a&gt;&lt;/p&gt;
+            &lt;p&gt;More cats playing piano!&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;p&gt;&lt;a href="/ja/video/3556csNDrcK-ZaRTYhuTlPoDZ_tyrD"&gt;Cat Video #1457&lt;/a&gt;&lt;/p&gt;
+            &lt;p&gt;Even more cats playing piano!&lt;/p&gt;
+        &lt;/li&gt;        
+    &lt;/ul&gt;
+&lt;/div&gt;    </pre>
+
+            </li>
+</ol>
+
+    </div>
+
+
+    
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></di

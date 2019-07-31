@@ -1,0 +1,178 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Build a Chromecast Receiver Application"/>
+<meta name="DC.Relation" scheme="URI" content="../../concepts/chromecast/integrate.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="chromecast_receiver"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../../css/ooyala.css"/>
+<title>Chromecast Receiverアプリケーションを構築する</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="chromecast_receiver">
+
+
+ <h1 class="title topictitle1">Chromecast Receiverアプリケーションを構築する</h1>
+
+ <div class="body conbody">
+  <div class="section"><h2 class="title sectiontitle">Chromecast用の統合受信アプリケーションの作成</h2> The following
+   content describes how to create an integrated receiver application.</div>
+
+  <div class="section"><h2 class="title sectiontitle">必須条件</h2>
+   
+   <div class="note note"><span class="notetitle">注意：</span> You need to host the receiver application on your own server (you cannot use Ooyala’s
+    receiver directly). Set up Cross-Origin Resource Sharing ( CORS ) enablement on the CDN you use
+    for content serving.</div>
+
+   <ul class="ul">
+    <li class="li">詳細 <a class="xref" href="intro.html">Chromecast統合の概要</a>.</li>
+
+     <li class="li">Facilitate your own hosting infrastructure for receiver applications (you must set up CORS enablement on the CDN you use for content serving).</li>
+
+       <li class="li">受信機のHTMLを登録します。 <a class="xref" href="https://cast.google.com/u/0/publish/#/signup" target="_blank">Googleキャスト登録</a>.</li>
+
+       <li class="li">For iOS, view the <a class="xref" href="sender_ios.html">iOS用のSenderアプリケーションを構築する</a> sample Chromecast Sender iOS App.</li>
+
+       <li class="li">For Android, view the <a class="xref" href="sender_android.html">Android用の送信者アプリケーションを構築する</a> sample Chromecast Sender Android App.</li>
+
+       <li class="li">Purchase a Chromecast device.
+     </li>
+
+   </ul>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">Create an Integrated Receiver Application</h2> Use the following steps to
+      create an integrated receiver application. <div class="note note"><span class="notetitle">注意：</span> If you want to use a receiver as is (that
+        will have Ooyala branding and playerId), go to <a class="xref" href="https://github.com/ooyala/chromecast-sample-receiver" target="_blank">https://github.com/ooyala/chromecast-sample-receiver</a>, and clone or download the project,. </div>
+<ol class="ol">
+        <li class="li">Host the content of the <samp class="ph codeph">プロジェクト</samp> (receiver.html and images folder) on
+          your server.</li>
+
+        <li class="li">Register your receiver HTML page in the Google Cast SDK developer console at Google Cast
+          SDK Developer Console.</li>
+
+        <li class="li">Retrieve the receiver application ID from the Google Cast SDK developer console.</li>
+
+        <li class="li">受信側アプリケーションIDを送信側アプリケーションコードに入れてください（ <a class="xref" href="sender_ios.html">iOS用のSenderアプリケーションを構築する</a>  or  <a class="xref" href="sender_android.html">Android用の送信者アプリケーションを構築する</a>
+          for how to add this to the sender application).</li>
+
+      </ol>
+</div>
+
+  <div class="section"><h2 class="title sectiontitle">Ooyala Chromecast統合のためのReceiverアプリケーションのカスタマイズ</h2>
+      サンプルのカスタムレシーバーは現在オープンソースです。 に行く <a class="xref" href="https://github.com/ooyala/chromecast-sample-receiver" target="_blank">https://github.com/ooyala/chromecast-sample-receiver</a>. The receiver can be customized by set the following options at the
+      config.json file at the root of the progress and then follow the build steps described on the
+      README file. 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+          
+          
+          
+          
+          <thead class="thead" align="left">
+            <tr class="row">
+              <th class="entry" valign="top" width="9.090909090909092%" id="d262989e123">名前</th>
+
+              <th class="entry" valign="top" width="9.090909090909092%" id="d262989e126">タイプ</th>
+
+              <th class="entry" valign="top" width="9.090909090909092%" id="d262989e129">デフォルト</th>
+
+              <th class="entry" valign="top" width="72.72727272727273%" id="d262989e132">説明</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" valign="top" width="9.090909090909092%" headers="d262989e123 ">playerBrandingId</td>
+
+              <td class="entry" valign="top" width="9.090909090909092%" headers="d262989e126 ">文字列</td>
+
+              <td class="entry" valign="top" width="9.090909090909092%" headers="d262989e129 "><samp class="ph codeph">ooyala test player id</samp></td>
+
+              <td class="entry" valign="top" width="72.72727272727273%" headers="d262989e132 ">This is the player Id provided in Ooyala Backlot.<div class="note note"><span class="notetitle">注意：</span> Customers must change the Ooyala Player Branding ID from the Sample Receiver.html to their Account’s Player Branding ID.</div>
+</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="9.090909090909092%" headers="d262989e123 ">画像</td>
+
+              <td class="entry" valign="top" width="9.090909090909092%" headers="d262989e126 ">オブジェクト</td>
+
+              <td class="entry" valign="top" width="9.090909090909092%" headers="d262989e129 "><samp class="ph codeph">{"logo": "logo.svg"}</samp></td>
+
+              <td class="entry" valign="top" width="72.72727272727273%" headers="d262989e132 "> This contains the image filename used to set the splash screen. The default
+                value is the Ooyala logo and can be updated to reflect your brand image. If you
+                change the value with your own filename you must add the image at the assets
+                directory.</td>
+
+            </tr>
+
+            <tr class="row">
+              <td class="entry" valign="top" width="9.090909090909092%" headers="d262989e123 ">皮膚</td>
+
+              <td class="entry" valign="top" width="9.090909090909092%" headers="d262989e126 ">オブジェクト</td>
+
+              <td class="entry" valign="top" width="9.090909090909092%" headers="d262989e129 "><samp class="ph codeph">{}</samp></td>
+
+              <td class="entry" valign="top" width="72.72727272727273%" headers="d262989e132 ">Here you can customize the appearance of the player UI. For more information
+                please visit the ooyala documentation at <a class="xref" href="../pbv4_customize.html">プレーヤV4外観のカスタマイズ</a> チェックして
+                  <samp class="ph codeph">inlineoption</samp>, which is used to override the default
+                  values.<p class="gt-block p">Please also see an <a class="xref" href="https://github.com/ooyala/chromecast-sample-receiver/blob/feature/chromecast-receiver-updates/README.md" target="_blank">例</a> on how to customize the
+                skin.</p>
+</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</div>
+</div>
+
+  <div class="section"><h2 class="title sectiontitle">イベントリスニング</h2>
+    <p class="gt-block p">You can customize the custom receiver UI to react to player
+        events by listening to the events published by the Player V4 player (see <a class="xref" href="../pbv4_dev_eventmodel.html" title="プレーヤーV4はイベントを処理するためにメッセージバスの使用を取り入れています。">プレーヤV4のイベントモデル</a>) or by modifying the CSS
+        (see <a class="xref" href="../pbv4_css.html">CSSを使用したプレーヤV4外観のカスタマイズ</a>). This customization can occur
+        in the onCreate function or after the Player V4 script has been loaded.</p>
+<p class="gt-block p">For example, you can display a splash screen when the content finishes. The user interface that
+        you customize in your customized receiver should abide by the <a class="xref" href="https://developers.google.com/cast/docs/design_checklist">design
+          checklist</a> that Google has in place.</p>
+
+    <p class="p">The event handling is located at the following path: <samp class="ph codeph">src/app/player.js</samp>. This
+        module has a method named as ‘onCreateHandlers’ that contains the event listeners for all
+        the player event used. </p>
+
+    </div>
+
+  <div class="section"><h2 class="title sectiontitle">エラー処理</h2>For general Ooyala Player V4 errors, see <a class="xref" href="../../reference/pbv4_dev_errors.html" title="エラー処理機能とイベントを使用すると、Playerエラーに関する情報を取得できます。">JavaScriptを使用したPlayer V4のエラー処理</a>. Since the receiver uses the same
+      player V4 used in the web version, the error handling needs to be set by listening to the
+      error events triggered by the player API. </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../../concepts/chromecast/integrate.html">Chromecastとの統合</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- de

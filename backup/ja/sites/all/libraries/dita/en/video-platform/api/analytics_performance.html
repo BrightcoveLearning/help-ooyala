@@ -1,0 +1,141 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Performance (Deprecated)"/>
+<meta name="abstract" content="The asset performance report shows comprehensive performance at the account or asset level."/>
+<meta name="description" content="資産実績レポートは、アカウントまたは資産レベルでの包括的な実績を示します。"/>
+<meta name="DC.Relation" scheme="URI" content="../api/analytics_overview.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="analytics_performance"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>パフォーマンス（廃止予定）</title>
+</head>
+<body id="analytics_performance">
+
+
+ <h1 class="title topictitle1">パフォーマンス（廃止予定） </h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">資産実績レポートは、アカウントまたは資産レベルでの包括的な実績を示します。</p>
+
+    
+    <div class="section refsyn">
+      <div class="note warning"><span class="warningtitle">警告：</span> v2 Analytics APIは非推奨になりました。 見る <a class="xref" href="../concepts/ooyala_iq_developer_guide.html">ウーヤラIQアナリティクス</a> 新しいv3 Analytics APIの詳細については、</div>
+
+    </div>
+
+    <div class="section refsyn"><h2 class="title sectiontitle">掲載結果の分析（ビデオ）</h2>
+      
+      <pre class="pre codeblock">[GET] / v2 / analytics / reports /<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_level"><kbd class="ph userinput">レベル</kbd></a>/パフォーマンス/合計/<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_date_range"><kbd class="ph userinput">日付範囲</kbd></a> 
+[GET] / v2 / analytics / reports /アカウント/ performance / videos /<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_date_range"><kbd class="ph userinput">日付範囲</kbd></a></pre>
+
+    </div>
+
+    <div class="section refsyn"><h2 class="title sectiontitle">掲載結果の分析（Geo）</h2>
+      
+      <pre class="pre codeblock">[GET] / v2 / analytics / reports /<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_level"><kbd class="ph userinput">レベル</kbd></a>/パフォーマンス/国[/<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_country"><kbd class="ph userinput">国</kbd></a>]/<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_date_range"><kbd class="ph userinput">日付範囲</kbd></a>
+[GET] / v2 / analytics / reports /<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_level"><kbd class="ph userinput">レベル</kbd></a>/パフォーマンス/地域/<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_date_range"><kbd class="ph userinput">日付範囲</kbd></a>
+[GET] / v2 / analytics / reports /<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_level"><kbd class="ph userinput">レベル</kbd></a>/パフォーマンス/都市/<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_date_range"><kbd class="ph userinput">日付範囲</kbd></a>
+[GET] / v2 / analytics / reports /<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_level"><kbd class="ph userinput">レベル</kbd></a>/パフォーマンス/国/<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_country"><kbd class="ph userinput">国</kbd></a>/地域[/<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_region"><kbd class="ph userinput">地域</kbd></a>]/<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_date_range"><kbd class="ph userinput">日付範囲</kbd></a>
+[GET] / v2 / analytics / reports /<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_level"><kbd class="ph userinput">レベル</kbd></a>/パフォーマンス/国/<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_country"><kbd class="ph userinput">国</kbd></a>/地域/<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_region"><kbd class="ph userinput">地域</kbd></a>/都市[/<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_city"><kbd class="ph userinput">シティ</kbd></a>]/<kbd class="ph userinput">日付範囲</kbd>
+[GET] / v2 / analytics / reports /<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_level"><kbd class="ph userinput">レベル</kbd></a>/ performance / dmas [/<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_dma"><kbd class="ph userinput">DMA</kbd></a>]/<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_date_range"><kbd class="ph userinput">日付範囲</kbd></a></pre>
+
+    </div>
+
+    <div class="section refsyn"><h2 class="title sectiontitle">掲載結果の分析（ドメインとURL）</h2>
+      
+      <pre class="pre codeblock">[GET] / v2 / analytics / reports /<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_level"><kbd class="ph userinput">レベル</kbd></a>/パフォーマンス/ドメイン[/<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_domain"><kbd class="ph userinput">ドメイン</kbd></a>]/<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_date_range"><kbd class="ph userinput">日付範囲</kbd></a>
+[GET] / v2 / analytics / reports /<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_level"><kbd class="ph userinput">レベル</kbd></a>/ performance / domains /<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_domain"><kbd class="ph userinput">ドメイン</kbd></a>/ urls [/<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_url"><kbd class="ph userinput">URL</kbd></a>]/<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_date_range"><kbd class="ph userinput">日付範囲</kbd></a>
+[GET] / v2 / analytics / reports /<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_level"><kbd class="ph userinput">レベル</kbd></a>/ performance / urls [/<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_url"><kbd class="ph userinput">URL</kbd></a>]/<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_date_range"><kbd class="ph userinput">日付範囲</kbd></a></pre>
+
+    </div>
+
+    <div class="section refsyn"><h2 class="title sectiontitle">パフォーマンス分析を入手する（プラットフォームとデバイス）</h2>
+      
+      <pre class="pre codeblock">[GET] / v2 / analytics / reports /<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_level"><kbd class="ph userinput">レベル</kbd></a>/ performance / device_types [/<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_devicetype"><kbd class="ph userinput">デバイスタイプ</kbd></a>]/<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_date_range"><kbd class="ph userinput">日付範囲</kbd></a>
+[GET] / v2 / analytics / reports /<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_level"><kbd class="ph userinput">レベル</kbd></a>/ performance / device_types /<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_devicetype"><kbd class="ph userinput">デバイスタイプ</kbd></a>/プラットフォーム[/<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_platform"><kbd class="ph userinput">プラットフォーム</kbd></a>]/<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_date_range"><kbd class="ph userinput">日付範囲</kbd></a>
+[GET] / v2 / analytics / reports /<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_level"><kbd class="ph userinput">レベル</kbd></a>/パフォーマンス/プラットフォーム[/<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_platform"><kbd class="ph userinput">プラットフォーム</kbd></a>]/<a class="xref" href="analytics_attributes_and_parms.html#analytics_attributes_and_querystring_parms__analytics_date_range"><kbd class="ph userinput">日付範囲</kbd></a></pre>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">例</h2>
+      
+      <div class="sectiondiv">
+        <p class="p"> この例では、ビデオパフォーマンスの結果が返されます。 </p>
+
+        <pre class="pre codeblock">[GET]/v2/analytics/reports/account/performance/videos/2012-01-01...2012-01-24</pre>
+
+        <p class="p">これは次のような応答を返します。</p>
+
+        <pre class="pre codeblock">{&quot;結果&quot;：[{&quot;名前&quot;： &quot;レディーGAGAロンドンライブスペシャル&quot;、 &quot;movie_data&quot;：{&quot;embed_code&quot;： &quot;dkY3YzMzoyy7arcaUiJIoQ-9N6nz-KeG&quot;、 &quot;タイプ&quot;： &quot;ビデオ&quot;、 &quot;ステータス&quot;： &quot;live&quot; &quot;}、&quot;メトリクス &quot;：{&quot;ビデオ &quot;：{&quot;再生 &quot;：123766、&quot; video_starts &quot;：120665、&quot; playthrough_50 &quot;：1430、&quot; uniq_plays &quot;：{&quot; weekly_uniqs &quot;：104137、&quot; Month_uniqs &quot;：102876、&quot; daily_uniqs &quot; &quot;：107163}、&quot; playthrough_100 &quot;：788、&quot; playthrough_75 &quot;：1171、&quot; initial_plays &quot;：123467、&quot;が表示されます： &quot;136751、&quot; uniq_video_starts &quot;：{&quot; weekly_uniqs &quot;：102905、&quot;毎月_xN &quot;、&quot; daily_uniqs &quot; 101686}、 &quot;uniq_displays&quot;：{&quot;weekly_uniqs&quot;：105786、 &quot;Month_uniqs&quot;：115246}、 &quot;time_watched&quot;：113813、 &quot;video_bytes_downloaded&quot;：118562、 &quot;playthrough_XNX&quot; &quot;2965310785&quot; &quot;&quot; &quot;&quot;日産はプレミアムライブコレクションをプレゼント &quot;、&quot; movie_data &quot;：{&quot; embed_code &quot;：&quot; NnbmExMzoexZjgi623902999875lYb25VORV1952sxvQV &quot;、&quot;タイプ &quot;：&quot;チャンネル &quot;、&quot;ステータス &quot;：&quot;ライブ &quot;、&quot;メトリックス &quot;：{&quot;ビデオ &quot;： {&quot;plays&quot;：3、 &quot;video_starts&quot;：90、 &quot;playthrough_46&quot;：123486、 &quot;replays&quot;：120396、 &quot;uniq_replays&quot;：{&quot;weekly_uniqs&quot;：XNUM X、 &quot;毎月の月例&quot;：50、 &quot;daily_uniqs&quot;：342}、 &quot;uniq_plays&quot;：{&quot;weekly_uniqs&quot;：83、 &quot;Month_uniqs&quot;：72、 &quot;daily_uniqs&quot;：71}、 &quot;playthrough_73&quot;：プレイスルーXXXXX：104135 、 &quot;initial_plays&quot;：102874、 &quot;&quot;：107153、 &quot;uniq_video_starts&quot;：{&quot;weekly_uniqs&quot;：100、 &quot;毎月のuniqs&quot;：76、 &quot;daily_uniqs&quot;：75}、 &quot;uniq_displays&quot;：{&quot;weekly_unxs_xixixixi_xi&quot;を表示します。 &quot;：178、&quot; daily_uniqs &quot;：123469}、&quot; time_watched &quot;：136447、&quot; playthrough_102907 &quot;：101688}}}}}</pre>
+
+        <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+      </div>
+      <div class="sectiondiv">
+        <p class="p"> この例では、アカウントのパフォーマンス結果が返されます。 </p>
+
+        <pre class="pre codeblock">[GET]/v2/analytics/reports/account/performance/total/2011-08-01...2011-08-02</pre>
+
+        <p class="p">これは次のような応答を返します。</p>
+
+        <pre class="pre codeblock">{&quot;結果&quot;：[{&quot;メトリックス&quot;：{&quot;動画&quot;：{&quot;再生&quot;：969、 &quot;playthrough_50&quot;：350、 &quot;uniq_replays&quot;：{&quot;毎週のユニ&quot; &quot;：13、&quot;毎月の &quot;、&quot; daily_uniqs &quot;： 13}、 &quot;リプレイ&quot;：14、 &quot;uniq_player_loads&quot;：{&quot;weekly_uniqs&quot;：15、 &quot;毎月_uniqs&quot;：681、 &quot;daily_uniqs&quot;：681}、 &quot;uniq_play&quot;：{&quot;weekly_uniqs&quot;、XNX、 &quot;XNX&quot; &quot;daily_uniqs&quot;：778}、 &quot;playthrough_367&quot;：367、 &quot;playthrough_403&quot;：100、 &quot;&quot;：229、 &quot;initial_plays&quot;：75、 &quot;uniq_displays&quot;：{&quot;weekly_uniqs&quot;：293、 &quot;daily_unix&quot;、 &quot;daily_uniq&quot;、 &quot;daily_uniq&quot; &quot;：2707}、&quot; time_watched &quot;：693、&quot; player_loads &quot;：742、&quot; video_bytes_downloaded &quot;：742、&quot; playthrough_865 &quot;：45596418}}、&quot; id &quot;：&quot;合計 &quot;}]}</pre>
+
+      </div>
+      <div class="sectiondiv">
+        <p class="p"> この例では、再生順に並べられた上位2つの都市を返します。 </p>
+
+        <pre class="pre codeblock">[GET]/v2/analytics/reports/account/performance/cities/2011-08-01...2011-08-02?limit=2&amp;order_by=plays</pre>
+
+        <p class="p">これは次のような応答を返します。</p>
+
+        <pre class="pre codeblock">{&quot;結果&quot;：[{&quot;名前&quot;： &quot;シドニー&quot;、 &quot;geo_data&quot;： &quot;{\&quot; location \ &quot;：{\&quot; lat \ &quot;：\&quot;  -  33.883333 \ &quot;、\&quot;ロング\ &quot;：\&quot; 151.216667 \ &quot;}}&quot;、 &quot;id&quot;： &quot;AU：7256：2448&quot;、 &quot;メトリックス&quot;：{&quot;動画&quot;：{&quot;再生&quot;：99、 &quot;playthrough_50&quot;：30、 &quot;uniq_replays&quot;：{&quot;weekly_uniqs&quot;：1 、 &quot;Month_uniqs&quot;：1、 &quot;daily_uniqs&quot;：1}、 &quot;リプレイ&quot;：1、 &quot;uniq_player_loads&quot;：{&quot;weekly_uniqs&quot;：26、 &quot;Month_uniqs&quot;：26、 &quot;daily_uniqs&quot;： &quot;33、&quot; weekly_uniqs &quot;：22&quot;、 &quot;月刊_uniqs&quot;：22、 &quot;daily_uniqs&quot;：29}、 &quot;playthrough_100&quot;： &quot;playthrough_13&quot;：75、 &quot;表示&quot;：20、 &quot;initial_plays&quot;：270 &quot;、&quot; ：77、 &quot;毎月のユニフォーム&quot;：28、 &quot;daily_uniqs&quot;：28}、 &quot;time_watched&quot;：37、 &quot;player_loads&quot;：2711089、 &quot;video_bytes_downloaded&quot;：196、 &quot;playthrough_505785218&quot;：25}}、{&quot;name&quot; &quot;、&quot; geo_data &quot;：&quot; {\ &quot;location \&quot;：{\ &quot;lat \&quot;：\ &quot;40 \&quot;、\ &quot;long \&quot;：\ &quot; -  37.3861111 \&quot;}} &quot;、&quot; id &quot;：&quot; US ：122.0827778：9280 &quot;、&quot;メトリックス &quot;：{&quot;動画 &quot;：{&quot;再生 &quot;：20142、&quot; playthrough_90 &quot;：50、&quot; uniq_replays &quot;：{&quot; weekly_uniqs &quot;：31、&quot;毎月の単位 &quot;：2、&quot; d aily_uniqs &quot;：2}、&quot;リプレイ &quot;：2、&quot; uniq_player_loads &quot;：{&quot; weekly_uniqs &quot;：3、&quot; Month_uniqs &quot;：59、&quot; daily_uniqs &quot;：59}、&quot; uniq_plays &quot;：{&quot;週 &quot;、&quot; Xi &quot;、&quot; XiUM &quot; ：82、 &quot;daily_uniqs&quot;：34}、 &quot;playthrough_34&quot;：41、 &quot;playthrough_100&quot;：20、 &quot;表示&quot;：75、 &quot;初期プレイ&quot;：28、 &quot;uniq_displays&quot;：{&quot;weekly_uniqs&quot;：XNX、 &quot;355&quot;、 &quot;59&quot;、 &quot;67&quot; 、 &quot;daily_uniqs&quot;：67}、 &quot;time_watched&quot;：98、 &quot;player_loads&quot;：4069756、 &quot;video_bytes_downloaded&quot;：263、 &quot;playthrough_374955894&quot;：25}}}]、 &quot;next_page_token&quot;： &quot;W33siY1sdW29uIiwiQ1MTAwNjU086NDcwMiJdLFsiZGlyZWN6aW0uIiwwXSxbImluZGV9IiwxMF4sWyJ0YWx2ZSIsMjJdXQ ==&quot;}</pre>
+
+        <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+      </div>
+      <div class="sectiondiv">
+        <p class="p"> この例では、再生順に並べられた、カリフォルニアの上位2都市を返します。 </p>
+
+        <pre class="pre codeblock">[GET]/v2/analytics/reports/account/performance/countries/US/regions/California/cities/2011-08-01...2011-08-02?limit=2&amp;order_by=plays</pre>
+
+        <p class="p">これは次のような応答を返します。</p>
+
+        <pre class="pre codeblock">{&quot;結果&quot;：[{&quot;名前&quot;： &quot;サンブルーノ&quot;、 &quot;geo_data&quot;： &quot;{\&quot; location \ &quot;：{\&quot; lat \ &quot;：\&quot; 37.6305556 \ &quot;、\&quot; long \ &quot;：\&quot;  - 122.4100000 \ &quot;}}&quot;、 &quot;id&quot;： &quot;US：9280：20850&quot;、 &quot;メトリックス&quot;：{&quot;動画&quot;：{&quot;再生&quot;：15、 &quot;uniq_player_loads&quot;：{&quot;weekly_uniqs&quot;：1、 &quot;月ごとの単位&quot;： 1、 &quot;daily_uniqs&quot;：1}、 &quot;uniq_plays&quot;：{&quot;weekly_uniqs&quot;：1、 &quot;Month_uniqs&quot;：1、 &quot;daily_uniqs&quot;：1}、 &quot;ディスプレイ&quot;：36、 &quot;initial_plays&quot;：XNUM_dis &quot; &quot;weekly_uniqs&quot;：14、 &quot;月刊_uniqs&quot;：1、 &quot;daily_uniqs&quot;：1}、 &quot;time_watched&quot;：1、 &quot;player_loads&quot;：81511、 &quot;video_bytes_downloaded&quot;：29、 &quot;playthrough_41992404&quot;} {XXUM} ： &quot;マウンテンビュー&quot;、 &quot;geo_data&quot;： &quot;{\&quot; location \ &quot;：{\&quot; lat \ &quot;：\&quot; 25 \ &quot;、\&quot; long \ &quot;：\&quot;  -  2 \ &quot;}}&quot;、 &quot;id&quot; ： &quot;US：37.3861111：122.0827778&quot;、 &quot;メトリックス&quot;：{&quot;動画&quot;：{&quot;再生&quot;：9280、 &quot;playthrough_20142&quot;：12、 &quot;uniq_replays&quot;：{&quot;weekly_uniqs&quot;：50、 &quot;月ごとの単位&quot;、 &quot;daily_uniqs&quot; &quot;：2}、&quot;リプレイ &quot;：1、&quot; uniq_player_loads &quot;：{&quot; weekly_uniqs &quot;：1、&quot; Month_uniqs &quot;：1、&quot; daily_uniqs &quot;：2}、&quot; uniq_plays &quot;：{&quot; weekly_uniqs &quot;月ごと ：18、 &quot;daily_uniqs&quot;：18}、 &quot;playthrough_18&quot;：7、 &quot;playthrough_7&quot;：7、 &quot;表示&quot;：100、 &quot;初期プレイ&quot;：1、 &quot;uniq_displays&quot;：{&quot;weekly_uniqs&quot;：XNX、 &quot;75&quot;、 &quot;2&quot;、 &quot;58&quot; 、 &quot;daily_uniqs&quot;：5}、 &quot;time_watched&quot;：19、 &quot;player_loads&quot;：19、 &quot;video_bytes_downloaded&quot;：19、 &quot;playthrough_788648&quot;：38}}}]、 &quot;next_page_token&quot;： &quot;W45327745siY25sdW3uIiwiVVM1OTI29MDoyMDI1MCJdLFsiZGlyZWN6aW4uIiwwXSxbImluZGV4IiwxMF0d&quot;}</pre>
+
+        <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+      </div>
+      <div class="sectiondiv">
+        <p class="p"> この例では、資産のパフォーマンス結果が返されます <samp class="ph codeph">4234fds34ude</samp>:  </p>
+
+        <pre class="pre codeblock">[GET]/v2/analytics/reports/asset/4234fds34ude/performance/total/2011-08-01</pre>
+
+        <p class="p">結果なしで応答を返します。</p>
+
+        <pre class="pre codeblock">{&quot;response_code&quot;：404、 &quot;メッセージ&quot;： &quot;データが見つかりませんでした。&quot; }</pre>
+
+        <div class="note note"><span class="notetitle">注意：</span>  Ooyala Scratchpadでアカウントの認証情報を使用してコードサンプルを試してみてください。 スクラッチパッドを起動するには、にアクセスしてください。 <span class="ph">Ooyala <a class="xref" href="https://api.ooyala.com/docs/api_scratchpad" target="_blank">APIスクラッチパッド</a></span>。 スクラッチパッドの使用方法については、 <a class="xref" href="../concepts/api_scratchpad.html" title="スクラッチパッドで練習要求をすることができます。">スクラッチパッドを使った練習の依頼</a>.  </div>
+
+      </div>
+    </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/analytics_overview.html" title="アカウントに基づいて、さまざまな分析パッケージを利用できます。">v2 Analytics API（廃止予定）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

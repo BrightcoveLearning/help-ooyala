@@ -1,0 +1,448 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="About Ingesting Content"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_ingest.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_ingest.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="ingestion_overview"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>コンテンツの取り込みについて</title>
+</head>
+<body id="ingestion_overview">
+
+
+ <h1 class="title topictitle1">コンテンツの取り込みについて</h1>
+
+  <div class="body conbody">
+   <div class="section">Ooyalaでは、次のいずれかの方法でビデオをBacklotにアップロードできます。 <ul class="ul">
+    <li class="li">Backlot UIまたはBacklot APIを直接使用してBacklotする</li>
+
+    <li class="li">FTP、Aspera、またはMRSSを使用したOoyala Ingestion Services（OIS）</li>
+
+   </ul>
+取り込まれたコンテンツには、ビデオファイル、サムネイルファイル、クローズドキャプションファイル、およびBacklotでビデオを見つけやすくするメタデータを含めることができます。 取り込まれると、あなたのビデオはBacklotの資産となり、管理、公開、収益化が可能になります。 </div>
+
+  <div class="section"><div class="note note" id="ingestion_overview__version_note"><span class="notetitle">注意：</span> このトピックは、OIS v2.5とOIS v1の両方に適用されます。 指示がある場合、特定のセクションは1つのバージョンにのみ適用されます。 OIS v1は無効になっています。 OIS v1を使用しているお客様は、OIS v2.5に切り替える必要があります。</div>
+
+  </div>
+
+  <div class="section"><h2 class="title sectiontitle">実行時ワークフローの取り込み</h2> 次の図は、ビデオアセットがBacklotに取り込まれる様子を示しています。 <div class="fig fignone">
+    <img class="image" src="http://help-ooyala.brightcove.com/../image/ingest_workflow.png" height="195" width="721"/>
+   </div>
+誰か（Ooyalaの外部）が動画をキャプチャして生の形式でエンコードされた動画ファイルとして保存した後、その動画ファイルを他の関連ファイル（サムネイル、クローズドキャプションファイル、その他）と共にBacklotアカウントにアップロードまたは取り込むことができます。とメタデータ）。 Backlotにアセットとして保存すると、ビデオを複数のストリーム形式にトランスコードしてアセットとして管理できます。 これらのプロセスの概要については、 <a class="xref" href="ovp_intro.html">オンラインビデオプラットフォームの紹介</a>.  </div>
+
+   
+  <div class="section"><h2 class="title sectiontitle">OIS v2.5の違い</h2>
+   <div class="note note" id="ingestion_overview__migration_note"><span class="notetitle">注意：</span> Ooyalaは、顧客をOIS v1からOIS v2.5に移行しています。 完了すると、OIS v1は非推奨になり、最終的には無効になります。 質問がある場合は、Ooyalaの担当者に連絡してください。</div>
+Ooyala Ingestion Service（OIS）v2.5は、ビデオとメタデータをBacklotにアップロードするための大きな前進です。 OIS v2.5を使用すると、ユーザーはFTP、Aspera、またはMRSSを使用してファイルをBacklotに取り込むことが容易になります。 このセクションでは、OIS v2.5とOIS v1の違いについて要約します。 <div class="note note"><span class="notetitle">注意：</span> 変更はFTP、Aspera、およびMRSSの取り込みによるものです。 このバージョンでは、Backlot UIとBacklot APIによる取り込みは変更されていません。</div>
+<p class="gt-block p"><strong class="ph b">OIS v2.5の新しい取り込みエンドポイント</strong></p>
+<div class="p">Backlotのアップロード専用ユーザーアカウントの資格情報（電子メールとパスワード）を使用してログインします。 これらのエンドポイントは、FTPクライアントまたはAsperaクライアントのどちらにも使用できます。
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+      <thead class="thead" align="left">
+       <tr class="row">
+        <th class="entry" valign="top" id="d316872e64">地域</th>
+
+        <th class="entry" valign="top" id="d316872e67">エンドポイント</th>
+
+       </tr>
+
+      </thead>
+
+      <tbody class="tbody">
+       <tr class="row">
+        <td class="entry" valign="top" headers="d316872e64 d316872e67 ">全て</td>
+
+        <td class="entry" valign="top" headers="d316872e64 d316872e67 ">transfer.ooyala.com</td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" headers="d316872e64 d316872e67 ">US</td>
+
+        <td class="entry" valign="top" headers="d316872e64 d316872e67 ">transfer-us.ooyala.com</td>
+</tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" headers="d316872e64 d316872e67 ">EU</td>
+
+        <td class="entry" valign="top" headers="d316872e64 d316872e67 ">transfer-eu.ooyala.com</td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" headers="d316872e64 d316872e67 ">APAC</td>
+
+        <td class="entry" valign="top" headers="d316872e64 d316872e67 ">transfer-apac.ooyala.com</td>
+
+       </tr>
+
+      </tbody>
+
+     </table>
+</div>
+ メインエンドポイントは自動的にあなたに最も近い地域にリダイレクトします。 地域固有のエンドポイントに直接アクセスすることもできます。</div>
+<p class="gt-block p"><strong class="ph b">マニフェストベースの取り込みの有効化</strong></p>
+OIS v2.5では、マニフェストベースの取り込みを有効にするプロセスが合理化されたため、有効化要求のターンアラウンドが早くなりました。 あなたの要求は自動的にXMLとCSV両方のマニフェストのサポートを含みます（あなたはもうどちらか一方だけを要求することはありません）。 基本的な取り込みは、デフォルトですでに有効になっています。
+     <p class="gt-block p"><strong class="ph b">アップロード専用ユーザーアカウント</strong></p>
+OIS v2.5エンドポイントにアクセスするには、Ooyalaアカウントに関連付けられているアップロード専用ユーザーを使用します。 BacklotのGUI（[アカウント]&gt; [ユーザー管理]）で、アップロードのみのアクセス許可を持つユーザーを自分のアカウントに追加できます（を参照）。 <a class="xref" href="chapter_usermanagement.html" title="[アカウント]タブの[ユーザー管理]サブタブを使用して、Backlotアカウントに関連付けられているユーザーを管理し、そのユーザーができることを制御します。">ユーザーの管理</a>） FTPまたはAsperaクライアントを使用している場合は、このユーザーに関連付けられているEメールとパスワードを使用して、transfer.ooyala.comで新しい取り込みエンドポイントにログインできます。 アップロード専用ユーザーを作成することで、FTPまたはAsperaの特別な認証情報を取得するためにOoyalaサポートにリクエストを送信する必要がなくなりました。
+     <p class="gt-block p"><strong class="ph b">FTPまたはAsperaを介した取り込み</strong></p>
+OIS v2.5の場合、ファイルは処理後すぐに削除されます。 取り込みワークフロー全体を通過しなかった（たとえば、マニフェストファイルのアップロードを待っている）送信済みファイルは、7日後にサーバーから削除されます。 <p class="gt-block p"><strong class="ph b">OIS v2.5はFTPS（FTP Over SS）を使用します</strong></p>
+ FTPを使って取り込むときは、FTPSクライアントを使用する必要があります。
+     <p class="gt-block p"><strong class="ph b">MRSSを使用したリモートアセットの更新</strong></p>
+OIS v2.5では、Backlot内のリモートアセットを（MRSSフィードを使用して）新しいメタデータ、サムネイル、クローズドキャプションファイルで更新することができます。
+     <p class="gt-block p"><strong class="ph b">CSVを使用したモバイル資産の作成</strong></p>
+OIS v2.5では、CSV取り込みを使用してリモート資産を作成できます。 これにより、XMLとMRSSを使用したリモートアセット作成の既存のサポートに3番目のオプションが追加されます。 </div>
+
+  <div class="section"><h2 class="title sectiontitle">摂取できるもの</h2> 以下の種類のファイルを取り込むことができます。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ingestion_overview__ingest_what" class="table" frame="border" border="1" rules="all">
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" id="d316872e163">ファイルの種類</th>
+
+       <th class="entry" valign="top" id="d316872e166">説明</th>
+
+       <th class="entry" valign="top" id="d316872e169">要件</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" headers="d316872e163 d316872e166 d316872e169 ">ビデオファイル</td>
+
+       <td class="entry" valign="top" headers="d316872e163 d316872e166 d316872e169 ">サポートされている形式のビデオファイル。 オーディオのみのファイル（オーディオサウンドトラックのみのビデオファイル）とVR 360ビデオが含まれます。</td>
+
+       <td class="entry" valign="top" headers="d316872e163 d316872e166 d316872e169 "><a class="xref" href="../reference/input_formats.html" title="コンテンツをBacklotにアップロードする前に、サポートされているファイル形式を使用し、ソースファイルのベストプラクティスに従っていることを確認してください。">サポートされている取り込みフォーマット</a>
+       </td>
+
+      </tr>
+
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d316872e163 d316872e166 d316872e169 ">サムネイルファイル</td>
+
+       <td class="entry" valign="top" headers="d316872e163 d316872e166 d316872e169 ">ユーザーがビデオをスクラブするときに再生中に一定の間隔で生成される低解像度の画像。 プレビュー画像に使用されます。</td>
+
+       <td class="entry" valign="top" headers="d316872e163 d316872e166 d316872e169 "><a class="xref" href="../reference/input_formats.html" title="コンテンツをBacklotにアップロードする前に、サポートされているファイル形式を使用し、ソースファイルのベストプラクティスに従っていることを確認してください。">サポートされている取り込みフォーマット</a></td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d316872e163 d316872e166 d316872e169 ">クローズドキャプションファイル</td>
+
+       <td class="entry" valign="top" headers="d316872e163 d316872e166 d316872e169 ">字幕またはクローズドキャプションファイルには、ビデオで説明されている内容のテキストと、テキストの各行を表示するタイミングコードの両方が含まれています。</td>
+
+       <td class="entry" valign="top" headers="d316872e163 d316872e166 d316872e169 "><a class="xref" href="closed_captions_ingest.html" title="BacklotまたはOoyala Ingestion Service（OIS）を介して字幕ファイルを取り込むことができます。">クローズドキャプションファイルの取り込み</a>
+       </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d316872e163 d316872e166 d316872e169 ">マニフェストファイル</td>
+
+       <td class="entry" valign="top" headers="d316872e163 d316872e166 d316872e169 ">ビデオファイルのアップロードに加えて、追加のメタデータ（ビデオのタイトル、説明、フライト時間、ラベル、カスタムメタデータなど）、およびサムネールとクローズドキャプションファイルを指定できます。 これらのオプションは、アップロードするマニフェストファイル（CSVまたはXML形式）で指定します。</td>
+
+       <td class="entry" valign="top" headers="d316872e163 d316872e166 d316872e169 "><a class="xref" href="ingestion_fileformats.html">マニフェストファイル形式</a></td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d316872e163 d316872e166 d316872e169 ">リモートアセット</td>
+
+       <td class="entry" valign="top" headers="d316872e163 d316872e166 d316872e169 ">Backlotの外部にリモートで保存されているが、Ooyala内で管理され、Ooyalaプレーヤーを通じて配信されるビデオ。</td>
+
+      <td class="entry" valign="top" headers="d316872e163 d316872e166 d316872e169 "><a class="xref" href="chapter_remote_assets.html" title="リモートアセットは、Backlotの外部でホストされるコンテンツの一部です。 コンテンツをアップロード、トランスコーディング、およびBacklotに保存する代わりに、必要に応じてBacklotがコンテンツを見つけることができるように、そのURLやその他の説明情報をアップロードするだけです。">リモートアセット</a></td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+</div>
+
+  <div class="section"><h2 class="title sectiontitle">摂取する方法</h2><p class="p">Ooyalaはあなたに以下の取り込みオプションを提供します。</p>
+<div class="fig fignone">
+    <img class="image" src="http://help-ooyala.brightcove.com/../image/ingest_overview.png" height="199" width="694"/>
+   </div>
+<p class="gt-block p"><strong class="ph b">バックスロットの直接アップロード</strong></p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" id="d316872e284">摂取メカニズム</th>
+
+       <th class="entry" valign="top" id="d316872e287">詳細は</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" headers="d316872e284 d316872e287 ">バックスロットUI</td>
+
+       <td class="entry" valign="top" headers="d316872e284 d316872e287 "><a class="xref" href="ingestion_backlot_ui.html" title="コンテンツを手動でBacklotにアップロードするには、Backlot UIを使用します。">Backlot UIを使った取り込み</a></td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d316872e284 d316872e287 ">バックスロットAPI</td>
+
+       <td class="entry" valign="top" headers="d316872e284 d316872e287 ">具体的に <samp class="ph codeph">/ v2 / assets</samp> ルート 見る <a class="xref" href="ingestion_backlot_api.html" title="プログラムでBacklotにコンテンツをアップロードするには、Backlot APIを使用します。 このアプローチにより、コンテンツ管理システム（CMS）またはワークフローをBacklotプラットフォームと直接統合することができます。">Backlot APIを使った取り込み</a>.</td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+<p class="gt-block p"><strong class="ph b">ウーヤラインジェストサービス（OIS）</strong></p>
+ マニフェストの有無にかかわらずOISを使用して、次の転送メカニズムを介してコンテンツを取り込みます。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" id="d316872e341">輸送メカニズム</th>
+
+       <th class="entry" valign="top" id="d316872e344">詳細は</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" headers="d316872e341 d316872e344 ">FTP</td>
+
+       <td class="entry" valign="top" headers="d316872e341 d316872e344 "><a class="xref" href="ingestion_ftp.html" title="FTPS（推奨）またはFTP（非推奨）を使用して、ビデオ、サムネイル、クローズドキャプション、およびマニフェストファイルをBacklotにアップロードできます。">FTP / FTPSを使った取り込み</a></td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d316872e341 d316872e344 ">アスペラ</td>
+
+       <td class="entry" valign="top" headers="d316872e341 d316872e344 "><a class="xref" href="ingestion_aspera.html" title="Asperaファイル転送ソフトウェアを使用して、ビデオ、サムネイル、クローズドキャプション、およびマニフェストファイルをBacklotにアップロードできます。">Asperaでの摂取</a></td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d316872e341 d316872e344 ">MRSS</td>
+
+       <td class="entry" valign="top" headers="d316872e341 d316872e344 "><a class="xref" href="ingestion_mrss.html" title="メディアRSS（MRSS）を使用して、Ooyalaに自分が公開しているMRSSフィードから自分のシステムから自分のコンテンツを取り出させることができます。 BacklotはMRSSフィードからメタデータを取得し、リモートアセットを作成するか（ホストされている場所から）ダウンロードして、ビデオと関連ファイル（サムネイル、クローズドキャプションファイルなど）を処理します。">リモートでホストされているMRSSフィードからの取り込み</a>
+       </td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+</div>
+
+  <div class="section"><h2 class="title sectiontitle">基本およびマニフェストベースの取り込み</h2>ビデオを取り込むためにFTPまたはAsperaを使用している場合、2つのアプローチがあります。基本とマニフェストベースの取り込みです。 MRSSはマニフェストベースの取り込みを必要とします。 <div class="note note" id="ingestion_overview__upload_only_both"><span class="notetitle">注意：</span> OIS v2.5の場合、基本的な取り込みとマニフェストベースの取り込みの両方を使用する場合は、それぞれに一意の名前の、アップロード専用の個別のユーザーアカウントを作成する必要があります（たとえば、 <samp class="ph codeph">user1_basic@example.com</samp> そして
+     <samp class="ph codeph">user1_manifest@example.com</samp>).</div>
+
+   <p class="gt-block p"><strong class="ph b">基本取り込み（動画ファイルのみ）</strong></p>
+基本取り込みでは、ビデオ、サムネイル、およびクローズドキャプションファイルのみをアップロードします。 基本取り込みは、すべてのアカウントに対して自動的に有効になります。 唯一の要件は、Backlotのアカウントにアップロード専用ユーザーを追加し、ユーザーパスワードを設定してから、アップロード専用ユーザーのEメールアドレスとパスワードを使用して取り込みエンドポイントにログインすることです。 <div class="p" id="ingestion_overview__backlot_ui_config_tasks">取り込んだ後は、Backlotを使用して資産設定を構成し、資産を管理できます。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+      <thead class="thead" align="left">
+       <tr class="row">
+        <th class="entry" valign="top" id="d316872e424">コンテンツ</th>
+
+        <th class="entry" valign="top" id="d316872e427">バックスロットUI</th>
+
+        <th class="entry" valign="top" id="d316872e430">詳細は</th>
+
+       </tr>
+
+      </thead>
+
+      <tbody class="tbody">
+       <tr class="row">
+        <td class="entry" valign="top" headers="d316872e424 d316872e427 d316872e430 ">ビデオのタイトルと説明</td>
+
+        <td class="entry" valign="top" headers="d316872e424 d316872e427 d316872e430 ">管理&gt;詳細サブタブ&gt;タイトル、説明</td>
+
+        <td class="entry" valign="top" headers="d316872e424 d316872e427 d316872e430 "><a class="xref" href="../tasks/video_manage_details.html" title="詳細を使用すると、メタデータを構成してプレーヤーを指定できます。">ビデオの詳細を管理する</a></td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" headers="d316872e424 d316872e427 d316872e430 ">サムネイル</td>
+
+        <td class="entry" valign="top" headers="d316872e424 d316872e427 d316872e430 ">管理&gt;詳細サブタブ&gt;プレビュー画像</td>
+
+        <td class="entry" valign="top" headers="d316872e424 d316872e427 d316872e430 "><a class="xref" href="../tasks/asset_manage_preview.html" title="アセットをアップロードした後、視聴者が再生ボタンをクリックする前に表示する画像を指定できます。">プレビュー画像の管理</a></td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" headers="d316872e424 d316872e427 d316872e430 ">フライトタイム</td>
+
+        <td class="entry" valign="top" headers="d316872e424 d316872e427 d316872e430 ">管理&gt;公開ルールサブタブ&gt;フライトタイム</td>
+
+        <td class="entry" valign="top" headers="d316872e424 d316872e427 d316872e430 "><a class="xref" href="../tasks/channelset_manage_syndication.html" title="チャンネルセットを作成したら、公開ルールを指定できます。 チャンネルセット、そのチャンネル、およびビデオにすべて公開ルールがある場合、Backlotは各ビデオのすべてのルールセットを評価し、より制限的な設定を使用します。">チャネルセットの公開ルールの管理（廃止予定）</a></td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" headers="d316872e424 d316872e427 d316872e430 ">クローズドキャプション</td>
+
+        <td class="entry" valign="top" headers="d316872e424 d316872e427 d316872e430 ">管理&gt;詳細サブタブ</td>
+
+        <td class="entry" valign="top" headers="d316872e424 d316872e427 d316872e430 "><a class="xref" href="../tasks/closed_captions_upload.html" title="クローズドキャプションファイルを準備したら、それをBacklotにアップロードできます。">Backlotでクローズドキャプションファイルをアップロードする</a></td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" headers="d316872e424 d316872e427 d316872e430 ">カスタムメタデータ</td>
+
+        <td class="entry" valign="top" headers="d316872e424 d316872e427 d316872e430 ">管理&gt;カスタムメタデータサブタブ</td>
+
+        <td class="entry" valign="top" headers="d316872e424 d316872e427 d316872e430 "><a class="xref" href="chapter_custom_metadata.html" title="カスタムメタデータを使用すると、資産に役立つ情報を追加できます。 カスタムメタデータを任意の種類のアセットに関連付けることができます。">カスタムメタデータの管理</a></td>
+
+       </tr>
+
+       <tr class="row">
+        <td class="entry" valign="top" headers="d316872e424 d316872e427 d316872e430 ">MRSS</td>
+
+        <td class="entry" valign="top" headers="d316872e424 d316872e427 d316872e430 ">公開 - &gt;外部公開</td>
+
+        <td class="entry" valign="top" headers="d316872e424 d316872e427 d316872e430 "><a class="xref" href="../tasks/syndication_sourcemrss.html">ソースMRSSとのシンジケーション</a>
+        </td>
+
+       </tr>
+
+      </tbody>
+
+     </table>
+</div>
+</div>
+<p class="gt-block p"><strong class="ph b">マニフェストベースの取り込み</strong></p>
+マニフェストベースの取り込みでは、ビデオファイルのアップロードに加えて、追加のメタデータ（ビデオのタイトル、説明、フライト時間、ラベル、カスタムメタデータなど）、およびサムネイルとクローズドキャプションファイルを指定できます。 これらのオプションは、 <em class="ph i">マニフェストファイル</em> あなたもアップロードする（CSVまたはXMLフォーマットで）。 見る
+    <a class="xref" href="ingestion_fileformats.html">マニフェストファイル形式</a>.
+    
+    <p class="p">マニフェストベースの取り込みは、デフォルトでは無効になっています。 この機能を有効にするには、次の操作を行います。</p>
+<ol class="ol">
+    <li class="li">Backlotでアップロード専用ユーザーを作成し、ユーザーパスワードを設定します（を参照）。 <a class="xref" href="chapter_usermanagement.html" title="[アカウント]タブの[ユーザー管理]サブタブを使用して、Backlotアカウントに関連付けられているユーザーを管理し、そのユーザーができることを制御します。">ユーザーの管理</a>).</li>
+
+    <li class="li">マニフェストベースの取り込みを可能にするために、Ooyalaへのサポートリクエストを作成します。 アカウントのアップロード専用ユーザーに関連付けられているメールアドレスを含めます。</li>
+
+   </ol>
+<p class="p">承認されると、アカウントはXMLとCSVの両方のマニフェスト形式で有効になります。
+   </p>
+<p class="gt-block p"><strong class="ph b">動的マニフェスト</strong></p>
+静的CSVおよびXMLマニフェストファイル形式に加えて、フィルタを使用して動的マニフェスト基準をアセットに適用できます。 見る <a class="xref" href="ingestion_dynamic_manifest.html">動的マニフェスト</a>.
+  
+  </div>
+ 
+  <div class="section"><h2 class="title sectiontitle">ベストインジェストオプションの決定</h2><p class="p">下の図は、必要な開発時間と機能/パフォーマンス別にプロットした、Ooyalaの取り込みオプションを示しています。  </p>
+<div class="fig fignone">
+    <img class="image" src="http://help-ooyala.brightcove.com/../image/ingest_options.png" height="417" width="417"/>
+   </div>
+ 次の表を参考にして、自分に最適なオプションを判断してください。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+     <thead class="thead" align="left">
+      <tr class="row">
+       <th class="entry" valign="top" id="d316872e610">もし...</th>
+
+       <th class="entry" valign="top" id="d316872e613">それから使用してください...</th>
+
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr class="row">
+       <td class="entry" valign="top" headers="d316872e610 d316872e613 ">アップロードするファイルがほんの数個しかなく、利用可能なプログラミングリソースがありません。</td>
+
+       <td class="entry" valign="top" headers="d316872e610 d316872e613 ">バックスロットUI。 動画をアップロードした後、Backlot UIを使用して手動で広告セットに関連付け、メタデータを指定し、その他の機能を設定できます。</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d316872e610 d316872e613 ">アップロードするファイルが多数あります（一括摂取） </td>
+
+       <td class="entry" valign="top" headers="d316872e610 d316872e613 ">マニフェストファイルの有無にかかわらず、FTPまたはAspera。</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d316872e610 d316872e613 "> あなたはたくさんのファイルをアップロードする必要があります（一括摂取）。 <ul class="ul">
+         <li class="li">サムネイル（プレビュー画像）を一緒に含める、または</li>
+
+         <li class="li">カスタムメタデータをそれらに関連付ける</li>
+
+        </ul>
+</td>
+
+       <td class="entry" valign="top" headers="d316872e610 d316872e613 ">CSV形式のマニフェストファイルを含むFTPまたはAspera。</td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d316872e610 d316872e613 ">Ooyalaにコンテンツ管理システム（CMS）からファイルを取り出させたい（つまり、MRSSを使用したい）</td>
+
+       <td class="entry" valign="top" headers="d316872e610 d316872e613 ">XMLフォーマットのマニフェストファイルを使用したMRSS。 </td>
+
+      </tr>
+
+      <tr class="row">
+       <td class="entry" valign="top" headers="d316872e610 d316872e613 ">プログラミングリソースがあります</td>
+
+       <td class="entry" valign="top" headers="d316872e610 d316872e613 ">Backlot API。 </td>
+
+      </tr>
+
+     </tbody>
+
+    </table>
+</div>
+<div class="note note"><span class="notetitle">注意：</span> FTPまたはAsperaでマニフェストファイルを使用する予定の場合、またはMRSSを使用する予定の場合は、カスタマーサクセスマネージャーまたはテクニカルサポートに連絡してください。</div>
+</div>
+
+   <div class="section"><h2 class="title sectiontitle">OIS摂取ログ</h2>Backlot UIでは、アップロード専用ユーザーは、OISを介して送信した取り込みジョブの読み取り専用レポートを表示できます（参照）。 <a class="xref" href="../tasks/accounttab_ingest.html" title="Backlotにログインすると、Ooyala Ingestion Service（OIS）を介して送信したインジェストジョブのステータスを表示できます。">バックスロットでの取り込みログの表示</a>） OIS取り込みログへのプログラムによるアクセスについては、 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/ingestion_log_api/index.html" target="_blank">ログ取得REST API</a>.  </div>
+
+   <div class="section" id="ingestion_overview__in_region_ingestion_and_transcoding"><h2 class="title sectiontitle">インリージョンインジェストとトランスコーディング</h2>AzureのMedia Service、Ooyala Ingestion Service、およびOoyala Transcoding Serviceを利用して、地域で行われるビデオアセットの取り込みおよびトランスコードをサポートします。 これにより、トランスコーディング時間が短縮され、コンテンツが地理的に収まるようになります。 領域内取り込みは、Backlot API、FTP、またはAsperaを使用してアップロードされたファイルに対してサポートされています。<p class="p">
+    自分のアカウントが地域内での取り込みおよびトランスコードに適しているかどうかを確認するには、Ooyalaのアカウント担当者にお問い合わせください。</p>
+<p class="gt-block p"><strong class="ph b">制限事項：</strong></p>
+<ul class="ul">
+     <li class="li">Flash形式のアセットファイルを含むプロファイルの処理ではサポートされていません</li>
+
+     <li class="li">平文資産とDRM資産が混在する処理プロファイルではサポートされません</li>
+
+     <li class="li">同じ多重化フォーマットに対するマルチDRM構成はサポートされていません</li>
+
+     <li class="li">サムネイルをサポートしていません</li>
+
+     <li class="li">クローズドキャプションをサポートしていません</li>
+</ul>
+</div>
+
+  <div class="section"><h2 class="title sectiontitle">コンテンツ置換</h2>
+   
+   <p class="p">FTP、Aspera、またはMRSSメカニズムでコンテンツ置換を使用することはできません。 実行しようとすると、資産が重複します。</p>
+
+   <p class="gt-block p">代わりに、 <samp class="ph codeph">/ v2 / assets</samp> APIリクエスト、 <samp class="ph codeph">/置換</samp> 各資産の修飾子です。 を参照してください <a class="xref" href="ingestion_backlot_api.html" title="プログラムでBacklotにコンテンツをアップロードするには、Backlot APIを使用します。 このアプローチにより、コンテンツ管理システム（CMS）またはワークフローをBacklotプラットフォームと直接統合することができます。">Backlot APIを使った取り込み</a>.</p>
+
+  </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_ingest.html" title="このドキュメントでは、Ooyalaにコンテンツを取り込む（アップロードする）方法について説明します。">摂取</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640

@@ -1,0 +1,83 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Labels Management: List (Deprecated)"/>
+<meta name="abstract" content=""/>
+<meta name="description" content=""/>
+<meta name="DC.Relation" scheme="URI" content="../archive/v1_v2_labels.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="v1_v2_labels_list"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>ラベル管理：リスト（非推奨）</title>
+</head>
+<body id="v1_v2_labels_list">
+
+
+ <h1 class="title topictitle1">ラベル管理：リスト（非推奨）</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc"/>
+
+  <div class="section"><h2 class="title sectiontitle">バックスロットAPI v1</h2>
+   
+   <pre class="pre codeblock">
+http://www.ooyala.com/partner/labels
+?pcode=&lt;pcode&gt;
+&amp;expires=&lt;expiration&gt;
+&amp;mode=listLabels
+&amp;signature=&lt;signature&gt;
+    
+   </pre>
+
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">バックスロットAPI v2</h2>
+   
+   <pre class="pre codeblock">
+[GET] https://api.ooyala.com/v2/labels
+    
+   </pre>
+
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">例</h2>
+   
+       <p class="p">次の例では、ラベルのリストを取得しています。</p>
+
+    <pre class="pre codeblock">
+[GET] https://api.ooyala.com/v2/labels
+    </pre>
+
+    <p class="gt-block p"><span class="ph">バックスロット</span> 次のような応答を返します。</p>
+
+<pre class="pre codeblock">
+{&quot;items&quot;：[{&quot;name&quot;： &quot;スポーツ&quot;、 &quot;id&quot;： &quot;814efb109416490a98ee3f4fcd6784cf&quot;、 &quot;parent_id&quot;：null、 &quot;フルネーム&quot;： &quot;/ Sports&quot;、 &quot;オートバイレーシング&quot;、 &quot; ID &quot;： &quot;bace921fdea44cc18a5a273155514522&quot;、 &quot;PARENT_ID&quot;： &quot;814efb109416490a98ee3f4fcd673244&quot;、 &quot;FULL_NAME&quot;： &quot;/スポーツ/オートバイレース&quot;}、{ &quot;名前&quot;： &quot;ホッケー&quot;、 &quot;ID&quot;： &quot;85042f300fc143c093e8f4ee01894355&quot;、 &quot;PARENT_ID&quot;：&quot; &quot;d5751b77a0c24972888bf906734d8c34&quot;、 &quot;フルネーム&quot;： &quot;/趣味/ホッケー&quot;}、{&quot;名前&quot;： &quot;趣味&quot;、 &quot;id&quot;： &quot;d5751b77aX&quot;、 &quot;*&quot;、 &quot;****&quot;、 &quot;idx&quot;、 &quot;\ *&quot;
+</pre>
+
+   
+   
+  </div>
+
+  
+  
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../archive/v1_v2_labels.html" title="新しいラベル管理APIには、Backlot API v1よりも多くの機能があり、それほど複雑ではありません。">ラベル管理API（廃止予定）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

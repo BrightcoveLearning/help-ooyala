@@ -1,0 +1,76 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Customizing the Sender Application for the Ooyala Chromecast Integration"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chromecast_and_ooyala.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/chromecast_android_customize_sender.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/chromecast_ios_customize_sender.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/chromecast_custom_notifications.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/chromecast_android_customize_sender.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/chromecast_ios_customize_sender.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="chromecast_customize_sender_app"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Ooyala Chromecast統合のためのSenderアプリケーションのカスタマイズ</title>
+</head>
+<body id="chromecast_customize_sender_app">
+
+
+    <h1 class="title topictitle1">Ooyala Chromecast統合のためのSenderアプリケーションのカスタマイズ</h1>
+
+    <div class="body conbody">
+        <div class="note important"><span class="importanttitle">重要：</span> このトピックには古い情報が含まれており、推奨されていません。 OoyalaとChromecastの統合に関する最新情報は、をご覧ください。 <a class="xref" href="chromecast/index.html">Chromecastの統合</a>.</div>
+
+        <p class="p">カスタマイズされた送信者は、Google送信者キャストSDK、Ooyala Mobile SDK、およびアプリケーションUX / UIと対話するカスタムコードです。 送信側アプリケーションのUI / UXをカスタマイズできます。 </p>
+
+        <div class="p">カスタマイズされた送信者アプリケーションは、デスクトップ（Chrome）またはモバイル（iOS / Android）プラットフォームで実行されているプラ​​イマリデバイスアプリケーションにロードされます。
+            <ul class="ul">
+                <li class="li">（推奨）メッセージを渡すためにGoogle Cast Custom Channel名前空間を使用します。</li>
+
+                <li class="li">カスタムチャネル経由のキャストメッセージバスを使用して、次のことを容易にします。
+                    <ul class="ul">
+                        <li class="li">Ooyala HTML5プレーヤーを起動するために、embed_Codeとplayer_branding_idをReceiverアプリケーションに送信します。</li>
+
+                        <li class="li">基本的なプレーヤー機能（停止、再生、一時停止など）をReceiverアプリケーションに送信して、Ooyala HTML5プレーヤーを制御します。</li>
+
+                        <li class="li">Custom Channel Listenerを介して、プレイヤーメッセージバスイベントに基づいてOoyala関連のプレイヤーエラーを受信し、それらをアプリケーションフレンドリなユーザーメッセージに変換します。 ユースケースの例は、Ooyalaデバイス管理機能が使用されている場合です。 / last_Resultメッセージはプレーヤメッセージバスに発行され、Senderに返されます。これらの結果に基づいて、適切なメッセージがアプリケーションに返されます。</li>
+
+                    </ul>
+
+                </li>
+
+            </ul>
+</div>
+
+    </div>
+
+  <div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../tasks/chromecast_android_customize_sender.html">Android Senderアプリケーションのカスタマイズ</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../tasks/chromecast_ios_customize_sender.html">iOS Senderアプリケーションのカスタマイズ</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../reference/chromecast_custom_notifications.html">通知について</a></strong><br/>
+OOCastManager通知を確認してください。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chromecast_and_ooyala.html">ChromecastとOoyala（廃止予定）</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong><br/>
+<div><a class="link" href="../tasks/chromecast_android_customize_sender.html">Android Senderアプリケーションのカスタマイズ</a></div>
+<div><a class="link" href="../tasks/chromecast_ios_customize_sender.html">iOS Senderアプリケーションのカスタマイズ</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!--

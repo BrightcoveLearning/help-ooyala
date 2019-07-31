@@ -1,0 +1,184 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="2014-06-03 Release"/>
+<meta name="abstract" content="Notable changes include software updates to iOS SDK v. 2.4.0, Android SDK v. 2.4.0, Discovery, and documentation updates for iOS SDK v. 2.4.0, Android SDK v. 2.4.0, TinyPass Paywall Integration, Google IMA Ad Rules, Facebook Active Sharing, Theme Builder supported operating systems and browsers, DFXP, and country code update in Backlot."/>
+<meta name="description" content="Notable changes include software updates to iOS SDK v. 2.4.0, Android SDK v. 2.4.0, Discovery, and documentation updates for iOS SDK v. 2.4.0, Android SDK v. 2.4.0, TinyPass Paywall Integration, Google IMA Ad Rules, Facebook Active Sharing, Theme Builder supported operating systems and browsers, DFXP, and country code update in Backlot."/>
+<meta name="DC.Relation" scheme="URI" content="../relnotes/release_notes_2014.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="release"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>2014-06-03リリース</title>
+</head>
+<body id="release">
+
+
+ <h1 class="title topictitle1">2014-06-03リリース</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc">注目すべき変更には、iOS SDK v。2.4.0、Android SDK v。2.4.0、Discovery、およびiOS SDK v。2.4.0、Android SDK v。2.4.0、TinyPassペイウォール統合、Google IMA Ad Rules、Facebook Active Sharing、テーマのソフトウェアアップデートが含まれます。 Builderは、オペレーティングシステムとブラウザ、DFXP、およびBacklotの国コードの更新をサポートしていました。</p>
+
+  <div class="section"><h2 class="title sectiontitle">ソフトウェア機能リリース</h2><p class="p">以下は新しいソフトウェアリリース項目です。</p>
+<strong class="ph b"> iOS SDK v.2.4.0 </strong><p class="p"> iOS用Ooyala Mobile SDKのバージョン2.4.0がリリースされました。 バージョン2.4.0には以下が含まれます。 </p>
+<p class="gt-block p">
+    <strong class="ph b">注</strong> 注：これらの変更により、統合の更新が必要になる場合があります。 </p>
+<div class="p">
+    <ul class="ul" id="release__docs-internal-guid-a8312c76-5efb-e097-a022-4d83c1516954">
+     <li class="li">
+      <p class="p">クローズドキャプションのUIとAPIのメジャーアップデートにより、iOSモバイルデバイス用のFCC 708準拠が可能になり、エンドユーザーは言語や外観などのクローズドキャプションの設定を簡単に設定できるようになりました。</p>
+
+
+       <p class="gt-block p">FCC 708に準拠するには、リンクする必要があります <samp class="ph codeph"> QuartzCore.framework </samp> そして
+        <samp class="ph codeph">MediaAccessibility.framework</samp><a class="xref" href="https://developer.apple.com/library/ios/recipes/xcode_help-project_editor/Articles/AddingaLibrarytoaTarget.html" target="_blank"> あなたのバイナリに</a>。 あなたがマークすることがあります
+         <samp class="ph codeph">  MediaAccessibilty.framework</samp> オプションとして。</p>
+
+     </li>
+
+     <li class="li">新しい <samp class="ph codeph">OOPlayerDomain</samp> のすべてのインスタンスに使用する必要があるクラス
+      <samp class="ph codeph">OOOoyalaPlayerViewController</samp>、コードの精度を向上させるために。</li>
+
+     
+     <li class="li">
+      <p class="p">Analyticsの取り込みとレポートの正確性が向上しました。文字列を追加する必要があります。
+       <samp class="ph codeph">&#39;http：//&#39;</samp> を通じてドメインを提供する場合 <samp class="ph codeph">PlayerDomainクラス</samp>.</p>
+
+      <p class="gt-block p">
+       <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/concepts/mobile_sdk_ios_release_notes.html#mobile_sdk_ios_release_notes">iOS SDK v.2.4.0のフルリリースノート</a></p>
+
+     </li>
+
+    </ul>
+
+   </div>
+</div>
+
+  <div class="section"><h2 class="title sectiontitle">  Android SDK v.2.4.0 </h2>
+   </div>
+
+  
+  <div class="section"> Android用Ooyala Mobile SDKのバージョン2.4.0がリリースされました。 バージョン2.4.0には以下が含まれます。 <p class="gt-block p">
+    <strong class="ph b">注</strong> 注：これらの変更により、統合の更新が必要になる場合があります。 </p>
+<div class="p">
+    <ul class="ul" id="release__docs-internal-guid-a8312c76-5efd-7970-04ab-c8383be40bf0">
+     <li class="li">
+      <p class="p">クローズドキャプションUIおよびAPIのメジャーアップデート。Androidモバイルデバイス向けのFCC 708準拠を有効にし、エンドユーザーが言語や外観などのクローズドキャプションの設定を簡単に設定できるようにします。</p>
+
+     </li>
+
+     <li class="li">
+      <p class="p">新しい <samp class="ph codeph">PlayerDomainクラス</samp> （新しい <samp class="ph codeph">PlayerDomain（ドメイン）</samp>のすべてのインスタンスに使用する必要があります） <samp class="ph codeph"> OoyalaPlayerLayoutController</samp> そして
+        <samp class="ph codeph">OptimizedOoyalaPlayerLayoutController</samp>、コードの精度を向上させるために。</p>
+
+     </li>
+
+     <li class="li">
+      <p class="p">Analyticsの取り込みとレポートの正確性が向上しました。文字列を追加する必要があります。
+      <samp class="ph codeph">&#39;http：//&#39;</samp> を通じてドメインを提供する場合 <samp class="ph codeph">PlayerDomainクラス</samp>.</p>
+
+      <p class="gt-block p">
+       <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/concepts/mobile_sdk_android_release_notes.html#mobile_sdk_android_release_notes">Android SDK v.2.4.0のフルリリースノート</a></p>
+
+     </li>
+
+    </ul>
+
+   </div>
+</div>
+
+  <div class="section"><h2 class="title sectiontitle">Discovery</h2><p class="p">Backlot UIで実装した場合、共有ラベルおよび特定ラベルがHTML5プレーヤー間でアセットの推奨事項に適用されないというバグを修正しました。
+   </p>
+</div>
+<div class="section"><h2 class="title sectiontitle">ドキュメントリリース項目</h2>
+   <p class="p">以下は、新しいドキュメントのリリース項目です。 </p>
+<ul class="ul">
+     <li class="li"><p class="gt-block p"><strong class="ph b"> Google IMAの広告ルール </strong></p>
+
+     <a class="xref" href="../concepts/ads_dev_chapter_googleima.html#ads_dev_chapter_googleima">
+      Google IMAの広告ルール</a>- 広告ルールとGoogle IMAに関する情報を追加しました（各プラットフォームでサポートされている広告の種類を含む）。 </li>
+
+     <li class="li"><p class="gt-block p"><strong class="ph b"> Tinypassを使用した新しいペイウォールソリューション </strong></p>
+
+     <a class="xref" href="../concepts/backlot_integrate_with_tinypass.html#backlot_integrate_with_tinypass">Tinypassと統合する</a>  -  Tinypassを使用した新しい軽量ペイウォールソリューションに関するドキュメントを追加しました。 このペイウォールソリューションは、FlashとHTML5に広範なデバイスの適用範囲を提供します。 </li>
+
+     <li class="li"><p class="gt-block p"><strong class="ph b"> Facebookのアクティブ共有設定 </strong></p>
+
+     <a class="xref" href="../tasks/facebook_active_app_setup.html#facebook_active_app_setup" title="このセクションでは、埋め込みメタタグを使用してアクティブ共有を設定するための基本的な手順について説明します。">アクティブ共有設定</a> - メタタグコードの例を更新しました。 <p class="gt-block p"><strong class="ph b"> テーマビルダーでサポートされているオペレーティングシステムとブラウザ </strong></p>
+
+     <a class="xref" href="../concepts/themebuilder_dg_supported_browsers.html#themebuilder_dg_supported_browsers">サポートされているオペレーティングシステムとブラウザ</a> - テーマビルダーでサポートされているオペレーティングシステムおよびブラウザに関するドキュメントを追加しました。 <p class="p"> </p>
+</li>
+
+
+    <li class="li">
+     <p class="gt-block p"><strong class="ph b"> iOS SDK v.2.4.0</strong></p>
+
+     <ul class="ul" id="release__ul_ltn_m4v_h4">
+      <li class="li">
+       <a class="xref" href="../concepts/chapter_mobile_sdk_ios.html#chapter_mobile_sdk_ios">iOS用Mobile SDK v.2.4.0</a>- 新しいトピックページ「はじめに：環境の設定」を追加しました。</li>
+
+      <li class="li"><a class="xref" href="../concepts/chapter_mobile_sdk_ios.html#chapter_mobile_sdk_ios">iOS用Mobile SDK v.2.4.0</a>- 新しいトピックページ「iOS FCC 708クローズドキャプションのコンプライアンス」を追加しました。iOS用のOoyalaモバイルSDKが追加されました<a class="xref" href="http://www.fcc.gov/document/closed-captioning-internet-protocol-delivered-video-programming-1" target="_blank"> 連邦通信委員会（FCC）708準拠</a>
+       クローズドキャプションのサポート この機能は、エンドユーザーがクローズドキャプションをプレーヤーにどのようにレンダリングするかを簡単に操作できるようにするために、FCCで規定されているユーザーコントロールをサポートしています。</li>
+
+      <li class="li">
+       <a class="xref" href="../concepts/mobile_sdk_ios_freewheel.html#mobile_sdk_ios_freewheel">iOS上のFreeWheelとの統合</a>  - 最新のiOS SDKドキュメント。 iOS用FreeWheel SDK URLのリンク切れを修正しました。 FreeWheelライブラリフォルダへの参照を削除しました。 FreeWheel Headersファイルの記述を修正しました。 </li>
+
+     </ul>
+
+     <p class="p"/>
+
+    </li>
+
+     
+    <li class="li">
+     <p class="gt-block p"><strong class="ph b">Android SDK v.2.4.0 </strong></p>
+
+     <ul class="ul">
+       <li class="li"><a class="xref" href="../concepts/chapter_mobile_sdk_android.html#chapter_mobile_sdk_android">Android用Mobile SDK v.2.4.0</a>- バージョン2.4.0のAndroid SDKドキュメントを更新。 </li>
+
+     <li class="li"><a class="xref" href="../concepts/mobile_sdk_android_freewheel.html#mobile_sdk_android_freewheel">Android上のFreeWheelとの統合</a> - アップデートされたAndroid SDKのドキュメント。 Android用FreeWheel SDK URLのリンク切れを修正しました。 </li>
+  
+     </ul>
+</li>
+
+    <li class="li"><p class="gt-block p"><strong class="ph b"> DFXP</strong></p>
+
+    <ul class="ul">
+     <li class="li">
+      <a class="xref" href="../reference/dfxp_format.html#dfxp_format" title="Backlotにアップロードするクローズドキャプションファイルは、サポートされている形式でなければなりません。 DFXP形式（現在はTTML）は、広く使用されている形式です。">クローズドキャプションのDFXP形式</a>- バージョンサポート情報でDFXPドキュメントを更新しました。 </li>
+</ul>
+</li>
+
+     <li class="li"><p class="gt-block p"><strong class="ph b"> Backlotのベトナム国コード </strong></p>
+
+     <ul class="ul">
+      <li class="li">
+       <a class="xref" href="../reference/location_codes.html#reference" title="これらの国別コードは、さまざまなOoyala機能で使用されています。">国と場所のコード</a>-  Backlotのベトナムの国名が「Viet Nam」であるというメモを追加しました。</li>
+
+     </ul>
+
+     </li>
+
+   
+    
+    </ul>
+
+    </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../relnotes/release_notes_2014.html" title="2014からのリリースノート。">2014ビデオプラットフォームリリースノート</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

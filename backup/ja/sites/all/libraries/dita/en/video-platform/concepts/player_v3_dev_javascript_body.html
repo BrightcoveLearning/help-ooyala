@@ -1,0 +1,103 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Organizing the BODY"/>
+<meta name="abstract" content="Set up basic sections in the body."/>
+<meta name="description" content="本体に基本的なセクションを設定します。"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_v3_javascript_complete"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>体の整理</title>
+</head>
+<body id="player_v3_javascript_complete">
+
+
+ <h1 class="title topictitle1">体の整理</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc"> 本体に基本的なセクションを設定します。</p>
+
+  <div class="p">基本的な <samp class="ph codeph">&lt;BODY&gt;</samp> structure can be organized into the following parts:<ol class="ol" id="player_v3_javascript_complete__ol_jzw_snv_n3">
+        <li class="li">Presentation layout with named <samp class="ph codeph">&lt;DIV&gt;</samp> 要素。</li>
+
+        <li class="li">  <samp class="ph codeph">onCreate</samp> function, which ensures the player is in a playback-ready state. See <a class="xref" href="player_v3_dev_javascript_body_oncreate.html#player_v3_javascript_complete" title="onCreate関数内で、Playerオブジェクトに関連するすべてのアクションとカスタマイズを管理できます。">onCreateを使ったプレーヤー状態の処理</a> for
+          more information.</li>
+
+        <li class="li">Asset information retrieved via listeners and method calls. See <a class="xref" href="player_v3_dev_javascript_body_content_withmethods.html#player_v3_javascript_complete" title="処理したいアセットの情報を取得するには、イベントリスナーとPlayer V3 APIメソッドを使用します。">リスナーとメソッド呼び出しに関する情報</a> 詳細については。</li>
+
+        <li class="li">The logic required for <a class="xref" href="player_v3_dev_javascript_body_play.html#player_v3_javascript_complete" title="Make sure everything is ready, specify embedded parameters, and play the video and assets.">ビデオを再生する</a>.</li>
+
+      </ol>
+</div>
+
+   <p class="gt-block p">The snippet below shows the first section, which is the presentation layer defined with
+        <samp class="ph codeph">&lt;DIV&gt;</samp> elements and a <samp class="ph codeph">getElement()</samp> function that
+      accesses them. Those layout elements are referenced later with the Player V3 API (see <a class="xref" href="player_v3_dev_javascript_body_content_withmethods.html#player_v3_javascript_complete" title="処理したいアセットの情報を取得するには、イベントリスナーとPlayer V3 APIメソッドを使用します。">リスナーとメソッド呼び出しに関する情報</a>).  </p>
+
+   <pre class="pre codeblock">
+ 
+ 
+.
+.
+.
+  &lt;body&gt;
+    My Player V3 Content.
+
+    // The DIV elements specify the layout for the content elements.
+    &lt;!-- This is where the player will be rendered: --&gt;
+    &lt;div id='playerwrapper' style='width:480px;height:360px;'&gt;&lt;/div&gt;
+
+    &lt;!-- This is where the metadata will be displayed: --&gt;
+    &lt;div id='metadata'&gt;
+      -- Metadata --&lt;br/&gt;
+    &lt;/div&gt;
+
+    &lt;!-- This is where the bitrate information will be displayed: --&gt;
+    &lt;div id='bitrate'&gt;
+      -- Bitrate (Flash only) --&lt;br/&gt;
+    &lt;/div&gt;
+
+    &lt;!-- This is where the buffering information will be displayed: --&gt;
+    &lt;div id='buffer'&gt;
+      -- Buffer --&lt;br/&gt;
+    &lt;/div&gt;
+
+
+    &lt;script type=text/javascript&gt;
+
+     // This function retrieves the content element corresponding to the specified DIV element ID:
+     function getElement(id) {
+       return document.querySelector('#'+id);
+     }
+.
+.
+.   &lt;/script&gt;
+  &lt;/body&gt;
+.
+.
+.
+
+  </pre>
+
+ </div>
+
+ 
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

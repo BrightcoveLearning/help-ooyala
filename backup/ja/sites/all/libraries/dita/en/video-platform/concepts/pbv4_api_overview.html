@@ -1,0 +1,102 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="About the Player V4 JavaScript API"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_api.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_api_overview"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>プレーヤV4 JavaScript APIについて</title>
+</head>
+<body id="pbv4_api_overview">
+
+
+    <h1 class="title topictitle1">約 <span class="ph">プレイヤーV4</span> JavaScript API</h1>
+
+
+    <div class="body conbody">
+        <div class="section">このトピックでは、主要な概念の概要について説明します。 <span class="ph">プレイヤーV4</span> JavaScript API</div>
+
+        <div class="section"><h2 class="title sectiontitle">APIリファレンス</h2>
+            見る <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_v4_js/index.html" target="_blank">docs.brightcove.com/apidocs-ooyala/</a> Player V4 JavaScript APIリファレンス用。
+        </div>
+
+        <div class="section"><h2 class="title sectiontitle"><span class="ph">プレイヤーV4</span>
+            API関数</h2>新しいインスタンスを作成できたら <span class="ph">プレイヤーV4</span> オブジェクト：
+            <pre class="pre codeblock">new Player（）</pre>
+で説明されている機能を使用してプレーヤインスタンスを管理できます。 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_v4_js/OO.Player.html" target="_blank">https://docs.brightcove.com/apidocs-ooyala/player_v4_js/OO.Player.html</a>.  </div>
+
+        <div class="section"><h2 class="title sectiontitle"><span class="ph">プレイヤーV4</span> 米国</h2> ランニング中のプレイヤーはそのライフサイクルの間に様々な状態を経験します。 例えば： <ul class="ul">
+                <li class="li">ビデオとメタデータは <strong class="ph b">ローディング</strong> プレーヤーに。</li>
+
+                <li class="li">ビデオ再生は <strong class="ph b">準備</strong> 開始します。</li>
+
+                <li class="li">プレイヤーは現在 <strong class="ph b">再生</strong> ビデオコンテンツ</li>
+
+                <li class="li">プレイヤーは現在 <strong class="ph b">一時停止</strong> （再生が始まった後）。</li>
+
+                <li class="li">プレイヤーは <strong class="ph b">バッファリング</strong> - 継続するのに十分なビデオデータがないため、再生が停止し、さらにダウンロード中です。</li>
+
+                <li class="li">プレイヤーは <strong class="ph b">エラー</strong> それはビデオの再生を妨げます。</li>
+
+            </ul>
+現在のプレーヤの状態によって、現在の状況でどの機能が利用可能かが決まります。 たとえば、プレーヤがプレーヤに入っているときに再生操作を使用できます。
+                <strong class="ph b">準備</strong> 状態で、一時停止操作は
+                <strong class="ph b">再生</strong> 状態。 状態変化はイベントによって引き起こされます（下記参照）。 プレイヤーの状態の一覧については、を参照してください。 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_v4_js/OO.STATE.html" target="_blank">https://docs.brightcove.com/apidocs-ooyala/player_v4_js/OO.STATE.html</a>.</div>
+
+        <div class="section"><h2 class="title sectiontitle"><span class="ph">プレイヤーV4</span> イベント</h2> プレーヤーのランタイムイベントは、次のいずれかの方法で発生させることができます。 <ul class="ul">
+                <li class="li">エンドユーザーの操作によって手動で（たとえば、[再生]ボタンまたは[一時停止]ボタンをクリックする）</li>
+
+                <li class="li">API呼び出しを介してプログラム的に</li>
+
+            </ul>
+一般的な再生イベントの例をいくつか示します。 <ul class="ul">
+                <li class="li">再生が始まりました</li>
+
+                <li class="li">再生が完了しました</li>
+
+                <li class="li">広告の掲載が開始されました</li>
+
+                <li class="li">1つ以上の広告の再生が完了しました</li>
+
+                <li class="li">エラーが発生しました</li>
+
+            </ul>
+イベントはプレイヤーの状態の変化を引き起こす可能性があります。 たとえば、ユーザーが再生ボタンをクリックすると、「再生が開始されました」イベントが発生し、プレーヤーの状態が次のように変更されます。
+            <strong class="ph b">再生</strong>。 プレイヤーイベントのリストについては、を参照してください。 <a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_v4_js/OO.EVENTS.html" target="_blank">https://docs.brightcove.com/apidocs-ooyala/player_v4_js/OO.EVENTS.html</a>.
+        
+        </div>
+
+        
+        <div class="section"><h2 class="title sectiontitle"><span class="ph">プレイヤーV4</span>
+                エラー</h2> ために <span class="ph">プレイヤーV4</span> エラーとエラー処理 <a class="xref" href="../reference/pbv4_dev_errors.html" title="エラー処理機能とイベントを使用すると、Playerエラーに関する情報を取得できます。">JavaScriptを使用したPlayer V4のエラー処理</a> 以下のトピック <ul class="ul">
+                    <li class="li"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_v4_js/OO.ERROR.html" target="_blank">https://docs.brightcove.com/apidocs-ooyala/player_v4_js/OO.ERROR.html</a></li>
+
+                    <li class="li"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_v4_js/OO.ERROR.API.html" target="_blank">https://docs.brightcove.com/apidocs-ooyala/player_v4_js/OO.ERROR.API.html</a></li>
+
+                    <li class="li"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_v4_js/OO.ERROR.API.SAS.html" target="_blank">https://docs.brightcove.com/apidocs-ooyala/player_v4_js/OO.ERROR.API.SAS.html</a></li>
+
+                    <li class="li"><a class="xref" href="https://docs.brightcove.com/apidocs-ooyala/player_v4_js/OO.ERROR.PLAYBACK.html" target="_blank">https://docs.brightcove.com/apidocs-ooyala/player_v4_js/OO.ERROR.PLAYBACK.html</a></li>
+
+            </ul>
+</div>
+
+        
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/pbv4_api.html">プレーヤV4 JavaScript API</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

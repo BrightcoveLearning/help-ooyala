@@ -1,0 +1,386 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Player V3 Embedded Parameters (Deprecated)"/>
+<meta name="DC.Relation" scheme="URI" content="../api/player_v3_api_params.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_v3_api_embedparams.xml"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Player V3埋め込みパラメータ（廃止予定）</title>
+</head>
+<body id="player_v3_api_embedparams.xml">
+
+
+  <h1 class="title topictitle1">Player V3埋め込みパラメータ（廃止予定）</h1>
+
+ 
+  <div class="body refbody">
+    <div class="section"><div class="note important"><span class="importanttitle">重要：</span> Ooyala Player V3は非推奨であり、予定されている予定です。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V3はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだPlayer V3を使用しているお客様は、Player V4に移行する必要があります（を参照）。 <a class="xref" href="../concepts/pbv4_migration_v3.html">Player V3からの移行</a> そして <a class="xref" href="../concepts/pbv4_migration_faq.html">プレイヤー移行に関するFAQ</a>).</div>
+      
+      <div class="p">埋め込みパラメータを <span class="keyword apiname">OO.Player.create（）</span> 方法。 これらのパラメータは次のとおりです。 <ul class="ul">
+          <li class="li">CSSスタイルの設定（ <span class="keyword parmname">幅</span> そして
+            <span class="keyword parmname">高さ</span>)</li>
+
+          <li class="li">サポートされているFlash属性（ <span class="keyword parmname">Wモード</span>)</li>
+
+          <li class="li">その他のパラメータ（広告サーバーや広告ネットワークアカウントのタグ（高度な広告の追跡とターゲティングに使用されるタグなど））</li>
+
+        </ul>
+次の表は、キーと値のペアとして表されるこれらの埋め込みパラメータのいくつかを説明しています。 <span class="keyword apiname">OO.Player.create（）</span> 方法。 特に明記しない限り、この表のパラメータはHTML5プレーヤーとFlashプレーヤーの両方に使用できます。</div>
+
+      <div class="note note"><span class="notetitle">注意：</span> Google IMA、VAST、VPAID、FreeWheel、およびLiverailの埋め込みパラメータを指定するには、を参照してください。
+        <a class="xref" href="../reference/player_v3_dev_adsparams.html" title="埋め込みパラメータを使用して広告をカスタマイズします。">広告用のPlayer V3埋め込みパラメータ（廃止予定）</a> 目的の広告マネージャまたはモジュールのリンクをたどります。</div>
+
+      
+      <div class="p">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="player_v3_api_embedparams.xml__table_ixk_p4j_xh" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">表1 埋め込みパラメータ</span></caption>
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="20.40816326530612%" id="d85850e83">パラメータキー</th>
+
+                <th class="entry" valign="top" width="79.59183673469387%" id="d85850e86">説明</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="20.40816326530612%" headers="d85850e83 "><span class="keyword parmname">adSetCode</span></td>
+
+                <td class="entry" valign="top" width="79.59183673469387%" headers="d85850e86 ">
+                  <p class="p">各広告セットには一意の広告セットコードIDがあります。 使用
+                      <samp class="ph codeph">adSetCode</samp> 広告セットを特定のプレーヤーとプレーヤーアセット（ビデオ）に関連付けるためのキーと値のペア。 </p>
+
+                  <div class="p">
+                    <div class="note note"><span class="notetitle">注意：</span> 最初に広告セットコードを設定する必要があります <span class="ph">バックスロット</span>。 Backlotで広告セットコードを設定して使用する方法の詳細 <samp class="ph codeph">adSetCode</samp>を参照してください <a class="xref" href="../tasks/player_v3_dev_adsetoocreate.html" title="Player V3では、OO.Player.createとadSetCodeパラメータを使用して広告セットを動的に割り当てることができます。">Player V3でOO.Player.createを使用して広告セットを割り当てる（廃止予定）</a>.</div>
+
+                  </div>
+
+                  <p class="gt-block p"><strong class="ph b">例</strong>:</p>
+
+                  <pre class="pre codeblock">&lt;スクリプト&gt; var videoPlayer = OO.Player.create（ &#39;playerwrapper&#39;、 &#39;embed_code&#39;、{高さ： &#39;100％&#39;、幅： &#39;100％&#39;、adSetCode： &#39;yourAdSetCode&#39;}）; &lt;スクリプト&gt;</pre>
+
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20.40816326530612%" headers="d85850e83 "><span class="keyword parmname">分析論</span></td>
+
+                <td class="entry" valign="top" width="79.59183673469387%" headers="d85850e86 ">
+                  <p class="p">Player V3でカスタム分析タグを使用できるようにします。 </p>
+
+                  <p class="gt-block p"><strong class="ph b">例</strong>:</p>
+
+                  <pre class="pre codeblock">... var ca_tags = []; ca_tags [0] = &quot;ツールバー&quot;; OO.ready（function（）{OO.Player.create（ &#39;ooyalaplayer&#39;、 &#39;w3ZHc0Njr33Tdp-RRcwfZMjaOrmzOP82&#39;、{analytics：{&quot;tags&quot;：ca_tags}}）;}）; ...</pre>
+
+                  <div class="note note"><span class="notetitle">注意：</span> カスタム分析タグ、およびBacklot REST APIでこれらのタグを使用する方法について詳しくは、以下を参照してください。 <a class="xref" href="analytics_custom_tags.html#analytics_tags" title="タグを使用すると、カスタムレポートを作成するために使用できるOoyalaアナリティクスにカスタム情報を挿入できます。">カスタム分析：タグ</a> そして
+                    <a class="xref" href="tags.html#api_tags" title="タグを使用すると、カスタムレポートを作成するために使用できるOoyalaアナリティクスにカスタム情報を挿入できます。">カスタム分析：タグ</a>.</div>
+
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20.40816326530612%" headers="d85850e83 "><span class="keyword parmname">自動再生</span></td>
+
+                <td class="entry" valign="top" width="79.59183673469387%" headers="d85850e86 ">
+                  <p class="p">ロード時にアセット（ビデオまたはオーディオ）の自動再生を有効にします。 これは、再生/一時停止コントロールを持たないUIや、コンテンツをすぐに再生する条件がある場合に便利です。</p>
+
+                  <p class="gt-block p"><strong class="ph b">例</strong>:</p>
+
+                  <pre class="pre codeblock">var videoPlayer = OO.Player.create（ &#39;playerwrapper&#39;、 &#39;embed_code&#39;、{高さ：100％、幅：100％、自動再生：true、....}）;</pre>
+
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20.40816326530612%" headers="d85850e83 "><span class="keyword parmname">enableChannels</span>
+                </td>
+
+                <td class="entry" valign="top" width="79.59183673469387%" headers="d85850e86 ">チャンネルモードでFlashビデオの読み込みを有効にします。 このパラメータは、チャネルに対して下位互換性を提供します。 デフォルトでは、フラグはfalseに設定されています。 embedChannelsパラメータはHTML5の互換性を処理し、Flashチャンネルの使いやすさを保証します。 <p class="gt-block p">
+                    <strong class="ph b">HTMLの場合</strong>:  </p>
+<ul class="ul" id="player_v3_api_embedparams.xml__ul_vm3_ryk_4h">
+                    <li class="li">設定する <samp class="ph codeph">enableChannels：true</samp> チャンネルの最初のビデオまたはチャンネルセットの最初のチャンネルの最初のビデオを再生する</li>
+
+                    <li class="li">設定する <samp class="ph codeph">enableChannels：false</samp> エラー画面を表示します。</li>
+
+                  </ul>
+<p class="gt-block p">
+                    <strong class="ph b">フラッシュの場合：</strong>
+                  </p>
+<ul class="ul" id="player_v3_api_embedparams.xml__ul_vm3_ryk_5h">
+                    <li class="li">設定する <samp class="ph codeph">enableChannels：true</samp> チャンネルをプレーヤーに渡して通常通りに実行します（これはパフォーマンスに影響を与える可能性があります）。</li>
+
+                    <li class="li">設定する <samp class="ph codeph">enableChannels：false</samp> エラー画面を表示します。</li>
+
+                  </ul>
+
+                  <strong class="ph b">例</strong>:
+                  
+                  <pre class="pre codeblock">var videoPlayer = OO.Player.create（ &#39;playerwrapper&#39;、 &#39;embed_code&#39;、{高さ：100％、幅：100％、enableChannels：true、....}）;</pre>
+</td>
+
+              </tr>
+
+              
+              <tr class="row">
+                <td class="entry" valign="top" width="20.40816326530612%" headers="d85850e83 "><span class="keyword parmname">initialTime</span></td>
+
+                <td class="entry" valign="top" width="79.59183673469387%" headers="d85850e86 ">このパラメータを使用して、特定の時点でコンテンツの再生を開始する初期時間を秒単位で設定します。 このパラメータは、iOSベースのデバイスの検索を有効にするために使用できます。 このパラメーターをCross-Device Resumeと一緒に使用して、特定のユーザーの位置を探すこともできます。 <p class="gt-block p"><strong class="ph b">タイプ</strong>整数 </p>
+<p class="gt-block p"><strong class="ph b">有効な値</strong>秒単位の時間</p>
+<p class="gt-block p"><strong class="ph b">例</strong>：initialTime：10</p>
+<div class="p">
+                    <pre class="pre codeblock">OO.ready（function（）{window.pp = OO.Player.create（ &#39;playerV3Container&#39;、 &#39;embed_code&#39;、{幅：480、高さ：360、initialTime：10}）; </pre>
+
+                  </div>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20.40816326530612%" headers="d85850e83 "><span class="keyword parmname">インストリーム</span></td>
+
+                <td class="entry" valign="top" width="79.59183673469387%" headers="d85850e86 ">このパラメータを使用して、In-Stream広告サーバーまたはネットワークタグをOoyalaプレーヤーに渡します。 このパラメータは、In-Stream URLを表すキーと値のペアを取ります。
+                      <p class="gt-block p"><strong class="ph b">例</strong>:</p>
+<pre class="pre codeblock">var videoPlayer = OO.Player.create（ &#39;playerwrapper&#39;、 &#39;embed_code&#39;、{高さ：100％、幅：100％、 &#39;インストリーム&#39;：{tagUrl： &#39;some url&#39;、....}、}） ;</pre>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20.40816326530612%" headers="d85850e83 "><span class="keyword parmname">ローカル</span></td>
+
+                <td class="entry" valign="top" width="79.59183673469387%" headers="d85850e86 ">
+                  <p class="p">このパラメータを使用して、言語とクローズドキャプションのオプションを設定または上書きします。 次の例では、ロケールパラメータを使用してヘブライ語のローカライズプレーヤーを作成しています。 iOSではクローズドキャプションがサポートされているため、リモートアセット用のIOS Webにクローズドキャプションデータを追加することはできません。</p>
+
+                  <div class="p"><strong class="ph b">例</strong>:
+                    
+                    <pre class="pre codeblock">var videoPlayer = OO.Player.create（ &#39;playerwrapper&#39;、 &#39;embed_code&#39;、{高さ：100％、幅：100％、ロケール： &#39;he_IL&#39;、....}）;</pre>
+</div>
+
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20.40816326530612%" headers="d85850e83 "><span class="keyword parmname">ループ</span></td>
+
+                <td class="entry" valign="top" width="79.59183673469387%" headers="d85850e86 ">このパラメータを使用して連続再生を有効にします。 loopをtrueに設定すると、再生が開始されると、ユーザーが再生を停止するかブラウザを閉じるまで再生が継続されます。 setEmbedCodeを使用して埋め込みコードを設定した場合も、動作は同じです。 自動再生がtrueの場合、埋め込みコードが設定されるとすぐに、プレーヤの以前の状態（ビデオの再生中/一時停止中/停止中）に関係なく再生がすぐに開始されます。 自動再生およびループのパラメータがsetEmbedCodeを介して渡されない場合は、既存の値が使用されます（以前のsetEmbedCodeの呼び出しで設定された可能性があります）。<p class="gt-block p"><strong class="ph b">例</strong>:</p>
+<pre class="pre codeblock">var videoPlayer = OO.Player.create（ &#39;playerwrapper&#39;、 &#39;embed_code&#39;、{高さ：100％、幅：100％、ループ：true、....}）;</pre>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20.40816326530612%" headers="d85850e83 "><span class="keyword parmname">onCreate</span></td>
+
+                <td class="entry" valign="top" width="79.59183673469387%" headers="d85850e86 ">このパラメータを使用して、イベントメッセージを監視し、アクションを実行します。 このパラメータを使用すると、プレーヤが完全に作成される前にメッセージバスからのイベントメッセージを購読することができます。 それはあなたがその完全な作成の前にプレイヤーを修正することを可能にします。 <p class="gt-block p">呼び出されると、 <span class="keyword parmname">onCreate：function（プレーヤー）：</span>
+                  </p>
+<ul class="ul" id="player_v3_api_embedparams.xml__ul_c1p_gyw_wk">
+                    <li class="li">
+                      <p class="p">追加モジュール（カスタム、3rdパーティー、またはその他のタイプ）がないか調べます。</p>
+
+                    </li>
+
+                    <li class="li">
+                      <p class="p">これらの追加モジュールがメッセージバスに接続できるようにします。</p>
+
+                    </li>
+
+                    <li class="li">
+                      <p class="p">各モジュールに起動を通知するメッセージをメッセージバスに送信します。</p>
+
+                    </li>
+
+                  </ul>
+<p class="p">あなたが呼び出す必要があります <samp class="ph codeph">onCreate</samp> 何かが起こる前に。 それ以外の場合は、既存のモジュール、追加のモジュール、または他社製のモジュールはメッセージバスに接続されず、初期化されません。 </p>
+<p class="gt-block p"><strong class="ph b">例</strong></p>
+<div class="p">
+                    <pre class="pre codeblock">    OO.Player.create（ &#39;playerwrapper&#39;、embedCode、{onCreate：function（player）{player.subscribe（ &#39;*&#39;、 &#39;myPage&#39;、function（eventName）{}）;}}）;</pre>
+
+                  </div>
+<p class="gt-block p"><strong class="ph b">onCreateとPlayerのV2コールバック</strong>
+                  </p>
+<p class="gt-block p">Player V2でイベントを処理するには、コールバック関数を定義してから、コールバックパラメータを使用してその名前をembedタグに渡します。 ただし、Player V3でイベントを処理するには、 <span class="keyword parmname">onCreate </span> に機能 <span class="keyword apiname">OO.Player.create（）</span> を呼び出してから、すべてのメッセージを登録します。 Player V3イベントの詳細については、 <a class="xref" href="../concepts/player_v3_dev_eventmodel.html#player_v3_dev__eventmodel" title="HTML5プレーヤーV3は、イベントを処理するためのメッセージバスの使用を組み込んでいます。">HTML5 Player V3のイベントモデル（非推奨）</a>。 Player V2コールバックとパラメータについては、 <a class="xref" href="../archive/cat_qstr_player.html#api_qpass" title="すべてのプレイヤークエリ文字列パラメータをリストして説明します">プレーヤクエリ文字列パラメータ（プレーヤV2は廃止予定）</a> トピック。 Player V2は推奨されていません。 </p>
+
+                  </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20.40816326530612%" headers="d85850e83 "><span class="keyword parmname">プリロード</span></td>
+
+                <td class="entry" valign="top" width="79.59183673469387%" headers="d85850e86 ">このパラメータを使用して、ビデオのプリロードを無効にします。これはデフォルトで行われます。 さまざまな理由でロードを無効にしたい場合があります。 <ul class="ul">
+                    <li class="li">同じページに複数の動画を読み込むときに読み込み時間を短縮する</li>
+
+                    <li class="li">動画の再生頻度が低いと予想される場合の読み込みコストを回避するため</li>
+
+                  </ul>
+<p class="gt-block p"><strong class="ph b">例</strong>:</p>
+<pre class="pre codeblock">var videoPlayer = OO.Player.create（ &#39;playerwrapper&#39;、 &#39;embed_code&#39;、{高さ：100％、幅：100％、プリロード：false、....}）;</pre>
+
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20.40816326530612%" headers="d85850e83 "><span class="keyword parmname">showAdMarquee</span>
+                </td>
+
+                <td class="entry" valign="top" width="79.59183673469387%" headers="d85850e86 ">
+                  <div class="note note"><span class="notetitle">注意：</span> このパラメータはFlash専用です。</div>
+
+                  <p class="p">広告再生中に広告マーキーを表示するか非表示にするかを指定します。 showAdMarqueeがないかtrueに設定されている場合、広告がプレーヤで再生されている間に広告マーキーが表示されます。 このグローバルパラメータは、Ooyalaでサポートされているすべての広告タイプで機能します。</p>
+
+                  <div class="p"><strong class="ph b">有効な値： </strong>本当| 偽 <ul class="ul">
+                      <li class="li">True：広告の再生中にadMarqueeが表示されます。</li>
+
+                      <li class="li">False：広告の再生中にadMarqueeは非表示になります。</li>
+
+                    </ul>
+</div>
+
+                  <p class="gt-block p"><strong class="ph b">デフォルト</strong>：本当</p>
+
+                  <div class="p"><strong class="ph b">例：</strong>
+                    <pre class="pre codeblock">var player = OO.Player.create（ &#39;playerwrapper&#39;、embedCode、{showAdMarquee：true}）;</pre>
+</div>
+
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20.40816326530612%" headers="d85850e83 "><span class="keyword parmname">showInAdControlBar</span></td>
+
+                <td class="entry" valign="top" width="79.59183673469387%" headers="d85850e86 ">
+                  <p class="p">広告の再生中にコントロールバーを表示するかどうかを指定します。 showInAdControlBarがないかtrueに設定されている場合、広告がプレーヤで再生されている間にコントロールバーが表示されます。 このグローバルパラメータは、Ooyalaでサポートされているすべての広告タイプで機能します。</p>
+
+                  <p class="gt-block p"><strong class="ph b">注意： </strong>このパラメータはFlashおよびHTML5デスクトップで利用可能です。</p>
+
+                  <div class="p"><strong class="ph b">有効な値： </strong>本当| 偽 <ul class="ul">
+                      <li class="li">True：広告の再生中にcontrolBarが表示されます。</li>
+
+                      <li class="li">False：広告の再生中にcontrolBarは非表示になります。</li>
+
+                    </ul>
+</div>
+
+                  <p class="gt-block p"><strong class="ph b">デフォルト</strong>：本当</p>
+
+                  <div class="p"><strong class="ph b">例：</strong>
+                    <pre class="pre codeblock">var player = OO.Player.create（ &#39;playerwrapper&#39;、embedCode、{showInAdControlBar：false}）;</pre>
+</div>
+
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20.40816326530612%" headers="d85850e83 "><span class="keyword parmname">tvRatingsPosition</span></td>
+
+                <td class="entry" valign="top" width="79.59183673469387%" headers="d85850e86 ">
+                  <p class="gt-block p"><strong class="ph b">注意： </strong>このパラメータはFlashデスクトップ専用です。</p>
+
+                  <p class="p">このオプションのパラメータは、TVレーティング透かしが表示されるプレーヤー上の位置を指定します。</p>
+
+                  <p class="gt-block p"><strong class="ph b">有効な値</strong>左上| 右上| 左下| 右下</p>
+
+                  <p class="gt-block p"><strong class="ph b">デフォルト： </strong>左上</p>
+
+                  <p class="gt-block p"><strong class="ph b">注意： </strong>TVレーティング透かしをアセットに適用するには、TVレーティング透かしを指定したいアセットごとにBacklotにカスタムメタデータを含める必要があります。 見る
+                      <a class="xref" href="../reference/player_v3_fcc_tv_rating.html" title="Backlotのプレーヤパラメータとカスタムメタデータを使用して、TVレーティングウォーターマークをアセットに追加します。">Flash Playerへのテレビ格付け透かしの追加</a> TVレーティング透かしをアセットに適用する方法の詳細については、</p>
+
+                  <div class="p"><strong class="ph b">例： </strong>
+                    <pre class="pre codeblock">
+var player = OO.Player.create（ &#39;playerwrapper&#39;、embedCode、{tvRatingsPosition： &quot;左上&quot;}）;</pre>
+</div>
+
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20.40816326530612%" headers="d85850e83 "><span class="keyword parmname">tvRatingsTimer</span></td>
+
+                <td class="entry" valign="top" width="79.59183673469387%" headers="d85850e86 ">
+                  <p class="gt-block p"><strong class="ph b">注意： </strong>このパラメータはFlashデスクトップ専用です。</p>
+
+                  <p class="p">最初の再生時、および広告が中断されてから動画が再開されるたびに、プレーヤーのTVレーティングの透かしの長さを秒単位で指定します。 TVレーティング透かしをアセットに適用する場合は、このパラメータは必須です。</p>
+
+                  <div class="p"><strong class="ph b">有効な値</strong>：いつも| 決して some_number <ul class="ul">
+                      <li class="li">always：透かしはビデオの間表示されます（広告の再生中は表示されません）。</li>
+
+                      <li class="li">never：透かしは表示されません。</li>
+
+                      <li class="li">some_number：some_numberは、テレビのレーティングをプレーヤーに表示し続ける秒数に置き換えます。</li>
+
+                    </ul>
+</div>
+
+                  <p class="gt-block p"><strong class="ph b">デフォルト： </strong>決して</p>
+
+                  <p class="gt-block p"><strong class="ph b">注意： </strong>TVレーティング透かしをアセットに適用するには、TVレーティング透かしを指定したいアセットごとにBacklotにカスタムメタデータを含める必要があります。 見る
+                      <a class="xref" href="../reference/player_v3_fcc_tv_rating.html" title="Backlotのプレーヤパラメータとカスタムメタデータを使用して、TVレーティングウォーターマークをアセットに追加します。">Flash Playerへのテレビ格付け透かしの追加</a> TVレーティング透かしをアセットに適用する方法の詳細については、</p>
+
+                  <div class="p"><strong class="ph b">例：</strong>
+                    <pre class="pre codeblock">var player = OO.Player.create（ &#39;playerwrapper&#39;、embedCode、{tvRatingsTimer： &quot;15&quot;}）;</pre>
+</div>
+
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20.40816326530612%" headers="d85850e83 "><span class="keyword parmname">useFirstVideoFromPlaylist</span></td>
+
+                <td class="entry" valign="top" width="79.59183673469387%" headers="d85850e86 ">このパラメータを使用して、プレーヤのビデオを最初のプレイリストの最初のビデオに設定します。 <p class="gt-block p"><strong class="ph b">タイプ</strong>ブール</p>
+<div class="p"><strong class="ph b">例</strong>:
+                    
+                    <pre class="pre codeblock">var videoPlayer = OO.Player.create（ &#39;playerwrapper&#39;、 &#39;embed_code&#39;、{高さ：100％、幅：100％、useFirstVideoFromPlaylist：true、....}; ooyalaPlayer = OO.Player.create（ &#39;playerContainer&#39;、 &#39;&#39;、playerConfiguration）;}）; </pre>
+</div>
+<p class="gt-block p"><strong class="ph b">注</strong>：プレイリストが更新されると、キャッシュの有効期限が切れた後、最初のプレイリストの最初のビデオが <samp class="ph codeph">useFirstVideoFromPlaylist</samp> 用途が更新されました。
+                    </p>
+<div class="p">プレーヤのビデオを最初のプレイリストの最初のビデオにしたくない場合は、このパラメータを &quot;false&quot;に設定し、目的のビデオのembed_codeを
+                      <samp class="ph codeph">OO.Player.create</samp> そのように機能する：
+                    <pre class="pre codeblock">var videoPlayer = OO.Player.create（ &#39;playerwrapper&#39;、 &#39;embed_code&#39;、{高さ：100％、幅：100％、useFirstVideoFromPlaylist：false、....}; ooyalaPlayer = OO.Player.create（ &#39;playerContainer&#39;、 <strong class="ph b">&#39;埋め込みコード&#39;</strong>、playerConfiguration）; ;））;</pre>
+</div>
+</td>
+
+              </tr>
+
+              
+            </tbody>
+
+          </table>
+</div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/player_v3_api_params.html" title="プレーヤV3パラメータは、プレーヤ広告、動作をカスタマイズし、プレーヤスタイルを変更するために使用できます。">Player V3 JavaScript APIパラメータ（廃止予定）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

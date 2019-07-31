@@ -1,0 +1,513 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Filters"/>
+<meta name="abstract" content=""/>
+<meta name="description" content=""/>
+<meta name="DC.Relation" scheme="URI" content="../api/analytics_v3_api_reference.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/analytics_v3_api_reference.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="analytics_v3_filters"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>フィルター</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="analytics_v3_filters">
+
+
+  <h1 class="title topictitle1">フィルター</h1>
+
+  
+  <div class="body refbody"><p class="shortdesc"/>
+
+    <div class="section">
+      <p class="gt-block p">Here are the complete reference details for filters for the <span class="ph">v3アナリティクス</span>
+        <a class="xref" href="analytics_v3_api_reporting_overview.html#analytics_reporting">レポートAPI</a>.</p>
+<p class="gt-block p">The filter names are essentially the same as dimension names. Filters
+        are specified with the <a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__filters"><samp class="ph codeph">filters =</samp></a> query string parameter. You can further
+        refine the results with boolean operators. Surround filter values with single quotations
+        (e.g. filters=asset=='asset_id'). Filter values are case-sensitive.</p>
+<p class="p"/>
+<p class="gt-block p">For examples
+        of how to use filters, see <a class="xref" href="analytics_v3_api_reporting_examples99_filters_with_labels.html">使用できるフィルタ</a>.</p>
+
+      <div class="sectiondiv">
+        <p class="gt-block p"><strong class="ph b">Date Range Limitation</strong></p>
+
+        <div class="note note"><span class="notetitle">注意：</span> For up to 2 filters you can set a date range of up to 1 year (366 days). For 3 filters
+          you can set a date range of up to 1 month (31 days).</div>
+
+      </div>
+      <p class="gt-block p">HTTP GET仕様の230文字の制限を超えるクエリパラメータを持つクエリの場合は、 <a class="xref" href="analytics_v3_api_reporting_syntax.html">POSTリクエスト</a>.</p>
+
+    </div>
+
+      <div class="section"><h2 class="title sectiontitle">レポートGETの一般的な構文</h2>
+            
+            <p class="p">ルートとクエリ文字列の基本的な構文は次のとおりです。 読みやすくするために、単一行の要求は複数の行に分割されています。 </p>
+
+            <pre class="pre codeblock" id="analytics_v3_filters__d1794e40">
+<strong class="ph b">[GET] / v3 / analytics / reports /？</strong>
+            <a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__report_type"><strong class="ph b">report_type</strong></a>=<a class="xref" href="analytics_v3_api_reporting_reports.html#analytics_reporting_preprogrammed_reports"><var class="keyword varname">type</var></a>
+            ＆<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__dimensions">大きさ</a>=<a class="xref" href="analytics_v3_api_reporting_dimensions.html#analytics_v3_dimensions"><var class="keyword varname">大きさ</var></a>
+            ＆<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__metrics">メトリクス</a>=<a class="xref" href="analytics_v3_api_reporting_metrics.html#analytics_v3_metrics"><var class="keyword varname">メトリクス</var></a>
+            ＆<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__filters">フィルター</a>=<a class="xref" href="analytics_v3_api_reporting_filters.html#analytics_v3_filters"><var class="keyword varname">filter_type == &#39;filter_value&#39;</var></a>
+            ＆<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__start_date"><strong class="ph b">START_DATE</strong></a>=<var class="keyword varname">date</var>
+            ＆<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__end_date">終了日</a>=日付＆<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms"><var class="keyword varname">other_parms</var></a>
+            <strong class="ph b">＆api_key = your_api_key</strong>
+         </pre>
+
+            <ul class="ul">
+               <li class="li">  <strong class="ph b">必須</strong> クエリ文字列パラメータ（太字で表示）は <a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__report_type"><samp class="ph codeph">report_type</samp></a>,  <samp class="ph codeph">START_DATE</samp>、そしてapi_key。 </li>
+
+               <li class="li">次元が指定されていない場合は、すべての次元にわたる合計値が返されます。 </li>
+
+               <li class="li">最大1月の時間範囲では、無制限のデータ行を使用して、一度に最大3ディメンションで照会できます。 1か月を超える時間範囲では、最大2行のデータを使用して、一度に最大10,000ディメンションで照会できます。 </li>
+
+               <li class="li">メトリックが指定されていない場合は、すべてのメトリックが返されます。 </li>
+
+            </ul>
+
+            <div class="note note"><span class="notetitle">注意：</span> APIキーはクエリパラメータとして、またはヘッダX-API-KEYを介して渡すことができます。</div>
+
+            <div class="note note"><span class="notetitle">注意：</span> 現時点では、 <var class="keyword varname">report_type</var>  is
+                  
+                  <samp class="ph codeph">パフォーマンス</samp>.</div>
+
+            <div class="note note"><span class="notetitle">注意：</span> 1ディメンションのみを使用できます（<samp class="ph codeph">URL</samp>）のための <samp class="ph codeph">URL</samp>
+               クエリ</div>
+
+         </div>
+
+      <div class="section"><h2 class="title sectiontitle">ロングクエリのレポートの一般的な構文POST</h2>
+            
+            <p class="p">HTTP GET仕様の230文字の制限を超えるクエリパラメータを持つクエリの場合は、POSTリクエストを使用してください。 一部のブラウザおよびhttpクライアントは、230文字を超える文字をサポートしている場合がありますが、HTTP GET仕様に違反するクエリについては正式なサポートは提供されません。 POSTリクエストの場合は、クエリ文字列パラメータの代わりにリクエストボディにJSONオブジェクトを渡します。 </p>
+
+            <pre class="pre codeblock">
+<strong class="ph b">[POST] / v3 / analytics / reports {</strong>
+    
+    "<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__report_type"><strong class="ph b">report_type</strong></a>「」<a class="xref" href="analytics_v3_api_reporting_reports.html#analytics_reporting_preprogrammed_reports"><var class="keyword varname">type</var></a>「」<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__dimensions">大きさ</a>「」<a class="xref" href="analytics_v3_api_reporting_dimensions.html#analytics_v3_dimensions"><var class="keyword varname">大きさ</var></a>「」<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__metrics">メトリクス</a>「」<a class="xref" href="analytics_v3_api_reporting_metrics.html#analytics_v3_metrics"><var class="keyword varname">メトリクス</var></a>「」<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__filters">フィルター</a>&quot;：&quot;（<a class="xref" href="analytics_v3_api_reporting_filters.html#analytics_v3_filters"><var class="keyword varname">filter_type == \ &quot;filter_value \&quot;）</var></a>「」<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__start_date"><strong class="ph b">START_DATE</strong></a>「」<var class="keyword varname">date</var>「」<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms__end_date">終了日</a>&quot;：&quot;日付 &quot;、&quot;<a class="xref" href="analytics_v3_api_reporting_querystringparameters.html#analytics_v3_querystringparms"><var class="keyword varname">other_parms</var></a>&quot;：&quot; other_param_value &quot;、
+   <strong class="ph b"> &quot;api_key&quot;： &quot;your_api_key&quot;}</strong>
+         </pre>
+
+         </div>
+
+    <div class="section">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="analytics_v3_filters__predefined_dimensions" class="table" frame="border" border="1" rules="all">
+            
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="21.88183807439825%" id="d15189e281">フィルタの種類</th>
+
+                <th class="entry" valign="top" width="43.326039387308526%" id="d15189e284">意味</th>
+
+                <th class="entry" valign="top" width="34.79212253829322%" id="d15189e287">有効な値</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="21.88183807439825%" headers="d15189e281 ">
+                  <p class="p"><samp class="ph codeph" id="analytics_v3_filters__asset">資産</samp></p>
+
+                </td>
+
+                <td class="entry" valign="top" width="43.326039387308526%" headers="d15189e284 ">Filter data by asset.
+                <div class="note note" id="analytics_v3_filters__url_filter"><span class="notetitle">注意：</span> This filter is not valid with the <samp class="ph codeph">URL</samp> dimension. You can only use <samp class="ph codeph">ドメイン</samp> そして <samp class="ph codeph">URL</samp> filters with the <samp class="ph codeph">URL</samp> 寸法。</div>
+
+                </td>
+
+                <td class="entry" valign="top" width="34.79212253829322%" headers="d15189e287 ">
+                  <p class="gt-block p">Any asset id associated with the provider or subproviders. The asset id can be
+                      <samp class="ph codeph">埋め込みコード</samp>  or  <samp class="ph codeph">external_ids</samp> that you have entered in <span class="ph">バックスロット</span>.</p>
+
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="21.88183807439825%" headers="d15189e281 ">
+                  <p class="p"><samp class="ph codeph" id="analytics_v3_filters__country">国</samp></p>
+
+                </td>
+
+                <td class="entry" valign="top" width="43.326039387308526%" headers="d15189e284 ">
+                  <p class="p">Filter data by country.</p>
+
+                  <div class="note note"><span class="notetitle">注意：</span> This filter is not valid with the <samp class="ph codeph">URL</samp> dimension. You can only use <samp class="ph codeph">ドメイン</samp> そして <samp class="ph codeph">URL</samp> filters with the <samp class="ph codeph">URL</samp> 寸法。</div>
+
+                </td>
+
+                <td class="entry" valign="top" width="34.79212253829322%" headers="d15189e287 ">
+                  <p class="gt-block p">Country code. See <a class="xref" href="../reference/location_codes.html#reference" title="これらの国別コードは、さまざまなOoyala機能で使用されています。">国と場所のコード</a>.</p>
+
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="21.88183807439825%" headers="d15189e281 ">
+                  <p class="p"><samp class="ph codeph" id="analytics_v3_filters__region">地域</samp></p>
+
+                </td>
+
+                <td class="entry" valign="top" width="43.326039387308526%" headers="d15189e284 ">Filter data by geographic region. Our geographic reporting uses the
+                  definition of region provided by <span class="ph"><a class="xref" href="https://ipintelligence.neustar.biz/portal/#documentation" target="_blank">Quova</a></span>.
+                  
+                  <div class="note note"><span class="notetitle">注意：</span> This filter is not valid with the <samp class="ph codeph">URL</samp> dimension. You can only use <samp class="ph codeph">ドメイン</samp> そして <samp class="ph codeph">URL</samp> filters with the <samp class="ph codeph">URL</samp> 寸法。</div>
+
+                </td>
+
+                <td class="entry" valign="top" width="34.79212253829322%" headers="d15189e287 ">Any region string. You cannot specify <samp class="ph codeph">地域</samp>
+                  alone; you must also specify its <samp class="ph codeph">国</samp>.</td>
+
+              </tr>
+
+              
+              <tr class="row">
+                <td class="entry" valign="top" width="21.88183807439825%" headers="d15189e281 ">
+                  <p class="p"><samp class="ph codeph" id="analytics_v3_filters__dma">DMA</samp></p>
+
+                </td>
+
+                <td class="entry" valign="top" width="43.326039387308526%" headers="d15189e284 ">
+                  <p class="p">Filter by DMA (defined marketing area, a US-centric concept not prominent in
+                    other parts of the world). </p>
+
+                  <div class="note note"><span class="notetitle">注意：</span> This filter is not valid with the <samp class="ph codeph">URL</samp> dimension. You can only use <samp class="ph codeph">ドメイン</samp> そして <samp class="ph codeph">URL</samp> filters with the <samp class="ph codeph">URL</samp> 寸法。</div>
+
+                </td>
+
+                <td class="entry" valign="top" width="34.79212253829322%" headers="d15189e287 "> Any provider-defined DMA. </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="21.88183807439825%" headers="d15189e281 "><samp class="ph codeph" id="analytics_v3_filters__state">状態</samp></td>
+
+                <td class="entry" valign="top" width="43.326039387308526%" headers="d15189e284 ">Filter data by state (i.e. the states within a country). In our geographic
+                  reporting, state is "the first-level administrative division" of a country, as
+                  defined by <span class="ph"><a class="xref" href="https://ipintelligence.neustar.biz/portal/#documentation" target="_blank">Quova</a></span>. For example, you can filter so
+                  you only see data for plays in California. 
+                  <div class="note note"><span class="notetitle">注意：</span> This filter is not valid with the <samp class="ph codeph">URL</samp> dimension. You can only use <samp class="ph codeph">ドメイン</samp> そして <samp class="ph codeph">URL</samp> filters with the <samp class="ph codeph">URL</samp> 寸法。</div>
+
+                </td>
+
+                <td class="entry" valign="top" width="34.79212253829322%" headers="d15189e287 ">
+                  <p class="p">Any state string. You cannot specify <samp class="ph codeph">状態</samp>
+                    alone; you must also specify its <samp class="ph codeph">国</samp>.</p>
+
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="21.88183807439825%" headers="d15189e281 ">
+                  <p class="p"><samp class="ph codeph" id="analytics_v3_filters__device_type">デバイスタイプ</samp></p>
+
+                </td>
+
+                <td class="entry" valign="top" width="43.326039387308526%" headers="d15189e284 ">
+                  <p class="p">Filter by device type.</p>
+<div class="note note"><span class="notetitle">注意：</span> This filter is not valid with the <samp class="ph codeph">URL</samp> dimension. You can only use <samp class="ph codeph">ドメイン</samp> そして <samp class="ph codeph">URL</samp> filters with the <samp class="ph codeph">URL</samp> 寸法。</div>
+
+                </td>
+
+                <td class="entry" valign="top" width="34.79212253829322%" headers="d15189e287 ">
+                  <p class="gt-block p">See possible values in <a class="xref" href="analytics_v3_api_codes_platforms_os_browser.html#reference_vhh_nbj_zl">プラットフォーム、デバイス、およびオペレーティングシステムのコード</a>.</p>
+
+                </td>
+
+              </tr>
+
+              
+              <tr class="row">
+                <td class="entry" valign="top" width="21.88183807439825%" headers="d15189e281 ">
+                  <p class="p"><samp class="ph codeph" id="analytics_v3_filters__domain">ドメイン</samp></p>
+
+                </td>
+
+                <td class="entry" valign="top" width="43.326039387308526%" headers="d15189e284 ">
+                  <p class="p">Filter by internet domain.</p>
+
+                  
+                </td>
+
+                <td class="entry" valign="top" width="34.79212253829322%" headers="d15189e287 "> Any domain string.</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="21.88183807439825%" headers="d15189e281 ">
+                  <p class="p"><samp class="ph codeph" id="analytics_v3_filters__url">URL</samp></p>
+
+                </td>
+
+                <td class="entry" valign="top" width="43.326039387308526%" headers="d15189e284 ">
+                  <p class="p">Filter data by a specific URL.</p>
+
+                  <div class="p">
+                    <div class="note note"><span class="notetitle">注意：</span> あなただけを使用することができます <samp class="ph codeph">URL</samp>filter with the
+                        <samp class="ph codeph">URL</samp> dimension. You cannot use this filter
+                      with any other dimensions.</div>
+
+                  </div>
+
+                </td>
+
+                <td class="entry" valign="top" width="34.79212253829322%" headers="d15189e287 ">Any URL string. If you use a URL that is not tracked by Ooyala analytics, the
+                  API will return 0 data results.</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="21.88183807439825%" headers="d15189e281 ">
+                  <p class="p"><samp class="ph codeph" id="analytics_v3_filters__os">os</samp></p>
+
+                </td>
+
+                <td class="entry" valign="top" width="43.326039387308526%" headers="d15189e284 ">
+                  <p class="p">Filter data by operating system. </p>
+
+                  <div class="note note"><span class="notetitle">注意：</span> This filter is not valid with the <samp class="ph codeph">URL</samp> dimension. You can only use <samp class="ph codeph">ドメイン</samp> そして <samp class="ph codeph">URL</samp> filters with the <samp class="ph codeph">URL</samp> 寸法。</div>
+
+                </td>
+
+                <td class="entry" valign="top" width="34.79212253829322%" headers="d15189e287 ">
+                  <p class="gt-block p">See possible values in <a class="xref" href="analytics_v3_api_codes_platforms_os_browser.html#reference_vhh_nbj_zl">プラットフォーム、デバイス、およびオペレーティングシステムのコード</a>.</p>
+
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="21.88183807439825%" headers="d15189e281 ">
+                  <p class="p"><samp class="ph codeph" id="analytics_v3_filters__browser">ブラウザ</samp></p>
+
+                </td>
+
+                <td class="entry" valign="top" width="43.326039387308526%" headers="d15189e284 ">
+                  <p class="gt-block p">Filter data by browser. <strong class="ph b">注意： </strong>  <samp class="ph codeph">ブラウザ</samp> dimension applies only when <samp class="ph codeph">デバイスタイプ</samp>  is  <samp class="ph codeph">デスクトップ</samp>.  </p>
+
+                  <div class="note note"><span class="notetitle">注意：</span> This filter is not valid with the <samp class="ph codeph">URL</samp> dimension. You can only use <samp class="ph codeph">ドメイン</samp> そして <samp class="ph codeph">URL</samp> filters with the <samp class="ph codeph">URL</samp> 寸法。</div>
+
+                </td>
+
+                <td class="entry" valign="top" width="34.79212253829322%" headers="d15189e287 ">
+                  <p class="gt-block p">See possible values in <a class="xref" href="analytics_v3_api_codes_platforms_os_browser.html#reference_vhh_nbj_zl">プラットフォーム、デバイス、およびオペレーティングシステムのコード</a>.</p>
+
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="21.88183807439825%" headers="d15189e281 ">
+                  <p class="p"><samp class="ph codeph" id="analytics_v3_filters__pcode">pcode</samp></p>
+
+                </td>
+
+                <td class="entry" valign="top" width="43.326039387308526%" headers="d15189e284 ">
+                  <p class="gt-block p">Filter data by the provider's pcode (<span class="ph">Ooyala</span>-supplied
+                    provider ID). For details, see <a class="xref" href="../concepts/api_keys.html" title="Ooyala APIの認証情報には、APIキーとシークレットが含まれています。これらは、HTTPリクエストに署名するため、およびスクラッチパッドを使用するときに提供するものです。">あなたのAPIクレデンシャル</a>.</p>
+
+                  <div class="note note"><span class="notetitle">注意：</span> This filter is not valid with the <samp class="ph codeph">URL</samp> dimension. You can only use <samp class="ph codeph">ドメイン</samp> そして <samp class="ph codeph">URL</samp> filters with the <samp class="ph codeph">URL</samp> 寸法。</div>
+
+                </td>
+
+                <td class="entry" valign="top" width="34.79212253829322%" headers="d15189e287 ">
+                  <p class="p">Any pcode that is the current account (the provider executing the API call) or
+                    one of its sub-accounts.</p>
+
+                </td>
+
+              </tr>
+
+              
+              <tr class="row">
+                <td class="entry" valign="top" width="21.88183807439825%" headers="d15189e281 ">
+                  <p class="p"><samp class="ph codeph" id="analytics_v3_filters__player_id">player_id</samp></p>
+
+                </td>
+
+                <td class="entry" valign="top" width="43.326039387308526%" headers="d15189e284 ">
+                  <p class="gt-block p">Filter data by player id (of an <span class="ph">Ooyala</span> player). </p>
+
+                  <div class="note note"><span class="notetitle">注意：</span> This filter is not valid with the <samp class="ph codeph">URL</samp> dimension. You can only use <samp class="ph codeph">ドメイン</samp> そして <samp class="ph codeph">URL</samp> filters with the <samp class="ph codeph">URL</samp> 寸法。</div>
+
+                </td>
+
+                <td class="entry" valign="top" width="34.79212253829322%" headers="d15189e287 "> </td>
+
+              </tr>
+
+              
+              <tr class="row">
+                <td class="entry" valign="top" width="21.88183807439825%" headers="d15189e281 ">
+                  <p class="p"><samp class="ph codeph" id="analytics_v3_filters__label">ラベル</samp></p>
+
+                </td>
+
+                <td class="entry" valign="top" width="43.326039387308526%" headers="d15189e284 ">
+                  <p class="p">Filter data by label using the label id.</p>
+
+                  <div class="p"> Ooyala IQでラベルを操作するときは、次の点に注意してください。 <ul class="ul">
+    <li class="li">ラベルと関連付けられている動画間の相関関係は、事前集計または事前集計（ロールアップ）されませんが、APIリクエスト時に解決されます。</li>
+
+    <li class="li">Ooyalaシステムはラベルの親階層に基づいて集約します。 たとえば、2つのラベル、親 &quot;Cycle World&quot;とその子ラベル &quot;Sport Bikes&quot;を想像してください。 「Sport Bikes」という子供のラベルが付いたビデオは、「Cycle World」という親のラベルにロールアップされます。 ラベルのデータをリクエストした場合、返される指標はそのラベルとその子ラベルのものです。 </li>
+
+   </ul>
+
+  </div>
+
+                  <div class="note note"><span class="notetitle">注意：</span> This filter is not valid with the <samp class="ph codeph">URL</samp> dimension. You can only use <samp class="ph codeph">ドメイン</samp> そして <samp class="ph codeph">URL</samp> filters with the <samp class="ph codeph">URL</samp> 寸法。</div>
+
+                </td>
+
+                <td class="entry" valign="top" width="34.79212253829322%" headers="d15189e287 ">You can use any defined label in Backlot. You can filter by multiple labels at a time.
+                However, you can not mix the label filter with the <strong class="ph b">asset type</strong> フィルタ。</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="21.88183807439825%" headers="d15189e281 ">
+                  <p class="p"><samp class="ph codeph" id="analytics_v3_filters__asset_type">asset_type</samp></p>
+
+                </td>
+
+                <td class="entry" valign="top" width="43.326039387308526%" headers="d15189e284 ">Filter data by asset type. The asset type indicates whether the asset is a live channel ("live") or video-on-demand ("vod").
+                  An asset will be considered of type <strong class="ph b">ライブ</strong> only if it was created using Ooyala's live platform.
+                  Live assets that got converted to video-on-demand before the end date of your reporting period will be counted as <strong class="ph b">VOD</strong> only,
+                  otherwise they will be counted as live.
+                  <div class="note note"><span class="notetitle">注意：</span> This filter is not valid with the <samp class="ph codeph">URL</samp> dimension.
+                    You can only use <samp class="ph codeph">ドメイン</samp> そして <samp class="ph codeph">URL</samp> filters with the <samp class="ph codeph">URL</samp> dimension.
+                    Also, this filter cannot be combined with the label filter.</div>
+
+                </td>
+
+                <td class="entry" valign="top" width="34.79212253829322%" headers="d15189e287 ">
+                  <p class="p">The asset type can be "live" or "vod".
+                    Note that the asset type is case-sensitive and should be entered in all lowercase letters.</p>
+
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+      
+    </div>
+
+      <div class="section refsyn" id="analytics_v3_filters__filter_syntax"><h2 class="title sectiontitle">Boolean Operators; (AND) and | (OR)</h2>
+       The formal syntax of a filter is shown
+      below. <pre class="pre codeblock">
+filters = <em class="ph i">フィルタ</em>  [<em class="ph i">boolOp</em> <em class="ph i">フィルタ</em>]* 
+         
+        </pre>
+<div class="p">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="analytics_v3_filters__table_pm3_ph4_dm" class="table" frame="border" border="1" rules="all">
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="20.449897750511244%" id="d15189e894">シンボル</th>
+
+                <th class="entry" valign="top" width="79.55010224948875%" id="d15189e897">拡張</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="20.449897750511244%" headers="d15189e894 "><samp class="ph codeph"><em class="ph i">フィルタ</em></samp></td>
+
+                <td class="entry" valign="top" width="79.55010224948875%" headers="d15189e897 "><samp class="ph codeph"><em class="ph i">dimension-filter</em></samp>  or
+                  
+                  <samp class="ph codeph"><em class="ph i">composite-filter</em></samp></td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20.449897750511244%" headers="d15189e894 "><samp class="ph codeph"><em class="ph i">dimension-filter</em></samp></td>
+
+                <td class="entry" valign="top" width="79.55010224948875%" headers="d15189e897 "><samp class="ph codeph"><em class="ph i">寸法</em></samp>
+                  <samp class="ph codeph"><em class="ph i">op</em></samp>
+                  <samp class="ph codeph"><em class="ph i">値</em></samp><p class="p">どこ：</p>
+<ul class="ul">
+                    <li class="li"><samp class="ph codeph"><em class="ph i">寸法</em></samp> is a dimension name listed in <a class="xref" href="analytics_v3_api_reporting_dimensions.html#analytics_v3_dimensions">レンディション</a>
+                      or a custom dimension name.</li>
+
+                    <li class="li"><samp class="ph codeph"><em class="ph i">op</em></samp>  is  <samp class="ph codeph">==</samp> (equal to) or
+                      <samp class="ph codeph">!=</samp> (not equal to).</li>
+
+                    <li class="li"><samp class="ph codeph"><em class="ph i">値</em></samp> is a single-quoted dimension value, like
+                      <samp class="ph codeph">os!='android'</samp> (data with operating system Android).</li>
+
+                  </ul>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="20.449897750511244%" headers="d15189e894 "><samp class="ph codeph"><em class="ph i">composite-filter</em></samp></td>
+
+                <td class="entry" valign="top" width="79.55010224948875%" headers="d15189e897 "><samp class="ph codeph">(  <em class="ph i">フィルタ</em>  [<em class="ph i">boolOp</em>
+                    <em class="ph i">フィルタ</em> ]*)</samp><p class="p">どこ：</p>
+<ul class="ul">
+                      <li class="li"><samp class="ph codeph"><em class="ph i">フィルタ</em></samp> is defined above.</li>
+
+                      <li class="li"><samp class="ph codeph"><em class="ph i">boolOp</em></samp>  is  <samp class="ph codeph">;</samp> (AND) or
+                        <samp class="ph codeph">|</samp> (OR). The boolean operator and second filter are optional
+                      and can be repeated without limit.</li>
+
+                  </ul>
+</td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+      </div>
+
+      <strong class="ph b">Grouping with Parentheses</strong>
+      <p class="gt-block p">Use parentheses to logically group components of the filter value. For an example, see
+          <a class="xref" href="analytics_v3_api_reporting_examples99_filters_with_labels.html">使用できるフィルタ</a>.</p>
+
+      </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/analytics_v3_api_reference.html">パラメータ参照</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- de

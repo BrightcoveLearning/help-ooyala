@@ -1,0 +1,593 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Common Metric Definitions and Examples"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/analytics_v3_user_intro.html"/>
+<meta name="DC.Relation" scheme="URI" content="../api/analytics_v3_api_overview.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="common_metric_defs_and_examples"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>一般的なメトリックの定義と例</title>
+</head>
+<body id="common_metric_defs_and_examples">
+
+
+        <h1 class="title topictitle1"> 一般的なメトリックの定義と例</h1>
+
+        <div class="body conbody">
+                    <div class="section"><h2 class="title sectiontitle">一般的なメトリックの内訳</h2>
+                        
+                        <p class="gt-block p">ここで使用されている一般的な指標のいくつかについて説明します。 <span class="ph">ウーヤラIQ</span>。 これは包括的なリストではありません。</p>
+
+                        <p class="gt-block p"><strong class="ph b">ディスプレイ： </strong>動画コンテンツが再生されるまでに、その動画コンテンツがプレーヤーに読み込まれて表示される回数を測定します。 ディスプレイは個々のビデオに関連しています。 埋め込みコードが変更されるたびに、このイベントが発生します。</p>
+
+                        <p class="gt-block p" id="common_metric_defs_and_examples__plays_requested"><strong class="ph b">要求された演劇数： </strong>「再生」ボタンが手動または自動でトリガーされた回数を測定します。 要求されたコンテンツは、広告コンテンツまたは実際のビデオコンテンツです。 要求された再生は、どのタイプのコンテンツが再生を要求されたかにかかわらずカウントされます。 現在要求されている再生には再生イベントは含まれていません。</p>
+
+                        <p class="gt-block p" id="common_metric_defs_and_examples__video_starts"><strong class="ph b">ビデオ開始： </strong>実際の非広告ビデオコンテンツの再生が開始された回数を測定します。 ユーザーが再生体験を開始し、実際のビデオコンテンツを続行せずにプレロール広告のみを視聴する場合、再生要求数は報告されますが、ビデオ開始は報告されません。 Video Startsは、実際のビデオの再生が始まるまでユーザーが待機した場合にのみ記録されます。</p>
+
+            <p class="gt-block p" id="common_metric_defs_and_examples__hours_watched"><strong class="ph b">見た時間： </strong>すべてのユーザーが選択したビデオアセットの視聴に費やした時間（HH：MM：SS形式）。 ユーザーがビデオの一部を巻き戻して再視聴すると、この指標の値は大きくなります。</p>
+
+            <p class="gt-block p" id="common_metric_defs_and_examples__replays">
+                <strong class="ph b">リプレイ：</strong> エンドユーザーが特定のコンテンツを再生した回数を測定します。
+            </p>
+
+            <p class="gt-block p" id="common_metric_defs_and_examples__average_time_watched_per_video"><strong class="ph b">ビデオあたりの平均視聴時間： </strong>さまざまなプラットフォームでこのコンテンツを閲覧しているすべてのユーザーで見られた平均時間。 今日は、平均ビデオ視聴時間（ビデオあたり）=ビデオの視聴時間/ビデオの開始時間をHH：MM：SSの形式に変換して計算します。</p>
+
+                        <p class="gt-block p"><strong class="ph b">注意：</strong> ほとんどの場合、この数はビデオの長さよりも短くなります。 ただし、プレーヤー内のシークがこの数に影響を与える可能性があります。 ユーザーが再生中に前後にシークすると、視聴時間が長くなり、平均視聴時間が動画の長さより長くなる可能性があります。</p>
+
+                        <div class="p" id="common_metric_defs_and_examples__playthrough"><strong class="ph b">実況プレイ</strong>
+                            <ul class="ul">
+                                <li class="li"><strong class="ph b">プレイスルー25％</strong>：選択したビデオアセットの再生完了回数が25％の状態に達したビデオの数。</li>
+
+                                <li class="li"><strong class="ph b">プレイスルー50％</strong>：選択したビデオアセットの再生完了回数が50％の状態に達したビデオの数。</li>
+
+                                <li class="li"><strong class="ph b">プレイスルー75％</strong>：選択したビデオアセットの再生完了回数が75％の状態に達したビデオの数。</li>
+
+                                <li class="li"><strong class="ph b">プレイスルー100％</strong>：選択したビデオアセットの再生完了回数が100％の状態に達したビデオの数。</li>
+
+                            </ul>
+</div>
+
+                        <p class="gt-block p"><strong class="ph b">注意： </strong> ユーザーが同じビューセッション内で何回巻き戻したとしても、「状態」に達すると再びカウントされることはありません。</p>
+
+                        <p class="gt-block p" id="common_metric_defs_and_examples__segments_watched"><strong class="ph b">監視セグメント</strong>：ビデオコンテンツの各セグメントが視聴された回数。 1セグメントは、ビデオの長さの2.5％として定義されています。 </p>
+
+                        <p class="gt-block p"><strong class="ph b">注</strong>注：ユーザーが同じセグメントをN回巻き戻して視聴した場合、そのセグメントに対して監視されたセグメントはN回としてカウントされます。</p>
+
+                        <div class="p" id="common_metric_defs_and_examples__unique_users"><strong class="ph b">ユニークユーザー </strong>
+                            <ul class="ul" id="common_metric_defs_and_examples__unique_user">
+                                <li class="li"><strong class="ph b"><span class="ph">Ooyala</span> iOS用モバイルSDK</strong>  
+                            <span class="ph">Ooyala</span> iOS用モバイルSDKは、アプリケーション固有のランダムな一意のIDを生成して保存します。 一意のIDは <span class="ph">&quot;OOClientID&quot;</span> クラスに格納されています <span class="ph">&quot;standardUserDefaults&quot;</span> オブジェクト 一意のIDはアプリケーションが削除されるまで有効です。 この一意のIDは、アプリを削除せずにエンドユーザーが消去またはリセットすることはできません。 アプリケーション開発者は、既存のIDを消去することによって、生成されたIDとは異なるIDを保存できます。
+                            <span class="ph">[OOClientID resetID]</span> IDを設定する <span class="ph">[OOClientID setID：New_ID]</span>.  </li>
+
+                                <li class="li"><strong class="ph b"><span class="ph">Ooyala</span> Android用モバイルSDK：</strong>
+                          <span class="ph">Ooyala</span> Android用モバイルSDKは、アプリケーション固有のランダムな固有IDを生成して保管します。 一意のIDは <span class="ph">&quot;OOClientID&quot;</span> クラスに格納されています <span class="ph">「SharedPreferences」</span> ファイル。 一意のIDはアプリケーションが削除されるまで有効です。 この一意のIDは、アプリを削除せずにエンドユーザーが消去またはリセットすることはできません。 アプリケーション開発者は既存のIDを消去することで別のIDを保存できます <span class="ph">[ClientID.resetID（context）]</span> IDを設定する <span class="ph">[ClientID.resetID（NEW_ID）]</span>.</li>
+
+                                <li class="li"><strong class="ph b">他のすべての環境（HTML5、Flash、Chromecast）： </strong>他の環境では、一意のユーザーはローカルストレージまたはCookieによって識別されます。 を生成する <span class="ph">GUID</span>Flashプレーヤーは、いつのタイムスタンプを使用します。 <span class="ph">GUID</span> が生成され、それにランダムデータが追加されます。 その後、文字列はに変換されます。 <span class="ph">base64</span>。 を生成する <span class="ph">GUID</span>HTML5プレーヤーは現在時刻、ブラウザ情報、ランダムデータを使ってハッシュ化し、 <span class="ph">base64</span>。 デスクトップ上の同じブラウザ内で <span class="ph">GUID</span> それはユーザーのために両方のプラットフォームに使用される1つのプラットフォームによって設定されます。 ユーザーがブラウザのキャッシュをクリアすると、そのユーザー/デバイスのIDは次回ビデオを見るときに再生成されます。 シークレットモードでは、単一セッションのユーザーを追跡しますが、ブラウザを閉じると <span class="ph">GUID</span> 消去されます。 </li>
+
+                            </ul>
+</div>
+
+                        <p class="p" id="common_metric_defs_and_examples__unique_user_deduplication">生成されたIDは完全にランダムであり、ユーザーを識別できる情報は含まれていません。 そのような情報がユーザに利用可能でないとき（ローカルストレージまたはクッキーがないとき）、そのユーザに対して新しい一意の識別子が作成されます。 時間の経過とともにユニークユーザーの数を計算するときに重複排除を行います。 たとえば、1日にはユーザーA、B、Cがいます。 2日にユーザーB、Eがいます。次に、日付範囲= XXUMX日と1日を選択すると、合計一意ユーザー数= 2（A、B、C、E）、Daily Avgとなります。 Unique Users =（4 + X NUMX）/ X NUMX = X NUM X（X NUM Xは閉整数に変換されます）。 </p>
+
+                    </div>
+
+                    <div class="section"><h2 class="title sectiontitle">例</h2>
+            
+            <p class="gt-block p">次の例は、ディスプレイの数、要求された再生回数、およびビデオの開始回数を示します <span class="ph">ウーヤラIQ</span> さまざまな状況で記録します。 </p>
+
+            <p class="gt-block p"><strong class="ph b">例1：プレロール広告</strong></p>
+
+            <p class="p">サイト運営者は、再生中にプレロール広告を配信しています。</p>
+
+            <div class="p">ユーザーAは2プレロール広告でビデオXを見始めますが、最初の広告の後に立ち去ります。 ユーザーBはビデオXの視聴を開始し（2プレロール広告でも）、両方の広告と1分の再生時間の後に退席します。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">表1 例1のメトリック集計</span></caption>
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" id="d196905e215"> </th>
+
+                                <th class="entry" valign="top" id="d196905e217">表示</th>
+
+                                <th class="entry" valign="top" id="d196905e220">リクエストされた遊び</th>
+
+                                <th class="entry" valign="top" id="d196905e223">ビデオ開始</th>
+
+                                <th class="entry" valign="top" id="d196905e226">平均 見た時間/ビデオ</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d196905e215 d196905e217 d196905e220 d196905e223 d196905e226 ">ユーザーA</td>
+
+                                <td class="entry" valign="top" headers="d196905e215 d196905e217 d196905e220 d196905e223 d196905e226 ">1</td>
+
+                                <td class="entry" valign="top" headers="d196905e215 d196905e217 d196905e220 d196905e223 d196905e226 ">1</td>
+
+                                <td class="entry" valign="top" headers="d196905e215 d196905e217 d196905e220 d196905e223 d196905e226 ">0</td>
+
+                                <td class="entry" valign="top" headers="d196905e215 d196905e217 d196905e220 d196905e223 d196905e226 ">00：00：00</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d196905e215 d196905e217 d196905e220 d196905e223 d196905e226 ">ユーザーB</td>
+
+                                <td class="entry" valign="top" headers="d196905e215 d196905e217 d196905e220 d196905e223 d196905e226 ">1</td>
+
+                                <td class="entry" valign="top" headers="d196905e215 d196905e217 d196905e220 d196905e223 d196905e226 ">1</td>
+
+                                <td class="entry" valign="top" headers="d196905e215 d196905e217 d196905e220 d196905e223 d196905e226 ">1</td>
+
+                                <td class="entry" valign="top" headers="d196905e215 d196905e217 d196905e220 d196905e223 d196905e226 ">00：01：00</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d196905e215 d196905e217 d196905e220 d196905e223 d196905e226 ">ビデオX合計（ユーザーA +ユーザーB）</td>
+
+                                <td class="entry" valign="top" headers="d196905e215 d196905e217 d196905e220 d196905e223 d196905e226 ">2</td>
+
+                                <td class="entry" valign="top" headers="d196905e215 d196905e217 d196905e220 d196905e223 d196905e226 ">2</td>
+
+                                <td class="entry" valign="top" headers="d196905e215 d196905e217 d196905e220 d196905e223 d196905e226 ">1</td>
+
+                                <td class="entry" valign="top" headers="d196905e215 d196905e217 d196905e220 d196905e223 d196905e226 ">00：01：00</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+</div>
+
+            <p class="gt-block p"><strong class="ph b">例2：リプレイ</strong></p>
+
+            <p class="p">ユーザは、同じ視聴体験中に再生をクリックしてコンテンツを再び再生する。</p>
+
+            <div class="p">ユーザーAは、1プレロール広告でVideo Xを見始め、その広告とコンテンツをずっと見て、それからリプレイをして、もう一度見ています。 あるいは、2番目の再生で、ユーザーBが広告を見て終了します。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">表2 例2のメトリック集計</span></caption>
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" id="d196905e311"> </th>
+
+                                <th class="entry" valign="top" id="d196905e313">表示</th>
+
+                                <th class="entry" valign="top" id="d196905e316">リクエストされた遊び</th>
+
+                                <th class="entry" valign="top" id="d196905e319">ビデオ開始</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d196905e311 d196905e313 d196905e316 d196905e319 ">ユーザーA</td>
+
+                                <td class="entry" valign="top" headers="d196905e311 d196905e313 d196905e316 d196905e319 ">1</td>
+
+                                <td class="entry" valign="top" headers="d196905e311 d196905e313 d196905e316 d196905e319 ">1</td>
+
+                                <td class="entry" valign="top" headers="d196905e311 d196905e313 d196905e316 d196905e319 ">1</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d196905e311 d196905e313 d196905e316 d196905e319 ">ユーザーB</td>
+
+                                <td class="entry" valign="top" headers="d196905e311 d196905e313 d196905e316 d196905e319 ">1</td>
+
+                                <td class="entry" valign="top" headers="d196905e311 d196905e313 d196905e316 d196905e319 ">1</td>
+
+                                <td class="entry" valign="top" headers="d196905e311 d196905e313 d196905e316 d196905e319 ">1</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+            </div>
+
+            <p class="gt-block p"><strong class="ph b">例3：ミッドロール広告</strong></p>
+
+            <p class="p">サイト運営者は、コンテンツの再生中にミッドロール広告も配信します。</p>
+
+            <div class="p">ユーザーAは2プレロール広告でVideo Xを見始め、広告を見、コンテンツを見始め、ミッドロール広告を見て、ビデオを終了します。 ユーザーBは、2プレロール広告でビデオXを見始め、広告を見、コンテンツを見始め、ミッドロール広告を見、そしてビデオを完成させます。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">表3 例3のメトリック集計</span></caption>
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" id="d196905e380"> </th>
+
+                                <th class="entry" valign="top" id="d196905e382">表示</th>
+
+                                <th class="entry" valign="top" id="d196905e385">リクエストされた遊び</th>
+
+                                <th class="entry" valign="top" id="d196905e388">ビデオ開始</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d196905e380 d196905e382 d196905e385 d196905e388 ">ユーザーA</td>
+
+                                <td class="entry" valign="top" headers="d196905e380 d196905e382 d196905e385 d196905e388 ">1</td>
+
+                                <td class="entry" valign="top" headers="d196905e380 d196905e382 d196905e385 d196905e388 ">1</td>
+
+                                <td class="entry" valign="top" headers="d196905e380 d196905e382 d196905e385 d196905e388 ">1</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d196905e380 d196905e382 d196905e385 d196905e388 ">ユーザーB</td>
+
+                                <td class="entry" valign="top" headers="d196905e380 d196905e382 d196905e385 d196905e388 ">1</td>
+
+                                <td class="entry" valign="top" headers="d196905e380 d196905e382 d196905e385 d196905e388 ">1</td>
+
+                                <td class="entry" valign="top" headers="d196905e380 d196905e382 d196905e385 d196905e388 ">1</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d196905e380 d196905e382 d196905e385 d196905e388 ">ビデオX合計（ユーザーA +ユーザーB）</td>
+
+                                <td class="entry" valign="top" headers="d196905e380 d196905e382 d196905e385 d196905e388 ">2</td>
+
+                                <td class="entry" valign="top" headers="d196905e380 d196905e382 d196905e385 d196905e388 ">2</td>
+
+                                <td class="entry" valign="top" headers="d196905e380 d196905e382 d196905e385 d196905e388 ">2</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+            </div>
+
+            <p class="gt-block p"><strong class="ph b">例4：シーク</strong></p>
+
+            <p class="p">ユーザはまた、プレーヤ内の単一の視聴経験の間にコンテンツを前後に探索することができる。 </p>
+
+            <div class="p">ユーザーAは、2プレロール広告でVideo Xの視聴を開始し、両方の広告を視聴し、コンテンツの視聴を開始し、ミッドロール広告を視聴し、視聴を続けた後、最初に戻ってコンテンツを再生します。 ユーザーに、ミッドロール広告が再度表示されます。 これにより、1表示、1再生要求、1ビデオの開始が発生します。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">表4 例4のメトリック集計</span></caption>
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" id="d196905e465"> </th>
+
+                                <th class="entry" valign="top" id="d196905e467">表示</th>
+
+                                <th class="entry" valign="top" id="d196905e470">リクエストされた遊び</th>
+
+                                <th class="entry" valign="top" id="d196905e473">ビデオ開始</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d196905e465 d196905e467 d196905e470 d196905e473 ">ユーザーA</td>
+
+                                <td class="entry" valign="top" headers="d196905e465 d196905e467 d196905e470 d196905e473 ">1</td>
+
+                                <td class="entry" valign="top" headers="d196905e465 d196905e467 d196905e470 d196905e473 ">1</td>
+
+                                <td class="entry" valign="top" headers="d196905e465 d196905e467 d196905e470 d196905e473 ">1</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+            </div>
+
+            <p class="gt-block p"><strong class="ph b">例5：自動再生</strong></p>
+
+            <p class="p">サイト運営者の自動再生がオンになっています。つまり、ユーザーがプレーヤーを含むページにアクセスすると、ビデオプレーヤーは自動的にコンテンツの再生を開始します。</p>
+
+            <div class="p">ユーザーAは1プレロール広告でページ（自動再生がオンになっている場所）にアクセスし、広告を視聴して動画の再生が始まる前に終了します。 ユーザーBは1プレロール広告でページ（自動再生が有効になっている場所）にアクセスし、動画コンテンツの途中でページを終了します。 
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">表5 例5のメトリック集計</span></caption>
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" id="d196905e519"> </th>
+
+                                <th class="entry" valign="top" id="d196905e521">表示</th>
+
+                                <th class="entry" valign="top" id="d196905e524">リクエストされた遊び</th>
+
+                                <th class="entry" valign="top" id="d196905e527">ビデオ開始</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d196905e519 d196905e521 d196905e524 d196905e527 ">ユーザーA</td>
+
+                                <td class="entry" valign="top" headers="d196905e519 d196905e521 d196905e524 d196905e527 ">1</td>
+
+                                <td class="entry" valign="top" headers="d196905e519 d196905e521 d196905e524 d196905e527 ">1</td>
+
+                                <td class="entry" valign="top" headers="d196905e519 d196905e521 d196905e524 d196905e527 ">0</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d196905e519 d196905e521 d196905e524 d196905e527 ">ユーザーB</td>
+
+                                <td class="entry" valign="top" headers="d196905e519 d196905e521 d196905e524 d196905e527 ">1</td>
+
+                                <td class="entry" valign="top" headers="d196905e519 d196905e521 d196905e524 d196905e527 ">1</td>
+
+                                <td class="entry" valign="top" headers="d196905e519 d196905e521 d196905e524 d196905e527 ">1</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d196905e519 d196905e521 d196905e524 d196905e527 ">ビデオX合計（ユーザーA +ユーザーB）</td>
+
+                                <td class="entry" valign="top" headers="d196905e519 d196905e521 d196905e524 d196905e527 ">2</td>
+
+                                <td class="entry" valign="top" headers="d196905e519 d196905e521 d196905e524 d196905e527 ">2</td>
+
+                                <td class="entry" valign="top" headers="d196905e519 d196905e521 d196905e524 d196905e527 ">1</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+            </div>
+
+            <p class="gt-block p"><strong class="ph b">例6：プレイスルー</strong></p>
+<p class="p">この例は、プレイスルーのカウント方法を示しています。 この例のビデオの長さは4分です。 </p>
+<p class="p">ユーザーAは、最初から2分、30秒までビデオコンテンツを視聴してから視聴を停止します。</p>
+<p class="p">ユーザーBは、ビデオコンテンツを最初から3分、30秒まで見た後、最初まで巻き戻して1分、30秒まで見た後、視聴を停止します。</p>
+<div class="p">ユーザーCは直接2分をシークし、そこから2分および30秒まで監視してから監視を停止します。
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">表6 例6のメトリック集計</span></caption>
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" id="d196905e606"> </th>
+
+                                <th class="entry" valign="top" id="d196905e608">プレイスルー25％</th>
+
+                                <th class="entry" valign="top" id="d196905e611">プレイスルー50％</th>
+
+                                <th class="entry" valign="top" id="d196905e614">プレイスルー75％</th>
+
+                                <th class="entry" valign="top" id="d196905e617">プレイスルー100％</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d196905e606 d196905e608 d196905e611 d196905e614 d196905e617 ">ユーザーA</td>
+
+                                <td class="entry" valign="top" headers="d196905e606 d196905e608 d196905e611 d196905e614 d196905e617 ">1</td>
+
+                                <td class="entry" valign="top" headers="d196905e606 d196905e608 d196905e611 d196905e614 d196905e617 ">1</td>
+
+                                <td class="entry" valign="top" headers="d196905e606 d196905e608 d196905e611 d196905e614 d196905e617 ">0</td>
+
+                                <td class="entry" valign="top" headers="d196905e606 d196905e608 d196905e611 d196905e614 d196905e617 ">0</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d196905e606 d196905e608 d196905e611 d196905e614 d196905e617 ">ユーザーB</td>
+
+                                <td class="entry" valign="top" headers="d196905e606 d196905e608 d196905e611 d196905e614 d196905e617 ">1</td>
+
+                                <td class="entry" valign="top" headers="d196905e606 d196905e608 d196905e611 d196905e614 d196905e617 ">1</td>
+
+                                <td class="entry" valign="top" headers="d196905e606 d196905e608 d196905e611 d196905e614 d196905e617 ">1</td>
+
+                                <td class="entry" valign="top" headers="d196905e606 d196905e608 d196905e611 d196905e614 d196905e617 ">0</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d196905e606 d196905e608 d196905e611 d196905e614 d196905e617 ">ユーザーC</td>
+
+                                <td class="entry" valign="top" headers="d196905e606 d196905e608 d196905e611 d196905e614 d196905e617 ">1</td>
+
+                                <td class="entry" valign="top" headers="d196905e606 d196905e608 d196905e611 d196905e614 d196905e617 ">1</td>
+
+                                <td class="entry" valign="top" headers="d196905e606 d196905e608 d196905e611 d196905e614 d196905e617 ">0</td>
+
+                                <td class="entry" valign="top" headers="d196905e606 d196905e608 d196905e611 d196905e614 d196905e617 ">0</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+</div>
+
+            <p class="gt-block p"><strong class="ph b">例7：監視されたセグメントと監視された時間</strong></p>
+
+            <p class="p">この例では、ビデオの長さは20分です。 このビデオには40バケットが割り当てられています。各バケットの長さは30秒です。
+                </p>
+
+            <p class="p">ユーザーAがビデオを再生し、1分間視聴します。</p>
+<p class="p">ユーザーBは、そのビデオを再生して1分間見てから、40秒まで巻き戻して、同じビデオビューセッション中に再び1分間見ます（ユーザーはプレーヤーをリロードしませんでした）。</p>
+ユーザーCは、ビデオを再生して1分の間視聴した後、ビデオコンテンツの19分および31秒まで早送りし、そこから最後まで視聴します。 <div class="p">
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">表7 例7のメトリック集計</span></caption>
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" id="d196905e707"> </th>
+
+                                <th class="entry" valign="top" id="d196905e709">監視セグメント</th>
+
+                                <th class="entry" valign="top" id="d196905e712">見た時間</th>
+
+                                
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d196905e707 d196905e709 d196905e712 ">ユーザーA</td>
+
+                                <td class="entry" valign="top" headers="d196905e707 d196905e709 d196905e712 ">
+                                    <p class="p">1stバケットには1遊びがあります</p>
+
+                                    <p class="p">2ndバケットには1遊びがあります</p>
+
+                                </td>
+
+                                <td class="entry" valign="top" headers="d196905e707 d196905e709 d196905e712 ">00：01：00</td>
+
+                                
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d196905e707 d196905e709 d196905e712 ">ユーザーB</td>
+
+                                <td class="entry" valign="top" headers="d196905e707 d196905e709 d196905e712 ">
+                                    <p class="p">1stバケットには1遊びがあります</p>
+
+                                    <p class="p">2ndバケットには2の演劇があります</p>
+
+                                </td>
+
+                                <td class="entry" valign="top" headers="d196905e707 d196905e709 d196905e712 ">00：01：20</td>
+
+                                
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d196905e707 d196905e709 d196905e712 ">ユーザーC</td>
+
+                                <td class="entry" valign="top" headers="d196905e707 d196905e709 d196905e712 ">
+                                    <p class="p">1stバケットには1遊びがあります</p>
+
+                                    <p class="p">2ndバケットには1遊びがあります</p>
+
+                                    <p class="p">40番目のバケットには1の遊びがあります</p>
+
+                                </td>
+
+                                <td class="entry" valign="top" headers="d196905e707 d196905e709 d196905e712 ">00：01：29</td>
+
+                                
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+            </div>
+
+            <p class="p">ユーザーBのシナリオでは、ユーザーが2番目のバケット内で巻き戻したため、2番目のバケットに2が再生されます。 これは、視聴したセグメントが、その人気を測定するために各特定のセグメントで発生した再生の合計数をキャプチャするためです（同じユーザーが巻き戻しているか、別のユーザーが再生しているかに関係なく）。 そのため、同じビデオビューセッション内で、ユーザーが巻き戻した場合のセグメント視聴数は増加する可能性があります。 ユーザーはまだ5バケット（2stおよび1nd）しか見ていないため、ユーザーBの視聴率は依然として2％です。 視聴率は、これまでに視聴されたことのある動画コンテンツ全体の割合を測定するために使用されます（同じユーザが同じ動画ビューセッション中にすでに視聴されたバケット内で巻き戻されてもカウントは増えません）。</p>
+
+            <p class="p">視聴率は、動画コンテンツ全体の何パーセントが視聴されたかを示します（40％視聴されたコンテンツの最初の40％、または視聴されたコンテンツの最初の20％と最後のコンテンツの20％）。 ） </p>
+
+            <p class="gt-block p"><strong class="ph b">例8：一意のユーザー</strong></p>
+
+            <p class="p">これは、ユニークユーザーがどのようにカウントされるかを示しています。 あなたのウェブサイト“ myExampleSite.com”にビデオがあります。</p>
+
+            <p class="p">状況A：ユーザーWは自分のiPhoneでアプリケーション1を使用してビデオを視聴します。 その日のうちに、彼らは彼らのiPhoneでアプリケーション1を使ってビデオをもう一度見ることにしました。</p>
+
+            <p class="p">状況B：ユーザーXが自分のラップトップであなたのビデオを見ます。 彼らはブラウザのウィンドウを閉じたままにして、彼らの一日のことを始めます。 12時間後、彼らは自分のラップトップに戻ってビデオを再視聴しました。 </p>
+
+            <p class="p">状況C：ユーザーYが自分のタブレットであなたのビデオを見ます。 それでも、以前と同じwifiネットワークを使用しながら、ラップトップでビデオを見ます。</p>
+
+            <p class="p">状況D：ユーザーZが自分のラップトップであなたのビデオをブラウザ1で見る。 ビデオが終了した後、彼らは彼らのクッキーをクリアします。 それから彼らは彼らのラップトップ上のブラウザ1で再びビデオを見る。</p>
+
+            <div class="p">
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">表8 例8のメトリック集計</span></caption>
+                        <thead class="thead" align="left">
+                            <tr class="row">
+                                <th class="entry" valign="top" id="d196905e819"> </th>
+
+                                <th class="entry" valign="top" id="d196905e821">一意のユーザー</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="tbody">
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d196905e819 d196905e821 ">状況A</td>
+
+                                <td class="entry" valign="top" headers="d196905e819 d196905e821 ">1</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d196905e819 d196905e821 ">状況B</td>
+
+                                <td class="entry" valign="top" headers="d196905e819 d196905e821 ">1</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d196905e819 d196905e821 ">状況C</td>
+
+                                <td class="entry" valign="top" headers="d196905e819 d196905e821 ">2</td>
+
+                            </tr>
+
+                            <tr class="row">
+                                <td class="entry" valign="top" headers="d196905e819 d196905e821 ">状況D</td>
+
+                                <td class="entry" valign="top" headers="d196905e819 d196905e821 ">2</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+</div>
+
+            </div>
+
+        </div>
+
+        </div>
+
+    <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/analytics_v3_user_intro.html">Ooyala IQの紹介</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../api/analytics_v3_api_overview.html">概要</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- d

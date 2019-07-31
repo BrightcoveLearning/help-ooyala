@@ -1,0 +1,73 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Resuming Playback in Your Application"/>
+<meta name="abstract" content=""/>
+<meta name="description" content=""/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_xdr.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/xdr_example_ios.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/xdr_example_android.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/xdr_example_playerv3.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept_qp2_wcj_bm"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>アプリケーションで再生を再開する</title>
+</head>
+<body id="concept_qp2_wcj_bm">
+
+
+ <h1 class="title topictitle1">アプリケーションで再生を再開する</h1>
+
+ 
+ <div class="body conbody"><p class="shortdesc"/>
+
+  <div class="section">
+
+   <p class="p">中間サーバーが最後の再生ヘッド位置とフォーマットされたOPT要求をアプリケーションに返したら、これらの値を目的のデバイスまたはプラットフォームに渡します。 </p>
+<ul class="ul">
+     <li class="li">iOS用モバイルSDK <samp class="ph codeph">[OOOoyalaPlayer playWithInitialTime：<strong class="ph b">initialTime</strong>]</samp></li>
+
+     <li class="li">Android用モバイルSDK <samp class="ph codeph">OoyalaPlayer.play（<strong class="ph b">initialTime</strong>)</samp></li>
+
+     <li class="li">ウーヤラウェブプレーヤー： <samp class="ph codeph"><strong class="ph b">initialTime</strong></samp> プレーヤー呼び出しの3番目の引数の一部として。</li>
+
+    </ul>
+
+  
+   <div class="p">
+    <div class="note note"><span class="notetitle">注意：</span> プラットフォームに関係なく、あなたはの値を取得する関数を書く必要があります。
+      <samp class="ph codeph">initialTime</samp> これは、ステップ2で返されたタイムスタンプです。 <a class="xref" href="xdr_serverarchitecture.html#chapter_mobile_sdk_android" title="For security, you need a server to communicate with Ooyala's servers, rather than directly from your client application.">一般建築</a>。 これらの例では、この関数をgetInitialTimeと呼びます。 この機能はサーバーのプログラミング方法によって異なるため、機能自体の実際の定義は示していません。</div>
+
+   </div>
+
+   <p class="p">以下のセクションでこれらの呼び出しについて説明します。</p>
+
+  </div>
+
+ </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../concepts/xdr_example_ios.html">特定の位置から再生を開始する：Mobile SDK for iOS</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/xdr_example_android.html">特定の位置で再生を開始する：Mobile SDK for Android</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../concepts/xdr_example_playerv3.html">特定の位置で再生を開始する：プレーヤーV3</a></strong><br/>
+</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/chapter_xdr.html" title="クロスデバイスレジューム（XDR）を使用すると、視聴者はあるデバイスでビデオの視聴を開始し、一時停止し、後で別のデバイスからビデオを再生し続けることができます。 Ooyala Player（V4およびV3）とモバイルSDKは、OoyalaのREST APIと組み合わせて、デバイス間での再生再開をサポートします。">クロスデバイスレジューム（XDR）</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

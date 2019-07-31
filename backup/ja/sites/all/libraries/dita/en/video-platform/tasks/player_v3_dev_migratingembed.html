@@ -1,0 +1,117 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Migrating an Existing Embed Code to Player V3 (Deprecated)"/>
+<meta name="abstract" content="Migrating an existing embed code is straightforward in Player V3."/>
+<meta name="description" content="Migrating an existing embed code is straightforward in Player V3."/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_encoding.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_publishing.html"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/chapter_monetization.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="player_v3_dev_migratingembed"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Migrating an Existing Embed Code to Player V3 (Deprecated)</title>
+</head>
+<body id="player_v3_dev_migratingembed">
+
+
+ <h1 class="title topictitle1">Migrating an Existing Embed Code to Player V3 (Deprecated)</h1>
+
+ 
+ <div class="body taskbody"><p class="shortdesc">Migrating an existing embed code is straightforward in Player V3.</p>
+
+  <div class="section context">
+   <div class="note note"><span class="notetitle">注意：</span> Ooyala Player V3とV2は廃止予定であり、予定されています。 <em class="ph i">無効</em> 2018-01-31について その日以降、Player V3とPlayer V2はあなたのビデオまたはオーディオコンテンツを再生しなくなります。 まだ古いプレーヤーを使用しているお客様は、プレーヤーV4に移行する必要があります（ <a class="xref" href="../concepts/pbv4_about.html">プレイヤーV4</a>.</div>
+
+   <p class="p">To get started, you can copy an existing web page to test out the migration process. If you
+    have many web pages or a site with multiple players, you may want to script the migration. To
+    start migrating from a web page, you need to do the following: </p>
+
+  </div>
+
+  <ol class="ol steps"><li class="li step stepexpand">
+    <span class="ph cmd">Insert the correct DOCTYPE in your web page. </span>
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">Set up your head tags and include the script tags around your existing load player
+     statements. For example: </span>
+     
+     <pre class="pre codeblock"> 
+&lt;script
+ src="http://player.ooyala.com/player.js?width=750&amp;height=312
+ &amp;embedCode=replace_with_embed_code"&gt;
+&lt;/script&gt;
+</pre>
+
+    
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">Then add the &lt;head&gt; tags and the v3 path. Instead of the embed code information, you
+     insert the player branding id (get this from Backlot). If your player is a Flash player, it
+     will continue to work as always. The Player V3 will “wrap” the Flash player and playback
+     continues to work as it normally does. </span>
+     
+     <pre class="pre codeblock"> 
+&lt;head&gt;
+
+&lt;!-- Load Ooyala Player --&gt;
+ &lt;script src='http://player.ooyala.com/v3/
+  replace_with_player_branding_id'&gt;&lt;/script&gt;
+
+&lt;/head&gt;
+</pre>
+
+    
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd">Within the &lt;body&gt; tags, you will place the player in the &lt;div&gt; container and
+     include your embed code information. In the following example,  we have taken the size
+     parameters and specified them in the &lt;div&gt; container. However, you can also specify the
+     &lt;div&gt; container as one size and the actual video another size by adding additional
+     parameters. </span>
+     
+     <pre class="pre codeblock"> 
+&lt;body&gt;
+&lt;!-- Player Placement --&gt;
+&lt;div id='playerwrapper' style='width:750px;height:312px;'&gt;&lt;/div&gt;
+&lt;script&gt;
+    var videoPlayer = OO.Player.create('playerwrapper','replace_with_embed_code');
+    videoPlayer.play();
+&lt;/script&gt;
+&lt;/body&gt;
+</pre>
+
+    
+   </li>
+<li class="li step stepexpand">
+    <span class="ph cmd"> That is all you need to do to migrate to the new embed style. </span>
+   </li>
+</ol>
+
+ </div>
+
+ <div class="related-links"><div class="relinfo relconcepts"><strong>関連する概念</strong><br/>
+<div><a class="link" href="../concepts/chapter_encoding.html" title="マスタービデオをインターネットで直接ストリーミングすることはできません。 それらはまずストリーミング形式に変換またはトランスコードする必要があります。 Ooyalaトランスコーディングサービス（OTS）を使用して、ファイルをソース形式から出力形式に変換します。">トランスコーディング設定</a></div>
+<div><a class="link" href="../concepts/chapter_publishing.html" title="公開を使用すると、動画や動画のメタデータを複数のWebプロパティやコンテンツネットワークと共有できます。">コンテンツ発行</a></div>
+<div><a class="link" href="../concepts/chapter_monetization.html" title="Ooyalaを使用すると、広告やペイウォールを通じてコン​​テンツを収益化できます。">収益化</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

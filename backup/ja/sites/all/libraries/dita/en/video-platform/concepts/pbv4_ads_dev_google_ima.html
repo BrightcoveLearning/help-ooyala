@@ -1,0 +1,504 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Integrating Google IMA Ads"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_ads_dev_google_ima"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Google IMA広告の統合</title>
+<meta name="robots" content="noindex, follow" /></head>
+<body id="pbv4_ads_dev_google_ima">
+
+
+  <h1 class="title topictitle1">Google IMA広告の統合</h1>
+
+  <div class="body conbody">
+    <div class="section">You can integrate Google IMA ads with Player V4 using the <a class="xref" href="pbv4_ads_dev_chapter_googleima.html">Google IMA Ad Plugin</a>  (<samp class="ph codeph">google_ima.min.js</samp>).</div>
+   
+    <div class="section"><h2 class="title sectiontitle">Enabling the Google IMA Ad Source for Your Account</h2> Before you can use
+      Google IMA ad integration: 
+      <ol class="ol">
+        <li class="li">にログインします <span class="ph">Ooyala <a class="xref" href="../../../../../../../../ja/contact/index.html" target="_blank">カスタマーポータル</a></span>.</li>
+
+        <li class="li">Submit a ticket requesting that the Google IMA ad source be added to your
+          Ooyala account.</li>
+
+      </ol>
+</div>
+
+      <div class="section"><h2 class="title sectiontitle">広告タグをビデオアセットに関連付けるためのオプション</h2>Once the Google
+      IMA ad source is enabled for your account, you can associate Google IMA ad tags with your
+      videos using: <ul class="ul" id="pbv4_ads_dev_google_ima__ul_tvr_t5b_dm">
+        <li class="li">Backlot Ad Sets.
+          Create ad sets with the Backlot UI or API. </li>
+
+        <li class="li">Player Embedded Parameters.
+          Specify embedded parameters at the page level of the player.</li>
+
+      </ul>
+</div>
+
+    <div class="section"><h2 class="title sectiontitle">Notes About the Google IMA Plugin</h2>
+      <ul class="ul">
+        <li class="li">Ads that use Backlot settings will be loaded dynamically before the ad position (as
+        determined in Backlot). The ad will now be requested and loaded at the specified ad position
+        (via Backlot settings or Ad Rules). The video will be paused at the pre-determined ad
+        position and an ad request will be made. The loading icon will be displayed until a
+        successful ad response is returned, or the video playback will resume if an ad error is
+        detected. These behavior changes were made because publishers can be very specific about
+        when ad requests are made. </li>
+
+      <li class="li">For the Google IMA ad plugin, the ad marquee and ad control bar configurations in
+        skin.json are ignored (and are forcibly set to off) to avoid blocking ad
+        interactivity.</li>
+
+        </ul>
+
+    </div>
+
+    
+    <div class="section"><h2 class="title sectiontitle">Loading the Google IMA Ad Plugin on a Page</h2>
+      <div class="note note"><span class="notetitle">注意：</span> 
+        <ul class="ul">
+          <li class="li">HTML埋め込みコードを生成するためにBacklotを使用していて、 <strong class="ph b">V4 HTML5標準プレーヤー埋め込みコード（推奨）</strong> option, the Google IMA plugin
+            is automatically included and should not be explicitly added to the web page where you
+            launch the player. For details, see <a class="xref" href="../tasks/publishing_manual_embed.html">バックスロットでのプレーヤー埋め込み設定</a>.</li>
+ 
+          <li class="li">あなたが <strong class="ph b">V4 HTML5プレーヤー埋め込みコード（詳細）</strong> option in Backlot, or if you manually create the HTML embed code yourself, you need to add the Google IMA plugin  to your web page so that the Google IMA plugin loads
+            before the player is created. </li>
+
+        </ul>
+</div>
+
+      
+      
+      For every page on which you
+      want to use the Google IMA plugin with a player (regardless of how you associated Google IMA ads with your videos): 
+      <ol class="ol">
+        <li class="li" id="pbv4_ads_dev_google_ima__load_plugin">加えます <samp class="ph codeph">google_ima.min.js</samp> プレーヤーをロードしているページにスクリプトを書きます。 このプラグインをロードする必要があります <em class="ph i">After</em> あなたがロード <samp class="ph codeph">core.min.js</samp>.
+          
+          <pre class="pre codeblock">&lt;script language =“ javascript &quot;src =&quot;<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/google_ima.min.js &quot;&gt; &lt;/script&gt;</pre>
+</li>
+
+        <li class="li">Associate the player with the Ooyala Google IMA ad plugin by passing in
+            <samp class="ph codeph">google-ima-ads-manager</samp> as one of the player parameters during the
+          player creation (<var class="keyword varname">OO.Player.create</var>).</li>
+
+      </ol>
+</div>
+
+    
+    <div class="section" id="pbv4_ads_dev_google_ima__backlotAdSet"><h2 class="title sectiontitle">Option: Integrate with Google IMA via Backlot Ad Sets</h2>
+      <ol class="ol">
+        <li class="li">Create a Google IMA ad set using the Backlot UI or Backlot API:
+          <ul class="ul">
+          <li class="li"><strong class="ph b">バックスロットUI</strong>：Backlot UIを使用して広告セットを作成するには、 <a class="xref" href="../tasks/monetization_ads_adsets_integratingadnetworks.html" title="自分のアセットを使用する代わりに、他の広告ソースを使用することができます。">広告ソースと統合するための広告セットの作成</a>.The HTML5 player will respect the following Ad Set settings from
+              Backlot: <ul class="ul">
+                <li class="li">Ad Tag URL</li>
+
+                <li class="li">トラッキングピクセルURL</li>
+
+                <li class="li">Ad positions</li>
+
+                
+                <li class="li">オーバーレイ広告</li>
+
+              </ul>
+ Ad rules and page-level settings take precedence over Backlot settings. <div class="note note"><span class="notetitle">注意：</span> 
+                <ul class="ul">
+                  <li class="li">選択する <strong class="ph b">Google IMA V3</strong> option for the ad source when creating this ad
+                    set. Disregard any other options.</li>
+
+                  <li class="li">If the Ad Tag is an Ad Rule, then you must select <strong class="ph b">広告ルール</strong> in the Ad
+                    Position drop-down.</li>
+
+                </ul>
+
+              </div>
+   <strong class="ph b">required fields</strong> for creating a Google IMA ad set are:
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+                  <thead class="thead" align="left">
+                    <tr class="row">
+                      <th class="entry" valign="top" id="d417504e189">フィールド</th>
+
+                      <th class="entry" valign="top" id="d417504e192">説明</th>
+
+                    </tr>
+
+                  </thead>
+
+                  <tbody class="tbody">
+                    <tr class="row">
+                      <td class="entry" valign="top" headers="d417504e189 d417504e192 "><samp class="ph codeph"><span class="keyword parmname">広告セット名</span></samp></td>
+
+                      <td class="entry" valign="top" headers="d417504e189 d417504e192 ">Enter a name for the ad set.</td>
+
+                    </tr>
+
+                    <tr class="row">
+                      <td class="entry" valign="top" headers="d417504e189 d417504e192 "><samp class="ph codeph"><span class="keyword parmname">広告タグ</span></samp></td>
+
+                      <td class="entry" valign="top" headers="d417504e189 d417504e192 ">Enter your Google IMA tag here. This is available from your DFP,
+                        Adxchange, or Adsense account. See below for an example. </td>
+
+                    </tr>
+
+                  </tbody>
+
+                </table>
+</div>
+Example Ad Tag:
+              <pre class="pre codeblock"> <a class="xref" href="http://123fakeads.g.doubleclick.net/gampad/ads?sz=400x300&iu=%2F6062%2Fiab_vast_samples&ciu_szs=300x250%2C728x90&impl=s&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url=[referrer_url]&correlator=[timestamp]&cust_params=iab_vast_samples%3Dlinear" target="_blank">http://123fakeads.g.doubleclick.net/gampad/ads?sz=400x300&amp;iu=%2F6062%2Fiab_vast_samples&amp;ciu_szs=300x250%2C728x90&amp;impl=s&amp;gdfp_req=1&amp;env=vp&amp;output=xml_vast2&amp;unviewed_position_start=1&amp;url=[referrer_url]&amp;correlator=[timestamp]&amp;cust_params=iab_vast_samples%3Dlinear</a></pre>
+</li>
+
+            <li class="li"><strong class="ph b">バックスロットAPI</strong>: To create an ad set programmatically with the Backlot API, see <a class="xref" href="../api/ad_sets.html" title="広告セットは、再生中のアセットの広告エクスペリエンスを制御する広告設定です。">広告セット</a></li>
+
+          </ul>
+
+        </li>
+
+        <li class="li">以下を使用して、広告セットをアセットまたは複数のアセットに割り当てます。<ul class="ul">
+            <li class="li"><strong class="ph b">バックスロットUI</strong>: To assign your Google IMA ad set to a single asset, see the
+              Support Center topic <a class="xref" href="../tasks/asset_manage_monetization.html" title="広告を使用してコンテンツを収益化したり、ペイウォールを使用してペイパービューエクスペリエンスを作成したりできます。">収益化の管理</a>. To assign your Google IMA ad set to multiple assets,
+              see the Support Center topic <a class="xref" href="../tasks/asset_bulk.html" title="Backlot UIを使用して、一度に複数の資産に設定を適用することができます。">Bulk
+                Applying Settings</a>.</li>
+
+            <li class="li"><strong class="ph b">Player API</strong>: With the Player API, you can associate an ad set only with an
+              asset on your web page. To associate an ad set with an asset on multiple players, you
+              must replicate the code for each player. To associate an ad set with an asset using
+              the Player API, see <a class="xref" href="../tasks/pbv4_assign_adsets_dynamic.html">Assigning Ad Sets Dynamically</a>.</li>
+
+            <li class="li"><strong class="ph b">バックスロットAPI</strong>：Backlot APIを使用すると、広告セットとアセットをより具体的に関連付けることができます。 Backlot APIを使用してアセットを広告セットに関連付けると、そのアセットを再生しているすべてのプレーヤーとページで、そのアセットと広告セットがペアになります。 Backlot APIを使用してアセットを広告セットに関連付けるには、 <a class="xref" href="../api/asset_ad_set.html" title="広告セットをビデオ、ライブストリーム、およびリモートアセットに関連付けることができます。 広告セットの作成については、 『Backlotユーザーガイド』を参照してください。">広告セットをアセットに関連付ける</a>.</li>
+
+          </ul>
+</li>
+
+      </ol>
+
+    </div>
+
+
+    <div class="section" id="pbv4_ads_dev_google_ima__params"><h2 class="title sectiontitle">Option: Integrate with Google IMA via Player Embedded Parameters</h2>
+      <div class="note note"><span class="notetitle">注意：</span> <span class="ph">どこにいても <samp class="ph codeph"><span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span></samp> サンプルコードでは、（コード内の）これを、リソースがホストされている場所を指すURLに置き換えます。 Ooyalaがホストするパスのリストについては、を参照してください。 <a class="xref" href="pbv4_resources.html">OoyalaがホストするプレイヤーV4リソース</a>。 URLは、同じホスト上の場所（内部リンク）または別のホスト上（前に次の文字列が付いた場所）を指すことができます。 <samp class="ph codeph">http://</samp>  or  <samp class="ph codeph">https://</samp>） 自分でリソースをホストしている場合（ <a class="xref" href="pbv4_host.html">ホスティングプレイヤーV4リソース</a>）、ファイル内のパスの依存関係を必ず確認してください。</span></div>
+
+      <div class="p">
+        <ol class="ol">
+          <li class="li">加えます <samp class="ph codeph">google_ima.min.js</samp> プレーヤーをロードしているページにスクリプトを書きます。 このプラグインをロードする必要があります <em class="ph i">After</em> あなたがロード <samp class="ph codeph">core.min.js</samp>.
+          
+          <pre class="pre codeblock">&lt;script language =“ javascript &quot;src =&quot;<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/google_ima.min.js &quot;&gt; &lt;/script&gt;</pre>
+</li>
+
+          <li class="li">プレーヤV4を使う <var class="keyword varname">OO.Player.create</var> function to create the player. </li>
+
+          <li class="li">グローバルパラメータを渡します。 見る <a class="xref" href="pbv4_configure_ads_embedded_params.html">広告パラメータを設定する</a>.</li>
+
+          <li class="li">Pass Google IMA ad tags to the Ooyala player using the
+              <samp class="ph codeph">google-ima-ads-manager</samp> parameterとその子パラメータ 見る <a class="xref" href="pbv4_ads_dev_google_ima_parameters.html">Google IMA広告パラメータ</a>.  </li>
+
+        </ol>
+
+      </div>
+
+      <div class="p">
+        <div class="note note"><span class="notetitle">注意：</span> Ad sets that are loaded at the page level will override the ad set associated with the
+          asset in Backlot.</div>
+
+      </div>
+<p class="p">Here is an example of how to override an ad set in the Google IMA ad manager on your web page. If
+        you want to replace the Ad Set attached to your video (from Backlot), or if it does not have
+        an IMA Ad Set already associated with it, you will replace <var class="keyword varname">"yourAdTagUrl"</var>
+        with the actual Google IMA ad tag containing the response. Otherwise, you may leave it
+        out.</p>
+<div class="p"><pre class="pre codeblock">&lt;script&gt;
+    var playerParam = {
+      "pcode": "YOUR_PCODE",
+      "playerBrandingId": "YOUR_PLAYER_ID",
+      "skin": {
+        // Config contains the configuration setting for player skin. Change to your local config when necessary.
+        "config": "<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/skin.json"
+      },
+       "google-ima-ads-manager": {
+         "all_ads": [              
+             {                
+               "position_type":"r",                
+               "tag_url":"http://pubads.g.doubleclick.net/1234567/ads?sz=640x480&amp;iu=/12345/pb_preroll_ad&amp;ciu_szs&amp;impl=s&amp;cmsid=123&amp;vid=1234567abcdefg&amp;gdfp_req=1&amp;env=vp&amp;output=xml_vast2&amp;unviewed_position_start=1&amp;url=[referrer_url]&amp;description_url=[description_url]&amp;correlator=[timestamp]"              
+             }            
+          ]          
+        }
+    };
+    OO.ready(function() {
+      window.pp = OO.Player.create("container", "YOUR_ASSET_ID", playerParam);
+    });
+&lt;script&gt;</pre>
+
+        Here is a more complete example of Google IMA integration that will work for HTML5. The
+        player branding_id of a player and the embed code of an asset can be found in the Embed tab
+        on the MANAGE page of Backlot. </div>
+<pre class="pre codeblock">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Google IMA Example&lt;/title&gt;
+        &lt;!-- V4 JS core is required. Plugins such as skin, discovery and Advertising need to be loaded separately --&gt;
+        &lt;script src="<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/core.min.js &quot;&gt; &lt;/script&gt; &lt;script src =&quot;<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/other-plugin/discovery_api.min.js &quot;&gt; &lt;/script&gt; &lt;！ - 必要に応じて、これらのhtml5-skin.min.cssとhtml5-skin.jsをローカルビルドに変更してください - &gt; &lt;script src =&quot;<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/html5-skin.min.js &quot;&gt; &lt;/script&gt; &lt;link rel =&quot;スタイルシート &quot;href =&quot;<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/html5-skin.min.css &quot;/&gt; &lt;！ - ビデオプラグインが必要です。この例は、メインビデオプラグインを示しています - &gt; &lt;script src =&quot;<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/main_html5.min.js"&gt;&lt;/script&gt;
+        &lt;!-- Ad module --&gt;
+        &lt;script src="<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/google_ima.min.js"&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="container" style="width:640px; height:360px;"&gt;&lt;/div&gt;
+        &lt;script&gt;
+            var playerParam = {
+              "pcode": "YOUR_PCODE",
+              "playerBrandingId": "YOUR_PLAYER_ID",
+              "skin": {
+                // Config contains the configuration setting for player skin. Change to your local config when necessary.
+                "config": "<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/skin.json"
+              },
+               "google-ima-ads-manager": {
+                 "all_ads": [              
+                    {                
+                    "position_type":"r",                
+                    "tag_url":"//pubads.g.doubleclick.net/1234567/ads?sz=640x480&amp;iu=/12345/pb_preroll_ad&amp;ciu_szs&amp;impl=s&amp;cmsid=123&amp;vid=1234567abcdefg&amp;gdfp_req=1&amp;env=vp&amp;output=xml_vast2&amp;unviewed_position_start=1&amp;url=[referrer_url]&amp;description_url=[description_url]&amp;correlator=[timestamp]"              
+                    }            
+                  ]          
+               }
+            };
+            OO.ready(function() {
+              window.pp = OO.Player.create("container", "YOUR_ASSET_ID", playerParam);
+            });
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+</div>
+
+    <div class="section"><h2 class="title sectiontitle">Special Case: Google DFP Premium</h2>
+      <p class="p">This section applies only if you are using
+        DFP.</p>
+<p class="gt-block p">Before trafficking ads, <strong class="ph b">if you are using DFP Premium </strong>you must first map
+        your video content and all related custom metadata to Google's platform. To learn how to do
+        this, see the Support Center topic <a class="xref" href="monetization_dfp.html" title="Backoy APIまたはMRSSフィードを介して、OoyalaでホストされているコンテンツをDoubleClick for Publishers（DFP）と同期させることで、Google IMAで収益化することができます。">Monetizing your Ooyala Content with DFP</a>.</p>
+
+      <div class="sectiondiv">
+        <p class="gt-block p"><strong class="ph b">カスタムメタデータ</strong></p>
+
+        <p class="p">If your video content has been successfully ingested into DFP, all custom metadata
+          key/value pairs should be visible in DFP's Content tab. These values may be used to target
+          ads against particular types of content. The following screenshot, for example, is from an
+          individual video asset from Ooyala’s test DFP account. <img class="image" src="http://help-ooyala.brightcove.com/../image/dfp_metadata.png" height="365" width="462" alt="DFT Metadata"/>
+        </p>
+
+      </div>
+      <div class="sectiondiv">
+        <p class="gt-block p"><strong class="ph b">Mapping Custom Metadata to DFP Keys</strong></p>
+
+        <p class="gt-block p">You have the option of creating custom targeting keys on DFP Premium. These keys are then
+          mapped to the key/values ingested from Backlot. To create these keys, in DFP, go to <span class="ph menucascade"><span class="ph uicontrol">棚卸</span> &gt; <span class="ph uicontrol">Custom targeting</span> &gt; <span class="ph uicontrol">+ New key</span></span>以下に示すように。 <img class="image" src="http://help-ooyala.brightcove.com/../image/dfp_custom_targeting.png" height="215" width="473" alt="Custom Targeting"/>For more information, go to the <a class="xref" href="https://support.google.com/dfp_premium/answer/1241378?hl=en&ref_topic=1342208" target="_blank">DFP help article</a> on custom targeting.</p>
+
+      </div>
+      <strong class="ph b">広告ルール</strong>
+      <p class="p">Ad rules can define when ads are inserted, how long they should run for, what format of ads
+        are run, and what to use as the ad source.</p>
+<div class="p">Publishers can set up two types of ad rules
+        in DFP in addition to Default Ad Rules that are already available in DFP: <ul class="ul" id="pbv4_ads_dev_google_ima__ul_mft_l5z_4x">
+          <li class="li">Standard Ad Rules, which apply to a single stream of content.</li>
+
+          <li class="li">Session Ad Rules. which applies to a visitor’s entire visit to customer’s pages. They
+            can be applied across multiple content streams and across multiple sites. Session ad
+            rules can only be applied to pre-roll ads.</li>
+
+        </ul>
+</div>
+<p class="p">広告の広告ルールを有効にするには：</p>
+<ol class="ol" id="pbv4_ads_dev_google_ima__ad_rules">
+        <li class="li">DFPで広告ルールを指定してください。 DFP広告ルールの実装については、にアクセスしてください。 <a class="xref" href="https://support.google.com/dfp_premium/answer/2553686?hl=en" target="_blank">https://support.google.com/dfp_premium/answer/2553686?hl=en</a>.</li>
+
+        <li class="li">To enable your DFP ad rules to correctly render for your Google IMA V3 ad with the
+          Backlot UI, click <span class="ph menucascade"><span class="ph uicontrol">マネー</span> &gt; <span class="ph uicontrol">広告セット</span></span>, and set the ad position to "ad rules" for the desired ad. <p class="p">OR</p>
+<div class="p">To
+            enable your DFP ad rules to correctly render for your Google IMA V3 ad with the Backlot
+            API, set "<span class="keyword parmname">ad_type</span>&quot;：&quot;<samp class="ph codeph">ルール</samp>" for the desired ad.
+            For more information see <a class="xref" href="../api/ad_sets.html#ad_sets__ad_type">広告セット</a>.
+              
+              <div class="note note"><span class="notetitle">注意：</span> Settings applied at the page level with the ad tag url will override Backlot
+              settings. However, the position type (ad rule or non ad rule) must match on the page
+              level and in Backlot for ads and ad rules to properly render.</div>
+</div>
+</li>
+
+      </ol>
+<div class="sectiondiv"><p class="gt-block p"><strong class="ph b">Ad Targeting</strong></p>
+<p class="gt-block p">To enable targeting against content metadata
+          values, Google DFP requires two values to be included on your IMA tag: <strong class="ph b">cmsid</strong> そして
+            <strong class="ph b">VID</strong>. Once these values are included when making ad requests, the IMA ad manager
+          “knows” which video asset is making the request. As a result, it returns whatever ad
+          response has been defined by the publisher’s ad operations team. </p>
+<p class="p"/>
+
+        <strong class="ph b">cmsid</strong>: A unique value assigned automatically by Google to each content source. To
+        locate it within the DFP Premium platform, click on the Video tab (on the upper right),
+        navigate to Sources and click on the source in question. The value is “ID,” as shown below:
+          <img class="image" src="http://help-ooyala.brightcove.com/../image/dfp_cmsid.png" height="298" width="543" alt="CMSID"/>
+        <p class="gt-block p"><strong class="ph b">VID</strong>: A unique value for each video asset. The Ooyala-IMA integration uses Ooyala’s
+          Content ID. </p>
+<p class="p"/>
+<p class="p">When creating the IMA Ad Manager adset, the publisher will need to
+          append the IMA ad tag with the macro [oo_embedcode]. Here’s an example IMA Ad Manager tag
+          with both cmsid and vid:
+          </p>
+<p class="p">http://googleads.g.doubleclick.net/pagead/ads?client=ca-video-pub-9498212586027311&amp;slotname=8286566767&amp;cmsid=176&amp;vid=[oo_embedcode]</p>
+<div class="p">You can also pass vid and cmsid programmatically on your web page, as shown in the following
+          example.
+          <pre class="pre codeblock">"google-ima-ads-manager": {
+  "all_ads": [              
+    {                
+    "position_type":"r",                
+    "tag_url":"//pubads.g.doubleclick.net/gampad/ads?sz=640x480&amp;amp;iu=/12345/pb_preroll_ad&amp;amp;ciu_szs&amp;amp;impl=s&amp;amp;cmsid=123&amp;amp;vid=1234567abcdefg&amp;amp;gdfp_req=1&amp;amp;env=vp&amp;amp;output=xml_vast2&amp;amp;unviewed_position_start=1&amp;amp;url=[referrer_url]&amp;amp;description_url=[description_url]&amp;amp;correlator=[timestamp]"              
+    }            
+  ], 
+  "additionalAdTagParameters": {
+    "vid": "embed code",
+    "cmsid": "349"
+  }
+}</pre>
+</div>
+</div></div>
+
+     <div class="section"><h2 class="title sectiontitle">IMA Ad Rules</h2>
+         <div class="p">Ad rules define how ads display with video content. You can create ad rules on their DFP Premium account to determine when ads play in a video, for how long, and as a result of which triggers, such as content targeting parameters. You can also target ad rules so that they apply to:
+             <ul class="ul">
+                 <li class="li">特定のテレビ番組の全エピソードなどの特定のビデオ。</li>
+
+                 <li class="li">「スポーツ」ジャンルのビデオなどのビデオメタデータ。</li>
+
+                 <li class="li">ユーザーの地理</li>
+
+                 <li class="li">ユーザーのブラウザ</li>
+
+                 <li class="li">定義したカスタムターゲティングキーと値。</li>
+
+             </ul>
+
+         </div>
+
+         <p class="gt-block p"><strong class="ph b">例1：</strong> You want to show two 60-second ad breaks during an episode of a popular TV show. The TV show has specific cue points that DFP ingested from your content management system (CMS). You can set up ad rules to specify when the ads should appear (either at the pre-defined cue points or after a certain number of minutes), what types of ads appear, and how many ads should appear during each ad break.</p>
+
+         <p class="gt-block p"><strong class="ph b">例2： </strong>For all sports videos on your website, you want to show pre-roll ads followed by a house ad (also called a bumper). You can set up an ad rule to specify what types of ads can show and how long they should run, then target the ad rule to videos with the correct metadata.
+         </p>
+
+     </div>
+
+    <div class="section"><h2 class="title sectiontitle">Special Case: Google IMA V3 Companion Ads</h2>
+      <div class="p"> Google IMA V3 companion ads don’t use the standard Player
+          <samp class="ph codeph">WILL_SHOW_COMPANION_ADS</samp> event. This is because Google IMA itself is
+        responsible for parsing and generating the companion ad. Google documents how to use the
+        Google Publisher Tag (GPT) at <a class="xref" href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/companions-gpt" target="_blank">https://developers.google.com/interactive-media-ads/docs/sdks/html5/companions-gpt</a>. To use companion ads:<ol class="ol" id="pbv4_ads_dev_google_ima__ol_lgw_wvy_bm">
+          <li class="li">Include the following code in your webpage:
+            <pre class="pre codeblock">&lt;script src="//www.googletagservices.com/tag/js/gpt.js"&gt;
+&lt;/script&gt;</pre>
+</li>
+
+          <li class="li">Create the companion tag. </li>
+
+          <li class="li">Call the right Google API to place the companion ad. For
+            example:<pre class="pre codeblock">&lt;div id="cad" style="width:300px;height:250px;background-color:red"&gt;
+&lt;/div&gt;
+&lt;/br&gt;
+&lt;script type="text/javascript"&gt;
+    // Add a command to the command queue
+    googletag.cmd.push(function() {     // Define the unit
+            
+        var adSlot1 = googletag.defineSlot(        "/5129/News/QLD", // Ad Unit Name, obtained by the provider
+                     [300, 250],          
+            "cad");    
+        adSlot1.addService(googletag.companionAds());    
+        googletag.enableServices();
+        // Immediately signal to show it.
+            
+        googletag.display("cad");
+    });
+&lt;/script&gt;</pre>
+</li>
+
+        </ol>
+</div>
+
+      <div class="p">Google documents using Companion Ads with the Ad API at <a class="xref" href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/companions-api" target="_blank">https://developers.google.com/interactive-media-ads/docs/sdks/html5/companions-api</a>. To display companion ads though the
+          <samp class="ph codeph">WILL_SHOW_COMPANION_ADS</samp> event, slot sizes need to be defined as a page
+        level setting while creating the player as follows:
+        <pre class="pre codeblock">&lt;script&gt;
+    var playerParam = {
+      "pcode": "YOUR_PCODE",
+      "playerBrandingId": "YOUR_PLAYER_ID",
+      "onCreate": function(player) {
+        player.mb.subscribe("*", "test", function(event, params) {
+          if (event.match(/willShowCompanionAds/)) {
+            console.log(params); // We get the companion ads from params
+          }
+        });
+      },
+      "skin": {
+        // Config contains the configuration setting for player skin. Change to your local config when necessary.
+        "config": "<span class="ph"><strong class="ph b"><em class="ph i">url_where_hosted</em></strong></span>/skin.json"
+      },
+      companionAd: {
+       slots: [{width: 300, height: 250}, {width: 300, height: 60}]
+      }
+    };
+    OO.ready(function() {
+      window.pp = OO.Player.create("container", "YOUR_ASSET_ID", playerParam);
+    });
+&lt;/script&gt;       </pre>
+</div>
+
+      <p class="p">If there are any companion ads in the XML with the defined slot sizes, you can retrieve
+        them by listening to the <samp class="ph codeph">WILL_SHOW_COMPANION_ADS</samp> event as demonstrated on
+        the onCreate function code above.</p>
+
+      <div class="p">This will get the ads as follows, which is the already formatted companion ad as HTML and
+        the corresponding size, so you can identify the ads and place them anywhere on the page.<pre class="pre codeblock">{"ads":[
+ {
+   "size":"300x250",
+   "ad":"&lt;Companion Ad as HTML&gt;"
+ },
+ {
+   "size":"300x60",
+   "ad":"&lt;Companion Ad as HTML&gt;"
+ }
+]}         </pre>
+</div>
+
+    </div>
+
+   <div class="section"><h2 class="title sectiontitle">Special Case: Google IMA and Mobile</h2>
+      
+      <div class="p">Ooyala supports Google IMA for both desktop and mobile. For information about working with
+        Google IMA for mobile devices, see the following mobile SDK for iOS topics. <ul class="ul">
+            <li class="li">アンドロイド -  <a class="xref" href="mobile_sdk_android_googleima.html#mobile_sdk_android_googleima">Android上のGoogle IMAとの統合</a> そして <a class="xref" href="mobile_sdk_android_googleima_tutorial.html#mobilesdk_android_googleima_tutorial">IMA Sample App in Action on Android</a>.</li>
+
+          <li class="li">iOS  -  <a class="xref" href="mobile_sdk_ios_googleima.html#mobilesdk_ios_googleima">iOS上のGoogle IMAとの統合</a> そして <a class="xref" href="mobile_sdk_ios_googleima_tutorial.html#mobilesdk_ios_googleima_tutorial">IMA Sample App in Action on iOS</a>.</li>
+
+          <li class="li">Supported video player platforms: <a class="xref" href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/compatibility" target="_blank">Google IMA SDK for HTML5</a></li>
+
+        </ul>
+</div>
+
+    </div>
+
+  </div>
+
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><style type="text/css">#goog-gt-tt {display:none !important;}.goog-te-banner-frame {display:none !important;}.goog-te-menu-value:hover {text-decoration:none !important;}body {top:0 !important;}#gtranslate_element {display:none!important;}</style>
+<div id="gtranslate_element"></div>
+<script data-cfasync="false">
+document.cookie = "googtrans=/en/ja; domain=.help-ooyala.brightcove.com";
+document.cookie = "googtrans=/en/ja";
+function GTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en',layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false,multilanguagePage: true}, 'gtranslate_element');}
+</script>
+<script data-cfasync="false" src="//translate.google.com/translate_a/element.js?cb=GTranslateElementInit"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left

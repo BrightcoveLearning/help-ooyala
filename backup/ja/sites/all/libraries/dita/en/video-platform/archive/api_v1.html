@@ -1,0 +1,88 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Ooyala Backlot API Reference V1 (Deprecated)"/>
+<meta name="abstract" content="This version of the Backlot API is deprecated. We strongly recommend that any new development work occurs on Version 2 of our APIs. For information about using our V2 APIs, go to the Developer Documentation section of the Ooyala Support Center."/>
+<meta name="description" content="このバージョンのBacklot APIは非推奨です。 APIのバージョン2で新しい開発作業を行うことを強くお勧めします。 V2 APIの使用方法については、Ooyalaサポートセンターの開発者ドキュメントセクションを参照してください。"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/book_archive.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/differencesv1_v2.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/v1_query.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/v1_thumbnail_query.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/v1_attribute_update.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/v1_custom_metadata.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/v1_label_management.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/v1_player_management.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/v1_channel.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/v1_channel_set.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/v1_dynamic_channel.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/v1_high_performance.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/v1_example_code.html"/>
+<meta name="DC.Relation" scheme="URI" content="../archive/v1_signature_generation.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="content_types"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>Ooyala Backlot APIリファレンスV1（非推奨）</title>
+</head>
+<body id="content_types">
+
+
+ <h1 class="title topictitle1">Ooyala Backlot APIリファレンスV1（非推奨）</h1>
+
+ 
+ <div class="body refbody"><p class="shortdesc">このバージョンのBacklot APIは非推奨です。 APIのバージョン2で新しい開発作業を行うことを強くお勧めします。 V2 APIの使用方法については、Ooyalaサポートセンターの開発者ドキュメントセクションを参照してください。
+ </p>
+
+  <div class="section">
+   <p class="p">このドキュメントはプログラム的な方法でOoyala Backlotシステムと対話するために利用可能なインターフェースに関する情報を含みます。 すべてのBacklot APIはRESTベースであり、リクエストごとに署名が必要です。</p>
+
+  </div>
+
+    
+ </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../archive/differencesv1_v2.html">API V1（非推奨）とAPI V2の違い</a></strong><br/>
+Backlot APIのバージョン1とバージョン2の間には多くの違いがあります。 </li>
+<li class="link ulchildlink"><strong><a href="../archive/v1_query.html">クエリAPI（廃止予定）</a></strong><br/>
+Backlotアカウントのコンテンツに関する情報を要求するために、柔軟なクエリAPIを提供しています。</li>
+<li class="link ulchildlink"><strong><a href="../archive/v1_thumbnail_query.html">サムネイルクエリAPI（廃止予定）</a></strong><br/>
+Backlotアカウントにアップロードされたすべてのビデオについて、Ooyalaトランスコーディングシステムはおよそ15-30秒ごとにサムネイル画像を作成します。</li>
+<li class="link ulchildlink"><strong><a href="../archive/v1_attribute_update.html">属性更新API（廃止予定）</a></strong><br/>
+属性APIには、アセットとチャンネルの属性を更新する機能が含まれています。 </li>
+<li class="link ulchildlink"><strong><a href="../archive/v1_custom_metadata.html">カスタムメタデータAPI（廃止予定）</a></strong><br/>
+カスタムメタデータAPIを使用すると、任意の名前と値のペアを任意のアセットに関連付けることができます。 メタデータは、署名付きのRESTスタイルのGET呼び出しを使用して操作されます。 <samp class="ph codeph">http://api.ooyala.com/partner/set_metadata</samp>.</li>
+<li class="link ulchildlink"><strong><a href="../archive/v1_label_management.html">ラベル管理API（廃止予定）</a></strong><br/>
+Backlot Label APIはラベルのプログラムによる制御を可能にします。 APIには、ラベルの作成と削除、ラベルとコンテンツの関連付けと削除、およびラベルの名前変更の呼び出しが含まれています。 </li>
+<li class="link ulchildlink"><strong><a href="../archive/v1_player_management.html">プレーヤ管理API（廃止予定）</a></strong><br/>
+プレーヤ管理ＡＰＩは、利用可能なプレーヤのリストおよび特定の埋め込みコードへのプレーヤの割り当てを可能にする。 </li>
+<li class="link ulchildlink"><strong><a href="../archive/v1_channel.html">チャネルAPI（廃止予定）</a></strong><br/>
+Channel APIはチャンネルラインナップの一覧表示と設定を可能にします。 </li>
+<li class="link ulchildlink"><strong><a href="../archive/v1_channel_set.html">チャネルセットAPI（廃止予定）</a></strong><br/>
+チャンネルセットAPIはチャンネルセットラインナップの一覧表示と設定を可能にします。 </li>
+<li class="link ulchildlink"><strong><a href="../archive/v1_dynamic_channel.html">動的チャネルAPI（廃止予定）</a></strong><br/>
+動的チャンネルは、一連のビデオを表示するという点で標準のOoyalaチャンネルと似ていますが、明示的なリストではなく、どのビデオを再生するかをプレイヤーに指示しているという点で異なります。</li>
+<li class="link ulchildlink"><strong><a href="../archive/v1_high_performance.html">高性能API（廃止予定）</a></strong><br/>
+標準のAPIに加えて、OoyalaはAPIリクエスト用の高性能キャッシングレイヤも提供しています。  </li>
+<li class="link ulchildlink"><strong><a href="../archive/v1_example_code.html">バックスロットAPIのサンプルコード（非推奨）</a></strong><br/>
+私たちはPHPとRubyでサンプルコードを提供します。  </li>
+<li class="link ulchildlink"><strong><a href="../archive/v1_signature_generation.html">署名生成（廃止予定）</a></strong><br/>
+アカウントのセキュリティを確保するために、APIクエリに署名する必要があります。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/book_archive.html" title="Ooyala Archiveへようこそ。ここには、廃止予定の機能、ツール、およびAPIのドキュメントが含まれています。">アーカイブ</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- 

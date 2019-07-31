@@ -1,0 +1,112 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="Embedding Player V4: Performance Troubleshooting"/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/pbv4_embed_bestpractices.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="pbv4_embed_performance_troubleshooting"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="http://help-ooyala.brightcove.com/../css/ooyala.css"/>
+<title>埋め込みプレーヤーV4：パフォーマンスのトラブルシューティング</title>
+</head>
+<body id="pbv4_embed_performance_troubleshooting">
+
+
+    <h1 class="title topictitle1">埋め込みプレーヤーV4：パフォーマンスのトラブルシューティング</h1>
+
+    
+    <div class="body refbody">
+        
+        
+        <div class="section">
+            <p class="gt-block p">デバッグプレーヤーを使用している場合、コンソールは2つの重要な測定基準を報告します。 <strong class="ph b">プレーヤーの負荷</strong>、および <strong class="ph b">最初のフレーム</strong>.  </p>
+
+            <pre class="pre codeblock">（PERF）プレーヤーのロード時間：8212.824951171875ms（PERF）プレーヤーの再生開始時間：2245.875244140625ms</pre>
+    
+            <p class="p">これらはパフォーマンスの重要な指標です。 上記は、プレーヤーが負荷リソースを初期化して初期化することができる（8.2）ことに対する大きな障害を示しています。 開始時間（別名、最初のフレームまでの時間）は、再生開始からビデオキャンバス上でのレンダリングが開始されるまでの時間を示します。 これは、プレーヤーの初期化が必要なAPIやCDNを使用して、ページのローカル、ローカルネットワークのいずれかでプレーヤーのリソースがロードされるのを明らかに遅らせている極端な例です。</p>
+
+            <p class="p">非常に良いパフォーマンスはこれらのメトリックのそれぞれに対して500ミリ秒未満であり、良いパフォーマンスはそれぞれに対して1未満です。 プレーヤーの初期化では、パフォーマンスが2を上回っています。 開始時間については、CDNと処理プロファイルに大きく依存します（最初にロードされるビットレート - ビットレートが高いほど、再生が開始される前にバッファに必要なファイルが大きくなります）。</p>
+
+            <p class="p">これらのタイミングメトリックは、デバッグページに直接組み込まれており、プレーヤコード自体の一部ではありません。 したがって、これらはプレイヤーが基本的な環境でどのようにパフォーマンスしているかを見るためにのみ役立ちます。 デバッグプレーヤーと比較して、同じプレーヤーと資産が顧客のサイトで非常に悪いパフォーマンスをしている場合、顧客の埋め込みがこれらの指標の一方または両方を妨げていることを示しています。</p>
+
+            <p class="p">Librato（10％サンプリング）を使用して、これらの測定基準をお客様全体にわたって幅広く監視しています。 Libratoはページをロードした後でしか測定を開始できないため、これらのメトリックはデバッグページとは少し異なります。一方、デバッグページの測定値はスクリプトがロードされる前に測定する準備ができています。 とにかく、私たちは現在Libratoから次のことを見ています。</p>
+
+            </div>
+
+        <div class="section"><h2 class="title sectiontitle">プレーヤーの負荷</h2>
+            <div class="p">プレーヤーの負荷はさまざまなことに依存します。 これらが含まれます：
+                <ul class="ul"><li class="li">プレーヤー埋め込みタイプ（標準（単一スクリプト）、詳細（各プラグイン用のスクリプト）、iFrame</li>
+
+                    <li class="li">プラグイン初期化遅延</li>
+
+                    <li class="li">APIレスポンスタイム（SAS、コンテンツツリー、プレーヤメタデータ）</li>
+
+                </ul>
+</div>
+
+            <p class="p">これらは周囲のページに依存する可能性がありますが（つまりブラウザリソースをめぐって）、一般に、スクリプトの埋め込みはiframeの埋め込みよりも速いプレーヤーのロードをもたらす傾向があります。</p>
+
+            <div class="p">プレーヤーの初期化が遅い（ポスターのレンダリングに時間がかかる）場合は、次のように評価してください。
+                <ul class="ul"><li class="li">プレーヤーの埋め込みスクリプトをページの上位（つまりヘッダー）に配置できますか？</li>
+
+                    <li class="li">他のものがプレーヤAPIと競合していますか？それとも、それらのAPIは応答が遅いですか？</li>
+
+                    <li class="li">いくつかのプラグインはページのずっと後にロードされていますか、そして初期化シーケンスはプラグインが登録されるのを待つ長い時間を待つ必要があります（またはタイムアウトします）。</li>
+
+                    <li class="li">カスタムポスター画像を使用する場合は、それらが小さいことを確認してください。 それらは〜50kbを超えてはいけません。</li>
+</ul>
+
+            </div>
+</div>
+
+            <div class="section"><h2 class="title sectiontitle">ストリーム開始（最初のフレームまでの時間）</h2>
+            <p class="p">プレーヤーが初期化されると、最初のフレームまでの時間（「参加時間」とも呼ばれます）は、[再生]アイコンを選択した後にユーザーがビデオの再生を見始めるのにかかる時間です。 自動再生のシナリオでは、プレーヤーの初期化と最初のフレームまでの時間が（エンドユーザーの観点から見て）混合メトリックになります。</p>
+
+            <p class="p">一般に、広告のプリロールが含まれていない場合、特にプリロードが有効になっている場合は、最初のフレームに到達するまでの時間が非常に速くなります。 プレロールが有効になっている場合、最初のフレームまでの時間は、使用されている広告マネージャと広告クリエイティブ自体によって制御されます。 ここで注意すべき点がいくつかあります。</p>
+
+            <div class="p"><strong class="ph b">コンテンツに広告が表示されていない場合</strong>
+                <ul class="ul">
+                    <li class="li">コンテンツのレンダリングが遅い場合は、セグメントリクエストでキャッシュミスが発生しているかどうかを確認してください。 それは単にCDNがまだプライミングされていないことの問題であるかもしれません。 セグメントが起点から要求された場合、それらは通常遅くなります（ロードする3が一般的です）。</li>
+
+                    <li class="li">キャッシュミスが発生していなくてもセグメントの応答が遅い場合は、使用しているCDNが地域で十分にカバーされていることを確認してください。</li>
+
+                    <li class="li">セグメントサイズを確認してください。 10セグメントを使用している場合、最初のフルセグメントがダウンロードされるまで再生は開始できません（CMAFタイプのストリームを除く）。 特に、ストリームで利用可能な最低ビットレートがネットワーク帯域幅と比べて比較的高い場合は、より短いセグメントサイズを使用すると効果的です。</li>
+
+                </ul>
+</div>
+
+            <div class="p"><strong class="ph b">コンテンツに広告がある場合</strong>
+                <ul class="ul">
+                    <li class="li">可能であれば広告のプリロードを有効にする</li>
+
+                    <li class="li">特定の広告に問題があることを示すAd Managerダッシュボードの統計情報を確認します。 不適切な広告クリエイティブ（非標準コンプライアンスを含む）が一般的です。 そのような広告はブロックされるべきです。</li>
+
+                    <li class="li">プログラムを使用している場合は、広告リクエストで発生したリダイレクトの数を確認してください。 4を超えるリダイレクトが行われていると、通常はパフォーマンスが低下します。 掲載結果を向上させるために許可されるリダイレクトの数を制限できますが、広告掲載率の指標が低くなる可能性があります。</li>
+
+                    <li class="li">広告とコンテンツの同時読み込みを有効にすることを検討してください。 これにより、遅い広告は、厳格なプレロールスロットに入ってから、広告が読み込まれるまでプレーヤにコンテンツの再生を開始させてから広告を再生させることに移行できます。 これは、数秒間メインコンテンツを見てから見るのがちょっと面倒なように思えるかもしれませんが、すべてのコンテンツの前で遅い広告のロードを見るよりも、はるかに優れたエクスペリエンス（そしてユーザーをバウンスする可能性は低い）です。 。</li>
+
+                </ul>
+</div>
+
+        </div>
+
+        
+    </div>
+
+    
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック</strong> <a class="link" href="../concepts/pbv4_embed_bestpractices.html">埋め込みプレーヤーV4：ベストプラクティス</a></div>
+</div>
+</div>
+
+<script data-cfasync="false" src="https://tdns6.gtranslate.net/tdn-bin/queue.js"></script><!-- Yandex.Metrika counter for GTranslate --><script data-cfasync="false">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter36618640 = new Ya.Metrika({ id:36618640, clickmap:true, trackLinks:true, accurateTrackBounce:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/36618640?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript></body>
+</html>
+<!-- de
