@@ -1919,7 +1919,7 @@ You can use the following elements in the XML manifest
             </tr>
 
             <tr class="row">
-              <td class="entry" valign="top" width="9.343065693430658%" headers="d1041772e39 "><samp class="ph codeph">&lt;media:thumbnail&gt;</samp></td>
+              <td class="entry" valign="top" width="9.343065693430658%" headers="d1041772e39 "><samp class="ph codeph">&lt;media:thumbnail href="{image_url_or_path}"&gt;</samp></td>
 
               <td class="entry" valign="top" width="36.496350364963504%" headers="d1041772e42 ">Specifies a thumbnail (preview image). One of the following: <ul class="ul">
                   <li class="li">Filename of a thumbnail you uploaded.</li>
@@ -2127,7 +2127,7 @@ You can use the following elements in the XML manifest
     &lt;item&gt;
       &lt;media:content url="test.mp4" &gt;&lt;/media:content&gt;
       &lt;media:subTitle href="my_caption.dfxp"&gt;&lt;/media:subTitle&gt;
-      &lt;media:thumbnail url="my_thumbnail.jpg" filesize="35712"&gt;&lt;/media:thumbnail&gt;
+      &lt;media:thumbnail href="my_thumbnail.jpg" filesize="35712"&gt;&lt;/media:thumbnail&gt;
       &lt;media:title&gt;Test XML&lt;/media:title&gt;
       &lt;media:description&gt;This is an example&lt;/media:description&gt;
       &lt;ooyala:labels&gt;/test,/example,/xml&lt;/ooyala:labels&gt;
@@ -2157,7 +2157,7 @@ You can use the following elements in the XML manifest
      &lt;channel&gt;
        &lt;item&gt;     
           &lt;media:content url="http://mysite.com/upload/lacrosse_70.mov" /&gt;
-          &lt;media:thumbnail url="http://mysite.com/upload/lacrosse_70_previewimage.jpg" /&gt;
+          &lt;media:thumbnail href="http://mysite.com/upload/lacrosse_70_previewimage.jpg" /&gt;
           &lt;media:subTitle href="http://mysite.com/upload/caption-1.dfxp" /&gt;
           &lt;media:title&gt;Sports that Really Exist: Lacrosse&lt;/media:title&gt;
           &lt;media:description&gt;My description of my video&lt;/media:description&gt;
@@ -2169,7 +2169,7 @@ You can use the following elements in the XML manifest
         
        &lt;item&gt;     
           &lt;media:content url="curling_71.mov" /&gt;
-          &lt;media:thumbnail url="curling_71_previewimage.jpg" /&gt;
+          &lt;media:thumbnail href="curling_71_previewimage.jpg" /&gt;
           &lt;media:subTitle href="caption-1.dfxp" /&gt;
           &lt;media:title&gt;Sports that Really Exist: Curling&lt;/media:title&gt;
           &lt;media:description&gt;My description of my video&lt;/media:description&gt;
@@ -2228,7 +2228,7 @@ You can use the following elements in the XML manifest
      &lt;channel&gt;
            &lt;item&gt;
             &lt;media:content url="http://mysite.com/upload/lacrosse_70.mov" /&gt;
-            &lt;media:thumbnail url="http://mysite.com/upload/lacrosse_70_previewimage.jpg" /&gt;
+            &lt;media:thumbnail href="http://mysite.com/upload/lacrosse_70_previewimage.jpg" /&gt;
             &lt;media:title&gt;Sports that Really Exist: Lacrosse&lt;/media:title&gt;
             &lt;media:description&gt;My description of my video&lt;/media:description&gt;
             &lt;ooyala:labels&gt;/sports/lacrosse,/hobbies/lacrosse&lt;/ooyala:labels&gt;
@@ -2239,7 +2239,7 @@ You can use the following elements in the XML manifest
            
            &lt;item&gt;
             &lt;media:content url="curling_71.mov" /&gt;
-            &lt;media:thumbnail url="curling_71_previewimage.jpg" /&gt;
+            &lt;media:thumbnail href="curling_71_previewimage.jpg" /&gt;
             &lt;media:title&gt;Sports that Really Exist: Curling&lt;/media:title&gt;
             &lt;media:description&gt;My description of my video&lt;/media:description&gt;
             &lt;ooyala:labels&gt;/sports/curling,/hobbies/curling&lt;/ooyala:labels&gt;
